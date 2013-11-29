@@ -1,0 +1,16 @@
+---
+layout: default
+title: Release notes
+---
+
+<h1 style="font-family: 'Pacifico', cursive;"><i class="fa fa-file-text-o"></i> Release notes</h1>
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+

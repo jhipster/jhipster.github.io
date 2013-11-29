@@ -9,11 +9,11 @@
     <title>{{ page.title }}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="{{ site.url }}/css/bootstrap.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link href="{{ site.url }}/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.url }}/font-awesome/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   </head>
 
@@ -31,21 +31,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" style="font-family: 'Pacifico', cursive;" href="index.html">JHipster - a hipster stack for Java developers</a>
+          <a class="navbar-brand" style="font-family: 'Pacifico', cursive;" href="index.html">JHipster</a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-            <li><a href="releases.html"><i class="fa fa-file-text-o"></i> Release notes</a></li>
-            <li><a href="screenshots.html"><i class="fa fa-picture-o"></i> Screenshots</a></li>
-            <li><a href="tech_stack.html"><i class="fa fa-stack-overflow"></i> Technology stack</a></li>
-            <li><a href="installation.html"><i class="fa fa-cloud-download"></i> Installation</a></li>
-            <li><a href="typography.html"><i class="fa fa-rocket"></i> Creating an application</a></li>
-            <li><a href="profiles.html"><i class="fa fa-users"></i> Profiles</a></li>
-            <li><a href="development.html"><i class="fa fa-code"></i> Usage in development</a></li>
-            <li><a href="production.html"><i class="fa fa-play-circle"></i> Usage in production</a></li>
+
+            <li {% if '/index.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li {% if '/releases.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/releases.html"><i class="fa fa-file-text-o"></i> Release notes</a></li>
+            <li {% if '/screenshots.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/screenshots.html"><i class="fa fa-picture-o"></i> Screenshots</a></li>
+            <li {% if '/tech_stack.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tech_stack.html"><i class="fa fa-stack-overflow"></i> Technology stack</a></li>
+            <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="fa fa-cloud-download"></i> Installation</a></li>
+            <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="fa fa-rocket"></i> Creating an application</a></li>
+            <li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="fa fa-users"></i> Profiles</a></li>
+            <li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="fa fa-code"></i> Usage in development</a></li>
+            <li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="fa fa-play-circle"></i> Usage in production</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
@@ -66,8 +68,8 @@
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="{{ site.url }}/js/jquery-1.10.2.js"></script>
+    <script src="{{ site.url }}/js/bootstrap.js"></script>
 
   </body>
 </html>
