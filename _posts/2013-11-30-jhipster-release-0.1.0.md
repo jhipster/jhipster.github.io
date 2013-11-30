@@ -20,4 +20,3 @@ So please:
 ```
 git remote set-url origin https://github.com/jhipster/generator-jhipster.git
 ```
-
