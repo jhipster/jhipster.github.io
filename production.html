@@ -3,6 +3,59 @@ layout: default
 title: Using JHipster in production
 ---
 
-<h1 style="font-family: 'Pacifico', cursive;"><i class="fa fa-play-circle"></i> Using JHipster in production</h1>
+<h1><i class="fa fa-play-circle"></i> Using JHipster in production</h1>
 
+<h2>Configuration</h2>
+<p>
+If you want to use JHipster with the "production" profile, use the pre-configured "prod" Maven profile:
+</p>
+<p>
+<code>
+mvn -Pprod jetty:run
+</code>
+</p>
+<p>
+This profile will compile, test and package your Java application with all productions settings. It will also trigger a "grunt build", so your static resources are optimized.
+</p>
+<p>
+If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles.html">Development and Production profiles</a>".
+</p>
+<h2>Generating an optimized JavaScript application with Grunt</h2>
+<p>
+This step is automatically triggered when you build your project with the "production" profile. If you want to run it without launching a Maven build, just run:
+</p>
+<p>
+<code>
+grunt build
+</code>
+</p>
+<p>
+This will process all your static resources (CSS, JavaScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
+</p>
+<p>
+This application will be generated in your <code>src/main/webapp/dist</code> folder, which by default is not checked in your Git repository (see your <code>.gitignore</code> file if you want to change this behavior).
+</p>
+<p>
+This code will be served when you run the application with the "production" profile.
+</p>
 
+<h2>GZipping</h2>
+<p>
+With the "production" profile, JHipster configures a Servlet filter that applies gzip compression on your ressources.
+</p>
+<p>
+By default, this filter will work on most static resources (excluding images, which are already compressed) and on all REST requests.
+</p>
+
+<h2>Cache headers</h2>
+<p>
+With the "production" profile, JHipster configures a Servlet filter that puts specific HTTP cache headers on your static resources (JavaScript, CSS, fonts...) so they are cached by browsers and proxies.
+</p>
+
+<h2>Monitoring</h2>
+<p>
+JHipster comes with full monitoring support from <a href="http://metrics.codahale.com/" target="_blank">Metrics</a>.
+</p>
+<p>
+In production, it will try to send these data to a <a href="http://graphite.wikidot.com/" target="_blank">Graphite</a> server, if you have configured one in your properties settings.
+</p>

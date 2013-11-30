@@ -3,6 +3,142 @@ layout: default
 title: Using JHipster in development
 ---
 
-<h1 style="font-family: 'Pacifico', cursive;"><i class="fa fa-code"></i> Using JHipster in development</h1>
+<h1><i class="fa fa-code"></i> Using JHipster in development</h1>
 
+<h2>Configuration</h2>
+<p>
+By default, JHipster uses the "development" profile, so you don't have to configure anything.
+</p>
+<p>
+If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles.html">Development and Production profiles</a>".
+</p>
+
+<h2>Using Maven</h2>
+<p>
+Once the application is generated, you can launch the Java server with Maven:
+</p>
+<p>
+<code>
+mvn jetty:run
+</code>
+</p>
+<p>
+The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+</p>
+<p>
+Please note that Jetty 9 requires JDK 7. If you want to use JDK 6, or if you just prefer to use Tomcat, use:
+</p>
+<p>
+<code>
+mvn tomcat7:run
+</code>
+</p>
+<p>
+Now you have your Java server running, you can develop your application like any traditionnal Java Web app.
+</p>
+<p>
+If you want more information on using Maven, please go to <a href="http://maven.apache.org" target="_blank">http://maven.apache.org</a>
+</p>
+
+<h2>Using Maven and Grunt together</h2>
+<p>
+You can run Grunt to work on the client-side JavaScript application:
+</p>
+<p>
+<code>
+grunt server
+</code>
+</p>
+<p>
+This should open up your Web browser, with live reload enabled, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>.
+</p>
+<p>
+This Grunt server has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/rest" target="_blank">http://localhost:8080/rest</a>), so it should be able to do live REST requests to the Java back-end.
+</p>
+<p>
+If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
+</p>
+
+<h2>Using Bower to install and update JavaScript dependencies</h2>
+<p>
+You can use bower normally to update your JavaScript dependencies:
+</p>
+<p>
+<code>
+bower update
+</code>
+</p>
+<p>
+Or if you want to install a new JavaScript dependency:
+</p>
+<p>
+<code>
+bower install &lt;package&gt;
+</code>
+</p>
+<p>
+Your JavaScript dependencies will be stored in your <code>src/main/webapp/bower_components</code> folder, and we believe it is a good idea to store them in your Git repository (but JHispter does not force you to do so).
+</p>
+<p>
+If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>.
+
+
+<h2>Database updates</h2>
+<p>
+If you add or modify a JPA entity, you will need to update your database schema.
+</p>
+<p>
+JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> and stores its configuration in <code>/src/main/resources/META-INF/liquibase/</code>, so your development process should be:
+</p>
+<ul>
+  <li>Adding, modifying or removing a JPA entity</li>
+  <li>Adding a new "changeSet" in your <code>db-changelog.xml</code> file to reflect this change</li>
+  <li>Starting up your application</li>
+</ul>
+<p>
+When you startup your application, the "liquibase" Spring bean will update your database schema automatically.
+</p>
+<p>
+For reference, this bean is configured in <code>src/main/resources/META-INF/spring/applicationContext-database.xml</code>.
+</p>
+<p>
+If you want more information on using Liquibase, please go to <a href="http://www.liquibase.org" target="_blank">http://www.liquibase.org</a>.
+
+<h2>Advanced usage: using hot reloading</h2>
+<p>
+JHipster comes with <b>full hot reloading</b>, both on the client-side (JavaScript) and on the server-side (Java/Spring).
+</p>
+
+<h3>On the client side (JavaScript)</h3>
+
+<p><code>grunt server</code></p>
+
+<p>This will launch a Web browser, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>, which will have live reload of your HTML/CSS/JavaScript code.</p>
+
+<h3>On the server side (Java/Spring)</h3>
+
+<p><em>Spring Loaded is not very stable (yet), so you might run into issues, depending on what you do and/or your JVM version</em></p>
+
+<p><code>mvn jetty:run-forked</code></p>
+
+<p>This will launch Jetty in a separate JVM, with hot reloading enabled thanks to <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a>.</p>
+
+<p>If you compile a class, it will be automatically reloaded, without restarting your Java server.</p>
+
+<ul>
+  <li>Your server will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></li>
+ <li>If you use <code>grunt server</code> on the client side, you will be able to access all dynamic requests on <a href="http://localhost:9000/app" target="_blank">http://localhost:9000/app</a>, as it is a proxy to <a href="http://localhost:8080/app" target="_blank">http://localhost:8080/app</a> thanks to <a href="https://npmjs.org/package/grunt-connect-proxy" target="_blank">grunt-connect-proxy</a>.
+</li>
+</ul>
+<h3>Putting it all together</h3>
+
+<p>Run</p>
+
+<p><code>mvn jetty:run-forked</code></p>
+
+<p>Then run</p>
+
+<p><code>grunt server</code></p>
+
+<p>And you should have live reload of both your HTML/JS/CSS files <strong>and</strong> your Java classes.</p>
 

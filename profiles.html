@@ -3,6 +3,43 @@ layout: default
 title: Development and Production profiles
 ---
 
-<h1 style="font-family: 'Pacifico', cursive;"><i class="fa fa-users"></i> Development and Production profiles</h1>
+<h1><i class="fa fa-users"></i> Development and Production profiles</h1>
 
+<p>
+JHipster comes with two "profiles":
+</p>
 
+<ul>
+  <li>"dev" for development: it focuses on ease of development and productivity</li>
+  <li>"prod" for production: it focuses on performance and scalability</li>
+ </ul>
+
+<p>
+Those profiles come in two different configurations:
+</p>
+
+<ul>
+  <li>The Maven profiles are used at build time. For example <code>mvn -Pprod package</code> will package a production application.</li>
+  <li>The Spring profiles work a run time. Some Spring beans will behave differently, depending on the profile.</li>
+</ul>
+
+<p>
+Spring profiles are set by Maven, so we have a consistancy between the two methods: of course, you should have a "prod" profile on Maven and Spring at the same time.
+</p>
+
+<p>
+To put it simply, if you run JHipster in default mode, you will use the "dev" profile:
+</p>
+<p>
+<code>
+mvn jetty:run
+</code>
+</p>
+<p>
+And if you want to run JHipster with the "prod" profile, use:
+</p>
+<p>
+<code>
+mvn -Pprod jetty:run
+</code>
+</p>

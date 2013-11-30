@@ -4,7 +4,7 @@ title: Release 0.0.28
 ---
 
 JHipster release 0.0.28
----------------
+==================
 
 
 The Maven profiles named "development" and "production" have been renamed "dev" and "prod" so they are quicker to type.
