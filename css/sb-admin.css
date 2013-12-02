@@ -12,14 +12,27 @@ For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap
 
 body {
   margin-top: 50px;
+  counter-reset: h2counter;
 }
 
 h1 {
   font-family: 'Pacifico', cursive;
+  counter-reset: h2counter;
+}
+
+h2:before {
+  content: counter(h2counter) ".\0000a0\0000a0";
+  counter-increment: h2counter;
+  counter-reset: h3counter;
 }
 
 h2 {
   font-family: 'Pacifico', cursive;
+}
+
+h3:before {
+  content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+  counter-increment: h3counter;
 }
 
 h3 {
