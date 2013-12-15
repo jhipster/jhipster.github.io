@@ -26,7 +26,9 @@ title: Technology stack
 <ul>
 	<li>Monitoring with <a href="http://metrics.codahale.com/" target="_blank">Metrics</a>
 	</li>
-	<li>Caching with <a href="http://ehcache.org/" target="_blank">ehcache</a>
+	<li>Caching with <a href="http://ehcache.org/" target="_blank">ehcache</a> (local cache) or <a href="http://www.hazelcast.com/" target="_blank">hazelcast</a> (distributed cache)
+	</li>
+	<li>Optional HTTP session clustering with <a href="http://www.hazelcast.com/" target="_blank">hazelcast</a>
 	</li>
 	<li>Optimized static resources (gzip filter, HTTP cache headers)</li>
 	<li>Log management with <a href="http://logback.qos.ch/" target="_blank">Logback</a>, configurable at runtime</li>
