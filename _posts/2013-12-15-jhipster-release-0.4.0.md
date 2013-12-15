@@ -1,0 +1,47 @@
+---
+layout: default
+title: Release 0.4.0
+---
+
+JHipster release 0.4.0
+==================
+
+*JHipster gives you Yeoman + Maven + Spring + AngularJS all working together in one handy generator.*
+
+What's new
+----------
+
+- Incredible HazelCast support from [Jerome Mirc](https://twitter.com/JeromeMirc) providing:
+	- Distributed hibernate 2nd level cache
+	- Clustered HTTP sessions
+- A new GZip filter (also from [Jerome Mirc](https://twitter.com/JeromeMirc)!)
+- Spring 4 is now the standard
+- An "entity" sub-generator is now in BETA version. If you want to test it:
+```
+yo jhipster:entity foo
+```
+- Corrected a bug in grunt-time which was hanging the build in "prod" mode
+
+How to upgrade
+------------
+
+Update your version of JHipster with:
+
+```
+npm update -g generator-jhipster
+```
+
+And then you can update your project when you run again
+
+```
+yo jhipster
+```
+
+Help and bugs
+--------------
+
+If you find any issue with this release, don't hesiste to:
+
+- Contact [@java_hipster](https://twitter.com/java_hipster) on Twitter
+- Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
