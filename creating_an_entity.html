@@ -1,0 +1,104 @@
+---
+layout: default
+title: Creating an entity
+---
+
+<h1><i class="fa fa-bolt"></i> Creating an entity</h1>
+
+<i>This is a new feature! We are looking for your feedback!</i>
+
+<h2>Introduction</h2>
+<p>
+Once you have created your application, you will want to create <i>entities</i>. For example, you might want to create the <i>book</i> entity, which represents a book. For this, you will need:
+</p>
+<ul>
+ <li>A database table</li>
+ <li>A JPA Entity</li>
+ <li>A Spring Data JPA Repository</li>
+ <li>A Spring MVC REST Controller, which has the basic CRUD operations</li>
+ <li>An AngularJS router, a controller and a service</li>
+ <li>An HTML view</li>
+</ul>
+<p>
+The "entity" sub-generator will help you to create most of this code, but it isn't magical, so you will need customize some of the generated code.
+</p>
+<p>
+  <b>Let's create the "Foo" entity, which has a text field and a date field.</b>
+</p>
+<h2>Describe the database table</h2>
+<p>
+  One of the only things JHipster cannot generate for you is your database schema. As we are using 
+  <a href="http://www.liquibase.org" target="_blank">Liquibase</a>, you need to update your Liquibase configuration file.
+</p>
+<ul>
+  <li>Open your Liquibase configuration file at <code>src/main/resources/META-INF/liquibase/db-changelog.xml</code>
+  <li>Add a new "changeSet" XML node (and don't forget to increment its version!)</li>
+  <li>Describe this new "changeSet": you can look at the existing "changeSet" example, or go to the 
+  <a href="http://www.liquibase.org/documentation/index.html" target="_blank">Liquibase documentation</a> for more information</li>
+</ul>
+<p>
+  For our "Foo" entity, the changeSet is already here as an example: just uncomment it to have it ready.
+</p>
+<h2>Generate the entity</h2>
+<p>Create the entity with the sub-generator. For instance, for creating the "Foo" entity, please type:
+</p>
+<code>
+yo jhipster:entity foo
+</code>
+
+<h2>Customize the generated JPA code</h2>
+<p>
+  The generated entity has:
+</p>
+<ul>
+  <li>An auto-generated ID</li>
+  <li>A sample text field called "sampleTextAttribute"</li>
+  <li>A sample date field called "sampleDateAttribute"</li>
+</ul>
+<p>
+  Of course, you will have to customize those fields for your specific entities.
+</p>
+<h2>Review the generated Java code</h2>
+<p>
+  JHipster has created a Spring Data JPA repository called <code>FooRepository</code> and a Spring MVC REST Controller called <code>FooResource</code>.
+</p>
+<p>
+Those files contain all the basic CRUD operations, and don't need to be modified if your needs are simple.
+</p>
+<p>
+Of course, if you want some more complex business behaviors, you might need to add a Spring @Service class.
+</p>
+
+<h2>Add the generated JavaScript files to your existing application</h2>
+<p>
+  JHipster has created three JavaScript files for you:
+</p>
+<ul>
+  <li>An AngularJS router called <code>foo-router.js</code></li>
+  <li>An AngularJS controller called <code>foo-controller.js</code></li>
+  <li>An AngularJS service called <code>foo-service.js</code></li>
+</ul>
+<p>
+  Add those files to your <code>index.html</code> file, just after the other existing AngularJS scripts.
+</p>
+<p>
+  If you prefer to have only some big <code>app.js</code>, <code>controllers.js</code> and <code>services.js</code> files, you can
+  also merge the generated code into those existing files.
+</p>
+
+<h2>Customize the generated HTML view</h2>
+<p>
+  JHipster has created a <code>foos.html</code> view, which has the basic CRUD operations.
+</p>
+<p>
+  This view will be were most of the work will occur, depending on the attributes you have added to your entity, and your business requirements.
+</p>
+
+<h2>You're done!</h2>
+<p>
+  You can test your "foo" controller on <a href="http://localhost:8080/#/foo" target="_blank">http://localhost:8080/#/foo</a>.
+</p>
+<p>
+  It should look like this:
+</p>
+<img src="images/screenshot_5.png"/>

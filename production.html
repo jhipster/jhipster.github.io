@@ -11,7 +11,7 @@ If you want to use JHipster with the "production" profile, use the pre-configure
 </p>
 <p>
 <code>
-mvn -Pprod jetty:run
+mvn -Pprod tomcat7:run
 </code>
 </p>
 <p>
@@ -20,6 +20,31 @@ This profile will compile, test and package your Java application with all produ
 <p>
 If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles.html">Development and Production profiles</a>".
 </p>
+<h2>Generating an executable JAR file</h2>
+<p>
+Instead of deploying on an application server, many people find it easier to just have an exectuable JAR file (which includes Tomcat 7, in fact).
+</p>
+<p>
+To generate this file, just run:
+</p>
+<code>
+mvn -Pprod package
+</code>
+<p>
+This will generate the file (if your application is called "jhipster"): <code>target/jhipster-0.1-SNAPSHOT-war-exec.jar</code>
+</p>
+<p>
+You can then run your application in "development mode":
+</p>
+<code>
+java -jar jhipster-0.1-SNAPSHOT-war-exec.jar
+</code>
+<p>
+Or in "production" mode:
+</p>
+<code>
+java -jar jhipster-0.1-SNAPSHOT-war-exec.jar -Dspring.profiles.active=prod
+</code>
 <h2>Generating an optimized JavaScript application with Grunt</h2>
 <p>
 This step is automatically triggered when you build your project with the "production" profile. If you want to run it without launching a Maven build, just run:
