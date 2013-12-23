@@ -39,6 +39,15 @@ h3 {
   font-family: 'Pacifico', cursive;
 }
 
+code {
+  padding: 2px 2px;
+  font-size: 90%;
+  color: #c7254e;
+  white-space: nowrap;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
 #wrapper {
   padding-left: 0;
 }
