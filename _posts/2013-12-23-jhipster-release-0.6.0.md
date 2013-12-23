@@ -13,7 +13,7 @@ What's new
 
 - Upgrade to Spring Security 3.2, and moved the Spring Security configuration from XML to Java Config thanks to the great work of [Jerome Mirc](https://twitter.com/JeromeMirc)
 - The whole Spring Configuration is now XML-less. The last XML configuration file is web.xml (Java EE always loved XML!!).
-- We have a new "service" sub-generator, for generating business services. You can find its whole documentation [here]({{ site.url }}/creating_a_service.html).
+- We have a new "service" sub-generator, for generating business services. You can find its new and up-to-date documentation [here]({{ site.url }}/creating_a_service.html).
 
 How to upgrade
 ------------
