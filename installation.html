@@ -5,6 +5,18 @@ title: Installing JHipster
 
 <h1><i class="fa fa-cloud-download"></i> Installing JHipster</h1>
 
+<h2>Local installation vs. Docker</h2>
+
+<p>
+We provide 2 ways of working with JHipster:
+</p>
+<ul>
+  <li>You can do a "local installation", which is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to setp up, but that's how most people usually work. In case of doubt, choose this installation.</li>
+  <li>You can use a "<a href="https://www.docker.io/" target="_blank">Docker</a>" container, which brings you a lightweight, virtualized container with everything already installed. You don't have to worry about installing everything. But Docker is a rather young tool, and you need to know how to use Linux quite well.</li>
+</ul>
+
+<h2>Local installation (recommanded for normal users)</h2>
+
 <p>Install Node.js from <a href="http://nodejs.org/" target="_blank">the Node.js website</a>.</p>
 
 <p>Install Yeoman:</p>
@@ -22,3 +34,108 @@ npm install -g generator-jhipster
 <p>To find more information, tips and help, please have a look at 
 <a href="http://yeoman.io/gettingstarted.html" target="_blank">the Yeoman "getting starting" guide</a> before 
 <a href="https://github.com/jdubois/generator-jhipster/issues?state=open" target="_blank">submitting a bug</a>.</p>
+
+<h2>Docker installation</h2>
+
+<h3>Information</h3>
+
+<p>
+JHipster has a specific <a href="https://github.com/jhipster/jhipster-docker" target="_blank">jhipster-docker project</a>, which provides a <a href="https://www.docker.io/" target="_blank">Docker</a> container.
+</p>
+<p>
+This project makes a Docker "Trusted build" that is available on:
+</p>
+<p>
+<a href="https://index.docker.io/u/jdubois/jhipster-docker/" target="_blank">https://index.docker.io/u/jdubois/jhipster-docker/</a>
+</p>
+<p>
+This image will allow you to run JHipster inside Docker.
+</p>
+
+<h3>Usage</h3>
+
+<p>
+Install <a href="https://www.docker.io/" target="_blank">Docker</a> on your machine.
+</p>
+<p>
+Pull the JHipster Docker image: 
+</p>
+<p>
+<code>
+sudo docker pull jdubois/jhipster-docker
+</code>
+</p>
+<p>
+Create a "jhipster" folder in your home directory:
+</p>
+<p>
+<code>
+mkdir ~/jhipster
+</code>
+</p>
+<p>
+Run The docker image, with the following options:
+</p>
+<p>
+  <ul>
+    <li>The Docker "/jhipster" folder is shared to the local "~/jhipster" folder</li>
+    <li>Forward all ports exposed by docker (8080 for Tomcat, 9000 for the Grunt server, 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts:</li>
+  </ul>
+</p>
+<p>
+<code>
+sudo docker run -v ~/jhipster:/jhipster -p 8080:8080 -p 9000:9000 -p 4022:22 -t jdubois/jhipster-docker
+</code>
+</p>
+<p>
+You can now connect to your docker container with SSH. You can connect as "root/jhipster" or as "jhipster/jhipster", and we recommand you use the "jhipster" user as some of the tool used are not meant to be run by the root user.
+</p>
+<p>
+Start by adding your SSH public key to the Docker container:
+</p>
+<p>
+<code>
+cat .ssh/id_rsa.pub | ssh -p 4022 jhipster@localhost 'mkdir .ssh &amp;&amp; cat >> .ssh/authorized_keys'
+</code>
+</p>
+<p>
+You can now connect to the Docker container:
+</p>
+<p>
+<code>
+ssh -p 4022 jhipster@localhost
+</code>
+</p>
+<p>
+You can then go to the /jhipster directory in your container, and start building your app inside Docker:
+</p>
+<p>
+<code>
+cd /jhipster
+yo jhipster
+</code>
+</p>
+<p>
+Once your application is created, you can run all the normal grunt/bower/maven commands, for example:
+</p>
+<p>
+<code>
+mvn tomcat7:run
+</code>
+</p>
+<p>
+<b>Congratulations! You've launched your JHipster app inside Docker!</b>
+</p>
+<p>
+On your host machine, you should be able to :
+</p>
+<p>
+  <ul>
+    <li>Access the running application at <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></li>
+    <li>Get all the generated files inside your shared folder</li>
+  </ul>
+</p>
+<p>
+As the generated files are in your shared folder, they will not be deleted if you stop your Docker container. However, if you don't want Docker to keep downloading all the Maven and NPM dependencies every time you start the container, you should commit its state.
+</p>
+
