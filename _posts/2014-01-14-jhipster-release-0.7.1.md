@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Release 0.7.0
+title: Release 0.7.1
 ---
 
-JHipster release 0.7.0
+JHipster release 0.7.1
 ==================
 
 *JHipster gives you Yeoman + Maven + Spring + AngularJS all working together in one handy generator.*
