@@ -27,19 +27,19 @@ Those profiles come in two different configurations:
 Spring profiles are set by Maven, so we have a consistancy between the two methods: of course, you should have a "prod" profile on Maven and Spring at the same time.
 </p>
 
+<h2>
+In default mode, JHipster will use the "dev" profile
+</h2>
 <p>
-To put it simply, if you run JHipster in default mode, you will use the "dev" profile:
+    If you run the application without Maven, launch the "Application" class (you can probably run it easily from your IDE by right-clicking on it).
+<p>
+<p>
+    If you run the application with Maven, run <code>mvn spring-boot:run</code>
 </p>
+
+<h2>
+In production, JHipster has to run with the "prod" profile
+</h2>
 <p>
-<code>
-mvn tomcat7:run
-</code>
-</p>
-<p>
-And if you want to run JHipster with the "prod" profile, use:
-</p>
-<p>
-<code>
-mvn -Pprod tomcat7:run
-</code>
+    Use Maven to build the application with the "prod" profile: <code>mvn -Pprod spring-boot:run</code>
 </p>
