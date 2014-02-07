@@ -33,15 +33,25 @@ If you want more information on the available profiles, please go the section ti
 </p>
 
 <p>
-This will generate the file (if your application is called "jhipster"): <code>target/jhipster-0.1-SNAPSHOT.war</code>
+This will generate two files (if your application is called "jhipster"):
+</p>
+<ul>
+  <li><code>target/jhipster-0.1-SNAPSHOT.war</code></li>
+  <li><code>target/jhipster-0.1-SNAPSHOT.war.original</code></li>
+</ul>
+
+<p>
+The first one is an executable WAR file (see next section to run it). It can also be deployed on an application server,
+but as it includes the Tomcat runtime libs, you will probably get some warnings, that's why we recommend you use the second, 
+".original" file if you want to deploy JHipster on an application server.
 </p>
 
 <p>
-This file can then be deployed on an application server:
+Once you have deployed you WAR file on your application server:
 <p>
 <ul>
   <li>It will use by default the "dev" profile</li>
-  <li>If can run in "production mode" if you trigger the "prod" profile (there are several ways to trigger a Spring profile, for example you can add <code>-Dspring.profiles.active=prod</code> to your <code>JAVA_OPTS</code> when running your server)</li>
+  <li>It can run in "production mode" if you trigger the "prod" profile (there are several ways to trigger a Spring profile, for example you can add <code>-Dspring.profiles.active=prod</code> to your <code>JAVA_OPTS</code> when running your server)</li>
 </ul>
 
 <h2>Executing the WAR file without an application server</h2>
@@ -49,7 +59,7 @@ This file can then be deployed on an application server:
 Instead of deploying on an application server, many people find it easier to just have an exectuable WAR file (which includes Tomcat 7, in fact).
 </p>
 <p>
-The WAR file generated in the previous step is such a WAR, so you can run it in "development mode" by typing:
+The first WAR file generated in the previous step is such a WAR, so you can run it in "development mode" by typing:
 </p>
 <p>
 	<code>
@@ -100,6 +110,7 @@ With the "production" profile, JHipster configures a Servlet filter that puts sp
 <p>
 JHipster comes with full monitoring support from <a href="http://metrics.codahale.com/" target="_blank">Metrics</a>.
 </p>
+<p>In development, Metrics data will be available through JMX: launch your JConsole and you will be able to access it</p>
 <p>
-In production, it will try to send these data to a <a href="http://graphite.wikidot.com/" target="_blank">Graphite</a> server, if you have configured one in your properties settings.
+In production, your application will try to send this data to a <a href="http://graphite.wikidot.com/" target="_blank">Graphite</a> server, if you have configured one in your YAML configuration file.
 </p>

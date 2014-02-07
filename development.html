@@ -5,6 +5,9 @@ title: Using JHipster in development
 
 <h1><i class="fa fa-code"></i> Using JHipster in development</h1>
 
+<p>JHipster can use <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a> to have <b>"hot reload"</b> of your Java classes, which eliminates the need to redeploy your application. This makes developping with JHipster as enjoyable as developping with Node.js, RoR, Grails or Play!, but with the added power of Spring.</p>
+<p><em>However, this is still experimental, that's why you will find this configuration at the end of this page, in the "advanced configuration" section.</em></p>
+
 <h2>Configuration</h2>
 <p>
 By default, JHipster uses the "development" profile, so you don't have to configure anything.
@@ -139,9 +142,9 @@ JHipster comes with <b>full hot reloading</b>, both on the client-side (JavaScri
 
 <p>Hot reloading is enabled thanks to <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a>, which is still an experimental technology.</p>
 
-<p><em>Spring Loaded is buggy when you use Java proxies on your Spring Beans, so it will likely fail when you have AOP pointcuts on your methods, like the "@Timed" annotations from Metrics</em></p>
+<p><em>Spring Loaded works quite well: you can add/modify/delete methods on your Spring Beans, and they will be automatically reloaded. At the moment, our only serious bug is that <a href="https://github.com/spring-projects/spring-loaded/issues/39" target="_blank">you can't inject Beans</a></em></p>
 
-<p>To use Spring Loaded, add to your JVM command line the following arguments: <code>-javaagent:spring_loaded/springloaded-1.1.4.jar -noverify</code></p>
+<p>To use Spring Loaded, add to your JVM command line the following arguments: <code>-javaagent:spring_loaded/springloaded-1.1.5-dev.jar -noverify</code></p>
 
 <p>Now, once your application is launched and you compile a class, it will be automatically reloaded, without restarting your server:</p>
 
@@ -152,7 +155,7 @@ JHipster comes with <b>full hot reloading</b>, both on the client-side (JavaScri
 </ul>
 <h3>Putting it all together</h3>
 
-<p>Run the "Application" class with the <code>-javaagent:spring_loaded/springloaded-1.1.4.jar -noverify</code> arguments.</p>
+<p>Run the "Application" class with the <code>-javaagent:spring_loaded/springloaded-1.1.5-dev.jar -noverify</code> arguments.</p>
 
 <p>Then run <code>grunt server</code></p>
 

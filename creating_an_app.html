@@ -5,17 +5,18 @@ title: Creating an application
 
 <h1><i class="fa fa-rocket"></i> Creating an application</h1>
 
+<h2>Generating an application quickly</h2>
 <p>To generate your application, type:</p>
 <p>
 <code>
 yo jhipster
 </code>
 </p>
-<p>And answer the questions asked by the generator to create an application taylored to your needs.</p>
+<p>And answer the questions asked by the generator to create an application taylored to your needs. Those options are described in the next section.</p>
 
 <p>Once the application is generated, you can launch the Java server within your IDE, by running the Application class at the root of your application's Java package.</p>
 
-<p>As it is a simple "Main" class, it is the easiest and quickest way to run and debug the application.</p>
+<p>As it is a simple "Main" class, it is the easiest and quickest way to run and debug the application. If you want to use our cool (but still experimental) <b>"hot reload"</b> of Java classes feature, please read our "advanced configuration" section of our <a href="{{ site.url }}/development.html">"Usage in development" page</a>.</p>
 
 <p>If you prefer to use Maven, you can also run your application by typing:</p>
 <p>
@@ -25,3 +26,45 @@ mvn spring-boot:run
 </p>
 <p>The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></p>
 
+<h2>Options available when generating an application</h2>
+
+<h3>What is the base name of your application?</h3>
+<p>
+  This is the name of your application.
+</p>
+
+<h3>What is your default Java package name?</h3>
+<p>
+  Your Java application will use this as its root package.
+</p>
+
+<h3>Do you want to use Hibernate 2nd level cache?</h3>
+<p>
+   <a href="http://hibernate.org/" target="_blank">Hibernate</a> is the JPA provider used by JHipster. For performance reasons, we highly recommend you to use a cache, and to tune it according to your application's needs.<br/>
+   If you choose to do so, you can use either <a href="http://ehcache.org/" target="_blank">ehcache</a> (local cache) or <a href="http://www.hazelcast.com/" target="_blank">Hazelcast</a> (distributed cache, for use in a clustered environnement)
+</p>
+
+<h3>Do you want to use clustered HTTP sessions?</h3>
+<p>
+  By default, JHipster uses a HTTP session only for storing <a href="http://docs.spring.io/spring-security/site/index.html" target="_blank">Spring Security</a>'s authentication and autorisations information. Of course, you can choose to put more data in your HTTP sessions.<br/>Using HTTP sessions will cause issues if you are running in a cluster, especially if you don't use a load balancer with "sticky sessions".<br/>If you want to replicate your sessions inside your cluster, choose this option to have <a href="http://www.hazelcast.com/" target="_blank">Hazelcast</a> configured.
+</p>
+
+<h3>Do you want to use WebSockets?</h3>
+<p>
+  Websockets can be enabled using the <a href="http://async-io.org/" target="_blank">Atmosphere framework</a>. We also provide a complete sample to show you how to use the framework efficiently.
+</p>
+
+<h3>Which *production* database would you like to use?</h3>
+<p>
+  This is the database you will use with your "production" profile. To configure it, please have a modify your <code>src/main/resources/config/application-prod.yml</code> file.
+</p>
+
+<h3>Which *development* database would you like to use?</h3>
+<p>
+  This is the database you will use with your "development" profile. To configure it, please have a modify your <code>src/main/resources/config/application-dev.yml</code> file.
+</p>
+
+<h3>Would you like to use the Compass CSS Authoring Framework?</h3>
+<p>
+  <a href="http://compass-style.org/" target="_blank">Compass</a> / Sass is a great solution to simplify designing CSS. To be used efficiently, you will need to run a <a href="http://gruntjs.com/" target="_blank">Grunt</a> server, which will be configured automatically.
+</p>
