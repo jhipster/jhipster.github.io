@@ -142,7 +142,13 @@ JHipster comes with <b>full hot reloading</b>, both on the client-side (JavaScri
 
 <p>Hot reloading is enabled thanks to <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a>, which is still an experimental technology.</p>
 
-<p><em>Spring Loaded works quite well: you can add/modify/delete methods on your Spring Beans, and they will be automatically reloaded. At the moment, our only serious bug is that <a href="https://github.com/spring-projects/spring-loaded/issues/39" target="_blank">you can't inject Beans</a></em></p>
+<p>Spring Loaded works for the following scenarios:</p>
+<ul>
+  <li>Replacing a "normal" Java class. You can add/modify/delete code (methods and fields) on any class, and they will be automatically reloaded.</li>
+  <li>Replacing a Spring bean: field-based injection and PostContruct hooks work, adding REST endpoints to your controllers work.</li>
+  <li>Modifying a Jackson object: both JPA entities and REST DTOs, when they are changed, trigger a flush of the Jackson caches.</li>
+</ul>
+</p>
 
 <p>To use Spring Loaded, add to your JVM command line the following arguments: <code>-javaagent:spring_loaded/springloaded-1.1.5-dev.jar -noverify</code></p>
 
