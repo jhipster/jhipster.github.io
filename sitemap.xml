@@ -20,7 +20,7 @@ layout: nil
       <url>
         <loc>http://jhipster.github.io{{ page.url }}</loc>
         <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
-        <changefreq>daily}</changefreq>
+        <changefreq>daily</changefreq>
         <priority>{{ page.sitemap.priority }}</priority>
        </url>
     {% endif %}
