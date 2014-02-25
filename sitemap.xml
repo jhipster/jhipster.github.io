@@ -15,6 +15,12 @@ layout: nil
       <priority>0.5</priority>
     </url>
   {% endfor %}
+  <url>
+      <loc>http://jhipster.github.io/presentation</loc>
+      <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.6</priority>
+  </url>
   {% for page in site.pages %}
     {% if page.sitemap != null and page.sitemap != empty %}
       <url>
