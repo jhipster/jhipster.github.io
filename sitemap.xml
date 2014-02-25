@@ -17,7 +17,6 @@ layout: nil
   {% endfor %}
   <url>
       <loc>http://jhipster.github.io/presentation</loc>
-      <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
   </url>
