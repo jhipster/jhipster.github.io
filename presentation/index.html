@@ -39,8 +39,8 @@
 			<div class="slides">
 
 				<section>
-					<h2>Welcome, Java Hipster</h2>					
-					<img src="images/hipster-bow-tie.jpg"/>					
+					<h2>Welcome, Java Hipster</h2>
+					<img src="images/hipster-bow-tie.jpg"/>
 					<h3>Yeoman + Maven + Spring + AngularJS in one handy generator</h3>
 					<p>
 						<a href="http://jhipster.github.io">http://jhipster.github.io</a>
@@ -124,7 +124,7 @@
 						<ul>
 							<li>For development, it will allow you to have "live editing" of your code, run your tests in the background...</li>
 							<li>For production, it will compress and optimize all your ressources, compile your Sass code...</li>
-						</ul> 
+						</ul>
 						<pre>
 							<code data-trim contenteditable>grunt test</code>
 						</pre>
@@ -262,7 +262,7 @@ public class User implements Serializable {
 							<code data-trim contenteditable>
 public interface PersistenceAuditEventRepository extends JpaRepository&lt;PersistentAuditEvent, String&gt; {
 
-    List&lt;PersistentAuditEvent&gt; 
+    List&lt;PersistentAuditEvent&gt;
         findByPrincipalAndAuditEventDateGreaterThan(String principal, LocalDateTime after);
 
 }
@@ -401,7 +401,7 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
 							<li>Executable or standard WAR file, with monitoring enabled</li>
 						</ul>
 					</section>
-				</section>	
+				</section>
 
 				<section>
 					<section data-background="#4d7e65" data-background-transition="slide">
@@ -427,10 +427,23 @@ mvn spring-boot:run
 						</pre>
 					</section>
 					<section>
-						<h1>Use hot reload</h1>
+						<h1>Server-side hot reload</h1>
 						<p>
-						 If you want hot reload on your Java code, run the "Application" class from your IDE with the <br/><code>-javaagent:spring_loaded/springloaded-1.1.5-dev.jar -noverify</code><br/> arguments.
+						 If you want hot reload on your Java code, run the "Application" class from your IDE with the following arguments:
 						</p>
+						<pre>
+							<code data-trim contenteditable>
+-javaagent:spring_loaded/springloaded.jar
+-noverify
+-Dspringloaded=plugins=com.mycompany.myapp.config.reload.instrument.JHipsterLoadtimeInstrumentationPlugin
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h1>Client-side hot reload</h1>
+						<p>
+						    Live reload of your client-side code (HTML, CSS, JavaScript) works thanks to Grunt. Edit any file and your browser will refresh automatically: 
+					  </p>
 						<pre>
 							<code data-trim contenteditable>
 grunt server
@@ -459,7 +472,7 @@ java -jar jhipster-0.1-SNAPSHOT.war --spring.profiles.active=prod
 						</pre>
 
 					</section>
-				</section>		
+				</section>
 
 				<section>
 					<h1>Thank you for your attention</h1>

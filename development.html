@@ -8,8 +8,7 @@ sitemap:
 
 <h1><i class="fa fa-code"></i> Using JHipster in development</h1>
 
-<p>JHipster can use <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a> to have <b>"hot reload"</b> of your Java classes, which eliminates the need to redeploy your application. This makes developping with JHipster as enjoyable as developping with Node.js, RoR, Grails or Play!, but with the added power of Spring.</p>
-<p><em>However, this is still experimental, that's why you will find this configuration at the end of this page, in the "advanced configuration" section.</em></p>
+<p>JHipster uses <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a> to have <b>"full hot reload"</b> of your Java classes, which eliminates the need to redeploy your application. This makes developping with JHipster as enjoyable as developping with Node.js, RoR, Grails or Play!, but with the added power of Spring.</p>
 
 <h2>Configuration</h2>
 <p>
@@ -30,6 +29,46 @@ If you want more information on the available profiles, please go the section ti
 <p>
 The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
 </p>
+
+<h3>As a "main" Java class, with hot reloading</h3>
+
+<p>
+  Hot reloading works thanks to a Java Agent, so you need to add the following arguments to your JVM when running the "Application" class we have used in the previous step:
+</p>
+
+<p>
+<code>-javaagent:spring_loaded/springloaded.jar -noverify -Dspringloaded=plugins=com.mycompany.myapp.config.reload.instrument.JHipsterLoadtimeInstrumentationPlugin</code>
+</p>
+
+<p>
+	The <code>JHipsterLoadtimeInstrumentationPlugin</code> is specific to your generated application, so you probably will have to change the package name of the above code.
+</p>
+
+<p>
+  Hot reloading is very powerful, and is specific to the technologies we are using. Here is what it currently does:
+</p>
+
+<ul>
+  <li>Normal Java classes are reloaded on the fly</li>
+  <li>New Java classes are added to the running application</li>
+  <li>If your class is a Spring Bean, it is automatically "autowired" (dependency injection is triggered), and its aspects are "weaved" (transactions, security, etc... are all added automatically)</li>
+  <li>If your class is a Spring MVC REST Endpoint, the new URL is mapped</li>
+  <li>If your class is a JPA entity, the Hibernate context is automatically refreshed, the Liquibase change set is automatically generated, and the database is updated</li>
+  <li>If your class uses Jackson, the Jackson cache is flushed</li>
+</ul>
+
+<p>
+  Of course, this all works together, so if you add a new entity using our <a href="{{ site.url }}/creating_an_entity.html">"entity" sub-generator</a>, you have everything hot reloaded automatically:
+</p>
+
+<ul>
+  <li>The new entity is created: the class is added to the application, Hibernate is refreshed, the Liquibase changeset is added, and the database is updated</li>
+  <li>The Spring Data JPA repository is created and is available</li>
+  <li>The Spring MVC REST controller is created and the newly mapped URLs are available</li>
+  <li>The AngularJS code is generated and added to your index.html (and if you use <code>grunt server</code> your browser is automatically refreshed)</li>
+</ul>
+
+<p>This is obviously a very complex set of features, so if you hit a bug <a href="{{ site.url }}/help.html">don't hesitate to ask us</a>. And of course, just killing the app and restarting it will make it work again :-)</p>
 
 <h3>As a Maven project</h3>
 
@@ -52,6 +91,9 @@ If you want more information on using Maven, please go to <a href="http://maven.
 
 <h2>Using the Java server and Grunt together</h2>
 <p>
+  <i>We highly recommend you use this feature, as it allows to have hot reloading of your client-side code.</i>
+</p>
+<p>
 You can run Grunt to work on the client-side JavaScript application:
 </p>
 <p>
@@ -60,7 +102,10 @@ grunt server
 </code>
 </p>
 <p>
-This should open up your Web browser, with live reload enabled, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>.
+This should open up your Web browser, with live reload enabled, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>. As soon as you modify one of your HTML/CSS/JavaScript file, your browser should refresh itself automatically.
+</p>
+<p>
+  If you have generated your application with the Sass/Compass option, your templates should also be automatically compiled into CSS.
 </p>
 <p>
 This Grunt server has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/rest" target="_blank">http://localhost:8080/rest</a>), so it should be able to do live REST requests to the Java back-end.
@@ -91,7 +136,6 @@ Your JavaScript dependencies will be stored in your <code>src/main/webapp/bower_
 </p>
 <p>
 If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>.
-
 
 <h2>Database updates</h2>
 <p>
@@ -130,43 +174,3 @@ For example, here are the translations provided by default in JHipster for <a hr
 <p>
 If you speak another language and are ready to help, feel free to send us your own translations!
 </p>
-<h2>Advanced usage: using hot reloading</h2>
-<p>
-JHipster comes with <b>full hot reloading</b>, both on the client-side (JavaScript) and on the server-side (Java/Spring).
-</p>
-
-<h3>On the client side (JavaScript)</h3>
-
-<p>Run <code>grunt server</code></p>
-
-<p>This will launch a Web browser, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>, which will have live reload of your HTML/CSS/JavaScript code.</p>
-
-<h3>On the server side (Java/Spring)</h3>
-
-<p>Hot reloading is enabled thanks to <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a>, which is still an experimental technology.</p>
-
-<p>Spring Loaded works for the following scenarios:</p>
-<ul>
-  <li>Replacing a "normal" Java class. You can add/modify/delete code (methods and fields) on any class, and they will be automatically reloaded.</li>
-  <li>Replacing a Spring bean: field-based injection and PostContruct hooks work, adding REST endpoints to your controllers work.</li>
-  <li>Modifying a Jackson object: both JPA entities and REST DTOs, when they are changed, trigger a flush of the Jackson caches.</li>
-</ul>
-</p>
-
-<p>To use Spring Loaded, add to your JVM command line the following arguments: <code>-javaagent:spring_loaded/springloaded-1.1.5-dev.jar -noverify</code></p>
-
-<p>Now, once your application is launched and you compile a class, it will be automatically reloaded, without restarting your server:</p>
-
-<ul>
- <li>Your server will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></li>
- <li>If you use <code>grunt server</code> on the client side, you will be able to access all dynamic requests on <a href="http://localhost:9000/app" target="_blank">http://localhost:9000/app</a>, as it is a proxy to <a href="http://localhost:8080/app" target="_blank">http://localhost:8080/app</a> thanks to <a href="https://npmjs.org/package/grunt-connect-proxy" target="_blank">grunt-connect-proxy</a>.
-</li>
-</ul>
-<h3>Putting it all together</h3>
-
-<p>Run the "Application" class with the <code>-javaagent:spring_loaded/springloaded-1.1.5-dev.jar -noverify</code> arguments.</p>
-
-<p>Then run <code>grunt server</code></p>
-
-<p>And you should have live reload of both your HTML/JS/CSS files <strong>and</strong> your Java classes.</p>
-
