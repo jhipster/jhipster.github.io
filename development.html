@@ -37,11 +37,7 @@ The application will be available on <a href="http://localhost:8080" target="_bl
 </p>
 
 <p>
-<code>-javaagent:spring_loaded/springloaded.jar -noverify -Dspringloaded=plugins=com.mycompany.myapp.config.reload.instrument.JHipsterLoadtimeInstrumentationPlugin</code>
-</p>
-
-<p>
-	The <code>JHipsterLoadtimeInstrumentationPlugin</code> is specific to your generated application, so you probably will have to change the package name of the above code.
+<code>-javaagent:spring_loaded/springloaded-jhipster.jar -noverify -Dspringloaded=plugins=io.github.jhipster.loaded.instrument.JHipsterLoadtimeInstrumentationPlugin</code>
 </p>
 
 <p>
