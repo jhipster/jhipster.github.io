@@ -1,12 +1,17 @@
 ---
 layout: default
-title: Release 2.0.0
+title: Release 2.0.0 (April's fool 2014)
 ---
+
+April's fool 2014
+----------
+
+**The following announcement is our 2014 April's fool joke, so of course you should NOT consider it seriously**
 
 JHipster 2
 ----------
 
-**JHipster 2 breaks compatibility, new focus on the [Golo language](http://golo-lang.org/)**
+JHipster 2 breaks compatibility, new focus on the [Golo language](http://golo-lang.org/)
 
 Announcing JHipster for Golo
 ----------
