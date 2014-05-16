@@ -3,7 +3,7 @@ layout: default
 title: Creating an application
 sitemap:
     priority: 0.7
-    lastmod: 2014-02-17T00:00:00-00:00
+    lastmod: 2014-05-16T00:00:00-00:00
 ---
 
 <h1><i class="fa fa-rocket"></i> Creating an application</h1>
@@ -41,6 +41,21 @@ mvn spring-boot:run
   Your Java application will use this as its root package.
 </p>
 
+<h3>Do you want to use Java 8?</h3>
+<p>
+  Depending on your choice, JHipster will either create a Java 7 or a Java 8 application. Java 8 comes with many new features, including lambdas, and having JHipster create some sample code is a great way to start using them. It is not our default choice for the moment, as hot reloading Java code doesn't work well (yet) with Java 8.	
+</p>
+
+<h3>Which *type* of authentication would you like to use?</h3>
+<p>
+  You can either use a classical cookie-based authentication mechanism, like we are used to do in Java (this is how most people use <a href="http://docs.spring.io/spring-security/site/index.html" target="_blank">Spring Security</a>), or a OAuth2 authentication mechanism, which can allow you to build a stateless Web application (if you don't use your HTTP session anywhere else in your code).
+</p>
+
+<h3>Which *type* of database would you like to use?</h3>
+<p>
+  You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with <a href="http://www.mongodb.org" target="_blank">MongoDB</a>.
+</p>
+
 <h3>Do you want to use Hibernate 2nd level cache?</h3>
 <p>
    <a href="http://hibernate.org/" target="_blank">Hibernate</a> is the JPA provider used by JHipster. For performance reasons, we highly recommend you to use a cache, and to tune it according to your application's needs.<br/>
@@ -59,12 +74,17 @@ mvn spring-boot:run
 
 <h3>Which *production* database would you like to use?</h3>
 <p>
-  This is the database you will use with your "production" profile. To configure it, please have a modify your <code>src/main/resources/config/application-prod.yml</code> file.
+  This is the database you will use with your "production" profile. To configure it, please modify your <code>src/main/resources/config/application-prod.yml</code> file.
 </p>
 
 <h3>Which *development* database would you like to use?</h3>
 <p>
-  This is the database you will use with your "development" profile. To configure it, please have a modify your <code>src/main/resources/config/application-dev.yml</code> file.
+  This is the database you will use with your "development" profile. To configure it, please modify your <code>src/main/resources/config/application-dev.yml</code> file.
+</p>
+
+<h3>Would you like to use Grunt or Gulp.js for building the frontend?</h3>
+<p>
+  <a href="http://gruntjs.com/" target="_blank">Grunt</a> is the most widely used and most mature build tool for your JavaScript and CSS assets. <a href="http://www.gulpjs.com" target="_blank">Gulp.js</a> is a more recent alternative, which is easier to use and learn.
 </p>
 
 <h3>Would you like to use the Compass CSS Authoring Framework?</h3>
