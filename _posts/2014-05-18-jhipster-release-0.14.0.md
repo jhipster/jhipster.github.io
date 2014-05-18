@@ -13,6 +13,8 @@ What's new
 
 JHipster 0.14.0 has an incredibly huge number of new features, thanks to our very active community which has provided a lot of pull requests.
 
+You can find the complete list of closed tickets and PR [here](https://github.com/jhipster/generator-jhipster/issues?milestone=3&page=1&state=closed)
+
 Most importantly, we have:
 
 - MongoDB support! If you don't like SQL databases or JPA, you can have a full NoSQL application.
