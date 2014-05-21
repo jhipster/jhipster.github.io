@@ -14,5 +14,5 @@ In "dev" mode, there shouldn't be anything new.
 In "prod" mode, there are many new things:
 
 - A full "grunt build" is automatically triggered when you package the application
-- This will put a minified, optimized version of the static ressources in "src/main/webapp/dist"
+- This will put a minified, optimized version of the static resources in "src/main/webapp/dist"
 - 2 new Servlet filters are activated: one is just used to serve the static content from the "/dist" directory, and the other adds HTTP headers so this content is cached
