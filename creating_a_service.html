@@ -56,8 +56,8 @@ sitemap:
   In order to add those behaviors, Spring needs to create a proxy on your class, and there are two ways of creating a proxy:
 </p>
 <ul>
-  <li>If your class uses an interface, Spring will use a standard mecanism provided by Java to create a dynamic proxy.</li>
-  <li>If your class doesn't use an interface, Spring will use CGLIB to generate a new class on the fly: this is not a standard Java mecanism, but it works as well as the standard mecanism.</li>
+  <li>If your class uses an interface, Spring will use a standard mechanism provided by Java to create a dynamic proxy.</li>
+  <li>If your class doesn't use an interface, Spring will use CGLIB to generate a new class on the fly: this is not a standard Java mechanism, but it works as well as the standard mechanism.</li>
 </ul>
 <p>
   Some people will also argue that interfaces are better for writing tests, but we believe we shouldn't modify our production code for tests, and that all the new mocking frameworks (like EasyMock) allow you to create very good unit tests without any interfaces.
