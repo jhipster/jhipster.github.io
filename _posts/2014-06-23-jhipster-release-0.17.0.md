@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Release 0.16.0
+title: Release 0.17.0
 ---
 
 JHipster release 0.17.0
