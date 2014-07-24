@@ -14,7 +14,7 @@ What's new
 - JDK 7 is now a required minimum (if you use JDK 6, don't call yourself a hipster!)
 - Spring configuration is now XML-less! The only XML configuration file we have left belongs to Spring Security. We need to wait until the next version of Spring Security to replace this file.
 - The connection pool has changed: we now use [HikariCP](https://github.com/brettwooldridge/HikariCP)
-- For users who have choosen to use Spring 4, updated the application to Spring 4.0.0.RC2
+- For users who have chosen to use Spring 4, updated the application to Spring 4.0.0.RC2
 
 
 How to upgrade
@@ -41,7 +41,7 @@ yo jhipster
 Help and bugs
 --------------
 
-If you find any issue with this release, don't hesiste to:
+If you find any issue with this release, don't hesitate to:
 
 - Contact [@java_hipster](https://twitter.com/java_hipster) on Twitter
 - Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
