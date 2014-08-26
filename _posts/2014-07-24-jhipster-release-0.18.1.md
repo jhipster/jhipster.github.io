@@ -11,7 +11,7 @@ JHipster release 0.18.1
 What's new
 ----------
 
-JHipster 0.18.1 is a bug-fixing release, that corrects [5 issues](https://github.com/jhipster/generator-jhipster/issues?milestone=9&page=1&state=closed). If you updated to 0.18.0 yesterday, we recommand that you upgrade to 0.18.1!
+JHipster 0.18.1 is a bug-fixing release, that corrects [5 issues](https://github.com/jhipster/generator-jhipster/issues?milestone=9&page=1&state=closed). If you updated to 0.18.0 yesterday, we recommend that you upgrade to 0.18.1!
 
 How to upgrade
 ------------
@@ -31,7 +31,7 @@ yo jhipster
 Help and bugs
 --------------
 
-If you find any issue with this release, don't hesiste to:
+If you find any issue with this release, don't hesitate to:
 
 - Contact [@java_hipster](https://twitter.com/java_hipster) on Twitter
 - Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)

@@ -35,7 +35,7 @@ As we have changed the Liquibase changeSet, to include the "HIBERNATE_SEQUENCES"
 Help and bugs
 --------------
 
-If you find any issue with this release, don't hesiste to:
+If you find any issue with this release, don't hesitate to:
 
 - Contact [@java_hipster](https://twitter.com/java_hipster) on Twitter
 - Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
