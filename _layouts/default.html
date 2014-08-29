@@ -7,14 +7,28 @@
     <meta name="author" content="">
 
     <title>{{ page.title }}</title>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ site.url }}/css/bootstrap.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="{{ site.url }}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Add custom CSS here -->
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href="{{ site.url }}/css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ site.url }}/font-awesome/css/font-awesome.min.css">
+    <!-- Timeline CSS -->
+    <link href="{{ site.url }}/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ site.url }}/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ site.url }}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
   </head>
 
@@ -23,47 +37,58 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" style="font-family: 'Pacifico', cursive;" href="{{ site.url }}/">JHipster</a>
-
-        </div>
+          <a class="navbar-brand" style="font-family: 'Pacifico', cursive;" href="{{ site.url }}/">JHipster</a>          
+        </div>	
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav side-nav">
-
-            <li {% if '/index.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/"><i class="fa fa-home"></i> Home</a></li>
-            <li {% if '/releases.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/releases.html"><i class="fa fa-file-text-o"></i> Release notes</a></li>
-            <li {% if '/screenshots.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/screenshots.html"><i class="fa fa-picture-o"></i> Screenshots</a></li>
-            <li {% if '/presentation' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/presentation" target="_blank"><i class="fa fa-desktop"></i> Presentation</a></li>
-            <li {% if '/tech_stack.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tech_stack.html"><i class="fa fa-stack-overflow"></i> Technology stack</a></li>
-            <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="fa fa-cloud-download"></i> Installation</a></li>
-            <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="fa fa-rocket"></i> Creating an application</a></li>
-            <li {% if '/creating_an_entity.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_entity.html"><i class="fa fa-bolt"></i> Creating an entity</a></li>
-            <li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="fa fa-bolt"></i> Creating a service</a></li>
-            <li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="fa fa-users"></i> Profiles</a></li>
-            <li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="fa fa-code"></i> Usage in development</a></li>
-            <li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="fa fa-play-circle"></i> Usage in production</a></li>
-            <li {% if '/help.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/help.html"><i class="fa fa-question"></i> Help and bugs</a></li>
-            <li {% if '/thanks.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/thanks.html"><i class="fa fa-gift"></i> Thanks</a></li>
-            <li><a ></a></li>
-            <li><a ></a></li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right navbar-user">
-            <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-github"></i> Github</a></li>
-            <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+					<li {% if '/index.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/"><i class="fa fa-home"></i> Home</a></li>
+            		<li {% if '/releases.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/releases.html"><i class="fa fa-file-text-o"></i> Release notes</a></li>
+            		<li>
+                		<a href="#"><i class="fa fa-road fa-fw"></i> Introduction<span class="fa arrow"></span></a>
+                		<ul class="nav nav-second-level">
+							<li {% if '/screenshots.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/screenshots.html"><i class="fa fa-picture-o"></i> Screenshots</a></li>
+            				<li {% if '/presentation' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/presentation" target="_blank"><i class="fa fa-desktop"></i> Presentation</a></li>
+            				<li {% if '/tech_stack.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tech_stack.html"><i class="fa fa-stack-overflow"></i> Technology stack</a></li>
+						</ul>
+					</li>
+            		<li>
+                		<a href="#"><i class="fa fa-university fa-fw"></i> Documentation<span class="fa arrow"></span></a>
+                		<ul class="nav nav-second-level">
+            				<li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="fa fa-cloud-download"></i> Installation</a></li>
+            				<li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="fa fa-rocket"></i> Creating an application</a></li>
+            				<li {% if '/creating_an_entity.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_entity.html"><i class="fa fa-bolt"></i> Creating an entity</a></li>
+            				<li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="fa fa-bolt"></i> Creating a service</a></li>
+            				<li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="fa fa-users"></i> Profiles</a></li>
+            				<li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="fa fa-code"></i> Usage in development</a></li>
+            				<li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="fa fa-play-circle"></i> Usage in production</a></li>	
+						</ul>
+					</li>
+            		<li>
+                		<a href="#"><i class="fa fa-users fa-fw"></i> Help and bugs<span class="fa arrow"></span></a>
+                		<ul class="nav nav-second-level">
+							<li {% if '/help.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/help.html"><i class="fa fa-question"></i> Community help</a></li>
+							<li {% if '/consulting.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/consulting.html"><i class="fa fa-user"></i> Professional help</a></li>
+							<li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="fa fa-bug"></i> Bug tracker</a></li>
+							<li {% if '/thanks.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/thanks.html"><i class="fa fa-gift"></i> Thanks</a></li>
+						</ul>
+					</li>            		
+					<li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+					<li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+				</ul>
+        	</div>
+		</div>
       </nav>
 
       <div id="page-wrapper">
@@ -78,8 +103,17 @@
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
-    <script src="{{ site.url }}/js/jquery-1.10.2.js"></script>
-    <script src="{{ site.url }}/js/bootstrap.js"></script>
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{ site.url }}/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ site.url }}/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{ site.url }}/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ site.url }}/js/sb-admin-2.js"></script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
