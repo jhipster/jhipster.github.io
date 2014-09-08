@@ -11,7 +11,7 @@ JHipster release 1.1.0
 What's new
 ----------
 
-This releases comes with [several enhancements and bug fixes](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.1+is%3Aclosed).
+This release comes with [several enhancements and bug fixes](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.1+is%3Aclosed).
 
 Most importantly:
 
