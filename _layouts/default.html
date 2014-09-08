@@ -7,7 +7,7 @@
     <meta name="author" content="">
 
     <title>{{ page.title }}</title>
-	
+
     <!-- Bootstrap Core CSS -->
     <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
 
@@ -46,9 +46,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-		  
-          <a href="{{ site.url }}/"><img src="{{ site.url }}/images/logo_jhipster_small.png" class="img-responsive"/></a>          
-        </div>	
+
+          <a href="{{ site.url }}/"><img src="{{ site.url }}/images/logo_jhipster_small.png" class="img-responsive"/></a>
+        </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-default sidebar" role="navigation">
@@ -73,7 +73,9 @@
             				<li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="fa fa-bolt"></i> Creating a service</a></li>
             				<li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="fa fa-users"></i> Profiles</a></li>
             				<li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="fa fa-code"></i> Usage in development</a></li>
-            				<li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="fa fa-play-circle"></i> Usage in production</a></li>	
+            				<li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="fa fa-play-circle"></i> Usage in production</a></li>
+                            <li {% if '/heroku.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/heroku.html"><i class="fa fa-cloud-upload"></i> Deploying to Heroku</a></li>
+                            <li {% if '/openshift.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/openshift.html"><i class="fa fa-cloud-upload"></i> Deploying to Openshift</a></li>	
 						</ul>
 					</li>
             		<li>
@@ -84,7 +86,7 @@
 							<li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="fa fa-bug"></i> Bug tracker</a></li>
 							<li {% if '/thanks.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/thanks.html"><i class="fa fa-gift"></i> Thanks</a></li>
 						</ul>
-					</li>            		
+					</li>
 					<li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-github"></i> Github</a></li>
 					<li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
 				</ul>

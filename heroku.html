@@ -1,0 +1,70 @@
+---
+layout: default
+title: Deploying to Heroku
+sitemap:
+    priority: 0.7
+    lastmod: 2014-09-08T00:00:00-00:00
+---
+
+<h1><i class="fa fa-cloud-upload"></i> [BETA] Deploying to Heroku</h1>
+
+<p><b>WARNING!</b> This is a new sub-generator, of <b>BETA</b> quality. Use it at your own risk! Feedback is highly welcome!</p>
+
+<p>This sub-generator allows to deploy automatically your JHipster application to the <a href="https://www.heroku.com/" target="_blank">Heroku cloud</a>.</p>
+
+<h2>Limitations</h2>
+<p>
+This sub-generator has a few limitations:
+<ul>
+    <li>You can only use it with a Postgresql database, as this is what Heroku provides by default</li>
+    <li>You can only use it with the Grunt option (which is the recommended default), as it's the only one providing tasks for deploying</li>
+    <li>You can only use it with the Maven option (which is the recommended default), as it's the only one supported by Heroku</li>
+    <li>If your applicaiton is killed by Heroku when your Liquibase changelog is being applied, your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table</li>
+</ul>
+</p>
+
+<h2>Running the sub-generator</h2>
+
+<p>
+    Before running the sub-generator, you need to install the <a href="https://toolbelt.heroku.com/" target="_blank">Heroku toolbelt</a>, and have a Heroku account created.
+</p>
+
+<p>
+    To deploy your application to Heroku, type:
+</p>
+<p>
+<code>
+yo jhipster:heroku
+</code>
+</p>
+<p>
+    This should package your application in "production" mode, create an Heroku application (with a Postgresql database), upload your code, and start the application.
+</p>
+
+<p><i>If you use the free version of Heroku, please be aware that your application must start under 60 seconds, or it will be killed. Depending on the platform load, starting under 60 seconds is of course not guaranteed!</i></p>
+
+<h2>Updating your deployed application</h2>
+<p>
+    When your application is already deployed, you can prepare a new deployment by typing:
+</p>
+<p>
+<code>
+grunt deployHeroku
+</code>
+</p>
+<p>
+    Then you can check your application, which is ready for deployment, in your "deploy/heroku" folder. If you are ready to deploy, you can push it to production, by typing (in your "deploy/heroku" folder):
+</p>
+<p>
+<code>
+git push
+</code>
+</p>
+
+<h2>More information</h2>
+
+<p>
+    <ul>
+        <li><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment-heroku.html" target="_blank">Spring Boot Heroku documentation</a></li>
+    </ul>
+</p>
