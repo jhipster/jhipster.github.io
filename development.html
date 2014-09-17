@@ -3,7 +3,7 @@ layout: default
 title: Using JHipster in development
 sitemap:
     priority: 0.7
-    lastmod: 2014-09-08T00:00:00-00:00
+    lastmod: 2014-09-17T00:00:00-00:00
 ---
 
 <h1><i class="fa fa-code"></i> Using JHipster in development</h1>
@@ -12,10 +12,10 @@ sitemap:
 
 <h2>Configuration</h2>
 <p>
-By default, JHipster uses the "development" profile, so you don't have to configure anything.
+    By default, JHipster uses the "development" profile, so you don't have to configure anything.
 </p>
 <p>
-If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles.html">Development and Production profiles</a>".
+    If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles.html">Development and Production profiles</a>".
 </p>
 
 <h2>Running the application</h2>
@@ -27,7 +27,7 @@ If you want more information on the available profiles, please go the section ti
 </p>
 
 <p>
-The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+    The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
 </p>
 
 <h3>As a "main" Java class, with hot reloading</h3>
@@ -35,35 +35,35 @@ The application will be available on <a href="http://localhost:8080" target="_bl
 <p><b>Warning!</b> "Hot reload" only works correctly with Java 7, so you will have many issues if you selected the Java 8 option when generating your application.</p>
 
 <p>
-  Hot reloading works thanks to a Java Agent, so you need to add the following arguments to your JVM when running the "Application" class we have used in the previous step:
+    Hot reloading works thanks to a Java Agent, so you need to add the following arguments to your JVM when running the "Application" class we have used in the previous step:
 </p>
 
 <p>
-<code>-javaagent:spring_loaded/springloaded-jhipster.jar -noverify -Dspringloaded=plugins=io.github.jhipster.loaded.instrument.JHipsterLoadtimeInstrumentationPlugin</code>
+    <code>-javaagent:spring_loaded/springloaded-jhipster.jar -noverify -Dspringloaded=plugins=io.github.jhipster.loaded.instrument.JHipsterLoadtimeInstrumentationPlugin</code>
 </p>
 
 <p>
-  Hot reloading is very powerful, and is specific to the technologies we are using. Here is what it currently does:
+    Hot reloading is very powerful, and is specific to the technologies we are using. Here is what it currently does:
 </p>
 
 <ul>
-  <li>Normal Java classes are reloaded on the fly</li>
-  <li>New Java classes are added to the running application</li>
-  <li>If your class is a Spring Bean, it is automatically "autowired" (dependency injection is triggered), and its aspects are "weaved" (transactions, security, etc... are all added automatically)</li>
-  <li>If your class is a Spring MVC REST Endpoint, the new URL is mapped</li>
-  <li>If your class is a JPA entity, the Hibernate context is automatically refreshed, the Liquibase change set is automatically generated, and the database is updated</li>
-  <li>If your class uses Jackson, the Jackson cache is flushed</li>
+    <li>Normal Java classes are reloaded on the fly</li>
+    <li>New Java classes are added to the running application</li>
+    <li>If your class is a Spring Bean, it is automatically "autowired" (dependency injection is triggered), and its aspects are "weaved" (transactions, security, etc... are all added automatically)</li>
+    <li>If your class is a Spring MVC REST Endpoint, the new URL is mapped</li>
+    <li>If your class is a JPA entity, the Hibernate context is automatically refreshed, the Liquibase change set is automatically generated, and the database is updated</li>
+    <li>If your class uses Jackson, the Jackson cache is flushed</li>
 </ul>
 
 <p>
-  Of course, this all works together, so if you add a new entity using our <a href="{{ site.url }}/creating_an_entity.html">"entity" sub-generator</a>, you have everything hot reloaded automatically:
+    Of course, this all works together, so if you add a new entity using our <a href="{{ site.url }}/creating_an_entity.html">"entity" sub-generator</a>, you have everything hot reloaded automatically:
 </p>
 
 <ul>
-  <li>The new entity is created: the class is added to the application, Hibernate is refreshed, the Liquibase changeset is added, and the database is updated</li>
-  <li>The Spring Data JPA repository is created and is available</li>
-  <li>The Spring MVC REST controller is created and the newly mapped URLs are available</li>
-  <li>The AngularJS code is generated and added to your index.html (and if you use <code>grunt server</code> your browser is automatically refreshed)</li>
+    <li>The new entity is created: the class is added to the application, Hibernate is refreshed, the Liquibase changeset is added, and the database is updated</li>
+    <li>The Spring Data JPA repository is created and is available</li>
+    <li>The Spring MVC REST controller is created and the newly mapped URLs are available</li>
+    <li>The AngularJS code is generated and added to your index.html (and if you use <code>grunt server</code> your browser is automatically refreshed)</li>
 </ul>
 
 <p>This is obviously a very complex set of features, so if you hit a bug <a href="{{ site.url }}/help.html">don't hesitate to ask us</a>. And of course, just killing the app and restarting it will make it work again :-)</p>
@@ -71,119 +71,120 @@ The application will be available on <a href="http://localhost:8080" target="_bl
 <h3>As a Maven project</h3>
 
 <p>
-You can launch the Java server with Maven:
+    You can launch the Java server with Maven:
 </p>
 <p>
-	<code>
-	mvn spring-boot:run
-	</code>
-</p>
-
-<p>
-The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+    <code>
+        mvn spring-boot:run
+    </code>
 </p>
 
 <p>
-If you want more information on using Maven, please go to <a href="http://maven.apache.org" target="_blank">http://maven.apache.org</a>
+    The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+</p>
+
+<p>
+    If you want more information on using Maven, please go to <a href="http://maven.apache.org" target="_blank">http://maven.apache.org</a>
 </p>
 
 <h3>(Optional) As a Gradle project</h3>
 
 <p>
-If you selected the Gradle option when creating the project, you can launch the Java server with Gradle:
+    If you selected the Gradle option when creating the project, you can launch the Java server with Gradle:
 </p>
 <p>
     <code>
-    ./gradlew bootRun
+        ./gradlew bootRun
     </code>
 </p>
 
 <p>
-The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+    The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
 </p>
 
 <h2>Using the Java server and Grunt together</h2>
 <p>
-  <i>We highly recommend you use this feature, as it allows to have hot reloading of your client-side code.</i>
+    <i>We highly recommend you use this feature, as it allows to have hot reloading of your client-side code.</i>
 </p>
 <p>
-You can run Grunt to work on the client-side JavaScript application:
+    You can run Grunt to work on the client-side JavaScript application:
 </p>
 <p>
-<code>
-grunt server
-</code>
+    <code>
+        grunt server
+    </code>
 </p>
 <p>
-This should open up your Web browser, with live reload enabled, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>. As soon as you modify one of your HTML/CSS/JavaScript file, your browser should refresh itself automatically.
+    This should open up your Web browser, with live reload enabled, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>. As soon as you modify one of your HTML/CSS/JavaScript file, your browser should refresh itself automatically.
 </p>
 <p>
-  If you have generated your application with the Sass/Compass option, your templates should also be automatically compiled into CSS.
+    If you have generated your application with the Sass/Compass option, your templates should also be automatically compiled into CSS.
 </p>
 <p>
-This Grunt server has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/rest" target="_blank">http://localhost:8080/rest</a>), so it should be able to do live REST requests to the Java back-end.
+    This Grunt server has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/rest" target="_blank">http://localhost:8080/rest</a>), so it should be able to do live REST requests to the Java back-end.
 </p>
 <p>
-If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
+    If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
 </p>
 
 <h2>Using Bower to install and update JavaScript dependencies</h2>
 <p>
-You can use bower normally to update your JavaScript dependencies:
+    You can use bower normally to update your JavaScript dependencies:
 </p>
 <p>
-<code>
-bower update
-</code>
+    <code>
+        bower update
+    </code>
 </p>
 <p>
-Or if you want to install a new JavaScript dependency:
+    Or if you want to install a new JavaScript dependency:
 </p>
 <p>
-<code>
-bower install &lt;package&gt;
-</code>
+    <code>
+        bower install &lt;package&gt;
+    </code>
 </p>
 <p>
-Your JavaScript dependencies will be stored in your <code>src/main/webapp/bower_components</code> folder, and we believe it is a good idea to store them in your Git repository (but JHispter does not force you to do so).
+    Your JavaScript dependencies will be stored in your <code>src/main/webapp/bower_components</code> folder, and we believe it is a good idea to store them in your Git repository (but JHispter does not force you to do so).
 </p>
 <p>
-If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>.
+    If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>.
+</p>
 
 <h2>Database updates</h2>
 <p>
-If you add or modify a JPA entity, you will need to update your database schema.
+    If you add or modify a JPA entity, you will need to update your database schema.
 </p>
 <p>
-JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> and stores its configuration in <code>/src/main/resources/config/liquibase/</code>, so your development process should be:
+    JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> and stores its configuration in <code>/src/main/resources/config/liquibase/</code>, so your development process should be:
 </p>
 <ul>
-  <li>Adding, modifying or removing a JPA entity</li>
-  <li>Adding a new "changeSet" in your <code>db-changelog.xml</code> file to reflect this change</li>
-  <li>Starting up your application</li>
+    <li>Adding, modifying or removing a JPA entity</li>
+    <li>Adding a new "changeSet" in your <code>config/liquibase/changelog/db-changelog-*.xml</code> file to reflect this change. If you created a new <code>config/liquibase/changelog/db-changelog-*.xml</code> file, you must reference them in the <code>config/liquibase/master.xml</code> file.</li>
+    <li>Starting up your application</li>
 </ul>
 <p>
-When you startup your application, the Spring Boot will update your database schema automatically using Liquibase.
+    When you startup your application, the Spring Boot will update your database schema automatically using Liquibase.
 </p>
 <p>
-If you want more information on using Liquibase, please go to <a href="http://www.liquibase.org" target="_blank">http://www.liquibase.org</a>.
-
+    If you want more information on using Liquibase, please go to <a href="http://www.liquibase.org" target="_blank">http://www.liquibase.org</a>.
+</p>
 <h2>Internationalization</h2>
 
 <p>Internationalization (or i18n) is a first-class citizen in JHipster, as we believe it should be set up at the beginning of your project (and not as an afterthought).</p>
 <p>
-Usage is really easy thanks to <a href="https://github.com/PascalPrecht/angular-translate" target="_blank">Angular Translate</a>, which provides a simple AngularJS directive for i18n.
+    Usage is really easy thanks to <a href="https://github.com/PascalPrecht/angular-translate" target="_blank">Angular Translate</a>, which provides a simple AngularJS directive for i18n.
 </p>
 <p>
-For example, to add a translation to the "first name" field, just add a "translate" attribute with a key:
-<code>&lt;label translate="settings.form.firstname"&gt;First Name&lt;/label&gt;</code>
+    For example, to add a translation to the "first name" field, just add a "translate" attribute with a key:
+    <code>&lt;label translate="settings.form.firstname"&gt;First Name&lt;/label&gt;</code>
 </p>
 <p>
-This key references a JSON document, which will return the translated String. AngularJS will then replace the "First Name" String with the translated version.
+    This key references a JSON document, which will return the translated String. AngularJS will then replace the "First Name" String with the translated version.
 </p>
 <p>
-For example, here are the translations provided by default in JHipster for <a href="https://github.com/jhipster/generator-jhipster/blob/master/app/templates/src/main/webapp/i18n/_en.json" target="_blank">English</a> and for <a href="https://github.com/jhipster/generator-jhipster/blob/master/app/templates/src/main/webapp/i18n/_fr.json" target="_blank">French</a>.
+    For example, here are the translations provided by default in JHipster for <a href="https://github.com/jhipster/generator-jhipster/blob/master/app/templates/src/main/webapp/i18n/_en.json" target="_blank">English</a> and for <a href="https://github.com/jhipster/generator-jhipster/blob/master/app/templates/src/main/webapp/i18n/_fr.json" target="_blank">French</a>.
 </p>
 <p>
-If you speak another language and are ready to help, feel free to send us your own translations!
+    If you speak another language and are ready to help, feel free to send us your own translations!
 </p>
