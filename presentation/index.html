@@ -385,15 +385,6 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
 						</ul>
 					</section>
 					<section>
-						<h3>Hot reloading</h3>
-						<ul>
-							<li>Grunt is used to have live reload of HTML/CSS/JavaScript code<br/>
-							<i>It even works with Sass templates!</i></li>
-							<li>Spring Loaded is used to have live reload of Java code
-							<br/><i>It even works with Spring Beans!</i></li>
-						</ul>
-					</section>
-					<section>
 						<h3>Production-ready</h3>
 						<ul>
 							<li>Specific Spring profile with GZipping and HTTP caching headers</li>
@@ -427,20 +418,7 @@ mvn spring-boot:run
 						</pre>
 					</section>
 					<section>
-						<h1>Server-side hot reload</h1>
-						<p>
-						 If you want hot reload on your Java code, run the "Application" class from your IDE with the following arguments:
-						</p>
-						<pre>
-							<code data-trim contenteditable>
--javaagent:spring_loaded/springloaded-jhipster.jar
--noverify
--Dspringloaded=plugins=io.github.jhipster.loaded.instrument.JHipsterLoadtimeInstrumentationPlugin
-							</code>
-						</pre>
-					</section>
-					<section>
-						<h1>Client-side hot reload</h1>
+						<h1>Client-side live reload</h1>
 						<p>
 						    Live reload of your client-side code (HTML, CSS, JavaScript) works thanks to Grunt. Edit any file and your browser will refresh automatically:
 					  </p>
@@ -455,8 +433,6 @@ grunt server
 						<pre>
 							<code data-trim contenteditable>
 yo jhipster:entity foo
-vi src/main/resources/config/liquibase/db-changelog.xml
-vi src/main/webapp/index.html
 							</code>
 						</pre>
 					</section>

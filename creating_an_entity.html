@@ -10,10 +10,11 @@ sitemap:
 
 <h2>Introduction</h2>
 <p>
-Once you have created your application, you will want to create <i>entities</i>. For example, you might want to create the <i>book</i> entity, which represents a book. For this, you will need:
+Once you have created your application, you will want to create <i>entities</i>. For example, you might want to create the <i>Book</i> entity, which represents a book. For this, you will need:
 </p>
 <ul>
  <li>A database table</li>
+ <li>A Liquibase change set</li>
  <li>A JPA Entity</li>
  <li>A Spring Data JPA Repository</li>
  <li>A Spring MVC REST Controller, which has the basic CRUD operations</li>
@@ -21,96 +22,64 @@ Once you have created your application, you will want to create <i>entities</i>.
  <li>An HTML view</li>
 </ul>
 <p>
+The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end to the entity.
+</p>
+<p>
 If you created your application with <a href="http://www.mongodb.org" target="_blank">MongoDB</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entity correctly (you will have a MongoDB document instead of a JPA entity).
 </p>
+
 <p>
-The "entity" sub-generator will help you to create most of this code, but it isn't magical, so you will need customize some of the generated code.
-</p>
-<p>
-  <b>Let's create the "Foo" entity, which has a text field and a date field.</b>
+  <b>Let's create the "Book" entity, which has a title, description, publication date, and price.</b>
 </p>
 
 <h2>Generate the entity</h2>
-<p>Create the entity with the sub-generator. For instance, for creating the "Foo" entity, please type:
+<p>Create the entity with the sub-generator. For instance, for creating the "Book" entity, please type:
 </p>
 <p>
 <code>
-yo jhipster:entity foo
+yo jhipster:entity book
 </code>
 </p>
 <p>
-  If you have followed our <a href="{{ site.url }}/development.html">development guide</a> and have your application running with "hot reload", everything should just work out of the box: your running application should be updated, as well as your database and even your browser. Just go to <a href="http://localhost:9000/#/foo" target="_blank">http://localhost:9000/#/foo</a> to use the generated default CRUD page.	
+    You must answer the next questions, asking for each field name and type. For example, the "Book" has:
+    <ul>
+        <li>a "title", of type "String"</li>
+        <li>a "description", of type "String"</li>
+        <li>a "publicationDate", of type "LocalDate"</li>
+        <li>a "price", of type "Integer"</li>
+    </ul>
 </p>
 <p>
-  If you didn't use hot reload, you will have a little more work to do (see the next part on Liquibase for more information), and of course you will need to restart your application to see your changes.
-</p>
-
-<h2>Check the database table</h2>
-
-<p>
-  JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> to update its database schema. The Liquibase configuration is located in the <code>src/main/resources/config/liquibase</code> folder.
-<p>
-  If you have used hot reload in the previous step, JHipster has automatically created a new file named <code>src/main/resources/config/liquibase/changelog/db-changelog--002.xml</code>.
-</p>
-<p>
-	If you didn't use hot reload, you have to create this file yourself (that's why we recommend using hot reload):
-<ul>
-  <li>Add a new Liquibase configuration file called <code>src/main/resources/config/liquibase/changelog/db-changelog--002.xml</code></li>
-  <li>Add a new "changeSet" XML node (and don't forget to increment its version!)</li>
-  <li>Describe this new "changeSet": you can look at the existing "changeSet", or go to the
-  <a href="http://www.liquibase.org/documentation/index.html" target="_blank">Liquibase documentation</a> for more information</li>
-</ul>
-</li>
-
-<h2>Customize the generated JPA code</h2>
-<p>
-  The generated entity has:
-</p>
-<ul>
-  <li>An auto-generated ID</li>
-  <li>A sample text field called "sampleTextAttribute"</li>
-  <li>A sample date field called "sampleDateAttribute"</li>
-</ul>
-<p>
-  Of course, you will have to customize those fields for your specific entities.
-</p>
-<h2>Review the generated Java code</h2>
-<p>
-  JHipster has created a Spring Data JPA repository called <code>FooRepository</code> and a Spring MVC REST Controller called <code>FooResource</code>.
-</p>
-<p>
-Those files contain all the basic CRUD operations, and don't need to be modified if your needs are simple.
-</p>
-<p>
-Of course, if you want some more complex business behaviors, you might need to add a Spring <code>@Service</code> class, using the <a href="{{ site.url }}/creating_a_service.html">service sub-generator</a>.
+    This will generate all the required files.
 </p>
 
-<h2>Review the generated JavaScript files</h2>
+<h2>Check the generated CRUD front-end</h2>
+
 <p>
-  JHipster has created three JavaScript files for you:
+    Run the generated test suite, with <code>mvn test</code>, which will test the new Book entity.
 </p>
-<ul>
-  <li>An AngularJS router called <code>src/main/webapp/scripts/foo/router.js</code></li>
-  <li>An AngularJS controller called <code>src/main/webapp/scripts/foo/controller.js</code></li>
-  <li>An AngularJS service called <code>src/main/webapp/scripts/foo/service.js</code></li>
-</ul>
 <p>
-  Those files have been automatically added to your <code>index.html</code> file, just after the other existing AngularJS scripts.
+    Launch the application (for example with <code>mvn spring-boot:run</code>), log in and select the "Book"
+    entity in the "entities" menu.
+</p>
+<p>
+    Check the database table, to see if your data is correctly inserted.
 </p>
 
-<h2>Customize the generated HTML view</h2>
+<h2>Improve the generated code</h2>
 <p>
-  JHipster has created a <code>foos.html</code> view, which has the basic CRUD operations.
+    The generated files contain all the basic CRUD operations, and don't need to be modified if your needs are simple.
 </p>
 <p>
-  This view will be where most of the work will occur, depending on the attributes you have added to your entity, and your business requirements.
+    If you want to modify the generated code or the database schema, you should follow our <a href="{{ site.url }}/development.html">development guide</a>
+</p>
+<p>
+If you want some more complex business behaviors, you might need to add a Spring <code>@Service</code> class, using the <a href="{{ site.url }}/creating_a_service.html">service sub-generator</a>.
 </p>
 
 <h2>You're done!</h2>
+
 <p>
-  You can test your "foo" controller on <a href="http://localhost:8080/#/foo" target="_blank">http://localhost:8080/#/foo</a>.
-</p>
-<p>
-  It should look like this:
+  Your generated CRUD page should look like this:
 </p>
 <img src="images/screenshot_5.png"/>

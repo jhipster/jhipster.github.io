@@ -8,8 +8,6 @@ sitemap:
 
 <h1><i class="fa fa-code"></i> Using JHipster in development</h1>
 
-<p>JHipster uses <a href="https://github.com/spring-projects/spring-loaded" target="_blank">Spring Loaded</a> to have <b>"full hot reload"</b> of your Java classes, which eliminates the need to redeploy your application. This makes developing with JHipster as enjoyable as developping with Node.js, RoR, Grails or Play!, but with the added power of Spring.</p>
-
 <h2>Configuration</h2>
 <p>
     By default, JHipster uses the "development" profile, so you don't have to configure anything.
@@ -29,44 +27,6 @@ sitemap:
 <p>
     The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
 </p>
-
-<h3>As a "main" Java class, with hot reloading</h3>
-
-<p><b>Warning!</b> "Hot reload" only works correctly with Java 7, so you will have many issues if you selected the Java 8 option when generating your application.</p>
-
-<p>
-    Hot reloading works thanks to a Java Agent, so you need to add the following arguments to your JVM when running the "Application" class we have used in the previous step:
-</p>
-
-<p>
-    <code>-javaagent:spring_loaded/springloaded-jhipster.jar -noverify -Dspringloaded=plugins=io.github.jhipster.loaded.instrument.JHipsterLoadtimeInstrumentationPlugin</code>
-</p>
-
-<p>
-    Hot reloading is very powerful, and is specific to the technologies we are using. Here is what it currently does:
-</p>
-
-<ul>
-    <li>Normal Java classes are reloaded on the fly</li>
-    <li>New Java classes are added to the running application</li>
-    <li>If your class is a Spring Bean, it is automatically "autowired" (dependency injection is triggered), and its aspects are "weaved" (transactions, security, etc... are all added automatically)</li>
-    <li>If your class is a Spring MVC REST Endpoint, the new URL is mapped</li>
-    <li>If your class is a JPA entity, the Hibernate context is automatically refreshed, the Liquibase change set is automatically generated, and the database is updated</li>
-    <li>If your class uses Jackson, the Jackson cache is flushed</li>
-</ul>
-
-<p>
-    Of course, this all works together, so if you add a new entity using our <a href="{{ site.url }}/creating_an_entity.html">"entity" sub-generator</a>, you have everything hot reloaded automatically:
-</p>
-
-<ul>
-    <li>The new entity is created: the class is added to the application, Hibernate is refreshed, the Liquibase changeset is added, and the database is updated</li>
-    <li>The Spring Data JPA repository is created and is available</li>
-    <li>The Spring MVC REST controller is created and the newly mapped URLs are available</li>
-    <li>The AngularJS code is generated and added to your index.html (and if you use <code>grunt server</code> your browser is automatically refreshed)</li>
-</ul>
-
-<p>This is obviously a very complex set of features, so if you hit a bug <a href="{{ site.url }}/help.html">don't hesitate to ask us</a>. And of course, just killing the app and restarting it will make it work again :-)</p>
 
 <h3>As a Maven project</h3>
 
@@ -104,7 +64,7 @@ sitemap:
 
 <h2>Using the Java server and Grunt together</h2>
 <p>
-    <i>We highly recommend you use this feature, as it allows to have hot reloading of your client-side code.</i>
+    <i>We highly recommend you use this feature, as it allows to have live reloading of your client-side code.</i>
 </p>
 <p>
     You can run Grunt to work on the client-side JavaScript application:
@@ -156,15 +116,23 @@ sitemap:
     If you add or modify a JPA entity, you will need to update your database schema.
 </p>
 <p>
-    JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> and stores its configuration in <code>/src/main/resources/config/liquibase/</code>, so your development process should be:
+    JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> and stores its configuration in <code>/src/main/resources/config/liquibase/</code>.
+
+<p>
+    If you use our <a href="{{ site.url }}/creating_an_entity.html">entity sub-generator</a>, a Liquibase "change set" will be automatically
+    generated in your <code>config/liquibase/changelog/</code> directory. You can edit it, and customize it according to your needs.
+</p>
+<p>
+    If you prefer (or need) to do a database update manually, your development process should be:
 </p>
 <ul>
-    <li>Adding, modifying or removing a JPA entity</li>
-    <li>Adding a new "changeSet" in your <code>config/liquibase/changelog/db-changelog-*.xml</code> file to reflect this change. If you created a new <code>config/liquibase/changelog/db-changelog-*.xml</code> file, you must reference it in the <code>config/liquibase/master.xml</code> file.</li>
-    <li>Starting up your application</li>
+    <li>Add, modify or remove a JPA entity.</li>
+    <li>Create a new "change set" in your <code>config/liquibase/changelog</code> directory. The files in that directory are prefixed by their creation date (in yyyyMMddHHmmss format), and then have a title describing what they do. For example, <code>20141006152300_added_price_to_product.xml</code> is a good name.</li>
+    <li>This "change set" file must be referenced it in the <code>config/liquibase/master.xml</code> file.</li>
+    <li>Start up your application</li>
 </ul>
 <p>
-    When you startup your application, the Spring Boot will update your database schema automatically using Liquibase.
+    When you startup your application, Spring Boot will update your database schema automatically using Liquibase.
 </p>
 <p>
     If you want more information on using Liquibase, please go to <a href="http://www.liquibase.org" target="_blank">http://www.liquibase.org</a>.
