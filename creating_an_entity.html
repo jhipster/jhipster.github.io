@@ -2,68 +2,102 @@
 layout: default
 title: Creating an entity
 sitemap:
-    priority: 0.7
-    lastmod: 2014-02-17T00:00:00-00:00
+priority: 0.7
+lastmod: 2014-10-10T00:00:00-00:00
 ---
 
 <h1><i class="fa fa-bolt"></i> Creating an entity</h1>
 
 <h2>Introduction</h2>
 <p>
-Once you have created your application, you will want to create <i>entities</i>. For example, you might want to create the <i>Book</i> entity, which represents a book. For this, you will need:
+    Once you have created your application, you will want to create <i>entities</i>. For example, you might want to create an <i>Author</i> and a <i>Book</i> entity. For each entity, you will need:
 </p>
 <ul>
- <li>A database table</li>
- <li>A Liquibase change set</li>
- <li>A JPA Entity</li>
- <li>A Spring Data JPA Repository</li>
- <li>A Spring MVC REST Controller, which has the basic CRUD operations</li>
- <li>An AngularJS router, a controller and a service</li>
- <li>An HTML view</li>
+    <li>A database table</li>
+    <li>A Liquibase change set</li>
+    <li>A JPA Entity</li>
+    <li>A Spring Data JPA Repository</li>
+    <li>A Spring MVC REST Controller, which has the basic CRUD operations</li>
+    <li>An AngularJS router, a controller and a service</li>
+    <li>An HTML view</li>
 </ul>
 <p>
-The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end to the entity.
+    If you have several entities, you will likely want to have relationships between them. For this, you will need:
+</p>
+<ul>
+    <li>A database foreign key</li>
+    <li>Specific JavaScript and HTML code for managing this relationship</li>
+</ul>
+<p>
+    The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity.
 </p>
 <p>
-If you created your application with <a href="http://www.mongodb.org" target="_blank">MongoDB</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entity correctly (you will have a MongoDB document instead of a JPA entity).
+    If you created your application with <a href="http://www.mongodb.org" target="_blank">MongoDB</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entities correctly (you will have MongoDB documents instead of JPA entities), but of course you won't be able to have relationships between your entities.
+</p>
+
+<p>This is a short tutorial on creating two entities (a Author and a Book) which have a one-to-many relationship.<p>
+
+<h2>Generate the "Author" entity</h2>
+
+<p>As we want to have a one-to-many relationship between Authors and Books (one author can write many books), we need to create the Author first. At the database level, JHipster will then be able to add a foreign key on the Book table, linking to the Author table.</p>
+
+<p>
+    <code>
+        yo jhipster:entity author
+    </code>
 </p>
 
 <p>
-  <b>Let's create the "Book" entity, which has a title, description, publication date, and price.</b>
+    Answer the next questions concerning the fields of this entity, the author has:
+    <ul>
+        <li>a "name" of type "String"</li>
+        <li>a "birthDate" of type "LocalDate"</li>
+    </ul>
+</p>
+<p>
+    Then answer the questions concerning the relationships, the author has:
+    <ul>
+        <li>A one-to-many relationship with the "book" entity (which doesn't exist yet)</li>
+    </ul>
 </p>
 
-<h2>Generate the entity</h2>
-<p>Create the entity with the sub-generator. For instance, for creating the "Book" entity, please type:
-</p>
+<h2>Generate the "Book" entity</h2>
+
 <p>
-<code>
-yo jhipster:entity book
-</code>
+    <code>
+        yo jhipster:entity book
+    </code>
 </p>
+
 <p>
-    You must answer the next questions, asking for each field name and type. For example, the "Book" has:
+    Answer the next questions concerning the fields of this entity, the book has:
     <ul>
         <li>a "title", of type "String"</li>
         <li>a "description", of type "String"</li>
         <li>a "publicationDate", of type "LocalDate"</li>
-        <li>a "price", of type "Integer"</li>
+        <li>a "price", of type "BigDecimal"</li>
     </ul>
 </p>
 <p>
-    This will generate all the required files.
+    Then answer the questions concerning the relationships, the book:
+    <ul>
+        <li>Has many-to-one relationship with the "author" entity</li>
+        <li>And this relationship uses the "name" field (from the Author entity) to be displayed</li>
+    </ul>
 </p>
 
-<h2>Check the generated CRUD front-end</h2>
+
+<h2>Check the generated code</h2>
 
 <p>
-    Run the generated test suite, with <code>mvn test</code>, which will test the new Book entity.
+    Run the generated test suite, with <code>mvn test</code>, which will test the Author entity and the Book entity.
 </p>
 <p>
-    Launch the application (for example with <code>mvn spring-boot:run</code>), log in and select the "Book"
-    entity in the "entities" menu.
+    Launch the application (for example with <code>mvn spring-boot:run</code>), log in and select the "Author" and "Book"
+    entities in the "entities" menu.
 </p>
 <p>
-    Check the database table, to see if your data is correctly inserted.
+    Check the database tables, to see if your data is correctly inserted.
 </p>
 
 <h2>Improve the generated code</h2>
@@ -74,12 +108,12 @@ yo jhipster:entity book
     If you want to modify the generated code or the database schema, you should follow our <a href="{{ site.url }}/development.html">development guide</a>
 </p>
 <p>
-If you want some more complex business behaviors, you might need to add a Spring <code>@Service</code> class, using the <a href="{{ site.url }}/creating_a_service.html">service sub-generator</a>.
+    If you want some more complex business behaviors, you might need to add a Spring <code>@Service</code> class, using the <a href="{{ site.url }}/creating_a_service.html">service sub-generator</a>.
 </p>
 
 <h2>You're done!</h2>
 
 <p>
-  Your generated CRUD page should look like this:
+    Your generated CRUD page should look like this:
 </p>
 <img src="images/screenshot_5.png"/>
