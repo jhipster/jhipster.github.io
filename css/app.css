@@ -1,0 +1,93 @@
+.hipster-font{
+    font-family: 'Pacifico', cursive;
+}
+
+h1.hipster-font{
+    font-size: 4em;
+    line-height: 2em;
+}
+
+h1.hipster-font, h2.hipster-font, h3.hipster-font{
+    text-align: center;
+}
+
+.navbar .navbar-brand {
+    font-family: 'Pacifico', cursive;
+    color: #333;
+    font-size: 2em;
+}
+
+.navbar .navbar-brand {
+    background: url(../images/logo-jhipster-small.png) no-repeat 15px 6px;
+    background-size: 31px 39px;
+    padding: 15px 15px 15px 50px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .navbar .navbar-brand {
+        background: url(../images/logo-jhipster-small2x.png) no-repeat 15px 6px;
+        background-size: 31px 39px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        position: absolute;
+    }
+
+    .navbar .navbar-brand {
+        text-align: center;
+        background: url(../images/logo-jhipster.png) no-repeat center 10px;
+        background-size: 94px 119px;
+        line-height: 270px;
+        margin: 0;
+        padding: 15px 15px;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+        .navbar .navbar-brand {
+            background: url(../images/logo-jhipster2x.png) no-repeat center 10px;
+            background-size: 94px 119px;
+        }
+    }
+
+    .navbar .navbar-header:hover {
+        color: #333;
+        background-color: #eee;
+    }
+
+    .navbar, .navbar .navbar-brand {
+        width: 250px;
+        height: 185px;
+    }
+
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 185px;
+    }
+}
+
+.welcome-panel {
+    text-align: center;
+}
+
+.welcome-panel .welcome-subpanel{
+    margin-bottom: 4em;
+}
+
+.welcome-panel .welcome-subpanel .project-icon{
+    margin: 5px 20px;
+}
+
+.welcome-panel .welcome-subpanel a{
+    font-weight: bold;
+}
+
+.welcome-panel .img-large{
+    width: 100%;
+    max-width: 203px;
+}
