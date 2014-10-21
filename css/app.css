@@ -91,3 +91,7 @@ h1.hipster-font, h2.hipster-font, h3.hipster-font{
     width: 100%;
     max-width: 203px;
 }
+
+.home-container{
+    max-width: 1000px;
+}
