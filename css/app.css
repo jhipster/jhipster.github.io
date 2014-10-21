@@ -1,13 +1,13 @@
-.hipster-font{
+.hipster-font {
     font-family: 'Pacifico', cursive;
 }
 
-h1.hipster-font{
+h1.hipster-font {
     font-size: 4em;
     line-height: 2em;
 }
 
-h1.hipster-font, h2.hipster-font, h3.hipster-font{
+h1.hipster-font, h2.hipster-font, h3.hipster-font {
     text-align: center;
 }
 
@@ -75,19 +75,23 @@ h1.hipster-font, h2.hipster-font, h3.hipster-font{
     text-align: center;
 }
 
-.welcome-panel .welcome-subpanel{
+.welcome-panel .welcome-subpanel {
     margin-bottom: 4em;
 }
 
-.welcome-panel .welcome-subpanel .project-icon{
+.welcome-panel .welcome-subpanel .project-icon {
     margin: 5px 20px;
 }
 
-.welcome-panel .welcome-subpanel a{
+.welcome-panel .welcome-subpanel a {
     font-weight: bold;
 }
 
-.welcome-panel .img-large{
+.welcome-panel .img-large {
     width: 100%;
     max-width: 203px;
+}
+
+.home-container{
+    max-width: 1000px;
 }
