@@ -9,7 +9,7 @@ $(function() {
 // Sets the min-height of #page-wrapper to window size
 $(function() {
     $(window).bind("load resize", function() {
-        topOffset = 50;
+        topOffset = 0; // offset to take care of potential topbar
         width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
         if (width < 768) {
             $('div.navbar-collapse').addClass('collapse')
