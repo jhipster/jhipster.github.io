@@ -38,18 +38,18 @@ h1.hipster-font, h2.hipster-font, h3.hipster-font{
 
     .navbar .navbar-brand {
         text-align: center;
-        background: url(../images/logo-jhipster.png) no-repeat center top;
-        background-size: 142px 180px;
-        line-height: 370px;
-        margin: 10px 0 0 0;
+        background: url(../images/logo-jhipster.png) no-repeat center 10px;
+        background-size: 94px 119px;
+        line-height: 270px;
+        margin: 0;
         padding: 15px 15px;
     }
 
     @media (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
         .navbar .navbar-brand {
-            background: url(../images/logo-jhipster2x.png) no-repeat center top;
-            background-size: 142px 180px;
+            background: url(../images/logo-jhipster2x.png) no-repeat center 10px;
+            background-size: 94px 119px;
         }
     }
 
@@ -60,14 +60,14 @@ h1.hipster-font, h2.hipster-font, h3.hipster-font{
 
     .navbar, .navbar .navbar-brand {
         width: 250px;
-        height: 245px;
+        height: 185px;
     }
 
     .sidebar {
         z-index: 1;
         position: absolute;
         width: 250px;
-        margin-top: 245px;
+        margin-top: 185px;
     }
 }
 
