@@ -23,8 +23,13 @@ h1.hipster-font, h2.hipster-font, h3.hipster-font{
     padding: 15px 15px 15px 50px;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
     .navbar .navbar-brand {
         background: url(../images/logo-jhipster-small2x.png) no-repeat 15px 6px;
         background-size: 31px 39px;
@@ -94,4 +99,8 @@ h1.hipster-font, h2.hipster-font, h3.hipster-font{
 
 .home-container{
     max-width: 1000px;
+}
+
+.sidebar-nav .active{
+    background-color: #eee;
 }
