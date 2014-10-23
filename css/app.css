@@ -50,8 +50,13 @@ only screen and (                min-resolution: 2dppx) {
         padding: 15px 15px;
     }
 
-    @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) {
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx) { 
         .navbar .navbar-brand {
             background: url(../images/logo-jhipster2x.png) no-repeat center 10px;
             background-size: 94px 119px;
