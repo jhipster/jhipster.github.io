@@ -25,4 +25,19 @@ $(function() {
             $("#page-wrapper").css("min-height", (height) + "px");
         }
     })
+    $(window).bind("load", function() {
+        var selectedItem = $('.sidebar-nav .active');
+        if(selectedItem){
+            var parent = selectedItem.parents('.nav-second-level');
+            if(parent){
+                parent.addClass('in'); 
+            }
+        }
+        $('.sidebar-nav li').click(function(){
+            $this = $(this);
+            if($this.find('.nav-second-level')){
+                $this.removeClass('active');
+            }
+        });
+    })
 })
