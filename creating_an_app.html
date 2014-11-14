@@ -37,11 +37,6 @@ mvn spring-boot:run
   This is the name of your application.
 </p>
 
-<h3>Would you like to use Maven or Gradle?</h3>
-<p>
-  You can build your generated Java application either with <a href="http://maven.apache.org/" target="_blank">Maven</a> or <a href="http://www.gradle.org/" target="_blank">Gradle</a>. Maven is more stable and more mature, and is our recommended choice if you don't know which option to take. Gradle is more flexible, easier to extend, and more hype.
-</p>
-
 <h3>What is your default Java package name?</h3>
 <p>
   Your Java application will use this as its root package.
@@ -62,6 +57,16 @@ mvn spring-boot:run
   You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with <a href="http://www.mongodb.org" target="_blank">MongoDB</a>.
 </p>
 
+<h3>Which *production* database would you like to use?</h3>
+<p>
+  This is the database you will use with your "production" profile. To configure it, please modify your <code>src/main/resources/config/application-prod.yml</code> file.
+</p>
+
+<h3>Which *development* database would you like to use?</h3>
+<p>
+  This is the database you will use with your "development" profile. To configure it, please modify your <code>src/main/resources/config/application-dev.yml</code> file.
+</p>
+
 <h3>Do you want to use Hibernate 2nd level cache?</h3>
 <p>
    <a href="http://hibernate.org/" target="_blank">Hibernate</a> is the JPA provider used by JHipster. For performance reasons, we highly recommend you to use a cache, and to tune it according to your application's needs.<br/>
@@ -78,14 +83,9 @@ mvn spring-boot:run
   Websockets can be enabled using the <a href="http://async-io.org/" target="_blank">Atmosphere framework</a>. We also provide a complete sample to show you how to use the framework efficiently.
 </p>
 
-<h3>Which *production* database would you like to use?</h3>
+<h3>Would you like to use Maven or Gradle?</h3>
 <p>
-  This is the database you will use with your "production" profile. To configure it, please modify your <code>src/main/resources/config/application-prod.yml</code> file.
-</p>
-
-<h3>Which *development* database would you like to use?</h3>
-<p>
-  This is the database you will use with your "development" profile. To configure it, please modify your <code>src/main/resources/config/application-dev.yml</code> file.
+  You can build your generated Java application either with <a href="http://maven.apache.org/" target="_blank">Maven</a> or <a href="http://www.gradle.org/" target="_blank">Gradle</a>. Maven is more stable and more mature, and is our recommended choice if you don't know which option to take. Gradle is more flexible, easier to extend, and more hype.
 </p>
 
 <h3>Would you like to use Grunt or Gulp.js for building the frontend?</h3>

@@ -270,12 +270,22 @@ public interface PersistenceAuditEventRepository extends JpaRepository&lt;Persis
 						</pre>
 					</section>
 					<section>
+						<h1>MongoDB</h1>
+						<h3>NoSQL for scalability</h3>
+						<ul>
+							<li>Alternative to the SQL database and JPA choice</li>
+							<li>Similar code: Spring Data MongoDB works the same as Spring Data JPA</li>
+							<li>More scalable, easier to use</li>
+						</ul>
+					</section>
+					<section>
 						<h1>Caching</h1>
 						<h3>Caching is king for performance</h3>
 						<ul>
 						    <li>Ehcache is the most widely used solution</li>
 						    <li>HazelCast is a great alternative, with clustering support!</li>
-						    <li>2nd level cache or Spring Caching abstraction</li>
+						    <li>Hibernate 2nd level cache or Spring Caching abstraction</li>
+						</ul>
 						<pre>
 							<code data-trim contenteditable>
 @Entity
@@ -285,6 +295,15 @@ public class User implements Serializable {
 }
 							</code>
 						</pre>
+					</section>
+					<section>
+						<h1>Spring Security</h1>
+						<h3>Bulletproof Security framework</h3>
+						<ul>
+							<li>Leading tool, widely used across all industries</li>
+							<li>Secures URLs and Java code (Spring Beans)</li>
+							<li>Works both with stateful (cookies) and stateless (OAuth2) Web application architectures</li>
+						</ul>
 					</section>
 					<section>
 						<h1>Spring MVC REST</h1>
@@ -337,6 +356,14 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
 							</code>
 						</pre>
 					</section>
+					<section>
+						<h1>Cloud deployment</h1>
+						<h3>To the cloud and beyond!</h3>
+						<ul>
+							<li>Deployments should be easy on-premise and in the cloud</li>
+							<li>Leading cloud providers like Cloud Foundry, Heroku and OpenShift all provide specific tooling and deployment options</li>
+						</ul>
+					</section>
 
 				</section>
 
@@ -348,11 +375,11 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
 					<section>
 						<h3>You said <i>hype</i>?</h3>
 						<hr/>
-						<p>At the time of this writing (09/2014), the project is 11 months old:</p>
+						<p>At the time of this writing (11/2014), the project is 13 months old:</p>
 						<ul>
-							<li>We have 855 Github stars and 52 contributors</li>
+							<li>We have 1,104 Github stars and 63 contributors</li>
 							<li>We are the 3rd most popular Yeoman generator</li>
-							<li>We have 110K page views this month</li>
+							<li>We have 140K page views this month</li>
 							<li>We've been featured on Websites everywhere (Infoworld, SD Times, JavaWorld, Reddit...)</li>
 							<li>And it's growing rapidly</li>
 						</ul>
@@ -390,6 +417,7 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
 							<li>Specific Spring profile with GZipping and HTTP caching headers</li>
 							<li>JavaScript &amp; CSS optimization and minification by Grunt</li>
 							<li>Executable or standard WAR file, with monitoring enabled</li>
+							<li>Sub-generators for deploying automatically to Cloud Foundry, Heroku and OpenShift</li>
 						</ul>
 					</section>
 				</section>
