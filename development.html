@@ -112,7 +112,25 @@ sitemap:
     If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>.
 </p>
 
-<h2>Database updates</h2>
+<h2>Using the database</h2>
+<h3>(Optional) Using the H2 Database in development</h3>
+<p>
+    If you choose the H2 database (the default option for development with an SQL database), you can access its console at <a href="http://localhost:8080/console" target="_blank">http://localhost:8080/console</a> by default.
+</p>
+<p>
+    To connect to the database, use:
+    <ul>
+        <li>Driver Class: org.h2.Driver (this is the default)</li>
+        <li>JDBC URL: jdbc:h2:mem:XXXX (where XXXX is the name of your application - so by default it would be jdbc:h2:mem:jhipster )</li>
+        <li>User name: &lt;blank&gt;</li>
+        <li>Password: &lt;blank&gt;</li>
+    </ul>
+</p>
+<p>
+    <img src="images/h2.png"/>
+</p>
+
+<h3>Database updates</h3>
 <p>
     If you add or modify a JPA entity, you will need to update your database schema.
 </p>
@@ -156,8 +174,4 @@ sitemap:
 </p>
 <p>
     If you speak another language and are ready to help, feel free to send us your own translations!
-</p>
-<h2>H2 Database</h2>
-<p>
-    When using H2 database, you can access its console at <a href="http://localhost:8080/console" target="_blank">http://localhost:8080/console</a> by default.
 </p>
