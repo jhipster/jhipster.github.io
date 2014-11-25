@@ -45,7 +45,7 @@ This will generate two files (if your application is called "jhipster"):
 
 <p>
 The first one is an executable WAR file (see next section to run it). It can also be deployed on an application server,
-but as it includes the Tomcat runtime libs, you will probably get some warnings, that's why we recommend you use the second, 
+but as it includes the Tomcat runtime libs, you will probably get some warnings, that's why we recommend you use the second,
 ".original" file if you want to deploy JHipster on an application server.
 </p>
 
@@ -74,7 +74,7 @@ Or in "production" mode:
 </p>
 <p>
 	<code>
-	java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod 
+	java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
 	</code>
 </p>
 <h2>Generating an optimized JavaScript application with Grunt</h2>
@@ -116,4 +116,18 @@ JHipster comes with full monitoring support from <a href="http://metrics.codahal
 <p>In development, Metrics data will be available through JMX: launch your JConsole and you will be able to access it</p>
 <p>
 In production, your application will try to send this data to a <a href="http://graphite.wikidot.com/" target="_blank">Graphite</a> server, if you have configured one in your YAML configuration file.
+</p>
+
+<h2>Security</h2>
+<p>
+    JHipster comes with some default users generated for you. In production, you probably want to change their passwords: the easiest way to achieve this is to run the application a first time, and then use the generated "change password" form to modify those passwords.
+</p>
+<p>
+    Here are the provided user accounts:
+    <ul>
+        <li>"admin" is an admin user, with the "ROLE_USER" and "ROLE_ADMIN" authorizations.</li>
+        <li>"system" is used for auditing purposes, when an action is done automatically (the action is done by the system, not by a user). You should not be able to login with this user. It has the "ROLE_USER" and "ROLE_ADMIN" authorizations.</li>
+        <li>"user" is a standard user, with the "ROLE_USER" authorization.</li>
+        <li>"anonymousUser" is for non-authenticated users, so it doesn't have any authorization. This user can be useful for some Spring Security configurations, but we don't use it by default.</li>
+    </ul>
 </p>
