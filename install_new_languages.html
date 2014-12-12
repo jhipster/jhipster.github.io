@@ -1,0 +1,71 @@
+---
+layout: default
+title: Install new languages
+sitemap:
+    priority: 0.7
+    lastmod: 2014-12-10T00:00:00-00:00
+---
+
+<h1><i class="fa fa-flag"></i> Install new languages</h1>
+
+<h2>Introduction</h2>
+<p>
+  During the generation of a new project, JHipster only installs english and french languages.
+</p>
+<p>
+  However, JHipster supports more languages and could be installed using this sub-generator.
+</p>
+
+<h2>Which languages are supported out of the box?</h2>
+<p>
+  <ul>
+    <li>Catalan</li>
+    <li>Chinese (Traditional)</li>
+    <li>Danish</li>
+    <li>German</li>
+    <li>Korean</li>
+    <li>Polish</li>
+    <li>Portuguese (Brazilian)</li>
+  </ul>
+</p>
+
+<h2>How to install new languages?</h2>
+
+<p>
+  In order to install new languages, just type:
+</p>
+<p>
+  <code>
+    yo jhipster:languages
+  </code>
+</p>
+<p>
+  <img src="images/install_new_languages.png" width="400"/>
+</p>
+
+<h2>How to create a new language that is not supported?</h2>
+<p>
+  All languages are saved in the folder <code>/src/main/webapp/i18n</code>
+</p>
+<p>
+  Here are the steps to install a new language called <code>new_lang</code>:
+  <ol>
+    <li>Duplicate the <code>/src/main/webapp/i18/en</code> folder to <code>/src/main/webapp/i18/new_lang</code> </li>
+    <li>Translate all files under the folder <code>/src/main/webapp/i18/new_lang</code></li>
+    <li>
+      <p>Update the <code>LANGUAGES</code> constant defined in the folder <code>src/main/webapp/components/language/language.service.js</code>
+        <br/> to add the new language <code>new_lang</code></p>
+      <pre>
+        <code>
+.constant('LANGUAGES', [
+  'en', 'fr', 'new_lang'
+  //JHipster will add new languages here
+]
+        </code>
+      </pre>
+    </li>
+  </ol>
+</p>
+<p>
+  The new language <code>new_lang</code> is now available in the language menu
+</p>
