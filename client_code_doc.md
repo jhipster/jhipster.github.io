@@ -15,6 +15,10 @@ JHipster client code can be found under src/main/webapp/scripts, it is structure
     webapp
     ├── index.html                        - Application starting page that loads everything
     ├── bower_components                  - Dependencies retrieved by bower
+    ├── assets
+    │   ├── fonts                         - Fonts
+    │   ├── images                        - Images
+    │   ├── styles                        - CSS stylesheets
     ├── scripts
     │   ├── app.js                        - Main script
     │   ├── app                           - App specific components go in here
