@@ -72,7 +72,7 @@ sitemap:
 </p>
 <p>
     <code>
-        grunt server
+        grunt serve
     </code>
 </p>
 <p>
@@ -82,7 +82,7 @@ sitemap:
     If you have generated your application with the Sass/Compass option, your templates should also be automatically compiled into CSS.
 </p>
 <p>
-    This Grunt server has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/rest" target="_blank">http://localhost:8080/rest</a>), so it should be able to do live REST requests to the Java back-end.
+    This Grunt task has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/rest" target="_blank">http://localhost:8080/rest</a>), so it should be able to do live REST requests to the Java back-end.
 </p>
 <p>
     If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
@@ -113,9 +113,9 @@ sitemap:
 </p>
 
 <h2>Using the database</h2>
-<h3>(Optional) Using the H2 Database in development</h3>
+<h3>Using the H2 database in development</h3>
 <p>
-    If you choose the H2 database (the default option for development with an SQL database), you can access its console at <a href="http://localhost:8080/console" target="_blank">http://localhost:8080/console</a> by default.
+    If you choose the H2 database, you will have an in-memory database running inside your application, and you can access its console at <a href="http://localhost:8080/console" target="_blank">http://localhost:8080/console</a> by default.
 </p>
 <p>
     To connect to the database, select the pre-configured options:
@@ -130,28 +130,66 @@ sitemap:
     <img src="images/h2.png"/>
 </p>
 
-<h3>Database updates</h3>
+<h3>Using MySQL or Postgresql in development</h3>
+<p>
+    This option is bit more complex than using H2, but you have a some important benefits:
+    <ul>
+        <li>Your data is kept across application restarts</li>
+        <li>Your application starts a little bit faster</li>
+        <li>You can use the great <code>mvn liquibase:diff</code> goal (see below)</li>
+    </ul>
+</p>
+
+<h2>Database updates</h2>
+
 <p>
     If you add or modify a JPA entity, you will need to update your database schema.
 </p>
 <p>
-    JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> and stores its configuration in <code>/src/main/resources/config/liquibase/</code>.
+    JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> to manage the database updates, and stores its configuration in the <code>/src/main/resources/config/liquibase/</code> directory. There are 3 ways to work with Liquibase: use the entity sub-generator, use the liquibase:diff Maven goal, or update the configuration files manually.
+</p>
+
+<h3>Database updates with the entity sub-generator</h3>
 
 <p>
-    If you use our <a href="{{ site.url }}/creating_an_entity.html">entity sub-generator</a>, a Liquibase "change set" will be automatically
-    generated in your <code>config/liquibase/changelog/</code> directory. You can edit it, and customize it according to your needs.
+    If you use the <a href="{{ site.url }}/creating_an_entity.html">entity sub-generator</a>, here is the development workflow:
+    <ul>
+        <li>Run the <a href="{{ site.url }}/creating_an_entity.html">entity sub-generator</a></li>
+        <li>A new "change log" is created in your <code>src/main/resources/config/liquibase/changelog</code> directory, and has been automatically added to your <code>src/main/resources/config/liquibase/master.xml</code> file</li>
+        <li>Review this change log, it will be applied the next time you run your application</li>
+    </ul>
+</p>
+
+<h3>Database updates with the Maven liquibase:diff goal</h3>
+<p>
+    If you have choosen to use MySQL or Postgresql in development, you can use the <code>mvn liquibase:diff</code> goal to automatically generate a changelog.
 </p>
 <p>
-    If you prefer (or need) to do a database update manually, your development process should be:
+    <a href="http://www.liquibase.org/documentation/maven/index.html" target="_blank">Liquibase Hibernate</a> is a Maven plugin that is configured in your pom.xml, and is independant from your Spring application.yml file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
 </p>
-<ul>
-    <li>Add, modify or remove a JPA entity.</li>
-    <li>Create a new "change set" in your <code>config/liquibase/changelog</code> directory. The files in that directory are prefixed by their creation date (in yyyyMMddHHmmss format), and then have a title describing what they do. For example, <code>20141006152300_added_price_to_product.xml</code> is a good name.</li>
-    <li>This "change set" file must be referenced it in the <code>config/liquibase/master.xml</code> file.</li>
-    <li>Start up your application</li>
-</ul>
 <p>
-    When you startup your application, Spring Boot will update your database schema automatically using Liquibase.
+    Here is the development workflow:
+    <ul>
+        <li>Modify your JPA entity (add a field, a relationship, etc.)</li>
+        <li>Compile your application (this works on the compiled Java code, so don't forget to compile!)</li>
+        <li>Run <code>mvn liquibase:diff</code> (or <code>mvn compile liquibase:diff</code> to compile before)</li>
+        <li>A new "change log" is created in your <code>src/main/resources/config/liquibase/changelog</code> directory</li>
+        <li>Review this change log and add it to your <code>src/main/resources/config/liquibase/master.xml</code> file, so it is applied the next time you run your application</li>
+    </ul>
+</p>
+
+<p>
+    If you use Gradle instead of Maven, you can use the same workflow by running <code>./gradlew liquibaseDiffChangelog</code>, and change the database configuration in <code>liquibase.gradle</code> if required.
+</p>
+
+<h3>Database updates by manually editing the change log</h3>
+<p>
+    If you prefer (or need) to do a database update manually, here is the development workflow:
+    <ul>
+        <li>Modify your JPA entity (add a field, a relationship, etc.)</li>
+        <li>Create a new "change log" in your <code>src/main/resources/config/liquibase/changelog</code> directory. The files in that directory are prefixed by their creation date (in yyyyMMddHHmmss format), and then have a title describing what they do. For example, <code>20141006152300_added_price_to_product.xml</code> is a good name.</li>
+        <li>Add this "change log" file in your <code>src/main/resources/config/liquibase/master.xml</code> file, so it is applied the next time you run your application</li>
+    </ul>
 </p>
 <p>
     If you want more information on using Liquibase, please go to <a href="http://www.liquibase.org" target="_blank">http://www.liquibase.org</a>.
@@ -170,8 +208,5 @@ sitemap:
     This key references a JSON document, which will return the translated String. AngularJS will then replace the "First Name" String with the translated version.
 </p>
 <p>
-    For example, here are the translations provided by default in JHipster for <a href="https://github.com/jhipster/generator-jhipster/blob/master/app/templates/src/main/webapp/i18n/_en.json" target="_blank">English</a> and for <a href="https://github.com/jhipster/generator-jhipster/blob/master/app/templates/src/main/webapp/i18n/_fr.json" target="_blank">French</a>.
-</p>
-<p>
-    If you speak another language and are ready to help, feel free to send us your own translations!
+    If you want more information on using languages, read our <a href="{{ site.url }}/installing_new_languages.html">Installing new languages documentation</a>.
 </p>
