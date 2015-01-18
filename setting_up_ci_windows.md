@@ -93,6 +93,7 @@ http://compass-style.org/install/
 ~~~
 gem update --system
 gem install compass
+compass --version
 ~~~
 
-If Ruby and Compass have been installed in a directory that is not included in jenkins user's PATH, you can either update it in  environment variables or through Jenkins UI in global properties.
+If Ruby and Compass have been installed in a folder that is not included in jenkins user's PATH, you can either update it in  environment variables or through Jenkins UI in global properties.
