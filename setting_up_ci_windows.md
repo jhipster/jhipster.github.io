@@ -63,28 +63,36 @@ Add the 'C:\nodejs\node_modules\npm' folder to the PATH environment variable, re
 
 npm may require git, install it from http://msysgit.github.io/
 
-Ajouter bower et grunt dans les programmes à installer globalement, ici avec leurs versions de base pour avoir un build reproductible.
+Add bower and grunt:
 
-Il peut être utile de pouvoir faire cohabiter plusieurs version de NodeJS sur la même machine mais les équivalents de nvm sur Windows posent certains problèmes et en fait ne sont utiles qu'en développement, en intégration cotinue on peut s'en passer en configurant le PATH des jobs.
+~~~
+npm install -g bower grunt-cli
+bower --version
+grunt --version
+~~~
 
-
+It can be useful to have multiple versions of NodeJS on same machine but 'nvm' equivalents on Windows focus more on development environment than continuous integration. So if a job requires another version of NodeJS, change its PATH.
 
 ## Installing Ruby and Compass
 
 http://rubyinstaller.org/
 
-Installer la version 1.9.3 sous c:\ruby193
+Install version 1.9.3 under a simple folder (e.g.'c:\ruby193') rather than default one that may require administrator rights.
 
+~~~
 ruby -v
 ruby 1.9.3p551 (2014-11-13) [i386-mingw32]
+~~~
 
-Installer le development Kit sous c:\RubyDevKit pour pouvoir installer des gems nécessitant de la compilation.
+Install development kit so that you can install gems requiring compilation, select a simple destination folder (e.g. 'c:\RubyDevKit') and [follow instructions](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit).
 
-https://github.com/oneclick/rubyinstaller/wiki/Development-Kit
+Install Compass
 
 http://compass-style.org/install/
 
+~~~
 gem update --system
 gem install compass
+~~~
 
-Si Ruby et Compass sont installés dans un folder qui n'est pas dans le PATH de Jenkins, le mettre à jour dans les proprietés globales
+If Ruby and Compass have been installed in a directory that is not included in jenkins user's PATH, you can either update it in  environment variables or through Jenkins UI in global properties.

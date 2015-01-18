@@ -105,9 +105,10 @@ ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-linux]
 
 # install Compass and implicitly SASS
 gem install compass
+compass --version
 ~~~
 
-If Ruby and Compass have been installed in a directory that is not included in jenkins user's PATH, you can either update it in bash or thorugh Jenkins UI in global properties:
+If Ruby and Compass have been installed in a directory that is not included in jenkins user's PATH, you can either update it in bash or through Jenkins UI in global properties:
 
 ~~~
 name: PATH
