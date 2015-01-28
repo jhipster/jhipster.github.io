@@ -88,9 +88,9 @@ sitemap:
     If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
 </p>
 
-<h2>Using Bower to install and update JavaScript dependencies</h2>
+<h2>Using Bower to install and update JavaScript, CSS and Sass dependencies</h2>
 <p>
-    You can use bower normally to update your JavaScript dependencies:
+    You can use bower to update your JavaScript, CSS and Sass dependencies:
 </p>
 <p>
     <code>
@@ -98,18 +98,29 @@ sitemap:
     </code>
 </p>
 <p>
-    Or if you want to install a new JavaScript dependency:
+    Or if you want to install a new JavaScript, CSS or Sass dependency:
 </p>
 <p>
     <code>
-        bower install &lt;package&gt;
+        bower install &lt;package&gt; --save
     </code>
 </p>
 <p>
-    Your JavaScript dependencies will be stored in your <code>src/main/webapp/bower_components</code> folder, and we believe it is a good idea to store them in your Git repository (but JHispter does not force you to do so).
+    Your JavaScript, CSS or Sass dependencies will be stored in your <code>src/main/webapp/bower_components</code> folder, and we believe it is a good idea to store them in your Git repository (but JHispter does not force you to do so).
 </p>
 <p>
-    If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>.
+    If the installed dependency contains JavaScript files they will automatically be injected into index.html and karma.conf.js. The injection can be found in between the bower.js and endbower comments. Likewise the CSS files will be injected into index.html and the SCSS files into main.scss. However this is only if the grunt server is running. If the grunt server is not running they will be injected next time you run "grunt serve".
+</p>
+<p>
+    To trigger the injection manually run:
+</p>
+<p>
+    <code>
+        grunt wiredep
+    </code>
+</p>
+<p>
+    If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>. For more information on using Grunt Wiredep, please go to <a href="http://stephenplusplus.github.io/grunt-wiredep/" target="_blank">http://stephenplusplus.github.io/grunt-wiredep</a>.
 </p>
 
 <h2>Using the database</h2>
