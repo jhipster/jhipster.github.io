@@ -109,10 +109,13 @@ sitemap:
     Your JavaScript, CSS or Sass dependencies will be stored in your <code>src/main/webapp/bower_components</code> folder, and we believe it is a good idea to store them in your Git repository (but JHispter does not force you to do so).
 </p>
 <p>
-    If the installed dependency contains JavaScript files they will automatically be injected into index.html and karma.conf.js. The injection can be found in between the bower.js and endbower comments. Likewise the CSS files will be injected into index.html and the SCSS files into main.scss. However this is only if the grunt server is running. If the grunt server is not running they will be injected next time you run "grunt serve".
+    If the installed dependency contains JavaScript files they will automatically be injected into your <code>index.html</code> and <code>karma.conf.js</code> files. Likewise the CSS files will be injected into the <code>index.html</code> file, and the SCSS files into the <code>main.scss</code>.
 </p>
 <p>
-    To trigger the injection manually run:
+    However this will only work if the grunt server is running. If it is not running they will be injected next time you run <code>grunt serve</code>.
+</p>
+<p>
+    Or, if you want to trigger the injection manually, just run:
 </p>
 <p>
     <code>
