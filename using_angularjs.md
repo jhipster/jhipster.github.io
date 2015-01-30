@@ -37,12 +37,12 @@ JHipster client code can be found under src/main/webapp/scripts, it is structure
     │   │   ├── util                      - Generic components like filters to format data
     ├── i18n                              - Translation files
 
-When generating a new entity Foo with `yo jhipster:entity Foo` the following client-side files get generated under src/main/webapp:
+When generating a new entity Foo with `yo jhipster:entity Foo` the following front-end files get generated under src/main/webapp:
 
     scripts
     ├── app
     │   ├── entities                          
-    │   │   ├── foo
+    │   │   ├── foo                           - Main location of the CRUD front-end for Foo
     │   │   │   ├── foos.html                 - View to display the list of Foo entities
     │   │   │   ├── foo-detail.html           - View to display details of one Foo entity
     │   │   │   ├── foo.js                    - States for list and details
