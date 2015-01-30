@@ -1,0 +1,19 @@
+/* few CSS classes extracted from Boostrap docs to be able to render the Bootstrap icon */
+
+.bs-docs-booticon {
+    color: #FFF;
+	background-color: #6F5499;
+    display: inline-block;
+    text-align: center;
+    border-radius: 15%;
+}
+
+.bs-docs-booticon-lg {
+    width: 60px;
+    height: 60px;
+    font-size: 54px;
+}
+
+.bs-docs-booticon-outline {
+    border: 1px solid #CDBFE3;
+}
