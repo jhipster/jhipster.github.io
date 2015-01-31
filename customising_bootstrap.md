@@ -8,68 +8,65 @@ lastmod: 2015-01-30T18:40:00-00:00
 
 # <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">B</span> Customising Bootstrap
 
+## Basic customisation
+
 The simplest way to customize how your JHipster Bootstrap application looks like is by
 overriding CSS styles in `src/main/webapp/assets/images/styles/main.css` if you don't use 
 Compass or in `src/main/scss/main.scss` if you do.
 
 With Compass you can go further by combining Bootstrap-sass mixins to create your own classes.
 
-For this you must import bootstrap-sass files into your `src/main/scss/main.scss`, bower has installed them into `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap`.
+If you have selected Compass when generating your application, JHipster has already imported bootstrap-sass main file into your `src/main/scss/main.scss` and has installed them in `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets`.
 
 main.scss
 
-~~~
-// bower:scss
+	// bower:scss
+	@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+	// endbower
 
-@import "bootstrap-sass/assets/stylesheets/bootstrap/bootstrap"
+This import statement has by inserted by the wiredep task because it is enclosed by bower comments, it
+imports `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.scss`.
 
-// endbower
-~~~
+## Advanced customisation
 
-This line imports `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.scss`, pay attention to the fact that the `@import` statement does not specify the leading underscore nor the `.scss` suffix, this is what SASS calls partials. It is enclosed with bower comments used by wiredep task.
+If you want to go further into Bootstrap customisation by excluding some components, adding new ones or replacing standard ones with yours, you mùust exclude the standard Bootstrap SASS files from the 
+wiredep task in 'Gruntfile.js' so that your custom one is picked up instead:
 
-If you want to go further into Bootstrap customisation by excluding some components, adding new ones or replacing standard ones with yours, copy `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.scss` to `src/main/scss/_custom-bootstrap.scss` then import it into your `main.scss` and don't forget to remove all other bootstrap imports you may previously have imported:
+Gruntfile.js
 
-main.scss
+    wiredep: {
+        app: {
+            src: ['src/main/webapp/index.html', 'src/main/scss/main.scss'],
+            exclude: [/angular-i18n/, /swagger-ui/, /bootstrap-sass\/assets\/stylesheets/],
 
-~~~
-@import "custom-bootstrap"
-~~~
+Copy `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss` to `src/main/scss/_custom-bootstrap.scss`
 
-Then you should edit your `src/main/scss/_custom-bootstrap.scss` to point all @import statements to your bower_components directory and to enclose them within bower comments for wiredep task:
+Edit your `_custom-bootstrap.scss` file to add "bootstrap-sass/assets/stylesheets/" to all import statements so that they point to the `bower_components` directory.
 
-_custom-bootstrap.scss
+	// Core variables and mixins
+	@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+	@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-~~~
-// bower:scss
+Import it into your `main.scss` file outside the bower comments:
 
-// Core variables and mixins
-@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+	@import "custom-bootstrap";
 
-...
+	// bower:scss
+	// endbower
 
-// endbower
-~~~
+
+Pay attention to the fact that the `@import` statements do not specify the leading underscore nor the `.scss` filename extension, this is what SASS calls partials. 
 
 Test that your project still builds your stylesheets by running `grunt build`.
 
 It's very likely that you will want to replace some values in the bootstrap variables, just copy `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss` to `src/main/scss/_custom-variables.scss` and change the variables values you want and change related import statement in `_custom-bootstrap.scss`:
 
-~~~
-// bower:scss
+	// Core variables and mixins
+	@import "custom-variables";
+	@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-// Core variables and mixins
-@import "custom-variables";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+You can follow same procedure and naming convention ('_custom-*.css`) for any other partial you want to customise, this will make easier to integrate bootstrap-sass updates.
 
-...
+You can also comment out some `@import` lines in  `_custom-boostrap.scss` to exclude some components you don't need, it's safer to comment out rather than deleting also to make easier to integrate bootstrap-sass updates.
 
-// endbower
-~~~
-
-You can follow same procedure and naming convention for any other files you want to customise, this will make easier to integrate bootstrap-sass updates.
-
-You can also comment out some `@import` lines in  `_custom-boostrap.scss` to exclude some components you don't need to optimize download size, it's safer to comment out rather than deleting also to make easier to integrate bootstrap-sass updates.
-
-Each time you make a change, test it with grunt or better use `grunt serve` to get immediate feedback.
+Each time you make a change, test it with `grunt build` or better use `grunt serve` to get immediate feedback.
