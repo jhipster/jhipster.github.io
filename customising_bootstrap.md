@@ -24,7 +24,7 @@ main.scss
 	@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 	// endbower
 
-This import statement has by inserted by the wiredep task because it is enclosed by bower comments, it
+This import statement has been inserted by the wiredep task because it is enclosed by bower comments, it
 imports `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.scss`.
 
 ## Advanced customisation
