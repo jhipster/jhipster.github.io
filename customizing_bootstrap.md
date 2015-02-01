@@ -65,7 +65,7 @@ Import it into your `main.scss` file outside the bower comments:
 	// endbower
 
 
-Pay attention to the fact that the `@import` statements do not specify the leading underscore nor the `.scss` filename extension, this is what SASS calls partials. 
+Pay attention to the fact that the `@import` statements do not specify the leading underscore nor the `.scss` filename extension, this is what SASS calls partials. x&
 
 Test that your project still builds your stylesheets by running `grunt build` or `gulp build`.
 
