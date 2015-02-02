@@ -1,17 +1,19 @@
 ---
 layout: default
-title: Customising Bootstrap
+title: Customizing Bootstrap
 sitemap:
 priority: 0.7
 lastmod: 2015-01-30T18:40:00-00:00
 ---
 
-# <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">B</span> Customising Bootstrap
+# <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">B</span> Customizing Bootstrap
+
+_Pro tip: don't forget use to `grunt serve` or `gulp serve` to get immediate feedback of your changes!_
 
 ## Basic customisation
 
-The simplest way to customize how your JHipster Bootstrap application looks like is by
-overriding CSS styles in `src/main/webapp/assets/images/styles/main.css` if you don't use 
+The simplest way to customize how your JHipster application looks like is by
+overriding CSS styles in `src/main/webapp/assets/images/styles/main.css` if you don't use
 Compass or in `src/main/scss/main.scss` if you do.
 
 With Compass you can go further by combining Bootstrap-sass mixins to create your own classes.
@@ -29,7 +31,7 @@ imports `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/boot
 
 ## Advanced customisation
 
-If you want to go further into Bootstrap customisation by excluding some components, adding new ones or replacing standard ones with yours, you mùust exclude the standard Bootstrap SASS files from the 
+If you want to go further into Bootstrap customisation by excluding some components, adding new ones or replacing standard ones with yours, you must exclude the standard Bootstrap SASS files from the
 wiredep task in 'Gruntfile.js' or `gulpfile.js` so that your custom one is picked up instead:
 
 Gruntfile.js
