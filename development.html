@@ -68,7 +68,7 @@ sitemap:
     <i>We highly recommend you use this feature, as it allows to have live reloading of your client-side code.</i>
 </p>
 <p>
-    You can run Grunt to work on the client-side JavaScript application:
+    You can use Grunt to work on the client-side JavaScript application:
 </p>
 <p>
     <code>
@@ -76,13 +76,20 @@ sitemap:
     </code>
 </p>
 <p>
-    This should open up your Web browser, with live reload enabled, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>. As soon as you modify one of your HTML/CSS/JavaScript file, your browser should refresh itself automatically.
+    This should open up your Web browser, with live reload enabled, on <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>. This works thanks to <a href="http://www.browsersync.io/" target="_blank">BrowserSync</a>, and you can access its administration screen on <a href="http://localhost:3001" target="_blank">http://localhost:3001</a>.
+</p>
+<p>
+    This provides two very impressive features:
+    <ul>
+        <li>As soon as you modify one of your HTML/CSS/JavaScript file, your browser will refresh itself automatically</li>
+        <li>When you test your application on several different browsers or devices, all your clicks/scrolls/inputs should be automatically synchronized on all screens</li>
+    </ul>
+</p>
+<p>
+    This Grunt task has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/api" target="_blank">http://localhost:8080/api</a>), so it should be able to do live REST requests to the Java back-end.
 </p>
 <p>
     If you have generated your application with the Sass/Compass option, your templates should also be automatically compiled into CSS.
-</p>
-<p>
-    This Grunt task has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/rest" target="_blank">http://localhost:8080/rest</a>), so it should be able to do live REST requests to the Java back-end.
 </p>
 <p>
     If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
