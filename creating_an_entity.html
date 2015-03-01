@@ -32,13 +32,30 @@ lastmod: 2014-10-10T00:00:00-00:00
 <p>
     The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see <a href="{{ site.url }}/using_angularjs.html">project structure</a>).
 </p>
+
+<h2>Entity relationships</h2>
+
 <p>
-    If you created your application with <a href="http://www.mongodb.org" target="_blank">MongoDB</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entities correctly (you will have MongoDB documents instead of JPA entities), but of course you won't be able to have relationships between your entities.
+    If you created your application with <a href="http://jhipster.github.io/using_mongodb.html">MongoDB</a> or <a href="http://jhipster.github.io/using_cassandra.html">Cassandra</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entities correctly (you will have MongoDB documents or Cassandra tables instead of JPA entities), but of course you won't be able to have relationships between your entities.
 </p>
+
+<p>
+    You can create <code>one-to-one</code>, <code>one-to-many</code>, <code>many-to-one</code> and <code>many-to-many</code> relationships. Please note that all relationships are bi-directional, and that as we use a database (and generate the necessary foreign keys), you will need to generate your entities in a certain order. For example, if there is a "client" who has a one-to-many relationship to an "order", you need to generate the client entity first, so that the "order" foreign key to the "client" table can be set up.
+</p>
+
+<p>
+    JHipster will ask you the name of your relationship: by default, this is the name of the other entity, but you can write another name if you want to have multiple relationships between two entities.
+</p>
+
+<p>
+    Please note that the <code>user</code> entity, which is handled by JHipster, is specific. You can do <code>many-to-one</code> relationships to this entity (an "order" can have a many-to-one relationship to the "user"). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement.
+</p>
+
+<h2>Tutorial</h2>
 
 <p>This is a short tutorial on creating two entities (a Author and a Book) which have a one-to-many relationship.<p>
 
-<h2>Generate the "Author" entity</h2>
+<h3>Generate the "Author" entity</h3>
 
 <p>As we want to have a one-to-many relationship between Authors and Books (one author can write many books), we need to create the Author first. At the database level, JHipster will then be able to add a foreign key on the Book table, linking to the Author table.</p>
 
@@ -62,7 +79,7 @@ lastmod: 2014-10-10T00:00:00-00:00
     </ul>
 </p>
 
-<h2>Generate the "Book" entity</h2>
+<h3>Generate the "Book" entity</h3>
 
 <p>
     <code>
@@ -101,7 +118,7 @@ lastmod: 2014-10-10T00:00:00-00:00
     Check the database tables, to see if your data is correctly inserted.
 </p>
 
-<h2>Improve the generated code</h2>
+<h3>Improve the generated code</h3>
 <p>
     The generated files contain all the basic CRUD operations, and don't need to be modified if your needs are simple.
 </p>
@@ -112,7 +129,7 @@ lastmod: 2014-10-10T00:00:00-00:00
     If you want some more complex business behaviors, you might need to add a Spring <code>@Service</code> class, using the <a href="{{ site.url }}/creating_a_service.html">service sub-generator</a>.
 </p>
 
-<h2>You're done!</h2>
+<h3>You're done!</h3>
 
 <p>
     Your generated CRUD page should look like this:
