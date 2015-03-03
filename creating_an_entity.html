@@ -36,7 +36,7 @@ lastmod: 2014-10-10T00:00:00-00:00
 <h2>Entity relationships</h2>
 
 <p>
-    If you created your application with <a href="http://jhipster.github.io/using_mongodb.html">MongoDB</a> or <a href="http://jhipster.github.io/using_cassandra.html">Cassandra</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entities correctly (you will have MongoDB documents or Cassandra tables instead of JPA entities), but of course you won't be able to have relationships between your entities.
+    If you created your application with <a href="http://jhipster.github.io/using_mongodb.html" target="_blank">MongoDB</a> or <a href="http://jhipster.github.io/using_cassandra.html" target="_blank">Cassandra</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entities correctly (you will have MongoDB documents or Cassandra tables instead of JPA entities), but of course you won't be able to have relationships between your entities.
 </p>
 
 <p>
@@ -49,6 +49,25 @@ lastmod: 2014-10-10T00:00:00-00:00
 
 <p>
     Please note that the <code>user</code> entity, which is handled by JHipster, is specific. You can do <code>many-to-one</code> relationships to this entity (an "order" can have a many-to-one relationship to the "user"). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement.
+</p>
+
+<h2>Pagination</h2>
+<p>
+    Please note that pagination is not available if you created your application with <a href="http://jhipster.github.io/using_cassandra.html" target="_blank">Cassandra</a>. Of course this will be added in a future release.
+</p>
+
+<p>
+    Pagination uses <a href="http://tools.ietf.org/html/rfc5988" target="_blank">the Link header</a>, as in the <a href="https://developer.github.com/v3/#pagination" target="_blank">Github API</a>. JHipster provides a custom implementation of this specification on both the server (Spring MVC REST) and client (AngularJS) sides.
+</p>
+
+<p>
+    When the entity is generated, JHipster provides 4 pagination options:
+    <ul>
+        <li>No pagination (in that case, the back-end won't be paginated)</li>
+        <li>A simple pager, based on <a href="http://getbootstrap.com/components/#pagination-pager" target="_blank">the Bootstrap pager</a></li>
+        <li>A complete pagination system, based on <a href="http://getbootstrap.com/components/#pagination" target="_blank">the Bootstrap pagination component</a></li>
+        <li>An infinite scroll system, based on <a href="http://sroze.github.io/ngInfiniteScroll/" target="_blank">the infinite scroll directive</a></li>
+    </ul>
 </p>
 
 <h2>Tutorial</h2>
