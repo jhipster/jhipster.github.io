@@ -18,11 +18,20 @@ mvn -Pprod spring-boot:run
 </code>
 </p>
 <p>
+Or when using Gradle:
+</p>
+<p>
+<code>
+gradlew -Pprod bootRun
+</code>
+</p>
+<p>
 This profile will compile, test and package your Java application with all productions settings. It will also trigger a "grunt build", so your static resources are optimized.
 </p>
 <p>
 If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles.html">Development and Production profiles</a>".
 </p>
+
 
 <h2>Generating a WAR file</h2>
 
@@ -33,6 +42,15 @@ If you want more information on the available profiles, please go the section ti
 	<code>
 	mvn -Pprod package
 	</code>
+</p>
+
+<p>
+Or when using Gradle:
+</p>
+<p>
+<code>
+gradlew -Pprod bootRepackage
+</code>
 </p>
 
 <p>
