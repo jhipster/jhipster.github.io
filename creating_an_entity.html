@@ -33,10 +33,49 @@ lastmod: 2014-10-10T00:00:00-00:00
     The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see <a href="{{ site.url }}/using_angularjs.html">project structure</a>).
 </p>
 
+<h2>Entity fields</h2>
+<p>
+    For each entity, you can add as many fields as you want. You will need to input the field names and their types, and JHipster will generate for you all the required code and configuration, from the AngularJS HTML view to the Liquibase changelog.
+</p>
+
+<h2>Validation</h2>
+<p>
+    Validation can be set up for each field. Depending on the field type, different validation options will be available.
+</p>
+<p>
+    Validation will be automatically generated on:
+    <ul>
+        <li>the HTML views, using <a href="https://docs.angularjs.org/guide/forms" target="_blank">the AngularJS validation mechanism</a></li>
+        <li>the Java domain objects, using <a href="http://beanvalidation.org/" target="_blank">Bean Validation</a></li>
+    </ul>
+</p>
+<p>
+    Bean validation will then be used to automatically validate domain objects when they are used in:
+    <ul>
+        <li>Spring MVC REST controllers (using the <code>@Valid</code> annotation)</li>
+        <li>Hibernate/JPA (entities are automatically validated before being saved)</li>
+    </ul>
+</p>
+<p>
+    Validation information will also be used to generate more precise database column metadata:
+    <ul>
+        <li>Required fields will be marked non-nullable</li>
+        <li>Fields which have a maximum length will have the same column length</li>
+    </ul>
+</p>
+<p>
+    Validation has a few limitations:
+    <ul>
+        <li>We don't support all validation options from AngularJS and Bean Validation, as we only support those which are common to both APIs</li>
+        <li>Regular Expression patterns don't work the same in JavaScript and in Java, so if you configure one, you might need to tweak one of the generated patterns</li>
+        <li>JHipster generates unit tests that work for generic entities, without knowing your validation rules: it is possible that the generated tests do not pass the validation rules. In that case, you will need to update the sample values used in your unit tests, so that they pass the validation rules.</li>
+    </ul>
+</p>
+
 <h2>Entity relationships</h2>
 
 <p>
-    If you created your application with <a href="http://jhipster.github.io/using_mongodb.html" target="_blank">MongoDB</a> or <a href="http://jhipster.github.io/using_cassandra.html" target="_blank">Cassandra</a> instead of a more classical SQL/JPA solution, JHipster will still generate your entities correctly (you will have MongoDB documents or Cassandra tables instead of JPA entities), but of course you won't be able to have relationships between your entities.
+    Entity relationships only work for SQL databases. If you created your application with <a href="http://jhipster.github.io/using_mongodb.html" target="_blank">MongoDB</a> or <a href="http://jhipster.github.io/using_cassandra.html" target="_blank">Cassandra</a> instead, JHipster will still generate your entities correctly (you will have MongoDB documents or Cassandra tables instead of JPA entities), but of course you won't be able to have relationships between your entities.
 </p>
 
 <p>
@@ -139,7 +178,7 @@ lastmod: 2014-10-10T00:00:00-00:00
 </p>
 
 
-<h2>Check the generated code</h2>
+<h3>Check the generated code</h3>
 
 <p>
     Run the generated test suite, with <code>mvn test</code>, which will test the Author entity and the Book entity.
