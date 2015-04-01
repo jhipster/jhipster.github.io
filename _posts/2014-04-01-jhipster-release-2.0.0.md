@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Release 2.0.0 (April's fool 2014)
+title: Release 2.0.0 (April Fools 2014)
 ---
 
-April's fool 2014
+April Fools 2014
 ----------
 
-**The following announcement is our 2014 April's fool joke, so of course you should NOT consider it seriously**
+**The following announcement is our 2014 April Fools joke, so of course you should NOT consider it seriously**
 
 JHipster 2
 ----------
@@ -15,8 +15,8 @@ JHipster 2 breaks compatibility, new focus on the [Golo language](http://golo-la
 
 Announcing JHipster for Golo
 ----------
- 
-JHipster's goal has always be to provide the hippest tools to developpers. Yeoman, Grunt, Bower, AngularJS, Spring Boot, you name it... 
+
+JHipster's goal has always be to provide the hippest tools to developpers. Yeoman, Grunt, Bower, AngularJS, Spring Boot, you name it...
 A lot of tension has arised with the release of Java 8, as many people wanted JHipster to drop Java 7 support.
 
 After careful consideration, we have in fact decided to deprecate the whole Java language and focus instead on the [Golo language](http://golo-lang.org/).
@@ -37,5 +37,3 @@ As a result, our top developpers ([@juliendubois](https://twitter.com/juliendubo
 - In the long run, the TypeUnsafe stack should attract some bigger software vendor, who will buy the company for an insane amount of money.  This should allow us to stop coding and follow Mark Fleury's example and become DJs in Spain.
 
 See more information on the [TypeUnsafe website](http://www.typeunsafe.org/).
-
-

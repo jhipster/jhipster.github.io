@@ -1,10 +1,12 @@
 ---
 layout: default
-title: Enterprise Edition
+title: Enterprise Edition (April Fools 2015)
 ---
 
-JHipster Enterprise Edition
+April Fools 2015
 ==================
+
+**The following announcement is our 2015 April Fools joke, so of course you should NOT consider it seriously**
 
 Announcing JHipster Enterprise Edition
 ----------
