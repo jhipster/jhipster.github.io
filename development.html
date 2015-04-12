@@ -51,7 +51,15 @@ sitemap:
 <h3>(Optional) As a Gradle project</h3>
 
 <p>
-    If you selected the Gradle option when creating the project, you can launch the Java server with Gradle:
+    If you selected the Gradle option when creating the project but haven't installed Gradle, you can still launch the Java server with our <a href="https://gradle.org/docs/current/userguide/gradle_wrapper.html" target="_blank">Gradle wrapper</a> script located at the root of your project:
+</p>
+<p>
+    <code>
+        gradlew bootRun
+    </code>
+</p>
+<p>
+    Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
 </p>
 <p>
     <code>
@@ -61,6 +69,10 @@ sitemap:
 
 <p>
     The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+</p>
+
+<p>
+    If you want more information on using Gradle, please go to <a href="https://gradle.org" target="_blank">https://gradle.org</a>
 </p>
 
 <h2>Using the Java server and Grunt together</h2>
