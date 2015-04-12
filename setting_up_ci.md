@@ -8,7 +8,7 @@ lastmod: 2015-01-09T12:40:00-00:00
 
 # <i class="fa fa-check-square-o"></i> Setting up Continuous Integration
 
-Setting up your own continuous integration server using Jenkins for a JHipster application is harder than for a classic Spring MVC application because of all tools required to build and test the client code.
+Setting up your own continuous integration server using Jenkins for a JHipster application is harder than for a classic Spring MVC application because of all the tools required to build and test the client code.
 
 It's harder because you have to manage 3 software stacks in your build process:
 
