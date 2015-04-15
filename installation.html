@@ -96,8 +96,8 @@ This image will allow you to run JHipster inside Docker.
       <code>
         VBoxManage modifyvm "boot2docker-vm" --natpf1 "containerssh,tcp,,4022,,4022"<br/>
         VBoxManage modifyvm "boot2docker-vm" --natpf1 "containertomcat,tcp,,8080,,8080"<br/>
-        VBoxManage modifyvm "boot2docker-vm" --natpf1 "containergruntserver,tcp,,9000,,9000"<br/>
-        VBoxManage modifyvm "boot2docker-vm" --natpf1 "containergruntreload,tcp,,35729,,35729"<br/>
+        VBoxManage modifyvm "boot2docker-vm" --natpf1 "containerbrowersync,tcp,,3000,,3000"<br/>
+        VBoxManage modifyvm "boot2docker-vm" --natpf1 "containerbrowersyncui,tcp,,3001,,3001"<br/>
       </code>
     </p>
   </li>
@@ -136,12 +136,12 @@ Run The docker image, with the following options:
 <p>
   <ul>
     <li>The Docker "/jhipster" folder is shared to the local "~/jhipster" folder</li>
-    <li>Forward all ports exposed by docker (8080 for Tomcat, 9000 for the "grunt serve" task, 35729 for the live reload with grunt-contrib-watch and 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts:</li>
+    <li>Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the "grunt serve" task, 3001 for the BrowserSync UI, and 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts:</li>
   </ul>
 </p>
 <p>
 <code>
-sudo docker run -v ~/jhipster:/jhipster -p 8080:8080 -p 9000:9000 -p 35729:35729 -p 4022:22 -t jdubois/jhipster-docker
+sudo docker run -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -p 4022:22 -t jdubois/jhipster-docker
 </code>
 </p>
 
@@ -169,13 +169,13 @@ Run The docker image, with the following options:
 <p>
   <ul>
     <li>
-      Forward all ports exposed by docker (8080 for Tomcat, 9000 for the "grunt serve" task, 35729 for the live reload with grunt-contrib-watch and 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts
+      Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the "grunt serve" task, 3001 for the BrowserSync UI, and 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts
     </li>
   </ul>
 </p>
 <p>
   <code>
-    docker run -d -p 8080:8080 -p 9000:9000 -p 35729:35729 -p 4022:22 -t jdubois/jhipster-docker
+    docker run -d -p 8080:8080 -p 3000:3000 -p 3001:3001 -p 4022:22 -t jdubois/jhipster-docker
   </code>
 </p>
 <p>
@@ -196,7 +196,7 @@ Run The docker image, with the following options:
       Here is the resultat of the command `docker ps`. Get the name at the column NAMES.
       <code>
       CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                            NAMES<br/>
-      418448ff3371        jdubois/jhipster-docker:latest   "/bin/sh -c '/usr/sb   59 minutes ago      Up 59 minutes       0.0.0.0:4022->22/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:9000->9000/tcp, 0.0.0.0:35729->35729/tcp   <b>naughty_bartik</b>
+      418448ff3371        jdubois/jhipster-docker:latest   "/bin/sh -c '/usr/sb   59 minutes ago      Up 59 minutes       0.0.0.0:4022->22/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:3000->3000/tcp, 0.0.0.0:3001->3001/tcp   <b>naughty_bartik</b>
       </code>
     </p>
   </li>
@@ -220,7 +220,7 @@ Run The docker image, with the following options:
         enter 'cifs://192.168.59.103 <br/>
         hit the 'Connect' button <br/>
         select the volumes you want to mount <br/>
-        choose the 'Guest' radiobox and connect <br/>
+        choose the 'Guest' radio button and connect <br/>
       </code>
     </p>
   </li>
