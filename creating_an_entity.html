@@ -21,6 +21,8 @@ lastmod: 2014-10-10T00:00:00-00:00
     <li>A Spring MVC REST Controller, which has the basic CRUD operations</li>
     <li>An AngularJS router, a controller and a service</li>
     <li>An HTML view</li>
+    <li>Integration tests, to validate everything works as expected</li>
+    <li>Performance tests, to see if everything works smoothly</li>
 </ul>
 <p>
     If you have several entities, you will likely want to have relationships between them. For this, you will need:
@@ -36,6 +38,16 @@ lastmod: 2014-10-10T00:00:00-00:00
 <h2>Entity fields</h2>
 <p>
     For each entity, you can add as many fields as you want. You will need to input the field names and their types, and JHipster will generate for you all the required code and configuration, from the AngularJS HTML view to the Liquibase changelog.
+</p>
+<p>
+    Those fields cannot contain reserved keywords in the technologies you are using. For example, if you use PostgreSQL:
+</p>
+
+<p>
+    <ul>
+        <li>You cannot use Java reserved keywords (as your code will not compile)</li>
+        <li>You cannot use PostgreSQL reserved keywords (as your database schema update will fail)</li>
+    </ul>
 </p>
 
 <h2>Validation</h2>
