@@ -11,13 +11,13 @@ JHipster release 2.9.0
 What's new
 ----------
 
-We now have support for __ElasticSearch__!
+We now have support for __Elasticsearch__!
 
-Original work was done by [David Pilato](https://twitter.com/dadoonet) from ElasticSearch, during the DevoxxFR HackerGarten, but (sorry, David!) we ended up recoding everything in order to use Spring Data ElasticSearch.
+Original work was done by [David Pilato](https://twitter.com/dadoonet) from Elasticsearch, during the DevoxxFR HackerGarten, but (sorry, David!) we ended up recoding everything in order to use Spring Data Elasticsearch.
 
-The main interest of using Spring Data ElasticSearch is that everything is automatically configured for you by Spring Boot.
+The main interest of using Spring Data Elasticsearch is that everything is automatically configured for you by Spring Boot.
 
-If you want more information on our ElasticSearch support, we have a [specific documentation available](http://jhipster.github.io/using_elasticsearch.html).
+If you want more information on our Elasticsearch support, we have a [specific documentation available](http://jhipster.github.io/using_elasticsearch.html).
 
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.9.0+is%3Aclosed)__.
 
