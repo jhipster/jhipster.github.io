@@ -10,10 +10,14 @@ sitemap:
 
 <h2>Introduction</h2>
 <p>
-  During the generation of a new project, JHipster only installs English and French languages.
+  During the generation of a new project, JHipster only installs English and French languages. However, JHipster supports more languages that can be installed using this sub-generator.
 </p>
 <p>
-  However, JHipster supports more languages that can be installed using this sub-generator.
+  The default language in JHipster is English, but this can be changed in the <code>src/main/webapp/scripts/app/app.js</code>, by modifying the following code:
+</p>
+<p>
+  <code>$translateProvider.preferredLanguage('en');</code><br/>
+  (using your preferred language's code instead of 'en').
 </p>
 
 <h2>Which other languages are supported out of the box?</h2>
