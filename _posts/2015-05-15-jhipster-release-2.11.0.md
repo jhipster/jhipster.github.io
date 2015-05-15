@@ -17,7 +17,7 @@ Joe also did an [Heroku official sample application](https://github.com/kissaten
 
 We just keep the **beta** tag on this sub-generator for this release, the time for us to have some external feedback, and then we will remove it.
 
-And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.10.1+is%3Aclosed)__.
+And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.11.0+is%3Aclosed)__.
 
 How to upgrade
 ------------
