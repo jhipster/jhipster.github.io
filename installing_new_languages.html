@@ -61,7 +61,7 @@ sitemap:
 <p>
   Here are the steps to install a new language called <code>new_lang</code>:
   <ol>
-    <li>Duplicate the <code>/src/main/webapp/i18/en</code> folder to <code>/src/main/webapp/i18/new_lang</code> </li>
+    <li>Duplicate the <code>/src/main/webapp/i18/en</code> folder to <code>/src/main/webapp/i18/new_lang</code>: this where all the front-end translations are stored </li>
     <li>Translate all files under the folder <code>/src/main/webapp/i18/new_lang</code></li>
     <li>
       <p>Update the <code>LANGUAGES</code> constant defined in the folder <code>src/main/webapp/components/language/language.service.js</code>
@@ -75,8 +75,10 @@ sitemap:
         </code>
       </pre>
     </li>
+    <li>In the <code>src/main/resources/i18n</code> folder, copy the <code>messages_en.properties</code> file to <code>messages_new_lang.properties</code>: this where the server-side translations are stored</li>
+    <li>Translate all keys in the <code>messages_new_lang.properties</code> file</li>
   </ol>
 </p>
 <p>
-  The new language <code>new_lang</code> is now available in the language menu.
+  The new language <code>new_lang</code> is now available in the language menu, and is available both in the front-end AngularJS application and in the back-end Spring application.
 </p>
