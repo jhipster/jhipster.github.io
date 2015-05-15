@@ -82,3 +82,13 @@ sitemap:
 <p>
   The new language <code>new_lang</code> is now available in the language menu, and is available both in the front-end AngularJS application and in the back-end Spring application.
 </p>
+
+<h2>How to remove an existing language?</h2>
+<p>
+    Here are the steps to remove a language called <code>old_lang</code>:
+    <ol>
+        <li>Remove the language folder from <code>/src/main/webapp/i18/old_lang</code></li>
+        <li>Remove the constant entry in <code>src/main/webapp/components/language/language.service.js</code></li>
+        <li>Remove the <code>src/main/resources/i18n/messages_old_lang.properties</code> file</li>
+    </ol>
+</p>
