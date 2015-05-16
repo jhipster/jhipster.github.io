@@ -63,11 +63,27 @@ mvn install -Pprod -DskipTests
 </code>
 </p>
 <p>
+When using gradle:
+</p>
+<p>
+<code>
+./gradlew -Pprod bootRepackage -x test
+</code>
+</p>
+<p>
     If you are ready to deploy, you can push it to production, by typing:
 </p>
 <p>
 <code>
 heroku deploy:jar --jar target/*.war
+</code>
+</p>
+<p>
+When using gradle:
+</p>
+<p>
+<code>
+heroku deploy:jar --jar build/libs/*war
 </code>
 </p>
 
