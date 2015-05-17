@@ -70,6 +70,9 @@ mvn install -Pprod -DskipTests
 heroku deploy:jar --jar target/*.war
 </code>
 </p>
+<p>
+  <i>Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run</i> <code>heroku plugins:install https://github.com/heroku/heroku-deploy</code>.
+</p>
 
 <h2>Troubleshooting</h2>
 
