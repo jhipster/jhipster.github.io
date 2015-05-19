@@ -54,6 +54,7 @@ yo jhipster:heroku
 <p><i>Please be aware that your application must start under 60 seconds, or it will be killed. Depending on the platform load, starting under 60 seconds is of course not guaranteed!</i></p>
 
 <h2>Updating your deployed application</h2>
+<h3>Preparing a new deployment</h3>
 <p>
     When your application is already deployed, you can prepare a new deployment by typing:
 </p>
@@ -63,15 +64,31 @@ mvn install -Pprod -DskipTests
 </code>
 </p>
 <p>
-    If you are ready to deploy, you can push it to production, by typing:
+Or when using gradle:
 </p>
+<p>
+<code>
+./gradlew -Pprod bootRepackage -x test
+</code>
+</p>
+<h3>Pushing to production</h3>
+<p>
+    <i>Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run</i> <code>heroku plugins:install https://github.com/heroku/heroku-deploy</code>.
+</p>
+<p>To push to production, type:</p>
 <p>
 <code>
 heroku deploy:jar --jar target/*.war
 </code>
 </p>
 <p>
-  <i>Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run</i> <code>heroku plugins:install https://github.com/heroku/heroku-deploy</code>.
+</p>
+Or when using gradle:
+</p>
+<p>
+<code>
+heroku deploy:jar --jar build/libs/*war
+</code>
 </p>
 
 <h2>Troubleshooting</h2>
