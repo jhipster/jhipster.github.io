@@ -11,7 +11,7 @@ JHipster release 2.11.0
 What's new
 ----------
 
-This new release comes with many small bug fixes, and one big new feature: we now have official [Heroku](https://www.heroku.com/home) support, provided by [Joe Kutner](@codefinger) from Heroku.
+This new release comes with many small bug fixes, and one big new feature: we now have official [Heroku](https://www.heroku.com/home) support, provided by [Joe Kutner](https://twitter.com/codefinger) from Heroku.
 
 Joe also did an [Heroku official sample application](https://github.com/kissaten/jhipster-example) and updated [our documentation](http://jhipster.github.io/heroku.html) accordingly!
 
