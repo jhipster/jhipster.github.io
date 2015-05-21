@@ -6,7 +6,7 @@ sitemap:
     lastmod: 2015-01-29T23:41:00-00:00
 ---
 
-# <i class="fa fa-university"></i> Using AngularJS
+# <i class="fa fa-html5"></i> Using AngularJS
 
 ## Project Structure
 
@@ -41,7 +41,7 @@ When generating a new entity Foo with `yo jhipster:entity Foo` the following fro
 
     scripts
     ├── app
-    │   ├── entities                          
+    │   ├── entities
     │   │   ├── foo                           - Main location of the CRUD front-end for Foo
     │   │   │   ├── foos.html                 - View to display the list of Foo entities
     │   │   │   ├── foo-detail.html           - View to display details of one Foo entity
