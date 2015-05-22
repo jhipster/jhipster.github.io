@@ -6,7 +6,7 @@ priority: 0.7
 lastmod: 2015-01-09T12:40:00-00:00
 ---
 
-# <i class="fa fa-check-square-o"></i> Setting up Continuous Integration on Windows
+# <i class="icon-check"></i> Setting up Continuous Integration on Windows
 
 ## Installing Jenkins
 

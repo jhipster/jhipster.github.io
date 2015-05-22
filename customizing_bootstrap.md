@@ -6,7 +6,7 @@ priority: 0.7
 lastmod: 2015-01-30T18:40:00-00:00
 ---
 
-# <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">B</span> Customizing Bootstrap
+# <i class="icon-css3"></i> Customizing Bootstrap
 
 _Pro tip: don't forget use to `grunt serve` or `gulp serve` to get immediate feedback of your changes!_
 

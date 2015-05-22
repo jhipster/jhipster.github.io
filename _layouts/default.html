@@ -72,54 +72,54 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li {% if '/index.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/"><i class="fa fa-home fa-fw"></i> Home</a></li>
-                    <li {% if '/releases.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/releases.html"><i class="fa fa-file-text-o fa-fw"></i> Release notes</a></li>
+                    <li {% if '/index.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/"><i class="icon-home"></i> Home</a></li>
+                    <li {% if '/releases.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/releases.html"><i class="icon-file-text-alt"></i> Release notes</a></li>
                     <li>
-                        <a href="#"><i class="fa fa-road fa-fw"></i> Introduction<span class="fa arrow"></span></a>
+                        <a href="#"><i class="icon-road"></i> Introduction<span class="icon-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {% if '/presentation' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/presentation" target="_blank"><i class="fa fa-desktop fa-fw"></i> Presentation</a></li>
-                            <li {% if '/tech_stack.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tech_stack.html"><i class="fa fa-stack-overflow fa-fw"></i> Technology stack</a></li>
-                            <li {% if '/screenshots.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/screenshots.html"><i class="fa fa-picture-o fa-fw"></i> Screenshots</a></li>
-                            <li {% if '/video_tutorial.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/video_tutorial.html"><i class="fa fa-video-camera fa-fw"></i> Video tutorial</a></li>
+                            <li {% if '/presentation' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/presentation" target="_blank"><i class="icon-desktop"></i> Presentation</a></li>
+                            <li {% if '/tech_stack.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tech_stack.html"><i class="icon-stackexchange"></i> Technology stack</a></li>
+                            <li {% if '/screenshots.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/screenshots.html"><i class="icon-picture"></i> Screenshots</a></li>
+                            <li {% if '/video_tutorial.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/video_tutorial.html"><i class="icon-film"></i> Video tutorial</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-university fa-fw"></i> Documentation<span class="fa arrow"></span></a>
+                        <a href="#"><i class="icon-book"></i> Documentation<span class="icon-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="fa fa-cloud-download fa-fw"></i> Installation</a></li>
-                            <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="fa fa-rocket fa-fw"></i> Creating an application</a></li>
-                            <li {% if '/creating_an_entity.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_entity.html"><i class="fa fa-bolt fa-fw"></i> Creating an entity</a></li>
-                            <li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="fa fa-bolt fa-fw"></i> Creating a service</a></li>
-                            <li {% if '/installing_new_languages.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installing_new_languages.html"><i class="fa fa-flag fa-fw"></i> Installing new languages</a></li>
-                            <li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="fa fa-users fa-fw"></i> Managing profiles</a></li>
-                            <li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="fa fa-code fa-fw"></i> Using in development</a></li>
-                            <li {% if '/using_angularjs.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_angularjs.html"><i class="fa fa-html5 fa-fw"></i> Using AngularJS</a></li>
-                            <li {% if '/customizing_bootstrap.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/customizing_bootstrap.html"><i class="fa fa-border fa-fw">B</i> Customizing Bootstrap</a></li>
-                            <li {% if '/security.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/security.html"><i class="fa fa-lock fa-fw"></i> Securing your app</a></li>
-                            <li {% if '/testing.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/testing.html"><i class="fa fa-shield fa-fw"></i> Testing</a></li>
-                            <li {% if '/setting_up_ci.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/setting_up_ci.html"><i class="fa fa-check-square-o fa-fw"></i> Continuous Integration</a></li>
-                            <li {% if '/using_elasticsearch.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_elasticsearch.html"><i class="fa fa-search fa-fw"></i> Using Elasticsearch</a></li>
-                            <li {% if '/using_mongodb.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_mongodb.html"><i class="fa fa-leaf fa-fw"></i> Using MongoDB</a></li>
-                            <li {% if '/using_cassandra.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_cassandra.html"><i class="fa fa-eye-slash fa-fw"></i> Using Cassandra</a></li>
-                            <li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="fa fa-play-circle fa-fw"></i> Using in production</a></li>
-                            <li {% if '/cloudfoundry.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/cloudfoundry.html"><i class="fa fa-cloud-upload fa-fw"></i> Deploying to Cloud Foundry</a></li>
-                            <li {% if '/heroku.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/heroku.html"><i class="fa fa-cloud-upload fa-fw"></i> Deploying to Heroku</a></li>
-                            <li {% if '/openshift.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/openshift.html"><i class="fa fa-cloud-upload fa-fw"></i> Deploying to Openshift</a></li>
+                            <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="icon-cloud-download"></i> Installation</a></li>
+                            <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="icon-rocket"></i> Creating an application</a></li>
+                            <li {% if '/creating_an_entity.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_entity.html"><i class="icon-bolt"></i> Creating an entity</a></li>
+                            <li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="icon-bolt"></i> Creating a service</a></li>
+                            <li {% if '/installing_new_languages.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installing_new_languages.html"><i class="icon-flag"></i> Installing new languages</a></li>
+                            <li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="icon-group"></i> Managing profiles</a></li>
+                            <li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="icon-code"></i> Using in development</a></li>
+                            <li {% if '/using_angularjs.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_angularjs.html"><i class="icon-html5"></i> Using AngularJS</a></li>
+                            <li {% if '/customizing_bootstrap.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/customizing_bootstrap.html"><i class="icon-css3"></i> Customizing Bootstrap</a></li>
+                            <li {% if '/security.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/security.html"><i class="icon-lock"></i> Securing your app</a></li>
+                            <li {% if '/testing.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/testing.html"><i class="icon-shield"></i> Testing</a></li>
+                            <li {% if '/setting_up_ci.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/setting_up_ci.html"><i class="icon-check"></i> Continuous Integration</a></li>
+                            <li {% if '/using_elasticsearch.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_elasticsearch.html"><i class="icon-search"></i> Using Elasticsearch</a></li>
+                            <li {% if '/using_mongodb.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_mongodb.html"><i class="icon-leaf"></i> Using MongoDB</a></li>
+                            <li {% if '/using_cassandra.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_cassandra.html"><i class="icon-eye-open"></i> Using Cassandra</a></li>
+                            <li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="icon-play-circle"></i> Using in production</a></li>
+                            <li {% if '/cloudfoundry.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/cloudfoundry.html"><i class="icon-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
+                            <li {% if '/heroku.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/heroku.html"><i class="icon-cloud-upload"></i> Deploying to Heroku</a></li>
+                            <li {% if '/openshift.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/openshift.html"><i class="icon-cloud-upload"></i> Deploying to Openshift</a></li>
                     </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Help and bugs<span class="fa arrow"></span></a>
+                        <a href="#"><i class="icon-question"></i> Help and bugs<span class="icon-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {% if '/help.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/help.html"><i class="fa fa-question fa-fw"></i> Community help</a></li>
-                            <li {% if '/consulting.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/consulting.html"><i class="fa fa-user fa-fw"></i> Professional help</a></li>
-                            <li {% if '/training.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/training.html"><i class="fa fa-university fa-fw"></i> Training</a></li>
-                            <li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="fa fa-bug fa-fw"></i> Bug tracker</a></li>
-                            <li {% if '/thanks.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/thanks.html"><i class="fa fa-gift fa-fw"></i> Thanks</a></li>
+                            <li {% if '/help.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/help.html"><i class="icon-group"></i> Community help</a></li>
+                            <li {% if '/consulting.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/consulting.html"><i class="icon-user-md"></i> Professional help</a></li>
+                            <li {% if '/training.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/training.html"><i class="icon-magic"></i> Training</a></li>
+                            <li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="icon-bug"></i> Bug tracker</a></li>
+                            <li {% if '/thanks.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/thanks.html"><i class="icon-gift"></i> Thanks</a></li>
                         </ul>
                     </li>
-                    <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-github fa-fw"></i> GitHub</a></li>
-                    <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank"><i class="fa fa-wechat fa-fw"></i> Chat</a></li>
-                    <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+                    <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="icon-github"></i> GitHub</a></li>
+                    <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank"><i class="icon-comments-alt"></i> Chat</a></li>
+                    <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
                 </ul>
             </div>
         </div>

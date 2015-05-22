@@ -6,7 +6,7 @@ sitemap:
     lastmod: 2015-01-29T23:41:00-00:00
 ---
 
-# <i class="fa fa-html5"></i> Using AngularJS
+# <i class="icon-html5"></i> Using AngularJS
 
 ## Project Structure
 
