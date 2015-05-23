@@ -11,7 +11,7 @@ lastmod: 2015-05-22T18:40:00-00:00
 ## Import your project
 
 - Simply open your project normally
-- Maven should be detected, and your project will buid automatically
+- Maven should be detected, and your project will build automatically
 
 ## Exclude the 'bower_components" from src/main/webapp
 
