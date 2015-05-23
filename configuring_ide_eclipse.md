@@ -29,12 +29,16 @@ lastmod: 2015-05-22T18:40:00-00:00
 
 ![Exclude](images/configuring_ide_eclipse_4.png)
 
-## Exclude 'scripts' and 'bower_components" from src/main/webapp
+## Exclude 'scripts' and 'bower_components' from src/main/webapp
 
 - Right click on Project -> Javascript -> Include path
 - Click on the “source” tab and select your_project/src/main/webapp
 - Select “Excluded: (None) -> Edit -> Add multiple
-- Select “bower_components” and “scripts” and click “Ok”
+- Select `bower_components` and `scripts` and click “Ok”
+- You should also exclude
+    - `.tmp/`,
+    - `node_modules/` and
+    - `src/main/webapp/dist` (the `dist` folder will be created when you generate a production build)
 
 ![Right-click](images/configuring_ide_eclipse_5.png)
 

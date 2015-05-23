@@ -20,6 +20,6 @@ lastmod: 2015-05-22T18:40:00-00:00
 - You should also exclude
     - `.tmp/`,
     - `node_modules/` and
-    - `src/main/webapp/dist`
+    - `src/main/webapp/dist` (the `dist` folder will be created when you generate a production build)
 
 ![Exclude](images/configuring_ide_idea_1.png)
