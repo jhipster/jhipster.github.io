@@ -84,7 +84,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icon-book"></i> Documentation<span class="icon-angle-right pull-right"></span></a>
+                        <a href="#"><i class="icon-wrench"></i> Setup<span class="icon-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
                             <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="icon-cloud-download"></i> Installation</a></li>
                             <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="icon-rocket"></i> Creating an application</a></li>
@@ -92,23 +92,44 @@
                             <li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="icon-bolt"></i> Creating a service</a></li>
                             <li {% if '/installing_new_languages.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installing_new_languages.html"><i class="icon-flag"></i> Installing new languages</a></li>
                             <li {% if '/configuring_ide.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/configuring_ide.html"><i class="icon-keyboard"></i> Configuring your IDE</a></li>
-                            <li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="icon-group"></i> Managing profiles</a></li>
-                            <li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="icon-code"></i> Using in development</a></li>
-                            <li {% if '/using_angularjs.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_angularjs.html"><i class="icon-html5"></i> Using AngularJS</a></li>
-                            <li {% if '/customizing_bootstrap.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/customizing_bootstrap.html"><i class="icon-css3"></i> Customizing Bootstrap</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-puzzle-piece"></i> Options<span class="icon-angle-right pull-right"></span></a>
+                        <ul class="nav nav-second-level">
                             <li {% if '/security.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/security.html"><i class="icon-lock"></i> Securing your app</a></li>
-                            <li {% if '/testing.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/testing.html"><i class="icon-shield"></i> Testing</a></li>
-                            <li {% if '/setting_up_ci.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/setting_up_ci.html"><i class="icon-check"></i> Continuous Integration</a></li>
+                            <li {% if '/using_dtos.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_dtos.html"><i class="icon-briefcase"></i> Using DTOs</a></li>
                             <li {% if '/using_elasticsearch.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_elasticsearch.html"><i class="icon-search"></i> Using Elasticsearch</a></li>
                             <li {% if '/using_mongodb.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_mongodb.html"><i class="icon-leaf"></i> Using MongoDB</a></li>
                             <li {% if '/using_cassandra.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_cassandra.html"><i class="icon-eye-open"></i> Using Cassandra</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-code"></i> Development<span class="icon-angle-right pull-right"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="icon-code"></i> Using in development</a></li>
+                            <li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="icon-group"></i> Managing profiles</a></li>
+                            <li {% if '/using_angularjs.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_angularjs.html"><i class="icon-html5"></i> Using AngularJS</a></li>
+                            <li {% if '/customizing_bootstrap.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/customizing_bootstrap.html"><i class="icon-css3"></i> Customizing Bootstrap</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-umbrella"></i> Test<span class="icon-angle-right pull-right"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li {% if '/running_tests.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/running_tests.html"><i class="icon-shield"></i> Running tests</a></li>
+                            <li {% if '/setting_up_ci.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/setting_up_ci.html"><i class="icon-check"></i> Continuous Integration</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-cloud"></i> Production<span class="icon-angle-right pull-right"></span></a>
+                        <ul class="nav nav-second-level">
                             <li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="icon-play-circle"></i> Using in production</a></li>
                             <li {% if '/cloudfoundry.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/cloudfoundry.html"><i class="icon-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
                             <li {% if '/heroku.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/heroku.html"><i class="icon-cloud-upload"></i> Deploying to Heroku</a></li>
                             <li {% if '/openshift.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/openshift.html"><i class="icon-cloud-upload"></i> Deploying to Openshift</a></li>
-                            <li {% if '/tips.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tips.html"><i class="icon-cogs"></i> Tips'n tricks</a></li>
                         </ul>
                     </li>
+                    <li {% if '/tips.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tips.html"><i class="icon-cogs"></i> Tips'n tricks</a></li>
                     <li>
                         <a href="#"><i class="icon-question"></i> Help and bugs<span class="icon-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
