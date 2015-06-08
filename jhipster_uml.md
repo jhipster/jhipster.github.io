@@ -107,7 +107,7 @@ The class diagram should modelize the entities of your JHipster application doma
 Each entity is represented by a class, its fields are the class' attributes. An attribute must have a type supported by JHipster, otherwise it won't work. To have JHipster supported types like “BigDecimal”, “LocalDate”..., you can create a _PrimitiveType_ or a _DataType_ for it.
 You can look at the tables with all the types supported by JHipster and the validations you can use for each [here](#annexes).
 
-![Book Entity](images/jhipsteruml_Book_DataType.jpeg)
+![Book Entity](images/jhipsteruml_book_datatype.png)
 
 Here is an example of a properly created class for JHipster. We have the attributes _publicationDate_ and price set with the types _BigDecimal_ and _LocalDate_ we created as _DataType._
 
@@ -118,19 +118,19 @@ The relationship between two entities is represented in the class diagram by an 
 
 
 #### <a name="onetoone"></a>One-to-One
-![One-to-One](images/jhipsteruml_oneToOne.jpeg)
+![One-to-One](images/jhipsteruml_one_to_one.png)
 
 Here, we have a one-to-one relationship between Customer and Address, with Customer as the owner of the relationship.
 
 
 #### <a name="onetomany"></a>One-to-Many
-![One-to-Many](images/jhipsteruml_oneToMany.jpeg)
+![One-to-Many](images/jhipsteruml_one_to_many.png)
 
 Here, Author has a one-to-many relationship with Book, and Book has a many-to-one relationship with Author.
 
 
 #### <a name="manytomany"></a>Many-to-Many
-![Many-to-Many](images/jhipsteruml_manyToMany.jpeg)
+![Many-to-Many](images/jhipsteruml_many_to_many.png)
 
 Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
 
@@ -261,13 +261,13 @@ GenMyModel is an in-browser UML editor that can be found [here](https://dashboar
 After signing up go in Projects ->  New Projects, give a it name, in Model Type choose UML, in default diagram choose Class Diagram and then click on Create project.
 Then this screen will be displayed:
 
-![GenMyModel dashbord](images/jhipsteruml_wikiDiagram.png)
+![GenMyModel dashbord](images/jhipsteruml_genmymodel_empty_diagram.png)
 
 On the panel on the left of the grid, is all the elements possible to make a diagram. We will need only the elements 'Class', 'DataType', 'Attribute', 'Aggregation' 'Composition'. You can use either 'Aggregation' or 'Composition', the parser will only see the association between two classes and its cardinality.
 
 Here is an example how to create two entities with a one-to-many relationship between them and the declaration of the JHipster types through 'DataType':
 
-![GenMyModel diagram](images/jhipsteruml_wikiRelation.png)
+![GenMyModel diagram](images/jhipsteruml_genmymodel_relation.png)
 
 The parser will notice a few things:
 - Two classes, 'Author' and 'Book'.
@@ -275,7 +275,7 @@ The parser will notice a few things:
 - Attributes, you can set the type with the default ones, or with the declared DataTypes.
 - An Aggregation between 'Author' and 'Book' (the direction matters!).
 - Two injected field 'author' in Book and 'book' in Author.
-- The cardinalities (1 and 0..*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.  
+- The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.  
 
 Unfortunately, you can not create custom constraints for attributes to fit the JHipster ones.
 
