@@ -1,69 +1,33 @@
 ---
 layout: default
-title: JHipster UML
+title: JHipster-UML
 sitemap:
-    priority: 0.7
+    priority: 0.5
     lastmod: 2015-06-08T00:00:00-00:00
 ---
 
-# <i class="icon-sitemap"></i> JHipster-UML
+# <i class="icon-magic"></i> JHipster-UML
 
 
-This side-project gives you an alternative when creating entities for JHipster: the choice to use a UML editor instead of answering the usual questions.
+JHipster-UML is a side project aiming at eventually replacing the standard Questions & Answers from JHipster when generating entities.
 
 
 Here's what's covered in this page:
 
+
 1. [Introduction](#introduction)
-
 2. [Installation](#install)
-
-3. [How to use JHipster-UML](#howtouse)
-
-  3.1. [The UML file](#umlfile)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;3.1.1. [Entities](#entities)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;3.1.2. [Relationships](#relationships)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.2.1. [One-to-One](#onetoone)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.2.2. [One-to-Many](#onetomany)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.2.3. [Many-to-Many](#manytomany)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;3.1.3. [A complete example](#completeexample)
-
-  3.2. [Use JHipster-UML](#usejuml)
-
-  3.3. [What's generated](#whatsgenerated)
-
-4. [Examples](#examples)
-
-  4.1. [Modelio](#modelioexample)
-
-  4.2. [UML Designer](#umldesignerexample)
-
-  4.3. [GenMyModel](#genmymodelexample)
-
-5. [Testing](#testing)
-
-6. [Contributing: issues and enhancements](#contributing)
-
-  6.1. [Parser modifications](#parsermodifications)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;6.1.1. [Adding a parser](#adding-a-parser)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.1.1.1. [Parser implementation](#parserimplementation)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.1.1.2. [Editor detection](#editordetection)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.1.1.3. [Testing](#editortesting)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;6.1.2. [Modifying a parser](#modifying-a-parser)
-
-  &nbsp;&nbsp;&nbsp;&nbsp;6.1.3. [Deleting a parser](#deleting-a-parser)
-
+3. [How to use JHipster-UML](#howtouse)  
+    3.1. [The UML file](#umlfile)  
+    3.2. [Use JHipster-UML](#usejuml)  
+    3.3. [What's generated](#whatsgenerated)  
+4. [Examples](#examples)  
+    4.1. [Modelio](#modelioexample)  
+    4.2. [UML Designer](#umldesignerexample)  
+    4.3. [GenMyModel](#genmymodelexample)  
+5. [Testing](#testing-juml)  
+6. [Contributing: issues and enhancements](#contributing)  
+    6.1. [Parser modifications](#parsermodifications)  
 7. [Annexes](#annexes)
 
 ***
@@ -73,8 +37,11 @@ Here's what's covered in this page:
 JHipster-UML is an alternative to the usual Q&A as it offers you the possibility to use a UML editor to create a diagram that will be parsed by JHipster-UML.
 
 Here is a list of the editors we support:
+
   - [Modelio](https://www.modeliosoft.com/);
+
   - [UMLDesigner](http://www.umldesigner.org/);
+
   - [GenMyModel](https://www.genmymodel.com/) (not free);
 
 ***
@@ -103,7 +70,7 @@ JHipster-UML is quite easy to use, you need a class diagram exported in XMI and 
 The class diagram should modelize the entities of your JHipster application domain, thus you have restrictions, you have to follow the methodology.
 
 
-### <a name="entities"></a>Entities
+### Entities
 Each entity is represented by a class, its fields are the class' attributes. An attribute must have a type supported by JHipster, otherwise it won't work. To have JHipster supported types like “BigDecimal”, “LocalDate”..., you can create a _PrimitiveType_ or a _DataType_ for it.
 You can look at the tables with all the types supported by JHipster and the validations you can use for each [here](#annexes).
 
@@ -113,29 +80,29 @@ Here is an example of a properly created class for JHipster. We have the attribu
 
 Note that you don't need to capitalize type names (**except for composed names like BigDecimal**, JHipster-UML capitalizes simple names).
 
-### <a name="relationships"></a>Relationships
+### Relationships
 The relationship between two entities is represented in the class diagram by an aggregation between two classes.
 
 
-#### <a name="onetoone"></a>One-to-One
+#### One-to-One
 ![One-to-One](images/jhipsteruml_one_to_one.png)
 
 Here, we have a one-to-one relationship between Customer and Address, with Customer as the owner of the relationship.
 
 
-#### <a name="onetomany"></a>One-to-Many
+#### One-to-Many
 ![One-to-Many](images/jhipsteruml_one_to_many.png)
 
 Here, Author has a one-to-many relationship with Book, and Book has a many-to-one relationship with Author.
 
 
-#### <a name="manytomany"></a>Many-to-Many
+#### Many-to-Many
 ![Many-to-Many](images/jhipsteruml_many_to_many.png)
 
 Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
 
 
-### <a name="completeexample"></a>A complete example
+### A complete example
 We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
 Here's a screenshot of such a diagram (from Modelio):
@@ -148,13 +115,20 @@ JHipster can generate entities and associations between them (one-to-one, one-to
 ## <a name="usejuml"></a>Use JHipster-uml
 
 Once you have your JHipster application setup and your class diagram in a UML editor, follow those steps:
-* step 1 - export your class diagram to the XMI file format
-* step 2 - in your JHipster application root folder, execute the command
+- step 1 - export your class diagram to the XMI file format
+- step 2 - in your JHipster application root folder, execute the command
 
- `jhipster-uml <your_file.xmi> (sql | mongodb | cassandra)`
+ `jhipster-uml <your_file.xmi>`
 
 Note that you don't need to supply the database type (sql, mongodb, or cassandra), as JHipster-UML detects the type for you (from the _.yo-rc.json_ file).
+
+If, however, you wish to execute JHipster-UML outside a JHipster app, you need to pass an extra argument: the database type name.
+Here is the command to execute:
+
+ `jhipster-uml <your_file.xmi> [sql | mongodb | cassandra]`
+
 * step 3 - that's it!
+
 
 **Note: If you want to use the classes and methods available, the preferred entry point of JHipster-UML is the ParserFactory (so that you don't open the file, read it, find the root element, etc.).**
 
@@ -203,17 +177,17 @@ In this example, we'll explain how to connect two classes:
 
 ![Modelio composition example](images/jhipsteruml_modelio_2.png)
 
-As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:
+As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:  
 
-- Two classes (Employee and Job);
+  - Two classes (Employee and Job);
 
-- Two fields (email and title), their type, which class they belong (each class contains its fields). Their visibility is not taken into account;
+  - Two fields (email and title), their type, which class they belong (each class contains its fields). Their visibility is not taken into account;
 
-- The association linking them and the **direction** of the association (it matters!);
+  - The association linking them and the **direction** of the association (it matters!);
 
-- The cardinalities (1 and 0..1) mean that an employee can have a job (0 or 1), and a job isn't shared by two employees (only one, for this example's sake);
+  - The cardinalities (1 and 0..1) mean that an employee can have a job (0 or 1), and a job isn't shared by two employees (only one, for this example's sake);
 
-- There is one **injected field**: job, in employee.
+  - There is one **injected field**: job, in employee.
 
 This association is called a one-to-one. Go back a few sections to see the other types of associations.
 
@@ -223,7 +197,7 @@ Finally, once your diagram is finished, you just have to export it.
 
 ![Export to XMI Modelio](images/jhipsteruml_modelio_3.png)
 
-Check the Model perspective, once you locate your project, get down one level and right click the last element (you lower-cased project's name), XMI, Export XMI. A window should pop up, select the output path, select the compatibility to OMG UML2.4.1, leave the extension to XMI and you're ready to go.
+Check the Model perspective, once you locate your project, get down one level and right click the last element (you lower-cased project's name), XMI, Export XMI. A window should pop up, select the output path, change the compatibility to OMG UML2.4.1, leave the extension to XMI and you're ready to go.
 
 
 ## <a name="umldesignerexample"></a>UML Designer
@@ -270,12 +244,18 @@ Here is an example how to create two entities with a one-to-many relationship be
 ![GenMyModel diagram](images/jhipsteruml_genmymodel_relation.png)
 
 The parser will notice a few things:
-- Two classes, 'Author' and 'Book'.
-- Two DataTypes, 'LocalDate' and 'BigDecimal'
-- Attributes, you can set the type with the default ones, or with the declared DataTypes.
-- An Aggregation between 'Author' and 'Book' (the direction matters!).
-- Two injected field 'author' in Book and 'book' in Author.
-- The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.  
+
+  - Two classes, 'Author' and 'Book'.
+
+  - Two DataTypes, 'LocalDate' and 'BigDecimal'
+
+  - Attributes, you can set the type with the default ones, or with the declared DataTypes.
+
+  - An Aggregation between 'Author' and 'Book' (the direction matters!).
+
+  - Two injected field 'author' in Book and 'book' in Author.
+
+  - The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.  
 
 Unfortunately, you can not create custom constraints for attributes to fit the JHipster ones.
 
@@ -283,7 +263,7 @@ Once the diagram is done, you can export it to XMI. To do it, simply click on To
 
 ***
 
-# <a name="testing"></a>Testing JHipster-UML
+# <a name="testing-juml"></a>Testing JHipster-UML
 
 The tests are available in the test folder and can be run via `npm test`.
 We use Mocha for testing (along with expect, chai and expect from chai).
@@ -297,16 +277,16 @@ We follow the same guidelines as JHipster, with a few additions:
 - Bugs found internally (by the JHipster-UML team) may be posted in the issue tracker, except for bugs regarding the supported UML editors.
 - The same goes for enhancements.
 
-**Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not the main JHipster page. **
+<b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not the main JHipster page.</b>
 
 ## <a name="parsermodifications"></a>Parser modifications
 
 The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) ultra-easy.
 
 
-### <a name="adding-a-parser"></a>Adding a parser
+### Adding a parser
 
-#### <a name="parserimplementation"></a>Parser implementation
+#### Parser implementation
 
 Adding a parser is quite easy. If your a Java dev, you're probably quite familiar with OOP principles (we hope so anyway). When developing JHipster-UML, we thought of its architecture as we'd _normally_ do in Java.
 
@@ -325,7 +305,7 @@ Obviously, you _should_ implement each of these methods (or override the [#parse
 The getters are not mandatory, but serve as a way of getting some important fields and provide a way to modify them before sending those fields.
 
 
-#### <a name="editordetection"></a>Editor detection
+#### Editor detection
 
 When you're done creating your shiny new parser, you should add it to the "list" of available editors:
 
@@ -337,7 +317,7 @@ When you're done creating your shiny new parser, you should add it to the "list"
 
 However, a few guidelines must be respected:
 
-- Your parser's name must be <editor_parser>;
+- Your parser's name must be \<editor_parser\>;
 
 - The editor's JS file must not be upper-cased, and must not contain any whitespace, (Modelio -> `modelio_parser.js`, UML Designer -> `umldesigner_parser.js`);
 
@@ -349,7 +329,7 @@ See [this example](https://github.com/jhipster/jhipster-uml/blob/master/lib/edit
 Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38). It will propose the editor as a choice.
 
 
-#### <a name="editortesting"></a> Testing
+#### Testing
 
 Finally, the next thing you'll need to do before committing your super parser is test it.
 Because we believe in testing, but really like good testing (with BDD), our tests are done with Mocha and chai. If you don't know what it's all about yet, we recommend you visit the [ChaiJS](http://chaijs.com/) page, and see [one](https://github.com/jhipster/jhipster-uml/blob/master/test/modelio_parser_test.js) of our test file to get acquainted with it.
@@ -357,9 +337,10 @@ Because we believe in testing, but really like good testing (with BDD), our test
 You should probably wonder what form of testing you should use. The answer is pretty simple: it's up to you! Whether it's [should](http://chaijs.com/guide/styles/#should), or [expect](http://chaijs.com/guide/styles/#expect) (à la RSpec), we don't enforce any special rule here.
 
 We just want you to test everything that is 'test-worthy':
-- The interface's methods (the _public_ methods);
 
-- You're not obliged to test the other methods (_private_ ones, because they are supposed to be safe and ever-changing in the long term), but as visibility is not implemented in JS (to our knowledge), you may want to test them (it's up to you).
+  - The interface's methods (the _public_ methods);
+
+  - You're not obliged to test the other methods (_private_ ones, because they are supposed to be safe and ever-changing in the long term), but as visibility is not implemented in JS (to our knowledge), you may want to test them (it's up to you).
 
 The general guidelines for names and files:
 
@@ -368,7 +349,7 @@ The general guidelines for names and files:
 - The same goes for XMI files used for testing. If your parser's name is UMLDesigner, then one of your test XMI file's name can be `umldesigner_parser_problem_test.[...]` (the file extension is not static).
 
 
-### <a name="modifying-a-parser"></a>Modifying a parser
+### Modifying a parser
 
 Changing a parser (and then committing the change) is pretty straightforward: just do the change, test it (create tests if need be).
 
@@ -376,7 +357,7 @@ You can make an XMI file if you need a test to pass (exception throwing, or not,
 
 Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you change any name.
 
-### <a name="deleting-a-parser"></a>Deleting a parser
+### Deleting a parser
 
 Removing a parser is quite an easy thing to do.
 First, remove it from the editors (`editors/editors.js`). Then, from the EditorDetector (`editors/editor_detector.js`). Finally, just remove the parser file and the test.
@@ -389,15 +370,71 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 
 Here is the type table (from _types.js_):
 
-| SQL | MongoDB | Cassandra | Validations
-|:-----------|:------------|:------------|:------------|
-| String | String | String | _required, minlength, maxlength, pattern_
-| Integer | Integer | Integer | _required, minlength, maxlength_ |
-| Long | Long | Long | _required, minlength, maxlength_ |
-| BigDecimal | BigDecimal | BigDecimal | _required, minlength, maxlength_ |
-| Boolean | Boolean | Boolean |  |
-| LocalDate | LocalDate |  | _required_ |
-|  |  | Date |  |
-| DateTime | DateTime |  | _required_ |
-|  |  | UUID | _required_ |
-|  |  | TimeUUID | _required_ |
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>SQL</th>
+    <th>MongoDB</th>
+    <th>Cassandra</th>
+    <th>Validations</th>
+  </tr>
+  <tr>
+    <td>String</td>
+    <td>String</td>
+    <td>String</td>
+    <td><dfn>required, minlength, maxlength, pattern</dfn></td>
+  </tr>
+  <tr>
+    <td>Integer</td>
+    <td>Integer</td>
+    <td>Integer</td>
+    <td><dfn>required, minlength, maxlength</dfn></td>
+  </tr>
+  <tr>
+    <td>Long</td>
+    <td>Long</td>
+    <td>Long</td>
+    <td><dfn>required, minlength, maxlength</dfn></td>
+  </tr>
+  <tr>
+    <td>BigDecimal</td>
+    <td>BigDecimal</td>
+    <td>BigDecimal</td>
+    <td><dfn>required, minlength, maxlength</dfn></td>
+  </tr>
+  <tr>
+    <td>Boolean</td>
+    <td>Boolean</td>
+    <td>Boolean</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>LocalDate</td>
+    <td>LocalDate</td>
+    <td></td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Date</td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td>DateTime</td>
+    <td>DateTime</td>
+    <td></td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>UUID</td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>TimeUUID</td>
+    <td><dfn>required</dfn></td>
+  </tr>
+</table>
