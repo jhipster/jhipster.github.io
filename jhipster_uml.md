@@ -310,7 +310,7 @@ The 1.0.0 release brings a new parser system making any change (parser creation,
 
 Adding a parser is quite easy. If your a Java dev, you're probably quite familiar with OOP principles (we hope so anyway). When developing JHipster-UML, we thought of its architecture as we'd _normally_ do in Java.
 
-You just have to "extend" our abstract parser ([AbstractParser](https://github.com/jhipster/jhipster-uml/blob/master/editors/parser.js#L159)), or implement our interface ([Parser](https://github.com/jhipster/jhipster-uml/blob/master/editors/parser.js#L9)) to add your concrete implementation of a parser.
+You just have to "extend" our abstract parser ([AbstractParser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L159)), or implement our interface ([Parser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L9)) to add your concrete implementation of a parser.
 
 You should notice that some methods of the Parser interface throw an _UnimplementedOperationException_. This idea is obviously taken from Java, and you can implement this methods in your concrete parser.
 
@@ -320,7 +320,7 @@ Just like in Java, you can override any method you want, and create your own. Yo
 
 The AbstractParser class provides some fields, a default constructor and some methods so that you don't have to create or implement them later.
 
-Obviously, you _should_ implement each of these methods (or override the [#parse](https://github.com/jhipster/jhipster-uml/blob/master/editors/parser.js#L11) or [#findElements](https://github.com/jhipster/jhipster-uml/blob/master/editors/parser.js#L23) methods).
+Obviously, you _should_ implement each of these methods (or override the [#parse](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L11) or [#findElements](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L23) methods).
 
 The getters are not mandatory, but serve as a way of getting some important fields and provide a way to modify them before sending those fields.
 
@@ -329,11 +329,11 @@ The getters are not mandatory, but serve as a way of getting some important fiel
 
 When you're done creating your shiny new parser, you should add it to the "list" of available editors:
 
-- Require it first just like [here](https://github.com/jhipster/jhipster-uml/blob/master/editors/editors.js#L3);
+- Require it first just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L3);
 
-- Make it available just like [here](https://github.com/jhipster/jhipster-uml/blob/master/editors/editors.js#L7);
+- Make it available just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L7);
 
-- Add it to the list just like [here](https://github.com/jhipster/jhipster-uml/blob/master/editors/editors.js#L11).
+- Add it to the list just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L11).
 
 However, a few guidelines must be respected:
 
@@ -344,9 +344,9 @@ However, a few guidelines must be respected:
 - The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
 
 You also must add your editor to the EditorDetector, so that the XMI's editor can be detected, and the XMI parsed.
-See [this example](https://github.com/jhipster/jhipster-uml/blob/master/editors/editor_detector.js#L17) to know more about it.
+See [this example](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L17) to know more about it.
 
-Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/editors/editor_detector.js#L38). It will propose the editor as a choice.
+Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38). It will propose the editor as a choice.
 
 
 #### <a name="editortesting"></a> Testing
@@ -374,14 +374,14 @@ Changing a parser (and then committing the change) is pretty straightforward: ju
 
 You can make an XMI file if you need a test to pass (exception throwing, or not, etc.).
 
-Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/editors/editor_detector.js#L38) if you change any name.
+Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you change any name.
 
 ### <a name="deleting-a-parser"></a>Deleting a parser
 
 Removing a parser is quite an easy thing to do.
 First, remove it from the editors (`editors/editors.js`). Then, from the EditorDetector (`editors/editor_detector.js`). Finally, just remove the parser file and the test.
 
-Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/editors/editor_detector.js#L38) if you delete any parser
+Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser
 
 ***
 
