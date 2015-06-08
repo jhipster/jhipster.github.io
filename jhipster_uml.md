@@ -9,26 +9,27 @@ sitemap:
 # <i class="icon-magic"></i> JHipster-UML
 
 
-JHipster-UML is a side project aiming at eventually replacing the standard Questions & Answers from JHipster when generating entities.
+JHipster-UML is a JHipster sub-project which can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool, than with the classical Yeoman questions and answers.
 
+The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on Github!
 
-Here's what's covered in this page:
-
+Here's what's covered on this page:
 
 1. [Introduction](#introduction)
-2. [Installation](#install)
-3. [How to use JHipster-UML](#howtouse)  
-    3.1. [The UML file](#umlfile)  
-    3.2. [Use JHipster-UML](#usejuml)  
-    3.3. [What's generated](#whatsgenerated)  
-4. [Examples](#examples)  
-    4.1. [Modelio](#modelioexample)  
-    4.2. [UML Designer](#umldesignerexample)  
-    4.3. [GenMyModel](#genmymodelexample)  
-5. [Testing](#testing-juml)  
-6. [Contributing: issues and enhancements](#contributing)  
+2. [Issues and bugs](#issues)
+3. [Installation](#install)
+4. [How to use JHipster-UML](#howtouse)  
+    4.1. [The UML file](#umlfile)  
+    4.2. [Use JHipster-UML](#usejuml)  
+    4.3. [What's generated](#whatsgenerated)  
+5. [Examples](#examples)  
+    5.1. [Modelio](#modelioexample)  
+    5.2. [UML Designer](#umldesignerexample)  
+    5.3. [GenMyModel](#genmymodelexample)  
+6. [Testing](#testing-juml)  
+7. [Contributing: issues and enhancements](#contributing)  
     6.1. [Parser modifications](#parsermodifications)  
-7. [Annexes](#annexes)
+8. [Annexes](#annexes)
 
 ***
 
@@ -39,10 +40,19 @@ JHipster-UML is an alternative to the usual Q&A as it offers you the possibility
 Here is a list of the editors we support:
 
   - [Modelio](https://www.modeliosoft.com/);
-
   - [UMLDesigner](http://www.umldesigner.org/);
-
   - [GenMyModel](https://www.genmymodel.com/) (not free);
+
+***
+
+# <a name="issues"></a>Issues and bugs
+
+JHipster-UML is [available on Github](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+
+Please use our project for submitting issues and Pull Requests:
+
+- [JHipster-UML issue tracker](https://github.com/jhipster/jhipster-uml/issues)
+- [JHipster-UML Pull Requests](https://github.com/jhipster/jhipster-uml/pulls)
 
 ***
 
@@ -51,13 +61,11 @@ To install JHipster-uml simply use the command:
 
  `npm install -g jhipster-uml`
 
-If you want the 'bleeding edge' version, you can clone our git repo:
+If you want the 'bleeding edge' version, you can clone our git repo from [our Github project](https://github.com/jhipster/jhipster-uml):
 
   `git clone https://github.com/jhipster/jhipster-uml.git` for HTTPS
 
   `git clone git@github.com:jhipster/jhipster-uml.git` for SSH
-
-  `git clone https://github.com/jhipster/jhipster-uml` for SVN
 
 ***
 
