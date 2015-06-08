@@ -33,9 +33,8 @@ The selected solution in JHipster is to use [MapStruct](http://mapstruct.org/). 
 
 We have found it very clean and efficient, and liked that it does not use reflection (which is bad for performance when used as heavily as in a mapper).
 
-It has a few limitations:
+It has a limitation:
 
-- This doesn't work with our Gradle build yet (this should be very easy to fix)
 - It doesn't work with Java 7 (but Java 7 support is not our priority)
 
 ## Configuring your IDE for MapStruct
