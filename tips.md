@@ -16,3 +16,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 2. [Automatically include JavaScript files with Grunt](tips/002_tip_include_js_grunt.html)
 3. [Querydsl support](tips/003_tip_add_querydsl_support.html)
 4. [Using MS SQL Server](tips/004_tip_using_ms_sql_server.html)
+5. [Running concurrent tasks in Grunt](tips/005_tip_concurrent_task_grunt.html)
