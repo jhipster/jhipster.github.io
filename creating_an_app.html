@@ -67,12 +67,15 @@ mvn spring-boot:run
 
 <h3>Which *type* of database would you like to use?</h3>
 <p>
-  You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with <a href="http://www.mongodb.org" target="_blank">MongoDB</a> or <a href="http://cassandra.apache.org/" target="_blank">Cassandra</a>.
+  You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with <a href="{{ site.url }}/using_mongodb.html">MongoDB</a> or <a href="{{ site.url }}/using_cassandra.html">Cassandra</a>.
 </p>
 
 <h3>Which *production* database would you like to use?</h3>
 <p>
   This is the database you will use with your "production" profile. To configure it, please modify your <code>src/main/resources/config/application-prod.yml</code> file.
+</p>
+<p>
+    If you want to use Oracle, you will need to <a href="{{ site.url }}/using_oracle.html">install the Oracle JDBC driver manually</a>.
 </p>
 
 <h3>Which *development* database would you like to use?</h3>
