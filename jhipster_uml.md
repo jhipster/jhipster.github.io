@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-06-08T00:00:00-00:00
+    lastmod: 2015-06-10T00:00:00-00:00
 ---
 
 # <i class="icon-magic"></i> JHipster-UML
@@ -110,6 +110,16 @@ Here, Author has a one-to-many relationship with Book, and Book has a many-to-on
 Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
 
 
+#### Reflexivity cases
+![Reflexivity](images/jhipsteruml_reflexivity.png)
+
+As you can see, there are 3 types of reflexivity. JHipster-UML only supports the first two (one-to-one and one-to-many). The many-to-many case is **not** supported because:
+
+  - It can lead to over-complexified and wrong models (the same effect can be achieved more easily);
+
+  - JHipster doesn't support it (this is a good thing);
+
+
 ### A complete example
 We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
@@ -123,7 +133,9 @@ JHipster can generate entities and associations between them (one-to-one, one-to
 ## <a name="usejuml"></a>Use JHipster-uml
 
 Once you have your JHipster application setup and your class diagram in a UML editor, follow those steps:
+
 - step 1 - export your class diagram to the XMI file format
+
 - step 2 - in your JHipster application root folder, execute the command
 
  `jhipster-uml <your_file.xmi>`
@@ -245,9 +257,9 @@ Then this screen will be displayed:
 
 ![GenMyModel dashbord](images/jhipsteruml_genmymodel_empty_diagram.png)
 
-On the panel on the left of the grid, is all the elements possible to make a diagram. We will need only the elements 'Class', 'DataType', 'Attribute', 'Aggregation' 'Composition'. You can use either 'Aggregation' or 'Composition', the parser will only see the association between two classes and its cardinality.
+On the panel on the left of the grid, is all the elements possible to make a diagram. We will need only the elements 'Class', 'DataType', 'Attribute', 'Aggregation' and 'Composition'. You can use either 'Aggregation' or 'Composition', the parser will only see the association between two classes and its cardinality.
 
-Here is an example how to create two entities with a one-to-many relationship between them and the declaration of the JHipster types through 'DataType':
+Here is an example on how to create two entities with a one-to-many relationship between them and the declaration of the JHipster types through 'DataType':
 
 ![GenMyModel diagram](images/jhipsteruml_genmymodel_relation.png)
 
@@ -282,8 +294,10 @@ We use Mocha for testing (along with expect, chai and expect from chai).
 
 Because our tool isn't perfect (_yet_), you may notice some irregularities. Github provides a pretty nice issue tracker so that everyone can post about an issue.
 We follow the same guidelines as JHipster, with a few additions:
-- Bugs found internally (by the JHipster-UML team) may be posted in the issue tracker, except for bugs regarding the supported UML editors.
-- The same goes for enhancements.
+
+  - Bugs found internally (by the JHipster-UML team) may be posted in the issue tracker, except for bugs regarding the supported UML editors.
+
+  - The same goes for enhancements.
 
 <b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not the main JHipster page.</b>
 
@@ -332,9 +346,9 @@ However, a few guidelines must be respected:
 - The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
 
 You also must add your editor to the EditorDetector, so that the XMI's editor can be detected, and the XMI parsed.
-See [this example](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L17) to know more about it.
+See [this example](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L16) to know more about it.
 
-Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38). It will propose the editor as a choice.
+Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L37). It will propose the editor as a choice.
 
 
 #### Testing
@@ -368,7 +382,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 ### Deleting a parser
 
 Removing a parser is quite an easy thing to do.
-First, remove it from the editors (`editors/editors.js`). Then, from the EditorDetector (`editors/editor_detector.js`). Finally, just remove the parser file and the test.
+First, remove it from the editors (`editors/editors.js`) and then remove it from the EditorDetector (`editors/editor_detector.js`). Finally, just remove the parser file and the test created for it.
 
 Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser
 
