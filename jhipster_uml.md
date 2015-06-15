@@ -123,8 +123,10 @@ JHipster can generate entities and associations between them (one-to-one, one-to
 ## <a name="usejuml"></a>Use JHipster-uml
 
 Once you have your JHipster application setup and your class diagram in a UML editor, follow those steps:
-- step 1 - export your class diagram to the XMI file format
-- step 2 - in your JHipster application root folder, execute the command
+
+* step 1 - export your class diagram to the XMI file format
+
+* step 2 - in your JHipster application root folder, execute the command
 
  `jhipster-uml <your_file.xmi>`
 
