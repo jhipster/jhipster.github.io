@@ -123,8 +123,10 @@ JHipster can generate entities and associations between them (one-to-one, one-to
 ## <a name="usejuml"></a>Use JHipster-uml
 
 Once you have your JHipster application setup and your class diagram in a UML editor, follow those steps:
-- step 1 - export your class diagram to the XMI file format
-- step 2 - in your JHipster application root folder, execute the command
+
+* step 1 - export your class diagram to the XMI file format
+
+* step 2 - in your JHipster application root folder, execute the command
 
  `jhipster-uml <your_file.xmi>`
 
@@ -133,7 +135,7 @@ Note that you don't need to supply the database type (sql, mongodb, or cassandra
 If, however, you wish to execute JHipster-UML outside a JHipster app, you need to pass an extra argument: the database type name.
 Here is the command to execute:
 
- `jhipster-uml <your_file.xmi> [sql | mongodb | cassandra]`
+ `jhipster-uml <your_file.xmi> -db [sql | mongodb | cassandra]`
 
 * step 3 - that's it!
 
