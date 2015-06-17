@@ -312,6 +312,9 @@ Exporting an XMI file is straightforward: click 'Export' -> 'XMI' -> select 2.1 
 
 ![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_3.png)
 
+After exporting your diagram, you might notice that your XMI file is quite big. Visual Paradigm exports not only the elements in the diagram, but the place the drawing and placements informations too.
+The parsing will still be quick, but may take a bit more time.
+
 That's all you need to know to start using Visual Paradigm.
 
 
