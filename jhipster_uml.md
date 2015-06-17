@@ -18,17 +18,18 @@ Here's what's covered on this page:
 1. [Introduction](#introduction)
 2. [Issues and bugs](#issues)
 3. [Installation](#install)
-4. [How to use JHipster-UML](#howtouse)  
-    4.1. [The UML file](#umlfile)  
-    4.2. [Use JHipster-UML](#usejuml)  
-    4.3. [What's generated](#whatsgenerated)  
-5. [Examples](#examples)  
-    5.1. [Modelio](#modelioexample)  
-    5.2. [UML Designer](#umldesignerexample)  
-    5.3. [GenMyModel](#genmymodelexample)  
-6. [Testing](#testing-juml)  
-7. [Contributing: issues and enhancements](#contributing)  
-    6.1. [Parser modifications](#parsermodifications)  
+4. [How to use JHipster-UML](#howtouse)
+    4.1. [The UML file](#umlfile)
+    4.2. [Use JHipster-UML](#usejuml)
+    4.3. [What's generated](#whatsgenerated)
+5. [Examples](#examples)
+    5.1. [Modelio](#modelioexample)
+    5.2. [UML Designer](#umldesignerexample)
+    5.3. [GenMyModel](#genmymodelexample)
+    5.4. [Visual Paradigm](#visualparadigmexample)
+6. [Testing](#testing-juml)
+7. [Contributing: issues and enhancements](#contributing)
+    7.1. [Parser modifications](#parsermodifications)
 8. [Annexes](#annexes)
 
 ***
@@ -40,8 +41,9 @@ JHipster-UML is an alternative to the usual Q&A as it offers you the possibility
 Here is a list of the editors we support:
 
   - [Modelio](https://www.modeliosoft.com/);
-  - [UMLDesigner](http://www.umldesigner.org/);
+  - [UML Designer](http://www.umldesigner.org/);
   - [GenMyModel](https://www.genmymodel.com/) (not free);
+  - [Visual Paradigm](http://www.visual-paradigm.com/) (not free, but proposes a community edition).
 
 ***
 
@@ -197,7 +199,7 @@ In this example, we'll explain how to connect two classes:
 
 ![Modelio composition example](images/jhipsteruml_modelio_2.png)
 
-As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:  
+As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:
 
   - Two classes (Employee and Job);
 
@@ -249,6 +251,7 @@ Unfortunately, UML Designer doesn't support constraints yet. A workaround is bei
 
 One of the nice things UML Designer provides is that you don't need to export to XMI, just go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
 
+
 ## <a name="genmymodelexample"></a>GenMyModel
 GenMyModel is an in-browser UML editor that can be found [here](https://dashboard.genmymodel.com/). You can use it for free but with restrictions, we hope that this editor will enable users to fiddle around with JHipster-UML without the constraint of downloading an application.
 
@@ -275,11 +278,42 @@ The parser will notice a few things:
 
   - Two injected field 'author' in Book and 'book' in Author.
 
-  - The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.  
+  - The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.
 
 Unfortunately, you can not create custom constraints for attributes to fit the JHipster ones.
 
 Once the diagram is done, you can export it to XMI. To do it, simply click on Tool -> Export as UML (XMI)
+
+
+## <a name="visualparadigmexample"></a>Visual Paradigm
+
+Visual Paradigm proposes a UML editor which supports everything JHipster-UML demands (constraints, associations, etc.).
+There is one drawback however: it's not free, but proposes a free community edition (**the tests were done with this edition**).
+
+Another issue that will be discussed later: the XMI is really heavy (is usually has more than 6K ligns).
+
+Apart from these drawbacks, Visual Paradigm is an interesting editor.
+
+When launching Visual Paradigm and creating a new UML project, you'll be greeted with this view:
+
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_1.png)
+
+As you can see on the left hand panel, we'll need the 'Class' element, 'Composition' and 'Aggregation' elements from the 'Association' element and that's all.
+
+Visual Paradigm makes it easy to add constraints to any attribute. There's one minor problem however: its name and specification semantics are not well chosen.
+
+Take this case for instance:
+
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_2.png)
+
+Here, even though we specified the right constraint name and value, Visual Paradigm will not display the name (it will be hidden, except for this view). Instead, the constraint's value will be displayed everywhere else (see the title attribute from the Job Entity: 'title : string {2}').
+
+Exporting an XMI file is straightforward: click 'Export' -> 'XMI' -> select 2.1 unless selected, and export for UML2.
+
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_3.png)
+
+That's all you need to know to start using Visual Paradigm.
+
 
 ***
 
@@ -299,11 +333,11 @@ We follow the same guidelines as JHipster, with a few additions:
 
   - The same goes for enhancements.
 
-<b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not the main JHipster page.</b>
+<b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not on the main JHipster page.</b>
 
 ## <a name="parsermodifications"></a>Parser modifications
 
-The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) ultra-easy.
+The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) ultra-easy, provided the XMI is easy to parse.
 
 
 ### Adding a parser
