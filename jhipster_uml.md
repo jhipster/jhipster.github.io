@@ -446,19 +446,19 @@ Here is the type table (from _types.js_):
     <td>Integer</td>
     <td>Integer</td>
     <td>Integer</td>
-    <td><dfn>required, minlength, maxlength</dfn></td>
+    <td><dfn>required, min, max</dfn></td>
   </tr>
   <tr>
     <td>Long</td>
     <td>Long</td>
     <td>Long</td>
-    <td><dfn>required, minlength, maxlength</dfn></td>
+    <td><dfn>required, min, max</dfn></td>
   </tr>
   <tr>
     <td>BigDecimal</td>
     <td>BigDecimal</td>
     <td>BigDecimal</td>
-    <td><dfn>required, minlength, maxlength</dfn></td>
+    <td><dfn>required, min, max</dfn></td>
   </tr>
   <tr>
     <td>Boolean</td>
