@@ -26,52 +26,34 @@ lastmod: 2015-05-22T18:40:00-00:00
 
 ## Java Code Support
 
-To add code support to many of the jHipster modules from a new project first go to `File → Project Structure`.
+To add code support to many of the JHipster modules from a new project first go to `File → Project Structure`.
 
-![Project Structure](http://puu.sh/ipvli/0f5dc91020.png)
+![Project Structure](images/configuring_ide_idea_2.png)
 
 Then go to the Modules tab, click on the `+` button, and then click on "Spring" to add Spring code assistance to your project.
 
-![Spring](https://puu.sh/ipvnO/f717884d67.png)
+![Spring](images/configuring_ide_idea_3.png)
 
-It will tell you there are unmapped Spring configuration files, click on the plus sign on the right, not the original one, and select all the Spring files that belong to your project, just clicking the folder is enough to select everything.
+It will tell you there are unmapped Spring configuration files, click on the `+` sign on the  bottom right (not the original one) and select all the Spring files that belong to your project, just clicking the folder is enough to select everything.
 
-![Spring Application Context](https://puu.sh/ipvqj/038441848a.png)
+![Spring Application Context](images/configuring_ide_idea_4.png)
 
-After that click `OK`, and your Spring should be configured with proper code assistance. 
+After that click `OK`, and Spring should be configured with proper code assistance.
 
-Now click on the original `+` button which you used to add Spring in the first place, and add Hibernate. You do not need to add any files on this one, just adding it there will give you Hibernate based code assistance. Remember to click `OK` on the Project structure dialog. 
+Now click on the original `+` button which you used to add Spring in the first place, and add Hibernate. You do not need to add any files on this one, just adding it there will give you Hibernate based code assistance. Remember to click `OK` on the Project structure dialog.
 
-With this you should now have Java support for most of the codebase. You have to repeat this step everytime you start a new project, as these settings are project specific.
+You should now have Java support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
 
 ## Javascript Code Support
 
-Go and open `File → Settings`.
+Go and open `File → Other Settings → Default Settings...`.
 
-![Settings](https://puu.sh/ipvDD/6ad4505a7a.png)
+![Settings](images/configuring_ide_idea_5.png)
 
-Type "Javascript" on the top search bar and navigate to `Languages & Frameworks → Javascript → Libraries` 
+Navigate to `Languages & Frameworks → Javascript → Bower` (or type "Bower" on the top search bar)
 
-![Navigation to Javascript](https://puu.sh/ipvLe/2acdc910e8.png)
+![Navigate to Bower](images/configuring_ide_idea_6.png)
 
-From there tick on:
+Point to your `bower.js`, which is located at the root of your project. The project's libraries, like Angular.js, should be automatically recognized.
 
-<ul>
-    <li>angular-ui-router-DefinitelyTyped</li>
-    <li>angularjs-DefinitelyTyped</li>
-    <li>bootstrap-DefinitelyTyped</li>
-    <li>gruntjs-DefinitelyTyped</li>
-    <li>jquery</li>
-    <li>jQuery-2.0.0</li>
-    <li>Modernizr-2.6.2</li>
-    <li>HTML</li>
-    <li>HTML5 / ECMAScript 5</li>
-</ul>
-
-If any of these options don't show up, click the `Download` button on the right side of the Libraries tab you should be in, it will show you a menu with several Official Libraries, then you click on the Library you need to install and click the `Download and Install` button.
-
-![Download Library](https://puu.sh/ipvXi/04f3ecba9e.png)
-
-You can also switch to the `TypeScript community stubs` tab in the `Download Library` menu if you want very in-depth code support for specific libraries, I've found that just having the ones on the above list gives you very good code coverage.
-
-After configuring this you should have fairly extensive code support for the Javascript libaries in jHipster.
+After configuring this you should have fairly extensive code support for the Javascript libraries in JHipster.
