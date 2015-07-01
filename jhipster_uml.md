@@ -505,7 +505,7 @@ You can use it by:
 
 - declare your entities and relationships,
 
-- in your JHipster application's root folder, simply type `jhipster-uml youfile.jh` 
+- in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh` 
 
 and *Voilà*, you are done!
 
