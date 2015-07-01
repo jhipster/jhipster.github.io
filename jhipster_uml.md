@@ -18,18 +18,18 @@ Here's what's covered on this page:
 1. [Introduction](#introduction)
 2. [Issues and bugs](#issues)
 3. [Installation](#install)
-4. [How to use JHipster-UML](#howtouse)
-    4.1. [The UML file](#umlfile)
-    4.2. [Use JHipster-UML](#usejuml)
-    4.3. [What's generated](#whatsgenerated)
-5. [Examples](#examples)
-    5.1. [Modelio](#modelioexample)
-    5.2. [UML Designer](#umldesignerexample)
-    5.3. [GenMyModel](#genmymodelexample)
-    5.4. [Visual Paradigm](#visualparadigmexample)
+4. [How to use JHipster-UML](#howtouse)  
+    4.1. [The UML file](#umlfile)  
+    4.2. [Use JHipster-UML](#usejuml)  
+    4.3. [What's generated](#whatsgenerated)  
+5. [Examples](#examples)  
+    5.1. [Modelio](#modelioexample)  
+    5.2. [UML Designer](#umldesignerexample)  
+    5.3. [GenMyModel](#genmymodelexample)  
+    5.4. [Visual Paradigm](#visualparadigmexample)  
 6. [Testing](#testing-juml)
-7. [Contributing: issues and enhancements](#contributing)
-    7.1. [Parser modifications](#parsermodifications)
+7. [Contributing: issues and enhancements](#contributing)  
+    7.1. [Parser modifications](#parsermodifications)  
 8. [Annexes](#annexes)
 
 ***
@@ -148,15 +148,15 @@ If, however, you wish to execute JHipster-UML outside a JHipster app, you need t
 Here is the command to execute:
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)]`
-
+ 
 The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
-
+ 
 If you need help, there's a command for that too:
 
  `jhipster-uml -help`
-
+ 
 
 * step 3 - that's it!
 
