@@ -30,8 +30,8 @@ Here's what's covered on this page:
 6. [Testing](#testing-juml)
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)  
-8. [JDL - JHipster Domain Language](#jdl)
-8. [Annexes](#annexes)
+8. [JDL - JHipster Domain Language](#jdl)  
+9. [Annexes](#annexes)
 
 ***
 
