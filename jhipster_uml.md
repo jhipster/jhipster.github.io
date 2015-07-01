@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-06-10T00:00:00-00:00
+    lastmod: 2015-07-01T07:00:00-00:00
 ---
 
 # <i class="icon-magic"></i> JHipster-UML
@@ -147,7 +147,16 @@ Note that you don't need to supply the database type (sql, mongodb, or cassandra
 If, however, you wish to execute JHipster-UML outside a JHipster app, you need to pass an extra argument: the database type name.
 Here is the command to execute:
 
- `jhipster-uml <your_file.xmi> [sql | mongodb | cassandra]`
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)]`
+ 
+The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
+
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
+ 
+If you need help, there's a command for that too:
+
+ `jhipster-uml -help`
+ 
 
 * step 3 - that's it!
 
