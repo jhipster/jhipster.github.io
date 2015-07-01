@@ -436,7 +436,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 ***
 
 # <a name="jdl"></a> JDL - JHipster Domain Language
-We added the possibility to decribe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
+We added the possibility to describe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
 
 ## The language
 We tried to keep the syntax as friendly as we can for Java developers.
