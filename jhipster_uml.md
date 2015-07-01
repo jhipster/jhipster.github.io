@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-06-08T00:00:00-00:00
+    lastmod: 2015-07-01T07:00:00-00:00
 ---
 
 # <i class="icon-magic"></i> JHipster-UML
@@ -18,17 +18,18 @@ Here's what's covered on this page:
 1. [Introduction](#introduction)
 2. [Issues and bugs](#issues)
 3. [Installation](#install)
-4. [How to use JHipster-UML](#howtouse)  
-    4.1. [The UML file](#umlfile)  
-    4.2. [Use JHipster-UML](#usejuml)  
-    4.3. [What's generated](#whatsgenerated)  
-5. [Examples](#examples)  
-    5.1. [Modelio](#modelioexample)  
-    5.2. [UML Designer](#umldesignerexample)  
-    5.3. [GenMyModel](#genmymodelexample)  
-6. [Testing](#testing-juml)  
-7. [Contributing: issues and enhancements](#contributing)  
-    6.1. [Parser modifications](#parsermodifications)  
+4. [How to use JHipster-UML](#howtouse)
+    4.1. [The UML file](#umlfile)
+    4.2. [Use JHipster-UML](#usejuml)
+    4.3. [What's generated](#whatsgenerated)
+5. [Examples](#examples)
+    5.1. [Modelio](#modelioexample)
+    5.2. [UML Designer](#umldesignerexample)
+    5.3. [GenMyModel](#genmymodelexample)
+    5.4. [Visual Paradigm](#visualparadigmexample)
+6. [Testing](#testing-juml)
+7. [Contributing: issues and enhancements](#contributing)
+    7.1. [Parser modifications](#parsermodifications)
 8. [Annexes](#annexes)
 
 ***
@@ -40,8 +41,9 @@ JHipster-UML is an alternative to the usual Q&A as it offers you the possibility
 Here is a list of the editors we support:
 
   - [Modelio](https://www.modeliosoft.com/);
-  - [UMLDesigner](http://www.umldesigner.org/);
+  - [UML Designer](http://www.umldesigner.org/);
   - [GenMyModel](https://www.genmymodel.com/) (not free);
+  - [Visual Paradigm](http://www.visual-paradigm.com/) (not free, but proposes a community edition).
 
 ***
 
@@ -110,6 +112,16 @@ Here, Author has a one-to-many relationship with Book, and Book has a many-to-on
 Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
 
 
+#### Reflexivity cases
+![Reflexivity](images/jhipsteruml_reflexivity.png)
+
+As you can see, there are 3 types of reflexivity. JHipster-UML only supports the first two (one-to-one and one-to-many). The many-to-many case is **not** supported because:
+
+  - It can lead to over-complexified and wrong models (the same effect can be achieved more easily);
+
+  - JHipster doesn't support it (this is a good thing);
+
+
 ### A complete example
 We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
@@ -124,9 +136,9 @@ JHipster can generate entities and associations between them (one-to-one, one-to
 
 Once you have your JHipster application setup and your class diagram in a UML editor, follow those steps:
 
-* step 1 - export your class diagram to the XMI file format
+- step 1 - export your class diagram to the XMI file format
 
-* step 2 - in your JHipster application root folder, execute the command
+- step 2 - in your JHipster application root folder, execute the command
 
  `jhipster-uml <your_file.xmi>`
 
@@ -135,7 +147,16 @@ Note that you don't need to supply the database type (sql, mongodb, or cassandra
 If, however, you wish to execute JHipster-UML outside a JHipster app, you need to pass an extra argument: the database type name.
 Here is the command to execute:
 
- `jhipster-uml <your_file.xmi> -db [sql | mongodb | cassandra]`
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)]`
+
+The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
+
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
+
+If you need help, there's a command for that too:
+
+ `jhipster-uml -help`
+
 
 * step 3 - that's it!
 
@@ -187,7 +208,7 @@ In this example, we'll explain how to connect two classes:
 
 ![Modelio composition example](images/jhipsteruml_modelio_2.png)
 
-As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:  
+As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:
 
   - Two classes (Employee and Job);
 
@@ -239,6 +260,7 @@ Unfortunately, UML Designer doesn't support constraints yet. A workaround is bei
 
 One of the nice things UML Designer provides is that you don't need to export to XMI, just go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
 
+
 ## <a name="genmymodelexample"></a>GenMyModel
 GenMyModel is an in-browser UML editor that can be found [here](https://dashboard.genmymodel.com/). You can use it for free but with restrictions, we hope that this editor will enable users to fiddle around with JHipster-UML without the constraint of downloading an application.
 
@@ -247,9 +269,9 @@ Then this screen will be displayed:
 
 ![GenMyModel dashbord](images/jhipsteruml_genmymodel_empty_diagram.png)
 
-On the panel on the left of the grid, is all the elements possible to make a diagram. We will need only the elements 'Class', 'DataType', 'Attribute', 'Aggregation' 'Composition'. You can use either 'Aggregation' or 'Composition', the parser will only see the association between two classes and its cardinality.
+On the panel on the left of the grid, is all the elements possible to make a diagram. We will need only the elements 'Class', 'DataType', 'Attribute', 'Aggregation' and 'Composition'. You can use either 'Aggregation' or 'Composition', the parser will only see the association between two classes and its cardinality.
 
-Here is an example how to create two entities with a one-to-many relationship between them and the declaration of the JHipster types through 'DataType':
+Here is an example on how to create two entities with a one-to-many relationship between them and the declaration of the JHipster types through 'DataType':
 
 ![GenMyModel diagram](images/jhipsteruml_genmymodel_relation.png)
 
@@ -265,11 +287,45 @@ The parser will notice a few things:
 
   - Two injected field 'author' in Book and 'book' in Author.
 
-  - The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.  
+  - The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.
 
 Unfortunately, you can not create custom constraints for attributes to fit the JHipster ones.
 
 Once the diagram is done, you can export it to XMI. To do it, simply click on Tool -> Export as UML (XMI)
+
+
+## <a name="visualparadigmexample"></a>Visual Paradigm
+
+Visual Paradigm proposes a UML editor which supports everything JHipster-UML demands (constraints, associations, etc.).
+There is one drawback however: it's not free, but proposes a free community edition (**the tests were done with this edition**).
+
+Another issue that will be discussed later: the XMI is really heavy (is usually has more than 6K ligns).
+
+Apart from these drawbacks, Visual Paradigm is an interesting editor.
+
+When launching Visual Paradigm and creating a new UML project, you'll be greeted with this view:
+
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_1.png)
+
+As you can see on the left hand panel, we'll need the 'Class' element, 'Composition' and 'Aggregation' elements from the 'Association' element and that's all.
+
+Visual Paradigm makes it easy to add constraints to any attribute. There's one minor problem however: its name and specification semantics are not well chosen.
+
+Take this case for instance:
+
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_2.png)
+
+Here, even though we specified the right constraint name and value, Visual Paradigm will not display the name (it will be hidden, except for this view). Instead, the constraint's value will be displayed everywhere else (see the title attribute from the Job Entity: 'title : string {2}').
+
+Exporting an XMI file is straightforward: click 'Export' -> 'XMI' -> select 2.1 unless selected, and export for UML2.
+
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_3.png)
+
+After exporting your diagram, you might notice that your XMI file is quite big. Visual Paradigm exports not only the elements in the diagram, but the place the drawing and placements informations too.
+The parsing will still be quick, but may take a bit more time.
+
+That's all you need to know to start using Visual Paradigm.
+
 
 ***
 
@@ -284,14 +340,16 @@ We use Mocha for testing (along with expect, chai and expect from chai).
 
 Because our tool isn't perfect (_yet_), you may notice some irregularities. Github provides a pretty nice issue tracker so that everyone can post about an issue.
 We follow the same guidelines as JHipster, with a few additions:
-- Bugs found internally (by the JHipster-UML team) may be posted in the issue tracker, except for bugs regarding the supported UML editors.
-- The same goes for enhancements.
 
-<b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not the main JHipster page.</b>
+  - Bugs found internally (by the JHipster-UML team) may be posted in the issue tracker, except for bugs regarding the supported UML editors.
+
+  - The same goes for enhancements.
+
+<b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not on the main JHipster page.</b>
 
 ## <a name="parsermodifications"></a>Parser modifications
 
-The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) ultra-easy.
+The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) ultra-easy, provided the XMI is easy to parse.
 
 
 ### Adding a parser
@@ -334,9 +392,9 @@ However, a few guidelines must be respected:
 - The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
 
 You also must add your editor to the EditorDetector, so that the XMI's editor can be detected, and the XMI parsed.
-See [this example](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L17) to know more about it.
+See [this example](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L16) to know more about it.
 
-Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38). It will propose the editor as a choice.
+Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L37). It will propose the editor as a choice.
 
 
 #### Testing
@@ -370,7 +428,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 ### Deleting a parser
 
 Removing a parser is quite an easy thing to do.
-First, remove it from the editors (`editors/editors.js`). Then, from the EditorDetector (`editors/editor_detector.js`). Finally, just remove the parser file and the test.
+First, remove it from the editors (`editors/editors.js`) and then remove it from the EditorDetector (`editors/editor_detector.js`). Finally, just remove the parser file and the test created for it.
 
 Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser
 
@@ -397,19 +455,19 @@ Here is the type table (from _types.js_):
     <td>Integer</td>
     <td>Integer</td>
     <td>Integer</td>
-    <td><dfn>required, minlength, maxlength</dfn></td>
+    <td><dfn>required, min, max</dfn></td>
   </tr>
   <tr>
     <td>Long</td>
     <td>Long</td>
     <td>Long</td>
-    <td><dfn>required, minlength, maxlength</dfn></td>
+    <td><dfn>required, min, max</dfn></td>
   </tr>
   <tr>
     <td>BigDecimal</td>
     <td>BigDecimal</td>
     <td>BigDecimal</td>
-    <td><dfn>required, minlength, maxlength</dfn></td>
+    <td><dfn>required, min, max</dfn></td>
   </tr>
   <tr>
     <td>Boolean</td>
