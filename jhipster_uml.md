@@ -30,7 +30,8 @@ Here's what's covered on this page:
 6. [Testing](#testing-juml)
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)  
-8. [Annexes](#annexes)
+8. [JDL - JHipster Domain Language](#jdl)  
+9. [Annexes](#annexes)
 
 ***
 
@@ -433,6 +434,80 @@ First, remove it from the editors (`editors/editors.js`) and then remove it from
 Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser
 
 ***
+
+# <a name="jdl"></a> JDL - JHipster Domain Language
+We added the possibility to decribe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
+
+## The language
+We tried to keep the syntax as friendly as we can for Java developers.
+You can do two things with it: declare entities with their attributes, and declare the relationships between them.
+
+
+The entity declaration is done as follows:
+
+    entity <entity name> {
+      <field name> <type> [<validation>*]
+    }
+
+- `<entity name>` is the name of the entity,
+
+- `<field name>` the name of one field of the entity,
+
+- `<type>` the JHipster supported type of the field,
+
+- and as an option `<validation>` the validations for the field.
+
+The possible validations are those describe [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
+
+ Here's an example of a field declaration with validations:
+
+    email String required maxlength(5) minlength(30) pattern("[\w]*@[a-zA-Z]*.com"),
+
+The relationships declaration is done as follows:
+
+    relationship (OneToMany | ManyToOne | OneToOne | ManyToMany){
+      <from entity>[{<relationship name>}] to <to entity>[{<relationship name>}]
+    }
+
+- `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship, 
+
+- `<from entity>` is the name of the entity owner of the relationship,
+
+- `<to entity>` is the name of the entity where the relationship goes to,
+
+- `<relationship name>` is the name of the relationship in the entity.
+
+
+**Note: the relationship OneToMany A to B is equivalent to the relationship ManyToOne B to A, you only need to make one of them.**
+
+ Here's an simple example:
+
+A Book has one Author, an Author has several Books.
+
+    entity Book{
+      title String required,
+      description String required minlength(5) maxlength(50),
+      publicationDate LocalDate,
+      price BigDecimal
+    }
+    entity Author{
+      name String required,
+      birthDate LocalDate
+    }
+    relationship OneToMany{
+      Author{book} to Book{writer}
+    }
+
+## How to use it
+You can use it by:
+
+- simply creating a file with the extension '.jh',
+
+- declare your entities and relationships,
+
+- in your JHipster application's root folder, simply type `jhipster-uml youfile.jh` 
+
+and *Voilà*, you are done!
 
 # <a name="annexes"></a>Annexes
 
