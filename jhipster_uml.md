@@ -457,7 +457,7 @@ The entity declaration is done as follows:
 
 - and as an option `<validation>` the validations for the field.
 
-The possible validations are those describe [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
+The possible validations are those described [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
 
  Here's an example of a field declaration with validations:
 
