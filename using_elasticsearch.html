@@ -21,7 +21,7 @@ sitemap:
 <p>
     When the Elasticsearch option is selected:
     <ul>
-        <li>Spring Data Elasticsearch is being used, and is automatically configured by Spring Boot.</li>
+        <li>Spring Data Elasticsearch is being used, and is automatically configured by Spring Boot (<a href="http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-nosql.html#boot-features-elasticsearch" target="_blank">here is the documentation</a>).</li>
         <li>By default, we use an embedded Elasticsearch in development, and try to connect to a local cluster in production. This can be configured by the standard Spring Boot properties, in the <code>application.yml</code> file.<br> When using the dev profile, the embedded Elasticsearch is configured to store data files under the target folder, a simple <code>mvn clean</code> will destroy the persisted indices.</li>
         <li>The "repository" package has new subpackage, called "search", that holds all ElastiSearch repositories.</li>
         <li>The "User" entity gets indexed in Elasticsearch, and you can query is using the <code>/api/_search/users/:query</code> REST endpoint.</li>
