@@ -461,7 +461,7 @@ The possible validations are those described [here](#annexes), if the validation
 
  Here's an example of a field declaration with validations:
 
-    email String required maxlength(5) minlength(30) pattern("[\w]*@[a-zA-Z]*.com"),
+    email String required maxlength(30) minlength(5) pattern("[\\w]*@[a-zA-Z]*.com"),
 
 The relationships declaration is done as follows:
 
