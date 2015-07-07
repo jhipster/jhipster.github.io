@@ -498,6 +498,24 @@ A Book has one Author, an Author has several Books.
       Author{book} to Book{writer}
     }
 
+### Enum
+Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL must do as follows:
+
+- Declare an Enum where you want in the file:
+
+        enum Language {
+          FRENCH, ENGLISH, SPANISH
+        }
+
+- In an entity, add field with the Enum as a type:
+
+        entity Book{
+          title String required,
+          description String,
+          language Language
+        }
+
+
 ## How to use it
 You can use it by:
 
@@ -543,6 +561,12 @@ Here is the type table (from _types.js_):
     <td>BigDecimal</td>
     <td>BigDecimal</td>
     <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>Enum</td>
+    <td>Enum</td>
+    <td>Enum</td>
+    <td><dfn>required</dfn></td>
   </tr>
   <tr>
     <td>Boolean</td>
