@@ -436,7 +436,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 ***
 
 # <a name="jdl"></a> JDL - JHipster Domain Language
-We added the possibility to decribe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
+We added the possibility to describe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
 
 ## The language
 We tried to keep the syntax as friendly as we can for Java developers.
@@ -457,11 +457,11 @@ The entity declaration is done as follows:
 
 - and as an option `<validation>` the validations for the field.
 
-The possible validations are those describe [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
+The possible validations are those described [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
 
  Here's an example of a field declaration with validations:
 
-    email String required maxlength(5) minlength(30) pattern("[\w]*@[a-zA-Z]*.com"),
+    email String required maxlength(30) minlength(5) pattern("[\\w]*@[a-zA-Z]*.com"),
 
 The relationships declaration is done as follows:
 
@@ -505,7 +505,7 @@ You can use it by:
 
 - declare your entities and relationships,
 
-- in your JHipster application's root folder, simply type `jhipster-uml youfile.jh` 
+- in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh` 
 
 and *Voilà*, you are done!
 
