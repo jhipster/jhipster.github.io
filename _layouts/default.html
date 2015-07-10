@@ -60,9 +60,7 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
-            <span class="fa fa-bar"></span>
-            <span class="fa fa-bar"></span>
-            <span class="fa fa-bar"></span>
+            <span class="fa fa-bars"></span>
           </button>
 
           <a class="navbar-brand" href="{{ site.url }}/">JHipster</a>
@@ -142,15 +140,21 @@
                         <ul class="nav nav-second-level">
                             <li {% if '/help.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/help.html"><i class="fa fa-group"></i> Community help</a></li>
                             <li {% if '/consulting.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/consulting.html"><i class="fa fa-user-md"></i> Professional help</a></li>
-                            <li {% if '/training.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/training.html"><i class="fa fa-university"></i> Training</a></li>
+                            <li {% if '/training.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/training.html"><i class="fa fa-graduation-cap "></i> Training</a></li>
                             <li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="fa fa-bug"></i> Bug tracker</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-star"></i> About<span class="fa fa-angle-right pull-right"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+                            <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank"><i class="fa fa-comments"></i> Chat</a></li>
+                            <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            <li>
+                            <li {% if '/artwork.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/artwork.html"><i class="fa fa-pencil"></i> Artwork</a></li>
                             <li {% if '/thanks.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/thanks.html"><i class="fa fa-gift"></i> Thanks</a></li>
                         </ul>
                     </li>
-                    <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
-                    <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank"><i class="fa fa-comments"></i> Chat</a></li>
-                    <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
-                    <li>
 <script>
   (function() {
     var cx = '004687894124070278856:-ryvp1pk0xi';
