@@ -6,7 +6,7 @@ priority: 0.7
 lastmod: 2015-01-09T12:40:00-00:00
 ---
 
-# <i class="icon-check"></i> Setting up Continuous Integration
+# <i class="fa fa-check"></i> Setting up Continuous Integration
 
 Setting up your own continuous integration server using Jenkins for a JHipster application is harder than for a classic Spring MVC application because of all the tools required to build and test the client code.
 

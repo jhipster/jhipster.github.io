@@ -6,7 +6,7 @@ priority: 0.7
 lastmod: 2015-05-22T18:40:00-00:00
 ---
 
-# <i class="icon-sitemap"></i> Managing relationships
+# <i class="fa fa-sitemap"></i> Managing relationships
 
 When JPA is used, the [entity sub-generator]({{ site.url }}/creating_an_entity.html) can create relationships between entities.
 

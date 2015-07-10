@@ -6,7 +6,7 @@ priority: 0.7
 lastmod: 2015-05-22T18:40:00-00:00
 ---
 
-# <i class="icon-keyboard"></i> Configuring Intellij IDEA
+# <i class="fa fa-keyboard-o"></i> Configuring Intellij IDEA
 
 ## Import your project
 

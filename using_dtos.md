@@ -6,7 +6,7 @@ sitemap:
     lastmod: 2015-05-28T23:41:00-00:00
 ---
 
-# <i class="icon-briefcase"></i> [BETA] Using DTOs
+# <i class="fa fa-briefcase"></i> [BETA] Using DTOs
 
 __WARNING!__ This is a new feature, of <b>BETA</b> quality. Use it at your own risk! Feedback is highly welcome!
 

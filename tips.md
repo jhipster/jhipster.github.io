@@ -6,7 +6,7 @@ priority: 0.7
 lastmod: 2015-05-27T18:40:00-00:00
 ---
 
-# <i class="icon-cogs"></i> Tips'n tricks
+# <i class="fa fa-cogs"></i> Tips'n tricks
 
 This section contains __user-submitted tips'n tricks__ on using JHipster.
 

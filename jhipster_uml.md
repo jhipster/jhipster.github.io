@@ -6,7 +6,7 @@ sitemap:
     lastmod: 2015-07-01T07:00:00-00:00
 ---
 
-# <i class="icon-magic"></i> JHipster-UML
+# <i class="fa fa-magic"></i> JHipster-UML
 
 
 JHipster-UML is a JHipster sub-project which can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool, than with the classical Yeoman questions and answers.
