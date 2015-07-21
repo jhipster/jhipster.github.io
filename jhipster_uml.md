@@ -153,6 +153,11 @@ Here is the command to execute:
 The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
+
+You can choose the pagination for your entities using `-paginate`.
+
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-paginate]`
+
  
 If you need help, there's a command for that too:
 
