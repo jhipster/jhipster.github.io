@@ -113,6 +113,34 @@ Here, Author has a one-to-many relationship with Book, and Book has a many-to-on
 Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
 
 
+#### Declare the field you want to use to display a relationship in AngularJS
+To do that you must add the field name between `(``)` after the injected field name.
+
+In a One-to-Many relationship you can add it in the 'Many' side of the relationship:
+
+- UML
+
+![otherEntityField One-to-Many](images/jhipsteruml_otherEntityFieldOM.jpeg)
+
+- JDL
+
+      relationship OneToMany{
+        One{many} to Many{one(<otherEntityField>)}
+      }
+
+In a Many-to-Many relationship you can add it in the owner side of the entity:
+
+- UML
+
+![otherEntityField Many-to-Many](images/jhipsteruml_otherEntityFieldMM.jpeg)
+
+- JDL
+
+      relationship ManyToMany{
+        Owner{notOwner(<otherEntityField>)} to NotOwner{owner}
+      }
+
+
 #### Reflexivity cases
 ![Reflexivity](images/jhipsteruml_reflexivity.png)
 
@@ -153,6 +181,11 @@ Here is the command to execute:
 The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
+
+You can choose the pagination for your entities using `-paginate`.
+
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-paginate]`
+
  
 If you need help, there's a command for that too:
 
