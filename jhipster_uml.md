@@ -125,7 +125,7 @@ In a One-to-Many relationship you can add it in the 'Many' side of the relations
 - JDL
 
       relationship OneToMany{
-        One{many(<otherEntityField>)} to Many{one}
+        One{many} to Many{one(<otherEntityField>)}
       }
 
 In a Many-to-Many relationship you can add it in the owner side of the entity:
