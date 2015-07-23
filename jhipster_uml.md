@@ -113,6 +113,34 @@ Here, Author has a one-to-many relationship with Book, and Book has a many-to-on
 Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
 
 
+#### Declare the field you want to use to display a relationship in AngularJS
+To do that you must add the field name between `(``)` after the injected field name.
+
+In a One-to-Many relationship you can add it in the 'Many' side of the relationship:
+
+- UML
+
+![otherEntityField One-to-Many](images/jhipsteruml_otherEntityFieldOM.jpeg)
+
+- JDL
+
+      relationship OneToMany{
+        One{many(<otherEntityField>)} to Many{one}
+      }
+
+In a Many-to-Many relationship you can add it in the owner side of the entity:
+
+- UML
+
+![otherEntityField Many-to-Many](images/jhipsteruml_otherEntityFieldMM.jpeg)
+
+- JDL
+
+      relationship ManyToMany{
+        Owner{notOwner(<otherEntityField>)} to NotOwner{owner}
+      }
+
+
 #### Reflexivity cases
 ![Reflexivity](images/jhipsteruml_reflexivity.png)
 
