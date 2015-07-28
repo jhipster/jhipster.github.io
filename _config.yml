@@ -1,2 +1,4 @@
 safe:        true
 markdown: kramdown
+gems:
+  - jekyll-redirect-from
