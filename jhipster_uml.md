@@ -3,13 +3,13 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-07-01T07:00:00-00:00
+    lastmod: 2015-07-28T07:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
 
 
-JHipster-UML is a JHipster sub-project which can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool, than with the classical Yeoman questions and answers.
+JHipster-UML is a JHipster sub-project which can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
 
 The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on Github!
 
@@ -548,6 +548,15 @@ Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL must do
           language Language
         }
 
+### Blob (byte[])
+Since v1.2.1, JHipster-UML supports binary types. JHipster gives a great choice as one can choose between an image type or any bnary type. JHipster-UML lets you do the same: just create a custom type (see DataType) with your editor, name it according to these conventions:
+
+  - `AnyBlob` or just `Blob` to create a field of the "any" binary type;
+
+  - `ImageBlob` to create a field meant to be an image.
+
+And you can create as many DataTypes as you like.
+
 
 ## How to use it
 You can use it by:
@@ -556,7 +565,7 @@ You can use it by:
 
 - declare your entities and relationships,
 
-- in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh` 
+- in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh`.
 
 and *Voilà*, you are done!
 
