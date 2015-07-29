@@ -24,6 +24,7 @@ _[@jeromemirc](https://twitter.com/jeromemirc)_
 _[@gmarziou](https://twitter.com/gmarziou)_
 
 ### Anders Steiner
+_[@andidevv](https://twitter.com/andidevv)_
 
 ### Deepu K Sasidharan
 _[@deepu105](https://twitter.com/deepu105)_
