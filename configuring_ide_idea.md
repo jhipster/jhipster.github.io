@@ -54,6 +54,6 @@ Navigate to `Languages & Frameworks → Javascript → Bower` (or type "Bower" o
 
 ![Navigate to Bower](images/configuring_ide_idea_6.png)
 
-Point to your `bower.js`, which is located at the root of your project. The project's libraries, like Angular.js, should be automatically recognized.
+Point to your `bower.json`, which is located at the root of your project. The project's libraries, like Angular.js, should be automatically recognized.
 
 After configuring this you should have fairly extensive code support for the Javascript libraries in JHipster.
