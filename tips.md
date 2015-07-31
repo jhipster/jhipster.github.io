@@ -18,3 +18,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 4. [Using MS SQL Server](tips/004_tip_using_ms_sql_server.html)
 5. [Running concurrent tasks in Grunt](tips/005_tip_concurrent_task_grunt.html)
 6. [Enable cross origin HTTP requests](tips/006_tips_enable_cross_origin_requests.html)
+7. [Enforce HTTPS](tips/007_tips_enforce_https.html)
