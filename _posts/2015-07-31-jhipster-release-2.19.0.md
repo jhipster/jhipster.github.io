@@ -13,7 +13,7 @@ What's new
 
 This is a big summer release, with a lot of bug fixes and new features.
 
-The biggest news is that we now have an official "board of developer". Many thanks to all of the team, who made this release possible while [Julien Dubois](https://twitter.com/juliendubois) was on holidays! The [team page](/team.html) is available for more information on this subject.
+The biggest news is that we now have an official "board of developers". Many thanks to all of the team, who made this release possible while [Julien Dubois](https://twitter.com/juliendubois) was on holidays! The [team page](/team.html) is available for more information on this subject.
 
 The new [notification feature](https://github.com/jhipster/generator-jhipster/issues/1750) is still a bit young, but is going to help a lot of people: you now have "alerts" that alarm you when a user action is done in the entities (like creating, editing or deleting). They are also useful when an error happens during that action.
 
