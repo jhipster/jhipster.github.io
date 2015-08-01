@@ -223,6 +223,8 @@ include::{generated}/definitions.adoc[]
 
 Your static documentaion is generated during test phase of your project. You find it in ``src/target/docs/html`` or ``build/asciidoc/html5``.
 
+![Example documentaion](images/swagger2markup_example.png)
+
 ## More
 
 For more information (e.g. how to add hand-written documentation) see the [official reference documentation](https://swagger2markup.readme.io/).
