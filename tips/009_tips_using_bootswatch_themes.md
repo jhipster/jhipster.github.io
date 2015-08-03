@@ -1,25 +1,25 @@
 ---
 layout: default
-title: Bootswatch themes
+title: Using Bootswatch themes
 sitemap:
 priority: 0.5
 lastmod: 2015-08-01T22:28:00-00:00
 ---
 
-# Bootswatch Themes with Theme Switcher
+# Using Bootswatch themes with theme switcher
 
 __Tip submitted by [@deepu105](https://github.com/deepu105)__
 
-To have [bootswatch](https://bootswatch.com/) themes instead of the default theme you just need to override the bootstrap css with the css from bootswatch theme. However if you want a cool them switcher to switch between bootswatch themes dynamically then follow this tip.
+To have [Bootswatch](https://bootswatch.com/) themes instead of the default theme you just need to override the bootstrap css with the css from bootswatch theme. However if you want a cool theme switcher to switch between Bootswatch themes dynamically then follow this tip.
 
-Make the following changes in the generated app
+Make the following changes in the generated app.
 
 ## Add Files
 
 Add the below service as `bootswatch.service.js` under `webapp/components/util`
 
     'use strict';
-    
+
     angular.module('yourApp')
         .factory('BootSwatchService', function ($http) {
             return {
@@ -61,7 +61,7 @@ Add the below directive as `bootswatch.directive.js` under `webapp/components/ut
 Add the below controller as `bootswatch.controller.js` under `webapp/components/util`
 
     'use strict';
-    
+
     angular.module('yourApp')
         .controller('BootswatchController', function ($scope, BootSwatchService) {
             /*Get the list of availabel bootswatch themes*/
@@ -76,7 +76,7 @@ Add the below controller as `bootswatch.controller.js` under `webapp/components/
 Add the below to the index.html file after the CSS build task so that these are not minified and compacted by build task
 
     <!-- build:css assets/styles/main.css -->
-    
+
     ...
 
     <!-- endbuild -->
@@ -121,9 +121,14 @@ Add exclusion to the bootswatch url in authInterceptor in `app.js` if you are us
 
 # Screenshots
 
-![screen 1](https://cloud.githubusercontent.com/assets/1107223/7855692/449edd7a-0556-11e5-9788-5e7143e0316e.png)
-![screen 2](https://cloud.githubusercontent.com/assets/1107223/7805499/192d671c-03a6-11e5-97d3-4a678d78cdb7.png)
-![screen 3](https://cloud.githubusercontent.com/assets/1107223/7805512/580e0784-03a6-11e5-9668-a61778cce871.png)
-![screen 4](https://cloud.githubusercontent.com/assets/1107223/7805522/79317e78-03a6-11e5-98cd-39d360f68550.png)
-![screen 5](https://cloud.githubusercontent.com/assets/1107223/7805528/850731b6-03a6-11e5-87b5-569bb945c776.png)
-![screen 6](https://cloud.githubusercontent.com/assets/1107223/7805530/8f3138e4-03a6-11e5-853a-e1081f7dd41b.png)
+![Screenshot 1](../images/009_tips_using_bootswatch_themes_01.png)
+
+![Screenshot 2](../images/009_tips_using_bootswatch_themes_02.png)
+
+![Screenshot 3](../images/009_tips_using_bootswatch_themes_03.png)
+
+![Screenshot 4](../images/009_tips_using_bootswatch_themes_04.png)
+
+![Screenshot 5](../images/009_tips_using_bootswatch_themes_05.png)
+
+![Screenshot 6](../images/009_tips_using_bootswatch_themes_06.png)

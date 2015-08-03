@@ -206,7 +206,7 @@ Create `index.adoc` in `src/docs/asciidoc` with following content:
 
 Your static documentation is generated during the test phase of your project. You find it in `src/target/docs/html` or `build/asciidoc/html5`.
 
-![Example documentation](../images/swagger2markup_example.png)
+![Example documentation](../images/008_tips_static_swagger_docs_01.png)
 
 ## More
 
