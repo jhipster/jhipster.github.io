@@ -25,11 +25,13 @@ Importing your JHipster in Eclipse will require a few manual steps. You will nee
 ![Select](images/configuring_ide_eclipse_2.png)
 
 
-At the end of the import phase, you might be proposed to "setup Maven plugin connectors" for a plugin called ``maven-processor-plugin``. This is an extension for m2eclipse that has to be installed only once for your Eclipse install. If you have installed it already, you will not need to go through this step.
+At the end of the import phase, you can expect to see the below dialog.  "Maven plugin connectors" are an extension for m2eclipse. That one should be installed and Eclipse will need to restart after completion.
+
+If you have installed it already, you will be good to go and do not need to do anything.
 
 ![Select](images/configuring_ide_eclipse_maven_processor.png)
 
-Note: if you already have an existing JHipster project and have not installed the ``maven-processor-plugin``, you should see the below error:
+```Note: if you already have an existing JHipster project and have not installed the ``maven-processor-plugin``, you should see the below error:
 
 ``Plugin execution not covered by lifecycle configuration: org.bsc.maven:maven-processor-plugin:2.2.4:process (execution: process, phase: generate-sources)
 
