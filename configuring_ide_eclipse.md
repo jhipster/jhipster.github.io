@@ -31,7 +31,8 @@ If you have installed it already, you will be good to go and do not need to do a
 
 ![Select](images/configuring_ide_eclipse_maven_processor.png)
 
-```Note: if you already have an existing JHipster project and have not installed the corresponding connector, you should see the below error:
+```
+Note: if you already have an existing JHipster project and have not installed the corresponding connector, you should see the below error:
 
 Plugin execution not covered by lifecycle configuration: org.bsc.maven:maven-processor-plugin:2.2.4:process (execution: process, phase: generate-sources)
 
