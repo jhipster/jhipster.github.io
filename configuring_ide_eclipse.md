@@ -8,9 +8,10 @@ lastmod: 2015-05-22T18:40:00-00:00
 
 # <i class="fa fa-keyboard-o"></i> Configuring Eclipse
 
-Importing your JHipster in Eclipse will require a few manual steps. You will need to do some configuration:
-- on Maven side (for Maven users)
-- on Javascript side (so Eclipse can ignore a couple of folders for static files)
+Importing your JHipster application in Eclipse will require a few manual steps. You will need to do some configuration:
+
+- on the Maven side (for Maven users)
+- on the Javascript side (so Eclipse can ignore a couple of folders for static files)
 
 
 ## 1. Import your project as a Maven project
@@ -31,13 +32,11 @@ If you have installed it already, you will be good to go and do not need to do a
 
 ![Select](images/configuring_ide_eclipse_maven_processor.png)
 
-```
-Note: if you already have an existing JHipster project and have not installed the corresponding connector, you should see the below error:
+__Note__: if you already have an existing JHipster project and have not installed the corresponding connector, you should see the below error:
 
-Plugin execution not covered by lifecycle configuration: org.bsc.maven:maven-processor-plugin:2.2.4:process (execution: process, phase: generate-sources)
+`Plugin execution not covered by lifecycle configuration: org.bsc.maven:maven-processor-plugin:2.2.4:process (execution: process, phase: generate-sources)`
 
 Just select Quick Fix/Ctrl+1 (Cmd+1 on Mac) on the error marker and select "Discover new m2e connectors"
-```
 
 ## 2. Excluding generated static folders
 At this stage you should not have any Java error but should still see some JavaScript errors. This is because you have some JavaScript files that Eclipse cannot parse properly. Those files are used at execution time only and do not need to be visible in your workspace. They should be excluded.
