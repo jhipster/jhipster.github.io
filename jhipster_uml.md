@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-07-28T07:00:00-00:00
+    lastmod: 2015-08-03T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -602,6 +602,18 @@ Here is the type table (from _types.js_):
     <td>BigDecimal</td>
     <td>BigDecimal</td>
     <td>BigDecimal</td>
+    <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>Float</td>
+    <td>Float</td>
+    <td>Float</td>
+    <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>Double</td>
+    <td>Double</td>
+    <td>Double</td>
     <td><dfn>required, min, max</dfn></td>
   </tr>
   <tr>
