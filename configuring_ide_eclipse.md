@@ -13,7 +13,7 @@ Importing your JHipster in Eclipse will require a few manual steps. You will nee
 - on Javascript side (so Eclipse can ignore a couple of folders for static files)
 
 
-## Import your project as a Maven project
+## 1. Import your project as a Maven project
 
 - Select File -> Import
 - Choose "Existing Maven Projects"
@@ -39,7 +39,7 @@ Plugin execution not covered by lifecycle configuration: org.bsc.maven:maven-pro
 Just select Quick Fix/Ctrl+1 (Cmd+1 on Mac) on the error marker and select "Discover new m2e connectors"
 ```
 
-## Excluding generated static folders
+## 2. Excluding generated static folders
 At this stage you should not have any Java error but should still see some JavaScript errors. This is because you have some JavaScript files that Eclipse cannot parse properly. Those files are used at execution time only and do not need to be visible in your workspace. They should be excluded.
 
 
