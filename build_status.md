@@ -8,8 +8,6 @@ lastmod: 2015-05-22T18:40:00-00:00
 
 # <i class="fa fa-industry"></i> Build status
 
-__WARNING !! This is a work in progress, this isn't fully automated yet, and so it doesn't work correctly yet__
-
 This page is the result of our [automated samples project](https://github.com/jhipster/jhipster-automated-samples), and gives a matrix of the build status of all our sample projects.
 
 ## Continuous Integration
