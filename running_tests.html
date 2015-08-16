@@ -73,3 +73,10 @@ lastmod: 2015-04-20T00:00:00-00:00
 <p>
     Gatling tests can be run with Maven, by running <code>mvn gatling:execute</code>. If you have several tests, JHipster will ask which test should be run.
 </p>
+<p>
+    <b>Warning!</b> At the moment, those tests do not take into account the validation rules you may have enforced on your entities. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
+    <ul>
+        <li>On your running application, go to the <code>Administration > Logs</code> screen, and put <code>org.springframework</code> in <code>debug</code> mode. You will see the validation errors, for example.</li>
+        <li>Use the application normaly and open the Chrome <code>console log</code>: you will be able to see the REST requests with all their parameters, including the HTTP headers.</li>
+    </ul>
+</p>
