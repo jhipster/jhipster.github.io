@@ -34,18 +34,18 @@ Add the `Querydsl plugin` configuration `grunt.initConfig`
       }
 
       dependencies {
-        classpath "com.ewerk.gradle.plugins:Querydsl-plugin:1.0.3"
+        classpath "com.ewerk.gradle.plugins:querydsl-plugin:1.0.3"
       }
     }
 
-    apply plugin: "com.ewerk.gradle.plugins.Querydsl"
+    apply plugin: "com.ewerk.gradle.plugins.querydsl"
 
-    Querydsl {
+    querydsl {
       // we use mongodb
       springDataMongo = true
     }
 
-    compile "com.mysema.Querydsl:Querydsl-mongodb:3.6.0"
+    compile "com.mysema.querydsl:querydsl-mongodb:3.6.0"
 
 __Note__ we use MongoDB but Querydsl plugin supports also [more options](https://github.com/ewerk/gradle-plugins/tree/master/Querydsl-plugin).
 
