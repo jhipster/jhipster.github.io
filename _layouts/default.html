@@ -73,31 +73,36 @@
                     <li {% if '/index.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/"><i class="fa fa-home"></i> Home</a></li>
                     <li {% if '/releases.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/releases.html"><i class="fa fa-file-text-o"></i> Release notes</a></li>
                     <li>
-                        <a href="#"><i class="fa fa-road"></i> JHipster in 5 minutes<span class="fa fa-angle-right pull-right"></span></a>
+                        <a href="#"><i class="fa fa-road"></i> JHipster in a few minutes<span class="fa fa-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
                             <li {% if '/tech_stack.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tech_stack.html"><i class="fa fa-stack-overflow"></i> Technology stack</a></li>
                             <li {% if '/presentation' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/presentation" target="_blank"><i class="fa fa-desktop"></i> Official JHipster slides</a></li>
                             <li {% if '/screenshots.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/screenshots.html"><i class="fa fa-picture-o"></i> JHipster in 5 screenshots</a></li>
-                            <li {% if '/video_tutorial.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/video_tutorial.html"><i class="fa fa-film"></i> Video tutorial</a></li>
+                            <li {% if '/video_tutorial.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/video_tutorial.html"><i class="fa fa-film"></i> Video tutorial (20 minutes)</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench"></i> Setup<span class="fa fa-angle-right pull-right"></span></a>
+                        <a href="#"><i class="fa fa-wrench"></i> Setting up your environment<span class="fa fa-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="fa fa-cloud-download"></i> Installation</a></li>
-                            <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="fa fa-rocket"></i> Creating an application</a></li>
-                            <li {% if '/creating_an_entity.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_entity.html"><i class="fa fa-bolt"></i> Creating an entity</a></li>
-                            <li {% if '/managing_relationships.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/managing_relationships.html"><i class="fa fa-sitemap"></i> Managing relationships</a></li>
-                            <li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="fa fa-bolt"></i> Creating a service</a></li>
-                            <li {% if '/installing_new_languages.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installing_new_languages.html"><i class="fa fa-flag"></i> Installing new languages</a></li>
-                            <li {% if '/configuring_ide.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/configuring_ide.html"><i class="fa fa-keyboard-o"></i> Configuring your IDE</a></li>
+                            <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="fa fa-cloud-download"></i> Install JHipster</a></li>
+                            <li {% if '/configuring_ide.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/configuring_ide.html"><i class="fa fa-keyboard-o"></i> Configuring Eclipse/IntelliJ</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench"></i> Core JHipster tasks<span class="fa fa-angle-right pull-right"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="fa fa-rocket"></i> Creating an application</a></li>
+                            <li {% if '/creating_an_entity.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_entity.html"><i class="fa fa-bolt"></i> Creating an entity</a></li>
+                            <li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="fa fa-bolt"></i> Creating a service</a></li>
+                            <li {% if '/using_dtos.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_dtos.html"><i class="fa fa-briefcase"></i> Creating DTOs</a></li>
+                            <li {% if '/managing_relationships.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/managing_relationships.html"><i class="fa fa-sitemap"></i> Managing relationships</a></li>
+                            <li {% if '/installing_new_languages.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installing_new_languages.html"><i class="fa fa-flag"></i> Internationalization: adding/removing languages</a></li>
+                        </ul>
+                    </li>                    
                     <li>
                         <a href="#"><i class="fa fa-puzzle-piece"></i> Options<span class="fa fa-angle-right pull-right"></span></a>
                         <ul class="nav nav-second-level">
                             <li {% if '/security.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/security.html"><i class="fa fa-lock"></i> Securing your app</a></li>
-                            <li {% if '/using_dtos.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_dtos.html"><i class="fa fa-briefcase"></i> Using DTOs</a></li>
                             <li {% if '/using_elasticsearch.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_elasticsearch.html"><i class="fa fa-search"></i> Using Elasticsearch</a></li>
                             <li {% if '/using_oracle.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_oracle.html"><i class="fa fa-archive"></i> Using Oracle</a></li>
                             <li {% if '/using_mongodb.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_mongodb.html"><i class="fa fa-leaf"></i> Using MongoDB</a></li>
