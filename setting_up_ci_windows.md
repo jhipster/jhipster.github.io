@@ -72,28 +72,3 @@ grunt --version
 ~~~
 
 It can be useful to have multiple versions of NodeJS on same machine but 'nvm' equivalents on Windows focus more on development environment than continuous integration. So if a job requires another version of NodeJS, change its PATH.
-
-## Installing Ruby and Compass
-
-http://rubyinstaller.org/
-
-Install version 1.9.3 under a simple folder (e.g.'c:\ruby193') rather than default one that may require administrator rights.
-
-~~~
-ruby -v
-ruby 1.9.3p551 (2014-11-13) [i386-mingw32]
-~~~
-
-Install development kit so that you can install gems requiring compilation, select a simple destination folder (e.g. 'c:\RubyDevKit') and [follow instructions](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit).
-
-Install Compass
-
-http://compass-style.org/install/
-
-~~~
-gem update --system
-gem install compass
-compass --version
-~~~
-
-If Ruby and Compass have been installed in a folder that is not included in jenkins user's PATH, you can either update it in  environment variables or through Jenkins UI in global properties.

@@ -14,11 +14,11 @@ _Pro tip: don't forget use to `grunt serve` or `gulp serve` to get immediate fee
 
 The simplest way to customize how your JHipster application looks like is by
 overriding CSS styles in `src/main/webapp/assets/images/styles/main.css` if you don't use
-Compass or in `src/main/scss/main.scss` if you do.
+Sass or in `src/main/scss/main.scss` if you do.
 
-With Compass you can go further by combining Bootstrap-sass mixins to create your own classes.
+With Sass you can go further by combining Bootstrap-sass mixins to create your own classes.
 
-If you have selected Compass when generating your application, JHipster has already imported bootstrap-sass main file into your `src/main/scss/main.scss` and has installed them in `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets`.
+If you have selected Sass when generating your application, JHipster has already imported bootstrap-sass main file into your `src/main/scss/main.scss` and has installed them in `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets`.
 
 main.scss
 

@@ -10,9 +10,9 @@ lastmod: 2015-06-06T18:40:00-00:00
 
 __Tip submitted by [@deepu105](https://github.com/deepu105)__
 
-The Grunt build in earlier versions of JHipster used to ship with a [concurrent](https://github.com/sindresorhus/grunt-concurrent) task configured for `compass`, `imagemin` and `svgmin`, this was removed as it was not adding any performance improvement in the default JHipster configuration as the tasks configured in `concurrent` were not heavy enough to benefit from multiple grunt threads.
+The Grunt build in earlier versions of JHipster used to ship with a [concurrent](https://github.com/sindresorhus/grunt-concurrent) task configured for `sass`, `imagemin` and `svgmin`, this was removed as it was not adding any performance improvement in the default JHipster configuration as the tasks configured in `concurrent` were not heavy enough to benefit from multiple grunt threads.
 
-If you have lots of images, SVG files, a compass task with lots of sass files and Coffeescript tasks to run, you can consider using `concurrent` to spawn multiple threads to run those time consuming tasks in parallel.
+If you have lots of images, SVG files, a Sass task with lots of sass files and Coffeescript tasks to run, you can consider using `concurrent` to spawn multiple threads to run those time consuming tasks in parallel.
 
 Only projects with many assets will benefit from this, and for other projects, running tasks concurrently will in fact slow down your build: if you enable this feature, you should test it first to see its impact on your specific build.
 
@@ -24,15 +24,7 @@ Add the `concurrent` task definition to `grunt.initConfig`
 
     concurrent: {
         server: [
-            'compass:server' // this can be accompanied by cofee task etc.
-        ],
-        test: [
-            'compass'
-        ],
-        dist: [
-            'compass:dist',
-            'imagemin',
-            'svgmin'
+            'sass:server' // this can be accompanied by a coffee task etc.
         ]
     },
 

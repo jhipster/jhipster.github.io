@@ -10,13 +10,12 @@ lastmod: 2015-01-09T12:40:00-00:00
 
 Setting up your own continuous integration server using Jenkins for a JHipster application is harder than for a classic Spring MVC application because of all the tools required to build and test the client code.
 
-It's harder because you have to manage 3 software stacks in your build process:
+It's harder because you have to manage 2 software stacks in your build process:
 
 - Java/Maven for the server code and the build orchestration
 - Javascript/NodeJS/Grunt/Bower for client code
-- Ruby/Compass to pre-process CSS style sheets
 
-Each stack comes with its own dependency management (artifacts, npm, gem) with potential conflicts to solve.
+Each stack comes with its own dependency management (artifacts, npm) with potential conflicts to solve.
 
 Some of the instructions below may help you also to setup your development environment.
 

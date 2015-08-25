@@ -77,40 +77,4 @@ grunt --version
 # 0.1.13
 ~~~
 
-Make sure you update jenkins PATH.
-
-## Installing Ruby and Compass
-
-Ruby's version in offical RedHat depots is rather old 1.8.x, we'd rather compile latest patch of 1.9.3.
-We will do a simple and single installation.
-
-~~~ bash
-# install development tools
-sudo yum install gcc-c++ patch readline readline-devel zlib zlib-devel
-sudo yum install libyaml-devel libffi-devel openssl-devel make
-sudo yum install bzip2 autoconf automake libtool bison iconv-devel
-
-# download ruby source tarball
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p551.tar.gz
-# unpack it
-tar xvzf ruby-1.9.3-p551.tar.gz
-
-# build ruby
-cd ruby-1.9.3-p551
-./configure && make && sudo make install
-
-# check that ruby is in path and in expected version
-ruby -v
-ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-linux]
-
-# install Compass and implicitly SASS
-gem install compass
-compass --version
-~~~
-
-If Ruby and Compass have been installed in a directory that is not included in jenkins user's PATH, you can either update it in bash or through Jenkins UI in global properties:
-
-~~~
-name: PATH
-value: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-~~~
+Make sure you update the Jenkins PATH.
