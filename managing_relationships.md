@@ -204,8 +204,6 @@ Following our example, a one-to-one relationship would mean that a `Driver` can 
 
     Driver (1) <-----> (1) Car
 
-This is the only relationship for which JHipster doesn't provide an AngularJS front-end, as we don't think it really makes sense: if there is a one-to-one relationship, you probably want to display both entities on the same page anyway.
-
 First create the non-owning side of the relationship, in our case the `Driver`:
 
     yo jhipster:entity Driver
@@ -228,3 +226,5 @@ Then generate the `Car`, which owns the relationship:
     ? What is the name of the relationship? driver
     ? What is the type of the relationship? one-to-one
     ? Is this entity the owner of the relationship? Yes
+    ? What is the name of this relationship in the other entity? car
+    ? When you display this relationship with AngularJS, which field from 'Driver' do you want to use? id
