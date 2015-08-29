@@ -23,6 +23,9 @@ _[@jeromemirc](https://twitter.com/jeromemirc)_
 ### Gaël Marziou
 _[@gmarziou](https://twitter.com/gmarziou)_
 
+### Thibaut Mottet
+_[@moifort_](https://twitter.com/moifort_)_
+
 ### Anders Steiner
 _[@andidevv](https://twitter.com/andidevv)_
 
