@@ -413,9 +413,9 @@ When you're done creating your shiny new parser, you should add it to the "list"
 
 - Require it first just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L3);
 
-- Make it available just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L7);
+- Make it available just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L9);
 
-- Add it to the list just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L11).
+- Add it to the list just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L16).
 
 However, a few guidelines must be respected:
 
@@ -425,10 +425,7 @@ However, a few guidelines must be respected:
 
 - The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
 
-You also must add your editor to the EditorDetector, so that the XMI's editor can be detected, and the XMI parsed.
-See [this example](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L16) to know more about it.
-
-Whether you can identify the editor (mention of it anywhere in the XMI file) or not, you have to put its "editor" name in the EditorDetector like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L37). It will propose the editor as a choice.
+Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentionned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L19). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
 
 
 #### Testing
