@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-08-03T12:00:00-00:00
+    lastmod: 2015-09-24T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -366,7 +366,10 @@ That's all you need to know to start using Visual Paradigm.
 # <a name="testing-juml"></a>Testing JHipster-UML
 
 The tests are available in the test folder and can be run via `npm test`.
-We use Mocha for testing (along with expect, chai and expect from chai).
+We use Mocha for testing (along with chai and expect from chai).
+
+If you want, an alternative command to run the tests, or run only the tests you want, is: `mocha PATH_TO_TESTS`.
+Please note that you need to be in the root directory for this command to work, and you also may need to install globally mocha with `npm install -g mocha` (or just use the file in the node_modules folder, which is available to you provided you do `npm install` in JHipster-UML's directory).
 
 ***
 
@@ -392,7 +395,7 @@ The 1.0.0 release brings a new parser system making any change (parser creation,
 
 Adding a parser is quite easy. If your a Java dev, you're probably quite familiar with OOP principles (we hope so anyway). When developing JHipster-UML, we thought of its architecture as we'd _normally_ do in Java.
 
-You just have to "extend" our abstract parser ([AbstractParser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L159)), or implement our interface ([Parser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L9)) to add your concrete implementation of a parser.
+You just have to "extend" our abstract parser ([AbstractParser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/abstract_parser.js)), or implement our interface ([Parser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js)) to add your concrete implementation of a parser.
 
 You should notice that some methods of the Parser interface throw an _UnimplementedOperationException_. This idea is obviously taken from Java, and you can implement this methods in your concrete parser.
 
@@ -402,7 +405,7 @@ Just like in Java, you can override any method you want, and create your own. Yo
 
 The AbstractParser class provides some fields, a default constructor and some methods so that you don't have to create or implement them later.
 
-Obviously, you _should_ implement each of these methods (or override the [#parse](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L11) or [#findElements](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L23) methods).
+Obviously, you _should_ implement each of these methods (or override the [#parse](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L13) or [#findElements](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L25) methods).
 
 The getters are not mandatory, but serve as a way of getting some important fields and provide a way to modify them before sending those fields.
 
@@ -450,11 +453,11 @@ The general guidelines for names and files:
 
 ### Modifying a parser
 
-Changing a parser (and then committing the change) is pretty straightforward: just do the change, test it (create tests if need be).
+Changing a parser (and then committing the change) is pretty straightforward: just do the change and test it (create tests if need be).
 
 You can make an XMI file if you need a test to pass (exception throwing, or not, etc.).
 
-Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you change any name.
+Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js) if you change any name.
 
 ### Deleting a parser
 
