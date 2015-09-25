@@ -107,6 +107,13 @@ sitemap:
     If you have generated your application with the Sass option, your templates should also be automatically compiled into CSS.
 </p>
 <p>
+    <i>Tips'n tricks</i>
+    <ul>
+        <li>In some browsers (like Chrome), your HTML/CSS/JS resources can be cached, and hence can have some trouble getting live-reloaded. To force them to be reloaded, open up the "developer console" and select "Disable cache (while DevTools is open)".</li>
+        <li>As the Grunt server proxies request to the Java server, all REST requests will fail if the Java server is down. So if your Grunt server shows a blank screen, the first thing to check is if the Java server is running at <code>http://127.0.0.1:8080</code>.</li>
+    </ul>
+</p>
+<p>
     If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
 </p>
 
