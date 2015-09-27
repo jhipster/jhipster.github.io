@@ -186,8 +186,11 @@ You can choose the pagination for your entities using `-paginate`.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-paginate]`
 
- 
-If you need help, there's a command for that too:
+
+**Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
+
+
+Finally, if you need help, there's a command for that too:
 
  `jhipster-uml -help`
  
