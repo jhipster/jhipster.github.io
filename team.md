@@ -20,23 +20,26 @@ _[@jeromemirc](https://twitter.com/jeromemirc)_
 
 ## Board of developers
 
+### Zsombor Gegesy
+_[@gzsombor](https://twitter.com/gzsombor)_
+
+### Frederik Hahne
+_[@atomfrede](https://twitter.com/atomfrede)_
+
 ### Gaël Marziou
 _[@gmarziou](https://twitter.com/gmarziou)_
 
 ### Thibaut Mottet
 _[@moifort_](https://twitter.com/moifort_)_
 
-### Anders Steiner
-_[@andidevv](https://twitter.com/andidevv)_
+### Matt Raible
+_[@mraible](https://twitter.com/mraible)_
 
 ### Deepu K Sasidharan
 _[@deepu105](https://twitter.com/deepu105)_
 
-### Frederik Hahne
-_[@atomfrede](https://twitter.com/atomfrede)_
-
-### Zsombor Gegesy
-_[@gzsombor](https://twitter.com/gzsombor)_
+### Anders Steiner
+_[@andidevv](https://twitter.com/andidevv)_
 
 
 # Where does the development team work?
