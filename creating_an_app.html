@@ -128,7 +128,7 @@ gradlew
 </p>
 
 <h2>Docker services available after generating an application (for advanced users)</h2>
-<b>WARNING!</b> This is a new feature. Only these containers are available : MySQL, PostgreSQL, MongoDB, Cassandra
+<b>WARNING!</b> This is a new feature. Only these containers are available : MySQL, PostgreSQL, MongoDB, Cassandra, Elasticsearch
 
 <h3>Description</h3>
 <p>
@@ -136,14 +136,19 @@ gradlew
   <ul>
     <li>"Which *production* database would you like to use?"</li>
     <li>"Which" *development* database would you like to use?"</li>
+    <li>"Do you want to use a search engine in your application?"</li>
   </ul>
-  if you choose MySQL, PostgreSQL, MongoDB or Cassandra, a <code>docker-compose.yml</code> or <code>docker-compose-prod.yml</code> files are generated in your folder project.<br>So you can use docker-compose to start your database in development or production profile.</p>
+  if you choose MySQL, PostgreSQL, MongoDB or Cassandra, a <code>docker-compose.yml</code> or <code>docker-compose-prod.yml</code> file is generated in your folder project.<br>
+  If you choose Elasticsearch as search engine, the configuration will be included in <code>docker-compose-prod.yml</code>.</p>
+  So you can use docker-compose to start your database in development or production profile.<br/>
+</p>
 <p>All these images come from the official <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>:</p>
 <ul>
   <li><a href="https://hub.docker.com/_/mysql/" target="_blank">MySQL</a></li>
   <li><a href="https://hub.docker.com/_/postgres/" target="_blank">PostgreSQL</a></li>
   <li><a href="https://hub.docker.com/_/mongo/" target="_blank">MongoDB</a></li>
   <li><a href="https://hub.docker.com/_/cassandra/" target="_blank">Cassandra</a></li>
+  <li><a href="https://hub.docker.com/_/elasticsearch/" target="_blank">Elasticsearch</a></li>
 </ul>
 </p>
 
@@ -159,7 +164,7 @@ gradlew
 <h3>Starting MySQL, PostgreSQL or MongoDB</h3>
 <p>In development profile :</p>
 <code>docker-compose up -d</code>
-<p>In production profile :</p>
+<p>In production profile (it will start Elasticsearch too if you selected it as search engine):</p>
 <code>docker-compose -f docker-compose-prod.yml up -d</code>
 
 <h3>Starting Cassandra the first time</h3>
