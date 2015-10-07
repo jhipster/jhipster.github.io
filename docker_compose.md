@@ -64,4 +64,34 @@ In development profile:
 `docker-compose up -d`
 
 In production profile:
+
 `docker-compose -f docker-compose-prod.yml up -d`
+
+## List the containers
+
+You can use `docker ps -a` to list all the containers
+```
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-prod-mysql
+```
+
+## Stop the container
+
+In development profile:
+
+`docker-compose stop`
+
+In production profile:
+
+`docker-compose -f docker-compose-prod.yml stop`
+
+You can use directly docker: `docker stop "container id"`
+
+When you stop a container, the data are not deleted, unless you delete the container.
+
+## Delete the container
+
+Be carefull! All data will be deleted:
+
+`docker rm "container id"`
