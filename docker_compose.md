@@ -33,7 +33,9 @@ You have to install Docker and Docker Compose:
 - [Docker](https://docs.docker.com/installation/#installation)
 - [Docker Compose](https://docs.docker.com/compose/install)
 
-## Starting MySQL, PostgreSQL or MongoDB
+## Working with databases
+
+### Starting MySQL, PostgreSQL or MongoDB
 
 In development profile:
 
@@ -43,7 +45,7 @@ In production profile (it will start Elasticsearch too if you selected it as sea
 
 `docker-compose -f docker-compose-prod.yml up -d`
 
-## Starting Cassandra the first time
+### Starting Cassandra the first time
 
 In development profile:
 
@@ -57,7 +59,7 @@ In production profile:
 - Start the container (it will show the container id): `docker-compose -f docker-compose-prod.yml up -d`
 - Initialize the database by creating the Keyspace and the Tables: `docker exec -it "container id" init`
 
-## Starting Cassandra the next times
+### Starting Cassandra the next times
 
 In development profile:
 
@@ -67,16 +69,18 @@ In production profile:
 
 `docker-compose -f docker-compose-prod.yml up -d`
 
-## List the containers
+## Common commands
+
+### List the containers
 
 You can use `docker ps -a` to list all the containers
-```
-$ docker ps -a
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-prod-mysql
-```
 
-## Stop the container
+    $ docker ps -a
+    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+    fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-prod-mysql
+
+
+### Stop the containers
 
 In development profile:
 
@@ -90,7 +94,7 @@ You can use directly docker: `docker stop "container id"`
 
 When you stop a container, the data are not deleted, unless you delete the container.
 
-## Delete the container
+### Delete a container
 
 Be carefull! All data will be deleted:
 
