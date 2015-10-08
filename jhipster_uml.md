@@ -31,6 +31,9 @@ Here's what's covered on this page:
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)  
 8. [JDL - JHipster Domain Language](#jdl)  
+    8.1. [The language](#jdllanguage)  
+    8.2. [How to use it](#howtojdl)  
+    8.3. [Commenting](#commentingjdl)  
 9. [Annexes](#annexes)
 
 ***
@@ -161,9 +164,9 @@ As you can see, we changed it as to make it a bit more interesting.
 JHipster can generate entities and associations between them (one-to-one, one-to-many, etc.), and in this example we added every type of association (even the reflexive and the inheritance). JHipster doesn't support inheritance yet (but reflexivity is supported by JHipster, with a warning), but we decided to include it in the example so as to have a solid base to work with.
 
 
-## <a name="usejuml"></a>Use JHipster-uml
+## <a name="usejuml"></a>Use JHipster-UML
 
-Once you have your JHipster application setup and your class diagram in a UML editor, follow those steps:
+Once you have your JHipster application set up and your class diagram in a UML editor, follow these steps:
 
 - step 1 - export your class diagram to the XMI file format
 
@@ -268,6 +271,15 @@ Finally, once your diagram is finished, you just have to export it.
 Check the Model perspective, once you locate your project, get down one level and right click the last element (you lower-cased project's name), XMI, Export XMI. A window should pop up, select the output path, change the compatibility to OMG UML2.4.1, leave the extension to XMI and you're ready to go.
 
 
+### Commenting
+
+To comment a class (or an attribute), just double-click on the element, select the `Notes and constraints` tab, and add a `note`.
+
+![Modelio, commenting](images/jhipsteruml_modelio_commenting.png)
+
+Please note that commenting relationships is not possible with this editor.
+
+
 ## <a name="umldesignerexample"></a>UML Designer
 
 UML Designer can be downloaded [here](http://www.umldesigner.org/).
@@ -293,9 +305,15 @@ Here is an example using this editor:
 To create attributes, just double-click on the class, and add your attribute. You can import types by right-clicking somewhere on the diagram (in the white-space), then import Primitive Types, then select UML and Java.
 This will spare you the _chore_ of creating types manually (with DataTypes or PrimitiveTypes).
 
-Unfortunately, UML Designer doesn't support constraints yet. A workaround is being studied.
+Unfortunately, UML Designer doesn't support constraints yet. A workaround is being studied by the team behind the editor.
 
 One of the nice things UML Designer provides is that you don't need to export to XMI, just go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
+
+### Commenting
+
+Commenting is possible for classes and attributes (not relationships), and achieving this is pretty easy: click on an element, and select `comment` to add your own.
+
+![Uml Designer, commenting](images/jhipsteruml_umldesigner_commenting.png)
 
 
 ## <a name="genmymodelexample"></a>GenMyModel
@@ -330,13 +348,21 @@ Unfortunately, you can not create custom constraints for attributes to fit the J
 
 Once the diagram is done, you can export it to XMI. To do it, simply click on Tool -> Export as UML (XMI)
 
+### Commenting
+
+Commenting is available for classes, attributes and relationship fields.
+
+Just click on an element and write a comment in the description field.
+
+![GenMyModel, commenting](images/jhipsteruml_genmymodel_commenting.png)
+
 
 ## <a name="visualparadigmexample"></a>Visual Paradigm
 
 Visual Paradigm proposes a UML editor which supports everything JHipster-UML demands (constraints, associations, etc.).
 There is one drawback however: it's not free, but proposes a free community edition (**the tests were done with this edition**).
 
-Another issue that will be discussed later: the XMI is really heavy (is usually has more than 6K ligns).
+Another issue that will be discussed later: the XMI is really heavy (it usually has more than 6K lines).
 
 Apart from these drawbacks, Visual Paradigm is an interesting editor.
 
@@ -362,6 +388,14 @@ After exporting your diagram, you might notice that your XMI file is quite big. 
 The parsing will still be quick, but may take a bit more time.
 
 That's all you need to know to start using Visual Paradigm.
+
+### Commenting
+
+Commenting is possible only for classes and attributes (not for relationships), and is pretty straightforward. Just click on an element, add a `specification`, and add a comment.
+
+Note that the comment's title isn't taken into account, only the body is.
+
+![Visual Paradigm, commenting](images/jhipsteruml_visualparadigm_commenting.png)
 
 
 ***
@@ -474,7 +508,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 # <a name="jdl"></a> JDL - JHipster Domain Language
 We added the possibility to describe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
 
-## The language
+## <a name="jdllanguage"></a> The language
 We tried to keep the syntax as friendly as we can for Java developers.
 You can do two things with it: declare entities with their attributes, and declare the relationships between them.
 
@@ -561,7 +595,7 @@ Since v1.2.1, JHipster-UML supports binary types. JHipster gives a great choice 
 And you can create as many DataTypes as you like.
 
 
-## How to use it
+## <a name="howtojdl"></a> How to use it
 You can use it by:
 
 - simply creating a file with the extension '.jh',
@@ -571,6 +605,38 @@ You can use it by:
 - in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh`.
 
 and *Voilà*, you are done!
+
+
+## <a name="commentingjdl"></a> Commenting
+As of v1.5.0 of JHipster-UML and v2.22.0 of JHipster, it is possible to add comments to the JDL file.  
+Just like in Java, this example demonstrates how to add comments :
+
+    /**
+     * Class comments.
+     * @author The JHipster-UML team.
+     */
+    entity MyEntity { // another form of comment
+      /** A required attribute */
+      myField String required,
+      mySecondField String // another form of comment
+    }
+    
+    /**
+     * Second entity.
+     */
+    entity MySecondEntity {}
+    
+    relationship OneToMany{
+      /** This is possible too! */
+      MyEntity{mySecondEntity}
+      to 
+      /**
+       * And this too!
+       */
+      MySecondEntity{myEntity}
+    }
+
+These comments will later be added as Javadoc comments by JHipster.
 
 # <a name="annexes"></a>Annexes
 
