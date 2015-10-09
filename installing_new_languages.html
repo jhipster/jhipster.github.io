@@ -83,6 +83,14 @@ sitemap:
     </li>
     <li>In the <code>src/main/resources/i18n</code> folder, copy the <code>messages_en.properties</code> file to <code>messages_new_lang.properties</code>: this where the server-side translations are stored</li>
     <li>Translate all keys in the <code>messages_new_lang.properties</code> file</li>
+    <li>
+        <p>Put messageformat local of your language into the <code>src/webapp/index.html</code></p>
+        <pre>
+            <code>
+<script src="bower_components/messageformat/locale/new_lang.js"></script>
+            </code>
+        </pre>
+    </li>
   </ol>
 </p>
 <p>
@@ -96,5 +104,6 @@ sitemap:
         <li>Remove the language folder from <code>/src/main/webapp/i18/old_lang</code></li>
         <li>Remove the constant entry in <code>src/main/webapp/scripts/components/language/language.service.js</code></li>
         <li>Remove the <code>src/main/resources/i18n/messages_old_lang.properties</code> file</li>
+        <li>Remove coresponding messageformat local from <code>src/webapp/index.html</code></li>
     </ol>
 </p>
