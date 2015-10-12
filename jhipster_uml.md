@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-09-24T12:00:00-00:00
+    lastmod: 2015-10-12T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -695,7 +695,7 @@ Here is the type table (from _types.js_):
     <td>Boolean</td>
     <td>Boolean</td>
     <td>Boolean</td>
-    <td></td>
+    <td>required</td>
   </tr>
   <tr>
     <td>LocalDate</td>
