@@ -309,6 +309,11 @@ Unfortunately, UML Designer doesn't support constraints yet. A workaround is bei
 
 One of the nice things UML Designer provides is that you don't need to export to XMI, just go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
 
+## Unidirectional relationships
+
+Unfortunately, this editor doesn't support unidirectional relationships.
+
+
 ### Commenting
 
 Commenting is possible for classes and attributes (not relationships), and achieving this is pretty easy: click on an element, and select `comment` to add your own.
