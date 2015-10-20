@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-10-19T12:00:00-00:00
+    lastmod: 2015-10-21T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -59,6 +59,10 @@ Please use our project for submitting issues and Pull Requests:
 
 - [JHipster-UML issue tracker](https://github.com/jhipster/jhipster-uml/issues)
 - [JHipster-UML Pull Requests](https://github.com/jhipster/jhipster-uml/pulls)
+
+Please note that using JHipster-UML (or JHipster) might be troublesome (one has to install some tools to really be able to use the Node environment without any issue). This [link](https://gist.github.com/nullivex/7115612) may help if you encounter an issue on Windows.
+
+Another issue that can be encountered on windows is [this one](https://stackoverflow.com/questions/30344858/node-script-executable-not-working-on-mac-env-node-r-no-such-file-or-directo#answer-30349952). The link provides a solution to fix that.
 
 ***
 
