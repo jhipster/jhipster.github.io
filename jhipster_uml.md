@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-10-12T12:00:00-00:00
+    lastmod: 2015-10-19T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -157,7 +157,7 @@ As you can see, there are 3 types of reflexivity. JHipster-UML only supports the
 ### A complete example
 We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
-Here's a screenshot of such a diagram (from Modelio):
+Here's a screenshot of such a diagram (from Modelio):  
 ![HR UML diagram](images/jhipsteruml_overview%20diagram.png)
 
 As you can see, we changed it as to make it a bit more interesting.
@@ -309,6 +309,11 @@ Unfortunately, UML Designer doesn't support constraints yet. A workaround is bei
 
 One of the nice things UML Designer provides is that you don't need to export to XMI, just go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
 
+## Unidirectional relationships
+
+Unfortunately, this editor doesn't support unidirectional relationships.
+
+
 ### Commenting
 
 Commenting is possible for classes and attributes (not relationships), and achieving this is pretty easy: click on an element, and select `comment` to add your own.
@@ -347,6 +352,17 @@ The parser will notice a few things:
 Unfortunately, you can not create custom constraints for attributes to fit the JHipster ones.
 
 Once the diagram is done, you can export it to XMI. To do it, simply click on Tool -> Export as UML (XMI)
+
+### Unidirectional relationships
+
+In GenMyModel, creating unidirectional relationships is pretty easy: just remove the name from the field you don't want and you're good to go.
+
+For instance, take this simple case:
+
+![GenMyModel, unidirectional](images/jhipsteruml_genmymodel_unidirectional.png)
+
+Here, `MyClass` will have a `myClass2` attribute, but `MyClass2` won't have a `myClass` field.
+
 
 ### Commenting
 
