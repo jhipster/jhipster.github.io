@@ -89,14 +89,15 @@ Run The docker image, with the following options:
 <p>
   <ul>
     <li>The Docker "/jhipster" folder is shared to the local "~/jhipster" folder</li>
-    <li>Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the "grunt serve" task, 3001 for the BrowserSync UI, and 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts:</li>
+    <li>Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the "grunt serve" task, 3001 for the BrowserSync UI)</li>
   </ul>
 </p>
 <p>
 <code>
-docker run --name jhipster -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -p 4022:22 -t jdubois/jhipster-docker
+docker run --name jhipster -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -t jdubois/jhipster-docker
 </code>
-<b>Please note : </b> On linux, you might need to run the docker command as sudo user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as non-root user.
+<br/><br/>
+<b>Please note : </b> On linux, you might need to run the docker command as sudo user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as non-root user. Follow steps on <a href="http://askubuntu.com/a/477554">http://askubuntu.com/a/477554</a> to do so.
 </p>
 
 <h3>Accessing the container</h3>
