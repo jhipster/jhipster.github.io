@@ -208,6 +208,9 @@ sitemap:
     If you have choosen to use MySQL or Postgresql in development, you can use the <code>mvn liquibase:diff</code> goal to automatically generate a changelog.
 </p>
 <p>
+    If you are running H2 with disk-based persistence, this workflow is not yet working perfectly, but you can start trying to use it (and send us feedback!).
+</p>
+<p>
     <a href="https://github.com/liquibase/liquibase-hibernate" target="_blank">Liquibase Hibernate</a> is a Maven plugin that is configured in your pom.xml, and is independant from your Spring application.yml file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
 </p>
 <p>
