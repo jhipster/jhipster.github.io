@@ -96,6 +96,31 @@ Run The docker image, with the following options:
 <code>
 docker run --name jhipster -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker
 </code>
+<p>
+If you have already started the container once before, you do not need to run above command, to stop the container execute :
+<code>
+docker stop jhipster
+</code>
+<br/><br/>
+And to start again, execute :
+<code>
+docker start jhipster
+</code>
+</p>
+Also in case you update the docker image (rebuild or pull from dockerhub), it's better to remove existing container, and run the container all over again.
+To do so, first stop the container and then remove it and run again. i.e. :
+<br/>
+<code>
+docker stop jhipster
+<br/>
+docker rm jhipster
+<br/>
+docker pull jdubois/jhipster-docker
+<br/>
+docker run --name jhipster -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker
+</code>
+<p>
+<p>
 <br/><br/>
 <b>Please note : </b> On linux, you might need to run the docker command as sudo user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as non-root user. Follow steps on <a href="http://askubuntu.com/a/477554">http://askubuntu.com/a/477554</a> to do so.
 </p>
