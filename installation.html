@@ -131,16 +131,16 @@ The easiest way to log into container is executing following command :
 </p>
 <p>
 <code>
-docker exec -it &lt;container_name&gt; bash
+docker exec -it --user=jhipster &lt;container_name&gt; bash
 </code>
 <br/><br/>
 if you copy-pasted command to run container from above, notice the name being specified as jhipster
 </br/><br/>
 <code>
-docker exec -it jhipster bash
+docker exec -it --user=jhipster jhipster bash
 </code>
 <br/><br/>
-You will login as root user, we recommand you use the "jhipster" user as some of the tool used are not meant to be run by the root user.
+You will login as "jhipster" user, if in case you need to change as sudo user, password for the user is same as username (i.e. jhipster)
 </p>
 <h3>Your first project</h3>
 <p>
