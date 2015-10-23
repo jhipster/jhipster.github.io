@@ -8,7 +8,7 @@ lastmod: 2015-01-30T18:40:00-00:00
 
 # <i class="fa fa-css3"></i> Customizing Bootstrap
 
-_Pro tip: don't forget use to `grunt serve` or `gulp serve` to get immediate feedback of your changes!_
+_Pro tip: don't forget use to `grunt` or `gulp` to get immediate feedback of your changes!_
 
 ## Basic customisation
 
@@ -81,4 +81,4 @@ You can follow same procedure and naming convention ('_custom-*.css`) for any ot
 
 You can also comment out some `@import` lines in  `_custom-boostrap.scss` to exclude some components you don't need, it's safer to comment out rather than deleting also to make easier to integrate bootstrap-sass updates.
 
-Each time you make a change, test it with `grunt build` or `gulp build` or better use `grunt serve` or `gulp serve` to get immediate feedback.
+Each time you make a change, test it with `grunt build` or `gulp build` or better use `grunt` or `gulp` to get immediate feedback.
