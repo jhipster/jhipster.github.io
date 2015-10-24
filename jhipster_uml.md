@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-10-21T12:00:00-00:00
+    lastmod: 2015-10-24T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -730,8 +730,8 @@ Here is the type table (from _types.js_):
     <td><dfn>required</dfn></td>
   </tr>
   <tr>
-    <td>DateTime</td>
-    <td>DateTime</td>
+    <td>ZonedDateTime</td>
+    <td>ZonedDateTime</td>
     <td></td>
     <td><dfn>required</dfn></td>
   </tr>
@@ -739,12 +739,6 @@ Here is the type table (from _types.js_):
     <td></td>
     <td></td>
     <td>UUID</td>
-    <td><dfn>required</dfn></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td>TimeUUID</td>
     <td><dfn>required</dfn></td>
   </tr>
 </table>
