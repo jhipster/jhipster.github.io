@@ -44,7 +44,7 @@ At this stage you should not have any Java error but should still see some JavaS
 
 ### Exclude the ‘node_modules’ folder
 
-- Right-click on Project -> Resource -> Resource Filters
+- Right-click on Project -> Properties -> Resource -> Resource Filters
 - Select: Exclude all, Applies to folders, Name matches node_modules
 - Press "Ok"
 
@@ -55,7 +55,7 @@ At this stage you should not have any Java error but should still see some JavaS
 
 ### Exclude 'scripts' and 'bower_components' from src/main/webapp
 
-- Right click on Project -> Javascript -> Include path
+- Right click on Project -> Properties -> Javascript -> Include path
 - Click on the “source” tab and select your_project/src/main/webapp
 - Select “Excluded: (None) -> Edit -> Add multiple
 - Select `bower_components` and `scripts` and click “Ok”
