@@ -94,7 +94,7 @@ Run The docker image, with the following options:
 </p>
 <p>
 <code>
-docker run --name jhipster -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker
+docker run --name jhipster -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker
 </code>
 <p>
 If you have already started the container once before, you do not need to run above command, to stop the container execute :
