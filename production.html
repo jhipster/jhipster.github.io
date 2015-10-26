@@ -14,7 +14,7 @@ If you want to use JHipster with the "production" profile, use the pre-configure
 </p>
 <p>
 <code>
-mvn -Pprod spring-boot:run
+mvn -Pprod
 </code>
 </p>
 <p>
@@ -22,7 +22,7 @@ Or when using Gradle:
 </p>
 <p>
 <code>
-gradlew -Pprod bootRun
+gradlew -Pprod
 </code>
 </p>
 <p>
@@ -39,9 +39,9 @@ If you want more information on the available profiles, please go the section ti
 </p>
 
 <p>
-	<code>
-	mvn -Pprod package
-	</code>
+    <code>
+    mvn -Pprod package
+    </code>
 </p>
 
 <p>
@@ -83,17 +83,17 @@ Instead of deploying on an application server, many people find it easier to jus
 The first WAR file generated in the previous step is such a WAR, so you can run it in "development mode" by typing:
 </p>
 <p>
-	<code>
-	java -jar jhipster-0.0.1-SNAPSHOT.war
-	</code>
+    <code>
+    ./jhipster-0.0.1-SNAPSHOT.war
+    </code>
 </p>
 <p>
 Or in "production" mode:
 </p>
 <p>
-	<code>
-	java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
-	</code>
+    <code>
+    ./jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
+    </code>
 </p>
 <h2>Generating an optimized JavaScript application with Grunt</h2>
 <p>

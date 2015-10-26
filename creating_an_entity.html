@@ -61,8 +61,8 @@ lastmod: 2014-10-10T00:00:00-00:00
         <li><code>Float</code>: A Java Float.</li>
         <li><code>Double</code>: A Java Double.</li>
         <li><code>BigDecimal</code>: A <code>java.math.BigDecimal</code> object, used when you want exact mathematic calculations (often used for financial operations).</li>
-        <li><code>LocalDate</code>: A <code>org.joda.time.LocalDate</code> object, used to correctly manage dates in Java. This type will migrate to the new Java 8 Date API when we will drop Java 7 support.</li>
-        <li><code>DateTime</code>: A <code>org.joda.time.DateTime</code> object, used to correctly manage dates and times in Java. This type will migrate to the new Java 8 Date API when we will drop Java 7 support.</li>
+        <li><code>LocalDate</code>: A <code>java.time.LocalDate</code> object, used to correctly manage dates in Java.</li>
+        <li><code>ZonedDateTime</code>: A <code>java.time.ZonedDateTime</code> object, used to correctly manage dates and times in Java.</li>
         <li><code>Boolean</code>: A Java Boolean.</li>
         <li><code>enum</code>: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific <code>enum</code> class to store them.</li>
         <li><code>byte[]</code>: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store some generic binary data, or an image object. Images will be handled specifically on the AngularJS side, so they can be displayed to the end-user.</li>
@@ -210,7 +210,7 @@ lastmod: 2014-10-10T00:00:00-00:00
     Run the generated test suite, with <code>mvn test</code>, which will test the Author entity and the Book entity.
 </p>
 <p>
-    Launch the application (for example with <code>mvn spring-boot:run</code>), log in and select the "Author" and "Book"
+    Launch the application (for example with <code>mvn</code>), log in and select the "Author" and "Book"
     entities in the "entities" menu.
 </p>
 <p>

@@ -17,9 +17,9 @@ As Oracle is a proprietary database, we cannot give it the same level of support
 
 When using Oracle with JHipster, you will need to install the Oracle JDBC driver manually:
 
-- Download the driver (ojdbc7.jar for Java 8 and ojdbc6.jar for Java 7) from the Oracle website
-- Copy it to your application's `lib/oracle/ojdbc/7/` or `lib/oracle/ojdbc/6/` folder based on the jar you have downloaded
-- You will need to rename your driver, from `ojdbc7.jar` to `ojdbc-7.jar` or `ojdbc6.jar` to `ojdbc-6.jar`, in order to follow Maven's naming conventions.
+- Download the driver (ojdbc7.jar for Java 8) from the Oracle website
+- Copy it to your application's `lib/oracle/ojdbc/7/` folder
+- You will need to rename your driver, from `ojdbc7.jar` to `ojdbc-7.jar`, in order to follow Maven's naming conventions.
 
 When using Oracle with JHipster, the following limitations will be applicable
 

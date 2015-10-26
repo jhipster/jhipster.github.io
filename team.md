@@ -20,6 +20,9 @@ _[@jeromemirc](https://twitter.com/jeromemirc)_
 
 ## Board of developers
 
+### Christophe Bornet
+_[@cbornet_](https://twitter.com/cbornet_)_
+
 ### Zsombor Gegesy
 _[@gzsombor](https://twitter.com/gzsombor)_
 

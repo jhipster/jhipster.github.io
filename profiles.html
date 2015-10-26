@@ -38,20 +38,20 @@ In default mode, JHipster will use the "dev" profile
     If you run the application without Maven, launch the "Application" class (you can probably run it easily from your IDE by right-clicking on it).
 <p>
 <p>
-    If you run the application with Maven, run <code>mvn spring-boot:run</code>
+    If you run the application with Maven, run <code>mvn</code>
 </p>
 
 <h2>
 In production, JHipster has to run with the "prod" profile
 </h2>
 <p>
-    Use Maven to build the application with the "prod" profile: <code>mvn -Pprod spring-boot:run</code>
+    Use Maven to build the application with the "prod" profile: <code>mvn -Pprod</code>
 </p>
 <p>
     When you run the application, don't forget to add the "prod" profile, by adding <code>--spring.profiles.active=prod</code> to your program arguments.
 </p>
 <p>
-    You can test it with Maven, by running <code>mvn -Pprod spring-boot:run</code>
+    You can test it with Maven, by running <code>mvn -Pprod</code>
 </p>
 
 <h2>
@@ -79,5 +79,5 @@ In production, JHipster has to run with the "prod" profile
     When you run the application, use the "fast" profile with the "dev" profile, by adding <code>--spring.profiles.active=dev,fast</code> to your program arguments.
 </p>
 <p>
-    If you use Maven, run <code>mvn -Pfast spring-boot:run</code> (the Maven "fast" profile will automatically select the "dev" and "fast" Spring profiles).
+    If you use Maven, run <code>mvn -Pfast</code> (the Maven "fast" profile will automatically select the "dev" and "fast" Spring profiles).
 </p>
