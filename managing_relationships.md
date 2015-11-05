@@ -3,7 +3,7 @@ layout: default
 title: Managing relationships
 sitemap:
 priority: 0.7
-lastmod: 2015-05-22T18:40:00-00:00
+lastmod: 2015-10-24T18:40:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships
@@ -25,9 +25,10 @@ As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one r
 1. [A bi-directionnal one-to-many relationship](#1)
 2. [A uni-directional many-to-one relationship](#2)
 3. [A uni-directional one-to-many relationship](#3)
-4. [Two one-to-many relationships on the same two entities](#4)
-5. [A many-to-many relationship](#5)
-6. [A one-to-one relationship](#6)
+4. [A uni-directional one-to-one relationship](#4)
+5. [Two one-to-many relationships on the same two entities](#5)
+6. [A many-to-many relationship](#6)
+7. [A one-to-one relationship](#7)
 
 _Tip: the `User` entity_
 
@@ -115,7 +116,37 @@ You have two solutions for this:
     - Remove the "mappedBy" attribute on your `@OneToMany` annotation
     - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff]({{ site.url }}/development.html)
 
-## <a name="4"></a> Two one-to-many relationships on the same two entities
+
+## <a name="4"></a> A uni-directional one-to-one relationship
+
+A unidirectional one-to-one relationship means that the `citizen` instance can get its passport, but the `passport` instance can't get to its owner.
+
+    Citizen (1) -----> (1) Passport
+
+Generate the `Passport` entity first, without any relationship to its owner:
+
+    yo jhipster:entity Passport
+    ...
+    Generating relationships with other entities
+    ? Do you want to add a relationship to another entity? No
+
+Then, generate the `Citizen` entity:
+
+    yo jhipster:entity Citizen
+    ...
+    Generating relationships with other entities
+    ? Do you want to add a relationship to another entity? Yes
+    ? What is the name of the other entity? Passport
+    ? What is the name of the relationship? passport
+    ? What is the type of the relationship? one-to-one
+    ? Is this entity the owner of the relationship? Yes
+    ? What is the name of this relationship in the other entity? citizen
+    ? When you display this relationship with AngularJS, which field from 'Passport' do you want to use? id
+
+After doing this, a `Citizen` possesses a passport, but no `Citizen` instance is defined in `Passport`.
+
+
+## <a name="5"></a> Two one-to-many relationships on the same two entities
 
 For this example, a `Person` can be the owner of many cars, and he can also be the driver of many cars:
 
@@ -162,7 +193,7 @@ Generate the `Car` entity, which use the same relationship name has was configur
 
 A `Car` can now have a driver and a owner, which are both `Person` entities.
 
-## <a name="5"></a> A many-to-many relationship
+## <a name="6"></a> A many-to-many relationship
 
 A `Driver` can drive many cars, but a `Car` can also have many drivers.
 
@@ -198,7 +229,7 @@ Then generate the `Car`, with the owning side of the many-to-many relationship:
 
 In the user interface, you will be able to add/remove drivers from the `Car` management page.
 
-## <a name="6"></a> A one-to-one relationship
+## <a name="7"></a> A one-to-one relationship
 
 Following our example, a one-to-one relationship would mean that a `Driver` can drive only one `Car`, and a `Car` can only have one `Driver`.
 
