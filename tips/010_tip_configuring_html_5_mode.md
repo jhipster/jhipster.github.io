@@ -36,10 +36,21 @@ Now, to have relative paths links working correctly (ex. activation link sent to
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
             HttpServletRequest httpRequest = (HttpServletRequest) request;
             String requestURI = httpRequest.getRequestURI();
-            if(!requestURI.equals("/") && !requestURI.contains(".html") && StringUtils.countMatches(requestURI,"/")==1) {
-                requestURI = "/#" + requestURI;
+            if (!requestURI.equals("/") && !requestURI.contains(".html") && StringUtils.countMatches(requestURI, "/") == 1) {
+                Enumeration<String> parameterNames = httpRequest.getParameterNames();
+                StringBuilder parameters=new StringBuilder("?");
+                while (parameterNames.hasMoreElements()) {
+                    String paramName = parameterNames.nextElement();
+                    parameters.append(paramName);
+                    parameters.append("=");
+                    for (String value:httpRequest.getParameterValues(paramName))
+                        parameters.append(value);
+                    parameters.append("&");
+                }
+                parameters.delete(parameters.length()-1,parameters.length());
+                StringBuilder newURL= new StringBuilder("/#").append(requestURI).append(parameters);
                 HttpServletResponse httpResponse = (HttpServletResponse) response;
-                httpResponse.sendRedirect(requestURI);
+                httpResponse.sendRedirect(newURL.toString());
                 return;
             }
             chain.doFilter(request, response);
