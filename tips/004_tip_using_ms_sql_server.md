@@ -46,8 +46,7 @@ _application-dev.yml_
         profiles:
             active: dev
         datasource:
-            driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-            dataSourceClassName: com.microsoft.sqlserver.jdbc.SQLServerDataSource
+            driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDataSource
             url: jdbc:sqlserver://localhost:1433;databaseName=test
             databaseName:
             serverName:
