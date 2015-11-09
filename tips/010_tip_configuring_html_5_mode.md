@@ -34,28 +34,34 @@ Now, to have relative paths links working correctly (ex. activation link sent to
     
         @Override
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-            HttpServletRequest httpRequest = (HttpServletRequest) request;
-            String requestURI = httpRequest.getRequestURI();
-            if (!requestURI.equals("/") && !requestURI.contains(".html") && StringUtils.countMatches(requestURI, "/") == 1) {
+             HttpServletRequest httpRequest = (HttpServletRequest) request;
+             HttpServletResponse httpResponse = (HttpServletResponse) response;
+             if (httpResponse.getStatus() == HttpServletResponse.SC_NOT_FOUND) {
+                 String errorRequestURI = (String) httpRequest.getAttribute("javax.servlet.error.request_uri");
+                 if (errorRequestURI.equals(requestURI)) {
+                     StringBuilder newURL = new StringBuilder("/#").append(requestURI).append(parameters);
+                     httpResponse.sendRedirect(newURL.toString());
+                     return;
+                 }
+             } else {
+                parameters = new StringBuilder("?");
+                requestURI = httpRequest.getRequestURI();
                 Enumeration<String> parameterNames = httpRequest.getParameterNames();
-                StringBuilder parameters=new StringBuilder("?");
                 while (parameterNames.hasMoreElements()) {
                     String paramName = parameterNames.nextElement();
                     parameters.append(paramName);
                     parameters.append("=");
-                    for (String value:httpRequest.getParameterValues(paramName))
+                    for (String value : httpRequest.getParameterValues(paramName))
                         parameters.append(value);
                     parameters.append("&");
                 }
-                parameters.delete(parameters.length()-1,parameters.length());
-                StringBuilder newURL= new StringBuilder("/#").append(requestURI).append(parameters);
-                HttpServletResponse httpResponse = (HttpServletResponse) response;
-                httpResponse.sendRedirect(newURL.toString());
-                return;
-            }
-            chain.doFilter(request, response);
-        }
-    
+                int index = parameters.length() - 1;
+                if (index >= 0)
+                    parameters.delete(index, parameters.length());
+             }
+             chain.doFilter(request, response);
+        }    
+        
         @Override
         public void destroy() {
             // Nothing to destroy
@@ -73,6 +79,5 @@ Finally, init the filter in `WebConfigurer` class:
     private void initHtml5ModeFilter(ServletContext servletContext, EnumSet<DispatcherType> disps){
         log.debug("Registering HTML5Mode Filter");
         FilterRegistration.Dynamic html5ModeFilter = servletContext.addFilter("html5Mode", new Html5ModeFilter());
-        html5ModeFilter.addMappingForUrlPatterns(disps, true, "/*");
+        html5ModeFilter.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST, DispatcherType.ERROR), true, "/*");
     }
-    
