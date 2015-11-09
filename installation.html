@@ -123,7 +123,7 @@ sudo docker pull jdubois/jhipster-docker
 </code>
 </p>
 <p>
-Create a "jhipster" folder in your home directory:
+Create a <code>jhipster</code> folder in your home directory:
 </p>
 <p>
 <code>
@@ -135,13 +135,21 @@ Run The docker image, with the following options:
 </p>
 <p>
   <ul>
-    <li>The Docker "/jhipster" folder is shared to the local "~/jhipster" folder</li>
-    <li>Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the <code>grunt</code> task, 3001 for the BrowserSync UI, and 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts:</li>
+    <li>The Docker <code>/jhipster</code> folder is shared to the local <code>~/jhipster</code> folder</li>
+    <li>Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the <code>grunt</code> task, 3001 for the BrowserSync UI).</li>
   </ul>
 </p>
 <p>
 <code>
-sudo docker run -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -p 4022:22 -t jdubois/jhipster-docker
+sudo docker run -v ~/jhipster:/jhipster -p 8080:8080 -p 3000:3000 -p 3001:3001 -t jdubois/jhipster-docker
+</code>
+</p>
+<p>
+Note that the latest version of <code>jhipster-docker</code> removed the ability to SSH directly to the container. In order to access the container, use docker's <code>exec</code> command:
+</p>
+<p>
+<code>
+sudo docker exec -u jhipster -it container-id-or-name bash
 </code>
 </p>
 
@@ -156,7 +164,7 @@ Pull the JHipster Docker image:
   </code>
 </p>
 <p>
-  Create a "jhipster" folder in your home directory:
+  Create a <code>jhipster</code> folder in your home directory:
 </p>
 <p>
   <code>
@@ -169,14 +177,22 @@ Run The docker image, with the following options:
 <p>
   <ul>
     <li>
-      Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the <code>grunt</code> task, 3001 for the BrowserSync UI, and 22 for SSHD). In the following example we forward the container 22 port to the host 4022 port, to prevent some port conflicts
+      Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the <code>grunt</code> task, 3001 for the BrowserSync UI).
     </li>
   </ul>
 </p>
 <p>
   <code>
-    docker run -d -p 8080:8080 -p 3000:3000 -p 3001:3001 -p 4022:22 -t jdubois/jhipster-docker
+    docker run -d -p 8080:8080 -p 3000:3000 -p 3001:3001 -t jdubois/jhipster-docker
   </code>
+</p>
+<p>
+Note that the latest version of <code>jhipster-docker</code> removed the ability to SSH directly to the container. In order to access the container, use docker's <code>exec</code> command:
+</p>
+<p>
+<code>
+sudo docker exec -u jhipster -it container-id-or-name bash
+</code>
 </p>
 <p>
   <br/>Make a volume container
@@ -193,10 +209,10 @@ Run The docker image, with the following options:
       Retrieve the name of the container
     </p>
     <p>
-      Here is the resultat of the command `docker ps`. Get the name at the column NAMES.
+      Here is the resultat of the command <code>docker ps</code>. Get the name at the column <code>NAMES</code>.
       <code>
       CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                            NAMES<br/>
-      418448ff3371        jdubois/jhipster-docker:latest   "/bin/sh -c '/usr/sb   59 minutes ago      Up 59 minutes       0.0.0.0:4022->22/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:3000->3000/tcp, 0.0.0.0:3001->3001/tcp   <b>naughty_bartik</b>
+      418448ff3371        jdubois/jhipster-docker:latest   "/bin/sh -c '/usr/sb   59 minutes ago      Up 59 minutes       0.0.0.0:8080->8080/tcp, 0.0.0.0:3000->3000/tcp, 0.0.0.0:3001->3001/tcp   <b>naughty_bartik</b>
       </code>
     </p>
   </li>
@@ -226,7 +242,7 @@ Run The docker image, with the following options:
   </li>
   <li>
     <p>
-      Once mounted, will appear as /Volumes/jhipster. Create a symlink to make the volume accessible in the local "~/jhipster" folder.
+      Once mounted, will appear as <code>/Volumes/jhipster</code>. Create a symlink to make the volume accessible in the local <code>~/jhipster</code> folder.
     </p>
     <p>
       <code>
@@ -237,28 +253,20 @@ Run The docker image, with the following options:
 </ol>
 </p>
 <h3>SSH configuration</h3>
+<strong>
+The latest version of <code>docker-jhipster</code> removed SSH support. Instead of trying to SSH to the container, you should use docker's <code>exec</code> command.
+</strong>
 <p>
-You can now connect to your docker container with SSH. You can connect as "root/jhipster" or as "jhipster/jhipster", and we recommand you use the "jhipster" user as some of the tool used are not meant to be run by the root user.
-</p>
-<p>
-Start by adding your SSH public key to the Docker container:
-</p>
-<p>
-<code>
-cat ~/.ssh/id_rsa.pub | ssh -p 4022 jhipster@localhost 'mkdir ~/.ssh && cat >> ~/.ssh/authorized_keys'
-</code>
-</p>
-<p>
-You can now connect to the Docker container:
+Use the following command to execute <code>bash</code> inside your container:
 </p>
 <p>
 <code>
-ssh -p 4022 jhipster@localhost
+docker exec -u jhipster -it your-container-name-or-id bash
 </code>
 </p>
 <h3>Your first project</h3>
 <p>
-You can then go to the /jhipster directory in your container, and start building your app inside Docker:
+You can then go to the <code>/jhipster</code> directory in your container, and start building your app inside Docker:
 </p>
 <p>
 <code>
@@ -267,7 +275,7 @@ yo jhipster
 </code>
 </p>
 <p>
-  If the following exception occurs, you need to change the owner of the /jhipster directory. See next step.
+  If the following exception occurs, you need to change the owner of the <code>/jhipster</code> directory. See next step.
 </p>
 <p>
   <code>
@@ -292,7 +300,7 @@ You need to fix the jhipster folder to give the "jhipster" user ownership of the
 </p>
 <p>
   <code>
-    ssh -p 4022 jhipster@localhost<br/>
+    docker exec -u jhipster -it your-container-name-or-id bash<br/>
     sudo chown jhipster /jhipster
   </code>
 </p>
