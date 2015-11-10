@@ -81,12 +81,21 @@ lastmod: 2014-02-17T00:00:00-00:00
             href="https://docs.docker.com/installation/#installation" target="_blank">Docker</a> website.
     </li>
     <li>
-        <b>Mac &amp; Windows:</b> <b> <a href="https://www.docker.com/docker-toolbox"> Docker Toolbox</a></b> - this is
-        an official docker application to speed up Docker use on non-linux platform.
+        <b>Mac &amp; Windows:</b> install the <a href="https://www.docker.com/docker-toolbox">Docker Toolbox</a> to get Docker installed easily.
 </ol>
-<b>Please note: </b>If you are using boot2docker, it's good idea to migrate to Docker Toolbox, you can follow
-steps on how to migrate at <b>FAQ</b> section on <a href="https://www.docker.com/docker-toolbox">https://www.docker.com/docker-toolbox</a>
-</p>
+<div class="alert alert-info">
+    <b>Kitematic</b>
+    <p>
+        <a href="https://kitematic.com/">Kitematic</a> is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes this installation a lot easier.
+    </p>
+</div>
+
+<div class="alert alert-warning">
+    <b>boot2docker users</b>
+    <p>
+        If you are using boot2docker, it's good idea to migrate to Docker Toolbox, you can follow steps on how to migrate at <b>FAQ</b> section on <a href="https://www.docker.com/docker-toolbox">https://www.docker.com/docker-toolbox</a>
+    </p>
+</div>
 
 <h3>Usage on Linux/Mac Windows (using Docker Toolbox)</h3>
 <h4>Pull the image</h4>
@@ -123,32 +132,36 @@ steps on how to migrate at <b>FAQ</b> section on <a href="https://www.docker.com
         docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker
     </code>
 </p>
-<h5>Tip 1</h5>
-<p>
-    If you have already started the container once before, you do not need to run the above command, you can simply start/stop the existing container.
-</p>
-<h5>Tip 2</h5>
-<p>
-    If the following exception occurs:
-    <br/>
-    <code>
-        ...<br/>
-        ? (15/15) Would you like to enable translation support with Angular Translate? (Y/n)<br/>
-        /usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:89<br/>
-        throw err0;<br/>
-        ^<br/>
-        Error: EACCES, permission denied '/jhipster/src'<br/>
-            at Object.fs.mkdirSync (fs.js:653:18)<br/>
-            at sync (/usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:70:13)<br/>
-    </code>
-    <br/>
-    You need to fix the jhipster folder to give the "jhipster" user ownership of the directory:<br/>
-    <code>
-        ssh -p 4022 jhipster@localhost<br/>
-        sudo chown jhipster /jhipster
-    </code>
-</p>
-<h4>Check the container is running</h4>
+<div class="alert alert-info">
+    <b>Tip</b>
+    <p>
+        If you have already started the container once before, you do not need to run the above command, you can simply start/stop the existing container.
+    </p>
+</div>
+<div class="alert alert-info">
+    <b>Tip</b>
+    <p>
+        If the following exception occurs:
+        <br/>
+        <code>
+            ...<br/>
+            ? (15/15) Would you like to enable translation support with Angular Translate? (Y/n)<br/>
+            /usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:89<br/>
+            throw err0;<br/>
+            ^<br/>
+            Error: EACCES, permission denied '/jhipster/src'<br/>
+                at Object.fs.mkdirSync (fs.js:653:18)<br/>
+                at sync (/usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:70:13)<br/>
+        </code>
+        <br/>
+        You need to fix the jhipster folder to give the "jhipster" user ownership of the directory:<br/>
+        <code>
+            ssh -p 4022 jhipster@localhost<br/>
+            sudo chown jhipster /jhipster
+        </code>
+    </p>
+</div>
+<h4>Check if the container is running</h4>
 <p>
     To check that your container is running, use the command <code>docker ps</code>:<br/><br/>
     <code>
