@@ -138,35 +138,12 @@ lastmod: 2014-02-17T00:00:00-00:00
         If you have already started the container once before, you do not need to run the above command, you can simply start/stop the existing container.
     </p>
 </div>
-<div class="alert alert-info">
-    <b>Tip</b>
-    <p>
-        If the following exception occurs:
-        <br/>
-        <code>
-            ...<br/>
-            ? (15/15) Would you like to enable translation support with Angular Translate? (Y/n)<br/>
-            /usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:89<br/>
-            throw err0;<br/>
-            ^<br/>
-            Error: EACCES, permission denied '/jhipster/src'<br/>
-                at Object.fs.mkdirSync (fs.js:653:18)<br/>
-                at sync (/usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:70:13)<br/>
-        </code>
-        <br/>
-        You need to fix the jhipster folder to give the "jhipster" user ownership of the directory:<br/>
-        <code>
-            ssh -p 4022 jhipster@localhost<br/>
-            sudo chown jhipster /jhipster
-        </code>
-    </p>
-</div>
 <h4>Check if the container is running</h4>
 <p>
     To check that your container is running, use the command <code>docker ps</code>:<br/><br/>
     <code>
-    CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                            NAMES<br/>
-    418448ff3371        jdubois/jhipster-docker:latest   "/bin/sh -c '/usr/sb   59 minutes ago      Up 59 minutes       0.0.0.0:4022->22/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:3000->3000/tcp, 0.0.0.0:3001->3001/tcp   <b>naughty_bartik</b>
+    CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                                                      NAMES<br/>
+    4ae16c0539a3        jdubois/jhipster-docker   "tail -f /home/jhipst"   4 seconds ago       Up 3 seconds        0.0.0.0:3000-3001->3000-3001/tcp, 0.0.0.0:8080->8080/tcp   <b>jhipster</b>
     </code>
 </p>
 <h4>Common operations</h4>
@@ -225,11 +202,32 @@ lastmod: 2014-02-17T00:00:00-00:00
 </p>
 <p>
     <code>
-        cd ~/jhipster<br/>
+        cd /home/jhipster/app<br/>
         yo jhipster
     </code>
 </p>
-
+<div class="alert alert-info">
+    <b>Tip</b>
+    <p>
+        If the following exception occurs:
+        <br/>
+        <code>
+            ...<br/>
+            ? (15/15) Would you like to enable translation support with Angular Translate? (Y/n)<br/>
+            /usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:89<br/>
+            throw err0;<br/>
+            ^<br/>
+            Error: EACCES, permission denied '/home/jhipster/app/src'<br/>
+                at Object.fs.mkdirSync (fs.js:653:18)<br/>
+                at sync (/usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:70:13)<br/>
+        </code>
+        <br/>
+        You need to fix the jhipster folder to give the "jhipster" user ownership of the directory:<br/>
+        <code>
+            sudo chown -R jhipster /home/jhipster/app
+        </code>
+    </p>
+</div>
 <p>
     Once your application is created, you can run all the normal grunt/bower/maven commands, for example:
 </p>
