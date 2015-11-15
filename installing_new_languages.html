@@ -83,6 +83,9 @@ sitemap:
     </li>
     <li>In the <code>src/main/resources/i18n</code> folder, copy the <code>messages_en.properties</code> file to <code>messages_new_lang.properties</code>: this where the server-side translations are stored</li>
     <li>Translate all keys in the <code>messages_new_lang.properties</code> file</li>
+    <li>Add the new language's name in the function of <code>filter('findLanguageFromKey')</code> in the <code>src/main/webapp/scripts/components/language/language.controller.js</code> file</li>
+    <li>If there's no pluralization function for the new_lang, under <code>src/main/webapp/bower_components/messageformat/locale</code>, you may need to create it. More info in [Angular translate](http://angular-translate.github.io/docs/#/guide/14_pluralization) and [MessageFormat](https://github.com/SlexAxton/messageformat.js)</li>
+    <li>Add the file with the pluralization function in <code>src/main/webapp/index.html</code></li>
   </ol>
 </p>
 <p>
