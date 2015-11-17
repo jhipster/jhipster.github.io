@@ -16,7 +16,7 @@ As you may noticed, AngularJS uses a "#" in it's urls. HTML5Mode of AngularJS re
 
 Open the `app.js` file and add this line in `config` method:
 
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({ enabled: true, requireBase: true });
 
 Then open `index.html` and add this line in `head` tag:
 
@@ -24,60 +24,114 @@ Then open `index.html` and add this line in `head` tag:
     
 ## Redirection filter     
     
-Now, to have relative paths links working correctly (ex. activation link sent to user e-mail) we need create a filter to redirect the URI without "#" to a url with "#", so AngularJS can work correctly:
+Now, to have relative paths links working correctly (ex. activation link sent to user e-mail) we will create a controller to forward the URI to index.html:
     
-    public class Html5ModeFilter implements Filter {
-        @Override
-        public void init(FilterConfig filterConfig) throws ServletException {
-            // Nothing to initialize
+    @Controller
+    public class AngularJSForwardController {
+
+        private final Logger log = LoggerFactory.getLogger(AngularJSForwardController.class);
+
+        @RequestMapping(value = "/login**", method = RequestMethod.GET)
+        public void loginRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
         }
-    
-        @Override
-        public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-             HttpServletRequest httpRequest = (HttpServletRequest) request;
-             HttpServletResponse httpResponse = (HttpServletResponse) response;
-             if (httpResponse.getStatus() == HttpServletResponse.SC_NOT_FOUND) {
-                 String errorRequestURI = (String) httpRequest.getAttribute("javax.servlet.error.request_uri");
-                 if (errorRequestURI.equals(requestURI)) {
-                     StringBuilder newURL = new StringBuilder("/#").append(requestURI).append(parameters);
-                     httpResponse.sendRedirect(newURL.toString());
-                     return;
-                 }
-             } else {
-                parameters = new StringBuilder("?");
-                requestURI = httpRequest.getRequestURI();
-                Enumeration<String> parameterNames = httpRequest.getParameterNames();
-                while (parameterNames.hasMoreElements()) {
-                    String paramName = parameterNames.nextElement();
-                    parameters.append(paramName);
-                    parameters.append("=");
-                    for (String value : httpRequest.getParameterValues(paramName))
-                        parameters.append(value);
-                    parameters.append("&");
-                }
-                int index = parameters.length() - 1;
-                if (index >= 0)
-                    parameters.delete(index, parameters.length());
-             }
-             chain.doFilter(request, response);
-        }    
-        
-        @Override
-        public void destroy() {
-            // Nothing to destroy
+
+        @RequestMapping(value = "/activate*", method = RequestMethod.GET)
+        public void activateRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
         }
-    }
-    
-Finally, init the filter in `WebConfigurer` class:
-    
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        ...
-        initHtml5ModeFilter(servletContext, disps);
-        ...
-    }
-    
-    private void initHtml5ModeFilter(ServletContext servletContext, EnumSet<DispatcherType> disps){
-        log.debug("Registering HTML5Mode Filter");
-        FilterRegistration.Dynamic html5ModeFilter = servletContext.addFilter("html5Mode", new Html5ModeFilter());
-        html5ModeFilter.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST, DispatcherType.ERROR), true, "/*");
+
+        @RequestMapping(value = "/password*", method = RequestMethod.GET)
+        public void passwordRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/register*", method = RequestMethod.GET)
+        public void registerRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/reset/finish*", method = RequestMethod.GET)
+        public void resetFinishRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/reset/request*", method = RequestMethod.GET)
+        public void resetRequestRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/sessions*", method = RequestMethod.GET)
+        public void sessionsRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/settings*", method = RequestMethod.GET)
+        public void settingsRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/social-register/*", method = RequestMethod.GET)
+        public void socialRegisterRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/audits*", method = RequestMethod.GET)
+        public void auditsRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/configuration*", method = RequestMethod.GET)
+        public void configurationRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/docs*", method = RequestMethod.GET)
+        public void docsRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/health*", method = RequestMethod.GET)
+        public void healthRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/logs*", method = RequestMethod.GET)
+        public void logsRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/metrics*", method = RequestMethod.GET)
+        public void metricsRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/user-management*", method = RequestMethod.GET)
+        public void userManagementRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/user-management/*", method = RequestMethod.GET)
+        public void userManagementExtraRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/error*", method = RequestMethod.GET)
+        public void errorRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        @RequestMapping(value = "/accessdenied*", method = RequestMethod.GET)
+        public void accessdeniedRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            redirect(httpRequest, httpResponse);
+        }
+
+        private void redirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            RequestDispatcher dispatcher = httpRequest.getRequestDispatcher("index.html");
+            try {
+                dispatcher.forward(httpRequest, httpResponse);
+            } catch (Exception e) {
+                log.error("Error forwarding request", e);
+            }
+        }
     }
