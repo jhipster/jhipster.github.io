@@ -26,6 +26,9 @@ _[@cbornet_](https://twitter.com/cbornet_)_
 ### Zsombor Gegesy
 _[@gzsombor](https://twitter.com/gzsombor)_
 
+### Pascal Grimaud
+_[@pascalgrimaud](https://twitter.com/pascalgrimaud)_
+
 ### Frederik Hahne
 _[@atomfrede](https://twitter.com/atomfrede)_
 
