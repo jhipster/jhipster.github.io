@@ -8,24 +8,20 @@ lastmod: 2014-02-17T00:00:00-00:00
 
 <h1><i class="fa fa-cloud-download"></i> Installing JHipster</h1>
 
-<h2>Local installation vs. Docker</h2>
+<h2>Installation types</h2>
 
 <p>
-    We provide 2 ways of working with JHipster:
+    We provide 3 ways of working with JHipster:
 </p>
 <ul>
-    <li>You can do a "local installation", which is the classical way of working with JHipster. Everything is installed
-        on your machine, which can be a little complex to set up, but that's how most people usually work. In case of
-        doubt, choose this installation.
+    <li>A "local installation", which is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
     </li>
-    <li>You can use a "<a href="https://www.docker.io/" target="_blank">Docker</a>" container, which brings you a
-        lightweight, virtualized container with everything already installed. You don't have to worry about installing
-        everything. But Docker is a rather young tool, and you need to know how to use Linux quite well.
+    <li>A Vagrant-based "<a href="https://github.com/jhipster/jhipster-devbox" target="_blank">development box</a>", with all tools aleady set up in a Ubuntu-based virtual machine.</li>
+    <li>A "<a href="https://www.docker.io/" target="_blank">Docker</a>" container, which brings you a lightweight, virtualized container with JHipster installed.
     </li>
 </ul>
 
 <h2>Local installation (recommended for normal users)</h2>
-
 <ol>
     <li>Install Java from <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">the
         Oracle website</a>.
@@ -55,7 +51,19 @@ lastmod: 2014-02-17T00:00:00-00:00
             href="https://docs.npmjs.com/" target="_blank">NPM documentation</a> before
     <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank">submitting a bug</a>.</p>
 
-<h2>Docker installation (for advanced users)</h2>
+<h2>Vagrant box installation</h2>
+
+<p>
+    The <a href="https://github.com/jhipster/jhipster-devbox" target="_blank">JHipster development box</a> project gives you a virtual machine with all the necessary tools to develop your JHipster project.
+</p>
+<p>
+    Besides JHipster, this virtual machine includes many development tools like the Spring Tool Suite, the Atom text editor and MySQL Workbench.
+</p>
+<p>
+    Please go to the <a href="https://github.com/jhipster/jhipster-devbox" target="_blank">JHipster development box page</a> for installation and configuration information.
+</p>
+
+<h2>Docker installation (for advanced users only)</h2>
 
 <h3>Information</h3>
 
