@@ -588,6 +588,9 @@ A Book has one Author, an Author has several Books.
       Author{book} to Book{writer}
     }
 
+**Important note**: it's not yet possible to specify which field from `Book` or `Author` (or any other entity) will be used for the foreign key and `id` is currently used by default. Work is being done to achieve that.
+
+
 ### Enum
 Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL must do as follows:
 
