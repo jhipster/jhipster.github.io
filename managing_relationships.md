@@ -22,7 +22,7 @@ A relationship works between two entities, and JHipster will generate the code f
 
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
 
-1. [A bi-directionnal one-to-many relationship](#1)
+1. [A bi-directional one-to-many relationship](#1)
 2. [A uni-directional many-to-one relationship](#2)
 3. [A uni-directional one-to-many relationship](#3)
 4. [A uni-directional one-to-one relationship](#4)
