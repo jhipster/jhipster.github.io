@@ -568,9 +568,8 @@ The relationships declaration is done as follows:
 - `<relationship name>` is the name of the relationship in the entity.
 
 
-**Note: the relationship OneToMany A to B is equivalent to the relationship ManyToOne B to A, you only need to make one of them.**
 
- Here's an simple example:
+Here's an simple example:
 
 A Book has one Author, an Author has several Books.
 
@@ -585,8 +584,13 @@ A Book has one Author, an Author has several Books.
       birthDate LocalDate
     }
     relationship OneToMany{
-      Author{book} to Book{writer}
+      Author{book} to Book{writer(name)}
     }
+
+### Relationships
+The relationship OneToMany A to B is equivalent to the relationship ManyToOne B to A, you only need to make one of them.
+
+The field used to represent a relationship is, by default, `id`. This can be modifed with the following syntax for the `<relationship name>` token above: `<relationship field>(<display field>)`.
 
 ### Enum
 Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL must do as follows:
