@@ -63,11 +63,11 @@ When generating a new entity Foo with `yo jhipster:entity Foo` the following fro
 
 JHipster uses [angular-ui-router](http://angular-ui.github.io/ui-router/) to organize the different parts of your client application.
 
-For each state, the required roles are listed in the state's data, and when the role list is empty it means that the state can be accessed anonymously.
+For each state, the required authorities are listed in the state's data, and when the authority list is empty it means that the state can be accessed anonymously.
 
-The role names are defined in server's class AuthoritiesConstants.java.
+The authority names are defined in server's class AuthoritiesConstants.java.
 
-In the example below, the 'sessions' state can be accessed only by authenticated users who have ROLE_USER role:
+In the example below, the 'sessions' state can be accessed only by authenticated users who have ROLE_USER authority:
 
     angular.module('hipster2App')
         .config(function ($stateProvider) {
@@ -76,7 +76,7 @@ In the example below, the 'sessions' state can be accessed only by authenticated
                     parent: 'account',
                     url: '/sessions',
                     data: {
-                        roles: ['ROLE_USER']
+                        authorities: ['ROLE_USER']
                     },
                     views: {
                         'content@': {
