@@ -595,7 +595,7 @@ The relationship OneToMany A to B is equivalent to the relationship ManyToOne B 
 The field used to represent a relationship is, by default, `id`. This can be modifed with the following syntax for the `<relationship name>` token above: `<relationship field>(<display field>)`.
 
 ### Enum
-Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL just do as follows:
+Since v1.1.2, Enums are supported by JHipster-UML. To make Enums with JDL just do as follows:
 
 - Declare an Enum where you want in the file:
 
@@ -605,7 +605,7 @@ Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL just do
 
 - In an entity, add field with the Enum as a type:
 
-        entity Book{
+        entity Book {
           title String required,
           description String,
           language Language
@@ -624,18 +624,16 @@ And you can create as many DataTypes as you like.
 ## <a name="howtojdl"></a> How to use it
 You can use it by:
 
-- simply creating a file with the extension '.jh',
-
-- declare your entities and relationships,
-
-- in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh`.
+  - simply creating a file with the extension '.jh',
+  - declare your entities and relationships,
+  - in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh`.
 
 and *Voilà*, you are done!
 
 
 ## <a name="commentingjdl"></a> Commenting
-As of v1.5.0 of JHipster-UML and v2.22.0 of JHipster, it is possible to add comments to the JDL file.  
-Just like in Java, this example demonstrates how to add comments :
+As of v1.5.0 of JHipster-UML and v2.22.0 of JHipster, it is possible to add comments to JDL files.  
+Just like in Java, this example demonstrates how to add comments:
 
     /**
      * Class comments.
