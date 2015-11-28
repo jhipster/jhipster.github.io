@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-10-24T12:00:00-00:00
+    lastmod: 2015-11-28T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -11,7 +11,7 @@ sitemap:
 
 JHipster-UML is a JHipster sub-project which can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
 
-The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on Github!
+The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
 
 Here's what's covered on this page:
 
@@ -22,6 +22,7 @@ Here's what's covered on this page:
     4.1. [The UML file](#umlfile)  
     4.2. [Use JHipster-UML](#usejuml)  
     4.3. [What's generated](#whatsgenerated)  
+    4.4.  [JHipster notes](#jhipsternotes)  
 5. [Examples](#examples)  
     5.1. [Modelio](#modelioexample)  
     5.2. [UML Designer](#umldesignerexample)  
@@ -34,6 +35,7 @@ Here's what's covered on this page:
     8.1. [The language](#jdllanguage)  
     8.2. [How to use it](#howtojdl)  
     8.3. [Commenting](#commentingjdl)  
+    8.4. [All the relationships](#jdlrelationships)  
 9. [Annexes](#annexes)
 
 ***
@@ -80,7 +82,7 @@ If you want the 'bleeding edge' version, you can clone our git repo from [our Gi
 ***
 
 # <a name="howtouse"></a>How to use it
-JHipster-UML is quite easy to use, you need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
+JHipster-UML is quite easy to use, you only need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
 
 
 ## <a name="umlfile"></a>The UML file
@@ -98,26 +100,47 @@ Here is an example of a properly created class for JHipster. We have the attribu
 
 Note that you don't need to capitalize type names (**except for composed names like BigDecimal**, JHipster-UML capitalizes simple names).
 
+
 ### Relationships
-The relationship between two entities is represented in the class diagram by an aggregation between two classes.
+We just use the examples from JHipster in order to show how to do it with an editor. 
 
 
 #### One-to-One
-![One-to-One](images/jhipsteruml_one_to_one.png)
+![One-to-One](images/jhipsteruml_bi_oto.png)
 
-Here, we have a one-to-one relationship between Customer and Address, with Customer as the owner of the relationship.
+Here, we have a bidirectional one-to-one relationship between Driver and Car, with Driver as the owner of the relationship.
+
+If you're looking for a unidirectional relationship:
+
+![One-to-One2](images/jhipsteruml_uni_oto.png)
+
+Notice that in order to achieve a unidirectional relationship we just removed the `citizen` label so that `Passport` doesn't have it.
 
 
 #### One-to-Many
-![One-to-Many](images/jhipsteruml_one_to_many.png)
+![One-to-Many](images/jhipsteruml_bi_otm.png)
 
-Here, Author has a one-to-many relationship with Book, and Book has a many-to-one relationship with Author.
+In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
+
+Unidirectional relationships are not supported (yet) by JHipster (see [this](managing_relationships.html#3) page for more information about this).
+This is an example of such an association:
+
+![One-to-Many2](images/jhipsteruml_uni_otm.png)
+
+
+#### Many-to-One
+
+As showed previously, the equivalent of a One-to-Many relationship is a Many-to-One:
+
+![One-to-Many2](images/jhipsteruml_uni_mto.png)
+
+Now the cars know their owner, but not the opposite.
 
 
 #### Many-to-Many
-![Many-to-Many](images/jhipsteruml_many_to_many.png)
+![Many-to-Many](images/jhipsteruml_bi_mtm.png)
 
-Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
+Here, we have a many-to-many relationship between Car (the owner) and Driver.
 
 
 #### Declare the field you want to use to display a relationship in AngularJS
@@ -131,7 +154,7 @@ In a One-to-Many relationship you can add it in the 'Many' side of the relations
 
 - JDL
 
-      relationship OneToMany{
+      relationship OneToMany {
         One{many} to Many{one(<otherEntityField>)}
       }
 
@@ -143,7 +166,7 @@ In a Many-to-Many relationship you can add it in the owner side of the entity:
 
 - JDL
 
-      relationship ManyToMany{
+      relationship ManyToMany {
         Owner{notOwner(<otherEntityField>)} to NotOwner{owner}
       }
 
@@ -162,7 +185,7 @@ As you can see, there are 3 types of reflexivity. JHipster-UML only supports the
 We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
 Here's a screenshot of such a diagram (from Modelio):  
-![HR UML diagram](images/jhipsteruml_overview%20diagram.png)
+![HR UML diagram](images/jhipsteruml_overviewdiagram.png)
 
 As you can see, we changed it as to make it a bit more interesting.
 JHipster can generate entities and associations between them (one-to-one, one-to-many, etc.), and in this example we added every type of association (even the reflexive and the inheritance). JHipster doesn't support inheritance yet (but reflexivity is supported by JHipster, with a warning), but we decided to include it in the example so as to have a solid base to work with.
@@ -216,6 +239,15 @@ Please note that one entity may, at least, not be generated: the User entity. It
 
 Next, it's pretty straightforward: just run your app!
 
+
+## <a name="jhipsternotes"></a>JHipster notes
+
+JHipster is a great scaffolding tool with many conventions, some of them are worth mentioning when generating entities with JHipster-UML:
+
+  - You don't have to use an `id` field in your entities because JHipster generates one by default, and JHipster-UML removes any field if it is detected as an ID;
+  - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you;
+  
+
 ***
 
 # <a name="examples"></a>Examples
@@ -230,6 +262,8 @@ Each editor will be discussed here, so that you know how to get a good XMI file.
 ## <a name="modelioexample"></a>Modelio
 
 **Note for Mac users: Modelio is behaving weirdly on Mac (the GUI), it may be caused by the graphics and window manager on Mac, as it has not been diagnosed on Linux Ubuntu. It works, but the interaction may not be pleasant.**
+
+**Important version note: Modelio v3.3 is tested and working, however a bug exists in v3.4 preventing the user from exporting the diagram. This bug is fixed as of v3.4.1.**
 
 Modelio can be downloaded for free [here](https://www.modelio.org/). Make sure you have Java 8 if you're downloading any of the 3.3+ versions (it won't work otherwise).
 Once launched, create a project and you'll be seeing this view:
@@ -555,7 +589,7 @@ The possible validations are those described [here](#annexes), if the validation
 
 The relationships declaration is done as follows:
 
-    relationship (OneToMany | ManyToOne | OneToOne | ManyToMany){
+    relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
       <from entity>[{<relationship name>}] to <to entity>[{<relationship name>}]
     }
 
@@ -573,17 +607,17 @@ Here's an simple example:
 
 A Book has one Author, an Author has several Books.
 
-    entity Book{
+    entity Book {
       title String required,
       description String required minlength(5) maxlength(50),
       publicationDate LocalDate,
       price BigDecimal
     }
-    entity Author{
+    entity Author {
       name String required,
       birthDate LocalDate
     }
-    relationship OneToMany{
+    relationship OneToMany {
       Author{book} to Book{writer(name)}
     }
 
@@ -593,7 +627,7 @@ The relationship OneToMany A to B is equivalent to the relationship ManyToOne B 
 The field used to represent a relationship is, by default, `id`. This can be modifed with the following syntax for the `<relationship name>` token above: `<relationship field>(<display field>)`.
 
 ### Enum
-Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL must do as follows:
+Since v1.1.2, Enums are supported by JHipster-UML. To make Enums with JDL just do as follows:
 
 - Declare an Enum where you want in the file:
 
@@ -603,7 +637,7 @@ Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL must do
 
 - In an entity, add field with the Enum as a type:
 
-        entity Book{
+        entity Book {
           title String required,
           description String,
           language Language
@@ -622,18 +656,16 @@ And you can create as many DataTypes as you like.
 ## <a name="howtojdl"></a> How to use it
 You can use it by:
 
-- simply creating a file with the extension '.jh',
-
-- declare your entities and relationships,
-
-- in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh`.
+  - simply creating a file with the extension '.jh',
+  - declare your entities and relationships,
+  - in your JHipster application's root folder, simply type `jhipster-uml yourfile.jh`.
 
 and *Voilà*, you are done!
 
 
 ## <a name="commentingjdl"></a> Commenting
-As of v1.5.0 of JHipster-UML and v2.22.0 of JHipster, it is possible to add comments to the JDL file.  
-Just like in Java, this example demonstrates how to add comments :
+As of v1.5.0 of JHipster-UML and v2.22.0 of JHipster, it is possible to add comments to JDL files.  
+Just like in Java, this example demonstrates how to add comments:
 
     /**
      * Class comments.
@@ -650,7 +682,7 @@ Just like in Java, this example demonstrates how to add comments :
      */
     entity MySecondEntity {}
     
-    relationship OneToMany{
+    relationship OneToMany {
       /** This is possible too! */
       MyEntity{mySecondEntity}
       to 
@@ -661,6 +693,73 @@ Just like in Java, this example demonstrates how to add comments :
     }
 
 These comments will later be added as Javadoc comments by JHipster.
+
+
+## <a name="jdlrelationships"></a>All the relationships
+
+We showed how to create the relationships with the UML editors, now's the turn for the JDL explanation.
+
+
+### One-to-One
+
+A bidirectional relationship where the Car has a Driver, and the Driver has a Car.
+
+    entity Driver {}
+    entity Car {}
+    relationship OneToOne {
+      Car{driver} to Driver{car}
+    }
+
+A Unidirectional example where a Citizen has a Passport, but the Passport has no access to sole its owner.
+
+    entity Citizen {}
+    entity Passport {}
+    relationship OneToOne {
+      Citizen{passport} to Passport
+    }
+
+
+### One-to-Many
+
+A bidirectional relationship where the Owner has none, one or more Car objects, and the Car knows its owner.
+
+    entity Owner {}
+    entity Car {}
+    relationship OneToMany {
+      Owner{car} to Car{owner}
+    }
+
+Unidirectional versions for this relationship are not supported by JHipster, but it would look like this:
+
+    entity Owner {}
+    entity Car {}
+    relationship OneToMany {
+      Owner{car} to Car
+    }
+
+
+### Many-to-One
+
+The reciprocal version of One-to-Many relationships is the same as previously.
+The unidirectional version where the Car knows its owners:
+
+    entity Owner {}
+    entity Car {}
+    relationship ManyToOne {
+      Car{owner} to Car
+    }
+
+
+### Many-to-Many
+
+Finally, in this example we have the Car that knows of its drivers, and the Driver object can access its cars.
+
+    entity Driver {}
+    entity Car {}
+    relationship ManyToMany {
+      Car{driver} to Driver{car}
+    }
+
 
 # <a name="annexes"></a>Annexes
 
