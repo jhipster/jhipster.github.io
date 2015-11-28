@@ -11,7 +11,7 @@ sitemap:
 
 JHipster-UML is a JHipster sub-project which can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
 
-The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on Github!
+The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
 
 Here's what's covered on this page:
 
@@ -81,7 +81,7 @@ If you want the 'bleeding edge' version, you can clone our git repo from [our Gi
 ***
 
 # <a name="howtouse"></a>How to use it
-JHipster-UML is quite easy to use, you need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
+JHipster-UML is quite easy to use, you only need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
 
 
 ## <a name="umlfile"></a>The UML file
@@ -132,7 +132,7 @@ In a One-to-Many relationship you can add it in the 'Many' side of the relations
 
 - JDL
 
-      relationship OneToMany{
+      relationship OneToMany {
         One{many} to Many{one(<otherEntityField>)}
       }
 
@@ -144,7 +144,7 @@ In a Many-to-Many relationship you can add it in the owner side of the entity:
 
 - JDL
 
-      relationship ManyToMany{
+      relationship ManyToMany {
         Owner{notOwner(<otherEntityField>)} to NotOwner{owner}
       }
 
@@ -163,7 +163,7 @@ As you can see, there are 3 types of reflexivity. JHipster-UML only supports the
 We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
 Here's a screenshot of such a diagram (from Modelio):  
-![HR UML diagram](images/jhipsteruml_overview%20diagram.png)
+![HR UML diagram](images/jhipsteruml_overviewdiagram.png)
 
 As you can see, we changed it as to make it a bit more interesting.
 JHipster can generate entities and associations between them (one-to-one, one-to-many, etc.), and in this example we added every type of association (even the reflexive and the inheritance). JHipster doesn't support inheritance yet (but reflexivity is supported by JHipster, with a warning), but we decided to include it in the example so as to have a solid base to work with.
