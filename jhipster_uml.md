@@ -557,7 +557,7 @@ The possible validations are those described [here](#annexes), if the validation
 
 The relationships declaration is done as follows:
 
-    relationship (OneToMany | ManyToOne | OneToOne | ManyToMany){
+    relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
       <from entity>[{<relationship name>}] to <to entity>[{<relationship name>}]
     }
 
@@ -575,17 +575,17 @@ Here's an simple example:
 
 A Book has one Author, an Author has several Books.
 
-    entity Book{
+    entity Book {
       title String required,
       description String required minlength(5) maxlength(50),
       publicationDate LocalDate,
       price BigDecimal
     }
-    entity Author{
+    entity Author {
       name String required,
       birthDate LocalDate
     }
-    relationship OneToMany{
+    relationship OneToMany {
       Author{book} to Book{writer(name)}
     }
 
@@ -650,7 +650,7 @@ Just like in Java, this example demonstrates how to add comments:
      */
     entity MySecondEntity {}
     
-    relationship OneToMany{
+    relationship OneToMany {
       /** This is possible too! */
       MyEntity{mySecondEntity}
       to 
