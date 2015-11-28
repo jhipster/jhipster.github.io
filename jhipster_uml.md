@@ -99,26 +99,47 @@ Here is an example of a properly created class for JHipster. We have the attribu
 
 Note that you don't need to capitalize type names (**except for composed names like BigDecimal**, JHipster-UML capitalizes simple names).
 
+
 ### Relationships
-The relationship between two entities is represented in the class diagram by an aggregation between two classes.
+We just use the examples from JHipster in order to show how to do it with an editor. 
 
 
 #### One-to-One
-![One-to-One](images/jhipsteruml_one_to_one.png)
+![One-to-One](images/jhipsteruml_bi_oto.png)
 
-Here, we have a one-to-one relationship between Customer and Address, with Customer as the owner of the relationship.
+Here, we have a bidirectional one-to-one relationship between Driver and Car, with Driver as the owner of the relationship.
+
+If you're looking for a unidirectional relationship:
+
+![One-to-One2](images/jhipsteruml_uni_oto.png)
+
+Notice that in order to achieve a unidirectional relationship we just removed the `citizen` label so that `Passport` doesn't have it.
 
 
 #### One-to-Many
-![One-to-Many](images/jhipsteruml_one_to_many.png)
+![One-to-Many](images/jhipsteruml_bi_otm.png)
 
-Here, Author has a one-to-many relationship with Book, and Book has a many-to-one relationship with Author.
+In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
+
+Unidirectional relationships are not supported (yet) by JHipster (see [this](managing_relationships.html#3) page for more information about this).
+This is an example of such an association:
+
+![One-to-Many2](images/jhipsteruml_uni_otm.png)
+
+
+#### Many-to-One
+
+As showed previously, the equivalent of a One-to-Many relationship is a Many-to-One:
+
+![One-to-Many2](images/jhipsteruml_uni_mto.png)
+
+Now the cars know their owner, but not the opposite.
 
 
 #### Many-to-Many
-![Many-to-Many](images/jhipsteruml_many_to_many.png)
+![Many-to-Many](images/jhipsteruml_bi_mtm.png)
 
-Here, we have a many-to-many relationship between Order and Product, with Order as the owner of the relationship.
+Here, we have a many-to-many relationship between Car (the owner) and Driver.
 
 
 #### Declare the field you want to use to display a relationship in AngularJS
