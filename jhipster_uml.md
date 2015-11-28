@@ -22,6 +22,7 @@ Here's what's covered on this page:
     4.1. [The UML file](#umlfile)  
     4.2. [Use JHipster-UML](#usejuml)  
     4.3. [What's generated](#whatsgenerated)  
+    4.4.  [JHipster notes](#jhipsternotes)  
 5. [Examples](#examples)  
     5.1. [Modelio](#modelioexample)  
     5.2. [UML Designer](#umldesignerexample)  
@@ -215,6 +216,15 @@ After executing JHipster-UML, the _.jhipster_ folder will be created (if it didn
 Please note that one entity may, at least, not be generated: the User entity. It is actually scaffolded by JHipster when creating a new app (and a warning message is displayed by JHipster-UML).
 
 Next, it's pretty straightforward: just run your app!
+
+
+## <a name="jhipsternotes"></a>JHipster notes
+
+JHipster is a great scaffolding tool with many conventions, some of them are worth mentioning when generating entities with JHipster-UML:
+
+  - You don't have to use an `id` field in your entities because JHipster generates one by default, and JHipster-UML removes any field if it is detected as an ID;
+  - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you;
+  
 
 ***
 
