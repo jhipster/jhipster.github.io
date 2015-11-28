@@ -595,7 +595,7 @@ The relationship OneToMany A to B is equivalent to the relationship ManyToOne B 
 The field used to represent a relationship is, by default, `id`. This can be modifed with the following syntax for the `<relationship name>` token above: `<relationship field>(<display field>)`.
 
 ### Enum
-Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL must do as follows:
+Since v1.1.2 Enums are supported by JHipster-UML. To make Enums with JDL just do as follows:
 
 - Declare an Enum where you want in the file:
 
