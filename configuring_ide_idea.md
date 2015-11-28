@@ -3,7 +3,7 @@ layout: default
 title: Configuring your IDE
 sitemap:
 priority: 0.7
-lastmod: 2015-05-22T18:40:00-00:00
+lastmod: 2015-11-28T17:13:00-00:00
 ---
 
 # <i class="fa fa-keyboard-o"></i> Configuring Intellij IDEA
