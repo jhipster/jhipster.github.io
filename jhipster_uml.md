@@ -35,6 +35,7 @@ Here's what's covered on this page:
     8.1. [The language](#jdllanguage)  
     8.2. [How to use it](#howtojdl)  
     8.3. [Commenting](#commentingjdl)  
+    8.4. [All the relationships](#jdlrelationships)  
 9. [Annexes](#annexes)
 
 ***
@@ -692,6 +693,73 @@ Just like in Java, this example demonstrates how to add comments:
     }
 
 These comments will later be added as Javadoc comments by JHipster.
+
+
+## <a name="jdlrelationships"></a>All the relationships
+
+We showed how to create the relationships with the UML editors, now's the turn for the JDL explanation.
+
+
+### One-to-One
+
+A bidirectional relationship where the Car has a Driver, and the Driver has a Car.
+
+    entity Driver {}
+    entity Car {}
+    relationship OneToOne {
+      Car{driver} to Driver{car}
+    }
+
+A Unidirectional example where a Citizen has a Passport, but the Passport has no access to sole its owner.
+
+    entity Citizen {}
+    entity Passport {}
+    relationship OneToOne {
+      Citizen{passport} to Passport
+    }
+
+
+### One-to-Many
+
+A bidirectional relationship where the Owner has none, one or more Car objects, and the Car knows its owner.
+
+    entity Owner {}
+    entity Car {}
+    relationship OneToMany {
+      Owner{car} to Car{owner}
+    }
+
+Unidirectional versions for this relationship are not supported by JHipster, but it would look like this:
+
+    entity Owner {}
+    entity Car {}
+    relationship OneToMany {
+      Owner{car} to Car
+    }
+
+
+### Many-to-One
+
+The reciprocal version of One-to-Many relationships is the same as previously.
+The unidirectional version where the Car knows its owners:
+
+    entity Owner {}
+    entity Car {}
+    relationship ManyToOne {
+      Car{owner} to Car
+    }
+
+
+### Many-to-Many
+
+Finally, in this example we have the Car that knows of its drivers, and the Driver object can access its cars.
+
+    entity Driver {}
+    entity Car {}
+    relationship ManyToMany {
+      Car{driver} to Driver{car}
+    }
+
 
 # <a name="annexes"></a>Annexes
 
