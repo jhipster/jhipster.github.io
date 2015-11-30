@@ -36,12 +36,12 @@ Now, to have relative paths links working correctly (ex. activation link sent to
                                  "/audits*","/configuration*","/docs*","/health*","/logs*","/metrics*",
                                  "/user-management*","/user-management/*","/error*","/accessdenied*"},
                                   method = RequestMethod.GET)
-        public void loginRedirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+        public void pageForward(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
             redirect(httpRequest, httpResponse);
         }           
 
-        private void redirect(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
-            RequestDispatcher dispatcher = httpRequest.getRequestDispatcher("index.html");
+        private void forward(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
+            RequestDispatcher dispatcher = httpRequest.getRequestDispatcher("/index.html");
             try {
                 dispatcher.forward(httpRequest, httpResponse);
             } catch (Exception e) {
