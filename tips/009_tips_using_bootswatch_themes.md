@@ -14,11 +14,11 @@ To have [Bootswatch](https://bootswatch.com/) themes instead of the default them
 
 Make the following changes in the generated app.
 
-**Note:** replace 'yourApp' with the generated name of your application. 
+**Note:** replace 'yourApp' with the generated name of your application.
 
 ## Add Files
 
-Add the below service as `bootswatch.service.js` under `webapp/components/util`
+Add the below service as `bootswatch.service.js` under `webapp/scripts/components/util`
 
     'use strict';
 
@@ -33,7 +33,7 @@ Add the below service as `bootswatch.service.js` under `webapp/components/util`
             };
         });
 
-Add the below directive as `bootswatch.directive.js` under `webapp/components/util`
+Add the below directive as `bootswatch.directive.js` under `webapp/scripts/components/util`
 
     'use strict';
 
@@ -60,7 +60,7 @@ Add the below directive as `bootswatch.directive.js` under `webapp/components/ut
             };
         });
 
-Add the below controller as `bootswatch.controller.js` under `webapp/components/util`
+Add the below controller as `bootswatch.controller.js` under `webapp/scripts/components/util`
 
     'use strict';
 
@@ -102,13 +102,13 @@ Add the below in footer
             </ul>
         </div>
     </div>
-    
+
 Add script tags in your index.html file so you don't receive angular errors
 
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
-    
+
     ...
-    
+
     <script src="scripts/components/util/bootswatch.controller.js"></script>
     <script src="scripts/components/util/bootswatch.directive.js"></script>
     <script src="scripts/components/util/bootswatch.service.js"></script>
