@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-11-28T12:00:00-00:00
+    lastmod: 2015-12-5T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -35,7 +35,8 @@ Here's what's covered on this page:
     8.1. [The language](#jdllanguage)  
     8.2. [How to use it](#howtojdl)  
     8.3. [Commenting](#commentingjdl)  
-    8.4. [All the relationships](#jdlrelationships)  
+    8.4. [Adding JHipster's options](#options)  
+    8.5. [All the relationships](#jdlrelationships)  
 9. [Annexes](#annexes)
 
 ***
@@ -693,6 +694,28 @@ Just like in Java, this example demonstrates how to add comments:
     }
 
 These comments will later be added as Javadoc comments by JHipster.
+
+## <a name="options"></a>Using JHipster's options
+
+As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs and paginations).
+
+**Please note that this feature is only available for the JDL because of the editors' lack of an elegant way to specify the options.**
+
+    entity A {
+      name String required
+    }
+
+    entity B {}
+
+    entity C {}
+
+    dto A, B with mapstruct
+
+    paginate A, C with infinite-scroll
+    paginate B with pager
+
+The keywords `dto`, `paginate` and `with` were added to the grammar to support these changes.
+If a wrong option is specified, JHipster-UML will inform you of that with a nice, red message and will just ignore it so as not to corrupt JHipster's JSON files.
 
 
 ## <a name="jdlrelationships"></a>All the relationships
