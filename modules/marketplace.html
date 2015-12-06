@@ -1,0 +1,36 @@
+---
+layout: default
+title: Marketplace
+angularjs: true
+sitemap:
+    priority: 0.7
+    lastmod: 2015-12-10T00:00:00-00:00
+---
+
+<script src="marketplace/marketplace.js"></script>
+
+<h1><i class="fa fa-shopping-cart"></i> Marketplace</h1>
+<div ng-app="marketplaceApp">
+    <div ng-controller="ModuleListCtrl">
+        <h2>Available modules</h2>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Module name</th>
+                        <th>URL</th>
+                        <th>Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="module in modules track by module.name">
+                        <td>{(module.name)}</td>
+                        <td><a href="{(module.url)}">{(module.url)}</td>
+                        <td>{(module.author)}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
