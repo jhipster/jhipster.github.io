@@ -14,7 +14,7 @@ sitemap:
 <p>
 This sub-generator has a few caveats:
 <ul>
-    <li>You can only use it with a Postgresql database, as this is what Heroku provides by default</li>
+    <li>If your application takes longer than 60 seconds to boot, Heroku will kill the process. You can request a higher boot limit by contacting <a href="http://help.heroku.com">Heroku Support</a>.</li>
     <li>If your application is killed by Heroku when your Liquibase changelog is being applied, your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table (see below)</li>
 </ul>
 </p>
