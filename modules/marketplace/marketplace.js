@@ -9,7 +9,7 @@ marketplaceApp.config([
 ]);
 
 marketplaceApp.controller('ModuleListCtrl', function ($scope, $http) {
-  $http.get('data/modules.json').success(function(data) {
+  $http.get('marketplace/data/modules.json').success(function(data) {
     $scope.modules = data;
   });
 

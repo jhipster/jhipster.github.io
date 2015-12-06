@@ -1,20 +1,22 @@
 [
     {
         "name": "Fortune",
+        "npmPackageName": "generator-jhipster-fortune",
         "url": "https://github.com/jdubois/generator-jhipster-fortune",
         "author": "Julien Dubois",
         "authorUrl": "https://github.com/jdubois",
         "description": "Sample JHipster module, generating a fortune cookie page",
         "keywords": ["sample", "fortune"],
-        "verified": true,
+        "verified": true
     },
     {
         "name": "Test",
+        "npmPackageName": "generator-jhipster-fortune",
         "url": "https://github.com/jdubois/generator-jhipster-fortune",
         "author": "Julien Dubois",
         "authorUrl": "https://github.com/jdubois",
         "description": "Test module",
         "keywords": ["sample", "test"],
-        "verified": true,
+        "verified": true
     }
 ]

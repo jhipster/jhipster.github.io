@@ -26,6 +26,7 @@ sitemap:
                 <tbody>
                     <tr ng-repeat="module in modules track by module.name">
                         <td>{(module.name)}</td>
+                        <td>{(module.npmPackageName)}</td>
                         <td><a href="{(module.url)}">{(module.url)}</td>
                         <td>{(module.author)}</td>
                     </tr>
