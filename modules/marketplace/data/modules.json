@@ -10,13 +10,13 @@
         "verified": true
     },
     {
-        "name": "Test",
-        "npmPackageName": "generator-jhipster-fortune",
-        "url": "https://github.com/jdubois/generator-jhipster-fortune",
-        "author": "Julien Dubois",
-        "authorUrl": "https://github.com/jdubois",
-        "description": "Test module",
-        "keywords": ["sample", "test"],
-        "verified": true
+        "name": "Docker",
+        "npmPackageName": "generator-jhipster-docker",
+        "url": "https://github.com/pascalgrimaud/generator-jhipster-docker",
+        "author": "Pascal Grimaud",
+        "authorUrl": "https://twitter.com/pascalgrimaud",
+        "description": "Docker support in your JHipster application",
+        "keywords": ["deployment", "docker"],
+        "verified": false
     }
 ]
