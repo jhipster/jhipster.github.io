@@ -1,5 +1,9 @@
 <h2>Available modules</h2>
 
+<div>
+    <span class="fa fa-search"></span> <span>Search modules list:</span> <input type="text" placeholder="Type a module name or keyword" size="50" ng-model="searchText"></input>
+</div>
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -13,7 +17,7 @@
             </tr>
         </thead>
         <tbody ng-cloak>
-            <tr ng-repeat="module in modules track by module.name">
+            <tr ng-repeat="module in modules | filter:searchText | orderBy:'-downloads'">
                 <td>{(module.name)}</td>
                 <td><a href="{(module.url)}">{(module.url)}</td>
                 <td>{(module.author)}</td>

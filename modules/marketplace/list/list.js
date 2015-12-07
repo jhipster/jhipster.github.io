@@ -18,11 +18,6 @@ marketplaceApp.controller('ModuleListCtrl', function ($scope, $http, $location, 
             var module = $scope.modules[i];
             module.downloads = data[module.npmPackageName].downloads;
         }
-        var orderBy = $filter('orderBy');
-        $scope.order = function(predicate, reverse) {
-            $scope.modules = orderBy($scope.modules, predicate, reverse);
-        };
-        $scope.order('downloads',true);
     });
   });
 
