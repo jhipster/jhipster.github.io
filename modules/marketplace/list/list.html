@@ -7,17 +7,17 @@
                 <th>Module name</th>
                 <th>URL</th>
                 <th>Author</th>
-                <th>Downloads</th>
+                <th class="text-center">Downloads<br/><small>(last month)</small></th>
                 <th>Verified</th>
                 <th></th>
             </tr>
         </thead>
         <tbody ng-cloak>
-            <tr ng-repeat="module in modules track by module.name">
+            <tr ng-repeat="module in modules track by module.name | orderBy: 'downloads'">
                 <td>{(module.name)}</td>
                 <td><a href="{(module.url)}">{(module.url)}</td>
                 <td>{(module.author)}</td>
-                <td>{(module.downloads)}</td>
+                <td  class="text-center">{(module.downloads)}</td>
                 <td><span ng-show="module.verified" class="fa fa-star"></span></td>
                 <td><button type="submit"
                         ng-click="details(module.npmPackageName)"
