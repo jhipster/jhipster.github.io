@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-12-5T12:00:00-00:00
+    lastmod: 2015-12-06T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -694,6 +694,14 @@ Just like in Java, this example demonstrates how to add comments:
     }
 
 These comments will later be added as Javadoc comments by JHipster.
+
+JHipster-UML possesses its own kind of comment:
+
+    // an ignored comment
+    /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JHipster-UML, and will not be counted ad Javadoc.
+
 
 ## <a name="options"></a>Using JHipster's options
 
