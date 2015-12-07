@@ -7,32 +7,20 @@ sitemap:
     lastmod: 2015-12-10T00:00:00-00:00
 ---
 
-<script src="marketplace/marketplace.js"></script>
+<script src="marketplace/app.js"></script>
+<script src="marketplace/list/list.js"></script>
+<script src="marketplace/details/details.js"></script>
+<script src="{{ site.url }}/js/c3-0.4.10.min.js"></script>
+<script src="{{ site.url }}/js/d3-3.5.10.min.js"></script>
+<link href="{{ site.url }}/css/c3-0.4.10.min.css" rel="stylesheet">
 
 <h1><i class="fa fa-shopping-cart"></i> Marketplace</h1>
 <div ng-app="marketplaceApp">
-    <div ng-controller="ModuleListCtrl">
-        <h2>Available modules</h2>
+    <div>
+        <i>If you want to create your own module, <a href="creating_a_module.html">here is the documentation</a>.</i>
 
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Module name</th>
-                        <th>NPM package name</th>
-                        <th>URL</th>
-                        <th>Author</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="module in modules track by module.name">
-                        <td>{(module.name)}</td>
-                        <td>{(module.npmPackageName)}</td>
-                        <td><a href="{(module.url)}">{(module.url)}</td>
-                        <td>{(module.author)}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <div ng-view></div>
+
+        <div id="chart"></div>
     </div>
 </div>

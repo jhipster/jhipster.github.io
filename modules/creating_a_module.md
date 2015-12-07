@@ -10,6 +10,8 @@ lastmod: 2015-12-05T18:40:00-00:00
 
 A JHipster module is a Yeoman generator that is [composed](http://yeoman.io/authoring/composability.html) with a specific JHipster sub-generator.
 
+JHipster modules are listed on the [JHipster marketplace](marketplace.html).
+
 This allows to create third-party generators that have access to the JHipster variables and functions, and act as standard JHipster sub-generators.
 
 ## Example
