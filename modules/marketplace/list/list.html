@@ -7,6 +7,7 @@
                 <th>Module name</th>
                 <th>URL</th>
                 <th>Author</th>
+                <th>Downloads</th>
                 <th>Verified</th>
                 <th></th>
             </tr>
@@ -16,6 +17,7 @@
                 <td>{(module.name)}</td>
                 <td><a href="{(module.url)}">{(module.url)}</td>
                 <td>{(module.author)}</td>
+                <td>{(module.downloads)}</td>
                 <td><span ng-show="module.verified" class="fa fa-star"></span></td>
                 <td><button type="submit"
                         ng-click="details(module.npmPackageName)"
