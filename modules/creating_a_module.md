@@ -41,37 +41,43 @@ For this, it composes with the "jhispter:modules" sub generator:
 
 ### Variables available
 
-`baseName`: the name of the application
+Global variables:
 
-`packageName`: the Java package name
+- `baseName`: the name of the application
+- `packageName`: the Java package name
+- `angularAppName`: the AngularJS application name
+- `javaDir`: the directory for the Java application, including the package folders
+- `resourceDir`: the directory containing the Java resources (always `src/main/resources`)
+- `webappDir`: the directory containing the Web application (always `src/main/webapp`)
 
-`angularAppName`: the AngularJS application name
+And all the variables from your `.yo-rc.json` file:
 
-`javaDir`: the directory for the Java application, including the package folders
-
-`resourceDir`: the directory containing the Java resources (always `src/main/resources`)
-
-`webappDir`: the directory containing the Web application (always `src/main/webapp`)
+- `authenticationType`: the type of authentication
+- `hibernateCache`: the Hibernate 2nd level cache
+- `clusteredHttpSession`: whether a clustered HTTP session is used
+- `websocket`: whether WebSockets are used
+- `databaseType`: the type of database used
+- `devDatabaseType`: the database used in "dev" mode
+- `prodDatabaseType`: the database used in "prod" mode
+- `searchEngine`: whether a search engine is used
+- `useSass`: if Sass is used for CSS pre-processing
+- `buildTool`: the Java build tool
+- `frontendBuilder`: the front-end (JavaScript/CSS/HTML) build tool
+- `enableTranslation`: if translations are enabled
+- `enableSocialSignIn`: if social login is enabled
+- `testFrameworks`: an array of the test frameworks selected
 
 ### Functions available
 
-`addJavaScriptToIndex`: add a JavaScript file to the `index.html`
-
-`addMessageformatLocaleToIndex`: add a message format locale (for i18n)
-
-`addElementToMenu`: add an entry in the navigation menu
-
-`addEntityToMenu`: add an entity in the entity navigation sub-menu
-
-`addElementTranslationKey`: add a new translation key in the `global.json` file
-
-`addEntityTranslationKey`: add a new translation key for an entity in the `global.json` file
-
-`addChangelogToLiquibase`: add a new changelog in the Liquibase `master.xml` file
-
-`dateFormatForLiquibase`: creates a new timestamp to be used by a Liquibase changelog
-
-`copyI18nFilesByName`: copy i18n files
+- `addJavaScriptToIndex`: add a JavaScript file to the `index.html`
+- `addMessageformatLocaleToIndex`: add a message format locale (for i18n)
+- `addElementToMenu`: add an entry in the navigation menu
+- `addEntityToMenu`: add an entity in the entity navigation sub-menu
+- `addElementTranslationKey`: add a new translation key in the `global.json` file
+- `addEntityTranslationKey`: add a new translation key for an entity in the `global.json` file
+- `addChangelogToLiquibase`: add a new changelog in the Liquibase `master.xml` file
+- `dateFormatForLiquibase`: creates a new timestamp to be used by a Liquibase changelog
+- `copyI18nFilesByName`: copy i18n files
 
 ## Registering a module to the JHipster marketplace
 
