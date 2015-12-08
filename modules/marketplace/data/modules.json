@@ -18,5 +18,15 @@
         "description": "Docker support in your JHipster application",
         "keywords": ["deployment", "docker"],
         "verified": false
+    },
+    {
+        "name": "Swagger2Markup",
+        "npmPackageName": "generator-jhipster-swagger2markup",
+        "url": "https://github.com/atomfrede/generator-jhipster-swagger2markup",
+        "author": "Frederik Hahne",
+        "authorUrl": "https://twitter.com/atomfrede",
+        "description": "Swagger2Markup support in your JHipster application",
+        "keywords": ["documentation", "asciidoc"],
+        "verified": false
     }
 ]
