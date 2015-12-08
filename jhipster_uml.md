@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-12-06T12:00:00-00:00
+    lastmod: 2015-12-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -705,7 +705,7 @@ Therefore, anything that starts with `//` is considered an internal comment for 
 
 ## <a name="options"></a>Using JHipster's options
 
-As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs and paginations).
+As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs, paginations and services).
 
 **Please note that this feature is only available for the JDL because of the editors' lack of an elegant way to specify the options.**
 
@@ -721,8 +721,11 @@ As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs an
 
     paginate A, C with infinite-scroll
     paginate B with pager
+    
+    service A with serviceClass
+    service C with serviceImpl
 
-The keywords `dto`, `paginate` and `with` were added to the grammar to support these changes.
+The keywords `dto`, `paginate`, `service` and `with` were added to the grammar to support these changes.
 If a wrong option is specified, JHipster-UML will inform you of that with a nice, red message and will just ignore it so as not to corrupt JHipster's JSON files.
 
 
