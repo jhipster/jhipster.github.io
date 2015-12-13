@@ -28,5 +28,36 @@
         "description": "Swagger2Markup support in your JHipster application",
         "keywords": ["documentation", "asciidoc"],
         "verified": false
+    },
+    {
+        "name": "AngularUI",
+        "npmPackageName": "generator-jhipster-angular-ui",
+        "url": "https://github.com/moifort/generator-jhipster-angular-ui",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Install AngularUI module on your JHipster app",
+        "keywords": ["AngularUI", "Angular", "AngularJS", "Font Awesome", "Bootstrap", "UI", "Button", "Slider",
+            "Checkbox", "Switch", "Icon"],
+        "verified": false
+    },
+    {
+        "name": "Google analytics",
+        "npmPackageName": "generator-jhipster-google-analytics",
+        "url": "https://github.com/moifort/generator-jhipster-google-analytics",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Install Google analytics on your JHipster app",
+        "keywords": ["Angular", "AngularJS", "Google analytics", "Google", "Analytics"],
+        "verified": false
+    },
+    {
+        "name": "Google maps",
+        "npmPackageName": "generator-jhipster-google-maps",
+        "url": "https://github.com/moifort/generator-jhipster-google-maps",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Install Google map sample on your JHipster app",
+        "keywords": ["Angular", "AngularJS", "Google maps", "Google", "Maps"],
+        "verified": false
     }
 ]
