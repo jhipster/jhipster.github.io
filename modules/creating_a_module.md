@@ -78,6 +78,17 @@ And all the variables from your `.yo-rc.json` file:
 - `addChangelogToLiquibase`: add a new changelog in the Liquibase `master.xml` file
 - `dateFormatForLiquibase`: creates a new timestamp to be used by a Liquibase changelog
 - `copyI18nFilesByName`: copy i18n files
+- `addMavenDependency`: add a new maven dependency in the `pom.xml`file
+- `addMavenPlugin`: add a new maven plugin in the `pom.xml` file
+- `addGradleDependency`: add a new gradle dependency
+- `addGradlePlugin`: add a new gradle plugin
+- `applyFromGradleScript`
+- `addBowerDependency`: add a new package in the `bower.json` file
+- `addBowerOverride`: add an override configuration in the `bower.json` file
+- `addAngularJsModule`: add a new module in the `app.js` file
+- `addAngularJsConfig`: add a new config in the `app.js` file
+- `addMainCSSStyle`: add a new style in the `main.css` file
+- `addMainSCSSStyle`: add a new style ine the `main.scss` file
 
 ## Registering a module to the JHipster marketplace
 
