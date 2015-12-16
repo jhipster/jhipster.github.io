@@ -37,7 +37,7 @@ Now, to have relative paths links working correctly (ex. activation link sent to
                                  "/user-management*","/user-management/*","/error*","/accessdenied*"},
                                   method = RequestMethod.GET)
         public void pageForward(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
-            redirect(httpRequest, httpResponse);
+            forward(httpRequest, httpResponse);
         }           
 
         private void forward(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
