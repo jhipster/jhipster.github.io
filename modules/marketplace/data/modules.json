@@ -59,5 +59,15 @@
         "description": "Install Google map sample on your JHipster app",
         "keywords": ["Angular", "AngularJS", "Google maps", "Google", "Maps"],
         "verified": false
+    },
+    {
+        "name": "Bootstrap Material design",
+        "npmPackageName": "generator-jhipster-bootstrap-material-design",
+        "url": "https://github.com/moifort/generator-jhipster-bootstrap-material-design",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Add Material design to your application",
+        "keywords": ["Bootstrap", "Material", "Material design"],
+        "verified": false
     }
 ]
