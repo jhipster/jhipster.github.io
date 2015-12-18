@@ -33,10 +33,6 @@ The selected solution in JHipster is to use [MapStruct](http://mapstruct.org/). 
 
 We have found it very clean and efficient, and liked that it does not use reflection (which is bad for performance when used as heavily as in a mapper).
 
-It has a limitation:
-
-- It doesn't work with Java 7 (but Java 7 support is not our priority)
-
 ## Configuring your IDE for MapStruct
 
 MapStruct is an annotation processor, and as such can be set up to be run automatically when your IDE compiles the project. We have found this approach difficult to use, and prefer to use the `mvn compile` goal directly.
