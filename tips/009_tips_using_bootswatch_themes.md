@@ -26,7 +26,7 @@ Add the below service as `bootswatch.service.js` under `webapp/scripts/component
         .factory('BootSwatchService', function ($http) {
             return {
                 get: function() {
-                    return $http.get('http://api.bootswatch.com/3/').then(function (response) {
+                    return $http.get('http://bootswatch.com/api/3.json').then(function (response) {
                         return response.data.themes;
                     });
                 }
