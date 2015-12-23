@@ -3,7 +3,7 @@ layout: default
 title: Configuring Email with - Gmail and more
 sitemap:
 priority: 0.5
-lastmod: 2015-12-20T18:40:00-00:00
+lastmod: 2015-12-23T22:40:00-00:00
 ---
 # Configuring Email with - Gmail and more...
 
@@ -59,6 +59,9 @@ _application-dev.yml_
                 starttls.enable: true
                 ssl.trust: smtp-mail.outlook.com
             [...]
+__Note__ : If you want to send Email from Corporate Outlook account then set `host` to the Microsoft Exchange Server of you company, for e.g. `emea.mycompany.com`. Also set `username` as Standard Id of the system provided by the company (Domain/Username) and `password` as your system password.
+
+___Tip___ - Where to find your `Microsoft Exchange Server` : Open Outlook -> Click Tools -> Click Account Settings... -> Double Click on Microsoft Exchange under Email tab and copy the Microsoft Exchange Server address.
 
 
 ### 3. Email Config - Yahoo
