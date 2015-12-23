@@ -59,9 +59,9 @@ _application-dev.yml_
                 starttls.enable: true
                 ssl.trust: smtp-mail.outlook.com
             [...]
-__Note__ : If you want to send Email from Corporate Outlook account then set `host` to the Microsoft Exchange Server of you company, for e.g. `emea.mycompany.com`. Also set `username` as Standard Id of the system provided by the company (Domain/Username) and `password` as your system password.
+__Note__ : If you want to send Email from a Corporate Outlook account then set `host` as the Microsoft Exchange Server of your company, for e.g. `emea.mycompany.com`. Also set `username` as Standard Id of the system provided by the company (Domain/Username) and `password` as your system password.
 
-___Tip___ - Where to find your `Microsoft Exchange Server` : Open Outlook -> Click Tools -> Click Account Settings... -> Double Click on Microsoft Exchange under Email tab and copy the Microsoft Exchange Server address.
+___Tip___ : To find your `Microsoft Exchange Server` : Open Outlook > Click Tools > Click Account Settings... > Double Click on Microsoft Exchange (under Email tab) and copy the Microsoft Exchange Server address.
 
 
 ### 3. Email Config - Yahoo
