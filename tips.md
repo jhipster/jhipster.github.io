@@ -22,3 +22,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 8. [Create a static Swagger API documentation](tips/008_tips_static_swagger_docs.html)
 9. [Using Bootswatch themes](tips/009_tips_using_bootswatch_themes.html)
 10. [Configuring HTML 5 Mode](tips/010_tip_configuring_html_5_mode.html)
+11. [Add new Spring social connector](tips/011_tip_add_new_spring_social_connector.html)
