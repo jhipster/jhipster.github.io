@@ -20,6 +20,16 @@
         "verified": false
     },
     {
+        "name": "Continuous Integration",
+        "npmPackageName": "generator-jhipster-ci",
+        "url": "https://github.com/pascalgrimaud/generator-jhipster-ci",
+        "author": "Pascal Grimaud",
+        "authorUrl": "https://twitter.com/pascalgrimaud",
+        "description": "Continuous Integration support in your JHipster application",
+        "keywords": ["continuous", "integration"],
+        "verified": false
+    },
+    {
         "name": "Swagger2Markup",
         "npmPackageName": "generator-jhipster-swagger2markup",
         "url": "https://github.com/atomfrede/generator-jhipster-swagger2markup",
