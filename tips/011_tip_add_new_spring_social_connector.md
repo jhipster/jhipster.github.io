@@ -92,7 +92,7 @@ Add in the `SocialConfiguration.java` the connector configuration.
 String somethingClientId = environment.getProperty("spring.social.something.clientId");
 String somethingClientSecret = environment.getProperty("spring.social.something.clientSecret");
 if (somethingClientId != null && somethingClientSecret != null) {
-    log.debug("Configuring FacebookConnectionFactory");
+    log.debug("Configuring SomethingConnectionFactory");
     connectionSomethingConfigurer.addConnectionFactory(
         new SomethingConnectionFactory(
             somethingClientId,
