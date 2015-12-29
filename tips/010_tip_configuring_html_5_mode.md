@@ -33,7 +33,7 @@ Now, to have relative paths links working correctly (ex. activation link sent to
 
         @RequestMapping(value = {"/login**","/activate*","/password*","/register*","/reset/finish*",
                                  "/reset/request*","/sessions*","/settings*","/social-register/*",
-                                 "/audits*","/configuration*","/docs*","/health*","/logs*","/metrics*",
+                                 "/audits*","/configuration*","/docs*","/apphealth*","/logs*","/appmetrics*",
                                  "/user-management*","/user-management/*","/error*","/accessdenied*"},
                                   method = RequestMethod.GET)
         public void pageForward(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
@@ -49,3 +49,12 @@ Now, to have relative paths links working correctly (ex. activation link sent to
             }
         }
     }
+    
+Also, you have to edit urls of the metric.js and health.js. First, open webapp\scripts\app\admin\health\health.js and change:
+
+    url: '/health' -> url: '/apphealth'
+    
+Then do the same with webapp\scripts\app\admin\metrics\metrics.js:
+
+    url: '/metrics' -> url: '/appmetrics'
+    
