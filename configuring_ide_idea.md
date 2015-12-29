@@ -46,7 +46,7 @@ You should now have Java support for most of the codebase. You have to repeat th
 
 ## Javascript Code Support
 
-Go and open `File → Other Settings → Default Settings...`.
+Go and open `IntelliJ IDEA → Preferences...`.
 
 ![Settings](images/configuring_ide_idea_5.png)
 
