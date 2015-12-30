@@ -22,10 +22,10 @@ A relationship works between two entities, and JHipster will generate the code f
 
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
 
-1. [A bi-directional one-to-many relationship](#1)
-2. [A uni-directional many-to-one relationship](#2)
-3. [A uni-directional one-to-many relationship](#3)
-4. [A uni-directional one-to-one relationship](#4)
+1. [A bidirectional one-to-many relationship](#1)
+2. [A unidirectional many-to-one relationship](#2)
+3. [A unidirectional one-to-many relationship](#3)
+4. [A unidirectional one-to-one relationship](#4)
 5. [Two one-to-many relationships on the same two entities](#5)
 6. [A many-to-many relationship](#6)
 7. [A one-to-one relationship](#7)
@@ -34,7 +34,7 @@ _Tip: the `User` entity_
 
 Please note that the `User` entity, which is handled by JHipster, is specific. You can do `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement.
 
-## <a name="1"></a> A bi-directionnal one-to-many relationship
+## <a name="1"></a> A bi-directional one-to-many relationship
 
 Let's start with two entities, a `Owner` and a `Car`. A owner can have many cars, and a car can have only one owner.
 
@@ -68,11 +68,11 @@ Now we can generate the `Car`:
 
 That's it, you now have a one-to-many relationship between those two entities!
 
-## <a name="2"></a> A uni-directional many-to-one relationship
+## <a name="2"></a> A unidirectional many-to-one relationship
 
-In the previous example we had a bi-directionnal relationship: from a `Car` instance you could find its owner, and from a `Owner` instance you could get all of its cars.
+In the previous example we had a bi-directional relationship: from a `Car` instance you could find its owner, and from a `Owner` instance you could get all of its cars.
 
-A many-to-one uni-directional relationship means that the cars know their owner, but not the opposite.
+A many-to-one unidirectional relationship means that the cars know their owner, but not the opposite.
 
     Owner (1) <----- (*) Car
 
@@ -101,9 +101,9 @@ And then the `Car` entity, as in the previous example:
 
 This will work as in the previous example, but you won't be able to add or remove cars from the `Owner` entity.
 
-## <a name="3"></a> A uni-directional one-to-many relationship
+## <a name="3"></a> A unidirectional one-to-many relationship
 
-A many-to-one uni-directional relationship means that the `Owner` instance can get its collection of cars, but not the opposite. It is the opposite from the previous example.
+A many-to-one unidirectional relationship means that the `Owner` instance can get its collection of cars, but not the opposite. It is the opposite from the previous example.
 
     Owner (1) -----> (*) Car
 
@@ -111,13 +111,13 @@ This type of relationship is not provided by default in JHipster at the moment, 
 
 You have two solutions for this:
 
-- Do a bi-directionnal mapping, and use it without modification: this is our recommended approach, as it is much simpler
-- Do a bi-directional mapping, and then modify it to transform it into a uni-directional mapping:
+- Do a bi-directional mapping, and use it without modification: this is our recommended approach, as it is much simpler
+- Do a bidirectional mapping, and then modify it to transform it into a unidirectional mapping:
     - Remove the "mappedBy" attribute on your `@OneToMany` annotation
     - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff]({{ site.url }}/development.html)
 
 
-## <a name="4"></a> A uni-directional one-to-one relationship
+## <a name="4"></a> A unidirectional one-to-one relationship
 
 A unidirectional one-to-one relationship means that the `citizen` instance can get its passport, but the `passport` instance can't get to its owner.
 
