@@ -34,7 +34,7 @@ _Tip: the `User` entity_
 
 Please note that the `User` entity, which is handled by JHipster, is specific. You can do `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement.
 
-## <a name="1"></a> A bi-directional one-to-many relationship
+## <a name="1"></a> A bidirectional one-to-many relationship
 
 Let's start with two entities, a `Owner` and a `Car`. A owner can have many cars, and a car can have only one owner.
 
@@ -70,7 +70,7 @@ That's it, you now have a one-to-many relationship between those two entities!
 
 ## <a name="2"></a> A unidirectional many-to-one relationship
 
-In the previous example we had a bi-directional relationship: from a `Car` instance you could find its owner, and from a `Owner` instance you could get all of its cars.
+In the previous example we had a bidirectional relationship: from a `Car` instance you could find its owner, and from a `Owner` instance you could get all of its cars.
 
 A many-to-one unidirectional relationship means that the cars know their owner, but not the opposite.
 
@@ -111,7 +111,7 @@ This type of relationship is not provided by default in JHipster at the moment, 
 
 You have two solutions for this:
 
-- Do a bi-directional mapping, and use it without modification: this is our recommended approach, as it is much simpler
+- Do a bidirectional mapping, and use it without modification: this is our recommended approach, as it is much simpler
 - Do a bidirectional mapping, and then modify it to transform it into a unidirectional mapping:
     - Remove the "mappedBy" attribute on your `@OneToMany` annotation
     - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff]({{ site.url }}/development.html)
