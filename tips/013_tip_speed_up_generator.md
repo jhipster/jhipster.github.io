@@ -13,28 +13,33 @@ __Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
 When using the generator-jhipster, the command `npm install` may take several minutes, depending on your connection speed.
 
 This tip can be used in many cases:
-* for demo of JHipster, to improve your experience
-* for dev team, to regenerate faster a project with `.yo-rc.json`
-* for continuous integration
+
+- for demo of JHipster, to improve your experience
+- for dev team, to regenerate faster a project with `.yo-rc.json`
+- for continuous integration
 
 ## Create a new project for node_modules
 
 There are 2 types of `node_modules` directory. You can't use the same for both types of project.
-* grunt
-* gulp
+
+- grunt
+- gulp
 
 Create a directory which will contain all `node_modules` libraries, and go into it:
+
 ```
 mkdir jhipster-speedup
 cd jhipster-speedup
 ```
 
 Create the directory `node_modules` for grunt:
+
 ```
 mkdir -p grunt/node_modules
 ```
 
 Create the directory `node_modules` for gulp:
+
 ```
 mkdir -p gulp/node_modules
 ```
@@ -50,12 +55,14 @@ The project structure is :
 
 **Warning!** Use these 2 next commands only if your are a developer on JHipster. It will link to your fork project of generator-jhipster:
 
-* grunt:
+- grunt:
+
 ```
 cd grunt/node_modules && npm link generator-jhipster
 ```
 
-* gulp:
+- gulp:
+
 ```
 cd gulp/node_modules && npm link generator-jhipster
 ```
@@ -63,6 +70,7 @@ cd gulp/node_modules && npm link generator-jhipster
 ## Generating projects
 
 Create a directory which will contain your new JHipster project, and go into it:
+
 ```
 mkdir jhipster
 cd jhipster
@@ -70,17 +78,20 @@ cd jhipster
 
 Depending of your choice, grunt or gulp, create a link to the directory `node_modules`:
 
-* grunt:
+- grunt:
+
 ```
 ln -s <your path>/jhipster-speedup/grunt/node_modules
 ```
 
-* gulp:
+- gulp:
+
 ```
 ln -s <your path>/jhipster-speedup/gulp/node_modules
 ```
 
 Generate a new project, and answer to all questions:
+
 ```
 yo jhipster
 ```

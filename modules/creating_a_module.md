@@ -31,7 +31,7 @@ A JHipster module:
 
 A JHipster module uses the new "composability" feature from Yeoman, described at [http://yeoman.io/authoring/composability.html](http://yeoman.io/authoring/composability.html) to have access to JHipster's variables and functions.
 
-For this, it composes with the "jhispter:modules" sub generator:
+For this, it composes with the "jhipster:modules" sub generator:
 
     templates: function() {
         this.composeWith('jhipster:modules', { options: {
