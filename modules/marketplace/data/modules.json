@@ -100,5 +100,15 @@
         "keywords": ["audit", "entity", "audit log", "hibernate", "envers"],
         "verified": false,
         "jhVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Debian packager",
+        "npmPackageName": "generator-jhipster-debian-packager",
+        "url": "https://github.com/cbornet/generator-jhipster-debian-packager",
+        "author": "Christophe Bornet",
+        "authorUrl": "https://twitter.com/cbornet_",
+        "description": "Package your application into a debian/ubuntu .deb package",
+        "keywords": ["debian", "ubuntu", "package"],
+        "verified": false
     }
 ]
