@@ -73,9 +73,15 @@ And all the variables from your `.yo-rc.json` file:
 - `addMessageformatLocaleToIndex`: add a message format locale (for i18n)
 - `addElementToMenu`: add an entry in the navigation menu
 - `addEntityToMenu`: add an entity in the entity navigation sub-menu
+- `addElementToAdminMenu`: add an entry in the admin navigation sub-menu
 - `addElementTranslationKey`: add a new translation key in the `global.json` file
 - `addEntityTranslationKey`: add a new translation key for an entity in the `global.json` file
+- `addAdminElementTranslationKey`: add a new translation key for an admin sub-menu in the `global.json` file
+- `addTranslationKeyToAllLanguages`: add a new translation key for all installed languages using methods `addElementTranslationKey` | `addEntityTranslationKey` | `addAdminElementTranslationKey`
+- `getAllSupportedLanguages`: get the list of languages supported by Jhipster
+- `getAllInstalledLanguages`: get the list of languages installed by current application
 - `addChangelogToLiquibase`: add a new changelog in the Liquibase `master.xml` file
+- `addColumnToLiquibaseEntityChangeset`: add new columns to the Liquibase changelog for an entity
 - `dateFormatForLiquibase`: creates a new timestamp to be used by a Liquibase changelog
 - `copyI18nFilesByName`: copy i18n files
 - `addMavenDependency`: add a new maven dependency in the `pom.xml`file
@@ -87,8 +93,14 @@ And all the variables from your `.yo-rc.json` file:
 - `addBowerOverride`: add an override configuration in the `bower.json` file
 - `addAngularJsModule`: add a new module in the `app.js` file
 - `addAngularJsConfig`: add a new config in the `app.js` file
+- `addAngularJsInterceptor` : register an angular js interceptor in the `app.js` file
 - `addMainCSSStyle`: add a new style in the `main.css` file
 - `addMainSCSSStyle`: add a new style in the `main.scss` file
+- `copyTemplate`: copy a template from source to a destination after stripping any translation content when translation is disabled
+- `copyHtml`: short hand method for `copyTemplate` which is defaulted to action `stripHtml`
+- `copyJs`: short hand method for `copyTemplate` which is defaulted to action `stripJs`
+- `rewriteFile`: add the given content above a specific custom needle in a file
+- `replaceContent`: replace the given content for a specific pattern|regex in a file
 
 ## Registering a module to the JHipster marketplace
 
