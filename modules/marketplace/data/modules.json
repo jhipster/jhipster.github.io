@@ -89,5 +89,16 @@
         "description": "Add Material design to your application",
         "keywords": ["Bootstrap", "Material", "Material design"],
         "verified": false
+    },
+    {
+        "name": "Entity Audit",
+        "npmPackageName": "generator-jhipster-entity-audit",
+        "url": "https://github.com/deepu105/generator-jhipster-entity-audit",
+        "author": "Deepu KS",
+        "authorUrl": "deepu105.github.io",
+        "description": "Add support for entity audit and audit log page",
+        "keywords": ["audit", "entity", "audit log", "hibernate", "envers"],
+        "verified": false,
+        "jhVersionRequired" : "> 2.26.2"
     }
 ]
