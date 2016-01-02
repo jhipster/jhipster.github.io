@@ -100,5 +100,15 @@
         "keywords": ["audit", "entity", "audit log", "hibernate", "envers"],
         "verified": false,
         "jhVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Leaflet Maps",
+        "npmPackageName": "generator-jhipster-leaflet",
+        "url": "https://github.com/atomfrede/generator-jhipster-leaflet",
+        "author": "Frederik Hahne",
+        "authorUrl": "https://twitter.com/atomfrede",
+        "description": "Install ui-leaflet maps on your JHipster app",
+        "keywords": ["Angular", "AngularJS", "leaflet", "openstreetmap", "Maps", "osm"],
+        "verified": false
     }
 ]
