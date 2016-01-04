@@ -101,6 +101,7 @@
         "verified": false,
         "jhVersionRequired" : "> 2.26.2"
     },
+    {
         "name": "Debian packager",
         "npmPackageName": "generator-jhipster-debian-packager",
         "url": "https://github.com/cbornet/generator-jhipster-debian-packager",
@@ -117,6 +118,16 @@
         "author": "Frederik Hahne",
         "authorUrl": "https://twitter.com/atomfrede",
         "description": "Install ui-leaflet maps on your JHipster app",
+        "verified": false
+    },
+    {
+        "name": "Basic authentication",
+        "npmPackageName": "generator-jhipster-basic-auth",
+        "url": "https://github.com/cbornet/generator-jhipster-basic-auth",
+        "author": "Christophe Bornet",
+        "authorUrl": "https://twitter.com/cbornet_",
+        "description": "Stateless Basic authentication support for the API",
+        "keywords": ["basic", "authentication", "api"],
         "verified": false
     }
 ]
