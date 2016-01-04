@@ -19,7 +19,7 @@ Make the following changes in the generated app.
 ## Add Files
 
 Add the below service as `bootswatch.service.js` under `webapp/scripts/components/util`
-```javascript
+
     'use strict';
 
     angular.module('yourApp')
@@ -32,9 +32,9 @@ Add the below service as `bootswatch.service.js` under `webapp/scripts/component
                 }
             };
         });
-```
+
 Add the below directive as `bootswatch.directive.js` under `webapp/scripts/components/util`
-```javascript
+
     'use strict';
 
     angular.module('yourApp')
@@ -59,9 +59,9 @@ Add the below directive as `bootswatch.directive.js` under `webapp/scripts/compo
                 }
             };
         });
-```
+
 Add the below controller as `bootswatch.controller.js` under `webapp/scripts/components/util`
-```javascript
+
     'use strict';
 
     angular.module('yourApp')
@@ -72,11 +72,11 @@ Add the below controller as `bootswatch.controller.js` under `webapp/scripts/com
                 $scope.themes.unshift({name:'Default',css:''});
             });
         });
-```
+
 ## index.html
 
 Add the below to the index.html file after the CSS build task so that these are not minified and compacted by build task
-```html
+
     <!-- build:css assets/styles/main.css -->
 
     ...
@@ -84,9 +84,9 @@ Add the below to the index.html file after the CSS build task so that these are 
     <!-- endbuild -->
     <!-- placeholder link to load bootswatch themes, title holds the current applied theme name-->
     <link rel="stylesheet" href="" id="bootswatch-css" title="Default">
-```
+
 Add the below in footer
-```html
+
     <div class="footer">
         <p translate="footer" class="pull-left">This is your footer</p>
         <div ng-controller="BootswatchController" class="dropup pull-right">
@@ -102,9 +102,9 @@ Add the below in footer
             </ul>
         </div>
     </div>
-```
+
 Add script tags in your index.html file so you don't receive angular errors
-```html
+
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
 
     ...
@@ -112,11 +112,11 @@ Add script tags in your index.html file so you don't receive angular errors
     <script src="scripts/components/util/bootswatch.controller.js"></script>
     <script src="scripts/components/util/bootswatch.directive.js"></script>
     <script src="scripts/components/util/bootswatch.service.js"></script>
-```
+
 # app.js (only for oAuth/xAuth)
 
 Add exclusion to the bootswatch url in authInterceptor in `app.js` if you are using OAuth or XAuth
-```javascript
+
     .factory('authInterceptor', function ($rootScope, $q, $location, localStorageService) {
         return {
             // Add authorization token to headers
@@ -130,7 +130,7 @@ Add exclusion to the bootswatch url in authInterceptor in `app.js` if you are us
                 return config;
             }
         };
-```
+
 # Screenshots
 
 ![Screenshot 1](../images/009_tips_using_bootswatch_themes_01.png)
