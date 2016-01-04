@@ -102,6 +102,16 @@
         "jhVersionRequired" : "> 2.26.2"
     },
     {
+        "name": "Basic authentication",
+        "npmPackageName": "generator-jhipster-basic-auth",
+        "url": "https://github.com/cbornet/generator-jhipster-basic-auth",
+        "author": "Christophe Bornet",
+        "authorUrl": "https://twitter.com/cbornet_",
+        "description": "Stateless Basic authentication support for the API",
+        "keywords": ["basic", "authentication", "api"],
+        "verified": false
+    },
+    {
         "name": "Debian packager",
         "npmPackageName": "generator-jhipster-debian-packager",
         "url": "https://github.com/cbornet/generator-jhipster-debian-packager",
