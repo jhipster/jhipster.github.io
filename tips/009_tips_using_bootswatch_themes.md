@@ -35,6 +35,7 @@ Add the below service as `bootswatch.service.js` under `webapp/scripts/component
 
 Add the below directive as `bootswatch.directive.js` under `webapp/scripts/components/util`
 
+
     'use strict';
 
     angular.module('yourApp')
@@ -97,7 +98,9 @@ Add the below in footer
             </a>
             <ul class="dropdown-menu" role="menu">
                 <li class="theme-link" ng-repeat="theme in themes">
+                    {% raw %}
                     <a href="" jh-switch-theme="theme">{{theme.name}}</a>
+                    {% endraw %}
                 </li>
             </ul>
         </div>
