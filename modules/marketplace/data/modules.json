@@ -129,5 +129,15 @@
         "description": "Stateless Basic authentication support for the API",
         "keywords": ["basic", "authentication", "api"],
         "verified": false
+    },
+    {
+        "name": "Elasticsearch Reindexer",
+        "npmPackageName": "generator-jhipster-elasticsearch-reindexer",
+        "url": "https://github.com/geraldhumphries/generator-jhipster-elasticsearch-reindexer",
+        "author": "Gerald Humphries",
+        "authorUrl": "https://geraldhumphries.com/",
+        "description": "Add a service to reindex all JHipster entities in Elasticsearch",
+        "keywords": ["elasticsearch", "entity", "index"],
+        "verified": false
     }
 ]
