@@ -101,6 +101,15 @@
         "verified": false,
         "jhVersionRequired" : "> 2.26.2"
     },
+        "name": "Debian packager",
+        "npmPackageName": "generator-jhipster-debian-packager",
+        "url": "https://github.com/cbornet/generator-jhipster-debian-packager",
+        "author": "Christophe Bornet",
+        "authorUrl": "https://twitter.com/cbornet_",
+        "description": "Package your application into a debian/ubuntu .deb package",
+        "keywords": ["debian", "ubuntu", "package"],
+        "verified": false
+    },
     {
         "name": "Leaflet Maps",
         "npmPackageName": "generator-jhipster-leaflet",
@@ -108,7 +117,6 @@
         "author": "Frederik Hahne",
         "authorUrl": "https://twitter.com/atomfrede",
         "description": "Install ui-leaflet maps on your JHipster app",
-        "keywords": ["Angular", "AngularJS", "leaflet", "openstreetmap", "Maps", "osm"],
         "verified": false
     }
 ]
