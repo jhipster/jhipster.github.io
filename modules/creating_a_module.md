@@ -25,7 +25,7 @@ It is our sample module that showcases how you can JHipster's variables and func
 A JHipster module:
 
 - is an NPM package, and is a Yeoman generator.
-- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the "yo" command. Instead of being prefixed by "generator-", it is prefixed by "generator-jhipster-", and instead of having just the "yeoman-generator" keyword, it has 2 keywords, yeoman-generator" and "jhipster-module".
+- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the "yo" command. Instead of being prefixed by "generator-", it is prefixed by "generator-jhipster-", and instead of having just the "yeoman-generator" keyword, it has 2 keywords, "yeoman-generator" and "jhipster-module".
 
 ## Composability
 
