@@ -99,7 +99,18 @@
         "description": "Add support for entity audit and audit log page",
         "keywords": ["audit", "entity", "audit log", "hibernate", "envers"],
         "verified": false,
-        "jhVersionRequired" : "> 2.26.2"
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Bootswatch Themes",
+        "npmPackageName": "generator-jhipster-bootswatch",
+        "url": "https://github.com/deepu105/generator-jhipster-bootswatch",
+        "author": "Deepu KS",
+        "authorUrl": "deepu105.github.io",
+        "description": "Add Bootswatch theme switcher to application",
+        "keywords": ["Bootswatch", "bootstrap", "theme", "style"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
     },
     {
         "name": "Debian packager",
