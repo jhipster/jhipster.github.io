@@ -10,6 +10,8 @@ lastmod: 2015-08-01T22:28:00-00:00
 
 __Tip submitted by [@deepu105](https://github.com/deepu105)__
 
+This is now available as a [JHipster module](https://github.com/deepu105/generator-jhipster-bootswatch) requires JHipster version greater than 2.26.2
+ 
 To have [Bootswatch](https://bootswatch.com/) themes instead of the default theme you just need to override the bootstrap css with the css from bootswatch theme. However if you want a cool theme switcher to switch between Bootswatch themes dynamically then follow this tip.
 
 Make the following changes in the generated app.

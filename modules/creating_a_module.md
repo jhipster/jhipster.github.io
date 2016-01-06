@@ -77,6 +77,7 @@ And all the variables from your `.yo-rc.json` file:
 - `addElementTranslationKey`: add a new translation key in the `global.json` file
 - `addEntityTranslationKey`: add a new translation key for an entity in the `global.json` file
 - `addAdminElementTranslationKey`: add a new translation key for an admin sub-menu in the `global.json` file
+- `addGlobalTranslationKey`: add a new translation key in the `global.json` file
 - `addTranslationKeyToAllLanguages`: add a new translation key for all installed languages using methods `addElementTranslationKey`, `addEntityTranslationKey`, `addAdminElementTranslationKey`
 - `getAllSupportedLanguages`: get the list of languages supported by Jhipster
 - `getAllInstalledLanguages`: get the list of languages installed by current application
