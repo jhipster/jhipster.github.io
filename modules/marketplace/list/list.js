@@ -16,7 +16,12 @@ marketplaceApp.controller('ModuleListCtrl', function ($scope, $http, $location, 
     $http.get('https://api.npmjs.org/downloads/point/last-month/' + modulesList).success(function(data) {
         for (var i = 0; i < $scope.modules.length; i++) {
             var module = $scope.modules[i];
-            module.downloads = data[module.npmPackageName].downloads;
+            var npmstats = data[module.npmPackageName];
+            if (npmstats != undefined) {
+                module.downloads = npmstats.downloads;
+            } else {
+                module.downloads = 0;
+            }
         }
     });
   });
