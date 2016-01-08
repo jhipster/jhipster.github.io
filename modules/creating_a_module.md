@@ -20,7 +20,7 @@ The [JHipster Fortune module](https://github.com/jdubois/generator-jhipster-fort
 
 It is our sample module that showcases how you can JHipster's variables and functions in order to create your own generator.
 
-Or, you can use the [JHipster module](https://github.com/pascalgrimaud/generator-jhipster-module) to help you to initialize your module.
+Or, you can use the [JHipster module generator](https://github.com/jhipster/generator-jhipster-module) to help you to initialize your module.
 
 ## Basic rules for a JHipster module
 
