@@ -58,3 +58,6 @@ Then do the same with webapp\scripts\app\admin\metrics\metrics.js:
 
     url: '/metrics' -> url: '/appmetrics'
     
+Finally, to make the home link in the navigation bar work, open webapp\scripts\components\navbar\navbar.html and change:
+
+    <a class="navbar-brand" href="#/"> -> <a class="navbar-brand" href="/">
