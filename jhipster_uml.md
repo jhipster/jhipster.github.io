@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-12-09T12:00:00-00:00
+    lastmod: 2016-01-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -255,9 +255,13 @@ JHipster is a great scaffolding tool with many conventions, some of them are wor
 
 Each editor will be discussed here, so that you know how to get a good XMI file.
 
-**Note 1: In every editor: bi-directionality is not allowed, partly because it can lead to wrong diagrams, and partly because JHipster perfectly manages bi-directionality.**
+**Note : JHipster-UML can detect faulty XMI files, it will display the first error it finds and exit right away (fail-fast behavior).**
 
-**Note 2: JHipster-UML can detect faulty XMI files, it will display the first error it finds and exit right away (fail-fast behavior).**
+In JHipster-UML, each editor has been tested with the Oracle example. If you wish to see the examples in a "dummy project", you just have to download these files for each editor, and test JHipster and JHipster-UML:
+  - For Modelio: [modelio.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi);
+  - For UML Designer: [umldesigner.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml);
+  - For GenMyModel: [genmymodel_evolve.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi);
+  - And for Visual Paradigm: [visualparadigm.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/visualparadigm.uml).
 
 
 ## <a name="modelioexample"></a>Modelio
