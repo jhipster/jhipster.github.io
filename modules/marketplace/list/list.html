@@ -13,7 +13,6 @@
                 <th>Author</th>
                 <th class="text-center">Downloads<br/><small>(last month)</small></th>
                 <th class="text-center">Verified</th>
-                <th class="text-center">required JHipster version</th>
                 <th></th>
             </tr>
         </thead>
@@ -24,7 +23,6 @@
                 <td>{(module.author)}</td>
                 <td class="text-center">{(module.downloads)}</td>
                 <td class="text-center"><span ng-show="module.verified" class="fa fa-star"></span></td>
-                <td class="text-center">{(module.jhiVersionRequired)}</td>
                 <td><button type="submit"
                         ng-click="details(module.npmPackageName)"
                         class="btn btn-info btn-sm">Details</button></td>
