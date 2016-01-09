@@ -32,7 +32,7 @@
     {
         "name": "Module Generator",
         "npmPackageName": "generator-jhipster-module",
-        "url": "https://github.com/pascalgrimaud/generator-jhipster-module",
+        "url": "https://github.com/jhipster/generator-jhipster-module",
         "author": "Pascal Grimaud",
         "authorUrl": "https://twitter.com/pascalgrimaud",
         "description": "JHipster module, used to create a sample JHipster module",
