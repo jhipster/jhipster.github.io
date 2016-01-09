@@ -3,7 +3,7 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-08T12:00:00-00:00
+    lastmod: 2016-01-09T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -217,8 +217,16 @@ You can choose the pagination for your entities using `-paginate`.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-paginate]`
 
+Finally, you can choose the service for your entities using `-service`.
+
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-service]`
 
 **Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
+
+If you plan on using a JDL file as input, the services, DTOs and paginations are not specified via the command line but in the file itself (see the JDL section of this documentation for more information).
+Here's how you use JHipster-UML with a JDL file:
+
+ `jhipster-uml <your_file.jh> [-db (sql | mongodb | cassandra)]`
 
 
 Finally, if you need help, there's a command for that too:
