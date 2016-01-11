@@ -120,7 +120,7 @@ You have to install Docker and Docker Compose:
 
 ## Working with Sonar
 
-When generating your application, the `docker/sonar.yml` is generated in your folder project.
+When generating your application, the `src/main/docker/sonar.yml` is generated in your folder project.
 So you can start a sonar instance to analyze your code:
 
 Start a sonar instance :
