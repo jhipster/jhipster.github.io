@@ -22,3 +22,6 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 8. [Create a static Swagger API documentation](tips/008_tips_static_swagger_docs.html)
 9. [Using Bootswatch themes](tips/009_tips_using_bootswatch_themes.html)
 10. [Configuring HTML 5 Mode](tips/010_tip_configuring_html_5_mode.html)
+11. [Configuring Email with - Gmail and more](tips/011_tip_configuring_email_in_jhipster.html)
+12. [Add a new Spring Social connector](tips/012_tip_add_new_spring_social_connector.html)
+13. [Speed up the generator-jhipster](tips/013_tip_speed_up_generator.html)

@@ -1,0 +1,25 @@
+---
+layout: default
+title: Marketplace
+angularjs: true
+sitemap:
+    priority: 0.7
+    lastmod: 2015-12-10T00:00:00-00:00
+---
+
+<script src="marketplace/app.js"></script>
+<script src="marketplace/list/list.js"></script>
+<script src="marketplace/details/details.js"></script>
+<script src="{{ site.url }}/js/c3-0.4.10.min.js"></script>
+<script src="{{ site.url }}/js/d3-3.5.10.min.js"></script>
+<link href="{{ site.url }}/css/c3-0.4.10.min.css" rel="stylesheet">
+
+<h1><i class="fa fa-shopping-cart"></i> Marketplace</h1>
+<div ng-app="marketplaceApp">
+    <div>
+        <i>If you want to create your own module, <a href="creating_a_module.html">here is the documentation</a>.</i>
+
+        <div ng-view></div>
+
+    </div>
+</div>

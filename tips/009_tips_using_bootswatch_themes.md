@@ -10,13 +10,17 @@ lastmod: 2015-08-01T22:28:00-00:00
 
 __Tip submitted by [@deepu105](https://github.com/deepu105)__
 
+This is now available as a [JHipster module](https://github.com/deepu105/generator-jhipster-bootswatch) requires JHipster version greater than 2.26.2
+ 
 To have [Bootswatch](https://bootswatch.com/) themes instead of the default theme you just need to override the bootstrap css with the css from bootswatch theme. However if you want a cool theme switcher to switch between Bootswatch themes dynamically then follow this tip.
 
 Make the following changes in the generated app.
 
+**Note:** replace 'yourApp' with the generated name of your application.
+
 ## Add Files
 
-Add the below service as `bootswatch.service.js` under `webapp/components/util`
+Add the below service as `bootswatch.service.js` under `webapp/scripts/components/util`
 
     'use strict';
 
@@ -24,14 +28,15 @@ Add the below service as `bootswatch.service.js` under `webapp/components/util`
         .factory('BootSwatchService', function ($http) {
             return {
                 get: function() {
-                    return $http.get('http://api.bootswatch.com/3/').then(function (response) {
+                    return $http.get('http://bootswatch.com/api/3.json').then(function (response) {
                         return response.data.themes;
                     });
                 }
             };
         });
 
-Add the below directive as `bootswatch.directive.js` under `webapp/components/util`
+Add the below directive as `bootswatch.directive.js` under `webapp/scripts/components/util`
+
 
     'use strict';
 
@@ -58,7 +63,7 @@ Add the below directive as `bootswatch.directive.js` under `webapp/components/ut
             };
         });
 
-Add the below controller as `bootswatch.controller.js` under `webapp/components/util`
+Add the below controller as `bootswatch.controller.js` under `webapp/scripts/components/util`
 
     'use strict';
 
@@ -95,11 +100,23 @@ Add the below in footer
             </a>
             <ul class="dropdown-menu" role="menu">
                 <li class="theme-link" ng-repeat="theme in themes">
+                    {% raw %}
                     <a href="" jh-switch-theme="theme">{{theme.name}}</a>
+                    {% endraw %}
                 </li>
             </ul>
         </div>
     </div>
+
+Add script tags in your index.html file so you don't receive angular errors
+
+    <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
+
+    ...
+
+    <script src="scripts/components/util/bootswatch.controller.js"></script>
+    <script src="scripts/components/util/bootswatch.directive.js"></script>
+    <script src="scripts/components/util/bootswatch.service.js"></script>
 
 # app.js (only for oAuth/xAuth)
 

@@ -46,8 +46,13 @@
     <![endif]-->
 
     <!-- Favicon with QHD -->
-    <link rel="icon" type="image/png" href="/images/favfa fa-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/images/favfa fa-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{ site.url }}/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ site.url }}/images/favicon-16x16.png" sizes="16x16" />
+
+    {% if page.angularjs == true %}
+    <script src="{{ site.url }}/js/angular-1.4.8.min.js"></script>
+    <script src="{{ site.url }}/js/angular-route-1.4.8.min.js"></script>
+    {% endif %}
   </head>
 
   <body>
@@ -135,6 +140,13 @@
                             <li {% if '/heroku.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/heroku.html"><i class="fa fa-cloud-upload"></i> Deploying to Heroku</a></li>
                             <li {% if '/openshift.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/openshift.html"><i class="fa fa-cloud-upload"></i> Deploying to Openshift</a></li>
                             <li {% if '/aws.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/aws.html"><i class="fa fa-cloud-upload"></i> Deploying to AWS</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-cubes"></i> Modules<span class="fa fa-angle-right pull-right"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li {% if '/modules/marketplace.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/modules/marketplace.html"><i class="fa fa-shopping-cart"></i> Marketplace</a></li>
+                            <li {% if '/modules/creating_a_module.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/modules/creating_a_module.html"><i class="fa fa-cube"></i> Creating a module</a></li>
                         </ul>
                     </li>
                     <li {% if '/tips.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tips.html"><i class="fa fa-cogs"></i> Tips'n tricks</a></li>

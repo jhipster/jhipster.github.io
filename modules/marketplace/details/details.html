@@ -1,0 +1,30 @@
+
+<button type="submit"
+        ng-click="list()"
+        class="btn btn-info btn-sm">Back to modules list</button>
+
+<h2>Details for {(npmPackageName)}</h2>
+
+<i><p>by <a href="{(module.authorUrl)}">{(module.author)}</a></i>
+
+<p>
+{(module.description)}
+</p>
+
+<h3>JHipster version compatibility</h3>
+<p>
+    This module works with JHipster version: <b>{(module.jhiVersionRequired)}</b>
+</p>
+
+<h3>Links</h3>
+<ul>
+    <li><a href="{(module.url)}">Project URL</a></li>
+    <li><a href="https://www.npmjs.com/package/{(npmPackageName)}">NPM package page</a></li>
+</ul>
+
+<h3>How to install</h3>
+<pre>npm install -g {(npmPackageName)}</pre>
+
+<h3>Downloads for last month</h3>
+
+<div id="chart"></div>

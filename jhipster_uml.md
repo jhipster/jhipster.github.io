@@ -3,13 +3,13 @@ layout: default
 title: JHipster-UML
 sitemap:
     priority: 0.5
-    lastmod: 2015-11-28T12:00:00-00:00
+    lastmod: 2016-01-09T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
 
 
-JHipster-UML is a JHipster sub-project which can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
+JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
 
 The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
 
@@ -35,7 +35,8 @@ Here's what's covered on this page:
     8.1. [The language](#jdllanguage)  
     8.2. [How to use it](#howtojdl)  
     8.3. [Commenting](#commentingjdl)  
-    8.4. [All the relationships](#jdlrelationships)  
+    8.4. [Adding JHipster's options](#options)  
+    8.5. [All the relationships](#jdlrelationships)  
 9. [Annexes](#annexes)
 
 ***
@@ -48,8 +49,8 @@ Here is a list of the editors we support:
 
   - [Modelio](https://www.modeliosoft.com/);
   - [UML Designer](http://www.umldesigner.org/);
-  - [GenMyModel](https://www.genmymodel.com/) (not free);
-  - [Visual Paradigm](http://www.visual-paradigm.com/) (not free, but proposes a community edition).
+  - [GenMyModel](https://www.genmymodel.com/) (not free, but online);
+  - [Visual Paradigm](http://www.visual-paradigm.com/) (not free).
 
 ***
 
@@ -64,7 +65,7 @@ Please use our project for submitting issues and Pull Requests:
 
 Please note that using JHipster-UML (or JHipster) might be troublesome (one has to install some tools to really be able to use the Node environment without any issue). This [link](https://gist.github.com/nullivex/7115612) may help if you encounter an issue on Windows.
 
-Another issue that can be encountered on windows is [this one](https://stackoverflow.com/questions/30344858/node-script-executable-not-working-on-mac-env-node-r-no-such-file-or-directo#answer-30349952). The link provides a solution to fix that.
+Another issue that can be encountered on windows is [this one](https://stackoverflow.com/questions/30344858/node-script-executable-not-working-on-mac-env-node-r-no-such-file-or-directo#answer-30349952). The link provides a solution to fix that if such a thing happens.
 
 ***
 
@@ -73,7 +74,7 @@ To install JHipster-uml simply use the command:
 
  `npm install -g jhipster-uml`
 
-If you want the 'bleeding edge' version, you can clone our git repo from [our Github project](https://github.com/jhipster/jhipster-uml):
+If you want the 'bleeding edge' (almost perfectly safe to use) version, you can clone our git repo from [our Github project](https://github.com/jhipster/jhipster-uml):
 
   `git clone https://github.com/jhipster/jhipster-uml.git` for HTTPS
 
@@ -122,7 +123,7 @@ Notice that in order to achieve a unidirectional relationship we just removed th
 
 In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
 
-Unidirectional relationships are not supported (yet) by JHipster (see [this](managing_relationships.html#3) page for more information about this).
+Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing_relationships.html#3) page for more information about this).
 This is an example of such an association:
 
 ![One-to-Many2](images/jhipsteruml_uni_otm.png)
@@ -216,8 +217,16 @@ You can choose the pagination for your entities using `-paginate`.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-paginate]`
 
+Finally, you can choose the service for your entities using `-service`.
+
+ `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-service]`
 
 **Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
+
+If you plan on using a JDL file as input, the services, DTOs and paginations are not specified via the command line but in the file itself (see the JDL section of this documentation for more information).
+Here's how you use JHipster-UML with a JDL file:
+
+ `jhipster-uml <your_file.jh> [-db (sql | mongodb | cassandra)]`
 
 
 Finally, if you need help, there's a command for that too:
@@ -254,9 +263,13 @@ JHipster is a great scaffolding tool with many conventions, some of them are wor
 
 Each editor will be discussed here, so that you know how to get a good XMI file.
 
-**Note 1: In every editor: bi-directionality is not allowed, partly because it can lead to wrong diagrams, and partly because JHipster perfectly manages bi-directionality.**
+**Note : JHipster-UML can detect faulty XMI files, it will display the first error it finds and exit right away (fail-fast behavior).**
 
-**Note 2: JHipster-UML can detect faulty XMI files, it will display the first error it finds and exit right away (fail-fast behavior).**
+In JHipster-UML, each editor has been tested with the Oracle example. If you wish to see the examples in a "dummy project", you just have to download these files for each editor, and test JHipster and JHipster-UML:
+  - For Modelio: [modelio.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi);
+  - For UML Designer: [umldesigner.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml);
+  - For GenMyModel: [genmymodel_evolve.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi);
+  - And for Visual Paradigm: [visualparadigm.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/visualparadigm.uml).
 
 
 ## <a name="modelioexample"></a>Modelio
@@ -484,7 +497,7 @@ The 1.0.0 release brings a new parser system making any change (parser creation,
 
 #### Parser implementation
 
-Adding a parser is quite easy. If your a Java dev, you're probably quite familiar with OOP principles (we hope so anyway). When developing JHipster-UML, we thought of its architecture as we'd _normally_ do in Java.
+Adding a parser is quite easy. If you're a Java dev, you're probably quite familiar with OOP principles (we hope so anyway). When developing JHipster-UML, we thought of its architecture as we'd _normally_ do in Java.
 
 You just have to "extend" our abstract parser ([AbstractParser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/abstract_parser.js)), or implement our interface ([Parser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js)) to add your concrete implementation of a parser.
 
@@ -519,21 +532,21 @@ However, a few guidelines must be respected:
 
 - The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
 
-Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentionned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L19). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
+Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentionned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L23). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
 
 
 #### Testing
 
 Finally, the next thing you'll need to do before committing your super parser is test it.
-Because we believe in testing, but really like good testing (with BDD), our tests are done with Mocha and chai. If you don't know what it's all about yet, we recommend you visit the [ChaiJS](http://chaijs.com/) page, and see [one](https://github.com/jhipster/jhipster-uml/blob/master/test/modelio_parser_test.js) of our test file to get acquainted with it.
+Because we believe in testing, but really like good testing (with BDD), our tests are done with Mocha and chai. If you don't know what it's all about yet, we recommend you visit the [ChaiJS](http://chaijs.com/) page, and see [one](https://github.com/jhipster/jhipster-uml/blob/master/test/editors/modelio_parser_test.js) of our test file to get acquainted with it.
 
-You should probably wonder what form of testing you should use. The answer is pretty simple: it's up to you! Whether it's [should](http://chaijs.com/guide/styles/#should), or [expect](http://chaijs.com/guide/styles/#expect) (à la RSpec), we don't enforce any special rule here.
+You should probably wonder what form of testing you should use. The answer is pretty simple: it's up to you! Whether it's [should](http://chaijs.com/guide/styles/#should), or [expect](http://chaijs.com/guide/styles/#expect) (à la RSpec), we don't enforce any special rule here. We, however, recommend using Expect because we do, and it should keep the tests fairly easy to understand.
 
 We just want you to test everything that is 'test-worthy':
 
-  - The interface's methods (the _public_ methods);
+  - The interface's methods (the _public_ methods not an interface class!);
 
-  - You're not obliged to test the other methods (_private_ ones, because they are supposed to be safe and ever-changing in the long term), but as visibility is not implemented in JS (to our knowledge), you may want to test them (it's up to you).
+  - You're not obliged to test the other methods (_private_ ones, because they are supposed to be safe and ever-changing in the short/long term), but as visibility is not implemented in JS (to our knowledge), you may want to test them (it's up to you).
 
 The general guidelines for names and files:
 
@@ -555,7 +568,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 Removing a parser is quite an easy thing to do.
 First, remove it from the editors (`editors/editors.js`) and then remove it from the EditorDetector (`editors/editor_detector.js`). Finally, just remove the parser file and the test created for it.
 
-Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser
+Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser.
 
 ***
 
@@ -581,9 +594,9 @@ The entity declaration is done as follows:
 
 - and as an option `<validation>` the validations for the field.
 
-The possible validations are those described [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
+The possible types and validations are those described [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
 
- Here's an example of a field declaration with validations:
+Here's an example of a field declaration with validations:
 
     email String required maxlength(30) minlength(5) pattern("[\\w]*@[a-zA-Z]*.com"),
 
@@ -600,7 +613,6 @@ The relationships declaration is done as follows:
 - `<to entity>` is the name of the entity where the relationship goes to,
 
 - `<relationship name>` is the name of the relationship in the entity.
-
 
 
 Here's an simple example:
@@ -622,7 +634,7 @@ A Book has one Author, an Author has several Books.
     }
 
 ### Relationships
-The relationship OneToMany A to B is equivalent to the relationship ManyToOne B to A, you only need to make one of them.
+The relationship OneToMany A to B is equivalent to the relationship ManyToOne B to A, you only need make one of them.
 
 The field used to represent a relationship is, by default, `id`. This can be modifed with the following syntax for the `<relationship name>` token above: `<relationship field>(<display field>)`.
 
@@ -693,6 +705,39 @@ Just like in Java, this example demonstrates how to add comments:
     }
 
 These comments will later be added as Javadoc comments by JHipster.
+
+JHipster-UML possesses its own kind of comment:
+
+    // an ignored comment
+    /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JHipster-UML, and will not be counted as Javadoc.
+
+
+## <a name="options"></a>Using JHipster's options
+
+As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs, paginations and services).
+
+**Please note that this feature is only available for the JDL because of the editors' lack of an elegant way to specify the options.**
+
+    entity A {
+      name String required
+    }
+
+    entity B {}
+
+    entity C {}
+
+    dto A, B with mapstruct
+
+    paginate A, C with infinite-scroll
+    paginate B with pager
+    
+    service A with serviceClass
+    service C with serviceImpl
+
+The keywords `dto`, `paginate`, `service` and `with` were added to the grammar to support these changes.
+If a wrong option is specified, JHipster-UML will inform you of that with a nice, red message and will just ignore it so as not to corrupt JHipster's JSON files.
 
 
 ## <a name="jdlrelationships"></a>All the relationships
