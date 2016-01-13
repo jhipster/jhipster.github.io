@@ -15,7 +15,7 @@ marketplaceApp.controller('ModuleDetailsCtrl', function ($scope, $routeParams, $
           if (module.npmPackageName == $scope.npmPackageName) {
               $scope.module = module;
               if (module.jhiVersionRequired == undefined) {
-                  module.jhiVersionRequired = '> 2.26.2';
+                  module.jhiVersionRequired = 'no version configured';
               }
           }
       }
