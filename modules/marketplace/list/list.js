@@ -11,7 +11,7 @@ marketplaceApp.controller('ModuleListCtrl', function ($scope, $http, $location, 
     $scope.modules = data;
     var modulesList= '';
     var getInfo = function(module) {
-        $http.get('https://cors-anywhere.herokuapp.com/registry.npmjs.org/' + module.npmPackageName + '/latest').success(function (npminfo) {
+        $http.get('https://raw.githubusercontent.com/cbornet/generator-jhipster-basic-auth/v0.2.0/package.json').success(function (npminfo) {
             module.npminfo = npminfo;
         });
     }
