@@ -1,0 +1,151 @@
+---
+layout: default
+title: Using JHipster in production
+sitemap:
+    priority: 0.7
+    lastmod: 2014-02-17T00:00:00-00:00
+---
+
+<h1><i class="fa fa-play-circle"></i> Using JHipster in production</h1>
+
+<h2>Configuration</h2>
+<p>
+If you want to use JHipster with the "production" profile, use the pre-configured "prod" Maven profile:
+</p>
+<p>
+<code>
+mvn -Pprod
+</code>
+</p>
+<p>
+Or when using Gradle:
+</p>
+<p>
+<code>
+gradlew -Pprod
+</code>
+</p>
+<p>
+This profile will compile, test and package your Java application with all productions settings. It will also trigger a "grunt build", so your static resources are optimized.
+</p>
+<p>
+If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/pages/profiles.html">Development and Production profiles</a>".
+</p>
+
+
+<h2>Generating a WAR file</h2>
+
+<p>To package the application as a "production" WAR, type:
+</p>
+
+<p>
+    <code>
+    mvn -Pprod package
+    </code>
+</p>
+
+<p>
+Or when using Gradle:
+</p>
+<p>
+<code>
+gradlew -Pprod bootRepackage
+</code>
+</p>
+
+<p>
+This will generate two files (if your application is called "jhipster"):
+</p>
+<ul>
+  <li><code>target/jhipster-0.0.1-SNAPSHOT.war</code></li>
+  <li><code>target/jhipster-0.0.1-SNAPSHOT.war.original</code></li>
+</ul>
+
+<p>
+The first one is an executable WAR file (see next section to run it). It can also be deployed on an application server,
+but as it includes the Tomcat runtime libs, you will probably get some warnings, that's why we recommend you use the second,
+".original" file if you want to deploy JHipster on an application server.
+</p>
+
+<p>
+Once you have deployed you WAR file on your application server:
+<p>
+<ul>
+  <li>It will use by default the "dev" profile</li>
+  <li>It can run in "production mode" if you trigger the "prod" profile (there are several ways to trigger a Spring profile, for example you can add <code>-Dspring.profiles.active=prod</code> to your <code>JAVA_OPTS</code> when running your server)</li>
+</ul>
+
+<h2>Executing the WAR file without an application server</h2>
+<p>
+Instead of deploying on an application server, many people find it easier to just have an exectuable WAR file (which includes Tomcat 7, in fact).
+</p>
+<p>
+The first WAR file generated in the previous step is such a WAR, so you can run it in "development mode" by typing:
+</p>
+<p>
+    <code>
+    java -jar jhipster-0.0.1-SNAPSHOT.war
+    </code>
+</p>
+<p>
+Or in "production" mode:
+</p>
+<p>
+    <code>
+    java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
+    </code>
+</p>
+<h2>Generating an optimized JavaScript application with Grunt</h2>
+<p>
+This step is automatically triggered when you build your project with the "production" profile. If you want to run it without launching a Maven build, just run:
+</p>
+<p>
+<code>
+grunt build
+</code>
+</p>
+<p>
+This will process all your static resources (CSS, JavaScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
+</p>
+<p>
+This application will be generated in your <code>src/main/webapp/dist</code> folder, which by default is not checked in your Git repository (see your <code>.gitignore</code> file if you want to change this behavior).
+</p>
+<p>
+This code will be served when you run the application with the "production" profile.
+</p>
+
+<h2>GZipping</h2>
+<p>
+With the "production" profile, JHipster configures a Servlet filter that applies gzip compression on your resources.
+</p>
+<p>
+By default, this filter will work on most static resources (excluding images, which are already compressed) and on all REST requests.
+</p>
+
+<h2>Cache headers</h2>
+<p>
+With the "production" profile, JHipster configures a Servlet filter that puts specific HTTP cache headers on your static resources (JavaScript, CSS, fonts...) so they are cached by browsers and proxies.
+</p>
+
+<h2>Monitoring</h2>
+<p>
+JHipster comes with full monitoring support from <a href="http://metrics.codahale.com/" target="_blank">Metrics</a>.
+</p>
+<p>In development, Metrics data will be available through JMX: launch your JConsole and you will be able to access it</p>
+<p>
+In production, your application will try to send this data to a <a href="http://graphite.wikidot.com/" target="_blank">Graphite</a> server, if you have configured one in your YAML configuration file.
+</p>
+
+<h2>Security</h2>
+<p>
+    JHipster comes with some default users generated for you. In production, you probably want to change their passwords: the easiest way to achieve this is to run the application a first time, and then use the generated "change password" form to modify those passwords.
+</p>
+<p>
+    Here are the provided user accounts:
+    <ul>
+        <li>"admin" is an admin user, with the "ROLE_USER" and "ROLE_ADMIN" authorizations.</li>
+        <li>"system" is used for auditing purposes, when an action is done automatically (the action is done by the system, not by a user). You should not be able to login with this user. It has the "ROLE_USER" and "ROLE_ADMIN" authorizations.</li>
+        <li>"user" is a standard user, with the "ROLE_USER" authorization.</li>
+        <li>"anonymousUser" is for non-authenticated users, so it doesn't have any authorization. This user can be useful for some Spring Security configurations, but we don't use it by default.</li>
+    </ul>
+</p>

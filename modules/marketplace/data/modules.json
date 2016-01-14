@@ -1,0 +1,167 @@
+[
+    {
+        "name": "Fortune",
+        "npmPackageName": "generator-jhipster-fortune",
+        "url": "https://github.com/jdubois/generator-jhipster-fortune",
+        "author": "Julien Dubois",
+        "authorUrl": "https://github.com/jdubois",
+        "description": "Sample JHipster module, generating a fortune cookie page",
+        "keywords": ["sample", "fortune"],
+        "verified": true,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Docker",
+        "npmPackageName": "generator-jhipster-docker",
+        "url": "https://github.com/pascalgrimaud/generator-jhipster-docker",
+        "author": "Pascal Grimaud",
+        "authorUrl": "https://twitter.com/pascalgrimaud",
+        "description": "Docker support in your JHipster application",
+        "keywords": ["deployment", "docker"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Continuous Integration",
+        "npmPackageName": "generator-jhipster-ci",
+        "url": "https://github.com/pascalgrimaud/generator-jhipster-ci",
+        "author": "Pascal Grimaud",
+        "authorUrl": "https://twitter.com/pascalgrimaud",
+        "description": "Continuous Integration support in your JHipster application",
+        "keywords": ["continuous", "integration"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Module Generator",
+        "npmPackageName": "generator-jhipster-module",
+        "url": "https://github.com/jhipster/generator-jhipster-module",
+        "author": "Pascal Grimaud",
+        "authorUrl": "https://twitter.com/pascalgrimaud",
+        "description": "JHipster module, used to create a sample JHipster module",
+        "keywords": ["generator", "module"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Swagger2Markup",
+        "npmPackageName": "generator-jhipster-swagger2markup",
+        "url": "https://github.com/atomfrede/generator-jhipster-swagger2markup",
+        "author": "Frederik Hahne",
+        "authorUrl": "https://twitter.com/atomfrede",
+        "description": "Swagger2Markup support in your JHipster application",
+        "keywords": ["documentation", "asciidoc"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "AngularUI",
+        "npmPackageName": "generator-jhipster-angular-ui",
+        "url": "https://github.com/moifort/generator-jhipster-angular-ui",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Install AngularUI module on your JHipster app",
+        "keywords": ["AngularUI", "Angular", "AngularJS", "Font Awesome", "Bootstrap", "UI", "Button", "Slider",
+            "Checkbox", "Switch", "Icon"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Google analytics",
+        "npmPackageName": "generator-jhipster-google-analytics",
+        "url": "https://github.com/moifort/generator-jhipster-google-analytics",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Install Google analytics on your JHipster app",
+        "keywords": ["Angular", "AngularJS", "Google analytics", "Google", "Analytics"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Google maps",
+        "npmPackageName": "generator-jhipster-google-maps",
+        "url": "https://github.com/moifort/generator-jhipster-google-maps",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Install Google map sample on your JHipster app",
+        "keywords": ["Angular", "AngularJS", "Google maps", "Google", "Maps"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Bootstrap Material design",
+        "npmPackageName": "generator-jhipster-bootstrap-material-design",
+        "url": "https://github.com/moifort/generator-jhipster-bootstrap-material-design",
+        "author": "Thibaut Mottet",
+        "authorUrl": "https://twitter.com/moifort_",
+        "description": "Add Material design to your application",
+        "keywords": ["Bootstrap", "Material", "Material design"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Entity Audit",
+        "npmPackageName": "generator-jhipster-entity-audit",
+        "url": "https://github.com/deepu105/generator-jhipster-entity-audit",
+        "author": "Deepu KS",
+        "authorUrl": "deepu105.github.io",
+        "description": "Add support for entity audit and audit log page",
+        "keywords": ["audit", "entity", "audit log", "hibernate", "envers"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Bootswatch Themes",
+        "npmPackageName": "generator-jhipster-bootswatch",
+        "url": "https://github.com/deepu105/generator-jhipster-bootswatch",
+        "author": "Deepu KS",
+        "authorUrl": "deepu105.github.io",
+        "description": "Add Bootswatch theme switcher to application",
+        "keywords": ["Bootswatch", "bootstrap", "theme", "style"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Debian packager",
+        "npmPackageName": "generator-jhipster-debian-packager",
+        "url": "https://github.com/cbornet/generator-jhipster-debian-packager",
+        "author": "Christophe Bornet",
+        "authorUrl": "https://twitter.com/cbornet_",
+        "description": "Package your application into a debian/ubuntu .deb package",
+        "keywords": ["debian", "ubuntu", "package"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Leaflet Maps",
+        "npmPackageName": "generator-jhipster-leaflet",
+        "url": "https://github.com/atomfrede/generator-jhipster-leaflet",
+        "author": "Frederik Hahne",
+        "authorUrl": "https://twitter.com/atomfrede",
+        "description": "Install ui-leaflet maps on your JHipster app",
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Basic authentication",
+        "npmPackageName": "generator-jhipster-basic-auth",
+        "url": "https://github.com/cbornet/generator-jhipster-basic-auth",
+        "author": "Christophe Bornet",
+        "authorUrl": "https://twitter.com/cbornet_",
+        "description": "Stateless Basic authentication support for the API",
+        "keywords": ["basic", "authentication", "api"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    },
+    {
+        "name": "Elasticsearch Reindexer",
+        "npmPackageName": "generator-jhipster-elasticsearch-reindexer",
+        "url": "https://github.com/geraldhumphries/generator-jhipster-elasticsearch-reindexer",
+        "author": "Gerald Humphries",
+        "authorUrl": "https://geraldhumphries.com/",
+        "description": "Add a service to reindex all JHipster entities in Elasticsearch",
+        "keywords": ["elasticsearch", "entity", "index"],
+        "verified": false,
+        "jhiVersionRequired" : "> 2.26.2"
+    }
+]

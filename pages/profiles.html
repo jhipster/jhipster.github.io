@@ -1,0 +1,83 @@
+---
+layout: default
+title: Profiles
+sitemap:
+    priority: 0.7
+    lastmod: 2014-11-26T00:00:00-00:00
+---
+
+<h1><i class="fa fa-group"></i> Profiles</h1>
+
+<p>
+JHipster comes with three Spring "profiles":
+</p>
+
+<ul>
+  <li>"dev" for development: it focuses on ease of development and productivity</li>
+  <li>"prod" for production: it focuses on performance and scalability</li>
+  <li>"fast" for advanced users in development: it focuses on fast start-up time, at the cost of disabling some services</li>
+ </ul>
+
+<p>
+Those profiles come in two different configurations:
+</p>
+
+<ul>
+  <li>The Maven profiles are used at build time. For example <code>mvn -Pprod package</code> will package a production application.</li>
+  <li>The Spring profiles work at run time. Some Spring beans will behave differently, depending on the profile.</li>
+</ul>
+
+<p>
+Spring profiles are set by Maven, so we have a consistency between the two methods:you will have a "prod" profile on Maven and Spring at the same time.
+</p>
+
+<h2>
+In default mode, JHipster will use the "dev" profile
+</h2>
+<p>
+    If you run the application without Maven, launch the "Application" class (you can probably run it easily from your IDE by right-clicking on it).
+<p>
+<p>
+    If you run the application with Maven, run <code>mvn</code>
+</p>
+
+<h2>
+In production, JHipster has to run with the "prod" profile
+</h2>
+<p>
+    Use Maven to build the application with the "prod" profile: <code>mvn -Pprod</code>
+</p>
+<p>
+    When you run the application, don't forget to add the "prod" profile, by adding <code>--spring.profiles.active=prod</code> to your program arguments.
+</p>
+<p>
+    You can test it with Maven, by running <code>mvn -Pprod</code>
+</p>
+
+<h2>
+    For advanced users, you can use the "fast" profile
+</h2>
+<p>
+    The fast profile works with the "dev" profile, but makes some changes so that application starts up faster. On a recent MacBook Pro, you can expect to start-up:
+    <ul>
+        <li>In 6 seconds with the "SQL" option</li>
+        <li>In 4 seconds with the "NoSQL" (MongoDB) option</li>
+    </ul>
+</p>
+<p>
+    To start faster, this profile :
+    <ul>
+        <li>Uses <a href="http://undertow.io/" target="_blank">Undertow</a> instead of Tomcat</li>
+        <li>Disables Liquibase (so you should use this profile with an external database, and not H2, or your database will be empty)</li>
+        <li>Disables Swagger (if you have lots of REST endpoints, Swagger will become very slow)</li>
+        <li>Disables the Async service</li>
+        <li>Disables the Cache service</li>
+        <li>Disables the Metrics service</li>
+    </ul>
+</p>
+<p>
+    When you run the application, use the "fast" profile with the "dev" profile, by adding <code>--spring.profiles.active=dev,fast</code> to your program arguments.
+</p>
+<p>
+    If you use Maven, run <code>mvn -Pfast</code> (the Maven "fast" profile will automatically select the "dev" and "fast" Spring profiles).
+</p>

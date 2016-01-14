@@ -1,0 +1,75 @@
+---
+layout: default
+title: Deploying to Openshift
+sitemap:
+    priority: 0.7
+    lastmod: 2014-09-08T00:00:00-00:00
+---
+
+<h1><i class="fa fa-cloud-upload"></i> [BETA] Deploying to Openshift</h1>
+
+<p><b>WARNING!</b> This generator is currently <b>BROKEN</b>!!!</p>
+<p>
+    Please see issue <a href="https://github.com/jhipster/generator-jhipster/issues/1896" target="_blank">#1896</a> for more information, and don't hesitate to help if you can!
+</p>
+
+<hr/>
+
+<p>This sub-generator allows to deploy automatically your JHipster application to the <a href="https://www.openshift.com/" target="_blank">Openshift cloud</a>.</p>
+
+<h2>Limitations</h2>
+<p>
+This sub-generator has a few limitations:
+<ul>
+    <li>You can only use it with a MySQL database, as this is what Openshift provides by default</li>
+    <li>You can only use it with the Grunt option (which is the recommended default), as it's the only one providing tasks for deploying</li>
+    <li>You can only use it with the Maven option, as it's the only one supported by Openshift</li>
+</ul>
+</p>
+
+<h2>Running the sub-generator</h2>
+
+<p>
+    Before running the sub-generator, you need to install the <a href="https://developers.openshift.com/en/getting-started-client-tools.html" target="_blank">OpenShift Client Tools</a>, and have a OpenShift account created.
+</p>
+
+<p>
+    To deploy your application to Openshift, type:
+</p>
+<p>
+<code>
+yo jhipster:openshift
+</code>
+</p>
+<p>
+    This should package your application in "production" mode, create a Openshift application (with a MySQL database), upload your code, and start the application.
+</p>
+
+<p><i>If you use the free version of Openshift, please note that the "small" gear is really slow!</i></p>
+
+<h2>Updating your deployed application</h2>
+<p>
+    When your application is already deployed, you can prepare a new deployment by typing:
+</p>
+<p>
+<code>
+grunt deployOpenshift
+</code>
+</p>
+<p>
+    Then you can check your application, which is ready for deployment, in your "deploy/openshift" folder. If you are ready to deploy, you can push it to production, by typing (in your "deploy/openshift" folder):
+</p>
+<p>
+<code>
+git push
+</code>
+</p>
+
+<h2>More information</h2>
+
+<p>
+    <ul>
+        <li><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html#cloud-deployment-openshift" target="_blank">Spring Boot Openshift documentation</a></li>
+        <li><a href="https://www.openshift.com/blogs/paas-websockets" target="_blank">Running Websockets on Openshift</a></li>
+    </ul>
+</p>

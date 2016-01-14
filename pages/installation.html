@@ -1,0 +1,266 @@
+---
+layout: default
+title: Installing JHipster
+sitemap:
+priority: 0.7
+lastmod: 2014-02-17T00:00:00-00:00
+---
+
+<h1><i class="fa fa-cloud-download"></i> Installing JHipster</h1>
+
+<h2>Installation types</h2>
+
+<p>
+    We provide 3 ways of working with JHipster:
+</p>
+<ul>
+    <li>A "local installation", which is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
+    </li>
+    <li>A Vagrant-based "<a href="https://github.com/jhipster/jhipster-devbox" target="_blank">development box</a>", with all tools aleady set up in a Ubuntu-based virtual machine.</li>
+    <li>A "<a href="https://www.docker.io/" target="_blank">Docker</a>" container, which brings you a lightweight, virtualized container with JHipster installed.
+    </li>
+</ul>
+
+<h2>Local installation (recommended for normal users)</h2>
+<ol>
+    <li>Install Java from <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">the
+        Oracle website</a>.
+    </li>
+    <li>(Optional) Install a Java build tool.
+        <ul>
+            <li>Whether you choose to use <a href="http://maven.apache.org/" target="_blank">Maven</a> or <a href="http://www.gradle.org/" target="_blank">Gradle</a>, you normally don't have to install anything, as JHipster will automatically install the <a href="https://github.com/takari/maven-wrapper" target="_blank">Maven Wrapper</a> or the <a href="http://gradle.org/docs/current/userguide/gradle_wrapper.html" target="_blank">Gradle Wrapper</a> for you.</li>
+            <li>If you don't want to use those wrappers, go to the official <a href="http://maven.apache.org/" target="_blank">Maven webiste</a> or <a href="http://www.gradle.org/" target="_blank">Gradle website</a> to do your own installation.</li>
+        </ul>
+    </li>
+    <li>Install Git from <a href="http://git-scm.com/" target="_blank">git-scm.com</a>. We recommend you also use a tool
+        like <a href="http://www.sourcetreeapp.com/" target="_blank">SourceTree</a> if you are starting with Git.
+    </li>
+    <li>Install Node.js from <a href="http://nodejs.org/" target="_blank">the Node.js website</a>. This will also
+        install <code>npm</code>, which is the node package manager we are using in the next commands.
+    </li>
+    <li>Install Yeoman: <code>npm install -g yo</code></li>
+    <li>Install Bower: <code>npm install -g bower</code></li>
+    <li>Depending on your preferences, install either <a href="http://gruntjs.com/" target="_blank">Grunt</a>
+ (recommended) with <code>npm install -g grunt-cli</code> or <a href="http://gulpjs.com/" target="_blank">Gulp.js</a> with <code>npm install -g gulp</code>.
+    </li>
+    <li>Install JHipster: <code>npm install -g generator-jhipster</code></li>
+</ol>
+
+<p>To find more information, tips and help, please have a look at
+    <a href="http://yeoman.io/learning/index.html" target="_blank">the Yeoman "getting starting" guide</a> and at the <a
+            href="https://docs.npmjs.com/" target="_blank">NPM documentation</a> before
+    <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank">submitting a bug</a>.</p>
+
+<h2>Vagrant box installation</h2>
+
+<p>
+    The <a href="https://github.com/jhipster/jhipster-devbox" target="_blank">JHipster development box</a> project gives you a virtual machine with all the necessary tools to develop your JHipster project.
+</p>
+<p>
+    Besides JHipster, this virtual machine includes many development tools like the Spring Tool Suite, the Atom text editor and MySQL Workbench.
+</p>
+<p>
+    Please go to the <a href="https://github.com/jhipster/jhipster-devbox" target="_blank">JHipster development box page</a> for installation and configuration information.
+</p>
+
+<h2>Docker installation (for advanced users only)</h2>
+
+<h3>Information</h3>
+
+<p>
+    JHipster has a specific <a href="https://github.com/jhipster/jhipster-docker" target="_blank">jhipster-docker
+    project</a>, which provides a <a href="https://www.docker.io/" target="_blank">Docker</a> container.
+</p>
+<p>
+    This project makes a Docker "Trusted build" that is available on:
+</p>
+<p>
+    <a href="https://hub.docker.com/r/jdubois/jhipster-docker/" target="_blank">https://hub.docker.com/r/jdubois/jhipster-docker/</a>
+</p>
+<p>
+    This image will allow you to run JHipster inside Docker.
+</p>
+<h3>Prerequisites</h3>
+<p>
+    This depends on your operating system.
+<ol>
+    <li>
+        <b>Linux:</b> Linux supports docker out-of-box. You just need to follow the tutorial on the <a
+            href="https://docs.docker.com/installation/#installation" target="_blank">Docker</a> website.
+    </li>
+    <li>
+        <b>Mac &amp; Windows:</b> install the <a href="https://www.docker.com/docker-toolbox">Docker Toolbox</a> to get Docker installed easily.
+</ol>
+<div class="alert alert-info">
+    <b>Kitematic</b>
+    <p>
+        <a href="https://kitematic.com/">Kitematic</a> is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes this installation a lot easier.
+    </p>
+</div>
+
+<div class="alert alert-warning">
+    <b>boot2docker users</b>
+    <p>
+        If you are using boot2docker, it's good idea to migrate to Docker Toolbox, you can follow steps on how to migrate at <b>FAQ</b> section on <a href="https://www.docker.com/docker-toolbox">https://www.docker.com/docker-toolbox</a>
+    </p>
+</div>
+
+<h3>Usage on Linux/Mac Windows (using Docker Toolbox)</h3>
+<h4>Pull the image</h4>
+<p>
+    Pull the JHipster Docker image:
+</p>
+<p>
+    <code>
+        docker pull jdubois/jhipster-docker
+    </code>
+</p>
+<h4>Run the image</h4>
+<p>
+    Create a "jhipster" folder in your home directory:
+</p>
+<p>
+    <code>
+        mkdir ~/jhipster
+    </code>
+</p>
+<p>
+    Run The docker image, with the following options:
+</p>
+<p>
+<ul>
+    <li>The Docker "/home/jhipster/app" folder is shared to the local "~/jhipster" folder</li>
+    <li>Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the "grunt serve" task, 3001 for
+        the BrowserSync UI)
+    </li>
+</ul>
+</p>
+<p>
+    <code>
+        docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker
+    </code>
+</p>
+<div class="alert alert-info">
+    <b>Tip</b>
+    <p>
+        If you have already started the container once before, you do not need to run the above command, you can simply start/stop the existing container.
+    </p>
+</div>
+<h4>Check if the container is running</h4>
+<p>
+    To check that your container is running, use the command <code>docker ps</code>:<br/><br/>
+    <code>
+    CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                                                      NAMES<br/>
+    4ae16c0539a3        jdubois/jhipster-docker   "tail -f /home/jhipst"   4 seconds ago       Up 3 seconds        0.0.0.0:3000-3001->3000-3001/tcp, 0.0.0.0:8080->8080/tcp   <b>jhipster</b>
+    </code>
+</p>
+<h4>Common operations</h4>
+<p>
+    <ul>
+        <li>To stop the container execute:
+            <code>
+                docker stop jhipster
+            </code>
+        </li>
+        <li>And to start again, execute:
+            <code>
+                docker start jhipster
+            </code>
+        </li>
+    </ul>
+</p>
+<p>
+    In case you update the Docker image (rebuild or pull from the Docker hub), it's better to remove the existing container, and run the container all over again.
+    To do so, first stop the container, remove it and then run it again:
+    <ol>
+        <li><code>docker stop jhipster</code></li>
+        <li><code>docker rm jhipster</code></li>
+        <li><code>docker pull jdubois/jhipster-docker</code></li>
+        <li><code>docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker</code></li>
+    </ol>
+</p>
+<p>
+    On Linux, you might need to run the docker command as root user if your user is not part of
+    docker group. It's a good idea to add your user to docker group so that you can run docker commands as non-root
+    user. Follow the steps on <a href="http://askubuntu.com/a/477554">http://askubuntu.com/a/477554</a> to do so.
+</p>
+
+<h3>Accessing the container</h3>
+<p>
+    The easiest way to log into container is executing following command :
+</p>
+<p>
+    <code>
+        docker exec -it --user=jhipster &lt;container_name&gt; bash
+    </code>
+    <br/><br/>
+    if you copy-pasted command to run container from above, notice the name being specified as jhipster
+    </br/><br/>
+    <code>
+        docker exec -it --user=jhipster jhipster bash
+    </code>
+    <br/><br/>
+    You will login as "jhipster" user, if in case you need to change as sudo user, password for the user is same as
+    username (i.e. jhipster)
+</p>
+
+<h3>Your first project</h3>
+<p>
+    You can then go to the /home/jhipster/app directory in your container, and start building your app inside Docker:
+</p>
+<p>
+    <code>
+        cd /home/jhipster/app<br/>
+        yo jhipster
+    </code>
+</p>
+<div class="alert alert-info">
+    <b>Tip</b>
+    <p>
+        If the following exception occurs:
+        <br/>
+        <code>
+            ...<br/>
+            ? (15/15) Would you like to enable translation support with Angular Translate? (Y/n)<br/>
+            /usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:89<br/>
+            throw err0;<br/>
+            ^<br/>
+            Error: EACCES, permission denied '/home/jhipster/app/src'<br/>
+                at Object.fs.mkdirSync (fs.js:653:18)<br/>
+                at sync (/usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:70:13)<br/>
+        </code>
+        <br/>
+        You need to fix the jhipster folder to give the "jhipster" user ownership of the directory:<br/>
+        <code>
+            sudo chown -R jhipster /home/jhipster/app
+        </code>
+    </p>
+</div>
+<p>
+    Once your application is created, you can run all the normal grunt/bower/maven commands, for example:
+</p>
+<p>
+    <code>
+        mvn
+    </code>
+</p>
+<p>
+    <b>Congratulations! You've launched your JHipster app inside Docker!</b>
+</p>
+<p>
+    On your host machine, you should be able to :
+</p>
+<p>
+    <ul>
+        <li>Access the running application at <code>http://DOCKER_HOST_IP:8080</code></li>
+        <li>Get all the generated files inside your shared folder</li>
+    </ul>
+</p>
+<p>
+    <b>Please note:</b> based on your OS your <code>DOCKER_HOST_IP</code> will differ. On linux, it will be simply your localhost. For Mac/Windows, you will have to obtain the IP using following command: <code>docker-machine ip default</code>
+</p>
+<p>
+    As the generated files are in your shared folder, they will not be deleted if you stop your Docker container.
+    However, if you don't want Docker to keep downloading all the Maven and NPM dependencies every time you start the
+    container, you should commit its state.
+</p>

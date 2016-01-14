@@ -1,0 +1,243 @@
+---
+layout: default
+title: Creating an entity
+sitemap:
+priority: 0.7
+lastmod: 2014-10-10T00:00:00-00:00
+---
+
+<h1><i class="fa fa-bolt"></i> Creating an entity</h1>
+<i><b>Please check our <a href="{{ site.url }}/pages/video_tutorial.html">video tutorial</a> on creating a new JHipster application!</b></i>
+
+<h2>Introduction</h2>
+<p>
+    Once you have created your application, you will want to create <i>entities</i>. For example, you might want to create an <i>Author</i> and a <i>Book</i> entity. For each entity, you will need:
+</p>
+<ul>
+    <li>A database table</li>
+    <li>A Liquibase change set</li>
+    <li>A JPA Entity</li>
+    <li>A Spring Data JPA Repository</li>
+    <li>A Spring MVC REST Controller, which has the basic CRUD operations</li>
+    <li>An AngularJS router, a controller and a service</li>
+    <li>An HTML view</li>
+    <li>Integration tests, to validate everything works as expected</li>
+    <li>Performance tests, to see if everything works smoothly</li>
+</ul>
+<p>
+    If you have several entities, you will likely want to have relationships between them. For this, you will need:
+</p>
+<ul>
+    <li>A database foreign key</li>
+    <li>Specific JavaScript and HTML code for managing this relationship</li>
+</ul>
+<p>
+    The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see <a href="{{ site.url }}/pages/using_angularjs.html">project structure</a>).
+</p>
+
+<h2>Entity fields</h2>
+<p>
+    For each entity, you can add as many fields as you want. You will need to input the field names and their types, and JHipster will generate for you all the required code and configuration, from the AngularJS HTML view to the Liquibase changelog.
+</p>
+<p>
+    Those fields cannot contain reserved keywords in the technologies you are using. For example, if you use MySQL:
+</p>
+
+<p>
+    <ul>
+        <li>You cannot use Java reserved keywords (as your code will not compile)</li>
+        <li>You cannot use MySQL reserved keywords (as your database schema update will fail)</li>
+    </ul>
+</p>
+
+<h2>Field types</h2>
+<p>
+    JHipster supports many field types. This support depends on your database backend, so we use Java types to describe them: a Java <code>String</code> will be stored differently in Oracle or Cassandra, and it is one of JHipster's strengths to generate the correct database access code for you.
+
+    <ul>
+        <li><code>String</code>: A Java String. Its default size depends on the underlying backend (if you use JPA, it's 255 by default), but you can change it using the validation rules (putting a <code>max</code> size of 1024, for example).</li>
+        <li><code>Integer</code>: A Java Integer.</li>
+        <li><code>Long</code>: A Java Long.</li>
+        <li><code>Float</code>: A Java Float.</li>
+        <li><code>Double</code>: A Java Double.</li>
+        <li><code>BigDecimal</code>: A <code>java.math.BigDecimal</code> object, used when you want exact mathematic calculations (often used for financial operations).</li>
+        <li><code>LocalDate</code>: A <code>java.time.LocalDate</code> object, used to correctly manage dates in Java.</li>
+        <li><code>ZonedDateTime</code>: A <code>java.time.ZonedDateTime</code> object, used to correctly manage dates and times in Java.</li>
+        <li><code>Boolean</code>: A Java Boolean.</li>
+        <li><code>enum</code>: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific <code>enum</code> class to store them.</li>
+        <li><code>byte[]</code>: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store some generic binary data, or an image object. Images will be handled specifically on the AngularJS side, so they can be displayed to the end-user.</li>
+    </ul>
+</p>
+
+
+<h2>Validation</h2>
+<p>
+    Validation can be set up for each field. Depending on the field type, different validation options will be available.
+</p>
+<p>
+    Validation will be automatically generated on:
+    <ul>
+        <li>the HTML views, using <a href="https://docs.angularjs.org/guide/forms" target="_blank">the AngularJS validation mechanism</a></li>
+        <li>the Java domain objects, using <a href="http://beanvalidation.org/" target="_blank">Bean Validation</a></li>
+    </ul>
+</p>
+<p>
+    Bean validation will then be used to automatically validate domain objects when they are used in:
+    <ul>
+        <li>Spring MVC REST controllers (using the <code>@Valid</code> annotation)</li>
+        <li>Hibernate/JPA (entities are automatically validated before being saved)</li>
+    </ul>
+</p>
+<p>
+    Validation information will also be used to generate more precise database column metadata:
+    <ul>
+        <li>Required fields will be marked non-nullable</li>
+        <li>Fields which have a maximum length will have the same column length</li>
+    </ul>
+</p>
+<p>
+    Validation has a few limitations:
+    <ul>
+        <li>We don't support all validation options from AngularJS and Bean Validation, as we only support those which are common to both APIs</li>
+        <li>Regular Expression patterns don't work the same in JavaScript and in Java, so if you configure one, you might need to tweak one of the generated patterns</li>
+        <li>JHipster generates unit tests that work for generic entities, without knowing your validation rules: it is possible that the generated tests do not pass the validation rules. In that case, you will need to update the sample values used in your unit tests, so that they pass the validation rules.</li>
+    </ul>
+</p>
+
+<h2>Entity relationships</h2>
+
+<p>
+    Entity relationships are only available for SQL databases. It is a fairly complex subject, which has its own documentation page: <a href="{{ site.url }}/pages/managing_relationships.html">Managing relationships</a>.
+</p>
+
+<h2>Data Transfer Objects (DTOs)</h2>
+
+<p>
+    By default JHipster entities do not use DTOs, but they are available as an option. Here is the documentation: <a href="{{ site.url }}/pages/using_dtos.html">Using DTOs</a>.
+</p>
+
+<h2>Pagination</h2>
+<p>
+    Please note that pagination is not available if you created your application with <a href="{{ site.url }}/pages/using_cassandra.html">Cassandra</a>. Of course this will be added in a future release.
+</p>
+
+<p>
+    Pagination uses <a href="http://tools.ietf.org/html/rfc5988" target="_blank">the Link header</a>, as in the <a href="https://developer.github.com/v3/#pagination" target="_blank">GitHub API</a>. JHipster provides a custom implementation of this specification on both the server (Spring MVC REST) and client (AngularJS) sides.
+</p>
+
+<p>
+    When the entity is generated, JHipster provides 4 pagination options:
+    <ul>
+        <li>No pagination (in that case, the back-end won't be paginated)</li>
+        <li>A simple pager, based on <a href="http://getbootstrap.com/components/#pagination-pager" target="_blank">the Bootstrap pager</a></li>
+        <li>A complete pagination system, based on <a href="http://getbootstrap.com/components/#pagination" target="_blank">the Bootstrap pagination component</a></li>
+        <li>An infinite scroll system, based on <a href="http://sroze.github.io/ngInfiniteScroll/" target="_blank">the infinite scroll directive</a></li>
+    </ul>
+</p>
+
+<h2>Generating an entity a second time</h2>
+
+<p>
+    The entity configuration is saved in a specific .json file, in the <code>.jhipster</code> directory. So if you run again the sub-generator, using an existing entity name, your entity will be re-generated.
+</p>
+<p>
+    You might want to do this for the following reasons:
+    <ul>
+        <li>You want to reset your code to its original state</li>
+        <li>You have updated JHipster, and would like to have your entity generated with the new templates</li>
+        <li>You have modified the .json configuration file (the format is quite close to the questions asked by the generator, so it's not very complicated), so you can have a new version of your entity</li>
+        <li>You have copy/pasted the .json file, and want a new entity that is very close to the copied entity</li>
+    </ul>
+</p>
+<p>
+    TIP : to regenerate all your entities at once, you can use the following commands (remove the <code>--force</code> to have questions asked when files have changed).
+    <ul>
+        <li>Linux &amp; Mac: <code>for f in `ls .jhipster`; do yo jhipster:entity ${f%.*} --force ; done</code></li>
+        <li>Windows: <code>for %f in (.jhipster/*) do yo jhipster:entity %f --force</code></li>
+    </ul>
+</p>
+
+<h2>Tutorial</h2>
+
+<p>This is a short tutorial on creating two entities (a Author and a Book) which have a one-to-many relationship.<p>
+
+<h3>Generate the "Author" entity</h3>
+
+<p>As we want to have a one-to-many relationship between Authors and Books (one author can write many books), we need to create the Author first. At the database level, JHipster will then be able to add a foreign key on the Book table, linking to the Author table.</p>
+
+<p>
+    <code>
+        yo jhipster:entity author
+    </code>
+</p>
+
+<p>
+    Answer the next questions concerning the fields of this entity, the author has:
+    <ul>
+        <li>a "name" of type "String"</li>
+        <li>a "birthDate" of type "LocalDate"</li>
+    </ul>
+</p>
+<p>
+    Then answer the questions concerning the relationships, the author has:
+    <ul>
+        <li>A one-to-many relationship with the "book" entity (which doesn't exist yet)</li>
+    </ul>
+</p>
+
+<h3>Generate the "Book" entity</h3>
+
+<p>
+    <code>
+        yo jhipster:entity book
+    </code>
+</p>
+
+<p>
+    Answer the next questions concerning the fields of this entity, the book has:
+    <ul>
+        <li>a "title", of type "String"</li>
+        <li>a "description", of type "String"</li>
+        <li>a "publicationDate", of type "LocalDate"</li>
+        <li>a "price", of type "BigDecimal"</li>
+    </ul>
+</p>
+<p>
+    Then answer the questions concerning the relationships, the book:
+    <ul>
+        <li>Has many-to-one relationship with the "author" entity</li>
+        <li>And this relationship uses the "name" field (from the Author entity) to be displayed</li>
+    </ul>
+</p>
+
+
+<h3>Check the generated code</h3>
+
+<p>
+    Run the generated test suite, with <code>mvn test</code>, which will test the Author entity and the Book entity.
+</p>
+<p>
+    Launch the application (for example with <code>mvn</code>), log in and select the "Author" and "Book"
+    entities in the "entities" menu.
+</p>
+<p>
+    Check the database tables, to see if your data is correctly inserted.
+</p>
+
+<h3>Improve the generated code</h3>
+<p>
+    The generated files contain all the basic CRUD operations, and don't need to be modified if your needs are simple.
+</p>
+<p>
+    If you want to modify the generated code or the database schema, you should follow our <a href="{{ site.url }}/pages/development.html">development guide</a>
+</p>
+<p>
+    If you want some more complex business behaviors, you might need to add a Spring <code>@Service</code> class, using the <a href="{{ site.url }}/pages/creating_a_service.html">service sub-generator</a>.
+</p>
+
+<h3>You're done!</h3>
+
+<p>
+    Your generated CRUD page should look like this:
+</p>
+<img src="images/screenshot_5.png"/>

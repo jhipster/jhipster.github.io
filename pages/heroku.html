@@ -1,0 +1,117 @@
+---
+layout: default
+title: Deploying to Heroku
+sitemap:
+    priority: 0.7
+    lastmod: 2014-09-08T00:00:00-00:00
+---
+
+<h1><i class="fa fa-cloud-upload"></i> Deploying to Heroku</h1>
+
+<p>This sub-generator allows to deploy automatically your JHipster application to the <a href="https://www.heroku.com/" target="_blank">Heroku cloud</a>.</p>
+
+<h2>Limitations</h2>
+<p>
+This sub-generator has a few caveats:
+<ul>
+    <li>If your application takes longer than 60 seconds to boot, Heroku will kill the process. You can request a higher boot limit by contacting <a href="http://help.heroku.com">Heroku Support</a>.</li>
+    <li>If your application is killed by Heroku when your Liquibase changelog is being applied, your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table (see below)</li>
+</ul>
+</p>
+
+<h2>Running the sub-generator</h2>
+
+<p>
+    Before running the sub-generator, you need to install the <a href="https://toolbelt.heroku.com/" target="_blank">Heroku toolbelt</a>, and have a Heroku account created.
+</p>
+
+<p>
+    Be sure that you got logged on Heroku following the documentation, in section getting started:
+</p>
+<pre>
+<b>$ heroku login</b>
+Enter your Heroku credentials.
+Email: YOUR_EMAIL
+Password (typing will be hidden): YOUR_PASSWORD
+Authentication successful.
+</pre>
+
+<p>
+    To deploy your application to Heroku, type:
+</p>
+<p>
+<code>
+yo jhipster:heroku
+</code>
+</p>
+<p>
+    This should package your application in "production" mode, create an Heroku application (with a Postgresql database), upload your code, and start the application.
+</p>
+
+<p><i>Please be aware that your application must start under 60 seconds, or it will be killed. Depending on the platform load, starting under 60 seconds is of course not guaranteed!</i></p>
+
+<h2>Updating your deployed application</h2>
+<h3>Preparing a new deployment</h3>
+<p>
+    When your application is already deployed, you can prepare a new deployment by typing:
+</p>
+<p>
+<code>
+mvn package -Pprod -DskipTests
+</code>
+</p>
+<p>
+Or when using gradle:
+</p>
+<p>
+<code>
+./gradlew -Pprod bootRepackage -x test
+</code>
+</p>
+<h3>Pushing to production</h3>
+<p>
+    <i>Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run</i> <code>heroku plugins:install https://github.com/heroku/heroku-deploy</code>.
+</p>
+<p>To push to production, type:</p>
+<p>
+<code>
+heroku deploy:jar --jar target/*.war
+</code>
+</p>
+<p>
+</p>
+Or when using gradle:
+</p>
+<p>
+<code>
+heroku deploy:jar --jar build/libs/*war
+</code>
+</p>
+
+<h2>Troubleshooting</h2>
+
+<p>
+  If your app is hanging at boot-time with the message "Configuring Liquibase", then make sure you have a
+  <a href="https://devcenter.heroku.com/articles/heroku-postgresql#local-setup">local Postgres client installed</a>
+  and run the following command:
+</p>
+<p>
+<code>
+$ heroku pg:psql -c "update databasechangeloglock set locked=false;"
+</code>
+</p>
+<p>
+  Heroku has a default boot-timeout limit of 60 seconds. If your Liquibase configuration
+  takes longer than this, Heroku will kill the process, which leaves the database in a
+  locked state. If the problem is persistent, try contacting
+  <a href="http://help.heroku.com">Heroku Support</a> to request a longer boot limit for your app.
+</p>
+
+<h2>More information</h2>
+
+<p>
+    <ul>
+        <li><a href="https://github.com/kissaten/jhipster-example" target="_blank">Example Application</a>
+        <li><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment-heroku.html" target="_blank">Spring Boot Heroku documentation</a></li>
+    </ul>
+</p>

@@ -1,0 +1,150 @@
+---
+layout: default
+title: Creating an application
+sitemap:
+    priority: 0.7
+    lastmod: 2014-06-02T00:00:00-00:00
+---
+
+<h1><i class="fa fa-rocket"></i> Creating an application</h1>
+
+<i><b>Please check our <a href="{{ site.url }}/pages/video_tutorial.html">video tutorial</a> on creating a new JHipster application!</b></i>
+<h2>Generating an application quickly</h2>
+
+<p>First of all, create an empty directory in which you will create your application:</p>
+<p>
+<code>
+    mkdir myapplication
+</code>
+</p>
+<p>Go to that directory:</p>
+<p>
+<code>
+    cd myapplication/
+</code>
+</p>
+<p>To generate your application, type:</p>
+<p>
+<code>
+yo jhipster
+</code>
+</p>
+<p>And answer the questions asked by the generator to create an application taylored to your needs. Those options are described in the next section.</p>
+
+<p>Once the application is generated, you can launch the Java server within your IDE, by running the Application class at the root of your application's Java package.</p>
+
+<p>As it is a simple "Main" class, it is the easiest and quickest way to run and debug the application.</p>
+
+<p>If you prefer to use Maven, you can also run your application by typing:</p>
+<p>
+<code>
+mvn
+</code>
+</p>
+<p>(this will run our default Maven task, <code>spring-boot:run</code>)</p>
+<p>If you prefer to use Gradle, you can also run your application by typing:</p>
+<p>
+<code>
+gradlew
+</code>
+<p>(this will run our default Gradle task, <code>bootRun</code>)</p>
+</p>
+<p>The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></p>
+
+<h2>Options available when generating an application</h2>
+
+<h3>What is the base name of your application?</h3>
+<p>
+  This is the name of your application.
+</p>
+
+<h3>What is your default Java package name?</h3>
+<p>
+  Your Java application will use this as its root package.
+</p>
+
+<h3>Which *type* of authentication would you like to use?</h3>
+<p>
+  You can either use:
+  <ul>
+      <li> A classical session-based authentication mechanism, like we are used to do in Java (this is how most people use <a href="http://docs.spring.io/spring-security/site/index.html" target="_blank">Spring Security</a>). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.</li>
+      <li> An OAuth 2.0 authentication mechanism (JHipster then provides the necessary OAuth2 server code and database tables).</li>
+      <li>A token-based approach (similar to OAuth 2.0, but uses a custom token system that does not require database tables).</li>
+  </ul>
+  The OAuth 2.0 and the token approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our <a href="{{ site.url }}/pages/security.html">securing your application</a> page.
+</p>
+
+<h3>Which *type* of database would you like to use?</h3>
+<p>
+  You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with <a href="{{ site.url }}/pages/using_mongodb.html">MongoDB</a> or <a href="{{ site.url }}/pages/using_cassandra.html">Cassandra</a>.
+</p>
+
+<h3>Which *production* database would you like to use?</h3>
+<p>
+  This is the database you will use with your "production" profile. To configure it, please modify your <code>src/main/resources/config/application-prod.yml</code> file.
+</p>
+<p>
+    If you want to use Oracle, you will need to <a href="{{ site.url }}/pages/using_oracle.html">install the Oracle JDBC driver manually</a>.
+</p>
+
+<h3>Which *development* database would you like to use?</h3>
+<p>
+  This is the database you will use with your "development" profile. You can either use:
+  <ul>
+    <li>H2, running in-memory. This is the easiest way to use JHipster, but your data will be lost when you restart your server.</li>
+    <li>H2, with its data stored on disk. This is currently in BETA test (and not working on Windows), but this would eventually be a better option than running in-memory, as you won't lose your data upon application restart.</li>
+    <li>The same database as the one you chose for production: it's a bit more complex to set up, but it should be better in the end to work on the same database as the one you will use in production. This is also the best way to use liquibase-hibernate as described in <a href="{{ site.url }}/pages/development.html">the development guide</a>.</li>
+  </ul>
+  To configure it, please modify your <code>src/main/resources/config/application-dev.yml</code> file.
+</p>
+
+<h3>Do you want to use Hibernate 2nd level cache?</h3>
+<p>
+   <a href="http://hibernate.org/" target="_blank">Hibernate</a> is the JPA provider used by JHipster. For performance reasons, we highly recommend you to use a cache, and to tune it according to your application's needs.<br/>
+   If you choose to do so, you can use either <a href="http://ehcache.org/" target="_blank">ehcache</a> (local cache) or <a href="http://www.hazelcast.com/" target="_blank">Hazelcast</a> (distributed cache, for use in a clustered environnement)
+</p>
+
+<h3>Do you want to use a search engine in your application?</h3>
+<p>
+   <a href="https://github.com/elastic/elasticsearch" target="_blank">Elasticsearch</a> will be configured using Spring Data Elasticsearch. You can find more information on our <a href="{{ site.url }}/pages/using_elasticsearch.html">Elasticsearch guide</a>.
+</p>
+
+<h3>Do you want to use clustered HTTP sessions?</h3>
+<p>
+  By default, JHipster uses a HTTP session only for storing <a href="http://docs.spring.io/spring-security/site/index.html" target="_blank">Spring Security</a>'s authentication and autorisations information. Of course, you can choose to put more data in your HTTP sessions.<br/>Using HTTP sessions will cause issues if you are running in a cluster, especially if you don't use a load balancer with "sticky sessions".<br/>If you want to replicate your sessions inside your cluster, choose this option to have <a href="http://www.hazelcast.com/" target="_blank">Hazelcast</a> configured.
+</p>
+
+<h3>Do you want to use WebSockets?</h3>
+<p>
+  Websockets can be enabled using Spring Websocket. We also provide a complete sample to show you how to use the framework efficiently.
+</p>
+
+<h3>Would you like to use Maven or Gradle?</h3>
+<p>
+  You can build your generated Java application either with <a href="http://maven.apache.org/" target="_blank">Maven</a> or <a href="http://www.gradle.org/" target="_blank">Gradle</a>. Maven is more stable and more mature. Gradle is more flexible, easier to extend, and more hype.
+</p>
+
+<h3>Would you like to use Grunt or Gulp.js for building the frontend?</h3>
+<p>
+  <a href="http://gruntjs.com/" target="_blank">Grunt</a> is the most widely used and most mature build tool for your JavaScript and CSS assets. <a href="http://www.gulpjs.com" target="_blank">Gulp.js</a> is a more recent alternative, which is easier to use and learn.
+</p>
+
+<h3>Would you like to use the LibSass stylesheet preprocessor for your CSS?</h3>
+<p>
+  <a href="https://www.npmjs.com/package/node-sass" target="_blank">Node-sass</a> a great solution to simplify designing CSS. To be used efficiently, you will need to run a <a href="http://gruntjs.com/" target="_blank">Grunt</a> or <a href="http://www.gulpjs.com" target="_blank">Gulp</a> server, which will be configured automatically.
+</p>
+
+<h3>Would you like to enable translation support with Angular Translate?</h3>
+<p>
+    By default JHipster provides excellent internationalization support, both on the client side with <a href="https://angular-translate.github.io/" target="_blank">Angular Translate</a> and on the server side. However, internationalization adds a little overhead, and is a little bit more complex to manage, so you can choose not to install this feature.
+</p>
+
+<h3>Which testing frameworks would you like to use?</h3>
+<p>
+    By default JHipster provide Java unit/integration testing (using Spring's JUnit support) and JavaScript unit testing (using Karma.js). As an option, you can also add support for:
+    <ul>
+        <li>Performance tests using Gatling</li>
+        <li>Behaviour tests using Cucumber</li>
+    </ul>
+    You can find more information on our <a href="{{ site.url }}/pages/running_tests.html">"Running tests" guide</a>.
+</p>

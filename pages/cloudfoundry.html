@@ -1,0 +1,63 @@
+---
+layout: default
+title: Deploying to Cloud Foundry
+sitemap:
+    priority: 0.7
+    lastmod: 2014-11-04T00:00:00-00:00
+---
+
+<h1><i class="fa fa-cloud-upload"></i> Deploying to Cloud Foundry</h1>
+
+<p>This sub-generator allows to deploy automatically your JHipster application to the <a href="http://cloudfoundry.org/" target="_blank">Cloud Foundry cloud</a>.</p>
+<p>It works with MySQL, PostgreSQL and MongoDB cloud providers.</p>
+
+<h2>Limitations</h2>
+<p>
+<ul>
+    <li>Gradle is not supported at the moment</li>
+    <li>MongoDB cannot load its data with Mongeez because of <a href="https://github.com/jhipster/generator-jhipster/issues/733" target="_blank">#733</a>.</li>
+</ul>
+</p>
+
+<h2>Running the sub-generator</h2>
+
+<p>
+    Before running the sub-generator, you need to install the <a href="http://docs.cloudfoundry.org/devguide/installcf/" target="_blank">cf Command Line Interface (CLI)</a>, and have a Cloud Foundry account created.
+</p>
+
+<p>
+    To deploy your application to Cloud Foundry, type:
+</p>
+<p>
+<code>
+yo jhipster:cloudfoundry
+</code>
+</p>
+<p>
+    This should package your application (in production or development mode), create a Cloud Foundry application (with a database), upload your code, and start the application.
+</p>
+
+<h2>Updating your deployed application</h2>
+<p>
+    When your application is already deployed, you can re-deploy it by building it normally (<code>mvn -Pprod package</code>) and running:
+</p>
+<p>
+<code>
+    cf push -f ./deploy/cloudfoundry/manifest.yml -p target/*.war
+</code>
+</p> You can also run the sub-generator again, by typing another time:
+</p>
+<p>
+<code>
+yo jhipster:cloudfoundry
+</code>
+</p>
+
+<h2>More information</h2>
+
+<p>
+    <ul>
+        <li><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment-cloud-foundry.html" target="_blank">Spring Boot Cloud Foundry documentation</a></li>
+        <li><a href="http://cloud.spring.io/spring-cloud-connectors/" target="_blank">Spring Cloud Connectors</a></li>
+    </ul>
+</p>

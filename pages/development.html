@@ -1,0 +1,258 @@
+---
+layout: default
+title: Using JHipster in development
+sitemap:
+    priority: 0.7
+    lastmod: 2014-09-17T00:00:00-00:00
+---
+
+<h1><i class="fa fa-code"></i> Using JHipster in development</h1>
+<i><b>Please check our <a href="{{ site.url }}/pages/video_tutorial.html">video tutorial</a> on creating a new JHipster application!</b></i>
+
+<h2>Configuration</h2>
+<p>
+    By default, JHipster uses the "development" profile, so you don't have to configure anything.
+</p>
+<p>
+    If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/pages/profiles.html">Profiles</a>".
+</p>
+
+<h2>Running the application</h2>
+
+<h3>As a "main" Java class</h3>
+
+<p>
+    From your IDE, right-click on the "Application" class at the root of your Java package hierarchy, and run it directly. You should also be able to debug it as easily.
+</p>
+
+<p>
+    The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+</p>
+
+<h3>As a Maven project</h3>
+
+<p>
+    You can launch the Java server with Maven:
+</p>
+<p>
+    <code>
+        mvn
+    </code>
+</p>
+<p>(this will run our default Maven task, <code>spring-boot:run</code>)</p>
+
+<p>
+    The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+</p>
+
+<p>
+    If you want more information on using Maven, please go to <a href="http://maven.apache.org" target="_blank">http://maven.apache.org</a>
+</p>
+
+<h3>(Optional) As a Gradle project</h3>
+
+<p>
+    If you selected the Gradle option when creating the project but haven't installed Gradle, you can still launch the Java server with our <a href="https://gradle.org/docs/current/userguide/gradle_wrapper.html" target="_blank">Gradle wrapper</a> script located at the root of your project:
+</p>
+<p>
+    <code>
+        gradlew
+    </code>
+</p>
+<p>(this will run our default Gradle task, <code>bootRun</code>)</p>
+<p>
+    Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
+</p>
+<p>
+    <code>
+        gradle
+    </code>
+</p>
+
+<p>
+    The application will be available on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.
+</p>
+
+<p>
+    If you want more information on using Gradle, please go to <a href="https://gradle.org" target="_blank">https://gradle.org</a>
+</p>
+
+<h2>Using the Java server and Grunt together</h2>
+<p>
+    <i>We highly recommend you use this feature, as it allows to have live reloading of your client-side code.</i>
+</p>
+<p>
+    You can use Grunt to work on the client-side JavaScript application:
+</p>
+<p>
+    <code>
+        grunt
+    </code>
+</p>
+<p>(this will run our default Grunt task, <code>serve</code>)</p>
+<p>
+    This should open up your Web browser, with live reload enabled, on <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>. This works thanks to <a href="http://www.browsersync.io/" target="_blank">BrowserSync</a>, and you can access its administration screen on <a href="http://localhost:3001" target="_blank">http://localhost:3001</a>.
+</p>
+<p>
+    This provides two very impressive features:
+    <ul>
+        <li>As soon as you modify one of your HTML/CSS/JavaScript file, your browser will refresh itself automatically</li>
+        <li>When you test your application on several different browsers or devices, all your clicks/scrolls/inputs should be automatically synchronized on all screens</li>
+    </ul>
+</p>
+<p>
+    This Grunt task has a proxy to the REST endpoints on the Java server which we just launched (on <a href="http://localhost:8080/api" target="_blank">http://localhost:8080/api</a>), so it should be able to do live REST requests to the Java back-end.
+</p>
+<p>
+    If you have generated your application with the Sass option, your templates should also be automatically compiled into CSS.
+</p>
+<p>
+    <i>Tips'n tricks</i>
+    <ul>
+        <li>In some browsers (like Chrome), your HTML/CSS/JS resources can be cached, and hence can have some trouble getting live-reloaded. To force them to be reloaded, open up the "developer console" and select "Disable cache (while DevTools is open)".</li>
+        <li>As the Grunt server proxies request to the Java server, all REST requests will fail if the Java server is down. So if your Grunt server shows a blank screen, the first thing to check is if the Java server is running at <code>http://127.0.0.1:8080</code>.</li>
+    </ul>
+</p>
+<p>
+    If you want more information on using Grunt, please go to <a href="http://gruntjs.com" target="_blank">http://gruntjs.com</a>.
+</p>
+
+<h2>Using Bower to install and update JavaScript, CSS and Sass dependencies</h2>
+<p>
+    You can use bower to update your JavaScript, CSS and Sass dependencies:
+</p>
+<p>
+    <code>
+        bower update
+    </code>
+</p>
+<p>
+    Or if you want to install a new JavaScript, CSS or Sass dependency:
+</p>
+<p>
+    <code>
+        bower install &lt;package&gt; --save
+    </code>
+</p>
+<p>
+    Your JavaScript, CSS or Sass dependencies will be stored in your <code>src/main/webapp/bower_components</code> folder, and we believe it is a good idea to store them in your Git repository (but JHipster does not force you to do so).
+</p>
+<p>
+    If the installed dependency contains JavaScript files they will automatically be injected into your <code>index.html</code> and <code>karma.conf.js</code> files. Likewise the CSS files will be injected into the <code>index.html</code> file, and the SCSS files into the <code>main.scss</code>.
+</p>
+<p>
+    However this will only work if the Grunt server is running. If it is not running they will be injected next time you run <code>grunt</code>.
+</p>
+<p>
+    Or, if you want to trigger the injection manually, just run:
+</p>
+<p>
+    <code>
+        grunt wiredep
+    </code>
+</p>
+<p>
+    If you want more information on using Bower, please go to <a href="http://bower.io" target="_blank">http://bower.io</a>. For more information on using Grunt Wiredep, please go to <a href="http://stephenplusplus.github.io/grunt-wiredep/" target="_blank">http://stephenplusplus.github.io/grunt-wiredep</a>.
+</p>
+
+<h2>Using the database</h2>
+<h3>Using the H2 database in development</h3>
+<p>
+    If you choose the H2 database, you will have an in-memory database running inside your application, and you can access its console at <a href="http://localhost:8080/console" target="_blank">http://localhost:8080/console</a> by default.
+</p>
+<p>
+    To connect to the database, select the pre-configured options:
+    <ul>
+        <li>Driver Class: org.h2.Driver</li>
+        <li>JDBC URL: jdbc:h2:mem:jhipster</li>
+        <li>User name: &lt;blank&gt;</li>
+        <li>Password: &lt;blank&gt;</li>
+    </ul>
+</p>
+<p>
+    <img src="images/h2.png"/>
+</p>
+
+<h3>Using MySQL or Postgresql in development</h3>
+<p>
+    This option is bit more complex than using H2, but you have a some important benefits:
+    <ul>
+        <li>Your data is kept across application restarts</li>
+        <li>Your application starts a little bit faster</li>
+        <li>You can use the great <code>mvn liquibase:diff</code> goal (see below)</li>
+    </ul>
+</p>
+
+<h2>Database updates</h2>
+
+<p>
+    If you add or modify a JPA entity, you will need to update your database schema.
+</p>
+<p>
+    JHipster uses <a href="http://www.liquibase.org" target="_blank">Liquibase</a> to manage the database updates, and stores its configuration in the <code>/src/main/resources/config/liquibase/</code> directory. There are 3 ways to work with Liquibase: use the entity sub-generator, use the liquibase:diff Maven goal, or update the configuration files manually.
+</p>
+
+<h3>Database updates with the entity sub-generator</h3>
+
+<p>
+    If you use the <a href="{{ site.url }}/pages/creating_an_entity.html">entity sub-generator</a>, here is the development workflow:
+    <ul>
+        <li>Run the <a href="{{ site.url }}/pages/creating_an_entity.html">entity sub-generator</a></li>
+        <li>A new "change log" is created in your <code>src/main/resources/config/liquibase/changelog</code> directory, and has been automatically added to your <code>src/main/resources/config/liquibase/master.xml</code> file</li>
+        <li>Review this change log, it will be applied the next time you run your application</li>
+    </ul>
+</p>
+
+<h3>Database updates with the Maven liquibase:diff goal</h3>
+<p>
+    If you have choosen to use MySQL or Postgresql in development, you can use the <code>mvn liquibase:diff</code> goal to automatically generate a changelog.
+</p>
+<p>
+    If you are running H2 with disk-based persistence, this workflow is not yet working perfectly, but you can start trying to use it (and send us feedback!).
+</p>
+<p>
+    <a href="https://github.com/liquibase/liquibase-hibernate" target="_blank">Liquibase Hibernate</a> is a Maven plugin that is configured in your pom.xml, and is independant from your Spring application.yml file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
+</p>
+<p>
+    Here is the development workflow:
+    <ul>
+        <li>Modify your JPA entity (add a field, a relationship, etc.)</li>
+        <li>Compile your application (this works on the compiled Java code, so don't forget to compile!)</li>
+        <li>Run <code>mvn liquibase:diff</code> (or <code>mvn compile liquibase:diff</code> to compile before)</li>
+        <li>A new "change log" is created in your <code>src/main/resources/config/liquibase/changelog</code> directory</li>
+        <li>Review this change log and add it to your <code>src/main/resources/config/liquibase/master.xml</code> file, so it is applied the next time you run your application</li>
+    </ul>
+</p>
+
+<p>
+    If you use Gradle instead of Maven, you can use the same workflow by running <code>./gradlew liquibaseDiffChangelog</code>, and change the database configuration in <code>liquibase.gradle</code> if required.
+</p>
+
+<h3>Database updates by manually editing the change log</h3>
+<p>
+    If you prefer (or need) to do a database update manually, here is the development workflow:
+    <ul>
+        <li>Modify your JPA entity (add a field, a relationship, etc.)</li>
+        <li>Create a new "change log" in your <code>src/main/resources/config/liquibase/changelog</code> directory. The files in that directory are prefixed by their creation date (in yyyyMMddHHmmss format), and then have a title describing what they do. For example, <code>20141006152300_added_price_to_product.xml</code> is a good name.</li>
+        <li>Add this "change log" file in your <code>src/main/resources/config/liquibase/master.xml</code> file, so it is applied the next time you run your application</li>
+    </ul>
+</p>
+<p>
+    If you want more information on using Liquibase, please go to <a href="http://www.liquibase.org" target="_blank">http://www.liquibase.org</a>.
+</p>
+<h2>Internationalization</h2>
+
+<p>Internationalization (or i18n) is a first-class citizen in JHipster, as we believe it should be set up at the beginning of your project (and not as an afterthought).</p>
+<p>
+    Usage is really easy thanks to <a href="https://github.com/PascalPrecht/angular-translate" target="_blank">Angular Translate</a>, which provides a simple AngularJS directive for i18n.
+</p>
+<p>
+    For example, to add a translation to the "first name" field, just add a "translate" attribute with a key:
+    <code>&lt;label translate="settings.form.firstname"&gt;First Name&lt;/label&gt;</code>
+</p>
+<p>
+    This key references a JSON document, which will return the translated String. AngularJS will then replace the "First Name" String with the translated version.
+</p>
+<p>
+    If you want more information on using languages, read our <a href="{{ site.url }}/pages/installing_new_languages.html">Installing new languages documentation</a>.
+</p>

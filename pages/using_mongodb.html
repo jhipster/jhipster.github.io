@@ -1,0 +1,23 @@
+---
+layout: default
+title: Using MongoDB
+sitemap:
+    priority: 0.7
+    lastmod: 2015-02-24T00:00:00-00:00
+---
+
+<h1><i class="fa fa-leaf"></i> Using MongoDB</h1>
+
+<p>
+    MongoDB is one of the supported databases that can be selected when your application is being generated.
+</p>
+
+<p>
+    When MongoDB is selected:
+    <ul>
+        <li>Spring Data MongoDB will be used to access the database. This is very close to Spring Data JPA, and this is why MongoDB support is very close to the (default) JPA support</li>
+        <li><a href="https://github.com/secondmarket/mongeez" target="_blank">Mongeez</a> is used instead of <a href="http://www.liquibase.org/" target="_blank">Liquibase</a> to manage database changes</li>
+        <li>The <a href="{{ site.url }}/pages/creating_an_entity.html">entity sub-generator</a> will not ask you for entity relationships, as you can't have relationships with a NoSQL database (at least not in the way you have relationships with JPA)</li>
+        <li><a href="https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo">de.flapdoodle.embed.mongo</a> is used to run an in-memory version of the database for running unit tests.</li>
+    </ul>
+</p>

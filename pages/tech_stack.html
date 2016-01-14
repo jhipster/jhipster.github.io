@@ -1,0 +1,76 @@
+---
+layout: default
+title: Technology stack
+sitemap:
+    priority: 0.8
+    lastmod: 2014-05-16T00:00:00-00:00
+---
+
+<h1><i class="fa fa-stack-overflow"></i> Technology stack</h1>
+
+<h2>Technology stack on the client side</h2>
+
+<p>Single Web page application:</p>
+
+<ul>
+	<li>Responsive Web Design</li>
+	<li><a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a></li>
+	<li><a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a></li>
+	<li><a href="http://angularjs.org/" target="_blank">AngularJS</a></li>
+	<li>Compatible with IE9+ and modern browsers</li>
+	<li>Full internationalization support with <a href="https://github.com/angular-translate/angular-translate" target="_blank">Angular Translate</a></li>
+	<li>
+	Optional <a href="https://www.npmjs.com/package/node-sass" target="_blank">Sass</a> support for CSS design</li>
+	<li>Optional WebSocket support with Spring Websocket</li>
+</ul>
+
+<p>With the great <a href="http://yeoman.io/" target="_blank">Yeoman</a> development workflow:</p>
+
+<ul>
+	<li>Easy installation of new JavaScript libraries with <a href="http://bower.io/" target="_blank">Bower</a></li>
+	<li>Build, optimization and live reload with <a href="http://gruntjs.com/" target="_blank">Grunt</a> or <a href="http://www.gulpjs.com" target="_blank">Gulp.js</a></li>
+	<li>Testing with <a href="http://karma-runner.github.io/" target="_blank">Karma</a> and <a href="http://phantomjs.org/" target="_blank">PhantomJS</a></li>
+</ul>
+
+<p>And what if a single Web page application isn't enough for your needs?</p>
+
+<ul>
+    <li>Support for the <a href="http://www.thymeleaf.org/" target="_blank">Thymeleaf</a> template engine, to generate Web pages on the server side</li>
+</ul>
+
+<h2>Technology stack on the server side</h2>
+
+<p>A complete <a href="http://spring.io/" target="_blank">Spring application</a>:</p>
+
+<ul>
+    <li><a href="http://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a> for easy application configuration</li>
+	<li><a href="http://maven.apache.org/" target="_blank">Maven</a> or <a href="http://www.gradle.org/" target="_blank">Gradle</a> configuration for building, testing and running the application</li>
+	<li><a href="{{ site.url }}/profiles.html">"development" and "production" profiles</a> (both for Maven and Gradle)</li>
+	<li><a href="http://docs.spring.io/spring-security/site/index.html" target="_blank">Spring Security</a></li>
+	<li>
+	<a href="http://spring.io/guides/gs/rest-service/" target="_blank">Spring MVC REST</a> + <a href="https://github.com/FasterXML/jackson" target="_blank">Jackson</a>
+	</li>
+	<li>Optional WebSocket support with Spring Websocket</li>
+	<li>
+	<a href="http://projects.spring.io/spring-data-jpa/" target="_blank">Spring Data JPA</a> + Bean Validation</li>
+	<li>Database updates with <a href="http://www.liquibase.org/" target="_blank">Liquibase</a>
+	</li>
+    <li><a href="https://github.com/elastic/elasticsearch" target="_blank">Elasticsearch</a> support if you want to have search capabilities on top of your database</li>
+	<li><a href="http://www.mongodb.org" target="_blank">MongoDB</a> support if you'd rather use a document-oriented NoSQL database instead of JPA</li>
+    <li><a href="http://cassandra.apache.org/" target="_blank">Cassandra</a> support if you'd rather use a column-oriented NoSQL database instead of JPA</li>
+</ul>
+
+<p>Ready to go into production:</p>
+
+<ul>
+	<li>Monitoring with <a href="http://metrics.codahale.com/" target="_blank">Metrics</a>
+	</li>
+	<li>Caching with <a href="http://ehcache.org/" target="_blank">ehcache</a> (local cache) or <a href="http://www.hazelcast.com/" target="_blank">hazelcast</a> (distributed cache)
+	</li>
+	<li>Optional HTTP session clustering with <a href="http://www.hazelcast.com/" target="_blank">hazelcast</a>
+	</li>
+	<li>Optimized static resources (gzip filter, HTTP cache headers)</li>
+	<li>Log management with <a href="http://logback.qos.ch/" target="_blank">Logback</a>, configurable at runtime</li>
+	<li>Connection pooling with <a href="https://github.com/brettwooldridge/HikariCP" target="_blank">HikariCP</a> for optimum performance</li>
+	<li>Builds a standard WAR file or an executable JAR file</li>
+</ul>

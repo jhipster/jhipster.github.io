@@ -1,0 +1,70 @@
+---
+layout: default
+title: Deploying to AWS
+sitemap:
+    priority: 0.7
+    lastmod: 2015-07-30T00:00:00-00:00
+---
+
+<h1><i class="icon-cloud-upload"></i> [BETA] Deploying to AWS</h1>
+
+<p><b>WARNING!</b> This is a new sub-generator, of <b>BETA</b> quality. Use it at your own risk! Feedback is highly welcome!</p>
+
+<p><b>WARNING!</b> Amazon does not provide a free tier, and does not sponsor JHipster. As such, we cannot test this sub-generator, and cannot garantee that it works correctly. If you want us to be able to test this generator, you can consider sponsoring the project.</p>
+
+<p>This sub-generator allows to deploy automatically your JHipster application to the <a href="https://aws.amazon.com/" target="_blank">Amazon AWS cloud</a>.</p>
+
+<h2>Limitations</h2>
+<ul>
+	<li>You can only use it with a MySQL database (PostgreSQL and Oracle will be added later).</li>
+	<li>Websockets doesn't work behind the load balancer by default.</li>
+</ul>
+
+<h2>Running the sub-generator</h2>
+
+<p>Before running the sub-generator, you need to go the JHipster Generator directory, and install the AWS-SDK with some other dependencies.</p>
+
+<p>Under Windows following these Steps:</p>
+<pre>
+cd %USERPROFILE%\AppData\Roaming\npm\node_modules\generator-jhipster
+npm install aws-sdk progress node-uuid
+</pre>
+
+<p>and under Mac/Linux following these Steps:</p>
+<pre>
+cd /usr/local/lib/node_modules/generator-jhipster # Path to globally installed node modules
+npm install aws-sdk progress node-uuid
+</pre>
+
+<p>Then log in with your Amazon AWS account and create a user for your JHipster application. To grant this user the required permissions attach the <code>AWSElasticBeanstalkFullAccess</code> policy.</p>
+
+<p>After that create a credentials file at ~/.aws/credentials on Mac/Linux or C:\Users\USERNAME\.aws\credentials on Windows.</p>
+<pre>
+[default]
+aws_access_key_id = your_access_key
+aws_secret_access_key = your_secret_key
+</pre>
+
+<p>To deploy your application to Amazon AWS, type:</p>
+<p>
+<code>
+yo jhipster:aws
+</code>
+</p>
+<p>This should package your application in "production" mode, create an Bean Stalk application (with a MySQL database), upload your code, and start the application.</p>
+
+<h2>Updating your deployed application</h2>
+<p>When your application is already deployed, you can re-deploy it by run the sub-generator again:</p>
+<p>
+<code>
+yo jhipster:aws
+</code>
+</p>
+<p>The subgenerator ask your database credentials again but they will be ignored during the update.</p>
+
+<h2>More information</h2>
+
+<ul>
+	<li><a href="http://aws.amazon.com/sdk-for-node-js" target="_blank">AWS SDK for JavaScript</a></li>
+	<li><a href="https://github.com/tj/node-progress" target="_blank">Progressbar for WAR upload</a></li>
+</ul>

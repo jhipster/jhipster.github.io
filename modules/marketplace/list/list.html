@@ -1,0 +1,32 @@
+<h2>Available modules ({((modules | filter:searchText).length)}/{(modules.length)})</h2>
+
+<div>
+    <span class="fa fa-search"></span> <span>Search modules list:</span> <input type="text" placeholder="Type a module name or keyword" size="50" ng-model="searchText"></input>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Module name</th>
+                <th>URL</th>
+                <th>Author</th>
+                <th class="text-center">Downloads<br/><small>(last month)</small></th>
+                <th class="text-center">Verified</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody ng-cloak>
+            <tr ng-repeat="module in modules | filter:searchText | orderBy:'-downloads'">
+                <td>{(module.name)}</td>
+                <td><a href="{(module.url)}">{(module.url)}</td>
+                <td>{(module.author)}</td>
+                <td class="text-center">{(module.downloads)}</td>
+                <td class="text-center"><span ng-show="module.verified" class="fa fa-star"></span></td>
+                <td><button type="submit"
+                        ng-click="details(module.npmPackageName)"
+                        class="btn btn-info btn-sm">Details</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

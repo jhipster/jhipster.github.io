@@ -1,0 +1,106 @@
+---
+layout: default
+title: Installing new languages
+sitemap:
+    priority: 0.7
+    lastmod: 2014-12-10T00:00:00-00:00
+---
+
+<h1><i class="fa fa-flag"></i> Installing new languages</h1>
+
+<h2>Introduction</h2>
+<p>
+  During the generation of a new project, JHipster only installs English and French languages. However, JHipster supports more languages that can be installed using this sub-generator.
+</p>
+<p>
+  The default language in JHipster is English, but this can be changed in the <code>src/main/webapp/scripts/app/app.js</code>, by modifying the following code:
+</p>
+<p>
+  <code>$translateProvider.preferredLanguage('en');</code><br/>
+  (using your preferred language's code instead of 'en').
+</p>
+
+<h2>Which other languages are supported out of the box?</h2>
+
+<p>By default we provide French and English, but you can add many more languages:</p>
+
+<p>
+  <ul>
+    <li>Catalan</li>
+    <li>Chinese (Simplified)</li>
+    <li>Chinese (Traditional)</li>
+    <li>Danish</li>
+    <li>Galician</li>
+    <li>German</li>
+    <li>Italian</li>
+    <li>Japanese</li>
+    <li>Hungarian</li>
+    <li>Korean</li>
+    <li>Netherlands</li>
+    <li>Polish</li>
+    <li>Portuguese</li>
+    <li>Portuguese (Brazilian)</li>
+    <li>Russian</li>
+    <li>Romanian</li>
+    <li>Spanish</li>
+    <li>Swedish</li>
+    <li>Tamil</li>
+    <li>Turkish</li>
+  </ul>
+</p>
+
+<h2>How to install new languages?</h2>
+
+<p>
+  In order to install new languages, just type:
+</p>
+<p>
+  <code>
+    yo jhipster:languages
+  </code>
+</p>
+<p>
+  <img src="images/install_new_languages.png" width="400"/>
+</p>
+
+<h2>How to create a new language that is not supported?</h2>
+<p>
+  All languages are saved in the folder <code>/src/main/webapp/i18n</code>
+</p>
+<p>
+  Here are the steps to install a new language called <code>new_lang</code>:
+  <ol>
+    <li>Duplicate the <code>/src/main/webapp/i18/en</code> folder to <code>/src/main/webapp/i18/new_lang</code>: this where all the front-end translations are stored </li>
+    <li>Translate all files under the folder <code>/src/main/webapp/i18/new_lang</code></li>
+    <li>
+      <p>Update the <code>LANGUAGES</code> constant defined in the folder <code>src/main/webapp/components/language/language.service.js</code>
+        <br/> to add the new language <code>new_lang</code></p>
+      <pre>
+        <code>
+.constant('LANGUAGES', [
+  'en', 'fr', 'new_lang'
+  //JHipster will add new languages here
+]
+        </code>
+      </pre>
+    </li>
+    <li>In the <code>src/main/resources/i18n</code> folder, copy the <code>messages_en.properties</code> file to <code>messages_new_lang.properties</code>: this where the server-side translations are stored</li>
+    <li>Translate all keys in the <code>messages_new_lang.properties</code> file</li>
+    <li>Add the new language's name in the function of <code>filter('findLanguageFromKey')</code> in the <code>src/main/webapp/scripts/components/language/language.controller.js</code> file</li>
+    <li>If there's no pluralization function for the new_lang, under <code>src/main/webapp/bower_components/messageformat/locale</code>, you may need to create it. More info in [Angular translate](http://angular-translate.github.io/docs/#/guide/14_pluralization) and [MessageFormat](https://github.com/SlexAxton/messageformat.js)</li>
+    <li>Add the file with the pluralization function in <code>src/main/webapp/index.html</code></li>
+  </ol>
+</p>
+<p>
+  The new language <code>new_lang</code> is now available in the language menu, and is available both in the front-end AngularJS application and in the back-end Spring application.
+</p>
+
+<h2>How to remove an existing language?</h2>
+<p>
+    Here are the steps to remove a language called <code>old_lang</code>:
+    <ol>
+        <li>Remove the language folder from <code>/src/main/webapp/i18/old_lang</code></li>
+        <li>Remove the constant entry in <code>src/main/webapp/scripts/components/language/language.service.js</code></li>
+        <li>Remove the <code>src/main/resources/i18n/messages_old_lang.properties</code> file</li>
+    </ol>
+</p>

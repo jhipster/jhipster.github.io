@@ -1,0 +1,30 @@
+---
+layout: default
+title: Using Cassandra
+sitemap:
+    priority: 0.7
+    lastmod: 2015-02-24T00:00:00-00:00
+---
+
+<h1><i class="fa fa-eye"></i> Using Cassandra</h1>
+<p>
+    Cassandra is one of the supported databases that can be selected when your application is being generated.
+</p>
+
+<p>
+    This generator has some limitations:
+    <ul>
+        <li>It does not support OAuth2 authentication (we need to implement a Cassandra back-end to Spring Security's OAuth2 server)</li>
+        <li>We focus on Cassandra 2.0.x and not 2.1.x, as it is currently the version used by DataStax Enterprise. If you want to use Cassandra 2.1.x, please note that the CQL driver version has upgraded, you need to use <code>V3</code> as the protocolVersion in your <code>application.yml</code></li>
+    </ul>
+</p>
+<p>
+    When Cassandra is selected:
+    <ul>
+        <li>The Cassandra CQL driver is used to access the database. We don't use Spring Data Cassandra, as we prefer to use the driver directly. As a result, the repositories contain quite a lot of code</li>
+        <li>The <a href="{{ site.url }}/pages/creating_an_entity.html">entity sub-generator</a> will not ask you for entity relationships, as you can't have relationships with a NoSQL database (at least not in the way you have relationships with JPA)</li>
+        <li>The generated entities only support one partition key, which is the ID. Future versions will provide composite primary keys and clustering keys</li>
+        <li>As we don't use an equivalent to <a href="http://www.liquibase.org/" target="_blank">Liquibase</a>, database upgrades must be done manually. They are located in the <code>src/main/resources/config/cql</code> directory</li>
+        <li>After generating an entity, its CQL file will be generated in <code>src/main/resources/config/cql</code> in the same way we generate Liquibase changelogs for JPA. For running unit tests, you will need to include that changelog in the test setup, or your tests will fail as you have a missing table.</li>
+    </ul>
+</p>

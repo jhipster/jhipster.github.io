@@ -1,0 +1,90 @@
+---
+layout: default
+title: Running tests
+sitemap:
+priority: 0.7
+lastmod: 2015-04-20T00:00:00-00:00
+---
+
+<h1><i class="fa fa-shield"></i> Running tests</h1>
+
+<h2>Introduction</h2>
+<p>
+    JHipster comes with an extensive set of tests, and each generated application has:
+</p>
+<ul>
+    <li>Integration tests using the Spring Test Context framework.</li>
+    <li>UI tests with <a href="http://karma-runner.github.io/" target="_blank">Karma.js</a>.</li>
+    <li>Performance tests with <a href="http://gatling.io/" target="_blank">Gatling.</a></li>
+</ul>
+<p>
+    We have two goals in generating those tests:
+</p>
+<ul>
+    <li>Help every JHipster user to follow best practices, as we believe tests are a very useful part of every application</li>
+    <li>Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing just a <code>mvn clean test</code> and <code>grunt test</code> after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!</li>
+</ul>
+
+<p>
+    All those tests will be generated in the standard Maven <code>src/test</code> folder.
+</p>
+
+<h2>Integration tests</h2>
+<p>
+    Integration tests are done with the Spring Test Context framework, and are located in the <code>src/test/java</code> folder. JHipster will launch a specific Spring test context, which will be re-used along all tests, as:
+</p>
+<p>
+    <ul>
+        <li>Your Spring beans should be stateless and thread-safe, and thus can be re-used across your different tests suites.</li>
+        <li>Launching just one Spring context for all tests if a lot faster than launching a new Spring context for each test.</li>
+    </ul>
+</p>
+<p>This Spring test context will use a specific test database to execute its tests:</p>
+<p>
+    <ul>
+        <li>If you use an SQL database, JHipster will launch an in-memory H2 instance in order to use a temporary database for its integration tests. Liquibase will be run automatically, and will generate the database schema.</li>
+        <li>If you use Cassandra, JHipster will launch an in-memory Cassandra instance using <a href="https://github.com/jsevellec/cassandra-unit" target="_blank">CassandraUnit</a>.</li>
+        <li>If you use MongoDB, JHipster will launch an in-memory MongoDB instance using <a href="https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo" target="_blank">de.flapdoodle.embed.mongo</a>.</li>
+        <li>If you use Elasticsearch, JHipster will launch an in-memory Elasticsearch instance using Spring Data Elasticsearch.</li>
+    </ul>
+</p>
+<p>
+    Those tests can be run directly in your IDE, by right-clicking on each test class, or by running <code>mvn clean test</code> (or <code>./gradlew test</code> if you run Gradle).
+</p>
+<p>
+    <b>Limitations:</b> if the generated entities have validation enabled, JHipster is not enable to generate the correct values depending on the validation rules. Those rules can be so complex, for example if a Regex pattern is used, that this just not possible. In this case, the tests will fail validation, and the default values used in the test will need to changed manually, so they can pass the validation rules.
+</p>
+
+<h2>UI tests</h2>
+<p>
+    UI tests are done with <a href="http://karma-runner.github.io/" target="_blank">Karma.js</a> and <a href="http://phantomjs.org/" target="_blank">PhantomJS</a>, and are located in the <code>src/test/javascript</code> folder.
+</p>
+<p>
+    Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
+</p>
+<p>
+    Those tests can be run using <code>grunt test</code> (or <code>gulp test</code> if you use Gulp.js).
+</p>
+
+<h2>Performance tests</h2>
+<p>
+    Performance tests are done with <a href="http://gatling.io/" target="_blank">Gatling</a>, and are located in the <code>src/test/gatling</code> folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
+</p>
+<p>
+    Gatling tests can be run with Maven, by running <code>mvn gatling:execute</code>. If you have several tests, JHipster will ask which test should be run.
+</p>
+<p>
+    <b>Warning!</b> At the moment, those tests do not take into account the validation rules you may have enforced on your entities. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
+    <ul>
+        <li>On your running application, go to the <code>Administration > Logs</code> screen, and put <code>org.springframework</code> in <code>debug</code> mode. You will see the validation errors, for example.</li>
+        <li>Use the application normaly and open the Chrome <code>console log</code>: you will be able to see the REST requests with all their parameters, including the HTTP headers.</li>
+    </ul>
+</p>
+
+<h2>Behaviour-driven development (BDD)</h2>
+<p>
+    Behaviour-driven development (BDD) is available using <a href="https://cucumber.io/" target="_blank">Cucumber</a>, with its <a href="https://github.com/cucumber/cucumber-jvm" target="_blank">JVM implementation</a>.
+</p>
+<p>
+    <a href="https://cucumber.io/docs/reference" target="_blank">Gherkin</a> features will have to be written in your <code>src/test/features</code> directory.
+</p>
