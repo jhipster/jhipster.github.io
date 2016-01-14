@@ -14,9 +14,9 @@ marketplaceApp.controller('ModuleDetailsCtrl', function ($scope, $routeParams, $
           var module = data[i];
           if (module.npmPackageName == $scope.npmPackageName) {
               $scope.module = module;
-              if (module.jhiVersionRequired == undefined) {
-                  module.jhiVersionRequired = 'no version configured';
-              }
+              $http.get('https://cors-anywhere.herokuapp.com/registry.npmjs.org/' + module.npmPackageName + '/latest').success(function (npminfo) {
+                  $scope.module.npminfo = npminfo;
+              });
           }
       }
     });

@@ -19,8 +19,8 @@
         <tbody ng-cloak>
             <tr ng-repeat="module in modules | filter:searchText | orderBy:'-downloads'">
                 <td>{(module.name)}</td>
-                <td><a href="{(module.url)}">{(module.url)}</td>
-                <td>{(module.author)}</td>
+                <td><a href="{(module.npminfo.homepage)}">{(module.npminfo.homepage)}</td>
+                <td>{(module.npminfo.author.name)}</td>
                 <td class="text-center">{(module.downloads)}</td>
                 <td class="text-center"><span ng-show="module.verified" class="fa fa-star"></span></td>
                 <td><button type="submit"

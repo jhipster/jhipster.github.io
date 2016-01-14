@@ -5,25 +5,32 @@
 
 <h2>Details for {(npmPackageName)}</h2>
 
-<i><p>by <a href="{(module.authorUrl)}">{(module.author)}</a></i>
+<i><p>by <a href="{(module.npminfo.author.url)}">{(module.npminfo.author.name)}</a></i>
 
 <p>
-{(module.description)}
+{(module.npminfo.description)}
 </p>
 
 <h3>JHipster version compatibility</h3>
 <p>
-    This module works with JHipster version: <b>{(module.jhiVersionRequired)}</b>
+    This module works with JHipster version: <b>{(module.npminfo.dependencies['generator-jhipster'])}</b>
+</p>
+
+<p>
+{(module.npminfo.description)}
 </p>
 
 <h3>Links</h3>
 <ul>
-    <li><a href="{(module.url)}">Project URL</a></li>
+    <li><a href="{(module.npminfo.homepage)}">Project URL</a></li>
     <li><a href="https://www.npmjs.com/package/{(npmPackageName)}">NPM package page</a></li>
 </ul>
 
 <h3>How to install</h3>
 <pre>npm install -g {(npmPackageName)}</pre>
+<p>
+    Latest version: {(module.npminfo.version)}
+</p>
 
 <h3>Downloads for last month</h3>
 

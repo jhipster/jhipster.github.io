@@ -10,8 +10,16 @@ marketplaceApp.controller('ModuleListCtrl', function ($scope, $http, $location, 
   $http.get('marketplace/data/modules.json').success(function(data) {
     $scope.modules = data;
     var modulesList= '';
-    for (var i = 0; i < data.length; i++) {
-        modulesList += data[i].npmPackageName + ',';
+    var getInfo = function(module) {
+        $http.get('https://cors-anywhere.herokuapp.com/registry.npmjs.org/' + module.npmPackageName + '/latest').success(function (npminfo) {
+            module.npminfo = npminfo;
+        });
+    }
+
+    for (var i = 0; i < $scope.modules.length; i++) {
+        var module = $scope.modules[i];
+        modulesList += module.npmPackageName + ',';
+        getInfo(module);
     }
     $http.get('https://api.npmjs.org/downloads/point/last-month/' + modulesList).success(function(data) {
         for (var i = 0; i < $scope.modules.length; i++) {
