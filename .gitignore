@@ -1,6 +1,10 @@
 _site
+/node_modules
+/bower_components
 
 # Intellij
 .idea/
 *.iml
 *.iws
+Gemfile
+Gemfile.lock

@@ -1,65 +1,373 @@
 ---
 layout: default
 layout_grid: true
-title: JHipster home page
+home: true
+angularjs: true
+title: JHipster home
 sitemap:
     priority: 1.0
     lastmod: 2014-10-21T00:00:00-00:00
 ---
+<div ng-app="homeApp" ng-controller="HomeController">
+    <!-- Header -->
+    <header id="page-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo-big"><img class="img-responsive" src="img/logo-jhipster-drink-coffee.png" alt=""></div>
+                    <div class="intro-text">
+                        <span class="brand">Greetings, Java Hipster!</span>
+                        <hr class="star-light">
+                        <div class="row stats">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="#">
+                                    <div class="card dark summary-inline">
+                                        <div class="card-body">
+                                            <i class="icon fa fa-download fa-3x"></i>
+                                            <div class="content" ng-cloak>
+                                                <div class="title">{(npmDownloads)}</div>
+                                                <div class="sub-title">Downloads in last 30 days</div>
+                                            </div>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="https://github.com/jhipster/generator-jhipster" >
+                                    <div class="card dark summary-inline">
+                                        <div class="card-body">
+                                            <i class="icon fa fa-github fa-3x"></i>
+                                            <div class="content" ng-cloak>
+                                                <div class="title">{(gitConfig.stargazers_count)}</div>
+                                                <div class="sub-title">Stars</div>
+                                            </div>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <a href="https://github.com/jhipster/generator-jhipster/fork">
+                                    <div class="card dark summary-inline">
+                                        <div class="card-body">
+                                            <i class="icon fa fa-github fa-3x"></i>
+                                            <div class="content" ng-cloak>
+                                                <div class="title">{(gitConftributors)}</div>
+                                                <div class="sub-title">Contributors</div>
+                                            </div>
+                                            <div class="clear-both"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
-<div class="home-container">
-    <div class="row welcome-panel">
-        <div class="col-md-12">
-            <h1 class="hipster-font">Greetings, Java Hipster!</h1>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row welcome-panel">
-        <div class="col-md-4 col-md-offset-2 welcome-subpanel">
-            <img src="images/logo-jhipster-drink-coffee.png" class="img-large"/>
-        </div>
-        <div class="col-md-4 welcome-subpanel">
-            <p class="lead">
-                JHipster is a <br/>
-                <a href="http://yeoman.io/" target="_blank">Yeoman generator</a>,<br/>
-                <a href="http://yeoman.io/" target="_blank"><img src="images/logo-yeoman.png" class="project-icon"></a><br/>
-                <br/>
-                used to create a <br/>
-                <a href="http://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a> + <a href="https://angularjs.org/" target="_blank">AngularJS</a> <br/>
-                project.<br/>
-                <a href="http://projects.spring.io/spring-boot/" target="_blank"><img src="images/logo-spring-boot.png" class="project-icon"><a href="https://angularjs.org/" target="_blank"><img src="images/logo-angularjs.png" class="project-icon"></a>
-            </p>
-        </div>
-    </div>
+    </header>
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-1">
-            <h2 class="hipster-font">Goal</h2>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="brand">What is JHipster?</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <span class="title text-center">
 
-            <p>
-                Our goal is to generate for you a complete and modern Web app, unifying:
-            </p>
-            <ul>
-                <li>A high-performance and robust Java stack on the server side with Spring Boot</li>
-                <li>A sleek, modern, mobile-first front-end with AngularJS and Bootstrap</li>
-                <li>A powerful workflow to build your application with Yeoman, Bower, Grunt and Maven</li>
+                                <div class="head-icons">
+                                    <a href="http://yeoman.io/" target="_blank"><img src="img/logo-yeoman.png" class="project-icon"></a> <i class="fa fa-4x">+</i>
+                                    <a href="http://projects.spring.io/spring-boot/" target="_blank"><img src="img/logo-spring-boot.png" class="project-icon"></a> <i class="fa fa-4x">+</i> <a href="https://angularjs.org/" target="_blank"><img src="img/logo-angularjs.png" class="project-icon"></a> <i class="fa fa-4x">=</i> <a href="/"><img src="img/logo-jhipster-small2x.png" class="project-icon"></a>
+
+                                </div>
+                                <p class="lead">
+                                    JHipster is a
+                                    <a href="http://yeoman.io/" target="_blank">Yeoman generator</a>,
+                                    used to create a
+                                    <a href="http://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a> + <a href="https://angularjs.org/" target="_blank">AngularJS</a>
+                                    project. <br>
+                                </p>
+                            </span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="hipster-font brand">Goal</h2>
+
+                    <p>
+                        Our goal is to generate for you a complete and modern Web app, unifying:
+                    </p>
+                    <ul>
+                        <li>A high-performance and robust Java stack on the server side with Spring Boot</li>
+                        <li>A sleek, modern, mobile-first front-end with AngularJS and Bootstrap</li>
+                        <li>A powerful workflow to build your application with Yeoman, Bower, Grunt and Maven</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="hipster-font brand">Sample &amp; Sources</h2>
+
+                    <p>
+                        You can checkout a sample generated application
+                        <a href="https://github.com/jhipster/jhipster-sample-app" target="_blank">here</a>.
+                    </p>
+
+                    <p>
+                        JHipster is Open Source, and all development is done on
+                        <a href="https://github.com/jhipster/generator-jhipster" target="_blank">GitHub</a>
+                    </p>
+                    <ul>
+                        <li> If you want to code with us, feel free to join!</li>
+                        <li> If you like the project, please give us a star on GitHub</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        <p>
+                            <b>JHipster news and events</b>
+                            <ul>
+                                <li>Paris JHipster User Group, on January 25th <a href="http://www.meetup.com/fr/JHipster-User-Group/events/227414391/" target="_blank">Click here to register</a></li>
+                                <li>The JHipster mini-book by Matt Raible <a href="http://www.infoq.com/minibooks/jhipster-mini-book" target="_blank">is available for free at InfoQ</a></li>
+                                <li>JHipster <a href="https://www.jfokus.se/jfokus/talks.jsp#JHipster%2Cthebestwayt" target="_blank">hands-on lab at JFokus</a> in Stockholm, Sweden on February, 8th</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section class="success" id="opts">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="brand">Client side options</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row stack-container">
+            <ul class="text-center stacks">
+                <li class="clip img-circle">
+                    <img src="img/svg/html-5.svg" />
+                    <span class="title_sub_tech">HTML5</span>
+                </li>
+                <li class="clip img-circle">
+                    <img src="img/svg/css-3.svg" />
+                    <span class="title_sub_tech">CSS3</span>
+                </li>
+
+                <li class="clip img-circle new">
+                    <img src="img/svg/angular.svg" />
+                    <span class="title_sub_tech">AngularJS</span>
+                </li>
+                <li class="clip img-circle">
+                    <img src="img/svg/bootstrap.svg" />
+                    <span class="title_sub_tech">Bootstrap</span>
+                </li>
+                <li class="clip img-circle">
+                    <img src="img/svg/jquery.svg" class="width white-inv"/>
+                    <span class="title_sub_tech">JQuery</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/bower.svg"/>
+                    <span class="title_sub_tech">Bower</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/grunt.svg" />
+                    <span class="title_sub_tech">Grunt</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/gulp.svg" class="height" />
+                    <span class="title_sub_tech">Gulp</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/sass.svg" class="height" />
+                    <span class="title_sub_tech">Sass</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/websocket.png" class="invert-hover"/>
+                    <span class="title_sub_tech">Websockets</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/karma.svg" />
+                    <span class="title_sub_tech">Karma</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/protarctor.png" />
+                    <span class="title_sub_tech">Protractor</span>
+                </li>
+
+
+                <li class="clear"></li>
             </ul>
         </div>
-        <div class="col-md-4 col-md-offset-2">
-            <h2 class="hipster-font">Sample & Sources</h2>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="brand">Server side options</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <ul class="text-center stacks">
+                <li class="clip img-circle">
+                    <img src="img/icons/spring-boot.png" />
+                    <span class="title_sub_tech">Spring Boot</span>
+                </li>
+                <li class="clip img-circle">
+                    <img src="img/icons/spring.png"/>
+                    <span class="title_sub_tech">Spring Security</span>
+                </li>
 
-            <p>
-                You can checkout a sample generated application
-                <a href="https://github.com/jhipster/jhipster-sample-app" target="_blank">here</a>.
-            </p>
+                <li class="clip img-circle new">
+                    <img src="img/svg/gradle.svg"/>
+                    <span class="title_sub_tech">Gradle</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/maven.png" class="white-inv width" />
+                    <span class="title_sub_tech">Maven</span>
+                </li>
+                <li class="clip img-circle">
+                    <img src="img/svg/hibernate.svg" />
+                    <span class="title_sub_tech">Hibernate</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/liquibase.gif" class="width" />
+                    <span class="title_sub_tech">Liquibase</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/mysql.svg" />
+                    <span class="title_sub_tech">MySql</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/postgresql.svg" class="height" />
+                    <span class="title_sub_tech">Posgres</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/oracle.svg" class="width" />
+                    <span class="title_sub_tech">Oracle</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/mongo.png" class="invert-hover"/>
+                    <span class="title_sub_tech">MongoDB</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg//cassandra.svg" class="white-inv" />
+                    <span class="title_sub_tech">Cassandra</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/ehcache.png" />
+                    <span class="title_sub_tech">EhCache</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/Hazelcast.png" class="white-inv" />
+                    <span class="title_sub_tech">Hazelcast</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/thymeleaf.png"/>
+                    <span class="title_sub_tech">Thymeleaf</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/icons/gatling.png"/>
+                    <span class="title_sub_tech">Gatling</span>
+                </li>
+                <li class="clip img-circle new">
+                    <img src="img/svg/cucumber.svg"/>
+                    <span class="title_sub_tech">Cucumber</span>
+                </li>
 
-            <p>
-                JHipster is Open Source, and all development is done on
-                <a href="https://github.com/jhipster/generator-jhipster" target="_blank">GitHub</a></li>
-            </p>
-            <ul>
-                <li> If you want to code with us, feel free to join!</li>
-                <li> If you like the project, please give us a star on GitHub</li>
+                <li class="clear"></li>
             </ul>
         </div>
-    </div>
+    </section>
+
+    <!-- quick start Section -->
+    <section class="" id="quick">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="brand">Quick Start</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <p>Install JHipster <code>npm install -g generator-jhipster</code></p>
+                    <p>Create a new directory and go into it <code>mkdir myApp && cd myApp</code></p>
+                    <p>Run JHipster and follow instructions on screen <code>yo jhipster</code></p>
+                </div>
+                <div class="col-lg-12">
+                    <p><small>* Assuming you have already installed <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java</a>, <a href="http://git-scm.com/" target="_blank">Git</a>, <a href="http://nodejs.org/" target="_blank">Node.js</a>, <a href="http://bower.io/#install-bower" target="_blank">Bower</a>, <a href="http://yeoman.io/learning/index.html" target="_blank">Yeoman</a> and <a href="http://gruntjs.com/getting-started" target="_blank">Grunt</a> or <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md" target="_blank">Gulp</a></small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="success" id="modules" ng-controller="ModuleController">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="brand">Modules</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Module Name</label>
+                                <input type="text" ng-model="searchText" class="form-control search-text" placeholder="Search" id="name" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="text-center">
+                <p>Top trending modules</p>
+                <br>
+            </div>
+            <div class="row">
+                <div ng-cloak ng-repeat="module in modules | filter: searchText | orderBy: '-downloads' | limitTo:16">
+                    <div class="clearfix" ng-if="$index % 4 == 0"></div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <a ng-href="https://jhipster.github.io/modules/marketplace.html#/details/{(module.npmPackageName)}">
+                            <div class="card dark module summary-inline">
+                                <div class="card-body">
+                                    <i class="icon fa fa-cube fa-4x"></i>
+                                    <div class="content">
+                                        <div class="title">{(module.name)}</div>
+                                        <div class="sub-title">by {(module.author)}</div>
+                                        <div class="sub-title">{(module.downloads)} downloads last month</div>
+                                    </div>
+                                    <div class="clear-both"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "url": "http://jhipster.github.io",
+  "logo": "http://jhipster.github.io/images/logo-jhipster.png",
+  "name" : "JHipster",
+  "sameAs" : [ "https://twitter.com/java_hipster",
+    "https://github.com/jhipster/generator-jhipster"]
+}
+</script>
