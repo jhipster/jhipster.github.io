@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Customizing Bootstrap
+permalink: /customizing_bootstrap.html
 sitemap:
 priority: 0.7
 lastmod: 2015-01-30T18:40:00-00:00

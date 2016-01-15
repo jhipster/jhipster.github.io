@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Policies
+permalink: /policies.html
 sitemap:
 priority: 0.7
 lastmod: 2015-07-31T18:40:00-00:00
@@ -10,7 +11,7 @@ lastmod: 2015-07-31T18:40:00-00:00
 
 The JHipster development team follows some coding policies. You can see them as "best practices" or "guidelines". They are enforced on the project itself, not on the generated code: if you just use JHipster to generate your project, you absolutely do not have to follow them!
 
-Those policies are followed by the [development team](/pages/team.html), and you should follow them if you submit a Pull Request.
+Those policies are followed by the [development team](/team.html), and you should follow them if you submit a Pull Request.
 
 ## Policy 0: Policies are voted by the development team
 

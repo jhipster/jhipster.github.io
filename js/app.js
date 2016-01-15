@@ -16,4 +16,10 @@ $(function() {
   });
 });
 
+$(function() {   
+  // Open active panels in menu
+  setTimeout(function(){
+      $('.panel-default .panel-collapse ul li.active').closest('.panel-collapse').addClass('in');
+  }, 100);
 
+});

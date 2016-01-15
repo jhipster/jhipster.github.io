@@ -22,18 +22,16 @@ $('.navbar-collapse ul li a').click(function () {
 (function () {
     'use-strict';
 
-    var homeApp = angular.module('homeApp', []);
-
-    homeApp.config([
-      '$interpolateProvider',
-        function ($interpolateProvider) {
-            return $interpolateProvider.startSymbol('{(').endSymbol(')}');
-      }
-    ]);
-
-    homeApp.controller('HomeController', HomeController)
-    homeApp.controller('ModuleController', ModuleController)
-    homeApp.factory('HomeService', HomeService);
+    angular.module('homeApp', [])
+        .config([
+          '$interpolateProvider',
+            function ($interpolateProvider) {
+                return $interpolateProvider.startSymbol('{(').endSymbol(')}');
+          }
+        ])
+        .controller('HomeController', HomeController)
+        .controller('ModuleController', ModuleController)
+        .factory('HomeService', HomeService);
 
     HomeService.$inject = ['$http'];
     HomeController.$inject = ['$scope', 'HomeService'];
@@ -45,12 +43,17 @@ $('.navbar-collapse ul li a').click(function () {
         });
         var page = 0;
         $scope.gitConftributors = 0;
+        var noOfContributors = 0;
         function getContributors(){
+            
             HomeService.getGithubContributors('jhipster', 'generator-jhipster', page).success(function (data) {
                 if(data.length != 0){
-                    $scope.gitConftributors += data.length;
+                    noOfContributors += data.length;
                     page ++;
                     getContributors();
+                } else {
+                    // some how there seems to be additional 30 added to actual number, so dirty hack
+                    $scope.gitConftributors = noOfContributors - 30;
                 }
             });
         }

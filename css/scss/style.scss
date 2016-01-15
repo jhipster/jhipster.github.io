@@ -1,11 +1,9 @@
 // Global Elements
 $side-menu-width: 300px;
-
 $primary-color: #3E8ACC;
 $color-clear-blue: #91d5fb;
 $color-blue: #3E8ACC;
 $dark-blue: #09486b;
-
 html {
     height: 100%
 }
@@ -92,17 +90,35 @@ a:hover {
 .brand {
     font-family: 'Pacifico', cursive;
 }
-@media (min-width: 769px) {
-#page-wrapper{
-    padding-left: 60px;
+
+/*@media (min-width: 769px) {
+    #page-wrapper {
+        padding-left: 60px;
+    }
 }
-}
-.page-content-warpper{
+
+.page-content-warpper {
     padding: 60px 40px 40px 40px;
-}
-.google-search{
+}*/
+
+
+/* google search widget*/
+
+.google-search {
     color: #333;
 }
+
+.cse .gsc-control-cse,
+.gsc-control-cse {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.cse input.gsc-search-button, input.gsc-search-button {
+    background-color: $primary-color !important;
+    border: 1px solid $primary-color;
+}
+
 // Navbar
 .navbar {
     z-index: 10001;
@@ -523,8 +539,23 @@ a:hover {
     transition: all 0.25s;
 }
 
+.app-container.home .side-body {
+    margin-left: 60px;
+    margin-right: 0px;
+    padding-top: 60px;
+}
+.app-container.home #page-wrapper.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .app-container.expanded .side-body {
-    margin-left: 260px;
+    margin-left: $side-menu-width;
+}
+
+.app-container footer {
+    margin-left: -30px;
+    margin-right: -30px;
 }
 
 
@@ -1811,7 +1842,6 @@ body.login-page {
     display: none !important;
 }
 
-
 footer {
     color: #fff;
     a {
@@ -1940,7 +1970,7 @@ footer {
 
 .flat-blue a.btn-social {
     color: #fff;
-    &:hover{
+    &:hover {
         color: $primary-color;
     }
 }

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: JHipster-UML
+permalink: /jhipster_uml.html
 sitemap:
     priority: 0.5
     lastmod: 2016-01-09T12:00:00-00:00
@@ -9,7 +10,7 @@ sitemap:
 # <i class="fa fa-magic"></i> JHipster-UML
 
 
-JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/pages/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/pages/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
+JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
 
 The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
 
@@ -95,7 +96,7 @@ The class diagram should modelize the entities of your JHipster application doma
 Each entity is represented by a class, its fields are the class' attributes. An attribute must have a type supported by JHipster, otherwise it won't work. To have JHipster supported types like “BigDecimal”, “LocalDate”..., you can create a _PrimitiveType_ or a _DataType_ for it.
 You can look at the tables with all the types supported by JHipster and the validations you can use for each [here](#annexes).
 
-![Book Entity](/images/jhipsteruml_book_datatype.png)
+![Book Entity](images/jhipsteruml_book_datatype.png)
 
 Here is an example of a properly created class for JHipster. We have the attributes _publicationDate_ and price set with the types _BigDecimal_ and _LocalDate_ we created as _DataType._
 
@@ -107,39 +108,39 @@ We just use the examples from JHipster in order to show how to do it with an edi
 
 
 #### One-to-One
-![One-to-One](/images/jhipsteruml_bi_oto.png)
+![One-to-One](images/jhipsteruml_bi_oto.png)
 
 Here, we have a bidirectional one-to-one relationship between Driver and Car, with Driver as the owner of the relationship.
 
 If you're looking for a unidirectional relationship:
 
-![One-to-One2](/images/jhipsteruml_uni_oto.png)
+![One-to-One2](images/jhipsteruml_uni_oto.png)
 
 Notice that in order to achieve a unidirectional relationship we just removed the `citizen` label so that `Passport` doesn't have it.
 
 
 #### One-to-Many
-![One-to-Many](/images/jhipsteruml_bi_otm.png)
+![One-to-Many](images/jhipsteruml_bi_otm.png)
 
 In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
 
-Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](/pages/managing_relationships.html#3) page for more information about this).
+Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing_relationships.html#3) page for more information about this).
 This is an example of such an association:
 
-![One-to-Many2](/images/jhipsteruml_uni_otm.png)
+![One-to-Many2](images/jhipsteruml_uni_otm.png)
 
 
 #### Many-to-One
 
 As showed previously, the equivalent of a One-to-Many relationship is a Many-to-One:
 
-![One-to-Many2](/images/jhipsteruml_uni_mto.png)
+![One-to-Many2](images/jhipsteruml_uni_mto.png)
 
 Now the cars know their owner, but not the opposite.
 
 
 #### Many-to-Many
-![Many-to-Many](/images/jhipsteruml_bi_mtm.png)
+![Many-to-Many](images/jhipsteruml_bi_mtm.png)
 
 Here, we have a many-to-many relationship between Car (the owner) and Driver.
 
@@ -151,7 +152,7 @@ In a One-to-Many relationship you can add it in the 'Many' side of the relations
 
 - UML
 
-![otherEntityField One-to-Many](/images/jhipsteruml_otherEntityFieldOM.jpeg)
+![otherEntityField One-to-Many](images/jhipsteruml_otherEntityFieldOM.jpeg)
 
 - JDL
 
@@ -163,7 +164,7 @@ In a Many-to-Many relationship you can add it in the owner side of the entity:
 
 - UML
 
-![otherEntityField Many-to-Many](/images/jhipsteruml_otherEntityFieldMM.jpeg)
+![otherEntityField Many-to-Many](images/jhipsteruml_otherEntityFieldMM.jpeg)
 
 - JDL
 
@@ -173,7 +174,7 @@ In a Many-to-Many relationship you can add it in the owner side of the entity:
 
 
 #### Reflexivity cases
-![Reflexivity](/images/jhipsteruml_reflexivity.png)
+![Reflexivity](images/jhipsteruml_reflexivity.png)
 
 As you can see, there are 3 types of reflexivity. JHipster-UML only supports the first two (one-to-one and one-to-many). The many-to-many case is **not** supported because:
 
@@ -186,7 +187,7 @@ As you can see, there are 3 types of reflexivity. JHipster-UML only supports the
 We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
 Here's a screenshot of such a diagram (from Modelio):  
-![HR UML diagram](/images/jhipsteruml_overviewdiagram.png)
+![HR UML diagram](images/jhipsteruml_overviewdiagram.png)
 
 As you can see, we changed it as to make it a bit more interesting.
 JHipster can generate entities and associations between them (one-to-one, one-to-many, etc.), and in this example we added every type of association (even the reflexive and the inheritance). JHipster doesn't support inheritance yet (but reflexivity is supported by JHipster, with a warning), but we decided to include it in the example so as to have a solid base to work with.
@@ -281,7 +282,7 @@ In JHipster-UML, each editor has been tested with the Oracle example. If you wis
 Modelio can be downloaded for free [here](https://www.modelio.org/). Make sure you have Java 8 if you're downloading any of the 3.3+ versions (it won't work otherwise).
 Once launched, create a project and you'll be seeing this view:
 
-![Empty Modelio project](/images/jhipsteruml_modelio_1.png)
+![Empty Modelio project](images/jhipsteruml_modelio_1.png)
 
 Notice the left panel entitled 'Class Model'. You only need the 'Class', 'Attributes', 'Aggregation', 'Composition' and 'Data Type' objects.
 You can already guess why you need the first 2. The 'Aggregation' object is used to defined aggregations:
@@ -297,7 +298,7 @@ Finally, 'Data Types' objects enables you to create custom types (types that are
 
 In this example, we'll explain how to connect two classes:
 
-![Modelio composition example](/images/jhipsteruml_modelio_2.png)
+![Modelio composition example](images/jhipsteruml_modelio_2.png)
 
 As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:
 
@@ -317,7 +318,7 @@ Modelio supports constraints. Double-click on a field, go to the 'Notes and cons
 
 Finally, once your diagram is finished, you just have to export it.
 
-![Export to XMI Modelio](/images/jhipsteruml_modelio_3.png)
+![Export to XMI Modelio](images/jhipsteruml_modelio_3.png)
 
 Check the Model perspective, once you locate your project, get down one level and right click the last element (you lower-cased project's name), XMI, Export XMI. A window should pop up, select the output path, change the compatibility to OMG UML2.4.1, leave the extension to XMI and you're ready to go.
 
@@ -326,7 +327,7 @@ Check the Model perspective, once you locate your project, get down one level an
 
 To comment a class (or an attribute), just double-click on the element, select the `Notes and constraints` tab, and add a `note`.
 
-![Modelio, commenting](/images/jhipsteruml_modelio_commenting.png)
+![Modelio, commenting](images/jhipsteruml_modelio_commenting.png)
 
 Please note that commenting relationships is not possible with this editor.
 
@@ -340,7 +341,7 @@ If no file.uml is created, right-click on your project, and New -> Other -> UML 
 
 You'll then be presented by a view like this one:
 
-![UML Designer, dashboard](/images/jhipsteruml_umldesigner_1.png)
+![UML Designer, dashboard](images/jhipsteruml_umldesigner_1.png)
 
 Double-click on 'Class diagram' under 'Design' category.
 You can now see on the right the 'Palette'. You only need these objects: 'Class', 'PrimitiveType', 'DataType' (both under 'Enumeration'), 'Composition' and 'Aggregation' (both under 'Association').
@@ -351,7 +352,7 @@ With UML Designer, you can create custom types by either using a DataType or a P
 
 Here is an example using this editor:
 
-![Employee and Job with UML Designer](/images/jhipsteruml_umldesigner_2.png)
+![Employee and Job with UML Designer](images/jhipsteruml_umldesigner_2.png)
 
 To create attributes, just double-click on the class, and add your attribute. You can import types by right-clicking somewhere on the diagram (in the white-space), then import Primitive Types, then select UML and Java.
 This will spare you the _chore_ of creating types manually (with DataTypes or PrimitiveTypes).
@@ -369,7 +370,7 @@ Unfortunately, this editor doesn't support unidirectional relationships.
 
 Commenting is possible for classes and attributes (not relationships), and achieving this is pretty easy: click on an element, and select `comment` to add your own.
 
-![Uml Designer, commenting](/images/jhipsteruml_umldesigner_commenting.png)
+![Uml Designer, commenting](images/jhipsteruml_umldesigner_commenting.png)
 
 
 ## <a name="genmymodelexample"></a>GenMyModel
@@ -378,13 +379,13 @@ GenMyModel is an in-browser UML editor that can be found [here](https://dashboar
 After signing up go in Projects ->  New Projects, give a it name, in Model Type choose UML, in default diagram choose Class Diagram and then click on Create project.
 Then this screen will be displayed:
 
-![GenMyModel dashbord](/images/jhipsteruml_genmymodel_empty_diagram.png)
+![GenMyModel dashbord](images/jhipsteruml_genmymodel_empty_diagram.png)
 
 On the panel on the left of the grid, is all the elements possible to make a diagram. We will need only the elements 'Class', 'DataType', 'Attribute', 'Aggregation' and 'Composition'. You can use either 'Aggregation' or 'Composition', the parser will only see the association between two classes and its cardinality.
 
 Here is an example on how to create two entities with a one-to-many relationship between them and the declaration of the JHipster types through 'DataType':
 
-![GenMyModel diagram](/images/jhipsteruml_genmymodel_relation.png)
+![GenMyModel diagram](images/jhipsteruml_genmymodel_relation.png)
 
 The parser will notice a few things:
 
@@ -410,7 +411,7 @@ In GenMyModel, creating unidirectional relationships is pretty easy: just remove
 
 For instance, take this simple case:
 
-![GenMyModel, unidirectional](/images/jhipsteruml_genmymodel_unidirectional.png)
+![GenMyModel, unidirectional](images/jhipsteruml_genmymodel_unidirectional.png)
 
 Here, `MyClass` will have a `myClass2` attribute, but `MyClass2` won't have a `myClass` field.
 
@@ -421,7 +422,7 @@ Commenting is available for classes, attributes and relationship fields.
 
 Just click on an element and write a comment in the description field.
 
-![GenMyModel, commenting](/images/jhipsteruml_genmymodel_commenting.png)
+![GenMyModel, commenting](images/jhipsteruml_genmymodel_commenting.png)
 
 
 ## <a name="visualparadigmexample"></a>Visual Paradigm
@@ -435,7 +436,7 @@ Apart from these drawbacks, Visual Paradigm is an interesting editor.
 
 When launching Visual Paradigm and creating a new UML project, you'll be greeted with this view:
 
-![Visual Paradigm diagram](/images/jhipsteruml_visualparadigm_1.png)
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_1.png)
 
 As you can see on the left hand panel, we'll need the 'Class' element, 'Composition' and 'Aggregation' elements from the 'Association' element and that's all.
 
@@ -443,13 +444,13 @@ Visual Paradigm makes it easy to add constraints to any attribute. There's one m
 
 Take this case for instance:
 
-![Visual Paradigm diagram](/images/jhipsteruml_visualparadigm_2.png)
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_2.png)
 
 Here, even though we specified the right constraint name and value, Visual Paradigm will not display the name (it will be hidden, except for this view). Instead, the constraint's value will be displayed everywhere else (see the title attribute from the Job Entity: 'title : string {2}').
 
 Exporting an XMI file is straightforward: click 'Export' -> 'XMI' -> select 2.1 unless selected, and export for UML2.
 
-![Visual Paradigm diagram](/images/jhipsteruml_visualparadigm_3.png)
+![Visual Paradigm diagram](images/jhipsteruml_visualparadigm_3.png)
 
 After exporting your diagram, you might notice that your XMI file is quite big. Visual Paradigm exports not only the elements in the diagram, but the place the drawing and placements informations too.
 The parsing will still be quick, but may take a bit more time.
@@ -462,7 +463,7 @@ Commenting is possible only for classes and attributes (not for relationships), 
 
 Note that the comment's title isn't taken into account, only the body is.
 
-![Visual Paradigm, commenting](/images/jhipsteruml_visualparadigm_commenting.png)
+![Visual Paradigm, commenting](images/jhipsteruml_visualparadigm_commenting.png)
 
 
 ***

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Team
+permalink: /team.html
 sitemap:
 priority: 0.7
 lastmod: 2015-07-30T18:40:00-00:00
@@ -10,7 +11,7 @@ lastmod: 2015-07-30T18:40:00-00:00
 
 JHipster is developed by a team of people around the world. We have a lot of contributors ([full list here](https://github.com/jhipster/generator-jhipster/graphs/contributors)), but members of the core team are listed here.
 
-##Project leads
+## Project leads
 
 ### Julien Dubois, project lead
 _[@juliendubois](https://twitter.com/juliendubois)_

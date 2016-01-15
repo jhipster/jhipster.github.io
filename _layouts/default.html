@@ -50,12 +50,12 @@
 </head>
 
 <body class="flat-blue">
-    <div class="app-container{% if page.home == true %} home{% endif %}">
+    <div class="app-container{% if page.home == true %} home{% else %} expanded {% endif %}">
         <div class="row content-container">
             <nav class="navbar navbar-inverse navbar-fixed-top navbar-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-expand-toggle">
+                        <button type="button" class="navbar-expand-toggle{% if page.home != true %} fa-rotate-90{% endif %}">
                             <i class="fa fa-bars icon"></i>
                         </button>
                         <ol class="breadcrumb navbar-breadcrumb">
@@ -65,11 +65,11 @@
                             <i class="fa fa-th icon"></i>
                         </button>
                     </div>
+                    {% if page.home == true %}
                     <ul class="nav navbar-nav navbar-right">
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-times icon"></i>
                         </button>
-                        {% if page.home == true %}
                         <li class="page-scroll">
                             <a href="#about">About</a>
                         </li>
@@ -82,12 +82,11 @@
                         <li class="page-scroll">
                             <a href="#modules">Modules</a>
                         </li>
-                        {% endif %}
                         <li class="">
                             <a href="https://github.com/jhipster/generator-jhipster" class="dropdown-toggle" target="_blank" role="button"><i class="fa fa-github fa-2x"></i></a>
                         </li>
                     </ul>
-
+                    {% endif %}
                 </div>
             </nav>
             <div class="side-menu sidebar-inverse">
@@ -103,13 +102,13 @@
                             </button>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li {% if '/pages/index.html' == page.url %}class="active" {% endif %}>
+                            <li {% if '/index.html' == page.url %}class="active" {% endif %}>
                                 <a href="/">
                                     <span class="icon fa fa-home"></span><span class="title">Home</span>
                                 </a>
                             </li>
-                            <li {% if '/pages/releases.html' == page.url %}class="active" {% endif %}>
-                                <a href="/pages/releases.html">
+                            <li {% if '/releases.html' == page.url %}class="active" {% endif %}>
+                                <a href="/releases.html">
                                     <span class="icon fa fa-file-text-o"></span><span class="title">Release notes</span>
                                 </a>
                             </li>
@@ -121,10 +120,10 @@
                                 <div id="dropdown-1" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/tech_stack.html' == page.url %}class="active" {% endif %}><a href="/pages/tech_stack.html"><i class="fa fa-fw fa-stack-overflow"></i> Technology stack</a></li>
+                                            <li {% if '/tech_stack.html' == page.url %}class="active" {% endif %}><a href="/tech_stack.html"><i class="fa fa-fw fa-stack-overflow"></i> Technology stack</a></li>
                                             <li {% if '/presentation' == page.url %}class="active" {% endif %}><a href="/presentation" target="_blank"><i class="fa fa-fw fa-desktop"></i> Official JHipster slides</a></li>
-                                            <li {% if '/pages/screenshots.html' == page.url %}class="active" {% endif %}><a href="/pages/screenshots.html"><i class="fa fa-fw fa-picture-o"></i> JHipster in 5 screenshots</a></li>
-                                            <li {% if '/pages/video_tutorial.html' == page.url %}class="active" {% endif %}><a href="/pages/video_tutorial.html"><i class="fa fa-fw fa-film"></i> Video tutorial (20 minutes)</a></li>
+                                            <li {% if '/screenshots.html' == page.url %}class="active" {% endif %}><a href="/screenshots.html"><i class="fa fa-fw fa-picture-o"></i> JHipster in 5 screenshots</a></li>
+                                            <li {% if '/video_tutorial.html' == page.url %}class="active" {% endif %}><a href="/video_tutorial.html"><i class="fa fa-fw fa-film"></i> Video tutorial (20 minutes)</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -137,9 +136,9 @@
                                 <div id="dropdown-2" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/installation.html' == page.url %}class="active" {% endif %}><a href="/pages/installation.html"><i class="fa fa-fw fa-cloud-download"></i> Installing JHipster</a></li>
-                                            <li {% if '/pages/configuring_ide.html' == page.url %}class="active" {% endif %}><a href="/pages/configuring_ide.html"><i class="fa fa-fw fa-keyboard-o"></i> Configuring Eclipse/IntelliJ</a></li>
-                                            <li {% if '/pages/docker_compose.html' == page.url %}class="active" {% endif %}><a href="/pages/docker_compose.html"><i class="fa fa-fw fa-music"></i> Docker Compose</a></li>
+                                            <li {% if '/installation.html' == page.url %}class="active" {% endif %}><a href="/installation.html"><i class="fa fa-fw fa-cloud-download"></i> Installing JHipster</a></li>
+                                            <li {% if '/configuring_ide.html' == page.url %}class="active" {% endif %}><a href="/configuring_ide.html"><i class="fa fa-fw fa-keyboard-o"></i> Configuring Eclipse/IntelliJ</a></li>
+                                            <li {% if '/docker_compose.html' == page.url %}class="active" {% endif %}><a href="/docker_compose.html"><i class="fa fa-fw fa-music"></i> Docker Compose</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -149,12 +148,12 @@
                                 <div id="dropdown-3" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/creating_an_app.html' == page.url %}class="active" {% endif %}><a href="/pages/creating_an_app.html"><i class="fa fa-fw fa-rocket"></i> Creating an application</a></li>
-                                            <li {% if '/pages/creating_an_entity.html' == page.url %}class="active" {% endif %}><a href="/pages/creating_an_entity.html"><i class="fa fa-fw fa-bolt"></i> Creating an entity</a></li>
-                                            <li {% if '/pages/creating_a_service.html' == page.url %}class="active" {% endif %}><a href="/pages/creating_a_service.html"><i class="fa fa-fw fa-bolt"></i> Creating a service</a></li>
-                                            <li {% if '/pages/using_dtos.html' == page.url %}class="active" {% endif %}><a href="/pages/using_dtos.html"><i class="fa fa-fw fa-briefcase"></i> Creating DTOs</a></li>
-                                            <li {% if '/pages/managing_relationships.html' == page.url %}class="active" {% endif %}><a href="/pages/managing_relationships.html"><i class="fa fa-fw fa-sitemap"></i> Managing relationships</a></li>
-                                            <li {% if '/pages/installing_new_languages.html' == page.url %}class="active" {% endif %}><a href="/pages/installing_new_languages.html"><i class="fa fa-fw fa-flag"></i> Internationalization</a></li>
+                                            <li {% if '/creating_an_app.html' == page.url %}class="active" {% endif %}><a href="/creating_an_app.html"><i class="fa fa-fw fa-rocket"></i> Creating an application</a></li>
+                                            <li {% if '/creating_an_entity.html' == page.url %}class="active" {% endif %}><a href="/creating_an_entity.html"><i class="fa fa-fw fa-bolt"></i> Creating an entity</a></li>
+                                            <li {% if '/creating_a_service.html' == page.url %}class="active" {% endif %}><a href="/creating_a_service.html"><i class="fa fa-fw fa-bolt"></i> Creating a service</a></li>
+                                            <li {% if '/using_dtos.html' == page.url %}class="active" {% endif %}><a href="/using_dtos.html"><i class="fa fa-fw fa-briefcase"></i> Creating DTOs</a></li>
+                                            <li {% if '/managing_relationships.html' == page.url %}class="active" {% endif %}><a href="/managing_relationships.html"><i class="fa fa-fw fa-sitemap"></i> Managing relationships</a></li>
+                                            <li {% if '/installing_new_languages.html' == page.url %}class="active" {% endif %}><a href="/installing_new_languages.html"><i class="fa fa-fw fa-flag"></i> Internationalization</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -164,12 +163,12 @@
                                 <div id="dropdown-4" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/security.html' == page.url %}class="active" {% endif %}><a href="/pages/security.html"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
-                                            <li {% if '/pages/using_elasticsearch.html' == page.url %}class="active" {% endif %}><a href="/pages/using_elasticsearch.html"><i class="fa fa-fw fa-search"></i> Using Elasticsearch</a></li>
-                                            <li {% if '/pages/using_websockets.html' == page.url %}class="active" {% endif %}><a href="/pages/using_websockets.html"><i class="fa fa-fw fa-envelope"></i> Using Websockets</a></li>
-                                            <li {% if '/pages/using_oracle.html' == page.url %}class="active" {% endif %}><a href="/pages/using_oracle.html"><i class="fa fa-fw fa-archive"></i> Using Oracle</a></li>
-                                            <li {% if '/pages/using_mongodb.html' == page.url %}class="active" {% endif %}><a href="/pages/using_mongodb.html"><i class="fa fa-fw fa-leaf"></i> Using MongoDB</a></li>
-                                            <li {% if '/pages/using_cassandra.html' == page.url %}class="active" {% endif %}><a href="/pages/using_cassandra.html"><i class="fa fa-fw fa-eye"></i> Using Cassandra</a></li>
+                                            <li {% if '/security.html' == page.url %}class="active" {% endif %}><a href="/security.html"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
+                                            <li {% if '/using_elasticsearch.html' == page.url %}class="active" {% endif %}><a href="/using_elasticsearch.html"><i class="fa fa-fw fa-search"></i> Using Elasticsearch</a></li>
+                                            <li {% if '/using_websockets.html' == page.url %}class="active" {% endif %}><a href="/using_websockets.html"><i class="fa fa-fw fa-envelope"></i> Using Websockets</a></li>
+                                            <li {% if '/using_oracle.html' == page.url %}class="active" {% endif %}><a href="/using_oracle.html"><i class="fa fa-fw fa-archive"></i> Using Oracle</a></li>
+                                            <li {% if '/using_mongodb.html' == page.url %}class="active" {% endif %}><a href="/using_mongodb.html"><i class="fa fa-fw fa-leaf"></i> Using MongoDB</a></li>
+                                            <li {% if '/using_cassandra.html' == page.url %}class="active" {% endif %}><a href="/using_cassandra.html"><i class="fa fa-fw fa-eye"></i> Using Cassandra</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -179,10 +178,10 @@
                                 <div id="dropdown-5" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/development.html' == page.url %}class="active" {% endif %}><a href="/pages/development.html"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
-                                            <li {% if '/pages/profiles.html' == page.url %}class="active" {% endif %}><a href="/pages/profiles.html"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
-                                            <li {% if '/pages/using_angularjs.html' == page.url %}class="active" {% endif %}><a href="/pages/using_angularjs.html"><i class="fa fa-fw fa-html5"></i> Using AngularJS</a></li>
-                                            <li {% if '/pages/customizing_bootstrap.html' == page.url %}class="active" {% endif %}><a href="/pages/customizing_bootstrap.html"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap</a></li>
+                                            <li {% if '/development.html' == page.url %}class="active" {% endif %}><a href="/development.html"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
+                                            <li {% if '/profiles.html' == page.url %}class="active" {% endif %}><a href="/profiles.html"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
+                                            <li {% if '/using_angularjs.html' == page.url %}class="active" {% endif %}><a href="/using_angularjs.html"><i class="fa fa-fw fa-html5"></i> Using AngularJS</a></li>
+                                            <li {% if '/customizing_bootstrap.html' == page.url %}class="active" {% endif %}><a href="/customizing_bootstrap.html"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -192,8 +191,8 @@
                                 <div id="dropdown-6" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/running_tests.html' == page.url %}class="active" {% endif %}><a href="/pages/running_tests.html"><i class="fa fa-fw fa-shield"></i> Running tests</a></li>
-                                            <li {% if '/pages/setting_up_ci.html' == page.url %}class="active" {% endif %}><a href="/pages/setting_up_ci.html"><i class="fa fa-fw fa-check"></i> Continuous Integration</a></li>
+                                            <li {% if '/running_tests.html' == page.url %}class="active" {% endif %}><a href="/running_tests.html"><i class="fa fa-fw fa-shield"></i> Running tests</a></li>
+                                            <li {% if '/setting_up_ci.html' == page.url %}class="active" {% endif %}><a href="/setting_up_ci.html"><i class="fa fa-fw fa-check"></i> Continuous Integration</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -203,11 +202,11 @@
                                 <div id="dropdown-7" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/production.html' == page.url %}class="active" {% endif %}><a href="/pages/production.html"><i class="fa fa-fw fa-play-circle"></i> Using in production</a></li>
-                                            <li {% if '/pages/cloudfoundry.html' == page.url %}class="active" {% endif %}><a href="/pages/cloudfoundry.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
-                                            <li {% if '/pages/heroku.html' == page.url %}class="active" {% endif %}><a href="/pages/heroku.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
-                                            <li {% if '/pages/openshift.html' == page.url %}class="active" {% endif %}><a href="/pages/openshift.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Openshift</a></li>
-                                            <li {% if '/pages/aws.html' == page.url %}class="active" {% endif %}><a href="/pages/aws.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to AWS</a></li>
+                                            <li {% if '/production.html' == page.url %}class="active" {% endif %}><a href="/production.html"><i class="fa fa-fw fa-play-circle"></i> Using in production</a></li>
+                                            <li {% if '/cloudfoundry.html' == page.url %}class="active" {% endif %}><a href="/cloudfoundry.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
+                                            <li {% if '/heroku.html' == page.url %}class="active" {% endif %}><a href="/heroku.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
+                                            <li {% if '/openshift.html' == page.url %}class="active" {% endif %}><a href="/openshift.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Openshift</a></li>
+                                            <li {% if '/aws.html' == page.url %}class="active" {% endif %}><a href="/aws.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to AWS</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -223,18 +222,18 @@
                                     </div>
                                 </div>
                             </li>
-                            <li {% if '/pages/tips.html' == page.url %}class="active" {% endif %}><a href="/pages/tips.html"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
-                            <li {% if '/pages/jhipster_uml.html' == page.url %}class="active" {% endif %}>
-                                <a href="/pages/jhipster_uml.html"><span class="icon fa fa-fw fa-magic"></span><span class="title">JHipster-UML</span></a>
+                            <li {% if '/tips.html' == page.url %}class="active" {% endif %}><a href="/tips.html"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
+                            <li {% if '/jhipster_uml.html' == page.url %}class="active" {% endif %}>
+                                <a href="/jhipster_uml.html"><span class="icon fa fa-fw fa-magic"></span><span class="title">JHipster-UML</span></a>
                             </li>
                            <!-- <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-question"></span><span class="title">Help and bugs</span></a>
                                 <div id="dropdown-9" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/help.html' == page.url %}class="active" {% endif %}><a href="/pages/help.html"><i class="fa fa-fw fa-group"></i> Community help</a></li>
-                                            <li {% if '/pages/consulting.html' == page.url %}class="active" {% endif %}><a href="/pages/consulting.html"><i class="fa fa-fw fa-user-md"></i> Professional help</a></li>
-                                            <li {% if '/pages/training.html' == page.url %}class="active" {% endif %}><a href="/pages/training.html"><i class="fa fa-fw fa-graduation-cap "></i> Training</a></li>
+                                            <li {% if '/help.html' == page.url %}class="active" {% endif %}><a href="/help.html"><i class="fa fa-fw fa-group"></i> Community help</a></li>
+                                            <li {% if '/consulting.html' == page.url %}class="active" {% endif %}><a href="/consulting.html"><i class="fa fa-fw fa-user-md"></i> Professional help</a></li>
+                                            <li {% if '/training.html' == page.url %}class="active" {% endif %}><a href="/training.html"><i class="fa fa-fw fa-graduation-cap "></i> Training</a></li>
                                             <li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="fa fa-fw fa-bug"></i> Bug tracker</a></li>
                                         </ul>
                                     </div>
@@ -245,14 +244,14 @@
                                 <div id="dropdown-10" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/pages/team.html' == page.url %}class="active" {% endif %}><a href="/pages/team.html"><i class="fa fa-fw fa-coffee"></i> Team</a></li>
-                                            <li {% if '/pages/policies.html' == page.url %}class="active" {% endif %}><a href="/pages/policies.html"><i class="fa fa-fw fa-gavel"></i> Policies</a></li>
+                                            <li {% if '/team.html' == page.url %}class="active" {% endif %}><a href="/team.html"><i class="fa fa-fw fa-coffee"></i> Team</a></li>
+                                            <li {% if '/policies.html' == page.url %}class="active" {% endif %}><a href="/policies.html"><i class="fa fa-fw fa-gavel"></i> Policies</a></li>
                                             <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-fw fa-github"></i> GitHub</a></li>
                                             <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank"><i class="fa fa-fw fa-comments"></i> Chat</a></li>
                                             <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
 
-                                            <li {% if '/pages/artwork.html' == page.url %}class="active" {% endif %}><a href="/pages/artwork.html"><i class="fa fa-fw fa-pencil"></i> Artwork</a></li>
-                                            <li {% if '/pages/thanks.html' == page.url %}class="active" {% endif %}><a href="/pages/thanks.html"><i class="fa fa-fw fa-gift"></i> Thanks</a></li>
+                                            <li {% if '/artwork.html' == page.url %}class="active" {% endif %}><a href="/artwork.html"><i class="fa fa-fw fa-pencil"></i> Artwork</a></li>
+                                            <li {% if '/thanks.html' == page.url %}class="active" {% endif %}><a href="/thanks.html"><i class="fa fa-fw fa-gift"></i> Thanks</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -265,77 +264,80 @@
             <!-- Main Content -->
 
 
-            <div id="page-wrapper">
-                {% if page.layout_grid == true %} {{ content }} {% else %}
-                <div class="row page-content-warpper">
-                    <div class="col-lg-12">
-                        {{ content }}
+            <div id="page-wrapper" class="container-fluid">
+                <div class="side-body">
+                    {% if page.layout_grid == true %} {{ content }} {% else %}
+                    <div class="row page-content-warpper">
+                        <div class="col-lg-12">
+                            {{ content }}
+                        </div>
                     </div>
+                    <!-- /.row -->
+                    {% endif %}
+
+                    <!-- Footer -->
+                    <footer class="text-center">
+                        <div class="footer-above">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="footer-col col-md-4">
+                                        <div class="col-md-6 col-sm-12">
+                                            <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="/team.html">Team</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="/policies.html">Policies</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="/artwork.html">Artwork</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="/thanks.html">Thanks</a></h5>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <h5 class="text-left"><i class="fa fa-bug fa-fw"></i> <a class="link" target="_blank" href="https://github.com/jhipster/generator-jhipster/issues">Issues</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-users fa-fw"></i> <a class="link" href="/help.html">Community help</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-user-md fa-fw"></i> <a class="link" href="/consulting.html">Professional help</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-graduation-cap fa-fw"></i> <a class="link" href="/training.html">Training</a></h5>
+                                        </div>
+
+                                    </div>
+                                    <div class="footer-col col-md-4">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <a href="https://twitter.com/java_hipster" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/jhipster/generator-jhipster" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://gitter.im/jhipster/generator-jhipster" class="btn-social btn-outline"><i class="fa fa-fw fa-comments"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-col col-md-4 google-search">
+                                        <script>
+                                            (function () {
+                                                var cx = '004687894124070278856:-ryvp1pk0xi';
+                                                var gcse = document.createElement('script');
+                                                gcse.type = 'text/javascript';
+                                                gcse.async = true;
+                                                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                                                    '//cse.google.com/cse.js?cx=' + cx;
+                                                var s = document.getElementsByTagName('script')[0];
+                                                s.parentNode.insertBefore(gcse, s);
+                                            })();
+                                        </script>
+                                        <gcse:search></gcse:search>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-below">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        Copyright &copy; JHipster 2016 | Theme based on <a href="https://github.com/IronSummitMedia/startbootstrap-freelancer" target="_blank">Freelancer</a> and <a href="https://github.com/tui2tone/flat-admin-bootstrap-templates" target="_blank">Flat admin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
-                <!-- /.row -->
-                {% endif %}
-                <!-- Footer -->
-                <footer class="text-center">
-                    <div class="footer-above">
-                        <div class="container">
-                            <div class="row">
-                                <div class="footer-col col-md-4">
-                                    <div class="col-md-6 col-sm-12">
-                                        <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="/pages/team.html">Team</a></h5>
-                                        <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="/pages/policies.html">Policies</a></h5>
-                                        <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="/pages/artwork.html">Artwork</a></h5>
-                                        <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="/pages/thanks.html">Thanks</a></h5>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <h5 class="text-left"><i class="fa fa-bug fa-fw"></i> <a class="link" target="_blank" href="https://github.com/jhipster/generator-jhipster/issues">Issues</a></h5>
-                                        <h5 class="text-left"><i class="fa fa-users fa-fw"></i> <a class="link" href="/pages/help.html">Community help</a></h5>
-                                        <h5 class="text-left"><i class="fa fa-user-md fa-fw"></i> <a class="link" href="/pages/consulting.html">Professional help</a></h5>
-                                        <h5 class="text-left"><i class="fa fa-graduation-cap fa-fw"></i> <a class="link" href="/pages/training.html">Training</a></h5>
-                                    </div>
-
-                                </div>
-                                <div class="footer-col col-md-4">
-                                    <ul class="list-inline">
-                                        <li>
-                                            <a href="https://twitter.com/java_hipster" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="https://github.com/jhipster/generator-jhipster" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="https://gitter.im/jhipster/generator-jhipster" class="btn-social btn-outline"><i class="fa fa-fw fa-comments"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="footer-col col-md-4 google-search">
-                                    <script>
-                                        (function () {
-                                            var cx = '004687894124070278856:-ryvp1pk0xi';
-                                            var gcse = document.createElement('script');
-                                            gcse.type = 'text/javascript';
-                                            gcse.async = true;
-                                            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                                                '//cse.google.com/cse.js?cx=' + cx;
-                                            var s = document.getElementsByTagName('script')[0];
-                                            s.parentNode.insertBefore(gcse, s);
-                                        })();
-                                    </script>
-                                    <gcse:search></gcse:search>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-below">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    Copyright &copy; JHipster 2016 | Theme based on <a href="https://github.com/IronSummitMedia/startbootstrap-freelancer" target="_blank">Freelancer</a> and <a href="https://github.com/tui2tone/flat-admin-bootstrap-templates" target="_blank">Flat admin</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
                 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
                 <div class="scroll-top page-scroll visible-xs visible-sm">
                     <a class="btn btn-primary" href="#page-top">
@@ -344,7 +346,6 @@
                 </div>
             </div>
             <!-- /#page-wrapper -->
-
         </div>
         <!-- /#wrapper -->
     </div>

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Setting up Continuous Integration
+permalink: /setting_up_ci.html
 sitemap:
 priority: 0.7
 lastmod: 2015-01-09T12:40:00-00:00
@@ -19,8 +20,8 @@ Each stack comes with its own dependency management (artifacts, npm) with potent
 
 Some of the instructions below may help you also to setup your development environment.
 
-- [Linux server](/pages/setting_up_ci_linux.html)
-- [Windows server](/pages/setting_up_ci_windows.html)
+- [Linux server](/setting_up_ci_linux.html)
+- [Windows server](/setting_up_ci_windows.html)
 
 ## Configuring Javascript tests
 

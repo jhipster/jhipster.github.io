@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Configuring your IDE
+permalink: /configuring_ide.html
 sitemap:
 priority: 0.7
 lastmod: 2015-05-22T18:40:00-00:00
