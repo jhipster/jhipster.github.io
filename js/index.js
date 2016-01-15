@@ -42,7 +42,7 @@ $('.navbar-collapse ul li a').click(function () {
             $scope.gitConfig = data;
         });
         var page = 0;
-        $scope.gitConftributors = 0;
+        $scope.gitConftributors = '...';
         var noOfContributors = 0;
         function getContributors(){
             
