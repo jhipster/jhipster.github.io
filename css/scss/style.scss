@@ -91,6 +91,7 @@ a:hover {
     font-family: 'Pacifico', cursive;
 }
 
+
 /*@media (min-width: 769px) {
     #page-wrapper {
         padding-left: 60px;
@@ -114,7 +115,8 @@ a:hover {
     border: none !important;
 }
 
-.cse input.gsc-search-button, input.gsc-search-button {
+.cse input.gsc-search-button,
+input.gsc-search-button {
     background-color: $primary-color !important;
     border: 1px solid $primary-color;
 }
@@ -544,6 +546,7 @@ a:hover {
     margin-right: 0px;
     padding-top: 60px;
 }
+
 .app-container.home #page-wrapper.container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -607,6 +610,13 @@ a:hover {
                 margin-left: 10px;
             }
         }
+        &.home {
+            .content-container {
+                .side-body {
+                    margin-left: 0px;
+                }
+            }
+        }
     }
     .app-container.expanded {
         .navbar-top {
@@ -619,6 +629,13 @@ a:hover {
         }
         .side-body {
             margin-left: 10px;
+        }
+        &.home {
+            .content-container {
+                .side-body {
+                    margin-left: 0px;
+                }
+            }
         }
     }
     .app-container,

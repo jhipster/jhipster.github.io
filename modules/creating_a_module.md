@@ -57,7 +57,7 @@ JHipster will call certain hooks before and after some of its tasks, currently a
 
 A JHipster module can register to act as a hook when its main generator is run by the end user. You need to call the `registerModule` method available in `jhipsterFunc` from your main (app) generator to register as hook, you need to pass the below parameters in the method as below
 
-```
+```javascript
 jhipsterFunc.registerModule(npmPackageName, hookFor, hookType[, callbackSubGenerator[, description]])
 ```
 

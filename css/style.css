@@ -77,7 +77,8 @@ a:hover {
   background-color: transparent !important;
   border: none !important; }
 
-.cse input.gsc-search-button, input.gsc-search-button {
+.cse input.gsc-search-button,
+input.gsc-search-button {
   background-color: #3E8ACC !important;
   border: 1px solid #3E8ACC; }
 
@@ -439,6 +440,8 @@ a:hover {
     width: 0px; }
   .app-container .content-container .side-body {
     margin-left: 10px; }
+  .app-container.home .content-container .side-body {
+    margin-left: 0px; }
   .app-container.expanded .navbar-top {
     min-width: 480px;
     padding-left: 0px; }
@@ -447,6 +450,8 @@ a:hover {
     width: 300px; }
   .app-container.expanded .side-body {
     margin-left: 10px; }
+  .app-container.expanded.home .content-container .side-body {
+    margin-left: 0px; }
   .app-container .app-footer .wrapper,
   .app-container.expanded .app-footer .wrapper {
     padding-left: 25px; } }
