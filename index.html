@@ -8,9 +8,9 @@ sitemap:
     priority: 1.0
     lastmod: 2014-10-21T00:00:00-00:00
 ---
-<div ng-app="homeApp" ng-controller="HomeController">
+<div ng-app="homeApp" ng-controller="HomeController" class="home-container">
     <!-- Header -->
-    <header id="page-top">
+    <header id="page-top" class="home-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -70,7 +70,7 @@ sitemap:
     </header>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="home-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -144,14 +144,14 @@ sitemap:
     </section>
 
     <!-- Stack Section -->
-    <section class="success" id="opts">
-        <div class="row">
+    <section class="success home-section" id="opts">
+        <div class="row no-margin">
             <div class="col-lg-12 text-center">
                 <h2 class="brand">Client side options</h2>
                 <hr class="star-light">
             </div>
         </div>
-        <div class="row stack-container">
+        <div class="row stack-container no-margin">
             <ul class="text-center stacks">
                 <li class="clip img-circle">
                     <img src="img/svg/html-5.svg" />
@@ -207,13 +207,13 @@ sitemap:
                 <li class="clear"></li>
             </ul>
         </div>
-        <div class="row">
+        <div class="row no-margin">
             <div class="col-lg-12 text-center">
                 <h2 class="brand">Server side options</h2>
                 <hr class="star-light">
             </div>
         </div>
-        <div class="row">
+        <div class="row no-margin">
             <ul class="text-center stacks">
                 <li class="clip img-circle">
                     <img src="img/icons/spring-boot.png" />
@@ -287,7 +287,7 @@ sitemap:
     </section>
 
     <!-- quick start Section -->
-    <section class="" id="quick">
+    <section class="home-section" id="quick">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -309,7 +309,7 @@ sitemap:
     </section>
 
     <!-- Contact Section -->
-    <section class="success" id="modules" ng-controller="ModuleController">
+    <section class="success home-section" id="modules" ng-controller="ModuleController">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

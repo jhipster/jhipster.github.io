@@ -410,6 +410,9 @@ input.gsc-search-button {
 
 /* small screen */
 @media (max-width: 768px) {
+  .app-container.home #page-wrapper.container-fluid {
+    padding-left: 15px;
+    padding-right: 15px; }
   .navbar {
     padding-left: 0; }
     .navbar .navbar-header {
@@ -441,7 +444,13 @@ input.gsc-search-button {
   .app-container .content-container .side-body {
     margin-left: 10px; }
   .app-container.home .content-container .side-body {
-    margin-left: 0px; }
+    margin-left: 0px;
+    margin-right: 15px; }
+    .app-container.home .content-container .side-body .home-container {
+      margin-left: -15px;
+      margin-right: -15px; }
+      .app-container.home .content-container .side-body .home-container .home-section {
+        margin-right: -15px; }
   .app-container.expanded .navbar-top {
     min-width: 480px;
     padding-left: 0px; }
