@@ -404,6 +404,10 @@ input.gsc-search-button {
 .app-container.expanded .side-body {
   margin-left: 300px; }
 
+.app-container:not(.home) footer {
+  margin-left: -30px;
+  margin-right: -30px; }
+
 /* small screen */
 @media (max-width: 768px) {
   .app-container.home #page-wrapper.container-fluid {

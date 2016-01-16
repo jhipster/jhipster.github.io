@@ -556,6 +556,10 @@ input.gsc-search-button {
     margin-left: $side-menu-width;
 }
 
+.app-container:not(.home) footer {
+    margin-left: -30px;
+    margin-right: -30px;
+} 
 
 /* small screen */
 
