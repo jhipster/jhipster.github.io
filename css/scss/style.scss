@@ -455,6 +455,7 @@ input.gsc-search-button {
         }
         .side-menu {
             width: $side-menu-width;
+            overflow-y: auto;
             .navbar-header {
                 .navbar-brand {
                     .title {

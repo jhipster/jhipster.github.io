@@ -338,7 +338,8 @@ input.gsc-search-button {
   padding-left: 300px; }
 
 .app-container.expanded .content-container .side-menu {
-  width: 300px; }
+  width: 300px;
+  overflow-y: auto; }
   .app-container.expanded .content-container .side-menu .navbar-header .navbar-brand .title {
     display: inline-block; }
   .app-container.expanded .content-container .side-menu .navbar-nav li a .title {
