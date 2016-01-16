@@ -341,7 +341,7 @@ sitemap:
                 <div ng-cloak ng-repeat="module in modules | filter: searchText | orderBy: '-downloads' | limitTo:16">
                     <div class="clearfix" ng-if="$index % 4 == 0"></div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <a ng-href="/modules/marketplace.html#/details/{(module.npmPackageName)}">
+                        <a ng-href="{{ site.url }}/modules/marketplace/#/details/{(module.npmPackageName)}">
                             <div class="card dark module summary-inline">
                                 <div class="card-body">
                                     <i class="icon fa fa-cube fa-4x"></i>
