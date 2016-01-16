@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Using AngularJS
-permalink: /using_angularjs.html
+permalink: /using-angularjs/
 sitemap:
     priority: 0.7
     lastmod: 2015-01-29T23:41:00-00:00

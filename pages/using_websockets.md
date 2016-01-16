@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Using Websockets
-permalink: /using_websockets.html
+permalink: /using-websockets/
 sitemap:
 priority: 0.7
 lastmod: 2015-08-31T18:40:00-00:00

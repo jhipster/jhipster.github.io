@@ -23,16 +23,16 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
 
     <!-- CSS Libs -->
-    <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/lib/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/lib/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/lib/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="/lib/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/dataTables.bootstrap.css">
     <!-- CSS App -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/themes/flat-blue.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/themes/flat-blue.css">
     {% if page.home == true %}
-    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/home.css">
     {% endif %}
     <!-- Bootstrap Docs CSS subset to get icon -->
     <!--<link href="/css/bootstrap-docs.css" rel="stylesheet">-->
@@ -45,8 +45,8 @@
     <![endif]-->
 
     <!-- Favicon with QHD -->
-    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{ site.url }}/img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ site.url }}/img/favicon-16x16.png" sizes="16x16" />
 </head>
 
 <body class="flat-blue">
@@ -61,9 +61,11 @@
                         <ol class="breadcrumb navbar-breadcrumb">
                             <li class="active"></li>
                         </ol>
+                        {% if page.home == true %}
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-th icon"></i>
                         </button>
+                        {% endif %}
                     </div>
                     {% if page.home == true %}
                     <ul class="nav navbar-nav navbar-right">
@@ -94,7 +96,7 @@
                     <div class="side-menu-container">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="/">
-                                <div class="icon"><img src="/img/logo-jhipster2x.png" height="50px"></div>
+                                <div class="icon"><img src="{{ site.url }}/img/logo-jhipster2x.png" height="50px"></div>
                                 <div class="title brand">JHipster </div>
                             </a>
                             <button type="button" class="navbar-expand-toggle pull-right visible-xs">
@@ -107,8 +109,8 @@
                                     <span class="icon fa fa-home"></span><span class="title">Home</span>
                                 </a>
                             </li>
-                            <li {% if '/releases.html' == page.url %}class="active" {% endif %}>
-                                <a href="/releases.html">
+                            <li {% if '/releases/' == page.url %}class="active" {% endif %}>
+                                <a href="{{ site.url }}/releases/">
                                     <span class="icon fa fa-file-text-o"></span><span class="title">Release notes</span>
                                 </a>
                             </li>
@@ -120,10 +122,10 @@
                                 <div id="dropdown-1" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/tech_stack.html' == page.url %}class="active" {% endif %}><a href="/tech_stack.html"><i class="fa fa-fw fa-stack-overflow"></i> Technology stack</a></li>
+                                            <li {% if '/tech-stack/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tech-stack/"><i class="fa fa-fw fa-stack-overflow"></i> Technology stack</a></li>
                                             <li {% if '/presentation' == page.url %}class="active" {% endif %}><a href="/presentation" target="_blank"><i class="fa fa-fw fa-desktop"></i> Official JHipster slides</a></li>
-                                            <li {% if '/screenshots.html' == page.url %}class="active" {% endif %}><a href="/screenshots.html"><i class="fa fa-fw fa-picture-o"></i> JHipster in 5 screenshots</a></li>
-                                            <li {% if '/video_tutorial.html' == page.url %}class="active" {% endif %}><a href="/video_tutorial.html"><i class="fa fa-fw fa-film"></i> Video tutorial (20 minutes)</a></li>
+                                            <li {% if '/screenshots/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/screenshots/"><i class="fa fa-fw fa-picture-o"></i> JHipster in 5 screenshots</a></li>
+                                            <li {% if '/video-tutorial/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/video-tutorial/"><i class="fa fa-fw fa-film"></i> Video tutorial (20 minutes)</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -136,9 +138,9 @@
                                 <div id="dropdown-2" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/installation.html' == page.url %}class="active" {% endif %}><a href="/installation.html"><i class="fa fa-fw fa-cloud-download"></i> Installing JHipster</a></li>
-                                            <li {% if '/configuring_ide.html' == page.url %}class="active" {% endif %}><a href="/configuring_ide.html"><i class="fa fa-fw fa-keyboard-o"></i> Configuring Eclipse/IntelliJ</a></li>
-                                            <li {% if '/docker_compose.html' == page.url %}class="active" {% endif %}><a href="/docker_compose.html"><i class="fa fa-fw fa-music"></i> Docker Compose</a></li>
+                                            <li {% if '/installation/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installation/"><i class="fa fa-fw fa-cloud-download"></i> Installing JHipster</a></li>
+                                            <li {% if '/configuring-ide/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/configuring-ide/"><i class="fa fa-fw fa-keyboard-o"></i> Configuring Eclipse/IntelliJ</a></li>
+                                            <li {% if '/docker-compose/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/docker-compose/"><i class="fa fa-fw fa-music"></i> Docker Compose</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -148,12 +150,12 @@
                                 <div id="dropdown-3" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/creating_an_app.html' == page.url %}class="active" {% endif %}><a href="/creating_an_app.html"><i class="fa fa-fw fa-rocket"></i> Creating an application</a></li>
-                                            <li {% if '/creating_an_entity.html' == page.url %}class="active" {% endif %}><a href="/creating_an_entity.html"><i class="fa fa-fw fa-bolt"></i> Creating an entity</a></li>
-                                            <li {% if '/creating_a_service.html' == page.url %}class="active" {% endif %}><a href="/creating_a_service.html"><i class="fa fa-fw fa-bolt"></i> Creating a service</a></li>
-                                            <li {% if '/using_dtos.html' == page.url %}class="active" {% endif %}><a href="/using_dtos.html"><i class="fa fa-fw fa-briefcase"></i> Creating DTOs</a></li>
-                                            <li {% if '/managing_relationships.html' == page.url %}class="active" {% endif %}><a href="/managing_relationships.html"><i class="fa fa-fw fa-sitemap"></i> Managing relationships</a></li>
-                                            <li {% if '/installing_new_languages.html' == page.url %}class="active" {% endif %}><a href="/installing_new_languages.html"><i class="fa fa-fw fa-flag"></i> Internationalization</a></li>
+                                            <li {% if '/creating-an-app/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-app/"><i class="fa fa-fw fa-rocket"></i> Creating an application</a></li>
+                                            <li {% if '/creating-an-entity/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-entity/"><i class="fa fa-fw fa-bolt"></i> Creating an entity</a></li>
+                                            <li {% if '/creating-a-service/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-a-service/"><i class="fa fa-fw fa-bolt"></i> Creating a service</a></li>
+                                            <li {% if '/using-dtos/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-dtos/"><i class="fa fa-fw fa-briefcase"></i> Creating DTOs</a></li>
+                                            <li {% if '/managing-relationships/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/managing-relationships/"><i class="fa fa-fw fa-sitemap"></i> Managing relationships</a></li>
+                                            <li {% if '/installing-new-languages/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installing-new-languages/"><i class="fa fa-fw fa-flag"></i> Internationalization</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -163,12 +165,12 @@
                                 <div id="dropdown-4" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/security.html' == page.url %}class="active" {% endif %}><a href="/security.html"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
-                                            <li {% if '/using_elasticsearch.html' == page.url %}class="active" {% endif %}><a href="/using_elasticsearch.html"><i class="fa fa-fw fa-search"></i> Using Elasticsearch</a></li>
-                                            <li {% if '/using_websockets.html' == page.url %}class="active" {% endif %}><a href="/using_websockets.html"><i class="fa fa-fw fa-envelope"></i> Using Websockets</a></li>
-                                            <li {% if '/using_oracle.html' == page.url %}class="active" {% endif %}><a href="/using_oracle.html"><i class="fa fa-fw fa-archive"></i> Using Oracle</a></li>
-                                            <li {% if '/using_mongodb.html' == page.url %}class="active" {% endif %}><a href="/using_mongodb.html"><i class="fa fa-fw fa-leaf"></i> Using MongoDB</a></li>
-                                            <li {% if '/using_cassandra.html' == page.url %}class="active" {% endif %}><a href="/using_cassandra.html"><i class="fa fa-fw fa-eye"></i> Using Cassandra</a></li>
+                                            <li {% if '/security/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/security/"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
+                                            <li {% if '/using-elasticsearch/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-elasticsearch/"><i class="fa fa-fw fa-search"></i> Using Elasticsearch</a></li>
+                                            <li {% if '/using-websockets/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-websockets/"><i class="fa fa-fw fa-envelope"></i> Using Websockets</a></li>
+                                            <li {% if '/using-oracle/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-oracle/"><i class="fa fa-fw fa-archive"></i> Using Oracle</a></li>
+                                            <li {% if '/using-mongodb/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-mongodb/"><i class="fa fa-fw fa-leaf"></i> Using MongoDB</a></li>
+                                            <li {% if '/using-cassandra/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cassandra/"><i class="fa fa-fw fa-eye"></i> Using Cassandra</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -178,10 +180,10 @@
                                 <div id="dropdown-5" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/development.html' == page.url %}class="active" {% endif %}><a href="/development.html"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
-                                            <li {% if '/profiles.html' == page.url %}class="active" {% endif %}><a href="/profiles.html"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
-                                            <li {% if '/using_angularjs.html' == page.url %}class="active" {% endif %}><a href="/using_angularjs.html"><i class="fa fa-fw fa-html5"></i> Using AngularJS</a></li>
-                                            <li {% if '/customizing_bootstrap.html' == page.url %}class="active" {% endif %}><a href="/customizing_bootstrap.html"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap</a></li>
+                                            <li {% if '/development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/development/"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
+                                            <li {% if '/profiles/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/profiles/"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
+                                            <li {% if '/using-angularjs/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angularjs/"><i class="fa fa-fw fa-html5"></i> Using AngularJS</a></li>
+                                            <li {% if '/customizing-bootstrap/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -191,8 +193,8 @@
                                 <div id="dropdown-6" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/running_tests.html' == page.url %}class="active" {% endif %}><a href="/running_tests.html"><i class="fa fa-fw fa-shield"></i> Running tests</a></li>
-                                            <li {% if '/setting_up_ci.html' == page.url %}class="active" {% endif %}><a href="/setting_up_ci.html"><i class="fa fa-fw fa-check"></i> Continuous Integration</a></li>
+                                            <li {% if '/running-tests/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/running-tests/"><i class="fa fa-fw fa-shield"></i> Running tests</a></li>
+                                            <li {% if '/setting-up-ci/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/setting-up-ci/"><i class="fa fa-fw fa-check"></i> Continuous Integration</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -202,11 +204,11 @@
                                 <div id="dropdown-7" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/production.html' == page.url %}class="active" {% endif %}><a href="/production.html"><i class="fa fa-fw fa-play-circle"></i> Using in production</a></li>
-                                            <li {% if '/cloudfoundry.html' == page.url %}class="active" {% endif %}><a href="/cloudfoundry.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
-                                            <li {% if '/heroku.html' == page.url %}class="active" {% endif %}><a href="/heroku.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
-                                            <li {% if '/openshift.html' == page.url %}class="active" {% endif %}><a href="/openshift.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Openshift</a></li>
-                                            <li {% if '/aws.html' == page.url %}class="active" {% endif %}><a href="/aws.html"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to AWS</a></li>
+                                            <li {% if '/production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/production/"><i class="fa fa-fw fa-play-circle"></i> Using in production</a></li>
+                                            <li {% if '/cloudfoundry/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/cloudfoundry/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
+                                            <li {% if '/heroku/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/heroku/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
+                                            <li {% if '/openshift/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/openshift/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Openshift</a></li>
+                                            <li {% if '/aws/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/aws/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to AWS</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -216,24 +218,24 @@
                                 <div id="dropdown-8" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/modules/marketplace.html' == page.url %}class="active" {% endif %}><a href="/modules/marketplace.html"><i class="fa fa-fw fa-shopping-cart"></i> Marketplace</a></li>
-                                            <li {% if '/modules/creating_a_module.html' == page.url %}class="active" {% endif %}><a href="/modules/creating_a_module.html"><i class="fa fa-fw fa-cube"></i> Creating a module</a></li>
+                                            <li {% if '/modules/marketplace/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/marketplace/"><i class="fa fa-fw fa-shopping-cart"></i> Marketplace</a></li>
+                                            <li {% if '/modules/creating-a-module/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-module/"><i class="fa fa-fw fa-cube"></i> Creating a module</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
-                            <li {% if '/tips.html' == page.url %}class="active" {% endif %}><a href="/tips.html"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
-                            <li {% if '/jhipster_uml.html' == page.url %}class="active" {% endif %}>
-                                <a href="/jhipster_uml.html"><span class="icon fa fa-fw fa-magic"></span><span class="title">JHipster-UML</span></a>
+                            <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
+                            <li {% if '/jhipster-uml/' == page.url %}class="active" {% endif %}>
+                                <a href="{{ site.url }}/jhipster-uml/"><span class="icon fa fa-fw fa-magic"></span><span class="title">JHipster-UML</span></a>
                             </li>
                            <!-- <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-question"></span><span class="title">Help and bugs</span></a>
                                 <div id="dropdown-9" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/help.html' == page.url %}class="active" {% endif %}><a href="/help.html"><i class="fa fa-fw fa-group"></i> Community help</a></li>
-                                            <li {% if '/consulting.html' == page.url %}class="active" {% endif %}><a href="/consulting.html"><i class="fa fa-fw fa-user-md"></i> Professional help</a></li>
-                                            <li {% if '/training.html' == page.url %}class="active" {% endif %}><a href="/training.html"><i class="fa fa-fw fa-graduation-cap "></i> Training</a></li>
+                                            <li {% if '/help/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/help/"><i class="fa fa-fw fa-group"></i> Community help</a></li>
+                                            <li {% if '/consulting/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/consulting/"><i class="fa fa-fw fa-user-md"></i> Professional help</a></li>
+                                            <li {% if '/training/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/training/"><i class="fa fa-fw fa-graduation-cap "></i> Training</a></li>
                                             <li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="fa fa-fw fa-bug"></i> Bug tracker</a></li>
                                         </ul>
                                     </div>
@@ -244,14 +246,14 @@
                                 <div id="dropdown-10" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/team.html' == page.url %}class="active" {% endif %}><a href="/team.html"><i class="fa fa-fw fa-coffee"></i> Team</a></li>
-                                            <li {% if '/policies.html' == page.url %}class="active" {% endif %}><a href="/policies.html"><i class="fa fa-fw fa-gavel"></i> Policies</a></li>
+                                            <li {% if '/team/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/team/"><i class="fa fa-fw fa-coffee"></i> Team</a></li>
+                                            <li {% if '/policies/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/policies/"><i class="fa fa-fw fa-gavel"></i> Policies</a></li>
                                             <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-fw fa-github"></i> GitHub</a></li>
                                             <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank"><i class="fa fa-fw fa-comments"></i> Chat</a></li>
                                             <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
 
-                                            <li {% if '/artwork.html' == page.url %}class="active" {% endif %}><a href="/artwork.html"><i class="fa fa-fw fa-pencil"></i> Artwork</a></li>
-                                            <li {% if '/thanks.html' == page.url %}class="active" {% endif %}><a href="/thanks.html"><i class="fa fa-fw fa-gift"></i> Thanks</a></li>
+                                            <li {% if '/artwork/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/artwork/"><i class="fa fa-fw fa-pencil"></i> Artwork</a></li>
+                                            <li {% if '/thanks/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/thanks/"><i class="fa fa-fw fa-gift"></i> Thanks</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -282,16 +284,16 @@
                                 <div class="row">
                                     <div class="footer-col col-md-4">
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="/team.html">Team</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="/policies.html">Policies</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="/artwork.html">Artwork</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="/thanks.html">Thanks</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="{{ site.url }}/team/">Team</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="{{ site.url }}/policies/">Policies</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="{{ site.url }}/artwork">Artwork</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="{{ site.url }}/thanks/">Thanks</a></h5>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <h5 class="text-left"><i class="fa fa-bug fa-fw"></i> <a class="link" target="_blank" href="https://github.com/jhipster/generator-jhipster/issues">Issues</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-users fa-fw"></i> <a class="link" href="/help.html">Community help</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-user-md fa-fw"></i> <a class="link" href="/consulting.html">Professional help</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-graduation-cap fa-fw"></i> <a class="link" href="/training.html">Training</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-users fa-fw"></i> <a class="link" href="{{ site.url }}/help/">Community help</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-user-md fa-fw"></i> <a class="link" href="{{ site.url }}/consulting/">Professional help</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-graduation-cap fa-fw"></i> <a class="link" href="{{ site.url }}/training/">Training</a></h5>
                                         </div>
 
                                     </div>
@@ -350,29 +352,31 @@
         <!-- /#wrapper -->
     </div>
     <!-- Javascript Libs -->
-    <script type="text/javascript" src="/lib/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/lib/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/lib/js/ace.js"></script>
-    <script type="text/javascript" src="/lib/js/mode-html.js"></script>
-    <script type="text/javascript" src="/lib/js/theme-github.js"></script>
-    <script type="text/javascript" src="/lib/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/ace.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/mode-html.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/theme-github.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/jquery.easing.min.js"></script>
 
     {% if page.angularjs == true %}
-    <script type="text/javascript" src="/lib/js/angular-1.4.8.min.js"></script>
-    <script type="text/javascript" src="/lib/js/angular-route-1.4.8.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/angular-1.4.8.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/angular-route-1.4.8.min.js"></script>
     {% endif %}
 
     <!--App Javascript -->
-    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/app.js"></script>
     {% if page.home == true %}
-    <script type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/services.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/index.js"></script>
     {% endif %}
     {% if page.market == true %}
-    <script src="{{ site.url }}/lib//js/c3-0.4.10.min.js"></script>
-    <script src="{{ site.url }}/lib/js/d3-3.5.10.min.js"></script>
-    <script src="marketplace/app.js"></script>
-    <script src="marketplace/list/list.js"></script>
-    <script src="marketplace/details/details.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/c3-0.4.10.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/d3-3.5.10.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/services.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/marketplace.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/marketplace-list.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/marketplace-details.js"></script>
 
     {% endif %}
     <!-- JavaScript -->

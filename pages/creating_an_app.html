@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Creating an application
-permalink: /creating_an_app.html
+permalink: /creating-an-app/
 sitemap:
     priority: 0.7
     lastmod: 2014-06-02T00:00:00-00:00
@@ -9,7 +9,7 @@ sitemap:
 
 <h1><i class="fa fa-rocket"></i> Creating an application</h1>
 
-<i><b>Please check our <a href="{{ site.url }}/video_tutorial.html">video tutorial</a> on creating a new JHipster application!</b></i>
+<i><b>Please check our <a href="{{ site.url }}/video-tutorial/">video tutorial</a> on creating a new JHipster application!</b></i>
 <h2>Generating an application quickly</h2>
 
 <p>First of all, create an empty directory in which you will create your application:</p>
@@ -72,12 +72,12 @@ gradlew
       <li> An OAuth 2.0 authentication mechanism (JHipster then provides the necessary OAuth2 server code and database tables).</li>
       <li>A token-based approach (similar to OAuth 2.0, but uses a custom token system that does not require database tables).</li>
   </ul>
-  The OAuth 2.0 and the token approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our <a href="{{ site.url }}/security.html">securing your application</a> page.
+  The OAuth 2.0 and the token approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our <a href="{{ site.url }}/security/">securing your application</a> page.
 </p>
 
 <h3>Which *type* of database would you like to use?</h3>
 <p>
-  You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with <a href="{{ site.url }}/using_mongodb.html">MongoDB</a> or <a href="{{ site.url }}/using_cassandra.html">Cassandra</a>.
+  You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with <a href="{{ site.url }}/using-mongodb/">MongoDB</a> or <a href="{{ site.url }}/using-cassandra/">Cassandra</a>.
 </p>
 
 <h3>Which *production* database would you like to use?</h3>
@@ -85,7 +85,7 @@ gradlew
   This is the database you will use with your "production" profile. To configure it, please modify your <code>src/main/resources/config/application-prod.yml</code> file.
 </p>
 <p>
-    If you want to use Oracle, you will need to <a href="{{ site.url }}/using_oracle.html">install the Oracle JDBC driver manually</a>.
+    If you want to use Oracle, you will need to <a href="{{ site.url }}/using-oracle/">install the Oracle JDBC driver manually</a>.
 </p>
 
 <h3>Which *development* database would you like to use?</h3>
@@ -94,7 +94,7 @@ gradlew
   <ul>
     <li>H2, running in-memory. This is the easiest way to use JHipster, but your data will be lost when you restart your server.</li>
     <li>H2, with its data stored on disk. This is currently in BETA test (and not working on Windows), but this would eventually be a better option than running in-memory, as you won't lose your data upon application restart.</li>
-    <li>The same database as the one you chose for production: it's a bit more complex to set up, but it should be better in the end to work on the same database as the one you will use in production. This is also the best way to use liquibase-hibernate as described in <a href="{{ site.url }}/development.html">the development guide</a>.</li>
+    <li>The same database as the one you chose for production: it's a bit more complex to set up, but it should be better in the end to work on the same database as the one you will use in production. This is also the best way to use liquibase-hibernate as described in <a href="{{ site.url }}/development/">the development guide</a>.</li>
   </ul>
   To configure it, please modify your <code>src/main/resources/config/application-dev.yml</code> file.
 </p>
@@ -107,7 +107,7 @@ gradlew
 
 <h3>Do you want to use a search engine in your application?</h3>
 <p>
-   <a href="https://github.com/elastic/elasticsearch" target="_blank">Elasticsearch</a> will be configured using Spring Data Elasticsearch. You can find more information on our <a href="{{ site.url }}/using_elasticsearch.html">Elasticsearch guide</a>.
+   <a href="https://github.com/elastic/elasticsearch" target="_blank">Elasticsearch</a> will be configured using Spring Data Elasticsearch. You can find more information on our <a href="{{ site.url }}/using-elasticsearch/">Elasticsearch guide</a>.
 </p>
 
 <h3>Do you want to use clustered HTTP sessions?</h3>
@@ -147,5 +147,5 @@ gradlew
         <li>Performance tests using Gatling</li>
         <li>Behaviour tests using Cucumber</li>
     </ul>
-    You can find more information on our <a href="{{ site.url }}/running_tests.html">"Running tests" guide</a>.
+    You can find more information on our <a href="{{ site.url }}/running-tests/">"Running tests" guide</a>.
 </p>

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Using Oracle
-permalink: /using_oracle.html
+permalink: /using-oracle/
 sitemap:
 priority: 0.7
 lastmod: 2015-06-08T18:40:00-00:00

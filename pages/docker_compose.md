@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Docker Compose
-permalink: /docker_compose.html
+permalink: /docker-compose/
 sitemap:
     priority: 0.7
     lastmod: 2015-12-24T00:00:00-00:00

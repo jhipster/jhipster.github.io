@@ -1,21 +1,21 @@
 ---
 layout: default
 title: Using JHipster in development
-permalink: /development.html
+permalink: /development/
 sitemap:
     priority: 0.7
     lastmod: 2014-09-17T00:00:00-00:00
 ---
 
 <h1><i class="fa fa-code"></i> Using JHipster in development</h1>
-<i><b>Please check our <a href="{{ site.url }}/video_tutorial.html">video tutorial</a> on creating a new JHipster application!</b></i>
+<i><b>Please check our <a href="{{ site.url }}/video-tutorial/">video tutorial</a> on creating a new JHipster application!</b></i>
 
 <h2>Configuration</h2>
 <p>
     By default, JHipster uses the "development" profile, so you don't have to configure anything.
 </p>
 <p>
-    If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles.html">Profiles</a>".
+    If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles/">Profiles</a>".
 </p>
 
 <h2>Running the application</h2>
@@ -171,7 +171,7 @@ sitemap:
     </ul>
 </p>
 <p>
-    <img src="images/h2.png"/>
+    <img src="{{ site.url }}/images/h2.png"/>
 </p>
 
 <h3>Using MySQL or Postgresql in development</h3>
@@ -196,9 +196,9 @@ sitemap:
 <h3>Database updates with the entity sub-generator</h3>
 
 <p>
-    If you use the <a href="{{ site.url }}/creating_an_entity.html">entity sub-generator</a>, here is the development workflow:
+    If you use the <a href="{{ site.url }}/creating-an-entity/">entity sub-generator</a>, here is the development workflow:
     <ul>
-        <li>Run the <a href="{{ site.url }}/creating_an_entity.html">entity sub-generator</a></li>
+        <li>Run the <a href="{{ site.url }}/creating-an-entity/">entity sub-generator</a></li>
         <li>A new "change log" is created in your <code>src/main/resources/config/liquibase/changelog</code> directory, and has been automatically added to your <code>src/main/resources/config/liquibase/master.xml</code> file</li>
         <li>Review this change log, it will be applied the next time you run your application</li>
     </ul>
@@ -255,5 +255,5 @@ sitemap:
     This key references a JSON document, which will return the translated String. AngularJS will then replace the "First Name" String with the translated version.
 </p>
 <p>
-    If you want more information on using languages, read our <a href="{{ site.url }}/installing_new_languages.html">Installing new languages documentation</a>.
+    If you want more information on using languages, read our <a href="{{ site.url }}/installing-new-languages/">Installing new languages documentation</a>.
 </p>

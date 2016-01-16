@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Creating a module
+permalink: /modules/creating-a-module/
 sitemap:
 priority: 0.7
 lastmod: 2015-12-05T18:40:00-00:00
@@ -10,7 +11,7 @@ lastmod: 2015-12-05T18:40:00-00:00
 
 A JHipster module is a Yeoman generator that is [composed](http://yeoman.io/authoring/composability.html) with a specific JHipster sub-generator to inherit some of the common functionality from JHipster. A JHipster module can also register itself to act as a hook from the JHipster generator.
 
-JHipster modules are listed on the [JHipster marketplace](marketplace.html).
+JHipster modules are listed on the [JHipster marketplace]({{ site.url }}/modules/marketplace/).
 
 This allows to create third-party generators that have access to the JHipster variables and functions, and act like standard JHipster sub-generators.
 The hook mechanism invokes third-party generators before and after app generation and entity generation.
@@ -136,7 +137,7 @@ And all the variables from the JHipster `.yo-rc.json` file:
 
 ## Registering a module to the JHipster marketplace
 
-To have your module available in [the JHipster marketplace](marketplace.html), you need to add it to the [modules.json file](https://github.com/jhipster/jhipster.github.io/blob/master/modules/marketplace/data/modules.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
+To have your module available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to add it to the [modules.json file](https://github.com/jhipster/jhipster.github.io/blob/master/modules/marketplace/data/modules.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
 
 The `modules.json` is a JSON file containing an array of the available modules. Add a new module in the array, and specify all fields. Leave the "verified" field as false: your module will become "verified" if the JHipster team verifies it. Specify the JHipster version required for your module to work by adding the `jhiVersionRequired` property, follow semver operators to define a range.
 

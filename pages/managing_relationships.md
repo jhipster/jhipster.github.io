@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Managing relationships
-permalink: /managing_relationships.html
+permalink: /managing-relationships/
 sitemap:
 priority: 0.7
 lastmod: 2015-10-24T18:40:00-00:00

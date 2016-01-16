@@ -19,10 +19,11 @@ $('.navbar-collapse ul li a').click(function () {
     $('.navbar-toggle:visible').click();
 });
 
+// Angular JS code
 (function () {
     'use-strict';
 
-    angular.module('homeApp', [])
+    angular.module('jhipster.home', ['jhipster.service'])
         .config([
           '$interpolateProvider',
             function ($interpolateProvider) {
@@ -30,15 +31,13 @@ $('.navbar-collapse ul li a').click(function () {
           }
         ])
         .controller('HomeController', HomeController)
-        .controller('ModuleController', ModuleController)
-        .factory('HomeService', HomeService);
+        .controller('ModuleController', ModuleController);
+    
+    HomeController.$inject = ['$scope', 'GHService', 'NpmService'];
+    ModuleController.$inject = ['$scope', 'ModuleService', 'NpmService'];
 
-    HomeService.$inject = ['$http'];
-    HomeController.$inject = ['$scope', 'HomeService'];
-    ModuleController.$inject = ['$scope', 'HomeService'];
-
-    function HomeController($scope, HomeService) {
-        HomeService.getGithubConfig('jhipster', 'generator-jhipster').success(function (data) {
+    function HomeController($scope, GHService, NpmService) {
+        GHService.getGithubConfig('jhipster', 'generator-jhipster').success(function (data) {
             $scope.gitConfig = data;
         });
         var page = 0;
@@ -46,7 +45,7 @@ $('.navbar-collapse ul li a').click(function () {
         var noOfContributors = 0;
         function getContributors(){
             
-            HomeService.getGithubContributors('jhipster', 'generator-jhipster', page).success(function (data) {
+            GHService.getGithubContributors('jhipster', 'generator-jhipster', page).success(function (data) {
                 if(data.length != 0){
                     noOfContributors += data.length;
                     page ++;
@@ -60,18 +59,18 @@ $('.navbar-collapse ul li a').click(function () {
 
         getContributors();
 
-        HomeService.getNpmDownloadsLastMonth('generator-jhipster').success(function (data) {
+        NpmService.getNpmDownloadsLastMonth('generator-jhipster').success(function (data) {
             $scope.npmDownloads = data.downloads;
         });
 
     }
 
-    function ModuleController($scope, HomeService) {
-        HomeService.getModules().success(function (data) {
+    function ModuleController($scope, ModuleService, NpmService) {
+        ModuleService.getModules().success(function (data) {
             $scope.modules = data;
             var modulesList = '';
             var getInfo = function(module) {
-              HomeService.getNpmInfo(module.npmPackageName).success(function (npminfo) {
+              NpmService.getNpmInfo(module.npmPackageName).success(function (npminfo) {
                     module.npminfo = npminfo;
                 });
             }
@@ -80,7 +79,7 @@ $('.navbar-collapse ul li a').click(function () {
                 modulesList += data[i].npmPackageName + ',';
                 getInfo(module);
             }
-            HomeService.getNpmDownloadsLastMonth(modulesList).success(function (data) {
+            NpmService.getNpmDownloadsLastMonth(modulesList).success(function (data) {
                 for (var i = 0; i < $scope.modules.length; i++) {
                     var module = $scope.modules[i];
                     var npmstats = data[module.npmPackageName];
@@ -92,42 +91,6 @@ $('.navbar-collapse ul li a').click(function () {
                 }
             });
         });
-
-        /*$scope.details = function (npmPackageName) {
-            $location.path('/details/' + npmPackageName);
-        };*/
     }
-
-    function HomeService($http) {
-        return {
-            getNpmDownloadsLastMonth: function (name) {
-                return $http.get('https://api.npmjs.org/downloads/point/last-month/' + name).success(function (resp) {
-                    return resp;
-                });
-            },
-            getGithubConfig: function (author, name) {
-                return $http.get('https://api.github.com/repos/' + author + '/' + name).success(function (resp) {
-                    return resp;
-                });
-            },
-            getGithubContributors: function(author, name, page) {
-                //https://api.github.com/repos/jhipster/generator-jhipster/contributors
-                return $http.get('https://api.github.com/repos/' + author + '/' + name + '/contributors?page=' + page).success(function (resp) {
-                    return resp;
-                });
-            },
-            getModules: function () {
-                return $http.get('/modules/marketplace/data/modules.json').success(function (resp) {
-                    return resp;
-                });
-            },
-            getNpmInfo: function (npmPackageName) {
-                return $http.get('https://cors-anywhere.herokuapp.com/registry.npmjs.org/' + npmPackageName + '/latest').success(function (resp) {
-                    return resp;
-                });
-            }
-        }
-    }
-
 
 })();

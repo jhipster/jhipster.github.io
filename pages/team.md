@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Team
-permalink: /team.html
+permalink: /team/
 sitemap:
 priority: 0.7
 lastmod: 2015-07-30T18:40:00-00:00

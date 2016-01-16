@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Configuring your IDE
-permalink: /configuring_ide_eclipse.html
+permalink: /configuring-ide-eclipse/
 sitemap:
 priority: 0.7
 lastmod: 2015-05-22T18:40:00-00:00
@@ -22,16 +22,16 @@ Importing your JHipster application in Eclipse will require a few manual steps. 
 - Select your project
 - Click on "Finish"
 
-![Import](images/configuring_ide_eclipse_1.png)
+![Import]({{ site.url }}/images/configuring_ide_eclipse_1.png)
 
-![Select](images/configuring_ide_eclipse_2.png)
+![Select]({{ site.url }}/images/configuring_ide_eclipse_2.png)
 
 
 At the end of the import phase, you can expect to see the below dialog.  "Maven plugin connectors" are an extension for m2eclipse. That one should be installed and Eclipse will need to restart after completion.
 
 If you have installed it already, you will be good to go and do not need to do anything.
 
-![Select](images/configuring_ide_eclipse_maven_processor.png)
+![Select]({{ site.url }}/images/configuring_ide_eclipse_maven_processor.png)
 
 __Note__: if you already have an existing JHipster project and have not installed the corresponding connector, you should see the below error:
 
@@ -49,9 +49,9 @@ At this stage you should not have any Java error but should still see some JavaS
 - Select: Exclude all, Applies to folders, Name matches node_modules
 - Press "Ok"
 
-![Right-click](images/configuring_ide_eclipse_3.png)
+![Right-click]({{ site.url }}/images/configuring_ide_eclipse_3.png)
 
-![Exclude](images/configuring_ide_eclipse_4.png)
+![Exclude]({{ site.url }}/images/configuring_ide_eclipse_4.png)
 
 
 ### Exclude 'scripts' and 'bower_components' from src/main/webapp
@@ -65,8 +65,8 @@ At this stage you should not have any Java error but should still see some JavaS
     - `node_modules/` and
     - `src/main/webapp/dist` (the `dist` folder will be created when you generate a production build)
 
-![Right-click](images/configuring_ide_eclipse_5.png)
+![Right-click]({{ site.url }}/images/configuring_ide_eclipse_5.png)
 
-![Exclude](images/configuring_ide_eclipse_6.png)
+![Exclude]({{ site.url }}/images/configuring_ide_eclipse_6.png)
 
-![Multiple select](images/configuring_ide_eclipse_7.png)
+![Multiple select]({{ site.url }}/images/configuring_ide_eclipse_7.png)

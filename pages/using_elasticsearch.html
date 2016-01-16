@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Using Elasticsearch
-permalink: /using_elasticsearch.html
+permalink: /using-elasticsearch/
 sitemap:
     priority: 0.7
     lastmod: 2015-04-20T00:00:00-00:00
@@ -25,6 +25,6 @@ sitemap:
         <li>By default, we use an embedded Elasticsearch in development, and try to connect to a local cluster in production. This can be configured by the standard Spring Boot properties, in the <code>application.yml</code> file.<br> When using the dev profile, the embedded Elasticsearch is configured to store data files under the target folder, a simple <code>mvn clean</code> will destroy the persisted indices.</li>
         <li>The "repository" package has new subpackage, called "search", that holds all ElastiSearch repositories.</li>
         <li>The "User" entity gets indexed in Elasticsearch, and you can query is using the <code>/api/_search/users/:query</code> REST endpoint.</li>
-        <li>When the <a href="{{ site.url }}/creating_an_entity.html">entity sub-generator</a> is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the AngularJS user interface, so you can search your entity in the main CRUD screen.</li>
+        <li>When the <a href="{{ site.url }}/creating-an-entity/">entity sub-generator</a> is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the AngularJS user interface, so you can search your entity in the main CRUD screen.</li>
     </ul>
 </p>
