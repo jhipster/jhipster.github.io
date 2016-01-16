@@ -1,9 +1,10 @@
 ---
 layout: default
 title: Docker Compose
+permalink: /docker-compose/
 sitemap:
     priority: 0.7
-    lastmod: 2016-01-11T00:00:00-00:00
+    lastmod: 2015-12-24T00:00:00-00:00
 ---
 
 # <i class="fa fa-music"></i> [BETA] Docker Compose
