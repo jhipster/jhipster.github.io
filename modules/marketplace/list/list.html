@@ -39,7 +39,7 @@
         <div class="card profile">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title"><a ng-click="details(module.npmPackageName)" href="">{(module.name)}</a></div>
+                    <div class="title"><a ng-click="details(module.npmPackageName)" href="">{(module.name)}</a><small> {(module.npminfo.version)}</small></div>
                     <div class="description">by <a href="{(module.npminfo.author.url)}" target="_blank">{(module.npminfo.author.name)}</a></div>
                 </div>
                 <div class="pull-right card-action">
