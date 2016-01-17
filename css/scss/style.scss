@@ -121,6 +121,13 @@ input.gsc-search-button {
     border: 1px solid $primary-color;
 }
 
+.inline-search {
+    position: relative;
+    top: -24px;
+    float: right;
+    right: 15px;
+}
+
 // Navbar
 .navbar {
     z-index: 10001;

@@ -1,5 +1,6 @@
 (function () {
     'use strict';
+    
     angular.module('marketplace.list', ['ngRoute', 'jhipster.service'])
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/list', {

@@ -82,6 +82,12 @@ input.gsc-search-button {
   background-color: #3E8ACC !important;
   border: 1px solid #3E8ACC; }
 
+.inline-search {
+  position: relative;
+  top: -24px;
+  float: right;
+  right: 15px; }
+
 .navbar {
   z-index: 10001;
   padding-left: 60px;

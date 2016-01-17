@@ -1,6 +1,6 @@
 <h2>Available modules ({((modules | filter:searchText).length)}/{(modules.length)})</h2>
 
-<div>
+<!--<div>
     <span class="fa fa-search"></span> <span>Search modules list:</span> <input type="text" placeholder="Type a module name or keyword" size="50" ng-model="searchText"></input>
 </div>
 
@@ -29,4 +29,34 @@
             </tr>
         </tbody>
     </table>
+</div>-->
+<div class="form-group search-form ng-scope">
+    <input class="form-control search-field" ng-model="searchText" placeholder="Filter by module name or keyword" id="search-field">
+    <label class="fa fa-search inline-search" for="search-field"></label>
+</div>
+<div class="row" ng-repeat="module in modules | filter:searchText | orderBy:'-downloads'">
+    <div class="col-xs-12">
+        <div class="card profile">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="title"><a ng-click="details(module.npmPackageName)" href="">{(module.name)}</a></div>
+                    <div class="description">by <a href="{(module.npminfo.author.url)}" target="_blank">{(module.npminfo.author.name)}</a></div>
+                </div>
+                <div class="pull-right card-action">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-link"><i ng-show="module.verified" class="fa fa-star" tooltip="verified"></i></button>
+                    </div>
+                </div>
+                <div class="clear-both"></div>
+            </div>
+            <div class="card-body">
+                <div class="sub-title">{(module.npminfo.description)}</div>
+            </div>
+            <div class="card-footer">
+                <a type="button" class="btn btn-info" ng-click="details(module.npmPackageName)">Details</a>
+                <a type="button" class="btn btn-default" href="{(module.npminfo.homepage)}">Home page</a>
+                {(module.downloads)} downloads last month.
+            </div>
+        </div>
+    </div>
 </div>
