@@ -1,2 +1,10 @@
 safe:        true
 markdown: kramdown
+exclude: [node_modules, bower_components]
+kramdown:
+  input: GFM
+defaults:
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
