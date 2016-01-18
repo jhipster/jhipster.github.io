@@ -88,6 +88,9 @@ input.gsc-search-button {
   float: right;
   right: 15px; }
 
+.label.keyword {
+  margin-right: 3px; }
+
 .navbar {
   z-index: 10001;
   padding-left: 60px;

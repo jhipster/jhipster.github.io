@@ -54,6 +54,9 @@
                 <a type="button" class="btn btn-info" ng-click="details(module.npmPackageName)">Details</a>
                 <a type="button" class="btn btn-default" href="{(module.npminfo.homepage)}">Home page</a>
                 {(module.downloads)} downloads last month.
+                <div class="pull-right hidden-xs hidden-sm">
+                    <span class="label label-default keyword" ng-repeat="keyword in module.npminfo.keywords">{( keyword )}</span>
+                </div>
             </div>
         </div>
     </div>
