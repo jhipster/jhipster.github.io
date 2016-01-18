@@ -209,6 +209,9 @@ section {
         margin: 0;
         font-size: 3em;
     }
+    &.news {
+        padding: 10px 0;
+    }
     &.success {
         color: #fff;
         background: $primary-color;

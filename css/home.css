@@ -148,6 +148,8 @@ section {
   section h2 {
     margin: 0;
     font-size: 3em; }
+  section.news {
+    padding: 10px 0; }
   section.success {
     color: #fff;
     background: #3E8ACC; }
