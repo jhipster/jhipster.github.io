@@ -396,14 +396,6 @@ Add the css paths to the index.html file inside the CSS build task so that these
                         'generated/*'
                     ]
                 }]
-            },
-            generateOpenshiftDirectory: {
-                    expand: true,
-                    dest: 'deploy/openshift',
-                    src: [
-                        'pom.xml',
-                        'src/main/**'
-                ]
             }
         },
         concurrent: {
@@ -447,13 +439,6 @@ Add the css paths to the index.html file inside the CSS build task so that these
                 push: false,
                 connectCommits: false,
                 message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-            },
-            openshift: {
-                options: {
-                    dir: 'deploy/openshift',
-                    remote: 'openshift',
-                    branch: 'master'
-                }
             }
         },
         ngconstant: {
@@ -538,19 +523,6 @@ Add the css paths to the index.html file inside the CSS build task so that these
 
             grunt.file.write(filepath, fileContent + "\nskipBower=true\n");
         });
-
-        grunt.registerTask('buildOpenshift', [
-            'test',
-            'build',
-            'copy:generateOpenshiftDirectory',
-        ]);
-
-        grunt.registerTask('deployOpenshift', [
-            'test',
-            'build',
-            'copy:generateOpenshiftDirectory',
-            'buildcontrol:openshift'
-        ]);
 
         grunt.registerTask('default', [
             'test',

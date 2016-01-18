@@ -430,14 +430,6 @@ Add the needles to the index.html file so that includeSource can inject JS files
                             'generated/*'
                         ]
                     }]
-                },
-                generateOpenshiftDirectory: {
-                        expand: true,
-                        dest: 'deploy/openshift',
-                        src: [
-                            'pom.xml',
-                            'src/main/**'
-                    ]
                 }
             },
             concurrent: {
@@ -477,13 +469,6 @@ Add the needles to the index.html file so that includeSource can inject JS files
                     push: false,
                     connectCommits: false,
                     message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-                },
-                openshift: {
-                    options: {
-                        dir: 'deploy/openshift',
-                        remote: 'openshift',
-                        branch: 'master'
-                    }
                 }
             },
             ngconstant: {
@@ -571,19 +556,6 @@ Add the needles to the index.html file so that includeSource can inject JS files
 
             grunt.file.write(filepath, fileContent + "\nskipBower=true\n");
         });
-
-        grunt.registerTask('buildOpenshift', [
-            'test',
-            'build',
-            'copy:generateOpenshiftDirectory',
-        ]);
-
-        grunt.registerTask('deployOpenshift', [
-            'test',
-            'build',
-            'copy:generateOpenshiftDirectory',
-            'buildcontrol:openshift'
-        ]);
 
         grunt.registerTask('default', [
             'test',
