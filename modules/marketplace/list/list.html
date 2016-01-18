@@ -41,6 +41,7 @@
                 <div class="card-title">
                     <div class="title"><a ng-click="details(module.npmPackageName)" href="">{(module.name)}</a><small> {(module.npminfo.version)}</small></div>
                     <div class="description">by <a href="{(module.npminfo.author.url)}" target="_blank">{(module.npminfo.author.name)}</a></div>
+                    <div class="description">{(module.npminfo.description)}</div>
                 </div>
                 <div class="pull-right card-action">
                     <div class="btn-group" role="group" aria-label="...">
@@ -48,9 +49,6 @@
                     </div>
                 </div>
                 <div class="clear-both"></div>
-            </div>
-            <div class="card-body">
-                <div class="sub-title">{(module.npminfo.description)}</div>
             </div>
             <div class="card-footer">
                 <a type="button" class="btn btn-info" ng-click="details(module.npmPackageName)">Details</a>

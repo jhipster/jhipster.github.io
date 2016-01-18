@@ -54,6 +54,12 @@
                 return $http.get('/modules/marketplace/data/modules.json').success(function (resp) {
                     return resp;
                 });
+            },
+            getAllModules: function () {
+                /* Get all Jhipster modules */
+                return $http.get('https://npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start=0').success(function (resp) {
+                    return resp;
+                });
             }
         }
     }
