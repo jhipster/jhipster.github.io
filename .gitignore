@@ -6,5 +6,4 @@ _site
 .idea/
 *.iml
 *.iws
-Gemfile
 Gemfile.lock
