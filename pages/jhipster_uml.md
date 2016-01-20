@@ -4,7 +4,7 @@ title: JHipster-UML
 permalink: /jhipster-uml/
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-15T12:00:00-00:00
+    lastmod: 2016-01-20T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -23,7 +23,7 @@ Here's what's covered on this page:
     4.1. [The UML file](#umlfile)  
     4.2. [Use JHipster-UML](#usejuml)  
     4.3. [What's generated](#whatsgenerated)  
-    4.4.  [JHipster notes](#jhipsternotes)  
+    4.4. [JHipster notes](#jhipsternotes)  
 5. [Examples](#examples)  
     5.1. [Modelio](#modelioexample)  
     5.2. [UML Designer](#umldesignerexample)  
@@ -105,6 +105,7 @@ Note that you don't need to capitalize type names (**except for composed names l
 
 ### Relationships
 We just use the examples from JHipster in order to show how to do it with an editor. 
+Please not that we **only** support the relationships listed in the [Managing relationships](https://jhipster.github.io/managing-relationships/) page.
 
 
 #### One-to-One
