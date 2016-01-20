@@ -10,9 +10,9 @@ sitemap:
 # <i class="fa fa-magic"></i> JHipster-UML
 
 
-JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
+JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
-The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
+The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml/), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
 
 Here's what's covered on this page:
 
@@ -124,7 +124,7 @@ Notice that in order to achieve a unidirectional relationship we just removed th
 
 In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
 
-Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing_relationships.html#3) page for more information about this).
+Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing-relationships/#3) page for more information about this).
 This is an example of such an association:
 
 ![One-to-Many2]({{ site.url }}/images/jhipsteruml_uni_otm.png)

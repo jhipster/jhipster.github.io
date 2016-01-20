@@ -9,11 +9,11 @@ lastmod: 2015-10-24T18:40:00-00:00
 
 # <i class="fa fa-sitemap"></i> Managing relationships
 
-When JPA is used, the [entity sub-generator]({{ site.url }}/creating_an_entity.html) can create relationships between entities.
+When JPA is used, the [entity sub-generator]({{ site.url }}/creating-an-entity/) can create relationships between entities.
 
 ## Presentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using_cassandra.html) or [MongoDB]({{ site.url }}/using_mongodb.html), they won't be available.
+Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) or [MongoDB]({{ site.url }}/using-mongodb/), they won't be available.
 
 A relationship works between two entities, and JHipster will generate the code for:
 
@@ -115,7 +115,7 @@ You have two solutions for this:
 - Do a bidirectional mapping, and use it without modification: this is our recommended approach, as it is much simpler
 - Do a bidirectional mapping, and then modify it to transform it into a unidirectional mapping:
     - Remove the "mappedBy" attribute on your `@OneToMany` annotation
-    - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff]({{ site.url }}/development.html)
+    - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff]({{ site.url }}/development/)
 
 
 ## <a name="4"></a> A unidirectional one-to-one relationship

@@ -37,7 +37,7 @@ This should also allow you to have automatic completion of the JHipster properti
 
 [Pascal Grimaud](https://twitter.com/pascalgrimaud) has added support for [Docker Compose](https://docs.docker.com/compose/), which should be of great help for setting up both development and production environments.
 
-Our [documentation page]({{ site.url }}/docker_compose.html) is already available so you can start using this new feature straight away, but as this is very new it still has the __BETA__ tag, and we are awaiting your feedback.
+Our [documentation page]({{ site.url }}/docker-compose/) is already available so you can start using this new feature straight away, but as this is very new it still has the __BETA__ tag, and we are awaiting your feedback.
 
 ## Cool new feature: Liquibase async start-up
 

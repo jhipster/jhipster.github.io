@@ -11,8 +11,8 @@ JHipster release 0.5.0
 What's new
 ----------
 
-- The "entity" sub-generator is now in ready to use. A full documentation is available [here](/creating_an_entity.html)
-- You can now create a single executable JAR file of the application, for easy deployment. It is documentated in the [production section](/production.html)
+- The "entity" sub-generator is now in ready to use. A full documentation is available [here](/creating-an-entity/)
+- You can now create a single executable JAR file of the application, for easy deployment. It is documentated in the [production section](/production/)
 - Several bug fixes and minor improvements, and updated documentation
 
 How to upgrade

@@ -12,7 +12,7 @@ What's new
 ----------
 
 - JHipster now supports Websocket, for the new "real-time Web", thanks to the great [Atmosphere framework](http://async-io.org/). After studying carefully both Atmosphere and the new Spring Websocket support, we found Atmosphere to be a better tool for our needs. But of course, if you disagree, there is still the possibility to make this an option in the Yeoman generator.
-- We now have a usable [Docker](https://www.docker.io/) configuration, which is fully documentated on our [updated installation page](/installation.html).
+- We now have a usable [Docker](https://www.docker.io/) configuration, which is fully documentated on our [updated installation page](/installation/).
 - We updated all Maven/NPM/Bower dependencies, so that your generated application stays on the cutting edge!
 
 How to upgrade

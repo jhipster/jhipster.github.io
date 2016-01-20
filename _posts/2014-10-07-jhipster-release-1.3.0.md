@@ -13,7 +13,7 @@ What's new
 
 This is an important new release, with two major news:
 
-- The entity sub-generator has been greatly improved, and can now generate a whole CRUD application, from database to HTML. Please check our [updated documentation](http://jhipster.github.io/creating_an_entity.html).
+- The entity sub-generator has been greatly improved, and can now generate a whole CRUD application, from database to HTML. Please check our [updated documentation](http://jhipster.github.io/creating-an-entity/).
 - Our Java "hot reload" feature has been deprecated. We had too many bugs, people got confused about it, and most importantly the Spring Loaded team is not working on the project. We will try to find an alternative, as we have invested a lot of time on this subject. Please note that for generating Liquibase changelogs, you can now use the new entity sub-generator (see above point).
 
 [You can check the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.3.0+is%3Aclosed).
