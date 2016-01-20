@@ -17,7 +17,7 @@ Original work was done by [David Pilato](https://twitter.com/dadoonet) from Elas
 
 The main interest of using Spring Data Elasticsearch is that everything is automatically configured for you by Spring Boot.
 
-If you want more information on our Elasticsearch support, we have a [specific documentation available](http://jhipster.github.io/using_elasticsearch.html).
+If you want more information on our Elasticsearch support, we have a [specific documentation available](http://jhipster.github.io/using-elasticsearch/).
 
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.9.0+is%3Aclosed)__.
 

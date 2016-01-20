@@ -13,9 +13,9 @@ What's new
 
 ### The marketplace is open!
 
-Everybody has been waiting for this for a long time, our [marketplace]({{ site.url }}/modules/marketplace.html) is now open!
+Everybody has been waiting for this for a long time, our [marketplace]({{ site.url }}/modules/marketplace/) is now open!
 
-You can code your own modules, with all the power of the JHipster sub-generators, but without having to be part of the project: anybody can code and publish them easily, just follow our [documentation here]({{ site.url }}/modules/creating_a_module.html).
+You can code your own modules, with all the power of the JHipster sub-generators, but without having to be part of the project: anybody can code and publish them easily, just follow our [documentation here]({{ site.url }}/modules/creating-a-module/).
 
 ### JHipster "needles"
 

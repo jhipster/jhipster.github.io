@@ -11,7 +11,7 @@ JHipster release 2.20.0
 What's new
 ----------
 
-Like last month, this new release was largely done by [the new dev team](http://jhipster.github.io/team.html), so kudos to all of you guys!
+Like last month, this new release was largely done by [the new dev team](http://jhipster.github.io/team/), so kudos to all of you guys!
 
 The new and noteworthy features are:
 

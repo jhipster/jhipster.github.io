@@ -4,15 +4,15 @@ title: JHipster-UML
 permalink: /jhipster-uml/
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-09T12:00:00-00:00
+    lastmod: 2016-01-15T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
 
 
-JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating_an_entity.html). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing_relationships.html) using a visual tool than with the classical Yeoman questions and answers.
+JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
-The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
+The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml/), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
 
 Here's what's covered on this page:
 
@@ -124,7 +124,7 @@ Notice that in order to achieve a unidirectional relationship we just removed th
 
 In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
 
-Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing_relationships.html#3) page for more information about this).
+Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing-relationships/#3) page for more information about this).
 This is an example of such an association:
 
 ![One-to-Many2]({{ site.url }}/images/jhipsteruml_uni_otm.png)
@@ -357,13 +357,13 @@ Here is an example using this editor:
 To create attributes, just double-click on the class, and add your attribute. You can import types by right-clicking somewhere on the diagram (in the white-space), then import Primitive Types, then select UML and Java.
 This will spare you the _chore_ of creating types manually (with DataTypes or PrimitiveTypes).
 
-Unfortunately, UML Designer doesn't support constraints yet. A workaround is being studied by the team behind the editor.
+Unfortunately, UML Designer doesn't support constraints yet.
 
 One of the nice things UML Designer provides is that you don't need to export to XMI, just go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
 
 ## Unidirectional relationships
 
-Unfortunately, this editor doesn't support unidirectional relationships.
+This editor supports unidirectional relationships. To do that, create the relationship you want between your two classes, double-click on the relationship and tweak it.
 
 
 ### Commenting

@@ -14,7 +14,7 @@ This release contains several bug fixes and small improvements, but the really b
 
 - All AngularJS views are now fully internationalized!
 - We use the great ["Angular Translate"](https://github.com/PascalPrecht/angular-translate) library
-- Of course, usage of i18n is documented on this Website, in the ["development" section](/development.html)
+- Of course, usage of i18n is documented on this Website, in the ["development" section](/development/)
 
 We haven't seen this implemented in other Yeoman generators, so once again JHipster is ahead of the pack in "enterprise" features!
 

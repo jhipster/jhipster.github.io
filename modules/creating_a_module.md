@@ -56,6 +56,7 @@ JHipster will call certain hooks before and after some of its tasks, currently a
 - Post App creation hook [planned]
 - Pre App creation hook [planned]
 
+[JHipster module generator](https://github.com/jhipster/generator-jhipster-module) now has option to generate this.
 A JHipster module can register to act as a hook when its main generator is run by the end user. You need to call the `registerModule` method available in `jhipsterFunc` from your main (app) generator to register as hook, you need to pass the below parameters in the method as below
 
 ```javascript

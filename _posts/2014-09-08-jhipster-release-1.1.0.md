@@ -15,7 +15,7 @@ This release comes with [several enhancements and bug fixes](https://github.com/
 
 Most importantly:
 
-- We have early support for deploying a JHipster application to the cloud in one command! We currently support [Heroku]({{ site.url }}/heroku.html) and [Openshift]({{ site.url }}/openshift.html). Please give them a try, but remember, this is an early release!
+- We have early support for deploying a JHipster application to the cloud in one command! We currently support [Heroku]({{ site.url }}/heroku/) and [Openshift]({{ site.url }}/openshift/). Please give them a try, but remember, this is an early release!
 - We updated the Liquibase/JPA configuration so that they now match 100%. We even run the Hibernate schema validation tool when running the tests ("mvn test"). However, this will probably break existing Liquibase configuration, or be too strict for most users: please notify us, and we will remove this check in future releases if it is too strict!
 
 
