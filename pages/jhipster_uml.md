@@ -4,7 +4,7 @@ title: JHipster-UML
 permalink: /jhipster-uml/
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-09T12:00:00-00:00
+    lastmod: 2016-01-15T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -357,13 +357,13 @@ Here is an example using this editor:
 To create attributes, just double-click on the class, and add your attribute. You can import types by right-clicking somewhere on the diagram (in the white-space), then import Primitive Types, then select UML and Java.
 This will spare you the _chore_ of creating types manually (with DataTypes or PrimitiveTypes).
 
-Unfortunately, UML Designer doesn't support constraints yet. A workaround is being studied by the team behind the editor.
+Unfortunately, UML Designer doesn't support constraints yet.
 
 One of the nice things UML Designer provides is that you don't need to export to XMI, just go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
 
 ## Unidirectional relationships
 
-Unfortunately, this editor doesn't support unidirectional relationships.
+This editor supports unidirectional relationships. To do that, create the relationship you want between your two classes, double-click on the relationship and tweak it.
 
 
 ### Commenting
