@@ -281,6 +281,9 @@ In JHipster-UML, each editor has been tested with the Oracle example. If you wis
 **Important version note: Modelio v3.3 is tested and working, however a bug exists in v3.4 preventing the user from exporting the diagram. This bug is fixed as of v3.4.1.**
 
 Modelio can be downloaded for free [here](https://www.modelio.org/). Make sure you have Java 8 if you're downloading any of the 3.3+ versions (it won't work otherwise).
+
+The example file is [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi).
+
 Once launched, create a project and you'll be seeing this view:
 
 ![Empty Modelio project]({{ site.url }}/images/jhipsteruml_modelio_1.png)
@@ -340,6 +343,8 @@ It works the same way as Eclipse.
 To create an empty project, just click on File -> New -> Modeling Project. Enter the name, and validate.
 If no file.uml is created, right-click on your project, and New -> Other -> UML Designer -> UML Model, and enter any name you want.
 
+The example XMI file is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml).
+
 You'll then be presented by a view like this one:
 
 ![UML Designer, dashboard]({{ site.url }}/images/jhipsteruml_umldesigner_1.png)
@@ -376,6 +381,8 @@ Commenting is possible for classes and attributes (not relationships), and achie
 
 ## <a name="genmymodelexample"></a>GenMyModel
 GenMyModel is an in-browser UML editor that can be found [here](https://dashboard.genmymodel.com/). You can use it for free but with restrictions, we hope that this editor will enable users to fiddle around with JHipster-UML without the constraint of downloading an application.
+
+The XMI file example is located [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
 
 After signing up go in Projects ->  New Projects, give a it name, in Model Type choose UML, in default diagram choose Class Diagram and then click on Create project.
 Then this screen will be displayed:
@@ -456,7 +463,7 @@ Exporting an XMI file is straightforward: click 'Export' -> 'XMI' -> select 2.1 
 After exporting your diagram, you might notice that your XMI file is quite big. Visual Paradigm exports not only the elements in the diagram, but the place the drawing and placements informations too.
 The parsing will still be quick, but may take a bit more time.
 
-That's all you need to know to start using Visual Paradigm.
+That's all you need to know to start using Visual Paradigm, the example file is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/visualparadigm.uml).
 
 ### Commenting
 
@@ -576,6 +583,8 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 
 # <a name="jdl"></a> JDL - JHipster Domain Language
 We added the possibility to describe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
+
+The Oracle example has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/jh/oracle.jh).
 
 ## <a name="jdllanguage"></a> The language
 We tried to keep the syntax as friendly as we can for Java developers.
