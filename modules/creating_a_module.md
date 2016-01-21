@@ -29,7 +29,7 @@ Or, you can use the [JHipster module generator](https://github.com/jhipster/gene
 A JHipster module:
 
 - is an NPM package, and is a Yeoman generator.
-- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the "yo" command. Instead of being prefixed by "generator-", it is prefixed by "generator-jhipster-", and instead of having just the "yeoman-generator" keyword, it has 2 keywords, "yeoman-generator" and "jhipster-module".
+- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the "yo" command. Instead of being prefixed by "generator-", it is prefixed by "generator-jhipster-", and instead of having just the "yeoman-generator" keyword, it must have 2 keywords, "yeoman-generator" and "jhipster-module".
 - A JHipster module registering as a hook should not call `process.exit` in its generators being hooked.
 
 ## Composability
@@ -138,8 +138,9 @@ And all the variables from the JHipster `.yo-rc.json` file:
 
 ## Registering a module to the JHipster marketplace
 
-To have your module available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to add it to the [modules.json file](https://github.com/jhipster/jhipster.github.io/blob/master/modules/marketplace/data/modules.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
+To have your module available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to make sure you have the 2 keyword `yeoman-generator` and `jhipster-module` in your published npm `package.json`.
+If you find any entry in the marketplace which is not a JHipster module, you can help to blacklist it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/master/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
 
-The `modules.json` is a JSON file containing an array of the available modules. Add a new module in the array, and specify all fields. Leave the "verified" field as false: your module will become "verified" if the JHipster team verifies it. Specify the JHipster version required for your module to work by adding the `jhiVersionRequired` property, follow semver operators to define a range.
+Your module will become "verified" if the JHipster team verifies it.
 
-Once your Pull Request is accepted, your module will become available in our marketplace.
+Once you publish your module to NPM, your module will become available in our marketplace.

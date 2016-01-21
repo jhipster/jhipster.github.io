@@ -3,9 +3,9 @@
         ng-click="list()"
         class="btn btn-info btn-sm">Back to modules list</button>
 
-<h2>{(module.name)}</h2>
+<h2>{(module.name[0] | jhiModuleFilter)}</h2>
 
-<i><p>by <a href="{(module.npminfo.author.url)}">{(module.npminfo.author.name)}</a></i>
+<i><p>by <a href="{(module.npminfo.author.url)}" target="_blank">{(module.npminfo.author.name)}</a>(<a href="https://www.npmjs.com/~{(module.npminfo._npmUser.name)}" target="_blank">{(module.npminfo._npmUser.name)}</a>)</i>
 <p>
     Latest version: {(module.npminfo.version)}
 </p>
@@ -20,8 +20,8 @@
 
 <h3>Links</h3>
 <ul>
-    <li><a href="{(module.npminfo.homepage)}">Project URL</a></li>
-    <li><a href="https://www.npmjs.com/package/{(npmPackageName)}">NPM package page</a></li>
+    <li><a href="{(module.npminfo.homepage)}" target="_blank">Project URL</a></li>
+    <li><a href="https://www.npmjs.com/package/{(npmPackageName)}" target="_blank">NPM package page</a></li>
 </ul>
 <div ng-if="!readmeFile">
 	<h3>How to install</h3>

@@ -4,7 +4,8 @@
     angular.module('jhipster.service', [])
         .factory('GHService', GHService)
         .factory('NpmService', NpmService)
-        .factory('ModuleService', ModuleService);
+        .factory('ModuleService', ModuleService)
+        .filter('jhiModuleFilter', jhiModuleFilter);
 
     GHService.$inject = ['$http'];
     NpmService.$inject = ['$http'];
@@ -55,20 +56,34 @@
     }
     
     function ModuleService($http) {
+        var currentModule;
         return {
-            getModules: function () {
-                return $http.get('/modules/marketplace/data/modules.json').success(function (resp) {
+            getModulesConfig: function () {
+                return $http.get('/modules/marketplace/data/modules-config.json').success(function (resp) {
                     return resp;
                 });
             },
-            getAllModules: function () {
+            getAllModules: function (start, size) {
                 /* Get all Jhipster modules */
-                return $http.get('https://npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start=0').success(function (resp) {
+                return $http.get('https://npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start='+ start +'&size=' + size).success(function (resp) {
                     return resp;
                 });
+            },
+            setCurrent: function(module) {
+                currentModule = module;
+            },
+            getCurrent: function(module) {
+                return currentModule;
             }
         }
     }
 
+    function jhiModuleFilter () {
+        return function(input) {
+            return input.replace('generator-jhipster-','').replace(/(?:^|[\s\-\_\.])\S/g, function(a) { 
+                return a.replace(/[\-\_\.]/,' ').toUpperCase(); 
+            });
+        };
+    }
 
 })();

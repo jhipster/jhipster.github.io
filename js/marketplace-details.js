@@ -13,42 +13,36 @@
 
     function ModuleDetailsCtrl($scope, $routeParams, $location, ModuleService, NpmService, GHService) {
         $scope.npmPackageName = $routeParams.npmPackageName;
-
-        ModuleService.getModules().success(function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var module = data[i];
-                if (module.npmPackageName == $scope.npmPackageName) {
-                    $scope.module = module;
-                    NpmService.getNpmInfo(module.npmPackageName).success(function (npminfo) {
-                        $scope.module.npminfo = npminfo;
-                        try {
-                            var repository = npminfo.repository;
-                            var repoUrl = repository && repository.url ? repository.url : repository;
-                            // we will look only for github repo pattern assuming all modules will be in github
-                            var repoUrl = repoUrl ? repoUrl.replace(/((git)?\+?(https?)?){1}:\/\/github.com\//gi,'') : false;
-                            var author = repoUrl ? repoUrl.split('/')[0] : false;
-                            var repo = repoUrl ? repoUrl.split('/')[1].replace('.git','') : npminfo.name;
-                            if( author && repo) {
-                                GHService.getReadme(author, repo, 'v' + npminfo.version).success(function(file) {
-                                    $scope.readmeFile = file;
-                                }).error(function() {
-                                    GHService.getReadme(author, repo, npminfo.version).success(function(file) {
-                                        $scope.readmeFile = file;
-                                    }).error(function() {
-                                        GHService.getReadme(author, repo, 'master').success(function(file) {
-                                            $scope.readmeFile = file;
-                                        });
-                                    });
-                                });
-                            }
-                        } catch (err){
-                            console.log('Could not read Readme file :' + err);
-                        }
+        var module = ModuleService.getCurrent();
+        $scope.module = module || { name: [$scope.npmPackageName] };
+        NpmService.getNpmInfo($scope.npmPackageName).success(function (npminfo) {
+            $scope.module.npminfo = npminfo;
+            try {
+                var repository = npminfo.repository;
+                var repoUrl = repository && repository.url ? repository.url : repository;
+                // we will look only for github repo pattern assuming all modules will be in github
+                var repoUrl = repoUrl ? repoUrl.replace(/((git)?\+?(https?)?){1}:\/\/github.com\//gi,'') : false;
+                var author = repoUrl ? repoUrl.split('/')[0] : false;
+                var repo = repoUrl ? repoUrl.split('/')[1].replace('.git','') : npminfo.name;
+                if( author && repo) {
+                    GHService.getReadme(author, repo, 'v' + npminfo.version).success(function(file) {
+                        $scope.readmeFile = file;
+                    }).error(function() {
+                        GHService.getReadme(author, repo, npminfo.version).success(function(file) {
+                            $scope.readmeFile = file;
+                        }).error(function() {
+                            GHService.getReadme(author, repo, 'master').success(function(file) {
+                                $scope.readmeFile = file;
+                            });
+                        });
                     });
-
                 }
+            } catch (err){
+                console.log('Could not read Readme file :' + err);
             }
         });
+
+        
 
         NpmService.getNpmDownloadsRangeLastMonth($scope.npmPackageName).success(function (data) {
             var dates = ['date'];
