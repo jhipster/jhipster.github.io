@@ -1,0 +1,8 @@
+{
+    "verifiedModules": {
+        "generator-jhipster-fortune" : true
+    },
+    "blacklistedModules": {
+ 
+    }
+}
