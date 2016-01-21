@@ -3,11 +3,13 @@
         ng-click="list()"
         class="btn btn-info btn-sm">Back to modules list</button>
 
-<h2>Details for {(npmPackageName)}</h2>
+<h2>{(module.name)}</h2>
 
 <i><p>by <a href="{(module.npminfo.author.url)}">{(module.npminfo.author.name)}</a></i>
-
 <p>
+    Latest version: {(module.npminfo.version)}
+</p>
+<p ng-if="!readmeFile">
 {(module.npminfo.description)}
 </p>
 
@@ -16,22 +18,19 @@
     This module works with JHipster version: <b>{(module.npminfo.dependencies['generator-jhipster'])}</b>
 </p>
 
-<p>
-{(module.npminfo.description)}
-</p>
-
 <h3>Links</h3>
 <ul>
     <li><a href="{(module.npminfo.homepage)}">Project URL</a></li>
     <li><a href="https://www.npmjs.com/package/{(npmPackageName)}">NPM package page</a></li>
 </ul>
-
-<h3>How to install</h3>
-<pre>npm install -g {(npmPackageName)}</pre>
-<p>
-    Latest version: {(module.npminfo.version)}
-</p>
-
+<div ng-if="!readmeFile">
+	<h3>How to install</h3>
+	<pre>npm install -g {(npmPackageName)}</pre>
+</div>
+<hr>
+<div btf-markdown="readmeFile"></div>
+<hr>
 <h3>Downloads for last month</h3>
 
 <div id="chart"></div>
+

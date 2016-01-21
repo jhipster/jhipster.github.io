@@ -22,7 +22,13 @@
                 return $http.get('https://api.github.com/repos/' + author + '/' + name + '/contributors?page=' + page).success(function (resp) {
                     return resp;
                 });
-            }
+            },
+
+            getReadme: function(author, repo, version) {
+                return $http.get('https://raw.githubusercontent.com/' + author + '/' + repo + '/' + version +'/README.md').success(function (resp) {
+                    return resp;
+                });
+            }   
         }
     }
 
