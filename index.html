@@ -312,7 +312,7 @@ sitemap:
     </section>
 
     <!-- Contact Section -->
-    <section class="success home-section" id="modules" ng-controller="ModuleController">
+    <section class="success home-section" id="modules" ng-controller="ModuleListCtrl">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -322,8 +322,6 @@ sitemap:
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -344,13 +342,14 @@ sitemap:
                 <div ng-cloak ng-repeat="module in modules | filter: searchText | orderBy: '-downloads' | limitTo:16">
                     <div class="clearfix" ng-if="$index % 4 == 0"></div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <a ng-href="{{ site.url }}/modules/marketplace/#/details/{(module.npmPackageName)}">
+                        <a ng-href="{{ site.url }}/modules/marketplace/#/details/{(module.name[0])}"
+                            title="{(module.description[0])}">
                             <div class="card dark module summary-inline">
                                 <div class="card-body">
                                     <i class="icon fa fa-cube fa-4x"></i>
                                     <div class="content">
-                                        <div class="title">{(module.name)}</div>
-                                        <div class="sub-title">by {(module.npminfo.author.name)}</div>
+                                        <div class="title">{(module.name[0] | jhiModuleFilter)}</div>
+                                        <div class="sub-title">by {(module.author.join(','))}</div>
                                         <div class="sub-title">{(module.downloads)} downloads last month</div>
                                     </div>
                                     <div class="clear-both"></div>

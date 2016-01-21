@@ -23,18 +23,16 @@ $('.navbar-collapse ul li a').click(function () {
 (function () {
     'use-strict';
 
-    angular.module('jhipster.home', ['jhipster.service'])
+    angular.module('jhipster.home', ['jhipster.service', 'marketplace.list'])
         .config([
           '$interpolateProvider',
             function ($interpolateProvider) {
                 return $interpolateProvider.startSymbol('{(').endSymbol(')}');
           }
         ])
-        .controller('HomeController', HomeController)
-        .controller('ModuleController', ModuleController);
+        .controller('HomeController', HomeController);
     
     HomeController.$inject = ['$scope', 'GHService', 'NpmService'];
-    ModuleController.$inject = ['$scope', 'ModuleService', 'NpmService'];
 
     function HomeController($scope, GHService, NpmService) {
         GHService.getGithubConfig('jhipster', 'generator-jhipster').success(function (data) {
@@ -63,34 +61,6 @@ $('.navbar-collapse ul li a').click(function () {
             $scope.npmDownloads = data.downloads;
         });
 
-    }
-
-    function ModuleController($scope, ModuleService, NpmService) {
-        ModuleService.getModules().success(function (data) {
-            $scope.modules = data;
-            var modulesList = '';
-            var getInfo = function(module) {
-              NpmService.getNpmInfo(module.npmPackageName).success(function (npminfo) {
-                    module.npminfo = npminfo;
-                });
-            }
-            for (var i = 0; i < data.length; i++) {
-                var module = data[i];
-                modulesList += data[i].npmPackageName + ',';
-                getInfo(module);
-            }
-            NpmService.getNpmDownloadsLastMonth(modulesList).success(function (data) {
-                for (var i = 0; i < $scope.modules.length; i++) {
-                    var module = $scope.modules[i];
-                    var npmstats = data[module.npmPackageName];
-                    if (npmstats != undefined) {
-                        module.downloads = npmstats.downloads;
-                    } else {
-                        module.downloads = 0;
-                    }
-                }
-            });
-        });
     }
 
 })();
