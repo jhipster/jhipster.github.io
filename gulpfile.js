@@ -8,24 +8,6 @@ var gulp = require("gulp"),
     rename = require("gulp-rename");
 
 gulp.task('build', function(cb) {
-    // HTML
-    gulp.src('index.html')
-      .pipe(replace('bower_components/bootstrap/dist/css/bootstrap.min.css', 'lib/css/bootstrap.min.css'))
-      .pipe(replace('bower_components/font-awesome/css/font-awesome.min.css', 'lib/css/font-awesome.min.css'))
-      .pipe(replace('bower_components/animate.css/animate.min.css', 'lib/css/animate.min.css'))
-      .pipe(replace('bower_components/datatables/media/css/jquery.dataTables.min.css', 'lib/css/jquery.dataTables.min.css'))
-      .pipe(replace('bower_components/datatables/media/css/dataTables.bootstrap.css', 'lib/css/dataTables.bootstrap.css'))
-      .pipe(replace('bower_components/jquery/dist/jquery.min.js', 'lib/js/jquery.min.js'))
-      .pipe(replace('bower_components/bootstrap/dist/js/bootstrap.min.js', 'lib/js/bootstrap.min.js'))
-      .pipe(replace('bower_components/Chart.js/Chart.min.js', 'lib/js/Chart.min.js'))
-      .pipe(replace('bower_components/datatables/media/js/jquery.dataTables.min.js', 'lib/js/jquery.dataTables.min.js'))
-      .pipe(replace('bower_components/datatables/media/js/dataTables.bootstrap.min.js', 'lib/js/dataTables.bootstrap.min.js'))
-      .pipe(replace('bower_components/ace-builds/src/ace.js', 'lib/js/ace/ace.js'))
-      .pipe(replace('bower_components/ace-builds/src/mode-html.js', 'lib/js/ace/mode-html.js'))
-      .pipe(replace('bower_components/ace-builds/src/theme-github.js', 'lib/js/ace/theme-github.js'))
-      .pipe(replace('bower_components/jquery.easing/js/jquery.easing.min.js', 'lib/js/jquery.easing.min.js'))
-      .pipe(replace('bower_components/angular/angular.min.js', 'lib/js/angular.min.js'))
-      .pipe(gulp.dest('./'));
 
     // lib
     lib = mainBowerFiles()
