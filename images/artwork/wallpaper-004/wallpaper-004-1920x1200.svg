@@ -16,10 +16,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="wallpaper-004.-1920x1200svg.svg"
-   inkscape:export-filename="/home/fred/git/jhipster-artwork/wallpaper/wallpaper-002-thumbnailpng"
-   inkscape:export-xdpi="10.31"
-   inkscape:export-ydpi="10.31">
+   sodipodi:docname="wallpaper-004.-1920x1200.svg"
+   inkscape:export-filename="/home/fred/git/jhipster-artwork/wallpaper/wallpaper-004-1440x900.png"
+   inkscape:export-xdpi="67.5"
+   inkscape:export-ydpi="67.5">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -30,7 +30,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="743.5714"
+     inkscape:cx="-10.714314"
      inkscape:cy="692.66131"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
