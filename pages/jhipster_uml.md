@@ -4,7 +4,7 @@ title: JHipster-UML
 permalink: /jhipster-uml/
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-20T12:00:00-00:00
+    lastmod: 2016-01-26T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -819,7 +819,7 @@ Finally, in this example we have the Car that knows of its drivers, and the Driv
 
 # <a name="annexes"></a>Annexes
 
-Here is the type table (from _types.js_):
+Here is the type table (from **lib/types/*_types.js**):
 
 <table class="table table-striped table-responsive">
   <tr>
@@ -899,5 +899,23 @@ Here is the type table (from _types.js_):
     <td></td>
     <td>UUID</td>
     <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td>Blob</td>
+    <td>Blob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+  <tr>
+    <td>AnyBlob</td>
+    <td>AnyBlob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+  <tr>
+    <td>ImageBlob</td>
+    <td>ImageBlob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
   </tr>
 </table>
