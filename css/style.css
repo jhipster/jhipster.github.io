@@ -1468,4 +1468,5 @@ footer {
     background: #fff; }
 
 .team-member {
-  max-width: 250px !important; }
+  max-width: 250px !important;
+  min-height: 350px; }

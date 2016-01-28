@@ -57,6 +57,7 @@ JHipster is developed by a team of people around the world. We have a lot of con
             </div>
         </div>
     </div>
+    <div class="clearfix visible-xs-block visible-sm-block"></div>
     <div class="col-md-3 col-sm-6 team-member">
         <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/9156882?v=3" class="img-responsive">
@@ -75,6 +76,8 @@ JHipster is developed by a team of people around the world. We have a lot of con
             </div>
         </div>
     </div>
+    <div class="clearfix visible-xs-block visible-sm-block"></div>
+    <div class="clearfix visible-md-block visible-lg-block"></div>
     <div class="col-md-3 col-sm-6 team-member">
         <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/361007?v=3" class="img-responsive">
@@ -84,8 +87,6 @@ JHipster is developed by a team of people around the world. We have a lot of con
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-md-3 col-sm-6 team-member">
         <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/4958079?v=3" class="img-responsive">
@@ -95,6 +96,7 @@ JHipster is developed by a team of people around the world. We have a lot of con
             </div>
         </div>
     </div>
+    <div class="clearfix visible-xs-block visible-sm-block"></div>
     <div class="col-md-3 col-sm-6 team-member">
         <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/17892?v=3" class="img-responsive">
@@ -113,6 +115,8 @@ JHipster is developed by a team of people around the world. We have a lot of con
             </div>
         </div>
     </div>
+    <div class="clearfix visible-xs-block visible-sm-block"></div>
+    <div class="clearfix visible-md-block visible-lg-block"></div>
     <div class="col-md-3 col-sm-6 team-member">
         <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/571389?v=3" class="img-responsive">
