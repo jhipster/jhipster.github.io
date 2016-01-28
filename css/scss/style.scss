@@ -571,7 +571,7 @@ input.gsc-search-button {
 .app-container:not(.home) footer {
     margin-left: -30px;
     margin-right: -30px;
-} 
+}
 
 /* small screen */
 
@@ -583,7 +583,7 @@ input.gsc-search-button {
     .app-container footer {
         margin-left: -30px;
         margin-right: -30px;
-    } 
+    }
     .navbar {
         padding-left: 0;
         .navbar-header {
@@ -2034,4 +2034,7 @@ footer {
         color: $primary-color;
         background: #fff;
     }
+}
+.team-member{
+    max-width: 250px !important;
 }
