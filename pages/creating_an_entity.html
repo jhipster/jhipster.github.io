@@ -136,15 +136,25 @@ lastmod: 2014-10-10T00:00:00-00:00
     </ul>
 </p>
 
-<h2>Generating an entity a second time</h2>
+<h2>Updating an existing entity</h2>
 
 <p>
-    The entity configuration is saved in a specific .json file, in the <code>.jhipster</code> directory. So if you run again the sub-generator, using an existing entity name, your entity will be re-generated.
+    The entity configuration is saved in a specific .json file, in the <code>.jhipster</code> directory. So if you run the sub-generator again, using an existing entity name, you can update or regenerate the entity.
 </p>
 <p>
-    You might want to do this for the following reasons:
+    When you run the entity sub generator for an existing entity, you will be asked a question 'Do you want to update the entity? This will replace the existing files for this entity, all your custom code will be overwritten' with following options:
     <ul>
-        <li>You want to reset your code to its original state</li>
+        <li><code>Yes, re generate the entity</code> - This will just regenerate your entity. Tip: This can be forced by passing a <code>--regenerate</code> CLI flag when running the sub generator</li>
+        <li><code>Yes, add more fields and relationships</code> - This will give you questions to add more fields and relationships</li>
+        <li><code>Yes, remove fields and relationships</code> - This will give you questions to remove existing fields and relationships fromthe entity</li>
+        <li><code>No, exit</code> - This will exist the sub generator without changing anything</li>
+    </ul>
+</p>
+<p>
+    You might want to update your entity for the following reasons:
+    <ul>
+        <li>You want to add/remove fields and relationships to existing entity</li>
+        <li>You want to reset your entity code to its original state</li>
         <li>You have updated JHipster, and would like to have your entity generated with the new templates</li>
         <li>You have modified the .json configuration file (the format is quite close to the questions asked by the generator, so it's not very complicated), so you can have a new version of your entity</li>
         <li>You have copy/pasted the .json file, and want a new entity that is very close to the copied entity</li>
