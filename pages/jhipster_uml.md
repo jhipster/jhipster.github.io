@@ -4,7 +4,7 @@ title: JHipster-UML
 permalink: /jhipster-uml/
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-26T12:00:00-00:00
+    lastmod: 2016-01-29T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -29,6 +29,7 @@ Here's what's covered on this page:
     5.2. [UML Designer](#umldesignerexample)  
     5.3. [GenMyModel](#genmymodelexample)  
     5.4. [Visual Paradigm](#visualparadigmexample)  
+    5.5.  [Enumerations](#enumerationexamples)  
 6. [Testing](#testing-juml)
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)  
@@ -472,6 +473,16 @@ Commenting is possible only for classes and attributes (not for relationships), 
 Note that the comment's title isn't taken into account, only the body is.
 
 ![Visual Paradigm, commenting]({{ site.url }}/images/jhipsteruml_visualparadigm_commenting.png)
+
+## <a name="enumerationexamples"></a>Enumerations
+
+JHipster and JHipster UML support both support enumerations.
+Here's how you define them:
+  - For Modelio, drag and drop the `Enumeration` object and place it somewhere. Finally, add the `Enumeration Literal` object to the enum to add it;
+  - For UML Designer, there is the `Enumeration` object that can be placed and used. However, the literal is not called `Enumeration Literal` but just `Literal`;
+  - GenMyModel possess the objects needed: `Enum` and `Enum Literal` in the main object panel (on the left hand side of the screen).
+  - Visual Paradigm defines an object called `Enumeration` that can be used to achieve our goal. To add values, right-click the enumeration, select `Add` and add an `Enumeration Literal`;
+  - For our JDL, simply do  `enum MyEnum { A, B }` to declare an enum.
 
 
 ***
