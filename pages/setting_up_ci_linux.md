@@ -7,7 +7,7 @@ priority: 0.7
 lastmod: 2015-01-09T12:40:00-00:00
 ---
 
-# <i class="fa fa-check"></i> Setting up Continuous Integration on Linux server
+# <i class="fa fa-stethoscope"></i> Setting up Continuous Integration on Linux server
 
 The instructions below are for a RedHat/CentOS server but can be easily adapted for other Linux distributions.
 
