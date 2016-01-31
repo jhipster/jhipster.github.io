@@ -227,6 +227,18 @@
                             <li {% if '/jhipster-uml/' == page.url %}class="active" {% endif %}>
                                 <a href="{{ site.url }}/jhipster-uml/"><span class="icon fa fa-fw fa-magic"></span><span class="title">JHipster-UML</span></a>
                             </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
+                                <div id="dropdown-9" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/help/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/help/"><i class="fa fa-fw fa-users"></i> Community help</a></li>
+                                            <li {% if '/consultintg/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/consulting/"><i class="fa fa-fw fa-user-md"></i> Professional help</a></li>
+                                            <li {% if '/training/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/training/"><i class="fa fa-fw fa-graduation-cap"></i> Training</a></li>
+                                        </ul>
+                                     </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -254,17 +266,12 @@
                                     <div class="footer-col col-md-4">
                                         <div class="col-md-6 col-sm-12">
                                             <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="{{ site.url }}/team/">Team</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="{{ site.url }}/policies/">Policies</a></h5>
                                             <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="{{ site.url }}/artwork">Artwork</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="{{ site.url }}/thanks/">Thanks</a></h5>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
-                                            <h5 class="text-left"><i class="fa fa-bug fa-fw"></i> <a class="link" target="_blank" href="https://github.com/jhipster/generator-jhipster/issues">Issues</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-users fa-fw"></i> <a class="link" href="{{ site.url }}/help/">Community help</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-user-md fa-fw"></i> <a class="link" href="{{ site.url }}/consulting/">Professional help</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-graduation-cap fa-fw"></i> <a class="link" href="{{ site.url }}/training/">Training</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="{{ site.url }}/policies/">Policies</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="{{ site.url }}/thanks/">Thanks</a></h5>
                                         </div>
-
                                     </div>
                                     <div class="footer-col col-md-4">
                                         <ul class="list-inline">
