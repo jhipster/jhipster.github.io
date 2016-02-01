@@ -83,7 +83,9 @@ heroku deploy:jar --jar build/libs/*war
 <h2>Troubleshooting</h2>
 
 <p>
-  If your app is hanging at boot-time with the message "Configuring Liquibase", then make sure you have a
+  If your application is killed by Heroku when your Liquibase changelog is being applied,
+  your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table.
+  On Postgres, you make sure you have a
   <a href="https://devcenter.heroku.com/articles/heroku-postgresql#local-setup">local Postgres client installed</a>
   and run the following command:
 </p>
@@ -93,8 +95,8 @@ $ heroku pg:psql -c "update databasechangeloglock set locked=false;"
 </code>
 </p>
 <p>
-  Heroku has a default boot-timeout limit of 90 seconds. If your Liquibase configuration
-  takes longer than this, Heroku will kill the process, which leaves the database in a
+  Heroku has a default boot-timeout limit of 90 seconds. If your app
+  takes longer than this, Heroku will kill the process, which may leave the database in a
   locked state. If the problem is persistent, try contacting
   <a href="http://help.heroku.com">Heroku Support</a> to request a longer boot limit for your app.
 </p>
