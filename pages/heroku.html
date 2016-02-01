@@ -11,15 +11,6 @@ sitemap:
 
 <p>This sub-generator allows to deploy automatically your JHipster application to the <a href="https://www.heroku.com/" target="_blank">Heroku cloud</a>.</p>
 
-<h2>Limitations</h2>
-<p>
-This sub-generator has a few caveats:
-<ul>
-    <li>If your application takes longer than 60 seconds to boot, Heroku will kill the process. You can request a higher boot limit by contacting <a href="http://help.heroku.com">Heroku Support</a>.</li>
-    <li>If your application is killed by Heroku when your Liquibase changelog is being applied, your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table (see below)</li>
-</ul>
-</p>
-
 <h2>Running the sub-generator</h2>
 
 <p>
@@ -92,7 +83,9 @@ heroku deploy:jar --jar build/libs/*war
 <h2>Troubleshooting</h2>
 
 <p>
-  If your app is hanging at boot-time with the message "Configuring Liquibase", then make sure you have a
+  If your application is killed by Heroku when your Liquibase changelog is being applied,
+  your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table.
+  On Postgres, you make sure you have a
   <a href="https://devcenter.heroku.com/articles/heroku-postgresql#local-setup">local Postgres client installed</a>
   and run the following command:
 </p>
@@ -102,8 +95,8 @@ $ heroku pg:psql -c "update databasechangeloglock set locked=false;"
 </code>
 </p>
 <p>
-  Heroku has a default boot-timeout limit of 60 seconds. If your Liquibase configuration
-  takes longer than this, Heroku will kill the process, which leaves the database in a
+  Heroku has a default boot-timeout limit of 90 seconds. If your app
+  takes longer than this, Heroku will kill the process, which may leave the database in a
   locked state. If the problem is persistent, try contacting
   <a href="http://help.heroku.com">Heroku Support</a> to request a longer boot limit for your app.
 </p>
