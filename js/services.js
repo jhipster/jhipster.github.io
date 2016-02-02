@@ -13,7 +13,7 @@
 
     function GHService($http) {
         return {
-            
+
             getGithubConfig: function (author, name) {
                 return $http.get('https://api.github.com/repos/' + author + '/' + name).success(function (resp) {
                     return resp;
@@ -29,7 +29,7 @@
                 return $http.get('https://raw.githubusercontent.com/' + author + '/' + repo + '/' + version +'/README.md').success(function (resp) {
                     return resp;
                 });
-            }   
+            }
         }
     }
 
@@ -40,7 +40,7 @@
                     return resp;
                 });
             },
-            
+
             getNpmDownloadsRangeLastMonth: function (name) {
                 return $http.get('https://api.npmjs.org/downloads/range/last-month/' + name).success(function (resp) {
                     return resp;
@@ -54,7 +54,7 @@
             }
         }
     }
-    
+
     function ModuleService($http) {
         var currentModule;
         return {
@@ -65,7 +65,7 @@
             },
             getAllModules: function (start, size) {
                 /* Get all Jhipster modules */
-                return $http.get('https://npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start='+ start +'&size=' + size).success(function (resp) {
+                return $http.get('//npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start='+ start +'&size=' + size).success(function (resp) {
                     return resp;
                 });
             },
@@ -80,8 +80,8 @@
 
     function jhiModuleFilter () {
         return function(input) {
-            return input.replace('generator-jhipster-','').replace(/(?:^|[\s\-\_\.])\S/g, function(a) { 
-                return a.replace(/[\-\_\.]/,' ').toUpperCase(); 
+            return input.replace('generator-jhipster-','').replace(/(?:^|[\s\-\_\.])\S/g, function(a) {
+                return a.replace(/[\-\_\.]/,' ').toUpperCase();
             });
         };
     }
