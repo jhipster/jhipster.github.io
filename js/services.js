@@ -65,7 +65,7 @@
             },
             getAllModules: function (start, size) {
                 /* Get all Jhipster modules */
-                return $http.get('//npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start='+ start +'&size=' + size).success(function (resp) {
+                return $http.get(window.location.protocol + '//npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start='+ start +'&size=' + size).success(function (resp) {
                     return resp;
                 });
             },
