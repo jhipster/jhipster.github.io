@@ -5,8 +5,8 @@ permalink: /customizing-bootstrap/
 redirect_from:
   - /customizing_bootstrap.html
 sitemap:
-priority: 0.7
-lastmod: 2015-01-30T18:40:00-00:00
+    priority: 0.7
+    lastmod: 2015-01-30T18:40:00-00:00
 ---
 
 # <i class="fa fa-css3"></i> Customizing Bootstrap

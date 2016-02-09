@@ -5,8 +5,8 @@ permalink: /managing-relationships/
 redirect_from:
   - /managing_relationships.html
 sitemap:
-priority: 0.7
-lastmod: 2015-10-24T18:40:00-00:00
+    priority: 0.7
+    lastmod: 2015-10-24T18:40:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships

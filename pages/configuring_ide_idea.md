@@ -5,8 +5,8 @@ permalink: /configuring-ide-idea/
 redirect_from:
   - /configuring_ide_idea.html
 sitemap:
-priority: 0.7
-lastmod: 2015-11-28T17:13:00-00:00
+    priority: 0.7
+    lastmod: 2015-11-28T17:13:00-00:00
 ---
 
 # <i class="fa fa-keyboard-o"></i> Configuring Intellij IDEA

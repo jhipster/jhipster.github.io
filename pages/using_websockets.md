@@ -5,8 +5,8 @@ permalink: /using-websockets/
 redirect_from:
   - /using_websockets.html
 sitemap:
-priority: 0.7
-lastmod: 2015-08-31T18:40:00-00:00
+    priority: 0.7
+    lastmod: 2015-08-31T18:40:00-00:00
 ---
 
 # <i class="fa fa-envelope"></i> Using WebSockets

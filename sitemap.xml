@@ -24,10 +24,10 @@ layout:
     {% if page.sitemap != null and page.sitemap != empty %}
       <url>
         <loc>http://jhipster.github.io{{ page.url }}</loc>
-      {% if page.lastmod == null %}
+      {% if page.sitemap.lastmod == null %}
         <lastmod></lastmod>
       {% else %}
-        <lastmod>{{ page.lastmod | date_to_xmlschema }}</lastmod>
+        <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
       {% endif %}
         <changefreq>daily</changefreq>
         <priority>{{ page.sitemap.priority }}</priority>
