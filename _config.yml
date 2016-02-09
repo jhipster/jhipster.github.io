@@ -3,6 +3,10 @@ markdown: kramdown
 exclude: [node_modules, bower_components]
 kramdown:
   input: GFM
+gem:
+  - jekyll-redirect-from
+whitelist:
+  - jekyll-redirect-from
 defaults:
     scope:
       path: "" # an empty string here means all files in the project
