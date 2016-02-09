@@ -2,6 +2,8 @@
 layout: default
 title: Docker Compose
 permalink: /docker-compose/
+redirect_from:
+  - /docker_compose.html
 sitemap:
     priority: 0.7
     lastmod: 2015-12-24T00:00:00-00:00

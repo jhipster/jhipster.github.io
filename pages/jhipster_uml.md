@@ -2,6 +2,8 @@
 layout: default
 title: JHipster-UML
 permalink: /jhipster-uml/
+redirect_from:
+  - /jhipster_uml.html
 sitemap:
     priority: 0.5
     lastmod: 2016-01-29T12:00:00-00:00
@@ -105,7 +107,7 @@ Note that you don't need to capitalize type names (**except for composed names l
 
 
 ### Relationships
-We just use the examples from JHipster in order to show how to do it with an editor. 
+We just use the examples from JHipster in order to show how to do it with an editor.
 Please not that we **only** support the relationships listed in the [Managing relationships](https://jhipster.github.io/managing-relationships/) page.
 
 
@@ -211,7 +213,7 @@ If, however, you wish to execute JHipster-UML outside a JHipster app, you need t
 Here is the command to execute:
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)]`
- 
+
 The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
@@ -235,7 +237,7 @@ Here's how you use JHipster-UML with a JDL file:
 Finally, if you need help, there's a command for that too:
 
  `jhipster-uml -help`
- 
+
 
 * step 3 - that's it!
 
@@ -258,7 +260,7 @@ JHipster is a great scaffolding tool with many conventions, some of them are wor
 
   - You don't have to use an `id` field in your entities because JHipster generates one by default, and JHipster-UML removes any field if it is detected as an ID;
   - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you;
-  
+
 
 ***
 
@@ -628,7 +630,7 @@ The relationships declaration is done as follows:
       <from entity>[{<relationship name>}] to <to entity>[{<relationship name>}]
     }
 
-- `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship, 
+- `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
 
 - `<from entity>` is the name of the entity owner of the relationship,
 
@@ -710,16 +712,16 @@ Just like in Java, this example demonstrates how to add comments:
       myField String required,
       mySecondField String // another form of comment
     }
-    
+
     /**
      * Second entity.
      */
     entity MySecondEntity {}
-    
+
     relationship OneToMany {
       /** This is possible too! */
       MyEntity{mySecondEntity}
-      to 
+      to
       /**
        * And this too!
        */
@@ -754,7 +756,7 @@ As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs, p
 
     paginate A, C with infinite-scroll
     paginate B with pager
-    
+
     service A with serviceClass
     service C with serviceImpl
 

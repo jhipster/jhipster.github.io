@@ -2,6 +2,8 @@
 layout: default
 title: Setting up Continuous Integration on Linux
 permalink: /setting-up-ci-linux/
+redirect_from:
+  - /setting_up_ci_linux.html
 sitemap:
 priority: 0.7
 lastmod: 2015-01-09T12:40:00-00:00
