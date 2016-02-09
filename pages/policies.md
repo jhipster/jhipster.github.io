@@ -2,6 +2,8 @@
 layout: default
 title: Policies
 permalink: /policies/
+redirect_from:
+  - /policies.html
 sitemap:
 priority: 0.7
 lastmod: 2015-07-31T18:40:00-00:00

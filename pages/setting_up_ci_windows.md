@@ -2,6 +2,8 @@
 layout: default
 title: Setting up Continuous Integration on Windows
 permalink: /setting-up-ci-windows/
+redirect_from:
+  - /setting_up_ci_windows.html
 sitemap:
 priority: 0.7
 lastmod: 2015-01-09T12:40:00-00:00

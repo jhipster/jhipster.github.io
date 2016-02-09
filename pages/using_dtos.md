@@ -2,6 +2,8 @@
 layout: default
 title: Using DTOs
 permalink: /using-dtos/
+redirect_from:
+  - /using_dtos.html
 sitemap:
     priority: 0.7
     lastmod: 2015-05-28T23:41:00-00:00

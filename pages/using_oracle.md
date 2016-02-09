@@ -2,6 +2,8 @@
 layout: default
 title: Using Oracle
 permalink: /using-oracle/
+redirect_from:
+  - /using_oracle.html
 sitemap:
 priority: 0.7
 lastmod: 2015-06-08T18:40:00-00:00
