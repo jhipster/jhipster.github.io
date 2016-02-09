@@ -3,7 +3,7 @@ markdown: kramdown
 exclude: [node_modules, bower_components]
 kramdown:
   input: GFM
-gem:
+gems:
   - jekyll-redirect-from
 whitelist:
   - jekyll-redirect-from

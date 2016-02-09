@@ -1,5 +1,5 @@
 ---
-layout: 
+layout:
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -7,7 +7,7 @@ layout:
     <url>
       <loc>http://jhipster.github.io{{ post.url }}</loc>
       {% if post.lastmod == null %}
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+        <lastmod></lastmod>
       {% else %}
         <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
       {% endif %}
@@ -24,7 +24,11 @@ layout:
     {% if page.sitemap != null and page.sitemap != empty %}
       <url>
         <loc>http://jhipster.github.io{{ page.url }}</loc>
-        <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+      {% if post.lastmod == null %}
+        <lastmod></lastmod>
+      {% else %}
+        <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
+      {% endif %}
         <changefreq>daily</changefreq>
         <priority>{{ page.sitemap.priority }}</priority>
        </url>
