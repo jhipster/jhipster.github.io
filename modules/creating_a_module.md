@@ -5,8 +5,8 @@ permalink: /modules/creating-a-module/
 redirect_from:
   - /creating_a_module.html
 sitemap:
-priority: 0.7
-lastmod: 2015-12-05T18:40:00-00:00
+    priority: 0.7
+    lastmod: 2015-12-05T18:40:00-00:00
 ---
 
 # <i class="fa fa-cube"></i> Creating a module

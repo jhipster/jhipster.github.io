@@ -5,8 +5,8 @@ permalink: /policies/
 redirect_from:
   - /policies.html
 sitemap:
-priority: 0.7
-lastmod: 2015-07-31T18:40:00-00:00
+    priority: 0.7
+    lastmod: 2015-07-31T18:40:00-00:00
 ---
 
 # <i class="fa fa-gavel"></i> Policies
