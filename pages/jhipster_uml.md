@@ -67,6 +67,11 @@ Please use our project for submitting issues and Pull Requests:
 - [JHipster-UML issue tracker](https://github.com/jhipster/jhipster-uml/issues)
 - [JHipster-UML Pull Requests](https://github.com/jhipster/jhipster-uml/pulls)
 
+When submitting anything, you must be as precise as possible:
+  - **One posted issue must only have one problem** (or one demand/question);
+  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.
+
+
 Please note that using JHipster-UML (or JHipster) might be troublesome (one has to install some tools to really be able to use the Node environment without any issue). This [link](https://gist.github.com/nullivex/7115612) may help if you encounter an issue on Windows.
 
 Another issue that can be encountered on windows is [this one](https://stackoverflow.com/questions/30344858/node-script-executable-not-working-on-mac-env-node-r-no-such-file-or-directo#answer-30349952). The link provides a solution to fix that if such a thing happens.
