@@ -880,7 +880,7 @@ Here is the type table (from **lib/types/*_types.js**):
   <tr>
     <td>Enum</td>
     <td>Enum</td>
-    <td>Enum</td>
+    <td></td>
     <td><dfn>required</dfn></td>
   </tr>
   <tr>
