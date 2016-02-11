@@ -108,7 +108,7 @@ Note that you don't need to capitalize type names (**except for composed names l
 
 ### Relationships
 We just use the examples from JHipster in order to show how to do it with an editor.
-Please not that we **only** support the relationships listed in the [Managing relationships](https://jhipster.github.io/managing-relationships/) page.
+Please not that we **only** support the relationships listed in the [Managing relationships]({{ site.url }}/managing-relationships/) page.
 
 
 #### One-to-One
@@ -128,7 +128,7 @@ Notice that in order to achieve a unidirectional relationship we just removed th
 
 In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
 
-Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing-relationships/#3) page for more information about this).
+Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this]({{ site.url }}/managing-relationships/#3) page for more information about this).
 This is an example of such an association:
 
 ![One-to-Many2]({{ site.url }}/images/jhipsteruml_uni_otm.png)
