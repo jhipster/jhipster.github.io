@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-29T12:00:00-00:00
+    lastmod: 2016-02-14T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -639,7 +639,7 @@ The relationships declaration is done as follows:
 - `<relationship name>` is the name of the relationship in the entity.
 
 
-Here's an simple example:
+Here's a simple example:
 
 A Book has one Author, an Author has several Books.
 
@@ -762,6 +762,29 @@ As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs, p
 
 The keywords `dto`, `paginate`, `service` and `with` were added to the grammar to support these changes.
 If a wrong option is specified, JHipster-UML will inform you of that with a nice, red message and will just ignore it so as not to corrupt JHipster's JSON files.
+
+JHipster-UML also supports mass-option setting. Since v1.6.1, it is possible to do:
+
+    entity A
+    entity B
+    ...
+    entity Z
+    
+    dto * with mapstruct
+    service all with serviceImpl
+    paginate C, with pager
+
+Note that `*` and `all` are equivalent.
+v1.6.2 introduces exclusions (which is quite a powerful option when setting options for every entity):
+
+    entity A
+    entity B
+    ...
+    entity Z
+    
+    dto * with mapstruct except A
+    service all with serviceImpl except A, B, C
+    paginate C, with pager
 
 
 ## <a name="jdlrelationships"></a>All the relationships
