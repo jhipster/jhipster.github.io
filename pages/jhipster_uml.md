@@ -604,7 +604,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 # <a name="jdl"></a> JDL - JHipster Domain Language
 We added the possibility to describe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
 
-You can use our online [JDL-Studio](https://hipster-labs.github.io/JDL-studio/) IDE to create JDL and its UML visualization. You can create and share URL of your JDL as well
+You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share URL of your JDL as well
 
 The Oracle example has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/jh/oracle.jh).
 
