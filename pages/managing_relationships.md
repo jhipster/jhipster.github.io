@@ -23,6 +23,17 @@ A relationship works between two entities, and JHipster will generate the code f
 - Creating the correct Liquibase changelog, in order for the relationship to exist in the database
 - Generating the AngularJS front-end so you can manage this relationship graphically in the user interface
 
+## JHipster UML and JDL Studio
+
+This page describes how to create relationships with JHipster using the standard command-line interface.  If you want to create many entities and relationships, you might prefer to use a graphical tool.
+
+In that case, two options are available:
+
+- [JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor.
+- [JDL Studio]({{ site.url }}/jdl-studio/), our online tool to create entities and relationships using our domain-specific language.
+
+## Available relationships
+
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
 
 1. [A bidirectional one-to-many relationship](#1)
