@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-music"></i> [BETA] Docker Compose
 
-__WARNING!__ This is a new feature, currently in __BETA__. Only these containers are available: MySQL, PostgreSQL, MongoDB, Cassandra, Elasticsearch, SonarQube
+__WARNING!__ This is a new feature, currently in __BETA__. Only these containers are available: MySQL, PostgreSQL, MongoDB, Cassandra, Elasticsearch, SonarQube.
 
 ## Description
 
@@ -41,9 +41,9 @@ You have to install Docker and Docker Compose:
 
 ### Note
 
-**Please note:** based on your OS your `DOCKER_HOST_IP` will differ. On Linux, it will be simply your localhost. For Mac/Windows, you will have to obtain the IP using following command: `docker-machine ip default` or `docker-machine env default`
+**Please note:** based on your OS your `DOCKER_HOST_IP` will differ. On Linux, it will be simply your localhost. For Mac/Windows, you will have to obtain the IP using following command: `docker-machine ip default` or `docker-machine env default`.
 
-You have to use this `DOCKER_HOST_IP` instead of localhost for databases in your `application-dev.yml` and `application-prod.yml` files
+You have to use this `DOCKER_HOST_IP` instead of localhost for databases in your `application-dev.yml` and `application-prod.yml` files.
 
 ### Starting MySQL, PostgreSQL or MongoDB
 
