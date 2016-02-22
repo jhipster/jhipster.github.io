@@ -115,7 +115,7 @@ Note that you don't need to capitalize type names (**except for composed names l
 
 ### Relationships
 We just use the examples from JHipster in order to show how to do it with an editor.
-Please not that we **only** support the relationships listed in the [Managing relationships]({{ site.url }}/managing-relationships/) page.
+Please note that we **only** support the relationships listed in the [Managing relationships]({{ site.url }}/managing-relationships/) page.
 
 
 #### One-to-One
