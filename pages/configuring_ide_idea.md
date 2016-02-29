@@ -67,4 +67,4 @@ After configuring this you should have fairly extensive code support for the Jav
 
 Contrary to other IDEs such as Eclipse, IntelliJ IDEA does not automatically compile files after saving. While you could enable "Make project automatically" in the complier options, it does not work when your application is already running from the IDE.
 
-The best way to restart the application after you modify a class is to compile it with `Ctrl + Shift + F9` or to build the whole project with `Shift + F9`. Alternatively, you can build with a single class from the class file contextual menu by clicking on `Compile className.java` or build the whole project through the `Build → Make project` menu at the top.
+The best way to restart the application after you modify a class is to compile it with `Ctrl + Shift + F9` or to build the whole project with `Ctrl + F9`. Alternatively, you can build with a single class from the class file contextual menu by clicking on `Compile className.java` or build the whole project through the `Build → Make project` menu at the top.
