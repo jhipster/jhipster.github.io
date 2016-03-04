@@ -8,11 +8,12 @@
             });
         }])
         .controller('ModuleDetailsCtrl', ModuleDetailsCtrl);
-    
+
     ModuleDetailsCtrl.$inject = ['$scope', '$routeParams', '$location', 'ModuleService', 'NpmService','GHService'];
 
     function ModuleDetailsCtrl($scope, $routeParams, $location, ModuleService, NpmService, GHService) {
         $scope.npmPackageName = $routeParams.npmPackageName;
+        ga('send', 'event', 'Module details', $scope.npmPackageName);
         var module = ModuleService.getCurrent();
         $scope.module = module || { name: [$scope.npmPackageName] };
         NpmService.getNpmInfo($scope.npmPackageName).success(function (npminfo) {
@@ -42,7 +43,7 @@
             }
         });
 
-        
+
 
         NpmService.getNpmDownloadsRangeLastMonth($scope.npmPackageName).success(function (data) {
             var dates = ['date'];
