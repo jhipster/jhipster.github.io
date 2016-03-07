@@ -3,6 +3,6 @@
         "generator-jhipster-fortune" : true
     },
     "blacklistedModules": {
- 
+        "generator-jhipster-webservice" : true
     }
 }

@@ -2,6 +2,8 @@
 layout: default
 title: Using AngularJS
 permalink: /using-angularjs/
+redirect_from:
+  - /using_angularjs.html
 sitemap:
     priority: 0.7
     lastmod: 2015-01-29T23:41:00-00:00

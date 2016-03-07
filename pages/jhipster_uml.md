@@ -2,9 +2,11 @@
 layout: default
 title: JHipster-UML
 permalink: /jhipster-uml/
+redirect_from:
+  - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-01-29T12:00:00-00:00
+    lastmod: 2016-02-14T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -65,9 +67,16 @@ Please use our project for submitting issues and Pull Requests:
 - [JHipster-UML issue tracker](https://github.com/jhipster/jhipster-uml/issues)
 - [JHipster-UML Pull Requests](https://github.com/jhipster/jhipster-uml/pulls)
 
+When submitting anything, you must be as precise as possible:
+  - **One posted issue must only have one problem** (or one demand/question);
+  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.
+
+
 Please note that using JHipster-UML (or JHipster) might be troublesome (one has to install some tools to really be able to use the Node environment without any issue). This [link](https://gist.github.com/nullivex/7115612) may help if you encounter an issue on Windows.
 
 Another issue that can be encountered on windows is [this one](https://stackoverflow.com/questions/30344858/node-script-executable-not-working-on-mac-env-node-r-no-such-file-or-directo#answer-30349952). The link provides a solution to fix that if such a thing happens.
+
+Finally, an issue has been reported from a Windows user using Git Bash. The JHipster generator's questions (from InquirerJS) could not work (the user is stuck when answering the questions). You might want to use Powershell or another shell when using JHipster UML (or JHipster).
 
 ***
 
@@ -105,8 +114,8 @@ Note that you don't need to capitalize type names (**except for composed names l
 
 
 ### Relationships
-We just use the examples from JHipster in order to show how to do it with an editor. 
-Please not that we **only** support the relationships listed in the [Managing relationships](https://jhipster.github.io/managing-relationships/) page.
+We just use the examples from JHipster in order to show how to do it with an editor.
+Please note that we **only** support the relationships listed in the [Managing relationships]({{ site.url }}/managing-relationships/) page.
 
 
 #### One-to-One
@@ -126,7 +135,7 @@ Notice that in order to achieve a unidirectional relationship we just removed th
 
 In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
 
-Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this](managing-relationships/#3) page for more information about this).
+Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this]({{ site.url }}/managing-relationships/#3) page for more information about this).
 This is an example of such an association:
 
 ![One-to-Many2]({{ site.url }}/images/jhipsteruml_uni_otm.png)
@@ -211,7 +220,7 @@ If, however, you wish to execute JHipster-UML outside a JHipster app, you need t
 Here is the command to execute:
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)]`
- 
+
 The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
 
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
@@ -235,7 +244,7 @@ Here's how you use JHipster-UML with a JDL file:
 Finally, if you need help, there's a command for that too:
 
  `jhipster-uml -help`
- 
+
 
 * step 3 - that's it!
 
@@ -258,7 +267,7 @@ JHipster is a great scaffolding tool with many conventions, some of them are wor
 
   - You don't have to use an `id` field in your entities because JHipster generates one by default, and JHipster-UML removes any field if it is detected as an ID;
   - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you;
-  
+
 
 ***
 
@@ -595,6 +604,8 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 # <a name="jdl"></a> JDL - JHipster Domain Language
 We added the possibility to describe all your entities and their relationships in a single file with a more user-friendly syntax than the JSON in the .jhipster folder.
 
+You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share URL of your JDL as well.
+
 The Oracle example has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/jh/oracle.jh).
 
 ## <a name="jdllanguage"></a> The language
@@ -628,7 +639,7 @@ The relationships declaration is done as follows:
       <from entity>[{<relationship name>}] to <to entity>[{<relationship name>}]
     }
 
-- `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship, 
+- `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
 
 - `<from entity>` is the name of the entity owner of the relationship,
 
@@ -637,7 +648,7 @@ The relationships declaration is done as follows:
 - `<relationship name>` is the name of the relationship in the entity.
 
 
-Here's an simple example:
+Here's a simple example:
 
 A Book has one Author, an Author has several Books.
 
@@ -710,16 +721,16 @@ Just like in Java, this example demonstrates how to add comments:
       myField String required,
       mySecondField String // another form of comment
     }
-    
+
     /**
      * Second entity.
      */
     entity MySecondEntity {}
-    
+
     relationship OneToMany {
       /** This is possible too! */
       MyEntity{mySecondEntity}
-      to 
+      to
       /**
        * And this too!
        */
@@ -754,12 +765,35 @@ As of JHipster-UML v1.6.0, the JDL can now add options to your entities (DTOs, p
 
     paginate A, C with infinite-scroll
     paginate B with pager
-    
+
     service A with serviceClass
     service C with serviceImpl
 
 The keywords `dto`, `paginate`, `service` and `with` were added to the grammar to support these changes.
 If a wrong option is specified, JHipster-UML will inform you of that with a nice, red message and will just ignore it so as not to corrupt JHipster's JSON files.
+
+JHipster-UML also supports mass-option setting. Since v1.6.1, it is possible to do:
+
+    entity A
+    entity B
+    ...
+    entity Z
+
+    dto * with mapstruct
+    service all with serviceImpl
+    paginate C, with pager
+
+Note that `*` and `all` are equivalent.
+v1.6.2 introduces exclusions (which is quite a powerful option when setting options for every entity):
+
+    entity A
+    entity B
+    ...
+    entity Z
+
+    dto * with mapstruct except A
+    service all with serviceImpl except A, B, C
+    paginate C, with pager
 
 
 ## <a name="jdlrelationships"></a>All the relationships
@@ -878,7 +912,7 @@ Here is the type table (from **lib/types/*_types.js**):
   <tr>
     <td>Enum</td>
     <td>Enum</td>
-    <td>Enum</td>
+    <td></td>
     <td><dfn>required</dfn></td>
   </tr>
   <tr>

@@ -2,9 +2,11 @@
 layout: default
 title: Installing JHipster
 permalink: /installation/
+redirect_from:
+  - /installation.html
 sitemap:
-priority: 0.7
-lastmod: 2014-02-17T00:00:00-00:00
+    priority: 0.7
+    lastmod: 2014-02-17T00:00:00-00:00
 ---
 
 <h1><i class="fa fa-cloud-download"></i> Installing JHipster</h1>
@@ -86,7 +88,7 @@ lastmod: 2014-02-17T00:00:00-00:00
     This depends on your operating system.
 <ol>
     <li>
-        <b>Linux:</b> Linux supports docker out-of-box. You just need to follow the tutorial on the <a
+        <b>Linux:</b> Linux supports Docker out-of-box. You just need to follow the tutorial on the <a
             href="https://docs.docker.com/installation/#installation" target="_blank">Docker</a> website.
     </li>
     <li>
@@ -96,13 +98,6 @@ lastmod: 2014-02-17T00:00:00-00:00
     <b>Kitematic</b>
     <p>
         <a href="https://kitematic.com/">Kitematic</a> is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes this installation a lot easier.
-    </p>
-</div>
-
-<div class="alert alert-warning">
-    <b>boot2docker users</b>
-    <p>
-        If you are using boot2docker, it's good idea to migrate to Docker Toolbox, you can follow steps on how to migrate at <b>FAQ</b> section on <a href="https://www.docker.com/docker-toolbox">https://www.docker.com/docker-toolbox</a>
     </p>
 </div>
 
@@ -126,13 +121,12 @@ lastmod: 2014-02-17T00:00:00-00:00
     </code>
 </p>
 <p>
-    Run The docker image, with the following options:
+    Run the Docker image, with the following options:
 </p>
 <p>
 <ul>
     <li>The Docker "/home/jhipster/app" folder is shared to the local "~/jhipster" folder</li>
-    <li>Forward all ports exposed by docker (8080 for Tomcat, 3000 for BrowserSync from the "grunt serve" task, 3001 for
-        the BrowserSync UI)
+    <li>Forward all ports exposed by Docker (8080 for Tomcat, 3000 for BrowserSync from the "gulp serve" task, 3001 for the BrowserSync UI)
     </li>
 </ul>
 </p>
@@ -181,14 +175,13 @@ lastmod: 2014-02-17T00:00:00-00:00
     </ol>
 </p>
 <p>
-    On Linux, you might need to run the docker command as root user if your user is not part of
-    docker group. It's a good idea to add your user to docker group so that you can run docker commands as non-root
-    user. Follow the steps on <a href="http://askubuntu.com/a/477554">http://askubuntu.com/a/477554</a> to do so.
+    On Linux, you might need to run the <code>docker</code> command as root user if your user is not part of
+    docker group. It's a good idea to add your user to docker group so that you can run docker commands as a non-root user. Follow the steps on <a href="http://askubuntu.com/a/477554">http://askubuntu.com/a/477554</a> to do so.
 </p>
 
 <h3>Accessing the container</h3>
 <p>
-    The easiest way to log into container is executing following command :
+    The easiest way to log into container is by executing following command:
 </p>
 <p>
     <code>
@@ -201,8 +194,7 @@ lastmod: 2014-02-17T00:00:00-00:00
         docker exec -it --user=jhipster jhipster bash
     </code>
     <br/><br/>
-    You will login as "jhipster" user, if in case you need to change as sudo user, password for the user is same as
-    username (i.e. jhipster)
+    You will login as "jhipster" user. In case you need to do a <code>sudo</code>, password for the user is the same as the username (<code>jhipster</code>).
 </p>
 
 <h3>Your first project</h3>
@@ -231,7 +223,7 @@ lastmod: 2014-02-17T00:00:00-00:00
                 at sync (/usr/lib/node_modules/generator-jhipster/node_modules/yeoman-generator/node_modules/mkdirp/index.js:70:13)<br/>
         </code>
         <br/>
-        You need to fix the jhipster folder to give the "jhipster" user ownership of the directory:<br/>
+        You need to fix the JHipster folder to give the "jhipster" user ownership of the directory:<br/>
         <code>
             sudo chown -R jhipster /home/jhipster/app
         </code>
@@ -258,7 +250,7 @@ lastmod: 2014-02-17T00:00:00-00:00
     </ul>
 </p>
 <p>
-    <b>Please note:</b> based on your OS your <code>DOCKER_HOST_IP</code> will differ. On linux, it will be simply your localhost. For Mac/Windows, you will have to obtain the IP using following command: <code>docker-machine ip default</code>
+    <b>Please note:</b> based on your OS your <code>DOCKER_HOST_IP</code> will differ. On Linux, it will be simply your localhost. For Mac/Windows, you will have to obtain the IP using following command: <code>docker-machine ip default</code>
 </p>
 <p>
     As the generated files are in your shared folder, they will not be deleted if you stop your Docker container.

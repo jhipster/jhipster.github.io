@@ -2,9 +2,11 @@
 layout: default
 title: Setting up Continuous Integration
 permalink: /setting-up-ci/
+redirect_from:
+  - /setting_up_ci.html
 sitemap:
-priority: 0.7
-lastmod: 2015-01-09T12:40:00-00:00
+    priority: 0.7
+    lastmod: 2015-01-09T12:40:00-00:00
 ---
 
 # <i class="fa fa-stethoscope"></i> Setting up Continuous Integration
