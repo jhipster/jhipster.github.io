@@ -42,7 +42,7 @@ Adding an option only because it saves a couple of lines to code isn't a good us
 There are many ways to format your code. We follow the default rules provided by Intellij IDEA:
 
 - They are well-made and close to Sun old's coding conventions
-- They are easy to follow with Intellij IDEA (obvisouly)
+- They are easy to follow with Intellij IDEA (obviously)
 - Members of the team have a free Intellij IDEA license
 
 ## Policy 4: use strict versions for third-party libraries
