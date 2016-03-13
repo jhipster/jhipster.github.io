@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-02-14T12:00:00-00:00
+    lastmod: 2016-03-13T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -31,7 +31,8 @@ Here's what's covered on this page:
     5.2. [UML Designer](#umldesignerexample)  
     5.3. [GenMyModel](#genmymodelexample)  
     5.4. [Visual Paradigm](#visualparadigmexample)  
-    5.5.  [Enumerations](#enumerationexamples)  
+    5.5. [Enumerations](#enumerationexamples)  
+    5.6. [Table names](#tablenames)
 6. [Testing](#testing-juml)
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)  
@@ -492,6 +493,20 @@ Here's how you define them:
   - GenMyModel possess the objects needed: `Enum` and `Enum Literal` in the main object panel (on the left hand side of the screen).
   - Visual Paradigm defines an object called `Enumeration` that can be used to achieve our goal. To add values, right-click the enumeration, select `Add` and add an `Enumeration Literal`;
   - For our JDL, simply do  `enum MyEnum { A, B }` to declare an enum.
+
+## <a name="tablenames"></a>Table names
+
+Since v1.6.2, it is now possible to specify table names for entities.
+
+To do that, one just has to specify the table name along with the class name like that:
+
+![tablenameimage](http://i.imgur.com/ECdb1bx.png)
+
+The convention `<ENTITY_NAME>\s*(<TABLE_NAME>)` is universal no matter the editor.
+
+However, if you don't want to pick a special table name, you can just write the class name. JHipster UML will take care of converting it to an appropriate table name. For instance, if you class name is `MyClass`, then your table name would be `my_class`.
+
+Note that this feature is available for UML editors since v1.6.2. Concerning the JDL, as it has its own project, the change is expected to happen with some delay (just for this addition).
 
 
 ***
