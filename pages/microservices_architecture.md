@@ -33,6 +33,8 @@ get the `foos` resource served by microservice `app1`. If you're trying to do th
 
 If there are several instances of same service running, the gateway will load balance requests between these instances through [Netflix Ribbon](https://github.com/Netflix/ribbon).
 
+It's also worth noting that the gateway exposes the Swagger API definitions of the services it proxifies and so you can still benefit from all useful tools like swagger-ui and swagger-codegen.
+
 ## Application configuration with the JHipster Registry
 
 The JHipster Registry is also a [Spring Config Server](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html): when applications are launched they will first connect to the JHipster Registry to get their configuration. This is true for both gateways and microservices.
