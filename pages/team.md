@@ -43,6 +43,15 @@ JHipster is developed by a team of people around the world. We have a lot of con
 <div class="row">
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/513471?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Pierre Besson</h3>
+                <p><a href="https://twitter.com/pibesson"><i>@pibesson</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/11633333?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Christophe Bornet</h3>
@@ -74,6 +83,15 @@ JHipster is developed by a team of people around the world. We have a lot of con
             <div class="caption">
                 <h3>Frederik Hahne</h3>
                 <p><a href="https://twitter.com/atomfrede"><i>@atomfrede</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/1577727?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>William Marques</h3>
+                <p><a href="https://twitter.com/wylmarq"><i>@wylmarq</i></a></p>
             </div>
         </div>
     </div>
