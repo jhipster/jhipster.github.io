@@ -151,3 +151,14 @@ gradlew
     </ul>
     You can find more information on our <a href="{{ site.url }}/running-tests/">"Running tests" guide</a>.
 </p>
+
+<h2>Tip</h2>
+<p>
+    you can pass following command line argument flags when running the app generator
+    <ul>
+        <li><code>--skip-client</code> - This will generate a backend only application without an AngularJS client side application</li>
+        <li><code>--client-build grunt|gulp</code> - Specify the client side build to use when skipping client side app generation, has no effect otherwise, pass option grunt or gulp</li>
+        <li><code>--i18n</code> - Enable i18n when skipping client side app generation, has no effect otherwise</li>
+        <li><code>--no-i18n</code> - Disable i18n when skipping client side app generation, has no effect otherwise</li>
+    </ul>
+</p>
