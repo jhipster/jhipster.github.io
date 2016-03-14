@@ -42,8 +42,8 @@ Through Jenkins administration, add a Maven automatic installer from Apache's si
 Install Jenkins NodeJS plugin.
 
 Through Jenkins administration, add a NodeJS instllation:
-- automatic installer from nodejs.org, latest stable 0.10.xx version
-- Global npm packages to install: bower grunt
+- automatic installer from nodejs.org, latest stable 4.xx.xx version
+- Global npm packages to install: bower gulp
 
 This way we can easily configure different versions of NodeJS if we need it in the future.
 
@@ -73,11 +73,11 @@ npm --version
 # 1.4.28
 
 # install tools
-npm install -g bower grunt-cli
+npm install -g bower gulp
 bower --version
 # 1.3.12
-grunt --version
-# 0.1.13
+gulp --version
+# 3.9.1
 ~~~
 
 Make sure you update the Jenkins PATH.

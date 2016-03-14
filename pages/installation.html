@@ -43,8 +43,7 @@ sitemap:
     </li>
     <li>Install Yeoman: <code>npm install -g yo</code></li>
     <li>Install Bower: <code>npm install -g bower</code></li>
-    <li>Depending on your preferences, install either <a href="http://gruntjs.com/" target="_blank">Grunt</a>
- (recommended) with <code>npm install -g grunt-cli</code> or <a href="http://gulpjs.com/" target="_blank">Gulp.js</a> with <code>npm install -g gulp</code>.
+    <li>Install Gulp: <a href="http://gulpjs.com/" target="_blank">Gulp.js</a> with <code>npm install -g gulp</code>
     </li>
     <li>Install JHipster: <code>npm install -g generator-jhipster</code></li>
 </ol>
@@ -126,13 +125,13 @@ sitemap:
 <p>
 <ul>
     <li>The Docker "/home/jhipster/app" folder is shared to the local "~/jhipster" folder</li>
-    <li>Forward all ports exposed by Docker (8080 for Tomcat, 3000 for BrowserSync from the "gulp serve" task, 3001 for the BrowserSync UI)
+    <li>Forward all ports exposed by Docker (8080 for Tomcat, 9000 for BrowserSync from the "gulp serve" task, 3001 for the BrowserSync UI)
     </li>
 </ul>
 </p>
 <p>
     <code>
-        docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker
+        docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jdubois/jhipster-docker
     </code>
 </p>
 <div class="alert alert-info">
@@ -146,7 +145,7 @@ sitemap:
     To check that your container is running, use the command <code>docker ps</code>:<br/><br/>
     <code>
     CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                                                      NAMES<br/>
-    4ae16c0539a3        jdubois/jhipster-docker   "tail -f /home/jhipst"   4 seconds ago       Up 3 seconds        0.0.0.0:3000-3001->3000-3001/tcp, 0.0.0.0:8080->8080/tcp   <b>jhipster</b>
+    4ae16c0539a3        jdubois/jhipster-docker   "tail -f /home/jhipst"   4 seconds ago       Up 3 seconds        0.0.0.0:9000-3001->9000-3001/tcp, 0.0.0.0:8080->8080/tcp   <b>jhipster</b>
     </code>
 </p>
 <h4>Common operations</h4>
@@ -171,7 +170,7 @@ sitemap:
         <li><code>docker stop jhipster</code></li>
         <li><code>docker rm jhipster</code></li>
         <li><code>docker pull jdubois/jhipster-docker</code></li>
-        <li><code>docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/jhipster-docker</code></li>
+        <li><code>docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jdubois/jhipster-docker</code></li>
     </ol>
 </p>
 <p>
@@ -230,7 +229,7 @@ sitemap:
     </p>
 </div>
 <p>
-    Once your application is created, you can run all the normal grunt/bower/maven commands, for example:
+    Once your application is created, you can run all the normal gulp/bower/maven commands, for example:
 </p>
 <p>
     <code>

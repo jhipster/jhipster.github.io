@@ -66,12 +66,12 @@ Add the 'C:\nodejs\node_modules\npm' folder to the PATH environment variable, re
 
 npm may require git, install it from http://msysgit.github.io/
 
-Add bower and grunt:
+Add bower and gulp:
 
 ~~~
-npm install -g bower grunt-cli
+npm install -g bower gulp
 bower --version
-grunt --version
+gulp --version
 ~~~
 
 It can be useful to have multiple versions of NodeJS on same machine but 'nvm' equivalents on Windows focus more on development environment than continuous integration. So if a job requires another version of NodeJS, change its PATH.
