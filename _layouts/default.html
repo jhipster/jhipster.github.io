@@ -155,6 +155,7 @@
                                 <div id="dropdown-3" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
+                                            <li {% if '/microservices-architecture/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-architecture/"><i class="fa fa-fw  fa-sitemap"></i> Doing microservices</a></li>
                                             <li {% if '/creating-an-app/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-app/"><i class="fa fa-fw fa-rocket"></i> Creating an application</a></li>
                                             <li {% if '/creating-an-entity/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-entity/"><i class="fa fa-fw fa-bolt"></i> Creating an entity</a></li>
                                             <li {% if '/creating-a-service/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-a-service/"><i class="fa fa-fw fa-bolt"></i> Creating a service</a></li>
