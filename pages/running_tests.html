@@ -18,7 +18,15 @@ sitemap:
 <ul>
     <li>Integration tests using the Spring Test Context framework.</li>
     <li>UI tests with <a href="http://karma-runner.github.io/" target="_blank">Karma.js</a>.</li>
+</ul>
+
+<p>
+    Optionally, JHipster can also generate:
+</p>
+<ul>
     <li>Performance tests with <a href="http://gatling.io/" target="_blank">Gatling.</a></li>
+    <li>Behaviour-driven tests with <a href="https://cucumber.io/" target="_blank">Cucumber</a></li>
+    <li>AngularJS integration tests with <a href="https://angular.github.io/protractor/#/" target="_blank">Protractor</a>.</li>
 </ul>
 <p>
     We have two goals in generating those tests:
@@ -60,13 +68,31 @@ sitemap:
 
 <h2>UI tests</h2>
 <p>
-    UI tests are done with <a href="http://karma-runner.github.io/" target="_blank">Karma.js</a> and <a href="http://phantomjs.org/" target="_blank">PhantomJS</a>, and are located in the <code>src/test/javascript</code> folder.
+    UI tests come in two flavors with JHipster: unit tests with KarmaJS, and integration tests with Protractor. Only KarmaJS is provided by default, but if you want to have a good test coverage of your application, we recommend that you use both tools together.
+</p>
+
+<h3>KarmaJS</h3>
+
+<p>
+    UI unit tests are done with <a href="http://karma-runner.github.io/" target="_blank">Karma.js</a> and <a href="http://phantomjs.org/" target="_blank">PhantomJS</a>, and are located in the <code>src/test/javascript/spec</code> folder.
 </p>
 <p>
     Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
 </p>
 <p>
     Those tests can be run using <code>gulp test</code>.
+</p>
+
+<h3>Protractor</h3>
+
+<p>UI integration tests are done with <a href="https://angular.github.io/protractor/#/" target="_blank">Protractor</a>, and are located in the <code>src/test/javascript/e2e</code> folder.
+</p>
+
+<p>
+    Those tests will launch a Web browser and use the application like a real user would do, so you need to have a real application running, with its database set-up.
+</p>
+<p>
+    Those tests can be run using <code>gulp protractor</code>.
 </p>
 
 <h2>Performance tests</h2>

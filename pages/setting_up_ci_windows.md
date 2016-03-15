@@ -25,7 +25,7 @@ http://antagonisticpleiotropy.blogspot.fr/2012/08/running-jenkins-in-windows-wit
 
 Through Jenkins administration, add a JDK 8 automatic installer.
 
-### Installing Maven 3.2.2
+### Installing Maven
 
 Through Jenkins administration, add a Maven automatic installer from Apache's site.
 
@@ -37,14 +37,14 @@ CHeck that the executable is included in PATH:
 
 ~~~
 phantomjs --version
-1.9.8
+2.1.1
 ~~~
 
 ## Installing NodeJS
 
 Jenkins NodeJS plugin does not work on Windows, so we'll do a manual installation.
 
-Download latest stable version (e.g. 0.10.35) from http://nodejs.org/
+Download latest stable version (e.g. 4.xx.xx) from http://nodejs.org/
 
 Don't install to default directory `C:\Program Files\nodejs` as it requires administration rights, prefer a simpler path like `c:\nodejs`.
 

@@ -33,7 +33,7 @@ A `jenkins` user has been created, its home directory is `/var/lib/jenkins`
 
 Through Jenkins administration, add a JDK 8 automatic installer.
 
-### Installing Maven 3.2.2
+### Installing Maven
 
 Through Jenkins administration, add a Maven automatic installer from Apache's site.
 
@@ -45,20 +45,15 @@ Through Jenkins administration, add a NodeJS instllation:
 - automatic installer from nodejs.org, latest stable 4.xx.xx version
 - Global npm packages to install: bower gulp
 
-This way we can easily configure different versions of NodeJS if we need it in the future.
-
-Avoid 0.11.xx versions as there are known issues with 0.11.14.
-
-Jenkins NodeJS plugin	0.2.1 has an issue, it proposes 0.10.33 as latest 0.10 version available from nodejs.org while on the site there is also 0.
-10.35, so if you want to use latest version you'll have to install manually:
+This way you can easily configure different versions of NodeJS if you need them in the future.
 
 ~~~ bash
 # specify which version we want
-export NODE_VERSION=0.10.35
+export NODE_VERSION=4.3.1
 
 # download
 cd /tmp
-wget http://nodejs.org/dist/v$NODE_VERSION/node-v0.10.35.tar.gz
+wget http://nodejs.org/dist/v$NODE_VERSION/node-v4.3.1.tar.gz
 tar xvfz node-v$NODE_VERSION.tar.gz
 
 # build it and install it only locally
@@ -68,14 +63,14 @@ cd node-v$NODE_VERSION
 # Check versions of node and  npm
 export PATH=/var/lib/jenkins/node-v$NODE_VERSION/bin:$PATH
 node --version
-# v0.10.35
+# v4.3.1
 npm --version
-# 1.4.28
+# 3.7.5
 
 # install tools
 npm install -g bower gulp
 bower --version
-# 1.3.12
+# 1.7.7
 gulp --version
 # 3.9.1
 ~~~

@@ -56,6 +56,19 @@ gradlew
 
 <h2>Options available when generating an application</h2>
 
+<h3>Which *type* of application would you like to create?</h3>
+<p>
+    Your type of application depends on whether you wish to use a microservices architecture or not. A full explanation on microservices is <a href="{{ site.url }}/microservices-architecture/">available here</a>, if unsure use the default "Monolithic application".
+</p>
+<p>
+    You can either use:
+    <ul>
+        <li>Monolithic application: this a classical, one-size-fits-all application. It's easier to use and develop, and is our recommended default.</li>
+        <li>Microservice application: in a microservices architecture, this is one of the services.</li>
+        <li>Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.</li>
+    </ul>
+</p>
+
 <h3>What is the base name of your application?</h3>
 <p>
   This is the name of your application.
@@ -70,11 +83,11 @@ gradlew
 <p>
   You can either use:
   <ul>
-      <li> A classical session-based authentication mechanism, like we are used to do in Java (this is how most people use <a href="http://docs.spring.io/spring-security/site/index.html" target="_blank">Spring Security</a>). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.</li>
-      <li> An OAuth 2.0 authentication mechanism (JHipster then provides the necessary OAuth2 server code and database tables).</li>
-      <li>A token-based approach (similar to OAuth 2.0, but uses a custom token system that does not require database tables).</li>
+      <li>A classical session-based authentication mechanism, like we are used to do in Java (this is how most people use <a href="http://docs.spring.io/spring-security/site/index.html" target="_blank">Spring Security</a>). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.</li>
+      <li>An OAuth 2.0 authentication mechanism (JHipster then provides the necessary OAuth2 server code and database tables).</li>
+      <li>A mechanism using <a href="https://jwt.io/" target="_blank">JSON Web Token (JWT)</a></li>
   </ul>
-  The OAuth 2.0 and the token approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our <a href="{{ site.url }}/security/">securing your application</a> page.
+  The OAuth 2.0 and the JWT approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our <a href="{{ site.url }}/security/">securing your application</a> page.
 </p>
 
 <h3>Which *type* of database would you like to use?</h3>
@@ -143,11 +156,12 @@ gradlew
     <ul>
         <li>Performance tests using Gatling</li>
         <li>Behaviour tests using Cucumber</li>
+        <li>AngularJS integration tests with Protractor</li>
     </ul>
     You can find more information on our <a href="{{ site.url }}/running-tests/">"Running tests" guide</a>.
 </p>
 
-<h2>Tip</h2>
+<h2>Tips</h2>
 <p>
     You can pass the following command-line argument flags when running the application generator:
     <ul>
