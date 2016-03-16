@@ -13,6 +13,8 @@ sitemap:
 
 ## Summary
 
+Using Docker and Docker Compose is highly recommended in development, and is also a good solution in production.
+
 1. [Description](#1)
 2. [Prerequisites](#2)
 3. [Differences when using a microservices architecture](#3)
@@ -30,6 +32,8 @@ JHipster provides a complete Docker support, in order to:
 
 - Facilitate development, as you can start a full infrastructure very easily, even when using a complex microservices architecture
 - For people using Docker Swarm, deploying to production directly, as it uses the same Docker Compose configuration
+
+One great feature of using Docker Compose is that you can easily scale your containers, using the `docker scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
 
 When generating your application, JHipster generates for you:
 
@@ -52,6 +56,18 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 </div>
 
 ## <a name="3"></a> Differences when using a microservices architecture
+
+If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `DockerFile` and Docker Compose configurations, like with a normal monolithic application.
+
+But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
+
+- You need to have all your gateway(s) and microservices in the same directory
+- Create another directory, for example `mkdir docker-compose`
+- Go into that directory: `cd docker-compose`
+- Run the sub-generator: `yo jhispter:docker-compose`
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to have the JHipster Registry and the JHipster Console included
+
+This will generate a global Docker Compose configuration, type `docker-compose up` to run it.
 
 TODO
 
@@ -184,6 +200,9 @@ You can use `docker ps -a` to list all the containers
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
     fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-mysql
 
+### Scaling a container
+
+TODO
 
 ### Stop the containers
 
