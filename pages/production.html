@@ -29,7 +29,7 @@ gradlew -Pprod
 </code>
 </p>
 <p>
-This profile will compile, test and package your Java application with all productions settings. It will also trigger a "grunt build", so your static resources are optimized.
+This profile will compile, test and package your Java application with all productions settings. It will also trigger a "gulp build", so your static resources are optimized.
 </p>
 <p>
 If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles/">Development and Production profiles</a>".
@@ -98,13 +98,13 @@ Or in "production" mode:
     java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
     </code>
 </p>
-<h2>Generating an optimized JavaScript application with Grunt</h2>
+<h2>Generating an optimized JavaScript application with Gulp</h2>
 <p>
 This step is automatically triggered when you build your project with the "production" profile. If you want to run it without launching a Maven build, just run:
 </p>
 <p>
 <code>
-grunt build
+gulp build
 </code>
 </p>
 <p>

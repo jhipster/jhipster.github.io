@@ -9,23 +9,24 @@ sitemap:
     lastmod: 2014-12-10T00:00:00-00:00
 ---
 
-<h1><i class="fa fa-flag"></i> Installing new languages</h1>
+<h1><i class="fa fa-flag"></i> Internationalization</h1>
 
 <h2>Introduction</h2>
 <p>
-  During the generation of a new project, JHipster only installs English and French languages. However, JHipster supports more languages that can be installed using this sub-generator.
+  During the generation of a new project you will be asked whether or not you want to enable internationalization support.
 </p>
 <p>
-  The default language in JHipster is English, but this can be changed in the <code>src/main/webapp/scripts/app/app.js</code>, by modifying the following code:
+  If enabling it you will need to select the native language of your application.
+  After that you can choose the additional languages you would like to install.
+  If you don't want to support any additional languages from start you can always add languages later when needed by running the language sub-generator.
 </p>
 <p>
-  <code>$translateProvider.preferredLanguage('en');</code><br/>
-  (using your preferred language's code instead of 'en').
+  If you are sure you will never translate this application into another language you should not enable the internationalization.
 </p>
 
-<h2>Which other languages are supported out of the box?</h2>
+<h2>Supported languages</h2>
 
-<p>By default we provide French and English, but you can add many more languages:</p>
+<p>These are the currently supported languages</p>
 
 <p>
   <ul>
@@ -36,6 +37,7 @@ sitemap:
     <li>Galician</li>
     <li>German</li>
     <li>Greek</li>
+    <li>Hindi</li>
     <li>Italian</li>
     <li>Japanese</li>
     <li>Hindi</li>
@@ -55,10 +57,13 @@ sitemap:
   </ul>
 </p>
 
-<h2>How to install new languages?</h2>
+<p><code>Does JHipster not support your language? Please help us with a PR!</code></p>
+
+
+<h2>How to add languages after project generation?</h2>
 
 <p>
-  In order to install new languages, just type:
+  To do this you can run the languages sub-generator with:
 </p>
 <p>
   <code>
@@ -68,45 +73,90 @@ sitemap:
 <p>
   <img src="{{ site.url }}/images/install_new_languages.png" width="400"/>
 </p>
-
-<h2>How to create a new language that is not supported?</h2>
 <p>
-  All languages are saved in the folder <code>/src/main/webapp/i18n</code>
+    Note that you will need to regenerate your entities if you would like to have them translated in the language you just added.
+</p>
+
+<h2>How to add a new language that is not supported?</h2>
+<p>
+  All languages are saved in the folder <code>src/main/webapp/i18n</code> (client side) and <code>src/main/resources/i18n</code> (server side)
 </p>
 <p>
   Here are the steps to install a new language called <code>new_lang</code>:
   <ol>
-    <li>Duplicate the <code>/src/main/webapp/i18/en</code> folder to <code>/src/main/webapp/i18/new_lang</code>: this where all the front-end translations are stored </li>
-    <li>Translate all files under the folder <code>/src/main/webapp/i18/new_lang</code></li>
+    <li>Duplicate the <code>src/main/webapp/i18/en</code> folder to <code>src/main/webapp/i18/new_lang</code> (this is where all the front-end translations are stored)</li>
+    <li>Translate all files under the folder <code>src/main/webapp/i18/new_lang</code></li>
     <li>
-      <p>Update the <code>LANGUAGES</code> constant defined in the folder <code>src/main/webapp/components/language/language.service.js</code>
-        <br/> to add the new language <code>new_lang</code></p>
-      <pre>
-        <code>
-.constant('LANGUAGES', [
-  'en', 'fr', 'new_lang'
-  //JHipster will add new languages here
-]
-        </code>
-      </pre>
+      <p>Add the languege code <code>new_lang</code> to the <code>LANGUAGES</code> constant defined in <code>src/main/webapp/app/components/language/language.constants.js</code>
+      <pre><code>.constant('LANGUAGES', [
+    'en',
+    'fr',
+    'new_lang'
+    // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
+]</code></pre>
     </li>
-    <li>In the <code>src/main/resources/i18n</code> folder, copy the <code>messages_en.properties</code> file to <code>messages_new_lang.properties</code>: this where the server-side translations are stored</li>
+    <li>In the <code>src/main/resources/i18n</code> folder, copy the <code>messages_en.properties</code> file to <code>messages_new_lang.properties</code> (this is where the server-side translations are stored)</li>
     <li>Translate all keys in the <code>messages_new_lang.properties</code> file</li>
-    <li>Add the new language's name in the function of <code>filter('findLanguageFromKey')</code> in the <code>src/main/webapp/scripts/components/language/language.controller.js</code> file</li>
-    <li>If there's no pluralization function for the new_lang, under <code>src/main/webapp/bower_components/messageformat/locale</code>, you may need to create it. More info in [Angular translate](http://angular-translate.github.io/docs/#/guide/14_pluralization) and [MessageFormat](https://github.com/SlexAxton/messageformat.js)</li>
-    <li>Add the file with the pluralization function in <code>src/main/webapp/index.html</code></li>
+    <li>
+      <p>Add the new language's name in the function of <code>filter('findLanguageFromKey')</code> in the <code>src/main/webapp/app/components/language/language.filter.js</code> file</p>
+      <pre><code>function findLanguageFromKeyFilter(lang) {
+    return {
+        'ca': 'Català',
+        'da': 'Dansk',
+        'de': 'Deutsch',
+        'el': 'Ελληνικά',
+        'en': 'English',
+        'es': 'Español',
+        'fr': 'Français',
+        'gl': 'Galego',
+        'hu': 'Magyar',
+        'hi': 'हिंदी',
+        'it': 'Italiano',
+        'ja': '日本語',
+        'ko': '한국어',
+        'mr': 'मराठी',
+        'nl': 'Nederlands',
+        'pl': 'Polski',
+        'pt-br': 'Português (Brasil)',
+        'pt-pt': 'Português',
+        'ro': 'Română',
+        'ru': 'Русский',
+        'sv': 'Svenska',
+        'ta': 'தமிழ்',
+        'tr': 'Türkçe',
+        'zh-cn': '中文（简体）',
+        'zh-tw': '繁體中文'
+    }[lang];
+}</code></pre>
+    </li>
+    <li>
+        If there's no pluralization function for the new_lang in folder <code>src/main/webapp/bower_components/messageformat/locale</code> you need to create it.
+        More info in <a href="http://angular-translate.github.io/docs/#/guide/14_pluralization" target="_blank">Angular translate</a>
+        and <a href="https://github.com/SlexAxton/messageformat.js" target="_blank">MessageFormat</a></li>
+    <li>
+      <p>If the messageformat locale file exits in previous step add the file in <code>bower.json</code></p>
+      <pre><code>"messageformat": {
+    "main": [
+        "messageformat.js",
+        "locale/en.js",
+        "locale/fr.js",
+        "locale/new_lang.js"
+    ]
+}</code></pre>
+       <p>If the messageformat locale file does not exits in the previous step include the file manually in <code>src/main/webapp/index.html</code></p>
+    </li>
   </ol>
 </p>
 <p>
-  The new language <code>new_lang</code> is now available in the language menu, and is available both in the front-end AngularJS application and in the back-end Spring application.
+  The new language <code>new_lang</code> is now available in the language menu, and it is available both in the front-end AngularJS application and in the back-end Spring application.
 </p>
 
 <h2>How to remove an existing language?</h2>
 <p>
     Here are the steps to remove a language called <code>old_lang</code>:
     <ol>
-        <li>Remove the language folder from <code>/src/main/webapp/i18/old_lang</code></li>
-        <li>Remove the constant entry in <code>src/main/webapp/scripts/components/language/language.service.js</code></li>
+        <li>Remove the language folder from <code>src/main/webapp/i18/old_lang</code></li>
+        <li>Remove the constant entry in <code>src/main/webapp/app/components/language/language.constants.js</code></li>
         <li>Remove the <code>src/main/resources/i18n/messages_old_lang.properties</code> file</li>
     </ol>
 </p>

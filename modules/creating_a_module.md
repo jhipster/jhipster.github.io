@@ -127,7 +127,7 @@ And all the variables from the JHipster `.yo-rc.json` file:
 - `addBowerOverride`: add an override configuration in the `bower.json` file
 - `addAngularJsModule`: add a new module in the `app.js` file
 - `addAngularJsConfig`: add a new config in the `app.js` file
-- `addAngularJsInterceptor` : register an angular js interceptor in the `app.js` file
+- `addAngularJsInterceptor` : register an AngularJS interceptor in the `app.js` file
 - `addMainCSSStyle`: add a new style in the `main.css` file
 - `addMainSCSSStyle`: add a new style in the `main.scss` file
 - `copyTemplate`: copy a template from source to a destination after stripping any translation content when translation is disabled

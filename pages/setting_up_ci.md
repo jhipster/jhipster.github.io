@@ -16,7 +16,7 @@ Setting up your own continuous integration server using Jenkins for a JHipster a
 It's harder because you have to manage 2 software stacks in your build process:
 
 - Java/Maven for the server code and the build orchestration
-- Javascript/NodeJS/Grunt/Bower for client code
+- Javascript/NodeJS/Gulp/Bower for client code
 
 Each stack comes with its own dependency management (artifacts, npm) with potential conflicts to solve.
 
@@ -29,7 +29,7 @@ Some of the instructions below may help you also to setup your development envir
 
 In order to be able to inspect our JavaScript test reports via Jenkins, the easiest way is to configure Karma to use JUnit reporting format and to generate reports in Maven's surefire output directory.
 
-Gruntfile.js
+gulpfile.js
 
 ~~~ javascript
 karma: {

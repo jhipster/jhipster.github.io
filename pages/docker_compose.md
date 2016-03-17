@@ -9,35 +9,80 @@ sitemap:
     lastmod: 2015-12-24T00:00:00-00:00
 ---
 
-# <i class="fa fa-music"></i> [BETA] Docker Compose
+# <i class="fa fa-music"></i> Docker and Docker Compose
 
-__WARNING!__ This is a new feature, currently in __BETA__. Only these containers are available: MySQL, PostgreSQL, MongoDB, Cassandra, Elasticsearch, SonarQube.
+## Summary
 
-## Description
+Using Docker and Docker Compose is highly recommended in development, and is also a good solution in production.
 
-When generating your application, if you choose MySQL, PostgreSQL, MongoDB or Cassandra, some docker-compose files (`dev.yml`, `prod.yml`, `sonar.yml`) are generated in your folder project `src/main/docker/`.
+1. [Description](#1)
+2. [Prerequisites](#2)
+3. [Differences when using a microservices architecture](#3)
+4. [Building a Docker image of your application](#4)
+5. [Working with databases](#5)
+6. [Working with Elasticsearch](#6)
+7. [Working with Sonar](#7)
+8. [Common commands](#8)
 
-If you choose Elasticsearch as search engine, the configuration will be included in `prod.yml`.
+## <a name="1"></a> Description
 
-So you can use docker-compose to start your database in development or production profile.
+_Please note: this Docker configuration is used to run your generated application(s) inside a container image. It's completely different from the [Docker setup]({{ site.url }}/installation/) that JHipster also provides, which is for running the JHipster generator inside a container_
 
-All these images come from the official [Docker Hub](https://hub.docker.com/):
+JHipster provides a complete Docker support, in order to:
 
-- [MySQL](https://hub.docker.com/_/mysql/)
-- [PostgreSQL](https://hub.docker.com/_/postgres/)
-- [MongoDB](https://hub.docker.com/_/mongo/)
-- [Cassandra](https://hub.docker.com/_/cassandra/)
-- [Elasticsearch](https://hub.docker.com/_/elasticsearch/)
-- [SonarQube](https://hub.docker.com/_/sonarqube/)
+- Facilitate development, as you can start a full infrastructure very easily, even when using a complex microservices architecture
+- For people using Docker Swarm, deploying to production directly, as it uses the same Docker Compose configuration
 
-## Prerequisites
+One great feature of using Docker Compose is that you can easily scale your containers, using the `docker scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
+
+When generating your application, JHipster generates for you:
+
+- A `DockerFile` for running your application inside a container
+- Several Docker Compose configurations to help you run your application with third-party services, for example a database
+
+Those files are located inside folder `src/main/docker/`.
+
+## <a name="2"></a> Prerequisites
 
 You have to install Docker and Docker Compose:
 
 - [Docker](https://docs.docker.com/installation/#installation)
 - [Docker Compose](https://docs.docker.com/compose/install)
 
-## Working with databases
+<div class="alert alert-info"><i>Tip: </i>
+
+On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes using Docker a lot easier.
+
+</div>
+
+## <a name="3"></a> Differences when using a microservices architecture
+
+If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `DockerFile` and Docker Compose configurations, like with a normal monolithic application.
+
+But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
+
+- You need to have all your gateway(s) and microservices in the same directory
+- Create another directory, for example `mkdir docker-compose`
+- Go into that directory: `cd docker-compose`
+- Run the sub-generator: `yo jhispter:docker-compose`
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to have the JHipster Registry and the JHipster Console included
+
+This will generate a global Docker Compose configuration, type `docker-compose up` to run it.
+
+TODO
+
+## <a name="4"></a> Building and running a Docker image of your application
+
+TODO
+
+`mvn package -Pprod docker:build`
+
+`gradle bootRepackage buildDocker`
+
+`docker-compose -f src/main/docker/app.prod.yml -f src/main/docker/db.prod.yml up`
+
+
+## <a name="5"></a> Working with databases
 
 ### Note
 
@@ -127,7 +172,11 @@ You have to use this `DOCKER_HOST_IP` instead of localhost for databases in your
 
 `docker-compose -f src/main/docker/prod.yml up -d`
 
-## Working with Sonar
+## <a name="6"></a> Working with Elasticsearch
+
+If you choose Elasticsearch as search engine, the configuration will be included in `prod.yml`, so it will run alongside your database in production.
+
+## <a name="7"></a> Working with Sonar
 
 When generating your application, the `src/main/docker/sonar.yml` is generated in your folder project.
 So you can start a sonar instance to analyze your code:
@@ -143,7 +192,7 @@ Analyze your code:
 You can access to sonar: [http://localhost:9000](http://localhost:9000)
 
 
-## Common commands
+## <a name="8"></a> Common commands
 
 ### List the containers
 
@@ -153,6 +202,9 @@ You can use `docker ps -a` to list all the containers
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
     fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-mysql
 
+### Scaling a container
+
+TODO
 
 ### Stop the containers
 
@@ -172,6 +224,6 @@ When you stop a container, the data are not deleted, unless you delete the conta
 
 ### Delete a container
 
-Be carefull! All data will be deleted:
+Be careful! All data will be deleted:
 
 `docker rm "container id"`
