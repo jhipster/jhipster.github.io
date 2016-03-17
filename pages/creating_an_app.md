@@ -140,13 +140,16 @@ Here are the options you can pass:
 * `--help` - Print the generator's options and usage
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
-* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false)
-* `--skip-server` - Skip the server-side application generation, so you only have the AngularJS front-end code generated (Default: false)
+* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `yo jhipster:server`.
+* `--skip-server` - Skip the server-side application generation, so you only have the AngularJS front-end code generated (Default: false). This is same as running client sub-generator with `yo jhipster:client`.
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--check-install` - Check your installation is correct (Default: true)
 
 ## <a name="4"></a> Tips
+
+If you are an advance user you can use our client and server sub-generators by running `yo jhipster:client --[options]` and `yo jhipster:server --[options]`.
+Run the above sub-generators with `--help` flag to view all the options that can be passed.
 
 You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `yo jhipster --force --with-entities`.

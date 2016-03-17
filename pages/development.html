@@ -85,7 +85,9 @@ sitemap:
     If you want more information on using Gradle, please go to <a href="https://gradle.org" target="_blank">https://gradle.org</a>
 </p>
 
-<h2>Using the Java server and Gulp together</h2>
+<h2>Using Gulp</h2>
+
+<h3>Using the Java server and Gulp together</h3>
 <p>
     <i>We highly recommend you use this feature, as it allows to have live reloading of your client-side code.</i>
 </p>
@@ -102,9 +104,10 @@ sitemap:
     This should open up your Web browser, with live reload enabled, on <a href="http://localhost:9000" target="_blank">http://localhost:9000</a>. This works thanks to <a href="http://www.browsersync.io/" target="_blank">BrowserSync</a>, and you can access its administration screen on <a href="http://localhost:3001" target="_blank">http://localhost:3001</a>.
 </p>
 <p>
-    This provides two very impressive features:
+    This provides below very impressive features:
     <ul>
         <li>As soon as you modify one of your HTML/CSS/JavaScript file, your browser will refresh itself automatically</li>
+        <li>As soon as you add/remove a javascript file it will be added to the <code>index.html</code>, your browser will refresh itself automatically</li>
         <li>When you test your application on several different browsers or devices, all your clicks/scrolls/inputs should be automatically synchronized on all screens</li>
     </ul>
 </p>
@@ -114,13 +117,20 @@ sitemap:
 <p>
     If you have generated your application with the Sass option, your templates should also be automatically compiled into CSS.
 </p>
-<p>
     <i>Tips'n tricks</i>
     <ul>
         <li>In some browsers (like Chrome), your HTML/CSS/JS resources can be cached, and hence can have some trouble getting live-reloaded. To force them to be reloaded, open up the "developer console" and select "Disable cache (while DevTools is open)".</li>
         <li>As the Gulp server proxies request to the Java server, all REST requests will fail if the Java server is down. So if your Gulp server shows a blank screen, the first thing to check is if the Java server is running at <code>http://127.0.0.1:8080</code>.</li>
     </ul>
 </p>
+
+<h3>Other Gulp tasks</h3>
+
+<p>We use eslint for AngularJS javascript linting, you can run <code>gulp eslint</code> to lint your AngularJS files. You can also run <code>gulp eslint:fix</code> if you want eslint to fix some minor issues like formatting etc,.
+</p>
+<p>You can run <code>gulp install</code> to run all bootstrapping tasks in one go</p>
+<p>You can run <code>gulp build</code> to build an optimized version of your client side files under the target|build/www folder
+<p>By default you will get onscreen notifications for any errors or failures during gulp tasks, pass an argument <code>--no-notification</code> to disable notifications.</p>
 <p>
     If you want more information on using Gulp, please go to <a href="http://gulpjs.com" target="_blank">http://gulpjs.com</a>.
 </p>
