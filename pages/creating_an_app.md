@@ -149,7 +149,7 @@ Here are the options you can pass:
 
 ## <a name="4"></a> Tips
 
-If you are an advance user you can use our client and server sub-generators by running `yo jhipster:client --[options]` and `yo jhipster:server --[options]`.
+If you are an advanced user you can use our client and server sub-generators by running `yo jhipster:client --[options]` and `yo jhipster:server --[options]`.
 Run the above sub-generators with `--help` flag to view all the options that can be passed.
 
 You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `yo jhipster --force --with-entities`.

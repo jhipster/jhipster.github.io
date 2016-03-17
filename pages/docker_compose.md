@@ -77,6 +77,8 @@ TODO
 
 `mvn package -Pprod docker:build`
 
+`gradle bootRepackage buildDocker`
+
 `docker-compose -f src/main/docker/app.prod.yml -f src/main/docker/db.prod.yml up`
 
 
