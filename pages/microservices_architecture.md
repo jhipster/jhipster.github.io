@@ -62,6 +62,8 @@ If you'd rather run the JHipster Registry from a Docker image, it is available a
 
 - run `docker-compose -f src/main/docker/jhipster-registry.yml up` to start the JHipster Registry. The Eureka Registry will be available on port `8761` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
 
+Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/) for more information on using the JHipster Registry with Docker Compose.
+
 ## Application configuration with the JHipster Registry
 
 The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eureka) and also a [Spring Config Server](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html): when applications are launched they will first connect to the JHipster Registry to get their configuration. This is true for both gateways and microservices.
@@ -99,9 +101,11 @@ Then, on the gateway(s), run the entity sub-generator again. A new question will
 - You will have the choice either to generate an new entity normally (a gateway is also a standard JHipster application, so this would work like for a monolith application), or use an existing JHipster configuration from a microservice.
 - If you choose to generate the entity from a microservice, you will need to enter the path to this microservice on your local computer, and then JHipster will generate the front-end code on the gateway.
 
-## Using docker-compose to develop and deploy
+## Using Docker Compose to develop and deploy
 
-__TODO__
+Working on a microservices architecture means you will need several different services and databases working together, and in that context Docker Compose is a great tool to manage your development, testing and production environments.
+
+A specific section on microservices is included in our [Docker Compose documentation]({{ site.url }}/docker-compose/), and we highly recommend that you get familiar with it when working on a microservices architecture.
 
 ## Scaling up with Hazelcast distributed caching
 
@@ -124,6 +128,10 @@ Using Hazelcast with microservices will result in a specific configuration:
 ## Monitoring with the ELK stack
 
 __TODO__
+
+## Going to production with Docker Swarm
+
+As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) to learn more about using Docker Compose with JHipster.
 
 ## Going to production with CloudFoundry or Heroku
 
