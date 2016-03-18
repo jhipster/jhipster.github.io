@@ -20,8 +20,8 @@ Using Docker and Docker Compose is highly recommended in development, and is als
 3. [Differences when using a microservices architecture](#3)
 4. [Building a Docker image of your application](#4)
 5. [Working with databases](#5)
-6. [Working with Elasticsearch](#6)
-7. [Working with Sonar](#7)
+6. [Elasticsearch](#6)
+7. [Sonar](#7)
 8. [Common commands](#8)
 
 ## <a name="1"></a> Description
@@ -57,140 +57,93 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 
 ## <a name="3"></a> Differences when using a microservices architecture
 
-If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `DockerFile` and Docker Compose configurations, like with a normal monolithic application.
+If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `DockerFile` and a Docker Compose configurations, like with a normal monolithic application.
 
 But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
 
-- You need to have all your gateway(s) and microservices in the same directory
-- Create another directory, for example `mkdir docker-compose`
-- Go into that directory: `cd docker-compose`
-- Run the sub-generator: `yo jhispter:docker-compose`
-- The sub-generator will ask you which application you want to have in your architecture, and if you want to have the JHipster Registry and the JHipster Console included
+- You need to have all your gateway(s) and microservices in the same directory.
+- Create another directory, for example `mkdir docker-compose`.
+- Go into that directory: `cd docker-compose`.
+- Run the sub-generator: `yo jhispter:docker-compose`.
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitored with ELK included.
 
-This will generate a global Docker Compose configuration, type `docker-compose up` to run it.
+This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
 
-TODO
+This configuration will have a pre-configured JHipster Registry, that will configure your services automatically:
+
+- Those services will wait until the JHipster Registry is running until they can start (this can be configured in your `bootstrap-prod.yml` file using the `spring.cloud.config.fail-fast` and `spring.cloud.config.retry` keys).
+- The registry will configure your applications, for example it will share the JWT secret token between all services.
+- Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
 
 ## <a name="4"></a> Building and running a Docker image of your application
 
-TODO
+To create a Docker image of your application, and push it into your Docker registry:
 
-`mvn package -Pprod docker:build`
+- With Maven, type: `./mvnw package -Pprod docker:build`
+- With Gradle, type: `./gradlew bootRepackage -Pprod buildDocker`
 
-`gradle bootRepackage buildDocker`
+This will package your application with the `prod` profile, and install the image.
 
-`docker-compose -f src/main/docker/app.prod.yml -f src/main/docker/db.prod.yml up`
+To run this image, use the Docker Compose configuration located in the `src/main/docker` folder of your application:
 
+- `docker-compose -f src/main/docker/app.yml up`
+
+This command will start up your application and the services it relies on (database, search engine, JHipster Registry...).
 
 ## <a name="5"></a> Working with databases
 
-### Note
+### MySQL, PostgreSQL or MongoDB
 
-**Please note:** based on your OS your `DOCKER_HOST_IP` will differ. On Linux, it will be simply your localhost. For Mac/Windows, you will have to obtain the IP using following command: `docker-machine ip default` or `docker-machine env default`.
+Running `docker-compose -f src/main/docker/app.yml up` already starts up your database automatically.
 
-You have to use this `DOCKER_HOST_IP` instead of localhost for databases in your `application-dev.yml` and `application-prod.yml` files.
+If you just want to start your database, and not the other services, use the Docker Compose configuration of your database:
 
-### Starting MySQL, PostgreSQL or MongoDB
+- With MySQL: `docker-compose -f src/main/docker/mysql.yml up`
+- With PostgreSQL: `docker-compose -f src/main/docker/postgresql.yml up`
+- With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
 
-**In development profile**:
+### Cassandra
 
-`docker-compose -f src/main/docker/dev.yml up -d`
+Before running `docker-compose -f src/main/docker/app.yml up`, you will need to build and set up manually your Cassandra image.
 
-**In production profile** (it will start Elasticsearch too if you selected it as search engine):
+**Using DataStax OpsCenter**: if you want to monitor your application using DataStax OpsCenter, we also provide a `cassandra-opscenter.yml` configuration file, which you should use instead of the normal `cassandra.yml` file. OpsCenter will be available at [http://localhost:8888](http://localhost:8888).
 
-`docker-compose -f src/main/docker/prod.yml up -d`
+To use Cassandra, we need to build and run a specific Docker image:
 
-### Starting Cassandra the first time
+- Build the image: `docker-compose -f src/main/docker/cassandra.yml build`
+- Start the container (it will show the container id): `docker-compose -f src/main/docker/cassandra.yml up`
+- Use `docker ps` to get the "container id" of the jhipster-cassandra node, which will be used in the next commands (replace `<container_id>` by its value)
+- Copy the cql scripts inside the container: `docker cp src/main/resources/config/cql/ <container_id>:/`
+- Initialize the database by creating the Keyspace and the Tables: `docker exec -it <container_id> init`
+- After using the [entity sub-generator]({{ site.url }}/creating-an-entity/), update the cql scripts inside the container: `docker cp src/main/resources/config/cql/ <container_id>:/`
+- Create the tables: `docker exec -it <container_id> entities`
 
-**In development profile**:
+You can now run `docker-compose -f src/main/docker/app.yml up` to start your application with Cassandra, or `docker-compose -f src/main/docker/cassandra.yml up` if you just want to run Cassandra. Next time you want to add a new entity, follow the last 2 previous steps each time to update your database schema.
 
-- Build the image:
+One big difference between Cassandra and the other databases, is that you can scale your cluster with Docker Compose. To have X+1 nodes in your cluster, run:
 
-`docker-compose -f src/main/docker/dev.yml build`
+- `docker-compose -f src/main/docker/cassandra.yml scale <name_of_your_app>-cassandra-node=X`
 
-- Start the container (it will show the container id):
+## <a name="6"></a> Elasticsearch
 
-`docker-compose -f src/main/docker/dev.yml up -d`
+Running `docker-compose -f src/main/docker/app.yml up` already starts up your search engine automatically.
 
-- Copy the cql scripts inside the container:
+If you just want to start your Elasticsearch node, and not the other services, use its specific Docker Compose configuration::
 
-`docker cp src/main/resources/config/cql/ "container id":/`
+- `docker-compose -f src/main/docker/elasticsearch.yml up`
 
-- Initialize the database by creating the Keyspace and the Tables:
+## <a name="7"></a> Sonar
 
-`docker exec -it "container id" init`
+A Docker Compose configuration is generated for running Sonar:
 
-- After using entity sub generator, update the cql scripts inside the container:
+- `docker-compose -f src/main/docker/sonar.yml up`
 
-`docker cp src/main/resources/config/cql/ "container id":/`
+To analyze your code, run Sonar on your project:
 
-- Create the tables:
+- With Maven: `./mvn< sonar:sonar`
+- With Gradle: `./gradlew sonar`
 
-`docker exec -it "container id" entities`
-
-**In production profile**:
-
-- Build the image:
-
-`docker-compose -f src/main/docker/prod.yml build`
-
-- Start the container (it will show the container id):
-
-`docker-compose -f src/main/docker/prod.yml up -d`
-
-- Copy the cql scripts inside the container:
-
-`docker cp src/main/resources/config/cql/ "container id":/`
-
-- Initialize the database by creating the Keyspace and the Tables:
-
-`docker exec -it "container id" init`
-
-- Add X other nodes:
-
-`docker-compose -f src/main/docker/prod.yml scale <name_of_your_app>-cassandra-node=X`
-
-- You can manage all nodes with OpsCenter: [http://localhost:8888](http://localhost:8888)
-
-- Before starting your application in production profile, add in your `application-prod.yml` every IP of containers to the key `spring.data.cassandra.contactPoints`
-
-- After using entity sub generator, update the cql scripts inside the container:
-
-`docker cp src/main/resources/config/cql/ "container id":/`
-
-- Create the tables:
-
-`docker exec -it "container id" entities`
-
-### Starting Cassandra the next times
-
-**In development profile**:
-
-`docker-compose -f src/main/docker/dev.yml up -d`
-
-**In production profile**:
-
-`docker-compose -f src/main/docker/prod.yml up -d`
-
-## <a name="6"></a> Working with Elasticsearch
-
-If you choose Elasticsearch as search engine, the configuration will be included in `prod.yml`, so it will run alongside your database in production.
-
-## <a name="7"></a> Working with Sonar
-
-When generating your application, the `src/main/docker/sonar.yml` is generated in your folder project.
-So you can start a sonar instance to analyze your code:
-
-Start a sonar instance :
-
-`docker-compose -f src/main/docker/sonar.yml up -d`
-
-Analyze your code:
-
-`mvn sonar:sonar` or `./gradlew sonar`
-
-You can access to sonar: [http://localhost:9000](http://localhost:9000)
-
+The Sonar reports will be available at: [http://localhost:9000](http://localhost:9000)
 
 ## <a name="8"></a> Common commands
 
@@ -202,28 +155,22 @@ You can use `docker ps -a` to list all the containers
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
     fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-mysql
 
-### Scaling a container
+### Scale a container
 
-TODO
+Run `docker-compose scale test-app=4` to have 4 instances of application "test" running.
 
-### Stop the containers
+### Stop containers
 
-In development profile:
+`docker-compose -f src/main/docker/app.yml stop`
 
-`docker-compose -f src/main/docker/dev.yml stop`
+You can also use directly Docker:
 
-In production profile:
+`docker stop <container_id>`
 
-`docker-compose -f src/main/docker/prod.yml stop`
-
-You can use directly docker:
-
-`docker stop "container id"`
-
-When you stop a container, the data are not deleted, unless you delete the container.
+When you stop a container, the data is not deleted, unless you delete the container.
 
 ### Delete a container
 
 Be careful! All data will be deleted:
 
-`docker rm "container id"`
+`docker rm <container_id>`
