@@ -229,16 +229,24 @@
                                     </div>
                                 </div>
                             </li>
-                            <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
-                            <li {% if '/jhipster-uml/' == page.url %}class="active" {% endif %}>
-                                <a href="{{ site.url }}/jhipster-uml/"><span class="icon fa fa-fw fa-magic"></span><span class="title">JHipster-UML</span></a>
-                            </li>
-                            <li>
-                                <a href="{{ site.url }}/jdl-studio/" target="_blank"><span class="icon fa fa-fw fa-terminal"></span><span class="title">JDL-Studio</span></a>
-                            </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
+                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Tools</span></a>
                                 <div id="dropdown-9" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/jdl/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/"><i class="fa fa-fw fa-star"></i> JDL</a></li>
+                                            <li><a href="{{ site.url }}/jdl-studio/"><i class="fa fa-fw fa-terminal"></i> JDL Studio</a></li>
+                                            <li {% if '/jhipster-uml/' == page.url %}class="active" {% endif %}>
+                                                <a href="{{ site.url }}/jhipster-uml/"><i class="fa fa-fw fa-magic"></i> JHipster-UML</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
+                                <div id="dropdown-10" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/help/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/help/"><i class="fa fa-fw fa-users"></i> Community help</a></li>
