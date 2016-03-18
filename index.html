@@ -51,7 +51,7 @@ sitemap:
                                 <a href="https://github.com/jhipster/generator-jhipster/contributors" target="_blank">
                                     <div class="card dark summary-inline">
                                         <div class="card-body">
-                                            <i class="icon fa fa-github fa-3x"></i>
+                                            <i class="icon fa fa-users fa-3x"></i>
                                             <div class="content" ng-cloak>
                                                 <div class="title">{(gitConftributors)}</div>
                                                 <div class="sub-title">Contributors</div>
@@ -81,8 +81,10 @@ sitemap:
                     <div>
                         <p>
                             <ul>
-                                <li>Deepu K Sasidharan will be the speaker at the <a href="http://www.meetup.com/fr-FR/singasug/events/229146821/?eventId=229146821#description-tab" target="_blank">JHipster 3.0 night</a> in Singapore on March, 16th</li>
+                                <li>Rikard Thulin and Ola Petersson will present JHipster at the <a href="http://www.javaforum.se/jf/?meeting=146" target="_blank">Stockholm JavaForum</a> in Stockholm, Sweden on March, 22nd</li>
+                                <li>The <a href="http://www.meetup.com/fr-FR/JHipster-User-Group/events/229603142/" target="_blank">Paris JHipster meetup #3</a> will be hosted in Paris, France on April, 11th</li>
                                 <li>Julien Dubois and Matt Raible will both present <a href="http://devoxx.fr/" target="_blank">a JHipster talk at Devoxx France</a> in Paris, France on April, 21st and 22nd</li>
+                                <li>Matt Raible will do his <a href="http://cfp.devoxx.co.uk/2016/talk/OLG-0920/Get_Hip_with_JHipster:_Spring_Boot_+_AngularJS_+_Bootstrap" target="_blank">Get Hip with JHipster talk</a> at Devoxx UK in London, UK on June 8th-10th</li>
                                 <li>Ippon USA will host <a href="http://www.ipponusa.com/training/jhipster-master/" target="_blank">a JHipster training</a> in Washington, DC on July, 27th</li>
                                 <li>The JHipster mini-book by Matt Raible <a href="http://www.infoq.com/minibooks/jhipster-mini-book" target="_blank">is available for free at InfoQ</a></li>
                             </ul>
@@ -326,17 +328,13 @@ sitemap:
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Module Name</label>
-                                <input type="text" ng-model="searchText" class="form-control search-text" placeholder="Search" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>
-                            </div>
+                <div class="col-lg-8 col-lg-offset-2">                    
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <input type="text" ng-model="searchText" class="form-control search-text" placeholder="Search" id="name" required data-validation-required-message="Please enter a module to search">
+                            <p class="help-block text-danger"></p>
                         </div>
-
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="text-center">
@@ -351,11 +349,10 @@ sitemap:
                             title="{(module.description[0])}">
                             <div class="card dark module summary-inline">
                                 <div class="card-body">
-                                    <i class="icon fa fa-cube fa-4x"></i>
+                                    <i class="icon fa fa-cube fa-3x"></i>
                                     <div class="content">
-                                        <div class="title">{(module.name[0] | jhiModuleFilter)}</div>
-                                        <div class="sub-title">by {(module.author.join(','))}</div>
-                                        <div class="sub-title">{(module.downloads)} downloads last month</div>
+                                        <div class="title fontSmall">{(module.name[0] | jhiModuleFilter)}</div>
+                                        <div class="sub-title"><span class="fa fa-user"></span> &nbsp; {(module.author.join(','))} &nbsp; | &nbsp; <span class="fa fa-download"></span> &nbsp; {(module.downloads)}</div>                                        
                                     </div>
                                     <div class="clear-both"></div>
                                 </div>
