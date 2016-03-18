@@ -42,7 +42,7 @@ You can use it by:
 
   - simply creating a file with the extension '.jh',
   - declare your entities and relationships or create and download the file with [JDL-Studio]({{ site.url }}/jdl-studio/),
-  - in your JHipster application's root folder, simply type `jhipster:import-jdl yourfile.jh`.
+  - in your JHipster application's root folder, simply run `jhipster:import-jdl yourfile.jh`.
 
 and *Voilà*, you are done!
 

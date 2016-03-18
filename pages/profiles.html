@@ -16,9 +16,9 @@ JHipster comes with two Spring "profiles":
 </p>
 
 <ul>
-  <li>"dev" for development: it focuses on ease of development and productivity</li>
-  <li>"prod" for production: it focuses on performance and scalability</li>
- </ul>
+  <li><code>dev</code> for development: it focuses on ease of development and productivity</li>
+  <li><code>prod</code> for production: it focuses on performance and scalability</li>
+</ul>
 
 <p>
 Those profiles come in two different configurations:
@@ -63,4 +63,17 @@ In production, JHipster has to run with the "prod" profile
 </p>
 <p>
     You can test it with Gradle, by running <code>gradlew -Pprod</code>
+</p>
+<h2>
+Profile switches
+</h2>
+<p>
+JHipster comes with two Spring "profiles" used as switches:
+</p>
+<ul>
+  <li><code>no-swagger</code> to disable swagger</li>
+  <li><code>no-liquibase</code> to disable liquibase</li>
+</ul>
+<p>These can be used along with both <code>dev</code> and <code>prod</code> profiles</p>
+<p>The are used at run time. For example <code>java -jar myApp.war --spring.profiles.active=prod,no-liquibase</code> or <code>./gradlew -Pprod -Pno-liquibase</code> or <code>./gradlew -Pno-liquibase -Pno-swagger</code>
 </p>

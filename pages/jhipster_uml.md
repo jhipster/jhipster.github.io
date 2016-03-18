@@ -230,7 +230,7 @@ Finally, you can choose the service for your entities using `-service`.
 
 **Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
 
-If you plan on using a JDL file as input, the services, DTOs and paginations are not specified via the command line but in the file itself (see the JDL section of this documentation for more information).
+If you plan on using a JDL file as input, the services, DTOs and paginations are not specified via the command line but in the file itself (see the [JDL]({{ site.url }}/jdl/) section of this documentation for more information).
 Here's how you use JHipster-UML with a JDL file:
 
  `jhipster-uml <your_file.jh> [-db (sql | mongodb | cassandra)]`
