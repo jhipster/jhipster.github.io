@@ -72,7 +72,7 @@ jhipsterFunc.registerModule(npmPackageName, hookFor, hookType[, callbackSubGener
 - `callbackSubGenerator` [optional] sub generator to invoke, if this is not given the module's main (app) generator will be called, e.g: `bar` or `foo` generator
 - `description` [optional] description of the generator, if this is not given we will generate a default based on the npm name given
 
-### Variables available
+### Variables available <small>(source <a href="https://github.com/jhipster/generator-jhipster/blob/master/generators/modules/index.js" target="_blank">here</a>)</small>
 
 Global variables:
 
@@ -100,7 +100,7 @@ And all the variables from the JHipster `.yo-rc.json` file:
 - `enableSocialSignIn`: if social login is enabled
 - `testFrameworks`: an array of the test frameworks selected
 
-### Functions available
+### Functions available <small>(source <a href="https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-base.js" target="_blank">here</a>)</small>
 
 - `addJavaScriptToIndex`: add a JavaScript file to the `index.html`
 - `addMessageformatLocaleToIndex`: add a message format locale (for i18n)
