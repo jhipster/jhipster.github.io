@@ -17,11 +17,14 @@ The JHipster client code can be found under `src/main/webapp`, and follows close
 
 This style guide is endorsed by the AngularJS team, and gives the guarantee to have a clear upgrade path to AngularJS 2.
 
+For AngularJS routes we follow a dash cased naming convention so that the URLs are clean and consistent.
+When you generate an entity the route names, route URLs and REST API endpoint URLs are generated according to this convention, also entity names are automatically pluralized where required.
+
 Here is the main project structure:
 
     webapp
     ├── app                               - Your application
-    │   ├── account                       - User management UI
+    │   ├── account                       - User account management UI
     │   ├── admin                         - Administration UI
     │   ├── blocks                        - Common building blocks like configuration and interceptors
     │   ├── components                    - Common components like alerting and form validation
@@ -36,7 +39,9 @@ Here is the main project structure:
     ├── content                           - Static content
     │   ├── images                        - Images
     │   ├── styles                        - CSS stylesheets
+    │   ├── fonts                         - Font files will be copied here
     ├── i18n                              - Translation files
+    ├── scss                              - Sass style sheet files will be here if you choose the option
     ├── swagger-ui                        - Swagger UI front-end
     ├── 404.html                          - 404 page
     ├── favicon.ico                       - Fav icon
@@ -65,6 +70,7 @@ Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) to create a
     │   ├── fr                                         - French translations
     │   │   ├── foo.json                               - French translation of Foo name, fields, ...
 
+Please note that the default language translations would be based on what you have choose during app generation. 'en' and 'fr' are shown only for demonstration.
 
 ## Authorizations
 
@@ -158,3 +164,6 @@ The shorthand methods `success`, `info`, `warning` and `error` will have a timeo
 
         }
     })();
+
+
+If you would like the notifications to look like toasts you can enable that by setting `AlertServiceProvider.showAsToast(true)` in `src/main/webapp/app/blocks/config/alert.config.js`. By default this will be set to false `AlertServiceProvider.showAsToast(false)`.

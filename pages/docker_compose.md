@@ -65,7 +65,7 @@ But you can use the specific `docker-compose` sub-generator, which will generate
 - Create another directory, for example `mkdir docker-compose`.
 - Go into that directory: `cd docker-compose`.
 - Run the sub-generator: `yo jhispter:docker-compose`.
-- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitored with ELK included.
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
 
 This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
 
@@ -140,7 +140,7 @@ A Docker Compose configuration is generated for running Sonar:
 
 To analyze your code, run Sonar on your project:
 
-- With Maven: `./mvn< sonar:sonar`
+- With Maven: `./mvnw sonar:sonar`
 - With Gradle: `./gradlew sonar`
 
 The Sonar reports will be available at: [http://localhost:9000](http://localhost:9000)
