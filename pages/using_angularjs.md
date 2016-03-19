@@ -70,7 +70,7 @@ Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) to create a
     │   ├── fr                                         - French translations
     │   │   ├── foo.json                               - French translation of Foo name, fields, ...
 
-Please note that the default language translations would be based on what you have choose during app generation. 'en' and 'fr' are shown only for demonstration.
+Please note that the default language translations would be based on what you have choosen during app generation. 'en' and 'fr' are shown here only for demonstration.
 
 ## Authorizations
 
