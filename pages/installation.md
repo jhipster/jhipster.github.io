@@ -52,11 +52,9 @@ _Please note: this Docker image is for running the JHipster generator inside a c
 
 ### Information
 
-JHipster has a specific [jhipster-docker project](https://github.com/jhipster/jhipster-docker), which provides a [Docker](https://www.docker.io/) container.
+JHipster has a specific [Dockerfile](https://github.com/jhipster/generator-jhipster/blob/master/Dockerfile), which provides a [Docker](https://www.docker.io/) image.
 
-This project makes a Docker "Trusted build" that is available on:
-
-[https://hub.docker.com/r/jdubois/jhipster-docker/](https://hub.docker.com/r/jdubois/jhipster-docker/)
+It makes a Docker "Automated build" that is available on: [https://hub.docker.com/r/jhipster/jhipster/](https://hub.docker.com/r/jhipster/jhipster/)
 
 This image will allow you to run JHipster inside Docker.
 
@@ -67,9 +65,14 @@ This depends on your operating system.
 1.  **Linux:** Linux supports Docker out-of-box. You just need to follow the tutorial on the [Docker](https://docs.docker.com/installation/#installation) website.
 2.  **Mac & Windows:** install the [Docker Toolbox](https://www.docker.com/docker-toolbox) to get Docker installed easily.
 
-**Please note:** based on your OS your `DOCKER_HOST_IP` will differ. On Linux, it will be simply your localhost. For Mac/Windows, you will have to obtain the IP using following command: `docker-machine ip default`
+As the generated files are in your shared folder, they will not be deleted if you stop your Docker container. However, if you don't want Docker to keep downloading all the Maven and NPM dependencies every time you start the container, you should commit its state or mount a volume.
 
-As the generated files are in your shared folder, they will not be deleted if you stop your Docker container. However, if you don't want Docker to keep downloading all the Maven and NPM dependencies every time you start the container, you should commit its state.
+<div class="alert alert-warning"><i>Warning: </i>
+
+Based on your OS, your <code>DOCKER_HOST</code> will differ. On Linux, it will be simply your localhost.
+For Mac/Windows, you will have to obtain the IP using following command: <code>docker-machine ip default</code>
+
+</div>
 
 <div class="alert alert-info"><i>Tip: </i>
 
@@ -77,15 +80,30 @@ Kitematic is an easy-to-use graphical interface provided with the Docker Toolbox
 
 </div>
 
+On Linux, you might need to run the `docker` command as root user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as a non-root user. Follow the steps on [http://askubuntu.com/a/477554](http://askubuntu.com/a/477554) to do so.
+
 ### Usage on Linux/Mac Windows (using Docker Toolbox)
 
 #### Pull the image
 
-Pull the JHipster Docker image:
+Pull the latest JHipster Docker image:
 
-`docker pull jdubois/jhipster-docker`
+`docker pull jhipster/jhipster`
+
+Pull the development JHipster Docker image:
+
+`docker pull jhipster/jhipster:master`
+
+You can see all tags [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
 
 #### Run the image
+
+<div class="alert alert-warning"><i>Warning: </i>
+
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows filesystem. Docker Machine tries to auto-share your /Users (OS X) or C:\Users (Windows) directory. So you have to create the project folder under these directory.
+
+</div>
+
 
 Create a "jhipster" folder in your home directory:
 
@@ -94,9 +112,9 @@ Create a "jhipster" folder in your home directory:
 Run the Docker image, with the following options:
 
 *   The Docker "/home/jhipster/app" folder is shared to the local "~/jhipster" folder
-*   Forward all ports exposed by Docker (8080 for Tomcat, 9000 for BrowserSync from the "gulp serve" task, 3001 for the BrowserSync UI)
+*   Forward all ports exposed by Docker (8080 for Tomcat, 3000 for BrowserSync from the "gulp serve" task, 3001 for the BrowserSync UI)
 
-`docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jdubois/jhipster-docker`
+`docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jhipster/jhipster`
 
 <div class="alert alert-info"><i>Tip: </i>
 
@@ -108,8 +126,8 @@ If you have already started the container once before, you do not need to run th
 
 To check that your container is running, use the command `docker ps`:
 
-`CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
-4ae16c0539a3 jdubois/jhipster-docker "tail -f /home/jhipst" 4 seconds ago Up 3 seconds 0.0.0.0:9000-3001->9000-3001/tcp, 0.0.0.0:8080->8080/tcp **jhipster**`
+    CONTAINER ID    IMAGE               COMMAND                 CREATED         STATUS          PORTS                                                       NAMES
+    4ae16c0539a3    jhipster/jhipster   "tail -f /home/jhipst"  4 seconds ago   Up 3 seconds    0.0.0.0:3000-3001->3000-3001/tcp, 0.0.0.0:8080->8080/tcp    jhipster
 
 #### Common operations
 
@@ -120,20 +138,18 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 
 1.  `docker stop jhipster`
 2.  `docker rm jhipster`
-3.  `docker pull jdubois/jhipster-docker`
-4.  `docker run --name jhipster -w /home/jhipster/app -v ~/jhipster:/home/jhipster/app:rw -v ~/.m2:/home/jhipster/.m2:rw -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jdubois/jhipster-docker`
-
-On Linux, you might need to run the `docker` command as root user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as a non-root user. Follow the steps on [http://askubuntu.com/a/477554](http://askubuntu.com/a/477554) to do so.
+3.  `docker pull jhipster/jhipster`
+4.  `docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jhipster/jhipster`
 
 ### Accessing the container
 
 The easiest way to log into container is by executing following command:
 
-`docker exec -it --user=jhipster <container_name> bash`
+`docker exec -it <container_name> bash`
 
-if you copy-pasted command to run container from above, notice the name being specified as jhipster
+If you copy-pasted command to run container from above, notice the name being specified as jhipster
 
-`docker exec -it --user=jhipster jhipster bash`
+`docker exec -it jhipster bash`
 
 You will login as "jhipster" user. In case you need to do a `sudo`, password for the user is the same as the username (`jhipster`).
 
@@ -147,11 +163,11 @@ You can then go to the /home/jhipster/app directory in your container, and start
 
 Once your application is created, you can run all the normal gulp/bower/maven commands, for example:
 
-`mvn`
+`./mvnw`
 
 **Congratulations! You've launched your JHipster app inside Docker!**
 
 On your host machine, you should be able to :
 
-*   Access the running application at `http://DOCKER_HOST_IP:8080`
+*   Access the running application at `http://DOCKER_HOST:8080`
 *   Get all the generated files inside your shared folder
