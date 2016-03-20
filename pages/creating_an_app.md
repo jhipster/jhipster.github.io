@@ -72,7 +72,12 @@ The OAuth 2.0 and the JWT approaches allow to use a stateless application archit
 
 ### Which *type* of database would you like to use?
 
-You can choose between a classical SQL database, which you will access with Spring Data JPA, or a NoSQL approach with [MongoDB]({{ site.url }}/using-mongodb/) or [Cassandra]({{ site.url }}/using-cassandra/).
+You can choose between:
+
+- No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/))
+- An SQL database (H2, MySQL, PostgreSQL, Oracle), which you will access with Spring Data JPA
+- [MongoDB]({{ site.url }}/using-mongodb/)
+- [Cassandra]({{ site.url }}/using-cassandra/)
 
 ### Which *production* database would you like to use?
 

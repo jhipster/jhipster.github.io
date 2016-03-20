@@ -90,6 +90,10 @@ For security to work, you need to exchange the JWT secret token between all your
 - To share this key between all your applications, copy the key from your gateway to all the microservices, or share it using the JHipster Registry's Spring Config Server.
 - A good practice is to have a different key in development and production.
 
+## Creating an application without a database
+
+Only microservices applications can be created without a database. This is because microservices are small and do not have user-management code.
+
 ## Generating entities in a microservices architecture
 
 Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) works a little bit differently in a microservices architecture, as the front-end and the back-end codes are not located in the same application.
