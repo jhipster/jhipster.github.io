@@ -6,7 +6,7 @@ redirect_from:
   - /docker_compose.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-12-24T00:00:00-00:00
+    lastmod: 2016-03-20T00:00:00-00:00
 ---
 
 # <i class="fa fa-music"></i> Docker and Docker Compose
@@ -33,11 +33,11 @@ JHipster provides a complete Docker support, in order to:
 - Facilitate development, as you can start a full infrastructure very easily, even when using a complex microservices architecture
 - For people using Docker Swarm, deploying to production directly, as it uses the same Docker Compose configuration
 
-One great feature of using Docker Compose is that you can easily scale your containers, using the `docker scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
+One great feature of using Docker Compose is that you can easily scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
 
 When generating your application, JHipster generates for you:
 
-- A `DockerFile` for running your application inside a container
+- A `Dockerfile` for building a Docker image and running your application inside a container
 - Several Docker Compose configurations to help you run your application with third-party services, for example a database
 
 Those files are located inside folder `src/main/docker/`.
@@ -57,14 +57,14 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 
 ## <a name="3"></a> Differences when using a microservices architecture
 
-If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `DockerFile` and a Docker Compose configurations, like with a normal monolithic application.
+If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `Dockerfile` and a Docker Compose configurations, like with a normal monolithic application.
 
 But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
 
 - You need to have all your gateway(s) and microservices in the same directory.
 - Create another directory, for example `mkdir docker-compose`.
 - Go into that directory: `cd docker-compose`.
-- Run the sub-generator: `yo jhispter:docker-compose`.
+- Run the sub-generator: `yo jhipster:docker-compose`.
 - The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
 
 This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
