@@ -32,6 +32,10 @@ gradlew -Pprod
 This profile will compile, test and package your Java application with all productions settings. It will also trigger a "gulp build", so your static resources are optimized.
 </p>
 <p>
+Earlier versions of JHipster put these optimized assets in <code>src/main/webapp/dist</code>, as a child directory of the "dev" assets. As of 3.0, these have been separated and
+the optimized assets are now located in <code>target/www</code> for Maven or <code>build/www</code> for Gradle.
+</p>
+<p>
 If you want more information on the available profiles, please go the section titled "<a href="{{ site.url }}/profiles/">Development and Production profiles</a>".
 </p>
 
@@ -68,6 +72,12 @@ This will generate two files (if your application is called "jhipster"):
 The first one is an executable WAR file (see next section to run it). It can also be deployed on an application server,
 but as it includes the Tomcat runtime libs, you will probably get some warnings, that's why we recommend you use the second,
 ".original" file if you want to deploy JHipster on an application server.
+</p>
+
+<p>
+Please note that when building a WAR file with the "prod" profile, the generated archive will not include the "dev" assets!
+This means that you will have to explicitly set the "prod" profile when running or deploying the WAR file, as well, because
+otherwise you will end up with an odd combination of production front-end with development back-end.
 </p>
 
 <p>
