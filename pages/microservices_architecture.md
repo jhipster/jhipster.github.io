@@ -129,9 +129,11 @@ Using Hazelcast with microservices will result in a specific configuration:
 - With the `dev` profile, JHipster will create a cluster of those instances on localhost (`127.0.0.1`),  using a different port per instance. By default, the Hazelcast port is `your application's port + 5701` (so if your application's port is `8081`, Hazelcast will use port `13782`)
 - With the `prod` profile, JHipster will create a cluster with all the other nodes it finds, using the default Hazelcast port (`5701`)
 
-## Monitoring with the ELK stack
+## Monitoring with JHipster Console and the ELK stack
 
-__TODO__
+When using the Docker-Compose sub-generator, you will be asked if you want to add monitoring to your infrastructure. This option, will add the JHipster-Console to your `docker-compose.yml` file. Once started, it will be available on [http://localhost:5601](http://localhost:5601) and start to gather your apps logs and metrics. For instructions on how to set up monitoring for your apps please refer to the [monitoring documentation]({{ site.url }}/monitoring).
+
+Compared with monolith applications, gateways and microservices monitoring configuration provide additional features to help you effectively monitor a microservice cluster. For example logs are enriched with each application's name, host, port and Eureka ServiceId so that you can trace from which service they are originating from. Moreover the JHipster Console comes with default dashboards that give you a view of all your services at the same time.
 
 ## Going to production with Docker Swarm
 
