@@ -51,7 +51,7 @@ sitemap:
                                 <a href="https://github.com/jhipster/generator-jhipster/contributors" target="_blank">
                                     <div class="card dark summary-inline">
                                         <div class="card-body">
-                                            <i class="icon fa fa-github fa-3x"></i>
+                                            <i class="icon fa fa-users fa-3x"></i>
                                             <div class="content" ng-cloak>
                                                 <div class="title">{(gitConftributors)}</div>
                                                 <div class="sub-title">Contributors</div>
@@ -328,17 +328,13 @@ sitemap:
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Module Name</label>
-                                <input type="text" ng-model="searchText" class="form-control search-text" placeholder="Search" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>
-                            </div>
+                <div class="col-lg-8 col-lg-offset-2">                    
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <input type="text" ng-model="searchText" class="form-control search-text" placeholder="Search" id="name" required data-validation-required-message="Please enter a module to search">
+                            <p class="help-block text-danger"></p>
                         </div>
-
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="text-center">
@@ -353,11 +349,10 @@ sitemap:
                             title="{(module.description[0])}">
                             <div class="card dark module summary-inline">
                                 <div class="card-body">
-                                    <i class="icon fa fa-cube fa-4x"></i>
+                                    <i class="icon fa fa-cube fa-3x"></i>
                                     <div class="content">
-                                        <div class="title">{(module.name[0] | jhiModuleFilter)}</div>
-                                        <div class="sub-title">by {(module.author.join(','))}</div>
-                                        <div class="sub-title">{(module.downloads)} downloads last month</div>
+                                        <div class="title fontSmall">{(module.name[0] | jhiModuleFilter)}</div>
+                                        <div class="sub-title"><span class="fa fa-user"></span> &nbsp; {(module.author.join(','))} &nbsp; | &nbsp; <span class="fa fa-download"></span> &nbsp; {(module.downloads)}</div>                                        
                                     </div>
                                     <div class="clear-both"></div>
                                 </div>
