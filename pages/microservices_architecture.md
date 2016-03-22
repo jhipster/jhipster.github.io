@@ -72,13 +72,13 @@ This configuration is a Spring Boot configuration, like the one found in the JHi
 
 On startup, your gateways and microservices app will query the Registry's config server and overwrite their local properties with the ones defined there.
 
-Two kind of configurations sources are available:
+Two kinds of configurations sources are available:
 
 - A `native` configuration, which is used by default in development (using the JHipster `dev` profile), and which uses the local filesystem.
 - A `Git` configuration, which is used by default in production (using the JHipster `prod` profile), and which stores the configuration in a Git server. This allows to tag, branch or rollback configurations using the usual Git tools, which are very powerful in this use-case.
 
 To manage your centralized configuration you just need to add `appname-profile.yml` files in your configuration source where **appname** and **profile** correspond to the application's name and current profile of the service that you want to configure.
-For example, adding properties in a `gateway-prod.yml` file will set those properties only for applications named **gateway** started with a **prod** profile. Moreover, properties defined in `application[-dev|prod].yml` will be set for all your applications.
+For example, adding properties in a `gateway-prod.yml` file will set those properties only for the application named **gateway** started with a **prod** profile. Moreover, properties defined in `application[-dev|prod].yml` will be set for all your applications.
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
 
@@ -136,9 +136,9 @@ Using Hazelcast with microservices will result in a specific configuration:
 
 ## Monitoring with JHipster Console and the ELK stack
 
-When using the Docker-Compose sub-generator, you will be asked if you want to add monitoring to your infrastructure. This option, will add the JHipster-Console to your `docker-compose.yml` file. Once started, it will be available on [http://localhost:5601](http://localhost:5601) and start to gather your apps logs and metrics. For instructions on how to set up monitoring for your apps please refer to the [monitoring documentation]({{ site.url }}/monitoring).
+When using the Docker-Compose sub-generator, you will be asked if you want to add monitoring to your infrastructure. This option, will add the JHipster-Console to your `docker-compose.yml` file. Once started, it will be available on [http://localhost:5601](http://localhost:5601) and start to gather your applications' logs and metrics. For instructions on how to set up monitoring for your applications please refer to the [monitoring documentation]({{ site.url }}/monitoring).
 
-Compared with monolith applications, gateways and microservices monitoring configuration provide additional features to help you effectively monitor a microservice cluster. For example logs are enriched with each application's name, host, port and Eureka ServiceId so that you can trace from which service they are originating from. Moreover the JHipster Console comes with default dashboards that give you a view of all your services at the same time.
+Compared with monolithic applications, gateways and microservices monitoring configuration provide additional features to help you effectively monitor a microservices cluster. For example logs are enriched with each application's name, host, port and Eureka ServiceId so that you can trace from which service they are originating from. Moreover the JHipster Console comes with default dashboards that give you a view of all your services at the same time.
 
 ## Going to production with Docker Swarm
 
