@@ -81,17 +81,26 @@ When using JHipster Console you can enable docker volumes in the `docker-compose
 
 - Elasticsearch has its data saved to `log-monitoring/log-data`
 - Logstash loads its configuration from `log-monitoring/log-config/logstash.conf`, you can edit this file to add new parsing rules for data received by logstash on UDP port 5000.
-- Kibana loads dashboards description files in `kibana/dashboards` on each startup.
+- Kibana loads dashboards description files in `jhipster-console/dashboards` on each startup.
+
+### Make use of enriched logs
+
+In order to trace the origin of logs and monitor precisely the behavior of a cluster of apps. All logs are enriched with:
+- app name: (_spring.application.name_)
+- host: (IP address of the server)
+- port: (_server.port_)
+- instance_name: app_name-host:port
+- eureka instance ID: (_eureka.instance.instanceId_) (only for microservices and gateway)
 
 ### Save your custom searches, visualizations and dashboards as JSON for auto import
 
 Searches, visualization and dashboards created in Kibana can be exported using the **Settings** > **Objects** menu.
 You can then extract the JSON description of a specific object under the `_source` field of the export.json file.
-You can then put this data in a JSON file in one of the `kibana/dashboard` sub-folder for auto-import.
+You can then put this data in a JSON file in one of the `jhipster-console/dashboards` sub-folder for auto-import.
 
 If you have created useful dashboards and visualizations for your JHipster applications please consider contributing those back to the community by submitting a Pull Request on the [JHipster Console's GitHub project](https://github.com/jhipster/jhipster-console).
 
-### <a name="alerting"></a> Alerting with Elastalert
+## <a name="alerting"></a> Alerting with Elastalert
 
 JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. Elastalert is simple to use and able to define complex alerting rules to detect failures, spikes or any pattern based on an Elasticsearch Query.
 
