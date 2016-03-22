@@ -17,12 +17,13 @@ Using Docker and Docker Compose is highly recommended in development, and is als
 
 1. [Description](#1)
 2. [Prerequisites](#2)
-3. [Differences when using a microservices architecture](#3)
-4. [Building a Docker image of your application](#4)
-5. [Working with databases](#5)
-6. [Elasticsearch](#6)
-7. [Sonar](#7)
-8. [Common commands](#8)
+3. [Building a Docker image of your application](#3)
+4. [Working with databases](#4)
+5. [Elasticsearch](#5)
+6. [Sonar](#6)
+7. [Common commands](#7)
+8. [Differences when using a microservices architecture](#8)
+
 
 ## <a name="1"></a> Description
 
@@ -55,27 +56,7 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 
 </div>
 
-## <a name="3"></a> Differences when using a microservices architecture
-
-If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `Dockerfile` and a Docker Compose configurations, like with a normal monolithic application.
-
-But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
-
-- You need to have all your gateway(s) and microservices in the same directory.
-- Create another directory, for example `mkdir docker-compose`.
-- Go into that directory: `cd docker-compose`.
-- Run the sub-generator: `yo jhipster:docker-compose`.
-- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
-
-This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
-
-This configuration will have a pre-configured JHipster Registry, that will configure your services automatically:
-
-- Those services will wait until the JHipster Registry is running until they can start (this can be configured in your `bootstrap-prod.yml` file using the `spring.cloud.config.fail-fast` and `spring.cloud.config.retry` keys).
-- The registry will configure your applications, for example it will share the JWT secret token between all services.
-- Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
-
-## <a name="4"></a> Building and running a Docker image of your application
+## <a name="3"></a> Building and running a Docker image of your application
 
 To create a Docker image of your application, and push it into your Docker registry:
 
@@ -90,7 +71,7 @@ To run this image, use the Docker Compose configuration located in the `src/main
 
 This command will start up your application and the services it relies on (database, search engine, JHipster Registry...).
 
-## <a name="5"></a> Working with databases
+## <a name="4"></a> Working with databases
 
 ### MySQL, PostgreSQL or MongoDB
 
@@ -124,7 +105,7 @@ One big difference between Cassandra and the other databases, is that you can sc
 
 - `docker-compose -f src/main/docker/cassandra.yml scale <name_of_your_app>-cassandra-node=X`
 
-## <a name="6"></a> Elasticsearch
+## <a name="5"></a> Elasticsearch
 
 Running `docker-compose -f src/main/docker/app.yml up` already starts up your search engine automatically.
 
@@ -132,7 +113,7 @@ If you just want to start your Elasticsearch node, and not the other services, u
 
 - `docker-compose -f src/main/docker/elasticsearch.yml up`
 
-## <a name="7"></a> Sonar
+## <a name="6"></a> Sonar
 
 A Docker Compose configuration is generated for running Sonar:
 
@@ -145,7 +126,7 @@ To analyze your code, run Sonar on your project:
 
 The Sonar reports will be available at: [http://localhost:9000](http://localhost:9000)
 
-## <a name="8"></a> Common commands
+## <a name="7"></a> Common commands
 
 ### List the containers
 
@@ -174,3 +155,23 @@ When you stop a container, the data is not deleted, unless you delete the contai
 Be careful! All data will be deleted:
 
 `docker rm <container_id>`
+
+## <a name="8"></a> Differences when using a microservices architecture
+
+If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `Dockerfile` and a Docker Compose configurations, like with a normal monolithic application.
+
+But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
+
+- You need to have all your gateway(s) and microservices in the same directory.
+- Create another directory, for example `mkdir docker-compose`.
+- Go into that directory: `cd docker-compose`.
+- Run the sub-generator: `yo jhipster:docker-compose`.
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
+
+This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
+
+This configuration will have a pre-configured JHipster Registry, that will configure your services automatically:
+
+- Those services will wait until the JHipster Registry is running until they can start (this can be configured in your `bootstrap-prod.yml` file using the `spring.cloud.config.fail-fast` and `spring.cloud.config.retry` keys).
+- The registry will configure your applications, for example it will share the JWT secret token between all services.
+- Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
