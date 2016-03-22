@@ -144,3 +144,12 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #13daec; }
+
+.jhipster-logo {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.reveal pre {
+    box-shadow: none !important;
+}

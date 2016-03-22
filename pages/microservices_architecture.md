@@ -62,6 +62,8 @@ If you'd rather run the JHipster Registry from a Docker image, it is available a
 
 - run `docker-compose -f src/main/docker/jhipster-registry.yml up` to start the JHipster Registry. The Eureka Registry will be available on port `8761` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
 
+Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/) for more information on using the JHipster Registry with Docker Compose.
+
 ## Application configuration with the JHipster Registry
 
 The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eureka) and also a [Spring Config Server](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html): when applications are launched they will first connect to the JHipster Registry to get their configuration. This is true for both gateways and microservices.
@@ -88,6 +90,10 @@ For security to work, you need to exchange the JWT secret token between all your
 - To share this key between all your applications, copy the key from your gateway to all the microservices, or share it using the JHipster Registry's Spring Config Server.
 - A good practice is to have a different key in development and production.
 
+## Creating an application without a database
+
+Only microservices applications can be created without a database. This is because microservices are small and do not have user-management code.
+
 ## Generating entities in a microservices architecture
 
 Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) works a little bit differently in a microservices architecture, as the front-end and the back-end codes are not located in the same application.
@@ -99,9 +105,11 @@ Then, on the gateway(s), run the entity sub-generator again. A new question will
 - You will have the choice either to generate an new entity normally (a gateway is also a standard JHipster application, so this would work like for a monolith application), or use an existing JHipster configuration from a microservice.
 - If you choose to generate the entity from a microservice, you will need to enter the path to this microservice on your local computer, and then JHipster will generate the front-end code on the gateway.
 
-## Using docker-compose to develop and deploy
+## Using Docker Compose to develop and deploy
 
-__TODO__
+Working on a microservices architecture means you will need several different services and databases working together, and in that context Docker Compose is a great tool to manage your development, testing and production environments.
+
+A specific section on microservices is included in our [Docker Compose documentation]({{ site.url }}/docker-compose/), and we highly recommend that you get familiar with it when working on a microservices architecture.
 
 ## Scaling up with Hazelcast distributed caching
 
@@ -121,9 +129,15 @@ Using Hazelcast with microservices will result in a specific configuration:
 - With the `dev` profile, JHipster will create a cluster of those instances on localhost (`127.0.0.1`),  using a different port per instance. By default, the Hazelcast port is `your application's port + 5701` (so if your application's port is `8081`, Hazelcast will use port `13782`)
 - With the `prod` profile, JHipster will create a cluster with all the other nodes it finds, using the default Hazelcast port (`5701`)
 
-## Monitoring with the ELK stack
+## Monitoring with JHipster Console and the ELK stack
 
-__TODO__
+When using the Docker-Compose sub-generator, you will be asked if you want to add monitoring to your infrastructure. This option, will add the JHipster-Console to your `docker-compose.yml` file. Once started, it will be available on [http://localhost:5601](http://localhost:5601) and start to gather your apps logs and metrics. For instructions on how to set up monitoring for your apps please refer to the [monitoring documentation]({{ site.url }}/monitoring).
+
+Compared with monolith applications, gateways and microservices monitoring configuration provide additional features to help you effectively monitor a microservice cluster. For example logs are enriched with each application's name, host, port and Eureka ServiceId so that you can trace from which service they are originating from. Moreover the JHipster Console comes with default dashboards that give you a view of all your services at the same time.
+
+## Going to production with Docker Swarm
+
+As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) to learn more about using Docker Compose with JHipster.
 
 ## Going to production with CloudFoundry or Heroku
 

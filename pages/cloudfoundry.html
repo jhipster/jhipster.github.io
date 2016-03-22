@@ -17,7 +17,6 @@ sitemap:
 <h2>Limitations</h2>
 <p>
 <ul>
-    <li>Gradle is not supported at the moment</li>
     <li>MongoDB cannot load its data with Mongeez because of <a href="https://github.com/jhipster/generator-jhipster/issues/733" target="_blank">#733</a>.</li>
 </ul>
 </p>
@@ -42,13 +41,26 @@ yo jhipster:cloudfoundry
 
 <h2>Updating your deployed application</h2>
 <p>
-    When your application is already deployed, you can re-deploy it by building it normally (<code>mvn -Pprod package</code>) and running:
+    When your application is already deployed, you can re-deploy it by building it normally by running:
 </p>
 <p>
+<strong>Maven:</strong>
+<br>
+<code>mvn -Pprod package</code><br>
 <code>
     cf push -f ./deploy/cloudfoundry/manifest.yml -p target/*.war
 </code>
-</p> You can also run the sub-generator again, by typing another time:
+</p>
+<p>
+<strong>Gradle:</strong>
+<br>
+<code>./gradlew -Pprod bootRepackage</code><br>
+<code>
+    cf push -f ./deploy/cloudfoundry/manifest.yml -p build/libs/*.war
+</code>
+</p>
+<p>
+You can also run the sub-generator again, by typing another time:
 </p>
 <p>
 <code>

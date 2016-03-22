@@ -8,6 +8,11 @@ JHipster release 2.16.0
 
 *JHipster gives you Spring Boot + AngularJS working together in one handy Yeoman generator.*
 
+Documentation
+----------
+
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/v2-documentation)!
+
 What's new
 ----------
 
