@@ -27,11 +27,3 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 8. [Configuring Email with - Gmail and more]({{ site.url }}/tips/011_tip_configuring_email_in_jhipster.html)
 9. [Add a new Spring Social connector]({{ site.url }}/tips/012_tip_add_new_spring_social_connector.html)
 10. [Speed up the generator-jhipster]({{ site.url }}/tips/013_tip_speed_up_generator.html)
-
-### Deprecated tips
-
-_Those tips come from older JHipster versions, and are not relevant anymore._
-
-1. [LESS integration with Grunt]({{ site.url }}/tips/001_tip_less_integration.html)
-2. [Automatically include JavaScript files with Grunt]({{ site.url }}/tips/002_tip_include_js_grunt.html)
-3. [Running concurrent tasks in Grunt]({{ site.url }}/tips/005_tip_concurrent_task_grunt.html)

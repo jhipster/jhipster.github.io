@@ -36,14 +36,14 @@ Now, to have relative paths links working correctly (ex. activation link sent to
 
 Please note that this can cause conflicts with [Spring actuators URLs](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html).
 
-That's why you have to edit urls of the `metric.js` and `health.js`. First, open `webapp\scripts\app\admin\health\health.js` and change:
+That's why you have to edit urls of the `metric.js` and `health.js`. First, open `webapp\app\admin\health\health.js` and change:
 
     url: '/health' -> url: '/apphealth'
 
-Then do the same with `webapp\scripts\app\admin\metrics\metrics.js`:
+Then do the same with `webapp\app\admin\metrics\metrics.js`:
 
     url: '/metrics' -> url: '/appmetrics'
 
-Finally, to make the home link in the navigation bar work, open `webapp\scripts\components\navbar\navbar.html` and change:
+Finally, to make the home link in the navigation bar work, open `webapp\app\layouts\navbar\navbar.html` and change:
 
     <a class="navbar-brand" href="#/"> -> <a class="navbar-brand" href="/">

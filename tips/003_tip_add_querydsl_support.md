@@ -26,7 +26,7 @@ There is also plugin for maven. But in this `tip` we describe only `gradle` conf
 
 ### build.gradle
 
-Add the `Querydsl plugin` configuration `grunt.initConfig`
+Add the `Querydsl plugin` configuration to `build.gradle`
 
     buildscript {
       repositories {
