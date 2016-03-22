@@ -70,10 +70,15 @@ The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eu
 
 This configuration is a Spring Boot configuration, like the one found in the JHipster `application-*.yml` files, but it is stored in a central server, so it is easier to manage.
 
-Two kind of configurations are available:
+On startup, your gateways and microservices app will query the Registry's config server and overwrite their local properties with the ones defined there.
+
+Two kind of configurations sources are available:
 
 - A `native` configuration, which is used by default in development (using the JHipster `dev` profile), and which uses the local filesystem.
 - A `Git` configuration, which is used by default in production (using the JHipster `prod` profile), and which stores the configuration in a Git server. This allows to tag, branch or rollback configurations using the usual Git tools, which are very powerful in this use-case.
+
+To manage your centralized configuration you just need to add `appname-profile.yml` files in your configuration source where **appname** and **profile** correspond to the application's name and current profile of the service that you want to configure.
+For example, adding properties in a `gateway-prod.yml` file will set those properties only for applications named **gateway** started with a **prod** profile. Moreover, properties defined in `application[-dev|prod].yml` will be set for all your applications.
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
 
