@@ -66,17 +66,15 @@
                         <ol class="breadcrumb navbar-breadcrumb">
                             <li class="active"></li>
                         </ol>
-                        {% if page.home == true %}
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-th icon"></i>
                         </button>
-                        {% endif %}
                     </div>
-                    {% if page.home == true %}
                     <ul class="nav navbar-nav navbar-right">
-                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs light">
                             <i class="fa fa-times icon"></i>
                         </button>
+                        {% if page.home == true %}
                         <li class="page-scroll">
                             <a href="#about">About</a>
                         </li>
@@ -89,11 +87,18 @@
                         <li class="page-scroll">
                             <a href="#modules">Modules</a>
                         </li>
+                        <li class="page-scroll hidden-xs">
+                            <a class="light">|</a>
+                        </li>
+                        {% endif %}
                         <li class="">
-                            <a href="https://github.com/jhipster/generator-jhipster" class="dropdown-toggle" target="_blank" role="button"><i class="fa fa-github fa-2x"></i></a>
+                            <a href="{{ site.url }}/v2-documentation/" class="dropdown-toggle navlink" target="_blank" role="button">v2.x Docs</a>
+                        </li>
+                        <li class="">
+                            <a href="https://github.com/jhipster/generator-jhipster" class="dropdown-toggle navlink" target="_blank" role="button"><i class="fa fa-github fa-2x"></i></a>
                         </li>
                     </ul>
-                    {% endif %}
+
                 </div>
             </nav>
             <div class="side-menu sidebar-inverse">

@@ -19,7 +19,15 @@ body {
 * {
     outline: none;
 }
-
+.navlink {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 20px 0px 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
 .row {
     & > [class*="col-"] {
         margin-bottom: 25px;
@@ -91,7 +99,9 @@ a:hover {
     font-family: 'Pacifico', cursive;
 }
 
-
+.light {
+    color: #fff;
+}
 /*@media (min-width: 769px) {
     #page-wrapper {
         padding-left: 60px;
@@ -1719,6 +1729,12 @@ body.login-page {
                 }
             }
         }
+    }
+    .navbar .navbar-nav{
+        height: auto !important;
+    }
+    .navbar .navbar-nav > li > a {
+        padding: 0px 15px 0px 15px;
     }
 }
 
