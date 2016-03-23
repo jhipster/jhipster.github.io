@@ -28,7 +28,8 @@ Other important changes
 ------------
 
 - The AngularJS front-end has been refactored, mostly to follow the [John Papa guidelines](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md). This ensures that JHipster is ready for migrating to AngularJS 2, when it is ready and mature enough.
-- We have completely migrated to Gulp.js, so you can't use Grunt anymore with JHipster
+- We now support JSON Web Tokens for security, and this replaces our former "xauth tokens" that we had coded ourselves.
+- We have completely migrated to Gulp.js, so you can't use Grunt anymore with JHipster.
 
 Closed tickets
 ------------
