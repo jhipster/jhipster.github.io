@@ -46,6 +46,8 @@ The ELK stack is composed of:
 
 The JHipster Console is a Docker-based project that adds features on top of the official Elasticsearch, Logstash and Kibana Docker images. We have made a few visual changes to Kibana and set-up useful dashboards, so that you can get started to monitor your JHipster applications in minutes instead of the hours that would be needed to set up your own monitoring infrastructure.
 
+![JHipster Console Monitoring Dashboard][monitoring-dashboard]
+
 ## Setting up JHipster Console
 
 If you already have a JHipster [microservice architecture]({{ site.url }}/microservices-architecture/) set up with the Docker Compose workflow, the JHipster Console can be automatically set up by the Docker Compose sub-generator.
@@ -70,40 +72,70 @@ Once your application is running with logs and metrics forwarding enabled, you c
 
 You can also use Kibana's **Discover** and **Visualize** tabs to explore your data and create new visualizations. To understand how to use Kibana's interface effectively please refer to its official documentation in particular the [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html), [Visualize](https://www.elastic.co/guide/en/kibana/current/visualize.html) and [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) sections of the Kibana User Guide.
 
+![JHipster Console JVM Dashboard][jvm-dashboard]
+
+
 ### Data persistence with docker volumes
 
 When using JHipster Console you can enable docker volumes in the `docker-compose.yml` file by uncommenting the appropriate lines. Those volumes are used to share data between containers and the host. They will persist data and configuration even if containers are removed from your system.
 
 - Elasticsearch has its data saved to `log-monitoring/log-data`
 - Logstash loads its configuration from `log-monitoring/log-config/logstash.conf`, you can edit this file to add new parsing rules for data received by logstash on UDP port 5000.
-- Kibana loads dashboards description files in `kibana/dashboards` on each startup.
+- Kibana loads dashboards description files in `jhipster-console/dashboards` on each startup.
+
+### Make use of enriched logs
+
+In order to trace the origin of logs and monitor precisely the behavior of a cluster of apps. All logs are enriched with:
+- app name: (_spring.application.name_)
+- host: (IP address of the server)
+- port: (_server.port_)
+- instance_name: app_name-host:port
+- eureka instance ID: (_eureka.instance.instanceId_) (only for microservices and gateway)
 
 ### Save your custom searches, visualizations and dashboards as JSON for auto import
 
-Searches, visualization and dashboards created in Kibana can be exported using the _Settings_ > _Objects_ menu.
+Searches, visualization and dashboards created in Kibana can be exported using the **Settings** > **Objects** menu.
 You can then extract the JSON description of a specific object under the `_source` field of the export.json file.
-You can then put this data in a JSON file in one of the `kibana/dashboard` sub-folder for auto-import.
+You can then put this data in a JSON file in one of the `jhipster-console/dashboards` sub-folder for auto-import.
 
 If you have created useful dashboards and visualizations for your JHipster applications please consider contributing those back to the community by submitting a Pull Request on the [JHipster Console's GitHub project](https://github.com/jhipster/jhipster-console).
 
-### <a name="alerting"></a> Alerting with Elastalert
+## <a name="alerting"></a> Alerting with Elastalert
 
-[Elastalert](https://github.com/Yelp/elastalert) is an alerting system that can generate alerts from data in Elasticsearch.
+JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. Elastalert is simple to use and able to define complex alerting rules to detect failures, spikes or any pattern based on an Elasticsearch Query.
+
+#### Enable alerting
+
+To enable alerting, add the following lines for the **jhipster-console** service in `docker-compose.yml`.
+
+    environment:
+        - ENABLE_ALERTING=true
+    volumes:
+        - ./alerts/config.yaml:/opt/elastalert/config.yaml
+        - ./alerts/rules/:/opt/elastalert/rules
 
 #### Configure alerting
 
-Elastalert configuration can be modified in `alerts/config.yaml`.
-To enable alerting, you just need to set up how often you would like the alerting system to check for events, by setting for example:
+Elastalert configuration can be modified in `alerts/config.yaml`. For example, you can configure the alerting frequency and the buffer period, by changing the following properties:
 
     run_every:
         minutes: 1
+    buffer_time:
+        minutes: 5
 
 Then you will need to write some rules that define when alerts will be thrown.
 
 #### Write alertings rules
 
-Add new YAML rule files in `alerts/rules` and then test them over past data with:
+To define new alerts, add new YAML rule files in `alerts/rules` and then test them over past data with:
 
     ./test-alerting-rule.sh rule.yaml
 
-Note that those YAML files should have a `.yaml` file extension. Read more on how to write rules at [Elastalert's official documentation](https://elastalert.readthedocs.org/en/latest/ruletypes.html)
+Note that those YAML files should have a `.yaml` file extension. Read more on how to write rules at [Elastalert's official documentation](https://elastalert.readthedocs.org/en/latest/ruletypes.html).
+
+#### Alerting dashboard
+
+Go to [localhost:5601/app/kibana#/dashboard/alerting-dashboard](http://localhost:5601/app/kibana#/dashboard/alerting-dashboard) to the history of all your alerts.
+
+[monitoring-dashboard]: {{ site.url }}/images/jhipster-console-monitoring.png "Monitoring Dashboard"
+[jvm-dashboard]: {{ site.url }}/images/jhipster-console-jvm.png "JVM Dashboard"
