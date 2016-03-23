@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Docker Compose
+title: Docker and Docker Compose
 permalink: /docker-compose/
 redirect_from:
   - /docker_compose.html
