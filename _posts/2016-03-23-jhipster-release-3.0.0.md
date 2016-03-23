@@ -9,11 +9,11 @@ JHipster release 3.0.0
 What's new
 ----------
 
-After months of efforts, with a [great international team]({{ site.url }}/team/), our 3.0 version is out!
+After months of efforts, with a [great international team]({{ site.url }}/team/), our 3.0.0 version is out!
 
 If you liked how easy it is to develop a full-stack application with JHipster 2.0, it all stays the same. But we have extended what we mean by "full-stack":
 
-- JHipster can generate a complete microservices architecture. It will generate and configure microservices, routers, a service registry, monitoring... It's as easy as generating a standard "monolithic" application, but it now works for huge mission-critical, distributed systems.
+- JHipster 3 can generate a complete microservices architecture. It will generate and configure microservices, routers, a service registry, monitoring... It's as easy as generating a standard "monolithic" application, but it now works for huge mission-critical, distributed systems.
 - Infrastructure can be completely generated using Docker and Docker Compose. Complex microservices architectures can be run and tested on a laptop, and then deployed in a datacenter or in the cloud. Services can be scaled with one single command.
 
 This website is already up-to-date with the latest documentation (and if you want to access our old 2.x documentation [it's here]({{ site.url }}/v2-documentation/)), so if you want more information we recommend you read those new and updated sections:
@@ -23,6 +23,12 @@ This website is already up-to-date with the latest documentation (and if you wan
 - [Monitoring your JHipster Applications]({{ site.url }}/monitoring/)
 
 As it's our first 3.0 release, you can expect the usual bugs, so you might want to wait a couple of minor releases before using it in production.
+
+Other important changes
+------------
+
+- The AngularJS front-end has been refactored, mostly to follow the [John Papa guidelines](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md). This ensures that JHipster is ready for migrating to AngularJS 2, when it is ready and mature enough.
+- We have completely migrated to Gulp.js, so you can't use Grunt anymore with JHipster
 
 Closed tickets
 ------------
