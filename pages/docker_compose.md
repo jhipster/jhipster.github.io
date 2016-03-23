@@ -55,6 +55,12 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 
 </div>
 
+<div class="alert alert-warning"><i>Warning: </i>
+
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under these directory to avoid any issues especially if you are using the [JHipster console]({{ site.url }}/monitoring/) for monitoring.
+
+</div>
+
 ## <a name="3"></a> Differences when using a microservices architecture
 
 If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `Dockerfile` and a Docker Compose configurations, like with a normal monolithic application.

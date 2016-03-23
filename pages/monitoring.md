@@ -64,6 +64,10 @@ Once stopped, you can remove the containers if you don't intend to start them ag
 
     docker-compose rm
 
+<div class="alert alert-warning"><i>Warning: </i>
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under these directory to avoid any issues especially if you are using the JHipster console for monitoring.
+</div>
+
 ## Using JHipster Console
 
 Once your application is running with logs and metrics forwarding enabled, you can view a dashboards by clicking on the **Load Saved Dashboards** icon ( <i class="fa fa-folder-open-o"></i> ) in the **Dashboard** tab.

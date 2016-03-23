@@ -100,7 +100,7 @@ You can see all tags [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows filesystem. Docker Machine tries to auto-share your /Users (OS X) or C:\Users (Windows) directory. So you have to create the project folder under these directory.
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under these directory to avoid any volume mounting issues.
 
 </div>
 
