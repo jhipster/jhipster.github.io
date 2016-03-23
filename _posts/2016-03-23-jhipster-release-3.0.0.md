@@ -33,10 +33,10 @@ Other important changes
 - We now support JSON Web Tokens for security, and this replaces our former "xauth tokens" that we had coded ourselves.
 - We have completely migrated to Gulp.js, so you can't use Grunt anymore with JHipster.
 - [JDL]({{ site.url }}/jdl/) is now a first class citizen with the new `import-jdl` sub generator.
-- The entity sub generator got lot of new features like option to update existing entities, custom table name, angular js suffix etc. Check the documentation [here]({{ site.url }}/creating-an-entity/) for details.
-- The `FAST` profile has been removed and instead you now have profile switches. Check the documentation [here]({{ site.url }}/profiles/) for details.
+- The entity sub-generator got many new features like option to update existing entities, custom table name, AngularJS suffix etc. Check the documentation [here]({{ site.url }}/creating-an-entity/) for details.
+- The `fast` profile has been removed and instead you now have profile switches. Check the documentation [here]({{ site.url }}/profiles/) for details.
 - We have changed the way application is packaged, to improve performance. Find more details [here]({{ site.url }}/production/).
-- You can now choose a base language and additional languages during application generation if you have choose internationalization.
+- You can now choose a base language and additional languages during application generation if you have choosen internationalization.
 
 Closed tickets
 ------------
