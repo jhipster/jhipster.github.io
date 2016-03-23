@@ -56,6 +56,12 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 
 </div>
 
+<div class="alert alert-warning"><i>Warning: </i>
+
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under this directory to avoid any issues especially if you are using the <a href="{{ site.url }}/monitoring/">JHipster Console</a> for monitoring.
+
+</div>
+
 ## <a name="3"></a> Building and running a Docker image of your application
 
 To create a Docker image of your application, and push it into your Docker registry:
