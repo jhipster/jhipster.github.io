@@ -74,6 +74,9 @@ If you are using Docker Machine on Mac or Windows, your Docker daemon has only l
 
 Once your application is running with logs and metrics forwarding enabled, you can view a dashboards by clicking on the **Load Saved Dashboards** icon ( <i class="fa fa-folder-open-o"></i> ) in the **Dashboard** tab.
 
+<div class="alert alert-info">Tip: If you encounter the following error with dashboards: <i>Cannot read property 'byName' of undefined</i>, try refreshing the <b>logstash-*</b> index pattern field list under <b>Settings</b> > <b>Indices</b> using the yellow refresh button (<i class="fa fa-refresh"></i>)</div>
+
+
 You can also use Kibana's **Discover** and **Visualize** tabs to explore your data and create new visualizations. To understand how to use Kibana's interface effectively please refer to its official documentation in particular the [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html), [Visualize](https://www.elastic.co/guide/en/kibana/current/visualize.html) and [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) sections of the Kibana User Guide.
 
 ![JHipster Console JVM Dashboard][jvm-dashboard]
@@ -86,15 +89,6 @@ When using JHipster Console you can enable docker volumes in the `docker-compose
 - Elasticsearch has its data saved to `log-monitoring/log-data`
 - Logstash loads its configuration from `log-monitoring/log-config/logstash.conf`, you can edit this file to add new parsing rules for data received by logstash on UDP port 5000.
 - Kibana loads dashboards description files in `jhipster-console/dashboards` on each startup.
-
-### Make use of enriched logs
-
-In order to trace the origin of logs and monitor precisely the behavior of a cluster of apps. All logs are enriched with:
-- app name: (_spring.application.name_)
-- host: (IP address of the server)
-- port: (_server.port_)
-- instance_name: app_name-host:port
-- eureka instance ID: (_eureka.instance.instanceId_) (only for microservices and gateway)
 
 ### Save your custom searches, visualizations and dashboards as JSON for auto import
 
@@ -139,7 +133,7 @@ Note that those YAML files should have a `.yaml` file extension. Read more on ho
 
 #### Alerting dashboard
 
-Go to [localhost:5601/app/kibana#/dashboard/alerting-dashboard](http://localhost:5601/app/kibana#/dashboard/alerting-dashboard) to the history of all your alerts.
+Go to [localhost:5601/app/kibana#/dashboard/alerting-dashboard](http://localhost:5601/app/kibana#/dashboard/alerting-dashboard) to see the history of all your alerts.
 
 [monitoring-dashboard]: {{ site.url }}/images/jhipster-console-monitoring.png "Monitoring Dashboard"
 [jvm-dashboard]: {{ site.url }}/images/jhipster-console-jvm.png "JVM Dashboard"

@@ -114,7 +114,7 @@ Then, on the gateway(s), run the entity sub-generator again. A new question will
 
 Working on a microservices architecture means you will need several different services and databases working together, and in that context Docker Compose is a great tool to manage your development, testing and production environments.
 
-A specific section on microservices is included in our [Docker Compose documentation]({{ site.url }}/docker-compose/), and we highly recommend that you get familiar with it when working on a microservices architecture.
+A specific section on microservices is included in our [Docker Compose documentation]({{ site.url }}/docker-compose#8), and we highly recommend that you get familiar with it when working on a microservices architecture.
 
 ## Scaling up with Hazelcast distributed caching
 
