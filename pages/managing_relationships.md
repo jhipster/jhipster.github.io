@@ -6,7 +6,7 @@ redirect_from:
   - /managing_relationships.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-10-24T18:40:00-00:00
+    lastmod: 2016-03-24T18:40:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships
@@ -321,4 +321,12 @@ Then, generate the `Citizen` entity:
     ? When you display this relationship with AngularJS, which field from 'Passport' do you want to use? id
 
 After doing this, a `Citizen` possesses a passport, but no `Citizen` instance is defined in `Passport`. On the generated AngularJS client UI you will have a dropdown in `Citizen` to select a `Passport` since `Citizen` is the owning side.
-This is not supported with JDL.
+This is the corresponding JDL:
+
+```
+entity Citizen
+entity Passport
+relationship OneToOne {
+  Citizen{passport} to Passport
+}
+```
