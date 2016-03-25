@@ -82,15 +82,23 @@ JHipster comes with two additionnal Spring "profiles" used as switches:
   <li><code>no-swagger</code> to disable swagger</li>
   <li><code>no-liquibase</code> to disable liquibase</li>
 </ul>
-<p>These can be used along with both <code>dev</code> and <code>prod</code> profiles.</p>
+<p>These can be used along with both <code>dev</code> and <code>prod</code> profiles. 
+Please note that <code>no-swagger</code> doesnt have any effect on <code>prod</code> profile as swagger is adisabled by default on that profile.</p>
 <p>The are only used at run time:</p>
 
 <ul>
-    <li>In your IDE, run your main applcation class with <code>spring.profiles.active=dev,no-swagger</code> (please note you need to activate the "dev" profile)</li>
-    <li>With a packaged application: <code>./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod,no-liquibase,no-swagger</code></li>
+    <li>In your IDE, run your main applcation class with <code>spring.profiles.active=dev,no-swagger,no-liquibase</code> (please note you need to activate the "dev" or "prod" profile explicitly)</li>
+    <li>With a packaged application: <code>./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod,no-liquibase</code></li>
 </ul>
 
-<p>With Gradle (this is not supported with Maven), you can also use those profiles directly:<p>
+<p>With Maven, you can also use those profiles directly:<p>
+
+<ul>
+    <li><code>./mvnw -Pprod "-Drun.profiles=no-liquibase"</code></li>
+    <li><code>./mvnw "-Drun.profiles=no-liquibase,no-swagger"</code></li>
+</ul>
+
+<p>With Gradle, you can also use those profiles directly:<p>
 
 <ul>
     <li><code>./gradlew -Pprod -Pno-liquibase</code></li>
