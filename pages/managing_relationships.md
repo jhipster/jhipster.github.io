@@ -6,7 +6,7 @@ redirect_from:
   - /managing_relationships.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-03-24T18:40:00-00:00
+    lastmod: 2016-03-26T18:40:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships
@@ -83,9 +83,8 @@ Now we can generate the `Car`:
 
 The same can be achieved using the below JDL as well
 
-    entity Owner {}
-
-    entity Car {}
+    entity Owner
+    entity Car
 
     relationship OneToMany {
       Owner{car} to Car{owner}
@@ -125,7 +124,15 @@ And then the `Car` entity, as in the previous example:
     ? When you display this relationship with AngularJS, which field from 'Owner' do you want to use? id
 
 This will work as in the previous example, but you won't be able to add or remove cars from the `Owner` entity. On the generated AngularJS client UI you will have a dropdown in `Car` to select a `Owner`.
-This is not supported with JDL.
+This is the corresponding JDL:
+
+    entity Owner
+    entity Car
+
+    relationship ManyToOne {
+      Car{owner} to Owner
+    }
+
 
 ## <a name="3"></a> A unidirectional one-to-many relationship
 
@@ -142,7 +149,7 @@ You have two solutions for this:
     - Remove the "mappedBy" attribute on your `@OneToMany` annotation
     - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff]({{ site.url }}/development/)
 
-This is not supported with JDL.
+This is not supported with JDL as it isn't in JHipster.
 
 ## <a name="4"></a> Two one-to-many relationships on the same two entities
 
@@ -191,9 +198,8 @@ Generate the `Car` entity, which use the same relationship name has was configur
 
 The same can be achieved using the below JDL as well
 
-    entity Person {}
-
-    entity Car {}
+    entity Person
+    entity Car
 
     relationship OneToMany {
       Person{ownedCar} to Car{owner}
@@ -241,9 +247,8 @@ Then generate the `Car`, with the owning side of the many-to-many relationship:
 
 The same can be achieved using the below JDL as well
 
-    entity Driver {}
-
-    entity Car {}
+    entity Driver
+    entity Car
 
     relationship ManyToMany {
       Car{driver} to Driver{car}
@@ -284,10 +289,9 @@ Then generate the `Car`, which owns the relationship:
 
 The same can be achieved using the below JDL as well
 
-    entity Driver {}
-
-    entity Car {}
-
+    entity Driver
+    entity Car
+    
     relationship OneToOne {
       Car{driver} to Driver{car}
     }
@@ -323,10 +327,11 @@ Then, generate the `Citizen` entity:
 After doing this, a `Citizen` possesses a passport, but no `Citizen` instance is defined in `Passport`. On the generated AngularJS client UI you will have a dropdown in `Citizen` to select a `Passport` since `Citizen` is the owning side.
 This is the corresponding JDL:
 
-```
-entity Citizen
-entity Passport
-relationship OneToOne {
-  Citizen{passport} to Passport
-}
-```
+
+    entity Citizen
+    entity Passport
+
+    relationship OneToOne {
+      Citizen{passport} to Passport
+    }
+
