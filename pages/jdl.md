@@ -25,11 +25,11 @@ Here's what's covered on this page:
 1. [JDL Sample](#sample)
 2. [How to use it](#howtojdl)  
 3. [The language](#jdllanguage)  
-  3.1 [Entity Declaration](#entitydeclaration)
-  3.2 [Relationship Declaration](#relationshipdeclaration)
-  3.3 [Enumerations](#enumerationdeclaration)
-  3.4 [Blobs](#blobdeclaration)
-  3.5 [Option declaration](#optiondeclaration)
+  3.1 [Entity Declaration](#entitydeclaration)  
+  3.2 [Relationship Declaration](#relationshipdeclaration)  
+  3.3 [Enumerations](#enumerationdeclaration)  
+  3.4 [Blobs](#blobdeclaration)  
+  3.5 [Option declaration](#optiondeclaration)  
 4. [Commenting](#commentingjdl)  
 5. [All the relationships](#jdlrelationships)  
 6. [Annexes](#annexes)
@@ -451,6 +451,6 @@ Please use our project for submitting issues and Pull Requests concerning the li
 - [JDL issue tracker](https://github.com/jhipster/jhipster-domain-language/issues)
 - [JDL Pull Requests](https://github.com/jhipster/jhipster-domain-language/pulls)
 
-When submitting anything, you must be as precise as possible:
-  - **One posted issue must only have one problem** (or one demand/question);
-  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.
+When submitting anything, you must be as precise as possible:  
+  - **One posted issue must only have one problem** (or one demand/question);  
+  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.  
