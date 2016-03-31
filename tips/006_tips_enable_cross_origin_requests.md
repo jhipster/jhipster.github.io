@@ -8,6 +8,8 @@ lastmod: 2015-07-30T18:40:00-00:00
 
 # Enable cross origin HTTP requests
 
+# /!\ This tip is deprecated since JHipster V3.0
+
 __Tip submitted by [@tomcgn](https://github.com/tomcgn)__
 
 You might want to use the nice out-of-the-box API to integrate your application into existing websites.
