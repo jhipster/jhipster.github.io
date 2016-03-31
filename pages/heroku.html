@@ -110,11 +110,21 @@ heroku deploy:jar --jar build/libs/*war
 </ul>
 <h3>Securing your Heroku Registry</h3>
 <p>
-  To secure the registry, you must add the <code>spring-boot-starter-security</code> dependency to the app. To do so, first clone a local copy of the registry by running this command (but replace "[appname]" with the name of your Heroku registry app):
+  To secure the registry, you must add the <code>spring-boot-starter-security</code> dependency to the app. To do so, first clone a local copy of the registry by running these commands (but replace "[appname]" with the name of your Heroku registry app):
 </p>
 <p>
 <code>
-heroku git:clone [appname]
+git clone https://github.com/jhipster/jhipster-registry
+</code>
+</p>
+<p>
+<code>
+cd jhipster-registry
+</code>
+</p>
+<p>
+<code>
+heroku git:remote [appname]
 </code>
 </p>
 <p>
