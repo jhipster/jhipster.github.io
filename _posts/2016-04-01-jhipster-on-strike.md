@@ -1,13 +1,17 @@
 ---
 layout: default
-title: JHipster is on strike
+title: JHipster is on strike (April Fools 2016)
 ---
 
-JHipster is on strike
+April Fools 2016
 ==================
 
-All generations are blocked
+**The following announcement is our 2016 April Fools joke, so of course you should NOT consider it seriously**
+
+JHipster is on strike
 ----------
+
+### All generations are blocked
 
 As we are on strike, the JHipster generator is not working anymore. As of now, you cannot generate any project anymore, or any entity, or do any deployment.
 
@@ -17,8 +21,7 @@ Typing `yo jhipster` or calling any other sub-generator will now output the foll
 
 Nothing will work anymore, until our strike ends.
 
-Why are we on strike?
-----------
+### Why are we on strike?
 
 The draft law on reforming the French labour code would allow employees to work far more than the legal 35-hour week, puts a ceiling on damages in the event of unfair dismissal and make it easier to fire employees on economic grounds.
 
@@ -32,7 +35,6 @@ As a result, most of France is now on strike, as you can see from:
 
 As most JHipster developers are from France, this has caused the whole project to stop. Only [Deepu](https://twitter.com/deepu105) is currently working alone on the project, as he his from India, but we are currently having a vote to suppress his commit rights.
 
-When will JHipster work again?
-----------
+### When will JHipster work again?
 
 Probably after April, 1st.
