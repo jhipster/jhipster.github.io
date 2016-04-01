@@ -129,22 +129,6 @@ sitemap:
     }[lang];
 }</code></pre>
     </li>
-    <li>
-        If there's no pluralization function for the new_lang in folder <code>src/main/webapp/bower_components/messageformat/locale</code> you need to create it.
-        More info in <a href="http://angular-translate.github.io/docs/#/guide/14_pluralization" target="_blank">Angular translate</a>
-        and <a href="https://github.com/SlexAxton/messageformat.js" target="_blank">MessageFormat</a></li>
-    <li>
-      <p>If the messageformat locale file exits in previous step add the file in <code>bower.json</code></p>
-      <pre><code>"messageformat": {
-    "main": [
-        "messageformat.js",
-        "locale/en.js",
-        "locale/fr.js",
-        "locale/new_lang.js"
-    ]
-}</code></pre>
-       <p>If the messageformat locale file does not exits in the previous step include the file manually in <code>src/main/webapp/index.html</code></p>
-    </li>
   </ol>
 </p>
 <p>
