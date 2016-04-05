@@ -11,16 +11,16 @@ sitemap:
 
 <h1><i class="fa fa-cloud-upload"></i> Deploying to Heroku</h1>
 
-<p>This sub-generator allows to deploy automatically your JHipster application to the <a href="https://www.heroku.com/" target="_blank">Heroku cloud</a>.</p>
+<p>This sub-generator allows deployment of your JHipster application to the <a href="https://www.heroku.com/" target="_blank">Heroku cloud</a>.</p>
 
 <h2>Running the sub-generator</h2>
 
 <p>
-    Before running the sub-generator, you need to install the <a href="https://toolbelt.heroku.com/" target="_blank">Heroku toolbelt</a>, and have a Heroku account created.
+    Before running the sub-generator, you must install the <a href="https://toolbelt.heroku.com/" target="_blank">Heroku toolbelt</a>, and have a Heroku account created.
 </p>
 
 <p>
-    Be sure that you got logged on Heroku following the documentation, in section getting started:
+    You must also <a href="http://signup.heroku.com/" target="_blank">create a Heroku account</a> and log in with the toolbelt by running the following command:
 </p>
 <pre>
 <b>$ heroku login</b>
@@ -31,7 +31,7 @@ Authentication successful.
 </pre>
 
 <p>
-    To deploy your application to Heroku, type:
+    To deploy your application to Heroku, run this command:
 </p>
 <p>
 <code>
@@ -40,6 +40,9 @@ yo jhipster:heroku
 </p>
 <p>
     This should package your application in "production" mode, create an Heroku application with a database, upload your code, and start the application.
+</p>
+<p>
+Note that if your application is a microservice, you will be prompted to provide a registry URL. Scroll down to learn how to do this.
 </p>
 
 <p><i>Please be aware that your application must start under 90 seconds, or it will be killed. Depending on the platform load, starting under 60 seconds is of course not guaranteed!</i></p>
@@ -82,8 +85,95 @@ heroku deploy:jar --jar build/libs/*war
 </code>
 </p>
 
-<h2>Troubleshooting</h2>
+<h2>Deploying Microservices</h2>
+<p>
+  JHipster microservices require a JHipster registry as described in the
+  <a href="/microservices-architecture/">Doing microservices with JHipster</a> documentation.
+  You can deploy a registry to Heroku by clicking this button:
+</p>
+<p>
+<a href="https://dashboard-preview.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry" target="_blank">
+  <img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy to Heroku" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;">
+</a>
+</p>
+<p>
+  Once the registry is deployed, you can run the <code>yo jhipster:heroku</code> command against your microservice or gateway. The Heroku sub-generator will
+  prompt you for the URL of your registry, which will be in the form <code>https://[appname].herokuapp.com</code>.
+<p>
+<p>
+  A registry running on Heroku has a few limitations, including:
+</p>
+<ul>
+  <li>The registry will only work with native configuration (and not Git config).</li>
+  <li>The Registry is not secured by default. You must add it with Spring Security’s basic authentication support (see below).</li>
+  <li>The registry service cannot be scaled up to multiple dynos to provide redundancy. You must deploy multiple applications (i.e. click the button more than once). This is because Eureka requires distinct URLs to synchronize in-memory state between instances.</li>
+</ul>
+<h3>Securing your Heroku Registry</h3>
+<p>
+  To secure the registry, you must add the <code>spring-boot-starter-security</code> dependency to the app. To do so, first clone a local copy of the registry by running these commands (but replace "[appname]" with the name of your Heroku registry app):
+</p>
+<p>
+<code>
+git clone https://github.com/jhipster/jhipster-registry
+</code>
+</p>
+<p>
+<code>
+cd jhipster-registry
+</code>
+</p>
+<p>
+<code>
+heroku git:remote [appname]
+</code>
+</p>
+<p>
+  Then add the following dependency to the <code>pom.xml</code>:
+</p>
+<p>
+<pre>
+&lt;dependency>
+  &lt;groupId>org.springframework.boot&lt;/groupId>
+  &lt;artifactId>spring-boot-starter-security&lt;/artifactId>
+&lt;/dependency>
+</pre>
+</p>
+<p>
+  Then commit the change and redeploy the registry by running these commands:
+</p>
+<p>
+<code>
+git add pom.xml
+</code>
+</p>
+<p>
+<code>
+git commit -m "security"
+</code>
+</p>
+<p>
+<code>
+git push heroku master
+</code>
+</p>
+<p>
+  A random password for the registry was automatically configured when you deployed it. You can capture this value by running the following command:
+</p>
+<p>
+<code>
+heroku config:get JHIPSTER_PASSWORD
+</code>
+</p>
+<p>
+  Finally, update all of your microservices and your gateway to use the credentials for the registry by running this command:
+</p>
+<p>
+<code>
+heroku config:set JHIPSTER_REGISTRY_URL="http://user:[password]@[appname].herokuapp.com"
+</code>
+</p>
 
+<h2>Troubleshooting</h2>
 <p>
   If your application is killed by Heroku when your Liquibase changelog is being applied,
   your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table.
@@ -93,7 +183,7 @@ heroku deploy:jar --jar build/libs/*war
 </p>
 <p>
 <code>
-$ heroku pg:psql -c "update databasechangeloglock set locked=false;"
+heroku pg:psql -c "update databasechangeloglock set locked=false;"
 </code>
 </p>
 <p>

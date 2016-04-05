@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-03-13T12:00:00-00:00
+    lastmod: 2016-03-28T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -609,3 +609,106 @@ First, remove it from the editors (`editors/editors.js`) and then remove it from
 Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser.
 
 ***
+
+# <a name="annexes"></a>Annexes
+
+Here is the types supported by JDL:
+
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>SQL</th>
+    <th>MongoDB</th>
+    <th>Cassandra</th>
+    <th>Validations</th>
+  </tr>
+  <tr>
+    <td>String</td>
+    <td>String</td>
+    <td>String</td>
+    <td><dfn>required, minlength, maxlength, pattern</dfn></td>
+  </tr>
+  <tr>
+    <td>Integer</td>
+    <td>Integer</td>
+    <td>Integer</td>
+    <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>Long</td>
+    <td>Long</td>
+    <td>Long</td>
+    <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>BigDecimal</td>
+    <td>BigDecimal</td>
+    <td>BigDecimal</td>
+    <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>Float</td>
+    <td>Float</td>
+    <td>Float</td>
+    <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>Double</td>
+    <td>Double</td>
+    <td>Double</td>
+    <td><dfn>required, min, max</dfn></td>
+  </tr>
+  <tr>
+    <td>Enum</td>
+    <td>Enum</td>
+    <td></td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td>Boolean</td>
+    <td>Boolean</td>
+    <td>Boolean</td>
+    <td>required</td>
+  </tr>
+  <tr>
+    <td>LocalDate</td>
+    <td>LocalDate</td>
+    <td></td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Date</td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td>ZonedDateTime</td>
+    <td>ZonedDateTime</td>
+    <td></td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>UUID</td>
+    <td><dfn>required</dfn></td>
+  </tr>
+  <tr>
+    <td>Blob</td>
+    <td>Blob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+  <tr>
+    <td>AnyBlob</td>
+    <td>AnyBlob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+  <tr>
+    <td>ImageBlob</td>
+    <td>ImageBlob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+</table>

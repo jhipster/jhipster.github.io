@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2016-03-13T12:00:00-00:00
+    lastmod: 2016-03-26T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -25,11 +25,15 @@ Here's what's covered on this page:
 1. [JDL Sample](#sample)
 2. [How to use it](#howtojdl)  
 3. [The language](#jdllanguage)  
+  3.1 [Entity Declaration](#entitydeclaration)  
+  3.2 [Relationship Declaration](#relationshipdeclaration)  
+  3.3 [Enumerations](#enumerationdeclaration)  
+  3.4 [Blobs](#blobdeclaration)  
+  3.5 [Option declaration](#optiondeclaration)  
 4. [Commenting](#commentingjdl)  
-5. [Adding JHipster's options](#options)  
-6. [All the relationships](#jdlrelationships)  
-7. [Annexes](#annexes)
-8. [Issues and bugs](#issues)  
+5. [All the relationships](#jdlrelationships)  
+6. [Annexes](#annexes)
+7. [Issues and bugs](#issues)  
 
 ***
 
@@ -40,16 +44,25 @@ The Oracle example has been translated into JDL, and is available [here](https:/
 ## <a name="howtojdl"></a> How to use it
 You can use it by:
 
-  - simply creating a file with the extension '.jh',
+  - simply creating a file with the extension '.jh' or '.jdl',
   - declare your entities and relationships or create and download the file with [JDL-Studio]({{ site.url }}/jdl-studio/),
-  - in your JHipster application's root folder, simply run `jhipster:import-jdl yourfile.jh`.
+  - in your JHipster application's root folder, simply run `jhipster:import-jdl yourfile.jh`,
+  - you can also use JDL files in JHipster UML with `jhipster-uml my_file.jdl`.
 
 and *Voilà*, you are done!
 
-## <a name="jdllanguage"></a> The language
-We tried to keep the syntax as friendly as we can for Java developers.
-You can do three things with it: declare entities with their attributes, declare the relationships between them and declare some JHipster specific options.
+If you work in a team, perhaps you would like to have multiple files instead of one. We added this option so that you don't manually 
+concatenate all the files into one, you just have run `jhipster-uml my_file1.jh my_file2.jh` or `jhipster:import-jdl my_file1.jh my_file2.jh`.
 
+## <a name="jdllanguage"></a> The language
+We tried to keep the syntax as friendly as we can for developers.
+You can do three things with it:
+  - Declare entities with their attributes,
+  - Declare the relationships between them,
+  - And declare some JHipster specific options.
+
+
+### <a name="entitydeclaration"></a> Entity declaration
 
 The entity declaration is done as follows:
 
@@ -57,19 +70,33 @@ The entity declaration is done as follows:
       <field name> <type> [<validation>*]
     }
 
-- `<entity name>` is the name of the entity,
-
-- `<field name>` the name of one field of the entity,
-
-- `<type>` the JHipster supported type of the field,
-
-- and as an option `<validation>` the validations for the field.
+  - `<entity name>` is the name of the entity,
+  - `<field name>` the name of one field of the entity,
+  - `<type>` the JHipster supported type of the field,
+  - and as an option `<validation>` the validations for the field.
 
 The possible types and validations are those described [here](#annexes), if the validation requires a value, simply add `(<value>)` right after the name of the validation.
 
-Here's an example of a field declaration with validations:
 
-    email String required maxlength(30) minlength(5) pattern("[\\w]*@[a-zA-Z]*.com"),
+Here's an example of a JDL code:
+
+```
+entity A
+entity B
+entity C {}
+entity D {
+  name String required,
+  address String required maxlength(100),
+  age Integer required min(18)
+}
+```
+
+Because the JDL was made to be simple to use and read, f your entity is empty (no field), you can just declare an entity with `entity A` or `entity A {}`.
+
+Note that JHipster adds a default `id` field so that you don't have to worry about it.
+
+
+### <a name="relationshipdeclaration"></a> Relationship declaration
 
 The relationships declaration is done as follows:
 
@@ -77,39 +104,59 @@ The relationships declaration is done as follows:
       <from entity>[{<relationship name>}] to <to entity>[{<relationship name>}]
     }
 
-- `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
-
-- `<from entity>` is the name of the entity owner of the relationship,
-
-- `<to entity>` is the name of the entity where the relationship goes to,
-
-- `<relationship name>` is the name of the relationship in the entity.
+  - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
+  - `<from entity>` is the name of the entity owner of the relationship: the source,
+  - `<to entity>` is the name of the entity where the relationship goes to: the destination,
+  - `<relationship name>` is the name of the field having the other end as type.
 
 
 Here's a simple example:
 
 A Book has one Author, an Author has several Books.
 
-    entity Book {
-      title String required,
-      description String required minlength(5) maxlength(50),
-      publicationDate LocalDate,
-      price BigDecimal
-    }
-    entity Author {
-      name String required,
-      birthDate LocalDate
-    }
+    entity Book
+    entity Author
+    
     relationship OneToMany {
       Author{book} to Book{writer(name)}
     }
 
-### Relationships
-The relationship OneToMany A to B is equivalent to the relationship ManyToOne B to A, you only need make one of them.
+Of course, in real cases, you'd have a lot of relationships and always writing the same three lines could be tedious.
+That's why you can declare something like:
 
-The field used to represent a relationship is, by default, `id`. This can be modifed with the following syntax for the `<relationship name>` token above: `<relationship field>(<display field>)`.
+```
+entity A
+entity B
+entity C
+entity D
 
-### Enum
+relationship OneToOne {
+  A{b} to B{a},
+  B{c} to C
+}
+relationship ManyToMany {
+  A{d} to D{a},
+  C{d} to D{c}
+}
+```
+
+By default, the joining is done by the `id` field... But if you want the joining to be done by another field, then you can do things like:
+
+```
+entity A {
+  name String required
+}
+entity B
+
+
+relationship OneToOne {
+  A{b} to B{a(name)}
+}
+```
+
+
+### <a name="enumerationdeclaration"></a> Enumerations
+
 To make Enums with JDL just do as follows:
 
 - Declare an Enum where you want in the file:
@@ -118,7 +165,7 @@ To make Enums with JDL just do as follows:
           FRENCH, ENGLISH, SPANISH
         }
 
-- In an entity, add field with the Enum as a type:
+- In an entity, add fields with the Enum as a type:
 
         entity Book {
           title String required,
@@ -126,59 +173,20 @@ To make Enums with JDL just do as follows:
           language Language
         }
 
-### Blob (byte[])
+
+### <a name="blobdeclaration"></a> Blob (byte[])
 JHipster gives a great choice as one can choose between an image type or any binary type. JDL lets you do the same: just create a custom type (see DataType) with the editor, name it according to these conventions:
 
   - `AnyBlob` or just `Blob` to create a field of the "any" binary type;
-
   - `ImageBlob` to create a field meant to be an image.
 
 And you can create as many DataTypes as you like.
 
 
+### <a name="optiondeclaration"></a> Option declaration
 
-## <a name="commentingjdl"></a> Commenting & Javadoc
-It is possible to add Javadoc & comments to JDL files.  
-Just like in Java, this example demonstrates how to add Javadoc comments:
-
-    /**
-     * Class comments.
-     * @author The JHipster team.
-     */
-    entity MyEntity { // another form of comment
-      /** A required attribute */
-      myField String required,
-      mySecondField String // another form of comment
-    }
-
-    /**
-     * Second entity.
-     */
-    entity MySecondEntity {}
-
-    relationship OneToMany {
-      /** This is possible too! */
-      MyEntity{mySecondEntity}
-      to
-      /**
-       * And this too!
-       */
-      MySecondEntity{myEntity}
-    }
-
-These comments will later be added as Javadoc comments by JHipster.
-
-JDL possesses its own kind of comment:
-
-    // an ignored comment
-    /** not an ignored comment */
-
-Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
-
-
-## <a name="options"></a>Using JHipster's options
-
-JDL can add options to your entities (DTOs, paginations and services).
+In JHipster, you can specify options for your entities such as pagination or DTO.
+You can do the same with the JDL:
 
     entity A {
       name String required
@@ -221,6 +229,47 @@ Latest version introduces exclusions (which is quite a powerful option when sett
     dto * with mapstruct except A
     service all with serviceImpl except A, B, C
     paginate C, with pager
+
+
+## <a name="commentingjdl"></a> Commenting & Javadoc
+It is possible to add Javadoc & comments to JDL files.  
+Just like in Java, this example demonstrates how to add Javadoc comments:
+
+    /**
+     * Class comments.
+     * @author The JHipster team.
+     */
+    entity MyEntity { // another form of comment
+      /** A required attribute */
+      myField String required,
+      mySecondField String // another form of comment
+    }
+
+    /**
+     * Second entity.
+     */
+    entity MySecondEntity {}
+
+    relationship OneToMany {
+      /** This is possible too! */
+      MyEntity{mySecondEntity}
+      to
+      /**
+       * And this too!
+       */
+      MySecondEntity{myEntity}
+    }
+
+These comments will later be added as Javadoc comments by JHipster.
+
+JDL possesses its own kind of comment:
+
+    // an ignored comment
+    /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
+
+
 
 
 ## <a name="jdlrelationships"></a>All the relationships
@@ -402,6 +451,6 @@ Please use our project for submitting issues and Pull Requests concerning the li
 - [JDL issue tracker](https://github.com/jhipster/jhipster-domain-language/issues)
 - [JDL Pull Requests](https://github.com/jhipster/jhipster-domain-language/pulls)
 
-When submitting anything, you must be as precise as possible:
-  - **One posted issue must only have one problem** (or one demand/question);
-  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.
+When submitting anything, you must be as precise as possible:  
+  - **One posted issue must only have one problem** (or one demand/question);  
+  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.  

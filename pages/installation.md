@@ -26,7 +26,7 @@ We provide 3 ways of working with JHipster:
     *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
     *   If you don't want to use those wrappers, go to the official [Maven webiste](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
 3.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
-4.  Install Node.js from [the Node.js website](http://nodejs.org/). This will also install `npm`, which is the node package manager we are using in the next commands.
+4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version). This will also install `npm`, which is the node package manager we are using in the next commands.
 5.  Install Yeoman: `npm install -g yo`
 6.  Install Bower: `npm install -g bower`
 7.  Install Gulp: `npm install -g gulp`
