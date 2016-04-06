@@ -126,7 +126,7 @@ Assuming the containers running the Cassandra nodes have IP address 172.18.0.x:
 
 The docker_compose files for Cassandra in production has 2 possible configurations:
 - `cassandra-cluster.yml` => is the default linked in `app.yml`.
-- `cassandra-opscenter.yml` => is an alternative with and additional container running OpsCenter to monitor the cluster. OpsCenter will be available at [http://localhost:8888](http://localhost:8888).
+- `cassandra-opscenter.yml` => is an alternative with an additional container running OpsCenter to monitor the cluster. OpsCenter will be available at [http://localhost:8888](http://localhost:8888).
 
 Unlike the [other databases](#4) docker-compose configuration, the application will not automatically create the Keyspace and apply the changelogs.
 You have to first start the Cassandra cluster and manually apply the scripts before starting the rest of the services:
