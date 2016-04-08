@@ -39,13 +39,21 @@ Through Jenkins administration, add a Maven automatic installer from Apache's si
 
 ### Installing NodeJS
 
+You could install NodeJS globally but it's very likely that you may want to have different versions of NodeJS for different projects.
+
+We suggest 2 alternatives below, choose the one you prefer.
+
+#### Jenkins NodeJS plugin
+
 Install Jenkins NodeJS plugin.
 
-Through Jenkins administration, add a NodeJS instllation:
-- automatic installer from nodejs.org, latest stable 4.xx.xx version
+Through Jenkins administration, add a NodeJS installation:
+- automatic installer from nodejs.org, latest LTS (Long Term Support) 4.xx.xx version
 - Global npm packages to install: bower gulp
 
-This way you can easily configure different versions of NodeJS if you need them in the future.
+#### Local NodeJS installation
+
+Install NodeJS locally using the script below and then update the Jenkins PATH to use it.
 
 ~~~ bash
 # specify which version we want
