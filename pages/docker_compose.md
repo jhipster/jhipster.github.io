@@ -96,9 +96,9 @@ To start a Cassandra cluster to run your application locally, you can use the do
 `docker-compose -f src/main/docker/cassandra.yml up -d`
 
 Docker-compose will start 3 services:
-- **tatami-cassandra**, a container with the Cassandra node contact point
-- **tatami-cassandra-node-1**, a container with a second Cassandra node joining the cluster
-- **tatami-cassandra-migration** a container to automatically apply all migrations scripts (create the Keyspace, create the tables, all data migrations, ...)
+- **<name_of_your_app>-cassandra**, a container with the Cassandra node contact point
+- **<name_of_your_app>-cassandra-node-1**, a container with a second Cassandra node joining the cluster
+- **<name_of_your_app>-cassandra-migration** a container to automatically apply all migrations scripts (create the Keyspace, create the tables, all data migrations, ...)
 
 The migration service is responsible to apply all the migration scripts from src/main/resources/config/cql in the following order:
 
@@ -141,7 +141,7 @@ You have to first start the Cassandra cluster and manually apply the scripts bef
 
 One big difference between Cassandra and the other databases, is that you can scale your cluster with Docker Compose. To have X+1 nodes in your cluster, run:
 
-- `docker-compose -f src/main/docker/cassandra-.cluster.yml scale <name_of_your_app>-cassandra-node=X`
+- `docker-compose -f src/main/docker/cassandra-cluster.yml scale <name_of_your_app>-cassandra-node=X`
 
 ## <a name="5"></a> Elasticsearch
 
