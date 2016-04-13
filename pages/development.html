@@ -191,7 +191,7 @@ sitemap:
     <img src="{{ site.url }}/images/h2.png"/>
 </p>
 
-<h3>Using MySQL or Postgresql in development</h3>
+<h3>Using MySQL, MariaDB or Postgresql in development</h3>
 <p>
     This option is bit more complex than using H2, but you have a some important benefits:
     <ul>
@@ -199,7 +199,16 @@ sitemap:
         <li>Your application starts a little bit faster</li>
         <li>You can use the great <code>mvn liquibase:diff</code> goal (see below)</li>
     </ul>
+    <br/>
+    Note: MariaDB is binary compatible with MySQL and also works with JHipster.
+    <br/>
 </p>
+<p>
+    The only thing you need to do to get this to work is create the schema with the same name as your app.  So if you have an application named "myapp", you will need to create the schema named "myapp" in your database instance.
+    <br/><br/>
+    Also note that the default install assumes your database is on localhost, logged in as the root user, with no password.  It would be best to change this, and you can do that in src/main/resources/config/application-dev.yml. 
+</p>
+
 
 <h2>Database updates</h2>
 
