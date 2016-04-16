@@ -121,4 +121,4 @@ Heroku has a default boot-timeout limit of 90 seconds. If your app takes longer 
 ## More information
 
 *   [Example Application](https://github.com/kissaten/jhipster-example)
-*   [Spring Boot Heroku documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment-heroku.html)
+*   [Spring Boot Heroku documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html#cloud-deployment-heroku)
