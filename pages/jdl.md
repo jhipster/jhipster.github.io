@@ -4,17 +4,17 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2016-03-26T12:00:00-00:00
+    lastmod: 2016-04-17T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
 
 
-JDL is a JHipster specific domain language where we have added the possibility to describe all your entities and their relationships in a single file with a simple and user-friendly syntax.
+The JDL is a JHipster specific domain language where we have added the possibility to describe all your entities and their relationships in a single file (or more than one) with a simple and user-friendly syntax.
 
 You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share URL of your JDL as well.
 
-You can generate entities from a JDL file using the [import-jdl]({{ site.url }}/importing-jdl/) sub generator. Simply run `yo jhipster:import-jdl yourJdlFilePath.jh` from the root of the generated JHipster application.
+You can also generate entities from a JDL file using the [import-jdl]({{ site.url }}/importing-jdl/) sub generator. Simply run `yo jhipster:import-jdl yourJdlFilePath.jh` from the root of the generated JHipster application. Or by using [JHipster UML]({{ site.url }}/jhipster-uml/).
 
 - this can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
@@ -30,6 +30,7 @@ Here's what's covered on this page:
   3.3 [Enumerations](#enumerationdeclaration)  
   3.4 [Blobs](#blobdeclaration)  
   3.5 [Option declaration](#optiondeclaration)  
+  3.6 [Microservice-related options](#microserviceoptions)
 4. [Commenting](#commentingjdl)  
 5. [All the relationships](#jdlrelationships)  
 6. [Annexes](#annexes)
@@ -39,7 +40,7 @@ Here's what's covered on this page:
 
 # <a name="sample"></a> JDL Sample
 
-The Oracle example has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/jh/oracle.jh). The same is loaded by default in [JDL-Studio]({{ site.url }}/jdl-studio/) as well.
+The Oracle example has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-domain-language/blob/master/lib/dsl/example.jh). The same is loaded by default in [JDL-Studio]({{ site.url }}/jdl-studio/) as well.
 
 ## <a name="howtojdl"></a> How to use it
 You can use it by:
@@ -53,6 +54,8 @@ and *Voilà*, you are done!
 
 If you work in a team, perhaps you would like to have multiple files instead of one. We added this option so that you don't manually 
 concatenate all the files into one, you just have run `jhipster-uml my_file1.jh my_file2.jh` or `jhipster:import-jdl my_file1.jh my_file2.jh`.
+
+If you want to use it in your project, you can add do so by doing `npm install jhipster-domain-language --save` to install it locally, and save it in your `package.json` file.
 
 ## <a name="jdllanguage"></a> The language
 We tried to keep the syntax as friendly as we can for developers.
@@ -231,6 +234,46 @@ Latest version introduces exclusions (which is quite a powerful option when sett
     paginate C, with pager
 
 
+With JHipster, you can also tell whether you don't want any client code, or server code. Even if you want to add a suffix to Angular-related files, you can do that in JHipster.
+In your JDL file, simply add these lines to do the same:
+
+```
+entity A
+entity B
+entity C
+
+skipClient for A
+skipServer for B
+angularSuffix * with mySuperEntities
+```
+
+Finally, table names can also be specified (the entity's name will be used by default):
+
+```
+entity A // A is the table's name here
+entity B (the_best_entity) // the_best_entity is the table's name
+```
+
+
+### <a name="microserviceoptions"></a> Microservice-related options
+
+As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL: the microservice's name and the search engine.
+
+Here is how you can specify your microservice's name (the JHipster app's name):
+
+```
+entity A
+entity B
+entity C
+
+microservice * with mysuperjhipsterapp except C
+microservice C with myotherjhipsterapp
+search * with ElasticSearch except C
+```
+
+The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second specifies how and if you want your entities searched.
+
+
 ## <a name="commentingjdl"></a> Commenting & Javadoc
 It is possible to add Javadoc & comments to JDL files.  
 Just like in Java, this example demonstrates how to add Javadoc comments:
@@ -268,8 +311,6 @@ JDL possesses its own kind of comment:
     /** not an ignored comment */
 
 Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
-
-
 
 
 ## <a name="jdlrelationships"></a>All the relationships
