@@ -89,6 +89,20 @@ If you just want to start your database, and not the other services, use the Doc
 - With PostgreSQL: `docker-compose -f src/main/docker/postgresql.yml up`
 - With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
 
+### MongoDB Cluster Mode
+
+If you want to use MongoDB with a replica set or shards and a shared configuration between them, you need to build and set up manually Mongo images.
+Follow these steps to do so:
+
+- Build the image: `docker-compose -f src/main/docker/mongodb-cluster.yml build`
+- Run the database: `docker-compose -f src/main/docker/mongodb-cluster.yml up -d`
+- Scale the mongodb node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=X`
+- Init the replica set (param is the number of node, folder is the folder where the YML file is located, it's `docker` by default): `docker exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=X, folder="<yml_folder_name>"' init_replicaset.js`
+- Init the shard: `docker exec -it <name_of_your_app>-mongodb mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
+- Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
+
+If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
+
 ### Cassandra
 
 Before running `docker-compose -f src/main/docker/app.yml up`, you will need to build and set up manually your Cassandra image.
