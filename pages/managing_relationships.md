@@ -56,7 +56,7 @@ So this is a simple one-to-many relationship (one owner has many cars) on one si
 
     Owner (1) <-----> (*) Car
 
-As the `Car` table will need to have a foreign key on the `Owner` table, we need to create the `Owner` first. Here are the relevant JHipster questions for the `Owner`:
+We will create the `Owner` first. Here are the relevant JHipster questions for the `Owner`:
 
     yo jhipster:entity Owner
     ...
@@ -221,7 +221,7 @@ At the database level, this means we will have a join table between the `Driver`
 
 For JPA, one of those two entities will need to manage the relationship: in our case, that would be the `Car` entity, which will be responsible to add or remove drivers.
 
-First generate the non-owning side of the relationship, the `Driver`, with a many-to-many relationship:
+Let us generate the non-owning side of the relationship, the `Driver`, with a many-to-many relationship:
 
     yo jhipster:entity Driver
     ...
@@ -262,7 +262,7 @@ Following our example, a one-to-one relationship would mean that a `Driver` can 
 
     Driver (1) <-----> (1) Car
 
-First create the non-owning side of the relationship, in our case the `Driver`:
+Let us create the non-owning side of the relationship, in our case the `Driver`:
 
     yo jhipster:entity Driver
     ...

@@ -52,8 +52,8 @@ You can use it by:
 
 and *Voilà*, you are done!
 
-If you work in a team, perhaps you would like to have multiple files instead of one. We added this option so that you don't manually 
-concatenate all the files into one, you just have run `jhipster-uml my_file1.jh my_file2.jh` or `jhipster:import-jdl my_file1.jh my_file2.jh`.
+If you work in a team, perhaps you would like to have multiple files instead of one. We added this option to JHipster UML so that you don't manually
+concatenate all the files into one, you just have to run `jhipster-uml my_file1.jh my_file2.jh`.
 
 If you want to use it in your project, you can add do so by doing `npm install jhipster-domain-language --save` to install it locally, and save it in your `package.json` file.
 
@@ -94,7 +94,7 @@ entity D {
 }
 ```
 
-Because the JDL was made to be simple to use and read, f your entity is empty (no field), you can just declare an entity with `entity A` or `entity A {}`.
+Because the JDL was made to be simple to use and read, if your entity is empty (no field), you can just declare an entity with `entity A` or `entity A {}`.
 
 Note that JHipster adds a default `id` field so that you don't have to worry about it.
 
@@ -119,7 +119,7 @@ A Book has one Author, an Author has several Books.
 
     entity Book
     entity Author
-    
+
     relationship OneToMany {
       Author{book} to Book{writer(name)}
     }
