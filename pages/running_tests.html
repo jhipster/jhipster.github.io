@@ -74,13 +74,23 @@ sitemap:
 <h3>KarmaJS</h3>
 
 <p>
-    UI unit tests are done with <a href="http://karma-runner.github.io/" target="_blank">Karma.js</a> and <a href="http://phantomjs.org/" target="_blank">PhantomJS</a>, and are located in the <code>src/test/javascript/spec</code> folder.
+UI unit tests are written in <a href="http://jasmine.github.io">Jasmine</a> and run with <a href="http://karma-runner.github.io/" target="_blank">Karma.js</a> and <a href="http://phantomjs.org/" target="_blank">PhantomJS</a>, and are located in the <code>src/test/javascript/spec</code> folder.
 </p>
 <p>
     Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
 </p>
 <p>
-    Those tests can be run using <code>gulp test</code>.
+    <ul>
+        <li>
+            Those tests can be run using <code>gulp test</code>.
+        </li>
+        <li>
+            To debug your JS tests, you will need to disable minification and Clover covarage on your Javascript files. To do so start Karma with the --debug option, something like this: <code>./node_modules/karma/bin/karma start src/test/javascript/karma.conf.js --debug</code>, then navigate to <a href="http://localhost:9876/debug.html">Karma debug page</a> and open your Javascript console.
+        </li>
+        <li>
+            Tip: if you want to focus on a single test change the module description from <code>describe('...', function() {</code> to <code>fdescribe('...', function() {</code> and Jasmine will run this test only.
+        </li>
+    </ul>
 </p>
 
 <h3>Protractor</h3>
