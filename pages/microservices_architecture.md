@@ -144,16 +144,42 @@ Compared with monolithic applications, gateways and microservices monitoring con
 
 As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) to learn more about using Docker Compose with JHipster.
 
-## Going to production with CloudFoundry or Heroku
+## Going to production with CloudFoundry
 
-The [CloudFoundry sub-generator]({{ site.url }}/cloudfoundry/) and the [Heroku sub-generator]({{ site.url }}/heroku/) work the same with a microservices architecture, the main difference is that you have more applications to deploy:
+The [CloudFoundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
 
-- Use the sub-generator to deploy first the JHipster Registry (which is a normal JHipster application), and then the gateway(s) and microservices
-- Scale your applications as usual with your PaaS
+- Use the sub-generator to deploy first the JHipster Registry (which is a normal JHipster application).
+- Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL:
+  - In the `bootstrap-prod.yml` file, the `spring.cloud.config.uri` must point to `http://<your_jhipster_registry_url>/config/`
+  - In the `application-prod.yml` file, the `eureka.client.serviceUrl.defaultZone` must point to `http://<your_jhipster_registry_url>/eureka/`
+- Deploy your gateway(s) and microservices
+- Scale your applications as usual with Cloud Foundry
 
 One important point to remember is that the JHipster Registry isn't secured by default, and that the microservices are not supposed to be accessible from the outside world, as users are supposed to use the gateway(s) to access your application.
 
 Two solutions are available to solve this issue:
 
-- Secure your PaaS using specific routes. CloudFoundry provides this by default, with Heroku you should use [Private Spaces](https://www.heroku.com/private-spaces)
+- Secure your Cloud Foundry using specific routes.
 - Keep everything public, but use HTTPS everywhere, and secure your JHipster Registry using Spring Security's basic authentication support
+
+## Going to production with Heroku
+
+The [Heroku sub-generator]({{ site.url }}/heroku/) works nearly the same with a microservices architecture, the main difference is that you have more applications to deploy:
+
+Deploy a JHipster Registry directly with one click:
+
+[![Deploy to Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard-preview.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
+
+Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL in their `application-prod.yml` file. Change that configuration to be:
+
+    eureka:
+        instance:
+            hostname: <your_jhipster_registry_url>.herokuapp.com
+            non-secure-port: 80
+            prefer-ip-address: false
+
+You can now deply and scale the gateway(s) and microservices. The Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications can fetch their configuration on the Spring Cloud Config server.
+
+One important point to remember is that the JHipster Registry isn't secured by default, so with Heroku anyone has direct access to it.
+
+In order to have your architecture secured in production, use HTTPS everywhere, and secure your JHipster Registry using Spring Security's basic authentication support.
