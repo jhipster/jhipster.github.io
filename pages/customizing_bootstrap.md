@@ -23,32 +23,31 @@ With Sass you can go further by combining Bootstrap-sass mixins to create your o
 
 If you have selected Sass when generating your application, JHipster has already imported bootstrap-sass main file into your `src/main/scss/vendor.scss` and has installed them in `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets`.
 
-If you add any library using `bower install` then running `gulp wiredep` task will add reference of any sass files present to `src/main/scss/vendor.scss` and the `gulp sass` task will compile this to CSS and will copy any fonts included in the libs `fonts` folder into the `src/main/webapp/content/fonts` folder. If you had `gulp` or `gulp serve` running then this is done automatically for you.
+If you add any library using `bower install` then running `gulp inject:dep` task will add reference of any sass files present to `src/main/scss/vendor.scss` and the `gulp sass` task will compile this to CSS and will copy any fonts included in the libs `fonts` folder into the `src/main/webapp/content/fonts` folder. If you had `gulp` or `gulp serve` running then this is done automatically for you.
 
 vendor.scss
 
     /* Sass bower components will be injected here */
     // bower:scss
     @import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-    // endbower
+    // endinject
 
-This import statement has been inserted by the wiredep task because it is enclosed by bower comments, it
+This import statement has been inserted by the inject task because it is enclosed by inject comments, it
 imports `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.scss`.
 
 ## Advanced customisation
 
 If you want to go further into Bootstrap customisation by excluding some components, adding new ones or replacing standard ones with yours, you must exclude the standard Bootstrap SASS files from the
-wiredep task in `gulpfile.js` so that your custom one is picked up instead:
+`inject` task in `gulpfile.js` so that your custom one is picked up instead:
 
 gulpfile.js
 
-	gulp.task('wiredep:app', function () {
+	gulp.task('inject:vendor', function () {
 	    ...
-        return es.merge(stream, gulp.src(config.sassSrc)
+        return es.merge(stream, gulp.src(config.sassVendor)
             ...
-            .pipe(wiredep({
-                ignorePath: /\.\.\/webapp\/bower_components\//, // remove ../webapp/bower_components/ from paths of injected sass files
-                exclude: [/bootstrap-sass\/assets\/stylesheets/],
+            .pipe(inject(gulp.src(bowerFiles({filter:['**/*.{scss,sass}', '!/bootstrap-sass/assets/stylesheets/']}), {read: false}), {
+                ...
             }))
             ...
         ...
