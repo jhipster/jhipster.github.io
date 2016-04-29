@@ -28,11 +28,11 @@ If you add any library using `bower install` then running `gulp inject:dep` task
 vendor.scss
 
     /* Sass bower components will be injected here */
-    // bower:scss
+    /* bower:scss */
     @import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-    // endinject
+    /* endinject */
 
-This import statement has been inserted by the inject task because it is enclosed by inject comments, it
+This import statement has been inserted by the inject task because it is enclosed by bower inject comments, it
 imports `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.scss`.
 
 ## Advanced customisation
@@ -56,13 +56,13 @@ gulpfile.js
 
 Copy `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss` to `src/main/webapp/scss/_custom-bootstrap.scss`
 
-Edit your `_custom-bootstrap.scss` file to add "bootstrap-sass/assets/stylesheets/" to all import statements so that they point to the `bower_components` directory.
+Edit your `_custom-bootstrap.scss` file to add "../bower_components/bootstrap-sass/assets/stylesheets/" to all import statements so that they point to the `bower_components/bootstrap-sass` directory.
 
 	// Core variables and mixins
-	@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
-	@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+	@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+	@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-Import it into your `main.scss` file:
+Import `_custom-bootstrap.scss` into your `main.scss` file:
 
 	@import "custom-bootstrap";
 
@@ -77,7 +77,7 @@ It's very likely that you will want to replace some values in the bootstrap vari
 
 	// Core variables and mixins
 	@import "custom-variables";
-	@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+	@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
 You can follow same procedure and naming convention ('_custom-*.css`) for any other partial you want to customise, this will make easier to integrate bootstrap-sass updates.
 
