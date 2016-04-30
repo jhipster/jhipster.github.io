@@ -52,7 +52,13 @@ The JHipster Console is a Docker-based project that adds features on top of the 
 
 If you already have a JHipster [microservice architecture]({{ site.url }}/microservices-architecture/) set up with the Docker Compose workflow, the JHipster Console can be automatically set up by the Docker Compose sub-generator.
 
-If you are using the monolithic version of JHipster, you will need Docker and Docker Compose installed, then you can clone JHipster Console's [git repository](https://github.com/jhipster/jhipster-console) and run:
+If you are using the monolithic version of JHipster, you can get JHipster Console's Docker-Compose file and configuration by running the following commands:
+
+    mkdir conf
+    curl -o conf/logstash.conf https://raw.githubusercontent.com/jhipster/jhipster-console/v1.1.0/log-monitoring/log-config/logstash.conf
+    curl -o docker-compose.yml https://raw.githubusercontent.com/jhipster/jhipster-console/v1.1.0/bootstrap/docker-compose.yml
+
+Then you will be able to start the console with:
 
     docker-compose up -d
 
