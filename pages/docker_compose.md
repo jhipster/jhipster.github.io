@@ -105,7 +105,7 @@ If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
 
 ### Cassandra
 
-#### In development
+#### Cassandra in development
 To start a Cassandra cluster to run your application locally, you can use the docker_compose file for development `cassandra.yml`:
 `docker-compose -f src/main/docker/cassandra.yml up -d`
 
@@ -136,8 +136,7 @@ Assuming the containers running the Cassandra nodes have IP address 172.18.0.x:
 
     sudo route -n add 172.18.0.0/16 `docker-machine ip default`
 
-#### In production:
-
+#### Cassandra in production:
 The docker_compose files for Cassandra in production has 2 possible configurations:
 - `cassandra-cluster.yml` => is the default linked in `app.yml`.
 - `cassandra-opscenter.yml` => is an alternative with an additional container running OpsCenter to monitor the cluster. OpsCenter will be available at [http://localhost:8888](http://localhost:8888).
