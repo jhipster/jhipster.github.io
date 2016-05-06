@@ -78,35 +78,15 @@ Once the registry is deployed, you can run the `yo jhipster:heroku` command agai
 A registry running on Heroku has a few limitations, including:
 
 *   The registry will only work with native configuration (and not Git config).
-*   The Registry is not secured by default. You must add it with Spring Security’s basic authentication support (see below).
 *   The registry service cannot be scaled up to multiple dynos to provide redundancy. You must deploy multiple applications (i.e. click the button more than once). This is because Eureka requires distinct URLs to synchronize in-memory state between instances.
 
-### Securing your Heroku Registry
+### Using security with your Heroku Registry
 
-To secure the registry, you must add the `spring-boot-starter-security` dependency to the app. To do so, first clone a local copy of the registry by running these commands (but replace "[appname]" with the name of your Heroku registry app):
-
-`git clone https://github.com/jhipster/jhipster-registry`
-`cd jhipster-registry`
-`heroku git:remote [appname]`
-
-Then add the following dependency to the `pom.xml`:
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-
-Then commit the change and redeploy the registry by running these commands:
-
-`git add pom.xml`
-`git commit -m "security"`
-`git push heroku master`
-
-A random password for the registry was automatically configured when you deployed it. You can capture this value by running the following command:
+To get the automatically-generated admin password, type:
 
 `heroku config:get JHIPSTER_PASSWORD`
 
-Finally, update all of your microservices and your gateway to use the credentials for the registry by running this command:
+To use this password, update all of your microservices and your gateway to use the credentials for the registry by running this command:
 
 `heroku config:set JHIPSTER_REGISTRY_URL="http://user:[password]@[appname].herokuapp.com"`
 
