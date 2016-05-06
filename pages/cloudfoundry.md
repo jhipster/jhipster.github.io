@@ -41,7 +41,7 @@ This should package your application (in production or development mode), create
 When your application is already deployed, you can re-deploy it by building it normally by running:
 
 **With Maven:**
-`./mvn -Pprod package`
+`./mvnw -Pprod package`
 `cf push -f ./deploy/cloudfoundry/manifest.yml -p target/*.war`
 
 **With Gradle:**
