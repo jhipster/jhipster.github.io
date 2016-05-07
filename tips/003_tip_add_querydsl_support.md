@@ -19,8 +19,8 @@ An important part of Querydsl are generated domain classes for queries so called
 ## Gradle plugin
 There is also Gradle plugin for Querydsl which supports configuration for spring-data-mongodb.
 
-## Maven
-There is also plugin for maven. But in this `tip` we describe only `gradle` configuration.
+## Maven plugin
+There is also plugin for maven. Maven configuration fully described in chapter [Maven integration](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#d0e132) of the documentation. Also you have to perform the steps below.
 
 ## Changes
 
@@ -54,18 +54,83 @@ If you run `gradle build` you will see output like this
 
 For every domain class which is annotated with @Document Querydsl plugin will generate one Predicate class.
 
-### Change Repository classes
+### pom.xml
+After adding `com.mysema.maven:apt-maven-plugin` to project you need to edit `org.bsc.maven:maven-processor-plugin`. You have to add directory with generated classes of `apt-maven-plugin` to configuration of `maven-processor-plugin`, for example: 
+
+    <plugin>
+        <groupId>org.bsc.maven</groupId>
+        <artifactId>maven-processor-plugin</artifactId>
+        <version>2.2.4</version>
+        <configuration>
+            <defaultOutputDirectory>
+                ${project.build.directory}/generated-sources/java
+            </defaultOutputDirectory>
+            <additionalSourceDirectories>
+                <additionalSourceDirectory>
+                    ${project.build.directory}/generated-sources/java
+                </additionalSourceDirectory>
+            </additionalSourceDirectories>
+            ...
+        </configuration>
+        ...
+    </plugin>
+
+## Change Repository classes
 If you have a domain class for example `Name`, then you have also a `NameRepository` class. You have to change every Repository class to extend from `QuerydslPredicateExecutor`.
 
     public interface NameRepository extends MongoRepository<Name, String>, QuerydslPredicateExecutor<Name> {
 
 This will extend your repository class with extra methods supporting Querydsl ([see](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.type-safe) )
 
+## Web support
+To extend the rest controller for support parameterized request, you have to add `com.mysema.query.types.Predicate` annotated with `org.springframework.data.querydsl.binding.QuerydslPredicate` to the method parameters:
+
+    @RestController
+    @RequestMapping("/api")
+    class NameResource {
+        @Inject
+        NameRepository nameRepository;
+        
+        @RequestMapping(value = "/names",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+        @Timed
+        public ResponseEntity<List<Name>> getAllNames(@QuerydslPredicate(root = Name.class) Predicate predicate,
+                                                        Pageable pageable) {
+            log.debug("REST request to get a page of Name");
+            Page<Name> page = nameRepository.findAll(predicate, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/names");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
+        ...
+    }
+    
+Also in `NameResourceIntTest` you have to support `QuerydslPredicateArgumentResolver`:
+
+    public class NameResourceIntTest {
+        ...
+        @Inject
+        private QuerydslPredicateArgumentResolver querydslPredicateArgumentResolver;
+        
+        @PostConstruct
+        public void setup() {
+            MockitoAnnotations.initMocks(this);
+            NameResource nameResource = new nameResource();
+            ReflectionTestUtils.setField(nameResource, "nameRepository", nameRepository);
+            this.restNameMockMvc = MockMvcBuilders.standaloneSetup(nameResource)
+                .setCustomArgumentResolvers(pageableArgumentResolver, querydslPredicateArgumentResolver)
+                .setMessageConverters(jacksonMessageConverter).build();
+        }
+        ...
+    }
+    
+More details can be found in [the documentation](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#core.web.type-safe).
+
 ## Write type safe queries
 
-Gradle plugin has generated class QName which can be used for writing queries for Name.class. Here is Java example:
+Gradle or maven plugins have generated class QName which can be used for writing queries for Name.class. Here is Java example:
 
-    QName name = new QName("name");
+    QName name = QName.name;
 
     // count all names whose list "categorie" contains string "TOP_EVER"
     nameRepository.count(name.categories.contains("TOP_EVER"));
