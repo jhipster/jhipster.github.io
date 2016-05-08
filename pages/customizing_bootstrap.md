@@ -79,7 +79,7 @@ It's very likely that you will want to replace some values in the bootstrap vari
 	@import "custom-variables";
 	@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-You can follow same procedure and naming convention ('_custom-*.css`) for any other partial you want to customise, this will make easier to integrate bootstrap-sass updates.
+You can follow same procedure and naming convention ('_custom-*.css`) for any other partial you want to customize, this will make easier to integrate bootstrap-sass updates.
 
 You can also comment out some `@import` lines in  `_custom-boostrap.scss` to exclude some components you don't need, it's safer to comment out rather than deleting also to make easier to integrate bootstrap-sass updates.
 
