@@ -170,6 +170,8 @@ Deploy a JHipster Registry directly with one click:
 
 [![Deploy to Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard-preview.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
 
+Please follow the [Heroku sub-generator documentation]({{ site.url }}/heroku/) in order to understand how to secure your JHipster Registry.
+
 Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL in their `application-prod.yml` file. Change that configuration to be:
 
     eureka:
@@ -178,8 +180,6 @@ Note the URL on which your JHipster Registry is deployed. Your applications must
             non-secure-port: 80
             prefer-ip-address: false
 
-You can now deply and scale the gateway(s) and microservices. The Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications can fetch their configuration on the Spring Cloud Config server.
+You can now deply and scale the gateway(s) and microservices. The Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications to fetch their configuration on the Spring Cloud Config server.
 
-One important point to remember is that the JHipster Registry isn't secured by default, so with Heroku anyone has direct access to it.
-
-In order to have your architecture secured in production, use HTTPS everywhere, and secure your JHipster Registry using Spring Security's basic authentication support.
+**Warning** The above configuration uses HTTP, but order to have your architecture secured in production, use HTTPS to connect to the JHipster Registry! As the admin password is sent using HTTP Basic authentication, using an encrypted communication channel is very highly recommended.

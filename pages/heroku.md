@@ -80,9 +80,9 @@ A registry running on Heroku has a few limitations, including:
 *   The registry will only work with native configuration (and not Git config).
 *   The registry service cannot be scaled up to multiple dynos to provide redundancy. You must deploy multiple applications (i.e. click the button more than once). This is because Eureka requires distinct URLs to synchronize in-memory state between instances.
 
-### Using security with your Heroku Registry
+### Using security with your JHipster Registry on Heroku
 
-To get the automatically-generated admin password, type:
+To get the automatically-generated admin password on the JHipster Registry, type:
 
 `heroku config:get JHIPSTER_PASSWORD`
 
