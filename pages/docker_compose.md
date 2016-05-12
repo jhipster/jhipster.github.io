@@ -105,7 +105,7 @@ If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
 
 ### Cassandra
 
-#### Cassandra in development
+#### <a name="cassandra-in-development"></a> Cassandra in development
 To start a Cassandra cluster to run your application locally, you can use the docker_compose file for development `cassandra.yml`:
 `docker-compose -f src/main/docker/cassandra.yml up -d`
 
