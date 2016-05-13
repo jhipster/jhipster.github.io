@@ -11,7 +11,7 @@ What's new
 
 This version is a library upgrade, as Spring Cloud Brixton is now officially stable. We have also upgraded to the latest Spring Boot and Spring Security versions.
 
-Important changes bug fixes:
+Important changes and bug fixes:
 
 - A new JHipster Registry (v2.1.0) has been released, and adds a new dashboard when you open up the application.
 - MongoDB deployment was buggy, as there was an error in the Mongobee configuration [#3582](https://github.com/jhipster/generator-jhipster/issues/3582)
