@@ -10,7 +10,7 @@ lastmod: 2016-05-15T22:22:00-00:00
 
 __Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
 
-**Warning!** This tips doesn't work for npm 3+ because it uses symlink.
+**Warning!** Those tips don't work for npm 3+ because it uses symlink.
 
 When using the generator-jhipster, the command `npm install` may take several minutes, depending on your connection speed.
 
