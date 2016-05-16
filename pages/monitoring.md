@@ -20,7 +20,7 @@ To configure a JHipster application to forward their logs to JHipster Console, e
         logging:
             logstash:
                 enabled: true
-                host: localhost
+                host: localhost #Replace this with docker's vm ip ( if using docker-machine to create the docker host )
                 port: 5000
                 queueSize: 512
 
@@ -63,6 +63,10 @@ Then you will be able to start the console with:
     docker-compose up -d
 
 It will start Elasticsearch, Logstash, Kibana and ElastAlert all at once. You will then be able to access the JHipster Console at [http://localhost:5601](http://localhost:5601). It should automatically receive logs from your applications if they have been correctly configured to forward their logs and metrics to Logstash.
+
+<div class="alert alert-warning"><i>Warning: </i>
+if using docker-machine to create the docker host, instead of http://localhost:5601 please use your docker's vm ip i.e., http://&lt;dockerhostip&gt;:5601
+</div>
 
 To stop everything, run:
 
