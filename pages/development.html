@@ -176,7 +176,7 @@ sitemap:
 <h2>Using a database</h2>
 <h3>Running a database</h3>
 <p>
-    If you use a non-embedded database, like MySQL, PostgreSQL, MongoDB or Cassandra, you will need to install
+    If you use a non-embedded database, like MySQL, MariaDB, PostgreSQL, MongoDB or Cassandra, you will need to install
     and configure that database.
 </p>
 <p>
@@ -203,7 +203,7 @@ sitemap:
     <img src="{{ site.url }}/images/h2.png"/>
 </p>
 
-<h3>Using MySQL or Postgresql in development</h3>
+<h3>Using MySQL, MariaDB or PostgreSQL in development</h3>
 <p>
     This option is bit more complex than using H2, but you have a some important benefits:
     <ul>
@@ -235,7 +235,7 @@ sitemap:
 
 <h3>Database updates with the Maven liquibase:diff goal</h3>
 <p>
-    If you have choosen to use MySQL or Postgresql in development, you can use the <code>mvn liquibase:diff</code> goal to automatically generate a changelog.
+    If you have choosen to use MySQL, MariaDB or PostgreSQL in development, you can use the <code>mvn liquibase:diff</code> goal to automatically generate a changelog.
 </p>
 <p>
     If you are running H2 with disk-based persistence, this workflow is not yet working perfectly, but you can start trying to use it (and send us feedback!).
