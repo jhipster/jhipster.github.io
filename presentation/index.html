@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>JHipster - A hipster stack for Java developers</title>
+        <title>JHipster presentation slides</title>
 
         <meta name="description" content="Hipster stack for Java developers. Yeoman + Spring + AngularJS in one handy generator.">
         <meta name="author" content="Julien Dubois">
@@ -199,8 +199,6 @@
                             <code data-trim contenteditable>
 ./mvnw spring-boot:run
                             </code>
-                        </pre>
-                        <pre>
                             <code data-trim contenteditable>
 ./gradlew bootRun
                             </code>
@@ -398,12 +396,11 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                     <section>
                         <h3>You said <i>hype</i>?</h3>
                         <hr/>
-                        <p>At the time of this writing (March - 2016), the project is 28 months old:</p>
+                        <p>At the time of this writing (May, 2016), JHipster has:</p>
                         <ul>
-                            <li>We have 3,630+ GitHub stars and 200+ contributors</li>
-                            <li>We are the 3rd most popular Yeoman generator</li>
-                            <li>We have nearly 3 million page views</li>
-                            <li>We've been featured on Websites everywhere (Infoworld, SD Times, JavaWorld, Reddit...)</li>
+                            <li>223 contributors, including 13 core members</li>
+                            <li>4,210 GitHub stars and 928 forks</li>
+                            <li>220,000 installations</li>
                             <li>And it's growing rapidly</li>
                         </ul>
                         <hr/>
@@ -476,10 +473,13 @@ npm install -g generator-jhipster
                     </section>
                     <section>
                         <h1>Create an application</h1>
+                        <p>And use the embedded Maven wrapper to run it<br>
+                            <i>(hot reload of your application will work automatically)</i>
+                        </p>
                         <pre>
                             <code data-trim contenteditable>
 yo jhipster
-mvn spring-boot:run
+./mvnw
                             </code>
                         </pre>
                     </section>
@@ -490,7 +490,7 @@ mvn spring-boot:run
                       </p>
                         <pre>
                             <code data-trim contenteditable>
-gulp serve
+gulp
                             </code>
                         </pre>
                     </section>
@@ -498,16 +498,18 @@ gulp serve
                         <h1>Add an entity</h1>
                         <pre>
                             <code data-trim contenteditable>
-yo jhipster:entity foo
+yo jhipster:entity Foo
                             </code>
                         </pre>
                     </section>
 
                     <section>
                         <h1>Run in production</h1>
+                        <p><i>(Using Docker to run the database)</i></p>
                         <pre>
                             <code data-trim contenteditable>
-mvn -Pprod package
+./mvnw -Pprod package
+docker-compose -f src/main/docker/mysql.yml up -d
 java -jar target/*.war --spring.profiles.active=prod
                             </code>
                         </pre>
