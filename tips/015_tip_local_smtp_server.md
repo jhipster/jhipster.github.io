@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Local STMP Server
+title: Local SMTP Server
 sitemap:
 priority: 0.5
 lastmod: 2016-05-21T22:22:00-00:00
 ---
 
-# Local STMP Server
+# Local SMTP Server
 
 __Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
 
@@ -14,7 +14,7 @@ __Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
 
 The project [djfarrelly/MailDev](https://github.com/djfarrelly/MailDev) is a simple way to test your project's generated emails during development with an easy to use web interface.
 
-To start locally the STMP server with Docker:
+To start locally the SMTP server with Docker:
 
 ```
 docker run -d -p 1080:80 -p 25:25 djfarrelly/MailDev
