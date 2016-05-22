@@ -17,13 +17,12 @@ Using Docker and Docker Compose is highly recommended in development, and is als
 
 1. [Description](#1)
 2. [Prerequisites](#2)
-3. [Building a Docker image of your application](#3)
-4. [Working with databases](#4)
-5. [Elasticsearch](#5)
-6. [Sonar](#6)
-7. [Common commands](#7)
-8. [Differences when using a microservices architecture](#8)
-
+3. [Differences when using a microservices architecture](#microservices)
+4. [Building a Docker image of your application](#3)
+5. [Working with databases](#4)
+6. [Elasticsearch](#5)
+7. [Sonar](#6)
+8. [Common commands](#7)
 
 ## <a name="1"></a> Description
 
@@ -61,6 +60,28 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under this directory to avoid any issues especially if you are using the <a href="{{ site.url }}/monitoring/">JHipster Console</a> for monitoring.
 
 </div>
+
+## <a name="microservices"></a> Differences when using a microservices architecture
+
+_if you are working on a monolithic application, you can skip this section_
+
+If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `Dockerfile` and a Docker Compose configurations, like with a normal monolithic application.
+
+But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
+
+- You need to have all your gateway(s) and microservices in the same directory.
+- Create another directory, for example `mkdir docker-compose`.
+- Go into that directory: `cd docker-compose`.
+- Run the sub-generator: `yo jhipster:docker-compose`.
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
+
+This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
+
+This configuration will have a pre-configured JHipster Registry, that will configure your services automatically:
+
+- Those services will wait until the JHipster Registry is running until they can start (this can be configured in your `bootstrap-prod.yml` file using the `spring.cloud.config.fail-fast` and `spring.cloud.config.retry` keys).
+- The registry will configure your applications, for example it will share the JWT secret token between all services.
+- Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
 
 ## <a name="3"></a> Building and running a Docker image of your application
 
@@ -191,23 +212,3 @@ When you stop a container, the data is not deleted, unless you delete the contai
 Be careful! All data will be deleted:
 
 `docker rm <container_id>`
-
-## <a name="8"></a> Differences when using a microservices architecture
-
-If you have selected to generate a [microservices architecture]({{ site.url }}/microservices-architecture/), each application (gateway, microservice) has a `Dockerfile` and a Docker Compose configurations, like with a normal monolithic application.
-
-But you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all your gateway(s) and microservices. This will allow you to deploy and scale your complete architecture with one command.
-
-- You need to have all your gateway(s) and microservices in the same directory.
-- Create another directory, for example `mkdir docker-compose`.
-- Go into that directory: `cd docker-compose`.
-- Run the sub-generator: `yo jhipster:docker-compose`.
-- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
-
-This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
-
-This configuration will have a pre-configured JHipster Registry, that will configure your services automatically:
-
-- Those services will wait until the JHipster Registry is running until they can start (this can be configured in your `bootstrap-prod.yml` file using the `spring.cloud.config.fail-fast` and `spring.cloud.config.retry` keys).
-- The registry will configure your applications, for example it will share the JWT secret token between all services.
-- Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
