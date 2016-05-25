@@ -52,11 +52,9 @@ The JHipster Console is a Docker-based project that adds features on top of the 
 
 If you already have a JHipster [microservice architecture]({{ site.url }}/microservices-architecture/) set up with the Docker Compose workflow, the JHipster Console can be automatically set up by the Docker Compose sub-generator.
 
-If you are using the monolithic version of JHipster, you can get JHipster Console's Docker-Compose file and configuration by running the following commands:
+If you are using the monolithic version of JHipster, you can get the JHipster Console's Docker-Compose file [from Github](https://github.com/jhipster/jhipster-console/blob/master/bootstrap/docker-compose.yml) or with the following command:
 
-    mkdir conf
-    curl -o conf/logstash.conf https://raw.githubusercontent.com/jhipster/jhipster-console/v1.1.0/log-monitoring/log-config/logstash.conf
-    curl -o docker-compose.yml https://raw.githubusercontent.com/jhipster/jhipster-console/v1.1.0/bootstrap/docker-compose.yml
+    curl -O https://raw.githubusercontent.com/jhipster/jhipster-console/master/bootstrap/docker-compose.yml
 
 Then you will be able to start the console with:
 
@@ -76,9 +74,7 @@ Once stopped, you can remove the containers if you don't intend to start them ag
 
     docker-compose rm
 
-<div class="alert alert-warning"><i>Warning: </i>
-If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under these directory to avoid any issues especially if you are using the JHipster Console for monitoring.
-</div>
+You can combine the two previous commands in one by running: `docker-compose down`.
 
 ## Using JHipster Console
 
@@ -96,9 +92,13 @@ You can also use Kibana's **Discover** and **Visualize** tabs to explore your da
 
 When using JHipster Console you can enable docker volumes in the `docker-compose.yml` file by uncommenting the appropriate lines. Those volumes are used to share data between containers and the host. They will persist data and configuration even if containers are removed from your system.
 
-- Elasticsearch has its data saved to `log-monitoring/log-data`
-- Logstash loads its configuration from `log-monitoring/log-config/logstash.conf`, you can edit this file to add new parsing rules for data received by logstash on UDP port 5000.
-- Kibana loads dashboards description files in `jhipster-console/dashboards` on each startup.
+- Elasticsearch has its data saved to `log-data/`
+- Logstash loads its configuration from `log-conf/logstash.conf`, you can edit this file to add new parsing rules for data received by logstash on UDP port 5000.
+- Kibana loads dashboards description files in `dashboards/` on each startup.
+
+<div class="alert alert-warning"><i>Warning: </i>
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under these directory to avoid any issues with volumes.
+</div>
 
 ### Save your custom searches, visualizations and dashboards as JSON for auto import
 
@@ -114,13 +114,14 @@ JHipster Console comes with built-in alerting by integrating [Elastalert](https:
 
 #### Enable alerting
 
-To enable alerting, add the following lines for the **jhipster-console** service in `docker-compose.yml`.
+To enable alerting, setup the `jhipster-alerter` container by adding the following lines to your `docker-compose.yml`.
 
-    environment:
-        - ENABLE_ALERTING=true
-    volumes:
-        - ./alerts/config.yaml:/opt/elastalert/config.yaml
-        - ./alerts/rules/:/opt/elastalert/rules
+    jhipster-alerter:
+        build: jhipster/jhipster-alerter
+        # Uncomment this section to load your alerting configuration for a volume
+        #volumes:
+        #    - ./alerts/config.yaml:/opt/elastalert/config.yaml
+        #    - ./alerts/rules/:/opt/elastalert/rules
 
 #### Configure alerting
 
