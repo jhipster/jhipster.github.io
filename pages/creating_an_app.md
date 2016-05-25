@@ -32,7 +32,7 @@ To generate your application, type:
 
 `yo jhipster`
 
-Answer the questions asked by the generator to create an application taylored to your needs. Those options are described in [the next section](#2).
+Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#2).
 
 Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS, `mvnw.cmd` on Windows) or Gradle (`./gradlew` on Linux/MacOS, `gradelw.bat` on Windows). You can go the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
