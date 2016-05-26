@@ -33,4 +33,6 @@ The JHipster generator project publishes a sample project which is analyzed ever
 
 [Analysis of the sample JHipster project](https://nemo.sonarqube.org/overview?id=io.github.jhipster.sample%3Ajhipster-sample-application)
 
-This analysis is provided for free by [SonarQube](http://www.sonarqube.org/).
+This allows the JHipster team to make sure that you will start developing your project on the cleanest code possible.
+
+This analysis is provided for free by [SonarSource](http://www.sonarsource.com).
