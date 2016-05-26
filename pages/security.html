@@ -77,3 +77,39 @@ sitemap:
 <p>
     The secret key should be configured in the <code>application.yml</code> file, as the <code>jhipster.security.authentication.jwt.secret</code> property.
 </p>
+
+<h2>Ldap Authentification</h2>
+
+<p>
+    To add a Ldap aythentification to your Jhispter application, follow these steps :
+</p>
+
+<ul>
+    <li>Add the dependency to spring-security-ldap. Exemple for gradle in build.gradle :</li>
+    <li>compile group: 'org.springframework.security', name: 'spring-security-ldap', version: spring_security_version</li>
+    <li>Modify the SecurityConfiguration.java, method configureGlobal(AuthenticationManagerBuilder auth)</li>
+    @Inject
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        
+        LdapContextSource contextSource = new LdapContextSource();
+        contextSource.setUrl("ldap://[IP goes here]:[port goes here]");
+        contextSource.setBase("dc=mycompany,dc=com");
+        contextSource.setUserDn("cn=aUserUid,dc=mycompany,dc=com");
+        contextSource.setPassword("hisPassword");
+        contextSource.afterPropertiesSet(); //needed otherwise you will have a NullPointerException in spring
+
+        auth.ldapAuthentication()
+        	.userSearchBase("o=myO,ou=myOu") //don't add the base
+        	.userSearchFilter("(uid={0})")
+        	.groupSearchBase("ou=Groups") //don't add the base
+        	.groupSearchFilter("member={0}")
+        	.contextSource(contextSource);
+    }
+    <li>Modify the SecurityUtils.java, method getCurrentUSer()</li>
+    if (authentication.getPrincipal() instanceof User) {
+      return (User) authentication.getPrincipal();
+    } else if (authentication.getPrincipal() instanceof LdapUserDetails) {
+    	LdapUserDetails ldapUser = (LdapUserDetails)authentication.getPrincipal();
+    	return new User(ldapUser.getUsername(), ldapUser.getPassword(), ldapUser.getAuthorities());
+    }
+<ul>
