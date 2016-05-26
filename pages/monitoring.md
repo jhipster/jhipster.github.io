@@ -62,7 +62,7 @@ Then you will be able to start the console with:
 
 It will start Elasticsearch, Logstash, Kibana and ElastAlert all at once. You will then be able to access the JHipster Console at [http://localhost:5601](http://localhost:5601). It should automatically receive logs from your applications if they have been correctly configured to forward their logs and metrics to Logstash.
 
-<div class="alert alert-warning"><i>Warning: </i>
+<div class="alert alert-warning"><i> Warning: </i>
 if you use docker-machine to create the Docker host, instead of http://localhost:5601 please use your Docker's host IP here i.e., http://&lt;Dockerhostip&gt;:5601
 </div>
 
