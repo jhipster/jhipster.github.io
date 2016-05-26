@@ -1,28 +1,28 @@
 ---
 layout: default
-title: Ldap Authentication
+title: LDAP Authentication
 sitemap:
 priority: 0.5
 lastmod: 2016-05-26T22:22:00-00:00
 ---
 
-# Ldap Authentication
+# LDAP Authentication
 
 __Tip submitted by [@mleneveut](https://github.com/mleneveut)__
 
-To add a Ldap authentification to your Jhispter application, follow these steps :
+To add an LDAP authentification to your JHipster application, follow these steps :
 
-  * Add the dependency to spring-security-ldap. Exemple for gradle in build.gradle :
-  
+  * Add the dependency to spring-security-ldap. Example for gradle in build.gradle :
+
 ```
     compile group: 'org.springframework.security', name: 'spring-security-ldap', version: spring_security_version
 ```
   * Modify the SecurityConfiguration.java, method configureGlobal(AuthenticationManagerBuilder auth)
-  
+
 ```
     @Inject
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        
+
         LdapContextSource contextSource = new LdapContextSource();
         contextSource.setUrl("ldap://[IP goes here]:[port goes here]");
         contextSource.setBase("dc=mycompany,dc=com");
@@ -39,10 +39,10 @@ To add a Ldap authentification to your Jhispter application, follow these steps 
     }
 ```
   * Modify the SecurityUtils.java, method getCurrentUserLogin()
-  
+
 ```
     } else if (authentication.getPrincipal() instanceof LdapUserDetails) {
-    	LdapUserDetails ldapUser = (LdapUserDetails)authentication.getPrincipal();
+    	LdapUserDetails ldapUser = (LdapUserDetails) authentication.getPrincipal();
     	return ldapUser.getUsername();
     }
 ```
