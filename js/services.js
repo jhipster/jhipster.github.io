@@ -14,12 +14,12 @@
     function GHService($http) {
         return {
 
-            getGithubConfig: function (author, name) {
+            getGitHubConfig: function (author, name) {
                 return $http.get('https://api.github.com/repos/' + author + '/' + name).success(function (resp) {
                     return resp;
                 });
             },
-            getGithubContributors: function(author, name, page) {
+            getGitHubContributors: function(author, name, page) {
                 return $http.get('https://api.github.com/repos/' + author + '/' + name + '/contributors?page=' + page).success(function (resp) {
                     return resp;
                 });

@@ -145,7 +145,7 @@ JHipster is developed by a team of people around the world. We have a lot of con
 
 # Where does the development team work?
 
-We do most of our work on [the project's Github page](https://github.com/jhipster/generator-jhipster).
+We do most of our work on [the project's GitHub page](https://github.com/jhipster/generator-jhipster).
 
 We also have our own mailing list: it is publicly viewable, as everything we do in JHipster is public, but only the board of developers can send e-mails to the list. It is available [here](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev).
 

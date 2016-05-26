@@ -18,7 +18,7 @@ What's new
 
 JHipster now provides pagination on the generated entities!
 
-Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the [Github API](https://developer.github.com/v3/#pagination). You can have more information on doing pagination on a REST API on this [best practices document](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api).
+Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the [GitHub API](https://developer.github.com/v3/#pagination). You can have more information on doing pagination on a REST API on this [best practices document](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api).
 
 Pagination is based on Spring Data (that's why it works for SQL databases and MongoDB, but not Cassandra). As we couldn't find any ready-made implementation for the Link header API, JHipster provides a custom implementation of this specification on both the server (Spring MVC REST) and client (AngularJS) sides.
 

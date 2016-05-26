@@ -52,7 +52,7 @@ The JHipster Console is a Docker-based project that adds features on top of the 
 
 If you already have a JHipster [microservice architecture]({{ site.url }}/microservices-architecture/) set up with the Docker Compose workflow, the JHipster Console can be automatically set up by the Docker Compose sub-generator.
 
-If you are using the monolithic version of JHipster, you can get the JHipster Console's Docker-Compose file [from Github](https://github.com/jhipster/jhipster-console/blob/master/bootstrap/docker-compose.yml) or with the following command:
+If you are using the monolithic version of JHipster, you can get the JHipster Console's Docker-Compose file [from GitHub](https://github.com/jhipster/jhipster-console/blob/master/bootstrap/docker-compose.yml) or with the following command:
 
     curl -O https://raw.githubusercontent.com/jhipster/jhipster-console/master/bootstrap/docker-compose.yml
 

@@ -1,7 +1,7 @@
 This is the source of JHipster's public [Web site](http://jhipster.github.io/).
 =======
 
-This Web site is rendered with Github pages.
+This Web site is rendered with GitHub pages.
 
 To run this locally
 

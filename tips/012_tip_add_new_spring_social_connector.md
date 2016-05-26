@@ -15,7 +15,7 @@ Spring Social adds many connectors (list below). This tip will show you how to a
 * Facebook
 * Twitter
 * Linkedin
-* Github
+* GitHub
 * Tripit
 * 500px
 * Alfresco

@@ -169,7 +169,7 @@ For example, if you only want the `/api/foo` endpoint of microservice `bar` to b
 
 ### <a name="registry_overview"></a> JHipster Registry overview
 
-The JHipster Registry is a runtime application, provided by the JHipster team. Like the JHipster generator, it is an Open Source, Apache 2-licensed application, and its source code is available on Github under the JHipster organization at [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry).
+The JHipster Registry is a runtime application, provided by the JHipster team. Like the JHipster generator, it is an Open Source, Apache 2-licensed application, and its source code is available on GitHub under the JHipster organization at [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry).
 
 The JHipster Registry can be cloned/forked/downloaded directly from [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry), and we recommend you use the same version tag as the one you use for your JHipster generator. As the JHipster Registry is also a JHipster-generated application, you can run it like any other JHipster application:
 

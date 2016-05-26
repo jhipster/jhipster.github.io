@@ -14,7 +14,7 @@ sitemap:
 
 JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
-The JHipster-UML project is [available on Github](https://github.com/jhipster/jhipster-uml/), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
+The JHipster-UML project is [available on GitHub](https://github.com/jhipster/jhipster-uml/), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
 
 Here's what's covered on this page:
 
@@ -55,7 +55,7 @@ Here is a list of the editors we support:
 
 # <a name="issues"></a>Issues and bugs
 
-JHipster-UML is [available on Github](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
 
 Please use our project for submitting issues and Pull Requests:
 
@@ -80,7 +80,7 @@ To install JHipster-uml simply use the command:
 
  `npm install -g jhipster-uml`
 
-If you want the 'bleeding edge' (almost perfectly safe to use) version, you can clone our git repo from [our Github project](https://github.com/jhipster/jhipster-uml):
+If you want the 'bleeding edge' (almost perfectly safe to use) version, you can clone our git repo from [our GitHub project](https://github.com/jhipster/jhipster-uml):
 
   `git clone https://github.com/jhipster/jhipster-uml.git` for HTTPS
 
@@ -517,7 +517,7 @@ Please note that you need to be in the root directory for this command to work, 
 
 # <a name="contributing"></a>Contributing: issues and enhancements
 
-Because our tool isn't perfect (_yet_), you may notice some irregularities. Github provides a pretty nice issue tracker so that everyone can post about an issue.
+Because our tool isn't perfect (_yet_), you may notice some irregularities. GitHub provides a pretty nice issue tracker so that everyone can post about an issue.
 We follow the same guidelines as JHipster, with a few additions:
 
   - Bugs found internally (by the JHipster-UML team) may be posted in the issue tracker, except for bugs regarding the supported UML editors.

@@ -18,7 +18,7 @@ You can also generate entities from a JDL file using the [import-jdl]({{ site.ur
 
 - this can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
-The JDL project is [available on Github](https://github.com/jhipster/jhipster-domain-language/), it is an Open Source project like JHipster (Apache 2.0 licence). This can be used a node library to do JDL parsing. If you like this project, don't forget to give us a star on GitHub!
+The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-domain-language/), it is an Open Source project like JHipster (Apache 2.0 licence). This can be used a node library to do JDL parsing. If you like this project, don't forget to give us a star on GitHub!
 
 Here's what's covered on this page:
 
@@ -485,7 +485,7 @@ Here is the types supported by JDL:
 
 # <a name="issues"></a>Issues and bugs
 
-JDL is [available on Github](https://github.com/jhipster/jhipster-domain-language), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+JDL is [available on GitHub](https://github.com/jhipster/jhipster-domain-language), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
 
 Please use our project for submitting issues and Pull Requests concerning the library itself.
 

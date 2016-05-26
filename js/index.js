@@ -35,7 +35,7 @@ $('.navbar-collapse ul li a').click(function () {
     HomeController.$inject = ['$scope', 'GHService', 'NpmService'];
 
     function HomeController($scope, GHService, NpmService) {
-        GHService.getGithubConfig('jhipster', 'generator-jhipster').success(function (data) {
+        GHService.getGitHubConfig('jhipster', 'generator-jhipster').success(function (data) {
             $scope.gitConfig = data;
         });
         var page = 0;
@@ -43,7 +43,7 @@ $('.navbar-collapse ul li a').click(function () {
         var noOfContributors = 0;
         function getContributors(){
             
-            GHService.getGithubContributors('jhipster', 'generator-jhipster', page).success(function (data) {
+            GHService.getGitHubContributors('jhipster', 'generator-jhipster', page).success(function (data) {
                 if(data.length != 0){
                     noOfContributors += data.length;
                     page ++;
