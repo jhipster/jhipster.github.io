@@ -29,7 +29,7 @@ _pom.xml_
 You can see the last MariaDB JDBC driver version on  [https://mariadb.com/kb/en/mariadb/about-mariadb-connector-j/](https://mariadb.com/kb/en/mariadb/about-mariadb-connector-j/).
 
 
-##Database modification
+## Database modification
 
 Go into `src\main\resources\config\application-dev.yml` and `src\main\resources\config\application-dev.yml` and change your application to use the new datasource, and your Hibernate configuration to use the MariaDB dialect as seen below:
 

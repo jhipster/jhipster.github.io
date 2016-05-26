@@ -100,13 +100,14 @@ This command will start up your application and the services it relies on (datab
 
 ## <a name="4"></a> Working with databases
 
-### MySQL, PostgreSQL or MongoDB
+### MySQL, MariaDB, PostgreSQL or MongoDB
 
 Running `docker-compose -f src/main/docker/app.yml up` already starts up your database automatically.
 
 If you just want to start your database, and not the other services, use the Docker Compose configuration of your database:
 
 - With MySQL: `docker-compose -f src/main/docker/mysql.yml up`
+- With MariaDB: `docker-compose -f src/main/docker/mariadb.yml up`
 - With PostgreSQL: `docker-compose -f src/main/docker/postgresql.yml up`
 - With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
 
