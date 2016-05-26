@@ -88,7 +88,7 @@ sitemap:
     <li>Add the dependency to spring-security-ldap. Exemple for gradle in build.gradle :</li>
     <li>compile group: 'org.springframework.security', name: 'spring-security-ldap', version: spring_security_version</li>
     <li>Modify the SecurityConfiguration.java, method configureGlobal(AuthenticationManagerBuilder auth)</li>
-    @Inject
+    <pre>@Inject
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         
         LdapContextSource contextSource = new LdapContextSource();
@@ -104,12 +104,12 @@ sitemap:
         	.groupSearchBase("ou=Groups") //don't add the base
         	.groupSearchFilter("member={0}")
         	.contextSource(contextSource);
-    }
+    }</pre>
     <li>Modify the SecurityUtils.java, method getCurrentUSer()</li>
-    if (authentication.getPrincipal() instanceof User) {
+    <pre>if (authentication.getPrincipal() instanceof User) {
       return (User) authentication.getPrincipal();
     } else if (authentication.getPrincipal() instanceof LdapUserDetails) {
     	LdapUserDetails ldapUser = (LdapUserDetails)authentication.getPrincipal();
     	return new User(ldapUser.getUsername(), ldapUser.getPassword(), ldapUser.getAuthorities());
-    }
+    }</pre>
 <ul>
