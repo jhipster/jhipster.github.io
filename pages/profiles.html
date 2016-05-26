@@ -30,11 +30,11 @@ Those profiles come in two different configurations:
 </ul>
 
 <p>
-Spring profiles are set by Maven/Gradle, so we have a consistency between the two methods: you will have a "prod" profile on Maven/Gradle and Spring at the same time.
+Spring profiles are set by Maven/Gradle, so we have a consistency between the two methods: you will have a <code>prod</code> profile on Maven/Gradle and Spring at the same time.
 </p>
 
 <h2>
-In default mode, JHipster will use the "dev" profile
+By default, JHipster will use the <code>dev</code> profile
 </h2>
 <p>
     If you run the application without Maven/Gradle, launch the "Application" class (you can probably run it easily from your IDE by right-clicking on it).
@@ -47,7 +47,7 @@ In default mode, JHipster will use the "dev" profile
 </p>
 
 <h2>
-In production, JHipster has to run with the "prod" profile
+In production, JHipster has to run with the <code>prod</code> profile
 </h2>
 <p>
     You can run JHipster in production directly using Maven or Gradle:
@@ -57,7 +57,7 @@ In production, JHipster has to run with the "prod" profile
     <li>With Gradle, run <code>./gradlew -Pprod</code> (or <code>gradle -Pprod</code>)</li>
 </ul>
 <p>
-    If you want to package your application, in order to have an executable WAR file, you should also run Maven or Gradle with the "prod" profile:
+    If you want to package your application as an executable WAR file, you should provide Maven or Gradle with a profile. E.g.,:
 </p>
 <ul>
     <li>With Maven, run <code>./mvnw -Pprod package</code> (or <code>mvn -Pprod package</code>)</li>
@@ -65,37 +65,38 @@ In production, JHipster has to run with the "prod" profile
 </ul>
 
 <p>
-    When you run your production application, don't forget to add the "prod" profile, by adding <code>--spring.profiles.active=prod</code> to your program arguments:
+    When you run your production application from a WAR file, the default is to use the same profile(s) as used during packaging.
+    If you want to override this, you can explicitly provide an alternative in VM argument:
 </p>
 <ul>
-    <li><code>./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod</code></li>
+    <li><code>./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=...</code></li>
 </ul>
-
 
 <h2>
 Spring profiles switches
 </h2>
 <p>
-JHipster comes with two additionnal Spring "profiles" used as switches:
+JHipster comes with two additional Spring "profiles" used as switches:
 </p>
 <ul>
   <li><code>no-swagger</code> to disable swagger</li>
   <li><code>no-liquibase</code> to disable liquibase</li>
 </ul>
 <p>These can be used along with both <code>dev</code> and <code>prod</code> profiles. 
-Please note that <code>no-swagger</code> doesn't have any effect on <code>prod</code> profile as swagger is disabled by default on that profile.</p>
+Please note that <code>no-swagger</code> doesn't usually have any effect on <code>prod</code> profile as swagger is disabled by default on that profile.</p>
+
 <p>The are only used at run time:</p>
 
 <ul>
-    <li>In your IDE, run your main applcation class with <code>spring.profiles.active=dev,no-swagger,no-liquibase</code> (please note you need to activate the "dev" or "prod" profile explicitly)</li>
+    <li>In your IDE, run your main application class with <code>spring.profiles.active=dev,no-swagger,no-liquibase</code> (please note you need to include <code>dev</code> or <code>prod</code> profile explicitly)</li>
     <li>With a packaged application: <code>./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod,no-liquibase</code></li>
 </ul>
 
 <p>With Maven, you can also use those profiles directly:<p>
 
 <ul>
-    <li><code>./mvnw -Pprod "-Drun.profiles=no-liquibase"</code></li>
-    <li><code>./mvnw "-Drun.profiles=no-liquibase,no-swagger"</code></li>
+    <li><code>./mvnw -Pprod,no-liquibase</code></li>
+    <li><code>./mvnw -Pdev,no-liquibase,no-swagger</code></li>
 </ul>
 
 <p>With Gradle, you can also use those profiles directly:<p>
