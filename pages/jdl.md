@@ -221,7 +221,7 @@ Use no service if not sure it's the simplest option and good for CRUD. Use servi
     entity B {}
     entity C {}
     
-    # no service for A
+    // no service for A
     service B with serviceClass
     service C with serviceImpl
 
