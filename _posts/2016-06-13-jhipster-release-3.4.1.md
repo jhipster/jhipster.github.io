@@ -13,6 +13,7 @@ This is a bug-fix version, with 2 notable changes:
 
 - The "Upgrade sub-generator" has been modified, please read [#3696](https://github.com/jhipster/generator-jhipster/issues/3696) before using it! This website has been updated with the latest documentation, be sure to read [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) before running the sub-generator.
 - We still recommend using a NodeJS LTS (Long Term Support) version, but if you want to live on the bleeding edge, NodeJS 6.x should now work correctly [#3663](https://github.com/jhipster/generator-jhipster/issues/3663)
+- Docker images containing JHipster applications should now be 40% smaller! [#3700](https://github.com/jhipster/generator-jhipster/issues/3700)
 
 Closed tickets
 ------------
