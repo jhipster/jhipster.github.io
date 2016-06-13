@@ -46,6 +46,7 @@ Here is how the upgrade process works graphically (read the sections below to ha
 
 (this image comes from [JSFiddle](http://jsfiddle.net/lordlothar99/tqp9gyu3/) )
 
+Please note that the `jhipster_upgrade` branch will be created orphan on your project, although it doesn't display correctly on the above graph.
 
 ## Step-by-step explanation of the upgrade process
 
