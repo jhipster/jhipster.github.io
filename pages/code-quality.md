@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-diamond"></i> Code quality
 
-Code quality can be easily analyzed using [SonarQube](http://www.sonarqube.org/), which is automatically configured by JHipster.
+Code quality can be easily analyzed using [SonarQube](http://sonarqube.com/), which is automatically configured by JHipster.
 
 ## Using SonarQube with JHipster
 
@@ -31,7 +31,7 @@ Once the analysis completes, it will be available on the SonarQube dashboard, wh
 
 The JHipster generator project publishes a sample project which is analyzed every time a new commit is merged in the "master" branch:
 
-[Analysis of the sample JHipster project](https://nemo.sonarqube.org/overview?id=io.github.jhipster.sample%3Ajhipster-sample-application)
+[Analysis of the sample JHipster project](https://sonarqube.com/overview?id=1054756)
 
 This allows the JHipster team to make sure that you will start developing your project on the cleanest code possible.
 
