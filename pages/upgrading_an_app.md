@@ -52,15 +52,19 @@ Below are the steps processed by the JHipster upgrade sub-generator:
 
 Congratulations, your application is now upgraded with the latest version of JHipster!
 
-![GitGraph]{{ site.url }}/images/upgrade_gitgraph.png)
-
 ## Advice
 
 Please don't ever commit anything on `jhipster_upgrade` branch. This branch is dedicated to Jhipster upgrade sub-generator : each time sub-generator is run, a new commit is created.
 
-## First upgrade
+## First upgrade
 
 On first execution of Jhipster upgrade sub-generator, in order to avoid erasing all your changes, few steps are run :
 1. `jhipster_upgrade` branch is created orphan (it has no parent)
 2. The whole application is generated (using your current Jhipster version).
 3. A block-merge commit is made on `master` branch : no alteration is made on your codebase on `master` branch ; this is just a practical way to record in Git that the HEAD of `master` is up-to-date with current Jhipster version.
+
+## Git graph
+
+Please note that `jhipster_upgrade` branch will be created orphan on your project, althought it doesn't display as is on following graph.
+
+![GitGraph]({{ site.url }}/images/upgrade_gitgraph.png)
