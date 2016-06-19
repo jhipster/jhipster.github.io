@@ -24,3 +24,4 @@ Some of the instructions below may help you also to setup your development envir
 
 - [Linux server]({{ site.url }}/setting-up-ci-linux/)
 - [Windows server]({{ site.url }}/setting-up-ci-windows/)
+- [Jenkins2]({{ site.url }}/setting-up-ci-jenkins2/)
