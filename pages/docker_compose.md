@@ -68,6 +68,8 @@ A solution would be to do:
   - `npm install -g YOUR_PACKAGE`,
   - then exit and go into container with normal way: docker exec -it jhipster bash.
 
+Further more, the NPM doc recommends not installing any NPM package as root. Follow the [link](https://docs.npmjs.com/getting-started/fixing-npm-permissions) to fix it.
+
 The original solution was proposed by Pascal Grimaud over [there](https://github.com/jhipster/jhipster-uml/issues/193).
 
 
