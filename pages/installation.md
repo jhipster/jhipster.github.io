@@ -24,7 +24,7 @@ We provide 3 ways of working with JHipster:
 1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 2.  (Optional) Install a Java build tool.
     *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
-    *   If you don't want to use those wrappers, go to the official [Maven webiste](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
+    *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
 3.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
 4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version). This will also install `npm`, which is the node package manager we are using in the next commands.
 5.  Install Yeoman: `npm install -g yo`
@@ -143,15 +143,15 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 
 ### Accessing the container
 
-The easiest way to log into container is by executing following command:
+The easiest way to log into the running container is by executing following command:
 
 `docker exec -it <container_name> bash`
 
-If you copy-pasted command to run container from above, notice the name being specified as jhipster
+If you copy-pasted the above command to run the container, notice that you have to specify `jhipster` as the container name:
 
 `docker exec -it jhipster bash`
 
-You will login as "jhipster" user. In case you need to do a `sudo`, password for the user is the same as the username (`jhipster`).
+You will login as "jhipster" user. In case you need to do a `sudo`, the password for the user is the same as the username (`jhipster`).
 
 ### Your first project
 
