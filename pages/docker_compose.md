@@ -6,7 +6,7 @@ redirect_from:
   - /docker_compose.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-03-20T00:00:00-00:00
+    lastmod: 2016-06-19T00:00:00-00:00
 ---
 
 # <i class="fa fa-music"></i> Docker and Docker Compose
@@ -60,6 +60,18 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under this directory to avoid any issues especially if you are using the <a href="{{ site.url }}/monitoring/">JHipster Console</a> for monitoring.
 
 </div>
+
+
+If you encounter such an error `npm ERR! Error: EACCES: permission denied` when installing JHipster UML (or any unbundled package), your container may not have sudo (for instance, sudo isn't bundled with Ubuntu Xenial).
+A solution would be to do:
+  - `docker exec -u root -it jhipster bash`,
+  - `npm install -g YOUR_PACKAGE`,
+  - then exit and go into container with normal way: docker exec -it jhipster bash.
+
+Further more, the NPM doc recommends not installing any NPM package as root. Follow the [link](https://docs.npmjs.com/getting-started/fixing-npm-permissions) to fix it.
+
+The original solution was proposed by Pascal Grimaud over [there](https://github.com/jhipster/jhipster-uml/issues/193).
+
 
 ## <a name="microservices"></a> Differences when using a microservices architecture
 
