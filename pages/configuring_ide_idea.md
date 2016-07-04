@@ -19,7 +19,7 @@ sitemap:
 ## Exclude directories
 
 - Right-click on the `src/main/webapp/bower_components` folder
-- Select "Mark Directory As" and select "Excluded"
+- Select "Mark Directory As" and select "Excluded" (remember that this may affect Intellij's Frameworks and Libraries support for libraries managed by bower)
 - You should also exclude
     - `.tmp/`,
     - `node_modules/` and
