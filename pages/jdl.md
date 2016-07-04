@@ -12,15 +12,17 @@ sitemap:
 
 The JDL is a JHipster specific domain language where we have added the possibility to describe all your entities and their relationships in a single file (or more than one) with a simple and user-friendly syntax.
 
-You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share URL of your JDL as well.
+You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share the URL of your JDL model as well.
 
-You can also generate entities from a JDL file using the [import-jdl]({{ site.url }}/importing-jdl/) sub generator. Simply run `yo jhipster:import-jdl yourJdlFilePath.jh` from the root of the generated JHipster application. Or by using [JHipster UML]({{ site.url }}/jhipster-uml/).
+You can generate entities from a JDL file using [JHipster UML]({{ site.url }}/jhipster-uml/), by running `jhipster-uml yourJdlFilePath.jh` from the root of the generated JHipster application. To learn more about JHipster UML, and install it, go to the [JHipster UML documentation]({{ site.url }}/jhipster-uml/).
 
-- this can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
+This can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
-The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-domain-language/), it is an Open Source project like JHipster (Apache 2.0 licence). This can be used a node library to do JDL parsing. If you like this project, don't forget to give us a star on GitHub!
+The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-domain-language/), it is an Open Source project like JHipster (Apache 2.0 licence). It can also be used as a node library to do JDL parsing.
 
-Here's what's covered on this page:
+_If you like the JHipster Domain Language, don't forget to give the project a star on [GitHub](https://github.com/jhipster/jhipster-domain-language/)!_
+
+Here is the full JDL documentation:
 
 1. [JDL Sample](#sample)
 2. [How to use it](#howtojdl)  
@@ -40,15 +42,17 @@ Here's what's covered on this page:
 
 # <a name="sample"></a> JDL Sample
 
-The Oracle example has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-domain-language/blob/master/lib/dsl/example.jh). The same is loaded by default in [JDL-Studio]({{ site.url }}/jdl-studio/) as well.
+The Oracle "Human Resources" sample application has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-domain-language/blob/master/lib/dsl/example.jh). The same application is loaded by default in [JDL-Studio]({{ site.url }}/jdl-studio/) as well.
 
 ## <a name="howtojdl"></a> How to use it
-You can use it by:
 
-  - simply creating a file with the extension '.jh' or '.jdl',
+First you need to install JHipster UML by running `npm install -g jhipster-uml`.
+
+You can then use JDL files to generate entities:
+
+  - simply create a file with the extension '.jh' or '.jdl',
   - declare your entities and relationships or create and download the file with [JDL-Studio]({{ site.url }}/jdl-studio/),
-  - in your JHipster application's root folder, simply run `yo jhipster:import-jdl yourfile.jh`,
-  - you can also use JDL files in JHipster UML with `jhipster-uml my_file.jdl`.
+  - in your JHipster application's root folder, run `jhipster-uml my_file.jdl`.
 
 and *Voilà*, you are done!
 
@@ -220,7 +224,7 @@ Use no service if not sure it's the simplest option and good for CRUD. Use servi
     entity A {}
     entity B {}
     entity C {}
-    
+
     // no service for A
     service B with serviceClass
     service C with serviceImpl
