@@ -21,11 +21,11 @@ sitemap:
 - Right-click on the `node_modules/` folder
 - Select "Mark Directory As" and select "Excluded"
 
+![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
+
 As the `node_modules/` directory is only used internally by JHipster, it can be safetly excluded.
 
 _Note_ Some people also like to exclude the `src/main/webapp/bower_components` folder, as there is a lot of JavaScript code in that folder. However, this folder contains the frameworks and tools used when developing the application, so excluding it will cause issues with the JavaScript code support that is configured below. Therefore, it is _not recommended_ to exclude this folder.
-
-![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
 ## Java Code Support
 
