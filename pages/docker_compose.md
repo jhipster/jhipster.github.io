@@ -62,16 +62,17 @@ If you are using Docker Machine on Mac or Windows, your Docker daemon has only l
 </div>
 
 
-If you encounter such an error `npm ERR! Error: EACCES: permission denied` when installing JHipster UML (or any unbundled package), your container may not have sudo (for instance, sudo isn't bundled with Ubuntu Xenial).
-A solution would be to do:
+If you encounter the error `npm ERR! Error: EACCES: permission denied` when installing JHipster UML (or any unbundled package), your container may not have `sudo` installed (for instance, sudo isn't bundled with Ubuntu Xenial).
+
+__Solution 1__
+
+The NPM documentation recommends not installing any NPM package as root. Follow the [official documentation](https://docs.npmjs.com/getting-started/fixing-npm-permissions) to fix this.
+
+__Solution 2__
+
   - `docker exec -u root -it jhipster bash`,
   - `npm install -g YOUR_PACKAGE`,
-  - then exit and go into container with normal way: docker exec -it jhipster bash.
-
-Further more, the NPM doc recommends not installing any NPM package as root. Follow the [link](https://docs.npmjs.com/getting-started/fixing-npm-permissions) to fix it.
-
-The original solution was proposed by Pascal Grimaud over [there](https://github.com/jhipster/jhipster-uml/issues/193).
-
+  - then exit and log into the container normally: `docker exec -it jhipster bash`
 
 ## <a name="microservices"></a> Differences when using a microservices architecture
 
