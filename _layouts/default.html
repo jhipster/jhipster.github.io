@@ -136,6 +136,7 @@
                                             <li {% if '/presentation' == page.url %}class="active" {% endif %}><a href="/presentation" target="_blank"><i class="fa fa-fw fa-desktop"></i> Official JHipster slides</a></li>
                                             <li {% if '/screenshots/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/screenshots/"><i class="fa fa-fw fa-picture-o"></i> JHipster in 5 screenshots</a></li>
                                             <li {% if '/video-tutorial/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/video-tutorial/"><i class="fa fa-fw fa-film"></i> Video tutorial (20 minutes)</a></li>
+                                            <li {% if '/companies-using-jhipster/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/companies-using-jhipster/"><i class="fa fa-fw fa-thumbs-up"></i> Companies using JHipster</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -382,7 +383,9 @@
     <script type="text/javascript" src="{{ site.url }}/js/marketplace.js"></script>
     <script type="text/javascript" src="{{ site.url }}/js/marketplace-list.js"></script>
     <script type="text/javascript" src="{{ site.url }}/js/marketplace-details.js"></script>
-
+    {% endif %}
+    {% if page.companies-using-jhipster == true %}
+    <script type="text/javascript" src="{{ site.url }}/companies-using-jhipster/users.js"></script>
     {% endif %}
     <!-- JavaScript -->
     <script>

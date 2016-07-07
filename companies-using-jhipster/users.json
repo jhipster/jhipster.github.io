@@ -1,0 +1,247 @@
+{
+  "users": [
+    {"name": "Ippon Technologies",
+      "url": "http://www.ippon.fr",
+      "logo": "ippon_technologies.png",
+      "category": "System Integrator",
+      "country": "France"
+    },
+    {"name": "Tata Consultancy Services",
+      "url": "http://www.tcs.com/",
+      "logo": "tata_consultancy_services.png",
+      "category": "System Integrator",
+      "country": "India"
+    },
+    {"name": "HCL Technologies",
+      "url": "http://www.hcltech.com/",
+      "logo": "hcl_technologies.png",
+      "category": "System Integrator",
+      "country": "India"
+    },
+    {"name": "Singapore Airlines",
+      "url": "http://www.singaporeair.com/",
+      "logo": "singapore_airlines.png",
+      "category": "Airline",
+      "country": "Singapore"
+    },
+    {"name": "Scoot Airlines",
+      "url": "http://www.flyscoot.com/",
+      "logo": "scoot_airlines.png",
+      "category": "Airline",
+      "country": "Singapore"
+    },
+    {"name": "Malaysian Airlines",
+      "url": "http://www.malaysiaairlines.com/",
+      "logo": "malaysia_airlines.png",
+      "category": "Airline",
+      "country": "Malaysia"
+    },
+    {"name": "Orange",
+      "url": "http://www.orange.com/",
+      "logo": "orange.png",
+      "category": "Telecom",
+      "country": "France"
+    },
+    {"name": "Engie",
+      "url": "http://www.engie.com/",
+      "logo": "engie.png",
+      "category": "Energy",
+      "country": "France"
+    },
+    {"name": "Decathlon",
+      "url": "https://www.decathlon.fr/",
+      "logo": "decathlon.png",
+      "category": "Retail",
+      "country": "France"
+    },
+    {"name": "AccorHotels",
+      "url": "http://www.accorhotels.com/",
+      "logo": "accorhotels.png",
+      "category": "Hospitality",
+      "country": "France"
+    },
+    {"name": "Manpower",
+      "url": "http://manpower.com/",
+      "logo": "manpower.png",
+      "category": "Recruiting",
+      "country": "France"
+    },
+    {"name": "Atos",
+      "url": "http://atos.net",
+      "logo": "atos.png",
+      "category": "System Integrator",
+      "country": "France"
+    },
+    {"name": "Zenika",
+      "url": "http://www.zenika.com",
+      "category": "System Integrator",
+      "logo": "zenika.png",
+      "country": "France"
+    },
+    {"name": "Direct Energie",
+      "url": "http://www.direct-energie.com/",
+      "logo": "direct_energie.png",
+      "category": "Energy",
+      "country": "France"
+    },
+    {"name": "Adobe",
+      "url": "http://www.adobe.com/",
+      "logo": "adobe.png",
+      "category": "Software Editor",
+      "country": "France"
+    },
+    {"name": "Bosch",
+      "url": "http://www.bosch.com/",
+      "logo": "bosch.png",
+      "category": "Industry",
+      "country": "Germany"
+    },
+    {"name": "NewWave",
+      "url": "http://www.newwave.io/",
+      "logo": "newwave.png",
+      "category": "Software Editor",
+      "country": "USA"
+    },
+    {"name": "Google",
+      "url": "http://www.google.com/",
+      "logo": "google.png",
+      "category": "Software Editor",
+      "country": "USA"
+    },
+    {"name": "Heroku",
+      "url": "http://www.heroku.com/",
+      "logo": "heroku.png",
+      "category": "Software Editor",
+      "country": "USA"
+    },
+    {"name": "U.S. Bureau of Labor statistics",
+      "url": "http://www.bls.gov/",
+      "logo": "us_bureau_of_labor_statistics.png",
+      "category": "Government",
+      "country": "USA"
+    },
+    {"name": "Suprema Corte de Justicia de la Nación",
+      "url": "https://www.scjn.gob.mx",
+      "logo": "scjn.png",
+      "category": "Government",
+      "country": "Mexico"
+    },
+    {"name": "Accenture",
+      "url": "https://www.accenture.com/",
+      "category": "System Integrator",
+      "logo": "accenture.png",
+      "country": "USA"
+    },
+    {"name": "Barclays Capital",
+      "url": "http://www.investmentFinance.barclays.com/",
+      "logo": "barclays_capital.png",
+      "category": "Finance",
+      "country": "United Kingdom"
+    },
+    {"name": "Banco Sabatel",
+      "url": "https://www.bancsabadell.com",
+      "logo": "banco_sabatel.png",
+      "category": "Finance",
+      "country": "Spain"
+    },
+    {"name": "PricewaterhouseCoopers",
+      "url": "http://www.pwc.com/",
+      "logo": "pwc.png",
+      "category": "Finance",
+      "country": "United Kingdom"
+    },
+    {"name": "CGI",
+      "url": "http://www.cgi.com/",
+      "logo": "cgi.png",
+      "category": "System Integrator",
+      "country": "Canada"
+    },
+    {"name": "Mutuelle Smatis",
+      "url": "http://www.smatis.fr/",
+      "logo": "smatis.png",
+      "category": "Insurance",
+      "country": "France"
+    },
+    {"name": "South Carolina Public Employee Benefit Authority",
+      "url": "http://www.peba.sc.gov",
+      "logo": "peba.png",
+      "category": "Government",
+      "country": "USA"
+    },
+    {"name": "Docapost",
+      "url": "http://www.docapost.com/",
+      "logo": "docapost.png",
+      "category": "Information Technology",
+      "country": "France"
+    },
+    {"name": "Tessi",
+      "url": "http://www.tessi.fr/",
+      "logo": "tessi.png",
+      "category": "Information Technology",
+      "country": "France"
+    },
+    {"name": "Northrop Grumman",
+      "url": "http://www.northropgrumman.com/",
+      "logo": "northropgrumman.png",
+      "category": "Defense",
+      "country": "USA"
+    },
+    {"name": "K2innovation",
+      "url": "http://www.k2innovation.it"
+    },
+    {"name": "Bitfork",
+      "url": "http://www.bitfork.de"
+    },
+    {"name": "Arvand",
+      "url": "http://www.arvand.ir"
+    },
+    {"name": "Harmas",
+      "url": "http://www.harmas.ir"
+    },
+    {"name": "Alantaya",
+      "url": "http://www.alantaya.com"
+    },
+    {"name": "Thinkpot Gmbh",
+      "url": "http://www.thinkpot.ch"
+    },
+    {"name": "Calavista Software",
+      "url": "http://www.calavista.com"
+    },
+    {"name": "Altissia",
+      "url": "http://www.altissia.com"
+    },
+    {"name": "Coincelt",
+      "url": "http://www.coincelt.com"
+    },
+    {"name": "Capcod",
+      "url": "http://ww.capcod.eu"
+    },
+    {"name": "Formaltis",
+      "url": "http://www.formaltis.fr"
+    },
+    {"name": "Inteloom Inc.",
+      "url": "http://www.inteloom.com"
+    },
+    {"name": "Frink Advanced Services",
+      "url": "http://www.www.frink.at"
+    },
+    {"name": "Biarac",
+      "url": "https://www.biarac.com.tr"
+    },
+    {"name": "Versusmind",
+      "url": "http://www.versusmind.eu/"
+    },
+    {"name": "DepositFix",
+      "url": "http://www.depositfix.com/"
+    },
+    {"name": "K-TEL Communications GmbH",
+      "url": "http://www.ktel.de/"
+    },
+    {"name": "Capco",
+      "url": "http://www.capco.com/"
+    },
+    {"name": "Mothership Strategies",
+      "url": "http://www.mothershipstrategies.com/"
+    }
+  ]
+}
