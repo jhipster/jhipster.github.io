@@ -33,14 +33,14 @@ sitemap:
                     <li role="userlist" ng-class="{active: showFeatured == false}"><a href="#" ng-click="showFeatured = false">All <span class="badge">{(allUsers.length)}</span></a></li>
                 </ul>
             </div>
-            <div class="container-fluid" ng-show="showFeatured">
+            <div class="container-fluid featured-companies" ng-show="showFeatured">
                 <div class="row">
                     <div ng-repeat="user in users | filter:{logo:'!!'} | filter:searchText | orderBy:'name' as filteredUsers">
                         <div class="clearfix" ng-if="$index % 6 == 0"></div>
                         <div class="col-sm-2 well text-center">
-                            <a ng-href="{(user.url)}" target="_blank"><img ng-src="images/{(user.logo)}"/></a>
-                            <a ng-href="{(user.url)}" target="_blank"><b>{(user.name)}</b></a><br/>
-                            <span class="label label-default"><span class="fa fa-tag"></span> {(user.category)}</span><br/>
+                            <a ng-href="{(user.url)}" target="_blank"><img ng-src="images/{(user.logo)}"/ alt="{{user.name}}"></a>
+                            <a ng-href="{(user.url)}" target="_blank"><b style="display:block;">{(user.name)}</b></a><br/>
+                            <span class="label label-default"><span class="fa fa-tag"></span> {(user.category)}</span>
                             <span class="label label-default"><span class="fa fa-globe"></span> {(user.country)}</span>
                         </div>
                     </div>
