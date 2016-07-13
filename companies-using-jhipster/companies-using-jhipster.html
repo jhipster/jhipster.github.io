@@ -27,7 +27,7 @@ sitemap:
             <label class="fa fa-search inline-search" for="search-field"></label>
         </div>
         <div ng-cloak>
-            <div>
+            <div class="margin-bottom">
                 <ul class="nav nav-pills">
                     <li role="userlist" ng-class="{active: showFeatured == true}"><a href="#" ng-click="showFeatured = true">Featured <span class="badge">{(filteredUsers.length)}</span></a></li>
                     <li role="userlist" ng-class="{active: showFeatured == false}"><a href="#" ng-click="showFeatured = false">All <span class="badge">{(allUsers.length)}</span></a></li>
@@ -35,13 +35,14 @@ sitemap:
             </div>
             <div class="container-fluid" ng-show="showFeatured">
                 <div class="row">
-                    <div ng-repeat="user in users | filter:{logo:'!!'} | filter:searchText | orderBy:'name' as filteredUsers">
-                        <div class="clearfix" ng-if="$index % 6 == 0"></div>
-                        <div class="col-sm-2 well text-center">
-                            <a ng-href="{(user.url)}" target="_blank"><img ng-src="images/{(user.logo)}"/></a>
-                            <a ng-href="{(user.url)}" target="_blank"><b>{(user.name)}</b></a><br/>
-                            <span class="label label-default"><span class="fa fa-tag"></span> {(user.category)}</span><br/>
-                            <span class="label label-default"><span class="fa fa-globe"></span> {(user.country)}</span>
+                    <div class="col-xs-3 team-member" ng-repeat="user in users | filter:{logo:'!!'} | filter:searchText | orderBy:'name' as filteredUsers">
+                        <div class="thumbnail no-margin-bottom">
+                            <a ng-href="{(user.url)}" target="_blank"><img ng-src="images/{(user.logo)}" class="margin-top img-responsive"></a>
+                            <div class="caption">
+                                <h3><a ng-href="{(user.url)}" target="_blank">{(user.name)}</a></h3>
+                                <span class="label label-default"><span class="fa fa-tag"></span> {(user.category)}</span><br/>
+                                <span class="label label-default"><span class="fa fa-globe"></span> {(user.country)}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
