@@ -14,15 +14,13 @@ The JDL is a JHipster specific domain language where we have added the possibili
 
 You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share the URL of your JDL model as well.
 
-You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `yo jhipster:import-jdl yourJdlFilePath.jh`.
-You can also generate entities from a JDL file using [JHipster UML]({{ site.url }}/jhipster-uml/), by running `jhipster-uml yourJdlFilePath.jh` from the root of the generated JHipster application. To learn more about JHipster UML, and install it, go to the [JHipster UML documentation]({{ site.url }}/jhipster-uml/).
+You can generate entities from a JDL file using [JHipster UML]({{ site.url }}/jhipster-uml/), by running `jhipster-uml yourJdlFilePath.jh` from the root of the generated JHipster application. To learn more about JHipster UML, and install it, go to the [JHipster UML documentation]({{ site.url }}/jhipster-uml/).
 
 This can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
-The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-core/), it is an Open Source project like JHipster (Apache 2.0 License). It can also be used as a node library to do JDL parsing.
+The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-domain-language/), it is an Open Source project like JHipster (Apache 2.0 licence). It can also be used as a node library to do JDL parsing.
 
-_If you like the JHipster Domain Language, don't forget to give the project a star on [GitHub](https://github.com/jhipster/jhipster-core/)!_
-_If you like the JDL Studio don't forget to give the project a star on [GitHub](https://github.com/jhipster/jdl-studio/)!_
+_If you like the JHipster Domain Language, don't forget to give the project a star on [GitHub](https://github.com/jhipster/jhipster-domain-language/)!_
 
 Here is the full JDL documentation:
 
@@ -35,7 +33,7 @@ Here is the full JDL documentation:
   3.4 [Blobs](#blobdeclaration)  
   3.5 [Option declaration](#optiondeclaration)  
   3.6 [Microservice-related options](#microserviceoptions)
-4. [Commenting](#commentingjdl)  
+4. [Commenting](#commentingjdl)
 5. [All the relationships](#jdlrelationships)  
 6. [Annexes](#annexes)
 7. [Issues and bugs](#issues)  
@@ -44,24 +42,24 @@ Here is the full JDL documentation:
 
 # <a name="sample"></a> JDL Sample
 
-The Oracle "Human Resources" sample application has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-core/blob/master/lib/dsl/example.jh). The same application is loaded by default in [JDL-Studio]({{ site.url }}/jdl-studio/) as well.
+The Oracle "Human Resources" sample application has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-domain-language/blob/master/lib/dsl/example.jh). The same application is loaded by default in [JDL-Studio]({{ site.url }}/jdl-studio/) as well.
 
 ## <a name="howtojdl"></a> How to use it
 
-If you want to use JHipster UML instead of the `import-jdl` sub-generator you need to install it by running `npm install -g jhipster-uml`.
+First you need to install JHipster UML by running `npm install -g jhipster-uml`.
 
 You can then use JDL files to generate entities:
 
   - simply create a file with the extension '.jh' or '.jdl',
   - declare your entities and relationships or create and download the file with [JDL-Studio]({{ site.url }}/jdl-studio/),
-  - in your JHipster application's root folder, run `yo jhipster:import-jdl my_file.jdl` or `jhipster-uml my_file.jdl`.
+  - in your JHipster application's root folder, run `jhipster-uml my_file.jdl`.
 
 and *Voilà*, you are done!
 
-If you work in a team, perhaps you would like to have multiple files instead of one. We added this option so that you don't manually
-concatenate all the files into one, you just have to run `yo jhipster:import-jdl my_file1.jh my_file2.jh` or `jhipster-uml my_file1.jh my_file2.jh`.
+If you work in a team, perhaps you would like to have multiple files instead of one. We added this option to JHipster UML so that you don't manually
+concatenate all the files into one, you just have to run `jhipster-uml my_file1.jh my_file2.jh`.
 
-If you want to use it in your project, you can add do so by doing `npm install jhipster-core --save` to install it locally, and save it in your `package.json` file.
+If you want to use it in your project, you can add do so by doing `npm install jhipster-domain-language --save` to install it locally, and save it in your `package.json` file.
 
 ## <a name="jdllanguage"></a> The language
 We tried to keep the syntax as friendly as we can for developers.
@@ -334,7 +332,6 @@ JDL possesses its own kind of comment:
 
 Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
 
-Please note that the JDL Studio directives that start with `#`` will be ignored during parsing.
 
 ## <a name="jdlrelationships"></a>All the relationships
 
@@ -508,12 +505,12 @@ Here is the types supported by JDL:
 
 # <a name="issues"></a>Issues and bugs
 
-JDL is [available on GitHub](https://github.com/jhipster/jhipster-core), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+JDL is [available on GitHub](https://github.com/jhipster/jhipster-domain-language), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
 
 Please use our project for submitting issues and Pull Requests concerning the library itself.
 
-- [JDL issue tracker](https://github.com/jhipster/jhipster-core/issues)
-- [JDL Pull Requests](https://github.com/jhipster/jhipster-core/pulls)
+- [JDL issue tracker](https://github.com/jhipster/jhipster-domain-language/issues)
+- [JDL Pull Requests](https://github.com/jhipster/jhipster-domain-language/pulls)
 
 When submitting anything, you must be as precise as possible:  
   - **One posted issue must only have one problem** (or one demand/question);  

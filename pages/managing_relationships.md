@@ -32,8 +32,6 @@ In that case, two options are available:
 - [JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor.
 - [JDL Studio]({{ site.url }}/jdl-studio/), our online tool to create entities and relationships using our domain-specific language.
 
-You can generate entities with relationships from a JDL file using the `import-jdl` sub-generator, by running yo `jhipster:import-jdl yourJdlFilePath.jh`.
-
 ## Available relationships
 
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
