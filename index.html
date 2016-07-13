@@ -149,12 +149,46 @@ sitemap:
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" ng-controller="UsersCtrl">
                     <div>
                         <p>
                             Lots of great companies use JHipster, all over the world! <a href="{{ site.url }}/companies-using-jhipster/">Find the list here</a>, and don't forget to add your company once you have started using JHipster :-)
                         </p>
                     </div>
+                    <div id="carousel-customers" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+
+                            <div class="item container {($index == 0 ? 'active': '')}" ng-if="$index % 6 == 0"
+                                ng-repeat="user in users | filter:{logo:'!!'} | orderBy:'name' as filteredUsers">
+                                <img class="col-md-2 col-sm-2 col-xs-2 logo- img-responsive"
+                                    ng-src="{{ site.url }}/companies-using-jhipster/images/{(filteredUsers[$index].logo)}" alt="{(filteredUsers[$index].name)}" title="{(filteredUsers[$index].name)}">
+                                <img class="col-md-2 col-sm-2 col-xs-2 logo- img-responsive" ng-if="filteredUsers.length > ($index + 1)"
+                                    ng-src="{{ site.url }}/companies-using-jhipster/images/{(filteredUsers[$index + 1].logo)}" alt="{(filteredUsers[$index + 1].name)}" title="{(filteredUsers[$index + 1].name)}">
+                                <img class="col-md-2 col-sm-2 col-xs-2 logo- img-responsive" ng-if="filteredUsers.length > ($index + 2)"
+                                    ng-src="{{ site.url }}/companies-using-jhipster/images/{(filteredUsers[$index + 2].logo)}" alt="{(filteredUsers[$index + 2].name)}" title="{(filteredUsers[$index + 2].name)}">
+                                <img class="col-md-2 col-sm-2 col-xs-2 logo- img-responsive" ng-if="filteredUsers.length > ($index + 3)"
+                                    ng-src="{{ site.url }}/companies-using-jhipster/images/{(filteredUsers[$index + 3].logo)}" alt="{(filteredUsers[$index + 3].name)}" title="{(filteredUsers[$index + 3].name)}">
+                                <img class="col-md-2 col-sm-2 col-xs-2 logo- img-responsive" ng-if="filteredUsers.length > ($index + 4)"
+                                    ng-src="{{ site.url }}/companies-using-jhipster/images/{(filteredUsers[$index + 4].logo)}" alt="{(filteredUsers[$index + 4].name)}" title="{(filteredUsers[$index + 4].name)}">
+                                <img class="col-md-2 col-sm-2 col-xs-2 logo- img-responsive" ng-if="filteredUsers.length > ($index + 5)"
+                                    ng-src="{{ site.url }}/companies-using-jhipster/images/{(filteredUsers[$index + 5].logo)}" alt="{(filteredUsers[$index + 5].name)}" title="{(filteredUsers[$index + 5].name)}">
+                            </div>
+
+                        </div>
+
+                        <div align="center" style="margin-top:20px;">
+                            <!-- Controls -->
+                              <a class="left" href="#carousel-customers" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                              </a>
+                              <a class="right" href="#carousel-customers" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                              </a>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
