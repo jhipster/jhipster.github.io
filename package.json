@@ -7,6 +7,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "*",
+    "gulp-imagemin": "2.4.0",
     "main-bower-files": "^2.9.0",
     "rimraf": "^2.4.4"
   },
