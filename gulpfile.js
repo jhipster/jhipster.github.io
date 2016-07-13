@@ -44,17 +44,17 @@ gulp.task('build', function(cb) {
 gulp.task('images', ['min-img', 'min-images', 'min-company-logo'])
 
 gulp.task('min-img', function () {
-    return gulp.src('img/**/*.{png,gif,jpg}')
+    return gulp.src('img/**/*.{png,gif,jpg,jpeg}')
         .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
         .pipe(gulp.dest('img/'));
 });
 gulp.task('min-images', function () {
-    return gulp.src('images/*.{png,gif,jpg}')
+    return gulp.src('images/*.{png,gif,jpg,jpeg}')
         .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
         .pipe(gulp.dest('images/'));
 });
 gulp.task('min-company-logo', function () {
-    return gulp.src('companies-using-jhipster/images/**')
+    return gulp.src('companies-using-jhipster/images/*.{png,gif,jpg,jpeg}')
         .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
         .pipe(gulp.dest('companies-using-jhipster/images'));
 });
