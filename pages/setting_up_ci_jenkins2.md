@@ -119,3 +119,5 @@ These 2 lines need to be uncommented if you use NodeJS plugin:
     // def nodeHome = tool name: 'node-4.4.5', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
     // env.PATH = "${nodeHome}/bin:${env.PATH}"
 ~~~
+
+![Jenkins2 result]({{ site.url }}/images/jenkins2_result.png)
