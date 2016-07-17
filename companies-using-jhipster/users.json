@@ -235,7 +235,10 @@
       "url": "http://www.depositfix.com/"
     },
     {"name": "K-TEL Communications GmbH",
-      "url": "http://www.ktel.de/"
+      "url": "http://www.ktel.de/",
+      "logo": "ktel-logo.png",
+      "category": "Telecommunications",
+      "country": "Germany"
     },
     {"name": "Capco",
       "url": "http://www.capco.com/"
