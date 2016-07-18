@@ -133,6 +133,15 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/4294623?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Jon Ruddell</h3>
+                <p><a href="https://twitter.com/jonruddell"><i>@jonruddell</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/1107223?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Deepu K Sasidharan</h3>
