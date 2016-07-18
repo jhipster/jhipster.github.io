@@ -11,7 +11,7 @@ JHipster release 2.4.0
 Documentation
 ----------
 
-Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/v2-documentation)!
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
 What's new
 ----------

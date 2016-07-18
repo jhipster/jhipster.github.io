@@ -1,4 +1,4 @@
 # robotstxt.org/
 
 User-agent: *
-Disallow: /v2-documentation/
+Disallow: /documentation-archive/

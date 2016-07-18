@@ -16,7 +16,7 @@ If you liked how easy it is to develop a full-stack application with JHipster 2.
 - JHipster 3 can generate a complete microservices architecture. It will generate and configure microservices, routers, a service registry, monitoring... It's as easy as generating a standard "monolithic" application, but it now works for huge mission-critical, distributed systems.
 - Infrastructure can be completely generated using Docker and Docker Compose. Complex microservices architectures can be run and tested on a laptop, and then deployed in a datacenter or in the cloud. Services can be scaled with one single command.
 
-This website is already up-to-date with the latest documentation (and if you want to access our old 2.x documentation [it's here]({{ site.url }}/v2-documentation/)), so if you want more information about microservices we recommend you read those new and updated sections:
+This website is already up-to-date with the latest documentation (and if you want to access our old 2.x documentation [it's here]({{ site.url }}/documentation-archive/)), so if you want more information about microservices we recommend you read those new and updated sections:
 
 - [Doing microservices with JHipster]({{ site.url }}/microservices-architecture/)
 - [Docker and Docker Compose with JHipster]({{ site.url }}/docker-compose/)
