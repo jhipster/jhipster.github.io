@@ -65,6 +65,14 @@ body {
     clear: both;
 }
 
+.margin-top {
+    margin-top: 10px;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
 .no-margin-bottom {
     margin-bottom: 0;
 }
@@ -1783,10 +1791,10 @@ body.login-page {
 
 /* Carousel base class */
 
-.carousel {
+/*.carousel {
     height: 500px;
     margin-bottom: 60px;
-}
+}*/
 
 
 /* Since positioning the image, we need to help out the caption */
@@ -1798,7 +1806,7 @@ body.login-page {
 
 /* Declare heights because of positioning of img element */
 
-.carousel .item {
+/*.carousel .item {
     height: 500px;
     background-color: #777;
 }
@@ -1810,7 +1818,7 @@ body.login-page {
     min-width: 100%;
     height: 500px;
 }
-
+*/
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

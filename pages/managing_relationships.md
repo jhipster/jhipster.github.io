@@ -291,7 +291,7 @@ The same can be achieved using the below JDL as well
 
     entity Driver
     entity Car
-    
+
     relationship OneToOne {
       Car{driver} to Driver{car}
     }
@@ -334,4 +334,3 @@ This is the corresponding JDL:
     relationship OneToOne {
       Citizen{passport} to Passport
     }
-

@@ -5,6 +5,7 @@ var gulp = require("gulp"),
     mainBowerFiles = require('main-bower-files'),
     replace = require('gulp-replace'),
     rimraf = require('rimraf'),
+    imagemin = require('gulp-imagemin'),
     rename = require("gulp-rename");
 
 gulp.task('build', function(cb) {
@@ -38,6 +39,24 @@ gulp.task('build', function(cb) {
     gulp.src(css_lib).pipe(gulp.dest('./dist/lib/css'));
     gulp.src(fonts_lib).pipe(gulp.dest('./dist/lib/fonts'));
     gulp.src("./dist/lib/css/_all.css").pipe(gulp.dest("./"));
+});
+
+gulp.task('images', ['min-img', 'min-images', 'min-company-logo'])
+
+gulp.task('min-img', function () {
+    return gulp.src('img/**/*.{png,gif,jpg,jpeg}')
+        .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
+        .pipe(gulp.dest('img/'));
+});
+gulp.task('min-images', function () {
+    return gulp.src('images/*.{png,gif,jpg,jpeg}')
+        .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
+        .pipe(gulp.dest('images/'));
+});
+gulp.task('min-company-logo', function () {
+    return gulp.src('companies-using-jhipster/images/*.{png,gif,jpg,jpeg}')
+        .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
+        .pipe(gulp.dest('companies-using-jhipster/images'));
 });
 
 gulp.task("sass", function() {

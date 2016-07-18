@@ -287,13 +287,13 @@ section {
         margin: 5px;
         width: 150px;
         height: 150px;
-        background-color: $dark-blue;
-        border: 1px solid $dark-blue;
-        color: white;
+        background-color: white;
+        border: 1px solid white;
+        color: $dark-blue;
         float: left;
         text-align: center;
         &.img-circle {
-            webkit-border-radius: 500px;
+            -webkit-border-radius: 500px;
             -moz-border-radius: 500px;
             border-radius: 500px;
         }
@@ -307,8 +307,6 @@ section {
             display: block;
             margin: 0 auto;
             height: 100px;
-            -webkit-filter: grayscale(100%) brightness(1.5);
-            filter: grayscale(100%) brightness(1.5);
             &.height {
                 height: 100px;
                 width: auto;
@@ -350,27 +348,31 @@ section {
         .title_sub_tech {
             margin-top: 5px;
             font-size: 13px;
-            color: white;
+            color: $dark-blue;
             display: block;
             text-align: center;
         }
         &:hover {
-            background-color: white;
-            border: 1px solid white;
-            
+            background-color: $dark-blue;
+            border: 1px solid $dark-blue;
+            color: white;
             img {
-                -webkit-filter: none;
-                filter: none;
-                &.invert-hover{
+                -webkit-filter: grayscale(100%) brightness(1.5);
+                filter: grayscale(100%) brightness(1.5);
+                &.invert-hover {
                     -webkit-filter: invert(100%);
                     filter: invert(100%);
                 }
+                &.invert-hover-white {
+                    -webkit-filter: grayscale(100%) brightness(1.5) invert(100%);
+                    filter: grayscale(100%) brightness(1.5) invert(100%);
+                }
             }
             .title_sub_tech {
-                color: $dark-blue;
+                color: white;
             }
         }
-        
+
     }
 }
 
@@ -424,5 +426,5 @@ form .row:first-child .floating-label-form-group {
 }
 
 .fontSmall {
-   font-size: 1em; 
+   font-size: 1em;
 }

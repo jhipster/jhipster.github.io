@@ -33,7 +33,7 @@ Here is the full JDL documentation:
   3.4 [Blobs](#blobdeclaration)  
   3.5 [Option declaration](#optiondeclaration)  
   3.6 [Microservice-related options](#microserviceoptions)
-4. [Commenting](#commentingjdl)  
+4. [Commenting](#commentingjdl)
 5. [All the relationships](#jdlrelationships)  
 6. [Annexes](#annexes)
 7. [Issues and bugs](#issues)  

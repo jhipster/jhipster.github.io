@@ -35,18 +35,18 @@ JHipster drinking coffee [[SVG]({{ site.url }}/img/logo-jhipster-drink-coffee.sv
 
 ## Desktop background
 
-![]({{ site.url }}/images/wallpaper-001-thumbnail.png)
+![]({{ site.url }}/images/artwork/wallpaper-001-thumbnail.png)
 
-JHipster desktop background [[1440 x 900]({{ site.url }}/images/wallpaper-001-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/wallpaper-001-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/wallpaper-001-2560x1440.png)]
+JHipster desktop background [[1440 x 900]({{ site.url }}/images/artwork/wallpaper-001-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/artwork/wallpaper-001-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/artwork/wallpaper-001-2560x1440.png)]
 
-![]({{ site.url }}/images/wallpaper-002-thumbnail.png)
+![]({{ site.url }}/images/artwork/wallpaper-002-thumbnail.png)
 
-JHipster desktop background [[1440 x 900]({{ site.url }}/images/wallpaper-002-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/wallpaper-002-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/wallpaper-002-2560x1440.png)]
+JHipster desktop background [[1440 x 900]({{ site.url }}/images/artwork/wallpaper-002-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/artwork/wallpaper-002-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/artwork/wallpaper-002-2560x1440.png)]
 
-![]({{ site.url }}/images/wallpaper-003-thumbnail.png)
+![]({{ site.url }}/images/artwork/wallpaper-003-thumbnail.png)
 
-JHipster desktop background [[1440 x 900]({{ site.url }}/images/wallpaper-003-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/wallpaper-003-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/wallpaper-003-2560x1440.png)]
+JHipster desktop background [[1440 x 900]({{ site.url }}/images/artwork/wallpaper-003-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/artwork/wallpaper-003-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/artwork/wallpaper-003-2560x1440.png)]
 
-![]({{ site.url }}/images/wallpaper-004-thumbnail.png)
+![]({{ site.url }}/images/artwork/wallpaper-004-thumbnail.png)
 
-JHipster desktop background [[1440 x 900]({{ site.url }}/images/wallpaper-004-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/wallpaper-004-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/wallpaper-004-2560x1440.png)]
+JHipster desktop background [[1440 x 900]({{ site.url }}/images/artwork/wallpaper-004-1440x900.png)] [[1920 x 1200]({{ site.url }}/images/artwork/wallpaper-004-1920x1200.png)] [[2560 x 1440]({{ site.url }}/images/artwork/wallpaper-004-2560x1440.png)]
