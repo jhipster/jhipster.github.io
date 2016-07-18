@@ -186,6 +186,54 @@
       "category": "Defense",
       "country": "USA"
     },
+    {"name": "K-TEL Communications GmbH",
+      "url": "http://www.ktel.de/",
+      "logo": "ktel.png",
+      "category": "Telecommunications",
+      "country": "Germany"
+    },
+    {"name": "HSBC",
+      "url": "http://www.hsbc.com/",
+      "logo": "hsbc.png",
+      "category": "Finance",
+      "country": "United Kingdom"
+    },
+    {"name": "Yellow Pages Group",
+      "url": "http://www.yellowpages.ca/",
+      "logo": "yellowpages.png",
+      "category": "Marketing and Advertising",
+      "country": "Canada"
+    },
+    {"name": "Police Scotland",
+      "url": "http://www.scotland.police.uk/",
+      "logo": "police_scotland.png",
+      "category": "Government",
+      "country": "United Kingdom"
+    },
+    {"name": "Société Générale",
+      "url": "https://www.societegenerale.com",
+      "logo": "societe_generale.png",
+      "category": "Finance",
+      "country": "France"
+    },
+    {"name": "Consiglio Nazionale delle Ricerche",
+      "url": "https://www.cnr.it/",
+      "logo": "cnr.png",
+      "category": "Research",
+      "country": "Italy"
+    },
+    {"name": "HBO",
+      "url": "http://www.hbo.com/",
+      "logo": "hbo.png",
+      "category": "Entertainment",
+      "country": "USA"
+    },
+    {"name": "Ericsson",
+      "url": "https://www.ericsson.com/",
+      "logo": "ericsson.png",
+      "category": "Information Technology",
+      "country": "Sweden"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -234,14 +282,44 @@
     {"name": "DepositFix",
       "url": "http://www.depositfix.com/"
     },
-    {"name": "K-TEL Communications GmbH",
-      "url": "http://www.ktel.de/"
-    },
     {"name": "Capco",
       "url": "http://www.capco.com/"
     },
     {"name": "Mothership Strategies",
       "url": "http://www.mothershipstrategies.com/"
+    },
+    {"name": "La petite tranche",
+      "url": "https://www.lapetitetranche.fr/"
+    },
+    {"name": "Engagepoint Inc.",
+      "url": "http://engagepoint.com/"
+    },
+    {"name": "Callippus Solutions",
+      "url": "http://www.callippus.co.uk/"
+    },
+    {"name": "LocationGuru Solutions",
+      "url": "http://www.locationguru.com/"
+    },
+    {"name": "Alien6",
+      "url": "http://alien6.com/"
+    },
+    {"name": "Kepinzhe",
+      "url": "http://www.kepinzhe.com/"
+    },
+    {"name": "Gobierno del Chubut",
+      "url": "http://www.chubut.gov.ar/"
+    },
+    {"name": "Hahn Projects",
+      "url": "http://hahnpro.com/"
+    },
+    {"name": "Medisoft AS",
+      "url": "http://medisoft.ee/"
+    },
+    {"name": "Alias Apps",
+      "url": "http://www.aliasapps.com/"
+    },
+    {"name": "Municipalidad de Pinamar",
+      "url": "http://pinamar.gov.ar/"
     }
   ]
 }
