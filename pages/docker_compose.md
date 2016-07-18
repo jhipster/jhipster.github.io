@@ -182,9 +182,9 @@ You can use `docker ps -a` to list all the containers
     fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-mysql
 
 ### Docker stats for containers
-`docker stats` or `docker stats $(docker ps --format={{.Names}})` to list all running containers with CPU, Memory, Networking I/O and Block I/O stats.
+`docker stats` or {% raw %}`docker stats $(docker ps --format={{.Names}})`{% endraw %} to list all running containers with CPU, Memory, Networking I/O and Block I/O stats.
 
-    $ docker stats $(docker ps --format={{.Names}})
+    $ docker stats {% raw %}$(docker ps --format={{.Names}}){% endraw %}
     CONTAINER                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O               BLOCK I/O             PIDS
     jhuaa-mysql               0.04%               221 MB / 7.966 GB     2.77%               66.69 kB / 36.78 kB   8.802 MB / 302.5 MB   37
     00compose_msmongo-app_1   0.09%               965.6 MB / 7.966 GB   12.12%              121.3 kB / 54.64 kB   89.84 MB / 14.88 MB   35
@@ -218,17 +218,13 @@ Be careful! All data will be deleted:
 
 ## <a name="8"></a> Memory Tweaking
 
-In order to optimize memory usage for applications running in the container, you can setup Java memory parameters on Dockerfile or docker-compose.yml
+In order to optimize memory usage for applications running in the container, you can setup Java memory parameters on `Dockerfile` or `docker-compose.yml`
 
 ### Adding memory parameters to Dockerfile
 
 Set the environment variable.
 
-    ENV JAVA_OPTS="-Xmx512m -Xmx256m"
-
-Or modify CMD line.
-
-    CMD ["java","-Xmx512m", "-Xmx256m", (...)]
+    ENV JAVA_OPTS=-Xmx512m -Xmx256m
 
 ### Adding memory parameters to docker-compose.yml
 
@@ -238,4 +234,10 @@ Add the JAVA_OPTS into `environment` section.
 
     environment:
       - (...)
-      - JAVA_OPTS="-Xmx512m -Xmx256m"  
+      - JAVA_OPTS=-Xmx512m -Xmx256m
+
+We found situations where `JAVA_OPTS` does not work and you need to use `_JAVA_OPTIONS` instead. In this case, the `environment` section looks like:
+
+    environment:
+      - (...)
+      - _JAVA_OPTIONS=-Xmx512m -Xmx256m
