@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Setting up Continuous Integration on Linux
+title: Setting up Jenkins 1 on Linux
 permalink: /setting-up-ci-linux/
 redirect_from:
   - /setting_up_ci_linux.html
@@ -9,13 +9,13 @@ sitemap:
     lastmod: 2015-01-09T12:40:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> Setting up Continuous Integration on Linux server
+# <i class="fa fa-stethoscope"></i> Setting up Jenkins 1 on Linux
 
 The instructions below are for a RedHat/CentOS server but can be easily adapted for other Linux distributions.
 
 ## Installing Jenkins
 
-https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+RedHat+distributions
+Follow the instructions from [https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions)
 
 ~~~~
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
@@ -48,7 +48,8 @@ We suggest 2 alternatives below, choose the one you prefer.
 Install Jenkins NodeJS plugin.
 
 Through Jenkins administration, add a NodeJS installation:
-- automatic installer from nodejs.org, latest LTS (Long Term Support) 4.xx.xx version
+
+- Automatic installer from nodejs.org, use the latest LTS (Long Term Support) version
 - Global npm packages to install: bower gulp
 
 #### Local NodeJS installation

@@ -20,8 +20,8 @@ It's harder because you have to manage 2 software stacks in your build process:
 
 Each stack comes with its own dependency management (artifacts, npm) with potential conflicts to solve.
 
-Some of the instructions below may help you also to setup your development environment.
+Here are specific documentation pages to help you with your setup:
 
-- [Linux server]({{ site.url }}/setting-up-ci-linux/)
-- [Windows server]({{ site.url }}/setting-up-ci-windows/)
-- [Jenkins2]({{ site.url }}/setting-up-ci-jenkins2/)
+- [Setting up Jenkins 2]({{ site.url }}/setting-up-ci-jenkins2/)
+- [Setting up Jenkins 1 on Linux]({{ site.url }}/setting-up-ci-linux/)
+- [Setting up Jenkins 1 on Windows]({{ site.url }}/setting-up-ci-windows/)

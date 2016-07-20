@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Setting up Continuous Integration on Linux
+title: Setting up Continuous Integration on Jenkins 2
 permalink: /setting-up-ci-jenkins2/
 redirect_from:
   - /setting_up_ci_jenkins2.html
@@ -9,13 +9,13 @@ sitemap:
     lastmod: 2016-06-19T12:40:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> Setting up Continuous Integration for Jenkins2
+# <i class="fa fa-stethoscope"></i> Setting up Continuous Integration on Jenkins 2
 
 ## Prerequisites
 
-Install JDK8
+Install JDK 8 on your machine.
 
-## Installing Jenkins2
+## Installing Jenkins 2
 
 ### Standard
 
@@ -39,7 +39,7 @@ If you choose Docker, you should use Jenkins NodeJS plugin.
 
 ### Global NodeJS installation
 
-Install NodeJS, bower, gulp on the machine
+Install NodeJS, Bower and Gulp on your machine.
 
 ### Jenkins NodeJS plugin
 
