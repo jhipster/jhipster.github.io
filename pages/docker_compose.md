@@ -23,6 +23,7 @@ Using Docker and Docker Compose is highly recommended in development, and is als
 6. [Elasticsearch](#5)
 7. [Sonar](#6)
 8. [Common commands](#7)
+9. [Memory Tweaking](#8)
 
 ## <a name="1"></a> Description
 
@@ -193,6 +194,20 @@ You can use `docker ps -a` to list all the containers
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
     fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-mysql
 
+### Docker stats for containers
+`docker stats` or {% raw %}`docker stats $(docker ps --format={{.Names}})`{% endraw %} to list all running containers with CPU, Memory, Networking I/O and Block I/O stats.
+
+    $ docker stats {% raw %}$(docker ps --format={{.Names}}){% endraw %}
+    CONTAINER                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O               BLOCK I/O             PIDS
+    jhuaa-mysql               0.04%               221 MB / 7.966 GB     2.77%               66.69 kB / 36.78 kB   8.802 MB / 302.5 MB   37
+    00compose_msmongo-app_1   0.09%               965.6 MB / 7.966 GB   12.12%              121.3 kB / 54.64 kB   89.84 MB / 14.88 MB   35
+    00compose_gateway-app_1   0.39%               1.106 GB / 7.966 GB   13.89%              227.5 kB / 484 kB     117 MB / 28.84 MB     92
+    jhipster-registry         0.74%               1.018 GB / 7.966 GB   12.78%              120.2 kB / 126.4 kB   91.12 MB / 139.3 kB   63
+    gateway-elasticsearch     0.27%               249.1 MB / 7.966 GB   3.13%               42.57 kB / 21.33 kB   48.16 MB / 4.096 kB   58
+    00compose_jhuaa-app_1     0.29%               1.042 GB / 7.966 GB   13.08%              101.8 kB / 78.84 kB   70.08 MB / 13.5 MB    68
+    msmongo-mongodb           0.34%               44.8 MB / 7.966 GB    0.56%               49.72 kB / 48.08 kB   33.97 MB / 811 kB     18
+    gateway-mysql             0.03%               202.7 MB / 7.966 GB   2.54%               60.84 kB / 31.22 kB   27.03 MB / 297 MB     37
+
 ### Scale a container
 
 Run `docker-compose scale test-app=4` to have 4 instances of application "test" running.
@@ -212,3 +227,24 @@ When you stop a container, the data is not deleted, unless you delete the contai
 Be careful! All data will be deleted:
 
 `docker rm <container_id>`
+
+
+## <a name="8"></a> Memory Tweaking
+
+In order to optimize memory usage for applications running in the container, you can setup Java memory parameters on `Dockerfile` or `docker-compose.yml`
+
+### Adding memory parameters to Dockerfile
+
+Set the environment variable.
+
+    ENV JAVA_OPTS=-Xmx512m -Xmx256m
+
+### Adding memory parameters to docker-compose.yml
+
+This solution is desired over Dockerfile. In this way, you have a single control point for your memory configuration on all containers that compose you application.
+
+Add the JAVA_OPTS into `environment` section.
+
+    environment:
+      - (...)
+      - JAVA_OPTS=-Xmx512m -Xmx256m
