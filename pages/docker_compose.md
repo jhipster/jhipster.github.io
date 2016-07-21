@@ -235,9 +235,3 @@ Add the JAVA_OPTS into `environment` section.
     environment:
       - (...)
       - JAVA_OPTS=-Xmx512m -Xmx256m
-
-We found situations where `JAVA_OPTS` does not work and you need to use `_JAVA_OPTIONS` instead. In this case, the `environment` section looks like:
-
-    environment:
-      - (...)
-      - _JAVA_OPTIONS=-Xmx512m -Xmx256m
