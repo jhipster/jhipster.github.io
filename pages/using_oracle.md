@@ -13,6 +13,8 @@ sitemap:
 
 When using JPA, you have the option to use the Oracle database.
 
+_This option is only supported with Oracle 12c and upwards._
+
 As Oracle is a proprietary database, we cannot give it the same level of support that we do for our other options:
 
 - Its driver is proprietary, so we cannot bundle it with JHipster
