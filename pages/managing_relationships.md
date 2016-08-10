@@ -48,7 +48,12 @@ As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one r
 
 _Tip: the `User` entity_
 
-Please note that the `User` entity, which is handled by JHipster, is specific. You can do `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement. On the generated AngularJS client UI you will have a dropdown in `Car` to select a `User`.
+Please note that the `User` entity, which is handled by JHipster, is specific.
+
+You can do `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement. On the generated AngularJS client UI you will have a dropdown in `Car` to select a `User`.
+
+You can also do `many-to-many` relationships to this entity, but the other entity __must__ be the owner
+of the relationship (a `Team` can have a many-to-many relationship to `User`, but only the team can add/remove users, and a user cannot add/remove a team). On the AngularJS client UI, you will also be able to select a `User` in a multi-select box.
 
 ## <a name="1"></a> A bidirectional one-to-many relationship
 
