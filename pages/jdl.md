@@ -290,7 +290,7 @@ entity C
 
 microservice * with mysuperjhipsterapp except C
 microservice C with myotherjhipsterapp
-search * with ElasticSearch except C
+search * with elasticsearch except C
 ```
 
 The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second specifies how and if you want your entities searched.
