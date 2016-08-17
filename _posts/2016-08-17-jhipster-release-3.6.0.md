@@ -9,7 +9,7 @@ JHipster release 3.6.0
 What's new
 ----------
 
-This is a very big release, with some important changes (but which don't break too much code, so this isn't a major release), some incredible new features, and the usual bug fixes and upgrades. In total, this is [121 closed tickets and PRs](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.6.0+is%3Aclosed), which is most better than most commerical vendors do in the middle of August!
+This is a very big release, with some important changes (but which don't break too much code, so this isn't a major release), some incredible new features, and the usual bug fixes and upgrades. In total, this is [121 closed tickets and PRs](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.6.0+is%3Aclosed), which is  better than most commerical vendors do in the middle of August!
 
 Important change: DTOs refactoring
 ------------
