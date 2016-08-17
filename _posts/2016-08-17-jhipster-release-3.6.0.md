@@ -39,7 +39,7 @@ Important change: Fluent setters
 
 After much discussion, JHipster now [generates fluent setters on your entities](https://github.com/jhipster/generator-jhipster/pull/3751).
 
-As you check in the ticket linked above, this was validated by the Hibernate team, and we did a public vote where the choice for fluent setters was very clear.
+As you can check in the ticket linked above, this was validated by the Hibernate team, and we did a public vote where the choice for fluent setters was very clear.
 
 You won't have to refactor your current application as we still generate the "normal" setters for entities, but if you re-generate your entities you will have those new "fluent" methods which should help you write a better, easier-to-read code.
 
