@@ -48,6 +48,15 @@ Kubernetes support
 
 This is probably our biggest new feature, [Kubernetes support has been merged](https://github.com/jhipster/generator-jhipster/pull/3747)! We already have some [initial documentation]({{ site.url }}/kubernetes/), but this is still a very early release: don't hesitate to test, submit bugs, help documenting...
 
+New "info" sub-generator
+-------------
+
+If you need complete information on your JHipster setup, you can run the new "info" sub-generator:
+
+    yo jhipster:info
+
+Remember to use it when submiting a bug the project!
+
 Upgrades
 -------------
 
