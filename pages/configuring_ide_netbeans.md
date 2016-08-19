@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Configuring your IDE
-permalink: /configuring_ide-netbeans/
+permalink: /configuring-ide-netbeans/
 redirect_from:
   - /configuring_ide.html
 sitemap:
