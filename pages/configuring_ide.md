@@ -16,3 +16,4 @@ JHipster projects can be developed without any IDE, all you need are a text edit
 - [Configuring Eclipse with Maven]({{ site.url }}/configuring-ide-eclipse/)
 - [Configuring Eclipse with Gradle]({{ site.url }}/configuring-ide-eclipse-gradle/)
 - [Configuring Intellij IDEA]({{ site.url }}/configuring-ide-idea/)
+- [Configuring Netbeans]({{ site.url }}/configuring-ide-netbeans/)
