@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-08-19T12:00:00-00:00
+    lastmod: 2016-08-20T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -26,6 +26,7 @@ Here's what's covered on this page:
     4.2. [Use JHipster-UML](#usejuml)  
     4.3. [What's generated](#whatsgenerated)  
     4.4. [JHipster notes](#jhipsternotes)  
+    4.5. [Reserved words](#reservedwords)  
 5. [Examples](#examples)  
     5.1. [Modelio](#modelioexample)  
     5.2. [UML Designer](#umldesignerexample)  
@@ -263,6 +264,14 @@ JHipster is a great scaffolding tool with many conventions, some of them are wor
 
   - You don't have to use an `id` field in your entities because JHipster generates one by default, and JHipster-UML removes any field if it is detected as an ID;
   - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you;
+
+
+## <a name="reservedwords"></a>Reserved words
+
+JHipster maintains a list of forbidden (*under some conditions*) words.
+For instance, if you want to generate entities for your app, and if this app uses Cassandra, you can't use the words `BATCH` in either a field name or a table name.
+
+As of v2.0.0, JHipster UML detects such words and immediately throws an exception if it encounters such a case. However, JHipster UML can't assert with 100% accuracy when a reserved word can or can't be used. That's why it warns the user with a yellow message when there could be a risk of using such a keyword.
 
 
 ***
