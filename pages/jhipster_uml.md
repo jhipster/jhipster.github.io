@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-03-28T12:00:00-00:00
+    lastmod: 2016-08-19T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -32,7 +32,8 @@ Here's what's covered on this page:
     5.3. [GenMyModel](#genmymodelexample)  
     5.4. [Visual Paradigm](#visualparadigmexample)  
     5.5. [Enumerations](#enumerationexamples)  
-    5.6. [Table names](#tablenames)
+    5.6. [Table names](#tablenames)  
+    5.7. [Required relationships](#requiredrels)  
 6. [Testing](#testing-juml)
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)
@@ -502,6 +503,11 @@ However, if you don't want to pick a special table name, you can just write the 
 
 Note that this feature is available for UML editors since v1.6.2. Concerning the JDL, as it has its own project, the change is expected to happen with some delay (just for this addition).
 
+## <a name="requiredrels"></a>Required relationships
+
+As of v2.0.0, required relationships are possible to make.
+To specify one, just make sure the end of the relationship to make required isn't "0" ("1", or "*" will do the trick).
+To see an example of that, just remember the complete HR example from Oracle, and notice that the JobHistory class has 3 required relationships.
 
 ***
 
