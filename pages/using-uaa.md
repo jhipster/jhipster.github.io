@@ -26,8 +26,16 @@ by other ready to use UAAs.
 1. [security claims of microservice architecture](#claims)
 2. [understanding OAuth2 in this context](#oauth2)
 3. [using JHipster UAA](#jhipster-uaa)
+  * basic setup
+  * understanding the components
+  * commong mistakes
 4. [secure inter-service-communication using feign clients](#inter-service-communication)
+  * some words on eureka, ribbon, hystrix and feign
+  * using `@AuthorizedFeignClients`
 5. [testing UAA applications](#testing)
+  * stubbing feign clients
+  * emulating OAuth2 authentication
+
 
 ## <a name="claims"></a> security claims of microservice architecture
 
@@ -116,13 +124,45 @@ of JWT authentication.
 **note**: the UAA solution is also using JWT, which are addressable to custom configuration
 as well as JWT, using default Spring Cloud Security.
 
+### basic setup
+
 The very basic setup consists of:
 
-* a JHipster UAA service
-* at least one other microservice
-* a JHipster gateway
+1. a JHipster UAA service
+2. at least one other microservice
+3. a JHipster gateway
+
+this is also the order, in which it has to be generated.
 
 
+### understanding the components
+
+TODO
+
+### commong mistakes
+
+TODO
+
+## <a name="inter-service-communication"></a> 4. secure inter-service-communication using feign clients
+
+### some words on eureka, ribbon, hystrix and feign
+
+TODO
+
+### using `@AuthorizedFeignClients`
+
+TODO
+
+## <a name="testing"></a> testing UAA applications
+
+
+### stubbing feign clients
+
+TODO
+
+### emulating OAuth2 authentication
+
+TODO
 
 
 
