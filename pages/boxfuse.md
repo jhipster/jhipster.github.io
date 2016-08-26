@@ -15,7 +15,7 @@ This guide show how to deploy your JHipster application to AWS using [Boxfuse](h
 
 [![]({{ site.url }}/img/logo-boxfuse.png)](https://boxfuse.com/)
 
-Boxfuse comes with first-class support for JHipster and works by creating minimal immutable machine images for your app, which can then be deployed either on VirtualBox or on AWS.
+Boxfuse comes with first-class support for JHipster and works by creating minimal immutable machine images for your application, which can then be deployed either on VirtualBox or on AWS.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ Deployment completed successfully. myuser/jhipster:1.0 is up and running at http
 
 Note that you didn't need to explicitly specify things like ports, healthcheck urls or database types. By default Boxfuse auto-discovers those
 from your JHipster war based on your `application-prod.yml` file and the included jars. You can of course
-override those auto-discovered settings if you want to, but in most cases you won't need to. 
+override those auto-discovered settings if you want to, but in most cases you won't need to.
 
 ## Deploying updates
 
