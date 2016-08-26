@@ -246,6 +246,12 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "Prudential Vietnam",
+      "url": "https://www.prudential.com.vn",
+      "logo": "prudential.png",
+      "category": "Insurance",
+      "country": "Vietnam"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -374,6 +380,18 @@
     },
     {"name": "LeadingSoft",
       "url": "http://www.leadingsoft.com.cn/"
+    },
+    {"name": "Adnato",
+      "url": "http://www.adnato.com/"
+    },
+    {"name": "Studec",
+      "url": "http://www.studec.fr/"
+    },
+    {"name": "Ayvos",
+      "url": "http://www.ayvos.com/"
+    },
+    {"name": "SameLAN",
+      "url": "http://www.samelan.com/"
     }
   ]
 }
