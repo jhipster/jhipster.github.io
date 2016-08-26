@@ -37,7 +37,7 @@ by other ready to use UAAs.
   * emulating OAuth2 authentication
 
 
-## <a name="claims"></a> security claims of microservice architecture
+## <a name="claims"></a> 1. security claims of microservice architecture
 
 Before digging into OAuth2 and its application on JHispter microservice, it's important
 to clearify the claims to a solid security solution.
@@ -82,7 +82,7 @@ In the end, there should not be any single point of failure, which can be attack
 to break the system.
 
 
-## <a name="oauth2"></a> understanding OAuth2 in this context
+## <a name="oauth2"></a> 2. understanding OAuth2 in this context
 
 Using the OAuth2 protocol (note: it's a **protocol**, not a framework, not an app)
 is satisfying all 6 claims. As mentioned, OAuth2 is a protocol, so it follows
@@ -116,7 +116,7 @@ As an addition, the following rules can be applied for access control:
 * machines are access controlled using "scopes" and [RBAC][]
 * complex restriction are expressed using [ABAC][], like using boolean expressions over both "roles" and "scopes"
 
-## <a name="jhipster-uaa"></a> using JHipster UAA
+## <a name="jhipster-uaa"></a> 3. using JHipster UAA
 
 When scaffolding a JHipster microservice, you may choose the UAA options instead
 of JWT authentication.
@@ -169,14 +169,14 @@ grant. This process has a standard solution, described in [secure inter-service-
 There is a lot of things can be done or understood wrong. Here is a brief list
 of the very major things a developer should be aware of.
 
-### lack of understanding
+#### ***lack of understanding***
 
 Using OAuth2 is effectively doing less code while using powerful concepts. But it
 turns into a suffer, when these concepts are not clear (authentication vs.
 authorization, roles vs. scopes), while interpreting specific exceptions or other
 failing situations.
 
-### The public key resolving leads to several issues
+#### ***The public key resolving leads to several issues***
 
 Using the token key endpoint of UAA makes it possible to easily change the private
 key as often as needed. But the fact, an UAA **must** be up in order to start a
@@ -224,8 +224,8 @@ folder of the microservice. Then, instead of configuring the `JwtAccessTokenConv
 with load balanced request to uaa, the beans in `MicroserviceSecurityConfiguration`
 have to be setted up the following way:
 
-``` java src/main/package/config/MicroserviceSecurityConfiguration.java
-    //...
+``` java
+
 
     @Bean
     public TokenStore tokenStore() {
@@ -257,20 +257,20 @@ The disadvantage of course is, that key changes now have to be handled manually,
 what makes things like different keys for production/staging harder then the default
 solution.
 
-### not using TLS
+#### ***not using TLS***
 
 If an attacker manages to intercept an access token, he will gain all the rights
 authorized to this token, until the token expires. There are a lot of ways to achieve
 that, in particular when there is no TLS encryption. This was not a problem in the
 days of version 1 of OAuth, because protocol level encryption was forced.
 
-### using access tokens in URL
+#### ***using access tokens in URL***
 
 As of standard, access tokens can be either passed by URL or in headers. From the
 TLS point of view, both ways are secure. In practice passing tokens via URL is less
 secure, since there several ways of getting the URL from records and so on.
 
-### switching to symmetric signing keys
+#### ***switching to symmetric signing keys***
 
 RSA is not required for JWT signing, and spring does provide symmetric token
 signing as well. This also solves some problems, which make development harder.
@@ -362,11 +362,16 @@ interface OtherServiceClient {
 
 **note**: due to a bug in spring cloud, it's currently not possible to use a different
 notation for the service name, as
+
 ``` java
+
 @AuthorizedFeingClient("other-service")
 ```
+
 or
+
 ``` java
+
 @AuthorizedFeingClient(value = "other-service")
 ```
 
@@ -385,12 +390,93 @@ JHipster.
 
 ### stubbing feign clients
 
-TODO
+When things get crucial, components working with feign clients, should be testable
+as well. Using Feign in tests the same way it is used in production, would force
+the JHipster registry and UAA to be up and reachable to the machine, where the tests
+are run. But in the most cases, you don't want to test Feign works, but your components
+using feign clients.
+
+JHipster provides some basic support to make this possible. When the profile "test"
+is present, feign clients are disabled, which forces the developer to implement
+the client interfaces (using some static hard code data) and declare those implementations
+as `@Component`s
+
+For the feign client used above, this is how it would look like:
+
+``` java
+
+@Component
+class TestOtherClient implements OtherClient {
+  List<OtherResource> getResourcesFromOtherService() {
+    List<OtherResource> list = new ArrayList<>();
+
+    list.add(new OtherResource("some var1"));
+    list.add(new OtherResource("some var2"));
+
+    return list;
+  }
+}
+```
+
+Since declaring that implementation as a usual spring component, all beans injecting
+a client, will inject this implementation, so you can focus on the logic of these beans.
+
+***don't forget to declare these tests are running using profile "test"***
 
 ### emulating OAuth2 authentication
 
-TODO
+Using springs integration tests against the REST-controllers, usually is bypassing
+the security configuration, since it usually would make testing hard, when the only
+intension is to prove, the controller is functional doing what it should do.
 
+But sometimes testing a controllers security behavior is part of test, too.
+For this use case, JHipster is providing an annotation `@WithMockOAuth2Authentication`,
+which can emulate a valid authentication, without forcing the user or client really
+to exist.
+
+To use this feature, there are two thing to be done:
+
+#### 1. enabling security context in mock mvc.
+
+this is pretty straigt forward:
+
+``` java
+
+    @PostConstruct
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+        this.restMockMvc = MockMvcBuilders
+            .webAppContextSetup(context)
+            .apply(springSecurity())
+            .build();
+
+    }
+```
+
+***in this test no single instance of the controller has to be mocked, but the
+applications `WebApplicationContext`***
+
+#### 2. using the `@WithMockOAuth2Authentication` annotation
+
+Annotating a test method with `@WithMockOAuth2Authentication`, emulates a security
+context. `@WithMockOAuth2Authentication` can be specified with
+
+* clientId
+* username
+* password
+* roles (String[])
+* scope (String[])
+
+here is an example:
+
+``` java
+
+@Test
+@WithMockOAuth2Authentication(roles = {"USER"})
+public void testInsufficientRoles() {
+  restMockMvc.peform(get("url/requiring/ADMIN/role")).andExpect(status().isUnauthorized());
+}
+```
 
 
 [RBAC]: https://de.wikipedia.org/wiki/Role_Based_Access_Control
