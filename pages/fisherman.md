@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using fisherman
+title: Using Fisherman
 permalink: /fisherman/
 redirect_from:
   - /fisherman.html
@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2016-08-14T18:40:00-00:00
 ---
 
-# <i class="fa fa-terminal"></i> Using fisherman
+# <i class="fa fa-terminal"></i> Using Fisherman
 
 If you are using Linux or Mac OS X, [fisherman](http://fisherman.sh/) is a great tool to manage your [fish shell](http://fishshell.com/) configuration.
 
