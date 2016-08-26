@@ -8,7 +8,7 @@ sitemap:
     priority: 0.7
     lastmod: 2016-08-25T00:00:00-00:00
 ---
-# <i class="fa fa-sitemap"></i> Using UAA for Microservice Security
+# <i class="fa fa-lock"></i> Using UAA for Microservice Security
 
 This documentation leads through the new feature JHipster UAA, an user accounting
 and authorizing service for securing JHipster microservices using the OAuth2
@@ -307,7 +307,7 @@ hystrix works as a circuit breaker, to handle fail scenarios in a well defined w
 using fallbacks.
 
 But wiring and coding all this things manual, is a lot of work. Since the processes
-happen are clear, Feign provides the option of writing Ribbon load balanced REST
+happening are clear, Feign provides the option of writing Ribbon load balanced REST
 clients for endpoints registered in Eureka, with fallback implementations controlled
 using Hystrix, using nothing more then an java interface with a bunch of annotations.
 
@@ -341,7 +341,7 @@ Similar to spring-data-jpa, there is no need to implement that interface. But yo
 may do so, if using Hystrix. Implemented classes of feign client interfaces act
 as fallback implementations.
 
-One open issue is, to make this communication secure, using UAA. To accomplish these,
+One open issue is, to make this communication secure, using UAA. To accomplish this,
 there should be some request interceptor for feign, which implements the client
 credentials flow from OAuth, to authorize the current service for requesting the
 other service. In JHipster, you just use `@AuthorizedFeignClients` instead.
