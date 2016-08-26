@@ -28,7 +28,7 @@ by other ready to use UAAs.
 3. [using JHipster UAA](#jhipster-uaa)
   * basic setup
   * understanding the components
-  * commong mistakes
+  * common mistakes
 4. [secure inter-service-communication using feign clients](#inter-service-communication)
   * some words on eureka, ribbon, hystrix and feign
   * using `@AuthorizedFeignClients`
