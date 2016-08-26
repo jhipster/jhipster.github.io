@@ -1,21 +1,23 @@
 ---
 layout: default
-title: JHipster behind a corporate proxy
+title: Configuring a corporate proxy
+permalink: /configuring-a-corporate-proxy/
+redirect_from:
+  - /configuring_a_corporate_proxy.html
 sitemap:
-priority: 0.5
-lastmod: 2016-08-18T08:00:00-00:00
+    priority: 0.7
+    lastmod: 2016-08-18T08:00:00-00:00
 ---
 
-# JHipster behind a corporate proxy
+# <i class="fa fa-exchange"></i> Configuring a corporate proxy
 
-__Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
+When JHipster is used in a company, you probably will need to configure all tools to bypass the corporate proxy.
 
-When you want to use JHipster in Enterprise, you have to configure all tools to bypass the corporate proxy.
+You can try to configure the `HTTP_PROXY` and `HTTPS_PROXY` environment variables or use a tool like [Cntlm](http://cntlm.sourceforge.net/).
 
-You can try to configure the `HTTP_PROXY` and `HTTPS_PROXY` environment variables or to use tool like cntlm.
-But sometimes, it's not enough.
+But this probably won't be enough, so you will need to configure separately all the tools that are used with JHipster.
 
-## Proxy
+## Introduction
 
 Supposing your proxy is defined with:
 
@@ -24,11 +26,11 @@ Supposing your proxy is defined with:
 - host
 - port
 
-The result is: `http://username:password@host:port`
+The resulting configuration is: `http://username:password@host:port`
 
-If your use cntlm, it should be: `127.0.0.1:3128`
+If your use [Cntlm](http://cntlm.sourceforge.net/), then your configuration would be: `127.0.0.1:3128`. Otherwise, follow the next steps to configure each tool individually.
 
-## npm
+## NPM configuration
 
 Use these commands:
 
@@ -45,7 +47,7 @@ https-proxy=http://username:password@host:port
 https_proxy=http://username:password@host:port
 ```
 
-## git
+## Git configuration
 
 Use these commands:
 
@@ -63,7 +65,7 @@ Or you can edit directly your `~/.gitconfig` file:
         proxy = http://username:password@host:port
 ```
 
-## bower
+## Bower configuration
 
 Edit your `~/.bowerrc` file:
 
@@ -74,7 +76,7 @@ Edit your `~/.bowerrc` file:
 }
 ```
 
-## Maven
+## Maven configuration
 
 Edit the `proxies` session in your `~/.m2/settings.xml` file
 
@@ -93,16 +95,13 @@ Edit the `proxies` session in your `~/.m2/settings.xml` file
 </proxies>
 ```
 
-## Gradle
-
-Need to be completed
-
 ## Docker
 
 ### Native Docker
 
-Depending on your OS, you have to edit a specific file (`/etc/sysconfig/docker` or `/etc/default/docker`)
-Then, you have to restart the docker service with: `sudo service docker restart`
+Depending on your OS, you have to edit a specific file (`/etc/sysconfig/docker` or `/etc/default/docker`).
+
+Then, you have to restart the docker service with: `sudo service docker restart`.
 
 ### Docker with docker-machine
 
@@ -115,4 +114,4 @@ docker-machine create -d virtualbox \
     default
 ```
 
-Or you can edit the file `~/.docker/machine/machines/default/config.json`
+Or you can edit the file `~/.docker/machine/machines/default/config.json`.

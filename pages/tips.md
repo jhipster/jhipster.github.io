@@ -26,4 +26,3 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 9. [Speed up the generator-jhipster]({{ site.url }}/tips/013_tip_speed_up_generator.html)
 10. [Local SMTP Server]({{ site.url }}/tips/015_tip_local_smtp_server.html)
 11. [LDAP Authentication]({{ site.url }}/tips/016_tip_ldap_authentication.html)
-12. [JHipster behind corporate proxy]({{ site.url }}/tips/017_tip_jhipster_behind_corporate_proxy.html)
