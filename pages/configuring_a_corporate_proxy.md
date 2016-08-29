@@ -95,6 +95,31 @@ Edit the `proxies` session in your `~/.m2/settings.xml` file
 </proxies>
 ```
 
+## Gradle configuration
+
+Add the below in your `gradle.properties` file and in your `gradle\wrapper\gradle-wrapper.properties` file if you are downloading the wrapper over a proxy
+
+If you want to set these properties globally then add it in `USER_HOME\.gradle\gradle.properties` file
+
+```
+## Proxy setup
+systemProp.proxySet="true"
+systemProp.http.keepAlive="true"
+systemProp.http.proxyHost=host
+systemProp.http.proxyPort=port
+systemProp.http.proxyUser=username
+systemProp.http.proxyPassword=password
+systemProp.http.nonProxyHosts=local.net|some.host.com
+
+systemProp.https.keepAlive="true"
+systemProp.https.proxyHost=host
+systemProp.https.proxyPort=port
+systemProp.https.proxyUser=username
+systemProp.https.proxyPassword=password
+systemProp.https.nonProxyHosts=local.net|some.host.com
+## end of proxy setup
+```
+
 ## Docker
 
 ### Native Docker
