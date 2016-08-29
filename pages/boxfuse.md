@@ -15,7 +15,13 @@ This guide show how to deploy your JHipster application to AWS using [Boxfuse](h
 
 [![]({{ site.url }}/img/logo-boxfuse.png)](https://boxfuse.com/)
 
-Boxfuse comes with first-class support for JHipster and works by creating minimal immutable machine images for your application, which can then be deployed either on VirtualBox or on AWS.
+Boxfuse comes with **first-class support for JHipster** and works by creating minimal immutable machine images for your application, which can then be deployed either on VirtualBox or on AWS.
+
+<div class="alert alert-info"><i>Tip: </i>
+
+As an alternative to Boxfuse you can also deploy your JHipster application to AWS using <a href="/aws/">Elastic Beanstalk</a>.
+
+</div>
 
 ## Prerequisites
 
