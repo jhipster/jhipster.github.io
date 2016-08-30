@@ -27,11 +27,10 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/50304?v=3" class="img-responsive">
+            <img src="https://avatars.githubusercontent.com/u/1107223?v=3" class="img-responsive">
             <div class="caption">
-                <h3>Jérôme Mirc</h3>
-                <p>Project co-lead</p>
-                <p><a href="https://twitter.com/jeromemirc"><i>@jeromemirc</i></a></p>
+                <h3>Deepu K Sasidharan</h3>
+                <p><a href="https://twitter.com/deepu105"><i>@deepu105</i></a></p>
             </div>
         </div>
     </div>
@@ -115,6 +114,16 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/50304?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Jérôme Mirc</h3>
+                <p>Project co-lead</p>
+                <p><a href="https://twitter.com/jeromemirc"><i>@jeromemirc</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/4958079?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Thibaut Mottet</h3>
@@ -137,15 +146,6 @@ JHipster is developed by a team of people around the world. We have a lot of con
             <div class="caption">
                 <h3>Jon Ruddell</h3>
                 <p><a href="https://twitter.com/jonruddell"><i>@jonruddell</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/1107223?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Deepu K Sasidharan</h3>
-                <p><a href="https://twitter.com/deepu105"><i>@deepu105</i></a></p>
             </div>
         </div>
     </div>
