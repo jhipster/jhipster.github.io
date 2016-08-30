@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-coffee"></i> Team
 
-JHipster is developed by a team of people around the world. We have a lot of contributors ([full list here](https://github.com/jhipster/generator-jhipster/graphs/contributors)), but members of the core team are listed here.
+JHipster is developed by a team of people around the world. We have a lot of contributors ([top 100 list here](https://github.com/jhipster/generator-jhipster/graphs/contributors)), but members of the core team are listed here.
 
 ## Project leads
 <div class="row">
