@@ -51,6 +51,7 @@ You can either use:
 *   Monolithic application: this a classical, one-size-fits-all application. It's easier to use and develop, and is our recommended default.
 *   Microservice application: in a microservices architecture, this is one of the services.
 *   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
+*   JHipster UAA server: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
 
 ### What is the base name of your application?
 
