@@ -97,9 +97,9 @@ Edit the `proxies` session in your `~/.m2/settings.xml` file
 
 ## Gradle configuration
 
-Add the below in your `gradle.properties` file and in your `gradle\wrapper\gradle-wrapper.properties` file if you are downloading the wrapper over a proxy
+Add the below in your `gradle.properties` file and in your `gradle/wrapper/gradle-wrapper.properties` file if you are downloading the wrapper over a proxy
 
-If you want to set these properties globally then add it in `USER_HOME\.gradle\gradle.properties` file
+If you want to set these properties globally then add it in `USER_HOME/.gradle/gradle.properties` file
 
 ```
 ## Proxy setup
