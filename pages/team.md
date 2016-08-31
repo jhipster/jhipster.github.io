@@ -30,6 +30,7 @@ JHipster is developed by a team of people around the world. We have a lot of con
             <img src="https://avatars.githubusercontent.com/u/1107223?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Deepu K Sasidharan</h3>
+                <p>Project co-lead</p>
                 <p><a href="https://twitter.com/deepu105"><i>@deepu105</i></a></p>
             </div>
         </div>
@@ -117,7 +118,6 @@ JHipster is developed by a team of people around the world. We have a lot of con
             <img src="https://avatars.githubusercontent.com/u/50304?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Jérôme Mirc</h3>
-                <p>Project co-lead</p>
                 <p><a href="https://twitter.com/jeromemirc"><i>@jeromemirc</i></a></p>
             </div>
         </div>
