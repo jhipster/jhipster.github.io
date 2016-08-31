@@ -103,6 +103,8 @@ This feature is currently in **BETA** and thus its documentation is not yet comp
 
 JHipster provides the option to generate a "UAA" (User Account and Authentication) server, based on Spring Security. This server provides OAuth2 tokens for securing the gateway.
 
+You will find all UAA-related information on our specific <a href="/using-uaa/">Using UAA for Microservice Security documentation page</a>.
+
 Then, the gateway uses Spring Security's JWT implementation to send JWT tokens to the microservices.
 
 ### <a name="documentation"></a> Automatic documentation
