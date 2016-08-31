@@ -29,7 +29,7 @@ We provide 3 ways of working with JHipster:
 4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version). This will also install `npm`, which is the node package manager we are using in the next commands.
 5.  Install Yeoman: `npm install -g yo`
 6.  Install Bower: `npm install -g bower`
-7.  Install Gulp: `npm install -g gulp`
+7.  Install Gulp: `npm install -g gulp-cli` (If you have previously installed a version of gulp globally, please run `npm rm -g gulp` to make sure your old version doesn't collide with `gulp-cli`)
 8.  Install JHipster: `npm install -g generator-jhipster`
 
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [NPM documentation](https://docs.npmjs.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
