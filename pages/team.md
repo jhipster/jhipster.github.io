@@ -158,6 +158,15 @@ JHipster is developed by a team of people around the world. We have a lot of con
             </div>
         </div>
     </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/2758003?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>David Steiman</h3>
+                <p><a href="https://twitter.com/theOnlyScrippi"><i>@theOnlyScrippi</i></a></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 
