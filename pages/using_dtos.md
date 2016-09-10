@@ -40,15 +40,20 @@ We have found it very clean and efficient, and liked that it does not use reflec
 
 MapStruct is an annotation processor, and as such can be set up to be run automatically when your IDE compiles the project. We have found this approach difficult to use, and prefer to use the `mvn compile` goal directly.
 
-If you want to configure your IDE to use MapStruct, you will need to add the MapStruct processor to your `pom.xml`dependencies:
+If you want to configure your IDE to use MapStruct, you will need to add the MapStruct processor to your `pom.xml` dependencies on a separate profile that's only activated inside the IDE. Add this under the `<profiles>` element:
 
-    <dependency>
-        <groupId>org.mapstruct</groupId>
-        <artifactId>mapstruct-processor</artifactId>
-        <version>${mapstruct.version}</version>
-    </dependency>
+    <profile>
+        <id>intellij</id>
+        <dependencies>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+        </dependencies>
+    </profile>
 
-If you find a good workflow using your IDE as well as Maven, please send us some feedback!
+Then activate that profile in your IDE. The reason for this is that we already configure mapstruct annotation processor in Maven through its plugin mechanism, if Maven would process this dependency during its build, it would generate a class duplication compile error.
 
 ## Advanced MapStruct usage
 
