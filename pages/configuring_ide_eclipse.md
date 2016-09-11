@@ -72,3 +72,11 @@ At this stage you should not have any Java error but should still see some JavaS
 ![Exclude]({{ site.url }}/images/configuring_ide_eclipse_6.png)
 
 ![Multiple select]({{ site.url }}/images/configuring_ide_eclipse_7.png)
+
+### Maven IDE profile
+
+If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
+which currently only includes applying the MapStruct annotation processor. 
+
+- Right click on Project -> Properties -> Maven
+- In "Active Maven Profiles", type `IDE`
