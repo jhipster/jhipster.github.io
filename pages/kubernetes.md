@@ -45,6 +45,42 @@ To generate config files for Kubernetes, run this command in a new folder:
 
 Then answer all the questions to deploy your application.
 
+
+### Which *type* of application would you like to deploy?
+
+Your type of application depends on whether you wish to deploy a microservices architecture or classical applications.
+
+
+### Enter the root directory where your applications are located
+
+Enter the path.
+
+### Which applications do you want to include in your Kubernetes configuration?
+
+Select your applications.
+
+
+### Enter the admin password used to secure the JHipster Registry admin
+
+This question is only displayed if you choose microservices architecture.
+
+
+### What should we use for the Kubernetes namespace?
+
+See the documentation on namespace [here](http://kubernetes.io/docs/user-guide/namespaces/)
+
+
+### What should we use for the base Docker repository name?
+
+If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be your Docker Hub login.
+
+
+### What command should we use for push Docker image to repository?
+
+The default command to push to Docker Hub is `docker push`
+For example, if you use the Google Cloud to host your Docker images, it will be: `gcloud docker push`
+
+
 ## Updating your deployed application
 
 ### Preparing a new deployment
