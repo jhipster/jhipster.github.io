@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-08-27T00:00:00-00:00
 ---
 
-# Community help
+# <i class="fa fa-group"></i> Community help
 
 Do you need help? Our awesome community is here!
 
