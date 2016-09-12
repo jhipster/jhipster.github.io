@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-11-26T00:00:00-00:00
 ---
 
-# Profiles
+# <i class="fa fa-group"></i> Profiles
 
 JHipster comes with two [Spring profiles](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html) :
 
