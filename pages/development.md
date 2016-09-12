@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-09-17T00:00:00-00:00
 ---
 
-# Using JHipster in development
+# <i class="fa fa-code"></i> Using JHipster in development
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
