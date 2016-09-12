@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-02-17T00:00:00-00:00
 ---
 
-# Creating a service
+# <i class="fa fa-bolt"></i> Creating a service
 
 ## Introduction
 
