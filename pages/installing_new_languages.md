@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-12-10T00:00:00-00:00
 ---
 
-# Internationalization
+# <i class="fa fa-flag"></i> Internationalization
 
 ## Introduction
 
