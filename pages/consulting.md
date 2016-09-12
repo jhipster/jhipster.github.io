@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-08-27T00:00:00-00:00
 ---
 
-# Professional help
+# <i class="fa fa-user-md"></i> Professional help
 
 _Professional help is provided by core committers of JHipster._
 
