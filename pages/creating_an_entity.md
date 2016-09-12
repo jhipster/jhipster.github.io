@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-10-10T00:00:00-00:00
 ---
 
-# Creating an entity
+# <i class="fa fa-bolt"></i> Creating an entity
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
