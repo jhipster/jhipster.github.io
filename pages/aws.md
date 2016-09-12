@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2015-07-30T00:00:00-00:00
 ---
 
-# [BETA] Deploying to AWS with Elastic Beanstalk
+# <i class="fa fa-cloud-upload"></i> [BETA] Deploying to AWS with Elastic Beanstalk
 
 **WARNING!** This is a new sub-generator, of **BETA** quality. Use it at your own risk! Feedback is highly welcome!
 
