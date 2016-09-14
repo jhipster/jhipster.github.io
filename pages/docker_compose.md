@@ -237,14 +237,24 @@ In order to optimize memory usage for applications running in the container, you
 
 Set the environment variable.
 
-    ENV JAVA_OPTS=-Xmx512m -Xmx256m
+    ENV JAVA_OPTS=-Xmx512m -Xms256m
 
 ### Adding memory parameters to docker-compose.yml
 
 This solution is desired over Dockerfile. In this way, you have a single control point for your memory configuration on all containers that compose you application.
 
-Add the JAVA_OPTS into `environment` section.
+Add the `JAVA_OPTS` into `environment` section.
 
+```
     environment:
       - (...)
-      - JAVA_OPTS=-Xmx512m -Xmx256m
+      - JAVA_OPTS=-Xmx512m -Xms256m
+```
+
+Depending on the Docker base image, `JAVA_OPTS` won't work. In this case, try to use `_JAVA_OPTIONS` instead:
+
+```
+    environment:
+      - (...)
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+```
