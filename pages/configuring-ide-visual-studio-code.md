@@ -39,3 +39,16 @@ For all those tasks, there are 2 solutions:
 
 - Use the [JHipster App]({{ site.url }}/jhipster-app), which offers a graphical interface for all those commands
 - Use the terminal, for instance the internal terminal provided by Visual Studio Code, to run those commands manually
+
+## Application "hot restart" with Spring Boot devtools
+
+[Spring Boot devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) is configured by JHipster, and will "hot restart" your application when classes from your project are compiled. This is a must-have feature, as it makes your application updated on the fly.
+
+To use it within Visual Studio Code, you need to:
+
+- Run your application in a terminal, typically by typing `./mvnw`
+- In another terminal, compile your application: `./mvnw compile`
+
+In the first terminal, your JHipster application should automatically redeploy, and use your new code.
+
+If you use the JHipster App, this is only a matter of clicking on 2 buttons (one for running the application, the other for compiling it), and your application will automatically redeploy in the same way.
