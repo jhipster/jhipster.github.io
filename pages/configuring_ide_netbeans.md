@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring your IDE
+title: Configuring Netbeans
 permalink: /configuring-ide-netbeans/
 redirect_from:
   - /configuring_ide_netbeans.html

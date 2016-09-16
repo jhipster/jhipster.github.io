@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring your IDE
+title: Configuring Eclipse with Maven
 permalink: /configuring-ide-eclipse/
 redirect_from:
   - /configuring_ide_eclipse.html
@@ -15,7 +15,6 @@ Importing your JHipster application in Eclipse will require a few manual steps. 
 
 - on the Maven side (for Maven users)
 - on the Javascript side (so Eclipse can ignore a couple of folders for static files)
-
 
 ## 1. Import your project as a Maven project
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring your IDE
+title: Configuring Eclipse with Gradle
 permalink: /configuring-ide-eclipse-gradle/
 redirect_from:
   - /configuring-ide-eclipse-gradle.html
