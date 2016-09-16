@@ -101,23 +101,31 @@ To configure it, please modify your `src/main/resources/config/application-dev.y
 [Hibernate](http://hibernate.org/) is the JPA provider used by JHipster. For performance reasons, we highly recommend you to use a cache, and to tune it according to your application's needs.
 If you choose to do so, you can use either [ehcache](http://ehcache.org/) (local cache) or [Hazelcast](http://www.hazelcast.com/) (distributed cache, for use in a clustered environnement)
 
-### Do you want to use a search engine in your application?
+### Would you like to use Maven or Gradle?
+
+You can build your generated Java application either with [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/). Maven is more stable and more mature. Gradle is more flexible, easier to extend, and more hype.
+
+### Which other technologies would you like to use?
+
+This is a multi-select answer, to add one or several other technologies to the application. Available technologies are:
+
+#### Social login (Google, Facebook, Twitter)
+
+This option is only available if you selected an SQL database or a MongoDB database. It adds [Spring Social](http://projects.spring.io/spring-social/) support to JHipster, so end-users can log-in using their Google, Facebook or Twitter account.
+
+#### Search engine using ElasticSearch
 
 [Elasticsearch](https://github.com/elastic/elasticsearch) will be configured using Spring Data Elasticsearch. You can find more information on our [Elasticsearch guide]({{ site.url }}/using-elasticsearch/).
 
-### Do you want to use clustered HTTP sessions?
+#### Clustered HTTP sessions using Hazelcast
 
 By default, JHipster uses a HTTP session only for storing [Spring Security](http://docs.spring.io/spring-security/site/index.html)'s authentication and autorisations information. Of course, you can choose to put more data in your HTTP sessions.
 Using HTTP sessions will cause issues if you are running in a cluster, especially if you don't use a load balancer with "sticky sessions".
 If you want to replicate your sessions inside your cluster, choose this option to have [Hazelcast](http://www.hazelcast.com/) configured.
 
-### Do you want to use WebSockets?
+#### WebSockets using Spring Websocket
 
 Websockets can be enabled using Spring Websocket. We also provide a complete sample to show you how to use the framework efficiently.
-
-### Would you like to use Maven or Gradle?
-
-You can build your generated Java application either with [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/). Maven is more stable and more mature. Gradle is more flexible, easier to extend, and more hype.
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 
