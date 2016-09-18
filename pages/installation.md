@@ -42,7 +42,7 @@ The [JHipster development box](https://github.com/jhipster/jhipster-devbox) proj
 
 It's an easy way to get up and running very quickly with JHipster.
 
-Besides JHipster, this virtual machine includes many development tools like the Spring Tool Suite, the Atom text editor and MySQL Workbench.
+Besides JHipster, this virtual machine includes many development tools, as well as Docker, so you should have everything ready for working.
 
 Please go to the [JHipster development box page](https://github.com/jhipster/jhipster-devbox) for installation and configuration information.
 
