@@ -354,7 +354,6 @@ To use this feature, two thing have to be done:
 
     @PostConstruct
     public void setup() {
-        MockitoAnnotations.initMocks(this);
         this.restMockMvc = MockMvcBuilders
             .webAppContextSetup(context)
             .apply(springSecurity())
