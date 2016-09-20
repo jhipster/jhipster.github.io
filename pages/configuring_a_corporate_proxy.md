@@ -71,8 +71,8 @@ Edit your `~/.bowerrc` file:
 
 ```
 {
-    "proxy":"http://username:password@host;port",
-    "https-proxy":"http://username:password@host;port"
+    "proxy":"http://username:password@host:port",
+    "https-proxy":"http://username:password@host:port"
 }
 ```
 
@@ -128,14 +128,17 @@ Depending on your OS, you have to edit a specific file (`/etc/sysconfig/docker` 
 
 Then, you have to restart the docker service with: `sudo service docker restart`.
 
+It will not apply to systemd. See this [page from docker](https://docs.docker.com/engine/admin/systemd/#http-proxy)
+to configure the proxy.
+
 ### Docker with docker-machine
 
 You can create your docker-machine with:
 
 ```
 docker-machine create -d virtualbox \
-    --engine-env HTTP_PROXY=http://username:password@host;port \
-    --engine-env HTTPS_PROXY=http://username:password@host;port \
+    --engine-env HTTP_PROXY=http://username:password@host:port \
+    --engine-env HTTPS_PROXY=http://username:password@host:port \
     default
 ```
 
