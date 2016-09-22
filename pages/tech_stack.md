@@ -49,6 +49,7 @@ A complete [Spring application](http://spring.io/):
 *   [Elasticsearch](https://github.com/elastic/elasticsearch) support if you want to have search capabilities on top of your database
 *   [MongoDB](http://www.mongodb.org) support if you'd rather use a document-oriented NoSQL database instead of JPA
 *   [Cassandra](http://cassandra.apache.org/) support if you'd rather use a column-oriented NoSQL database instead of JPA
+*   [Kafka](http://kafka.apache.org/) support if you want to use a publish-subscribe messaging system
 
 Ready to go into production:
 
@@ -59,3 +60,4 @@ Ready to go into production:
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance
 *   Builds a standard WAR file or an executable JAR file
+*   Support for all major cloud providers: AWS, CloudFoundry, Heroku, Kubernetes, Docker...
