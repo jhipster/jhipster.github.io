@@ -11,6 +11,6 @@ sitemap:
 
 # <i class="fa fa-cloud-upload"></i> Openshift
 
-Openshift support has been removed, as Redhat changed its APIs and nobody in the community was interested in maintaining this sub-generator.
+Openshift support has been removed, as Red Hat changed its APIs and nobody in the community was interested in maintaining this sub-generator.
 
 If you would like to have Openshift support back, don't hesitate to contribute!

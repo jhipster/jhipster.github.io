@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-stethoscope"></i> Setting up Jenkins 1 on Linux
 
-The instructions below are for a RedHat/CentOS server but can be easily adapted for other Linux distributions.
+The instructions below are for a Red Hat/CentOS server but can be easily adapted for other Linux distributions.
 
 ## Installing Jenkins
 
