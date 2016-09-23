@@ -129,7 +129,7 @@ Websockets can be enabled using Spring Websocket. We also provide a complete sam
 
 #### Asynchronous messages using Apache Kafka
 
-Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subcribe message broker.
+Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message broker.
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 
