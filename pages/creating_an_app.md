@@ -34,7 +34,7 @@ To generate your application, type:
 
 Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#2).
 
-Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd). You can go the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
@@ -126,6 +126,10 @@ If you want to replicate your sessions inside your cluster, choose this option t
 #### WebSockets using Spring Websocket
 
 Websockets can be enabled using Spring Websocket. We also provide a complete sample to show you how to use the framework efficiently.
+
+#### Asynchronous messages using Apache Kafka
+
+Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subcribe message broker.
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 
