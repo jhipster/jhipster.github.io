@@ -54,5 +54,5 @@ You can also run the sub-generator again, by typing another time:
 
 ## More information
 
-*   [Spring Boot Cloud Foundry documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment-cloud-foundry.html)
+*   [Spring Boot Cloud Foundry documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html)
 *   [Spring Cloud Connectors](http://cloud.spring.io/spring-cloud-connectors/)
