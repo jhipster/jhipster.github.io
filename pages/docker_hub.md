@@ -108,9 +108,9 @@ Run the application in production profile, with MySQL database and ELK stack
 docker-compose -f jhipster-sample-app/prod-elk.yml up
 ```
 
-Access to the running application at: [http://localhost:8080](http://localhost:8080)
+Access to the running application at [http://localhost:8080](http://localhost:8080)
 
-Access to the Kibana dashboard at: [http://localhost:5601](http://localhost:5601)
+Access to the Kibana dashboard at [http://localhost:5601](http://localhost:5601)
 
 
 ## Sample application with Elasticsearch
@@ -154,36 +154,6 @@ Run the application in production profile, with Cassandra cluster
 ```
 docker-compose -f jhipster-sample-app-cassandra/prod.yml up
 ```
-
-## Sample microservices
-
-The images used here are:
-
-- [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry)
-- [jhipster/jhipster-sample-app-gateway](https://hub.docker.com/r/jhipster/jhipster-sample-app-gateway)
-- [jhipster/jhipster-sample-app-microservice](https://hub.docker.com/r/jhipster/jhipster-sample-app-microservice)
-
-### Production profile
-
-Run the full stack in production profile
-
-```
-docker-compose -f jhipster-sample-microservice/prod.yml up
-```
-
-### Production profile and monitoring with ELK stack
-
-Run the full stack in production profile, with ELK stack
-
-```
-docker-compose -f jhipster-sample-app-microservice/prod-elk.yml up
-```
-
-Access to the registry at: [http://localhost:8761](http://localhost:8761)
-
-Access to the gateway at: [http://localhost:8080](http://localhost:8080)
-
-Access to the Kibana dashboard at: [http://localhost:5601](http://localhost:5601)
 
 
 [organization]: https://hub.docker.com/u/jhipster/
