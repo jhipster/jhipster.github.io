@@ -55,16 +55,15 @@ At this stage you should not have any Java error but should still see some JavaS
 ![Exclude]({{ site.url }}/images/configuring_ide_eclipse_4.png)
 
 
-### Exclude 'scripts' and 'bower_components' from src/main/webapp
+### Exclude 'app' from src/main/webapp
 
 - Right click on Project -> Properties -> Javascript -> Include path
 - Click on the “source” tab and select your_project/src/main/webapp
 - Select “Excluded: (None) -> Edit -> Add multiple
-- Select `bower_components` and `scripts` and click “Ok”
-- You should also exclude
-    - `.tmp/`,
-    - `node_modules/` and
-    - `src/main/webapp/dist` (the `dist` folder will be created when you generate a production build)
+- Select  `app` and click “Ok”
+- The following folders should have been automatically excluded (if not, exclude them manually):
+    - `bower_components`
+    - `node_modules/`
 
 ![Right-click]({{ site.url }}/images/configuring_ide_eclipse_5.png)
 
