@@ -72,6 +72,8 @@ This code will be served when you run the application with the `prod` profile.
 
 **Please note** That you will still be able to debug your JavaScript application as JHipster generates [source maps](https://developers.google.com/web/tools/chrome-devtools/debug/readability/source-maps).
 
+**If you have some images missing** after the minification process, this is most likely because you are using some third-party Bower packages that do not correctly reference their images in their `bower.json` configuration. The easiest way to correct this is to add those images yourself in your `src/main/webapp/content/images` folder and change the references to those images to point there.
+
 ## GZipping
 
 Within an executable WAR file, which uses the `prod` profile, JHipster configures GZip compression on your Web resources.
