@@ -22,7 +22,9 @@ There is also Gradle plugin for Querydsl which supports configuration for spring
 
 ## Maven plugin
 
-There is also plugin for maven. Maven configuration fully described in chapter [Maven integration](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#d0e132) of the documentation. Also you have to perform the steps below.
+There is also plugin for maven. Maven configuration fully described in chapter [Maven integration](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#d0e132) of the documentation.  You also need to perform the steps below.
+
+**Note**: Do not include the `org.slf4j` dependency because it is included in Spring Boot.
 
 ## Changes
 
