@@ -338,7 +338,7 @@ public class SomeServiceTest {
 ```
 
 So with this technology you are simulating the behavior of the other service, and provide expected resource entity which would come from the origin. 
-All Beans winjecting a client will behave as mocked, so you can focus on the logic of these Beans.
+All Beans injecting a client will behave as mocked, so you can focus on the logic of these Beans.
 
 ### Emulating OAuth2 authentication
 
