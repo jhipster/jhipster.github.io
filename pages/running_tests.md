@@ -75,7 +75,7 @@ Those tests can be run using `gulp protractor` or `gulp itest`.
 
 Performance tests are done with [Gatling](http://gatling.io/), and are located in the `src/test/gatling` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
 
-Gatling tests can be run with Maven, by running `./mvnw gatling:execute`. If you have several tests, JHipster will ask which test should be run.
+Gatling tests can be run with Maven, by running `./mvnw gatling:execute`. If you have several tests, JHipster will ask which test should be run. When using Gradle you should run `./gradlew gatlingRun -x cleanResources`.
 
 **Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
