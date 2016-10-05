@@ -17,7 +17,7 @@ sitemap:
 
 This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/).
 
-<div class="alert alert-info"> <i>Tip:</i> As an alternative to Elastic Beanstalk you can also deploy your JHipster application to AWS using [Boxfuse](/boxfuse/).  
+<div class="alert alert-info"> <i>Tip:</i> As an alternative to Elastic Beanstalk you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/boxfuse/">Boxfuse</a>.  
 Boxfuse comes with first-class support for JHipster as well as support for both MySQL and PostgreSQL databases.</div>
 
 ## Limitations

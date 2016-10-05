@@ -19,7 +19,7 @@ Boxfuse comes with **first-class support for JHipster** and works by creating mi
 
 <div class="alert alert-info"><i>Tip: </i>
 
-As an alternative to Boxfuse you can also deploy your JHipster application to AWS using <a href="/aws/">Elastic Beanstalk</a>.
+As an alternative to Boxfuse you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/aws/">Elastic Beanstalk</a>.
 
 </div>
 
