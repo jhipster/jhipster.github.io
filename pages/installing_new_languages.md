@@ -27,6 +27,8 @@ These are the currently supported languages
 *   Chinese (Simplified)
 *   Chinese (Traditional)
 *   Danish
+*   English
+*   French
 *   Galician
 *   German
 *   Greek
