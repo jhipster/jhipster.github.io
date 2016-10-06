@@ -1,7 +1,6 @@
 safe:        true
 markdown: kramdown
 exclude: [node_modules, bower_components]
-url: https://jhipster.github.io
 kramdown:
   input: GFM
 gems:
