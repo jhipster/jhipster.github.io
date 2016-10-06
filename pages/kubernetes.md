@@ -19,8 +19,10 @@ This sub-generator allows deployment of your JHipster application to [Kubernetes
 
 ## Limitations
 
-- Elasticsearch is not supported yet
 - Cassandra is not supported yet
+- ELK with [JHipster Console]({{ site.url }}/monitoring/) is not supported yet
+- Kafka is not supported yet
+- Consul is not supported yet
 
 ## Pre-requisites
 
