@@ -24,5 +24,5 @@ __WARNING!__ This is a new feature, of <b>BETA</b> quality. Use it at your own r
 
 ## Limitations
 
-- The Kafka option is currently incompatible with the Gatling option (for performance testing). It is because they require different versions of Scala. This will be solved in the next Spring Cloud Steam release.
+- The Kafka option is currently incompatible with the Gatling option (for performance testing). It is because they require different versions of Scala. This will be solved in the next Spring Cloud Stream release.
 - We currently do not provide a complete example on working with Kafka, and we have no client-side code using Kafka.
