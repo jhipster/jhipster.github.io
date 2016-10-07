@@ -49,15 +49,18 @@ When you run your production application from a WAR file, the default is to use 
 
 ## Spring profiles switches
 
-JHipster comes with two additional Spring "profiles" used as switches:
+JHipster comes with three additional profiles used as switches:
 
 *   `swagger` to enable swagger
 *   `no-liquibase` to disable liquibase
+*   `shell`to enable the [Spring Boot remote shell](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-remote-shell.html)
 
 These can be used along with both the `dev` and `prod` profiles. Please note that by default, the `swagger` profile is disabled in `prod` and enabled in `dev` by setting the `spring.profiles.active` property in `application.yml`. 
 However if you are running the application from IDE using the `Application` main class, then you have to add the swagger profile explicitly by setting `spring.profiles.active=dev,swagger` using the IDE's run configuration
 
-They are only used at runtime:
+`shell` is only used at build time.
+
+`swagger` and `no-liquibase` are only used at runtime:
 
 *   In your IDE, run your main application class with `spring.profiles.active=dev,no-liquibase` (please note you need to include the `dev` or `prod` profile explicitly)
 *   With a packaged application: `./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod,no-liquibase`
@@ -65,9 +68,9 @@ They are only used at runtime:
 With Maven, you can also use those profiles directly:
 
 *   `./mvnw -Pprod,swagger,no-liquibase`
-*   `./mvnw -Pdev,no-liquibase`
+*   `./mvnw -Pdev,no-liquibase,shell`
 
 With Gradle, you can also use those profiles directly:
 
 *   `./gradlew -Pprod -Pswagger -Pno-liquibase`
-*   `./gradlew -Pno-liquibase`
+*   `./gradlew -Pno-liquibase -Pshell`
