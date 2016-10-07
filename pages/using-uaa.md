@@ -305,32 +305,40 @@ This approach addresses a scenario when machine request run over a separate OAut
 
 ## <a name="testing"></a> 5. Testing UAA applications
 
-### Stubbing Feign clients
+### Mocking Feign clients
 
 Components working with Feign clients should be testable. Using Feign in tests the same way it is used in production would force the JHipster registry and the UAA server to be up and reachable to the same machine where the tests are run. But in most cases, you don't want to test that Feign itself works (it usually does), but your components using Feign clients.
 
-JHipster provides some basic support to make this possible. When the spring profile "test" is present, Feign clients are disabled, which forces the developer to implement the client interfaces (using some static hard-coded data) and declare those implementations as `@Component`s
+To test components, which are using feign clients inside is possible using `@MockBean`, which is part of spring boot since 1.4.0.
 
-For the Feign client used above, this is how it would look like:
+Here is an example, testing `SomeService` works as expected, with mocked values for the client:
 
-``` java
+``` java 
 
-@Component
-class TestOtherClient implements OtherClient {
-  List<OtherResource> getResourcesFromOtherService() {
-    List<OtherResource> list = new ArrayList<>();
+@RunWith(SpringRunner.class)
+@SpringBootTest(App.class)
+public class SomeServiceTest {
+    
+    @MockBean
+    private OtherServiceClient otherServiceClient;
 
-    list.add(new OtherResource("some var1"));
-    list.add(new OtherResource("some var2"));
+    @Inject
+    private SomeService someService;
 
-    return list;
-  }
+    @Test
+    public void testSomeService() {
+        given(otherServiceClient.getResourcesFromOtherService())
+        .willReturn(Arrays.asList(new OtherResource(...));
+
+        someService.performActionWhichInkvokesTheAboveMentionedMethod();
+
+        //assert that your application is in the desired state
+    }
 }
 ```
 
-Since declaring that implementation as a usual Spring component, all Beans injecting a client will inject this implementation, so you can focus on the logic of these Beans.
-
-***Don't forget to declare these tests are running using profile "test" using e.g. `@ActiveProfile`***
+So with this technology you are simulating the behavior of the other service, and provide expected resource entity which would come from the origin. 
+All Beans injecting a client will behave as mocked, so you can focus on the logic of these Beans.
 
 ### Emulating OAuth2 authentication
 
@@ -346,7 +354,6 @@ To use this feature, two thing have to be done:
 
     @PostConstruct
     public void setup() {
-        MockitoAnnotations.initMocks(this);
         this.restMockMvc = MockMvcBuilders
             .webAppContextSetup(context)
             .apply(springSecurity())
