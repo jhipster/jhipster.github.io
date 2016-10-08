@@ -19,17 +19,21 @@ sitemap:
   * [Automatic documentation](#documentation)
   * [Rate limiting](#rate_limiting)
   * [Access control policy](#acl)
-4. [The JHipster Registry](#registry)
-  * [JHipster Registry overview](#registry_overview)
+4. [The JHipster Registry](#jhipster-registry)
+  * [JHipster Registry overview](#jhipster-registry-overview)
   * [Securing the JHipster Registry](#securing_registry)
   * [Application configuration with the JHipster Registry](#registry_app_configuration)
-5. [Creating microservices](#microservices)
+5. [Consul](#consul)
+  * [Consul overview](#consul_overview)
+<!--  * [Securing Consul](#securing-consul)-->
+  * [Application configuration with the JHipster Registry](#consul_app_configuration)
+6. [Creating microservices](#microservices)
   * [Generating entities](#generating_entities)
   * [Distributed caching with HazelCast](#hazelcast)
   * [Microservices with no database](#no_database)
-6. [Using Docker Compose](#docker_compose)
-7. [Monitoring with JHipster Console and the ELK stack](#monitoring)
-8. [Production](#production)
+7. [Using Docker Compose](#docker_compose)
+8. [Monitoring with JHipster Console and the ELK stack](#monitoring)
+9. [Production](#production)
   * [Going to production with Docker Swarm](#docker_swarm)
   * [Going to production with CloudFoundry](#cloudfoundry)
   * [Going to production with Heroku](#heroku)
@@ -50,7 +54,7 @@ _The rest of this guide is only for people interested in doing a microservices a
 The JHipster microservices architecture works in the following way:
 
  * A [gateway](#gateway) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an AngularJS application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
- * The [JHipster Registry](#registry) is a runtime application, using the usual JHipster structure, on which all applications registers and get their configuration from.
+ * The [JHipster Registry](#jhipster-registry) is a runtime application, using the usual JHipster structure, on which all applications registers and get their configuration from.
  * Microservices are JHipster-generated applications (using application type `microservice application` when you generate them), that handle REST requests. They are stateless, and several instances of them can be launched in parallel to handle heavy loads.
  * The [JHipster Console](https://github.com/jhipster/jhipster-console) is a monitoring & alerting console, based on the ELK stack.
 
@@ -167,9 +171,14 @@ For example, if you only want the `/api/foo` endpoint of microservice `bar` to b
             authorized-microservices-endpoints:
                 bar: /api/foo
 
-## <a name="registry"></a> The JHipster Registry
+## <a name="discovery"></a> Service Discovery and Configuration with the JHipster Registry or Consul
 
-### <a name="registry_overview"></a> JHipster Registry overview
+When generating a microservice, gateway or uaa applicaiotn, you can choose between two service registry solutions: the JHipster-Registry and Consul. In addition, those two solutions also act as a configuration server that lets you to manage your application's configuration in a central place.
+
+### <a name="jhipster-registry"></a> The JHipster Registry
+
+#### <a name="jhipster-registry-overview"></a> 
+<b>JHipster Registry Overview</b>
 
 The JHipster Registry is a runtime application, provided by the JHipster team. Like the JHipster generator, it is an Open Source, Apache 2-licensed application, and its source code is available on GitHub under the JHipster organization at [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry).
 
@@ -184,7 +193,7 @@ If you'd rather run the JHipster Registry from a Docker image, it is available a
 
 Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/) for more information on using the JHipster Registry with Docker Compose.
 
-### <a name="securing_registry"></a> Securing the JHipster Registry
+#### <a name="securing_registry"></a> <b>Securing the JHipster Registry</b>
 
 The JHipster Registry is secured by default. You can login using the usual "admin/admin" login and password that are used in normal JHipster applications.
 
@@ -195,7 +204,7 @@ In order to secure your JHipster Registry:
 - You must change the default "admin" password. This password is set using the standard Spring Boot property `security.user.password`, so you can use the usual Spring Boot mechanisms to modify it: you could modify the project's `application-*.yml` files, or add a `SECURITY_USER_PASSWORD` environment variable. The [Docker Compose sub-generator]({{ site.url }}/docker-compose/) uses the environment variable method.
 - As your applications will connect to the registry using HTTP, it is very important to secure that connection channel. There are many ways to do it, and the easiest one is probably to use HTTPS.
 
-### <a name="registry_app_configuration"></a> Application configuration with the JHipster Registry
+#### <a name="registry_app_configuration"></a> <b>Application configuration with the JHipster Registry</b>
 
 The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eureka) and also a [Spring Config Server](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html): when applications are launched they will first connect to the JHipster Registry to get their configuration. This is true for both gateways and microservices.
 
@@ -212,6 +221,39 @@ To manage your centralized configuration you just need to add `appname-profile.y
 For example, adding properties in a `gateway-prod.yml` file will set those properties only for the application named **gateway** started with a **prod** profile. Moreover, properties defined in `application[-dev|prod].yml` will be set for all your applications.
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
+
+### <a name="consul"></a> Consul
+
+#### <a name="consul-overview"></a> <b>Consul overview</b>
+
+As an alternative to the JHipster-Registry you can choose to use [Consul](https://www.consul.io/), a datacenter management solution from Hashicorp.
+Compared to Eureka it has a number of advantages:
+
+- It is easier to operate in a multi-node cluster than Eureka.
+- It favors consistency over availability so changes in the state of your cluster are propagated more quickly.
+- Consul Service discovery can simply interoperate with existing application through its [DNS interface](https://www.consul.io/docs/agent/dns.html) or [HTTP API](https://www.consul.io/docs/agent/http.html).
+
+To get started with developping applications that rely on a Consul registry, you can start a Consul instance in a docker container:
+
+- run `docker-compose -f src/main/docker/consul.yml up` to start a Consul server in `dev` mode. Consul will then be available on port `8500` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8500/](http://127.0.0.1:8500/).
+
+<!--
+#### <a name="securing_consul"></a> <b>Securing Consul</b>
+-->
+
+#### <a name="consul_app_configuration"></a> <b>Application configuration with Consul</b>
+
+If you have chosen the Consul option when generating your JHipster microservice or gateway app, they will be automatically configured to retrieve their configuration from Consul's **Key/Value store**.
+
+The K/V store can be modified using either it's UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or it's [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes are temporary and will be lost on Consul server/cluster shutdown. So, in order to help you interact easily with the Key/Value store and manage your configuration as simple YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). The **consul-config-loader** is automatically configured when running the Consul from the `consul.yml` docker-compose file.
+It can be run in two modes:
+
+- a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with the K/V store.
+- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the K/V store.
+
+Note that as with the JHipster-Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named consulapp started with a prod profile. Moreover, properties defined in `application.yml` will be set for all your applications.
+
+
 
 ## <a name="microservices"></a> Creating microservices
 
