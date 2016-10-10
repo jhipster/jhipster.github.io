@@ -252,7 +252,7 @@ It can be run in two modes:
 - a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with the K/V store.
 - a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the K/V store.
 
-Note that as with the JHipster-Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named consulapp started with a prod profile. Moreover, properties defined in `application.yml` will be set for all your applications.
+Note that as with the JHipster Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named `consulapp` started with a `prod` profile. Moreover, properties defined in `application.yml` will be set for all your applications.
 
 ## <a name="microservices"></a> Creating microservices
 
