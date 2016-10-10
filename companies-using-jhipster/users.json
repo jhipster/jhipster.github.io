@@ -258,6 +258,12 @@
       "category": "Information Technology",
       "country": "USA"
     },
+    {"name": "Région Nouvelle-Aquitaine",
+      "url": "https://www.laregion-alpc.fr/",
+      "logo": "region-alpc.png",
+      "category": "Government",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -413,6 +419,9 @@
     },
     {"name": "Codedose",
       "url": "http://www.codedose.com/"
+    },
+    {"name": "Keyhole Labs",
+      "url": "https://mockola.com/"
     }
   ]
 }
