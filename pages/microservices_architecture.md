@@ -221,7 +221,9 @@ For example, adding properties in a `gateway-prod.yml` file will set those prope
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
 
-### <a name="consul"></a> Consul
+### <a name="consul"></a> [BETA] Consul
+
+WARNING! This is a new feature, of BETA quality. Use it at your own risk! Feedback is highly welcome!
 
 #### <a name="consul-overview"></a> <b>Consul overview</b>
 
@@ -246,11 +248,11 @@ You can also use the [Docker Compose subgenerator]({{ site.url }}/docker-compose
 
 If you have chosen the Consul option when generating your JHipster microservice or gateway app, they will be automatically configured to retrieve their configuration from Consul's **Key/Value store**.
 
-The K/V store can be modified using either it's UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or it's [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes made this way are temporary and will be lost on Consul server/cluster shutdown. So, in order to help you interact easily with the Key/Value store and manage your configuration as simple YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). The **consul-config-loader** is automatically configured when starting Consul from the `consul.yml` docker-compose file but it can also be run as a standalone tool.
+The Key/Value (K/V) store can be modified using either it's UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or it's [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes made this way are temporary and will be lost on Consul server/cluster shutdown. So, in order to help you interact easily with the Key/Value store and manage your configuration as simple YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). The **consul-config-loader** is automatically configured when starting Consul from the `consul.yml` docker-compose file but it can also be run as a standalone tool.
 It can be run in two modes:
 
-- a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with the K/V store.
-- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the K/V store.
+- a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with Consul.
+- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the Key/Value store.
 
 Note that as with the JHipster Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named `consulapp` started with a `prod` profile. Moreover, properties defined in `application.yml` will be set for all your applications.
 
