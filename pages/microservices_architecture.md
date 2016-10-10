@@ -173,12 +173,11 @@ For example, if you only want the `/api/foo` endpoint of microservice `bar` to b
 
 ## <a name="discovery"></a> Service Discovery and Configuration with the JHipster Registry or Consul
 
-When generating a microservice, gateway or uaa applicaiotn, you can choose between two service registry solutions: the JHipster Registry and Consul. In addition, those two solutions also act as a configuration server that lets you to manage your application's configuration in a central place.
+When generating a microservice, gateway or uaa application, you can choose between two service registry solutions: the JHipster-Registry and Consul. In addition, those two solutions also act as a configuration server that lets you to manage your applications' configuration in a central place.
 
 ### <a name="jhipster-registry"></a> The JHipster Registry
 
-#### <a name="jhipster-registry-overview"></a>
-<b>JHipster Registry Overview</b>
+#### <a name="jhipster-registry-overview"></a> <b>JHipster Registry Overview</b>
 
 The JHipster Registry is a runtime application, provided by the JHipster team. Like the JHipster generator, it is an Open Source, Apache 2-licensed application, and its source code is available on GitHub under the JHipster organization at [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry).
 
@@ -231,11 +230,13 @@ Compared to Eureka it has a number of advantages:
 
 - It is easier to operate in a multi-node cluster than Eureka.
 - It favors consistency over availability so changes in the state of your cluster are propagated more quickly.
-- Consul Service discovery can simply interoperate with existing application through its [DNS interface](https://www.consul.io/docs/agent/dns.html) or [HTTP API](https://www.consul.io/docs/agent/http.html).
+- Consul service discovery can simply interoperate with existing applications through its [DNS interface](https://www.consul.io/docs/agent/dns.html) or [HTTP API](https://www.consul.io/docs/agent/http.html).
 
 To get started with developping applications that rely on a Consul registry, you can start a Consul instance in a docker container:
 
 - run `docker-compose -f src/main/docker/consul.yml up` to start a Consul server in `dev` mode. Consul will then be available on port `8500` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8500/](http://127.0.0.1:8500/).
+
+You can also use the [Docker Compose subgenerator]({{ site.url }}/docker-compose/#docker-compose-subgen) to generate a docker configuration for several consul-enabled applications.
 
 <!--
 #### <a name="securing_consul"></a> <b>Securing Consul</b>
@@ -245,13 +246,13 @@ To get started with developping applications that rely on a Consul registry, you
 
 If you have chosen the Consul option when generating your JHipster microservice or gateway app, they will be automatically configured to retrieve their configuration from Consul's **Key/Value store**.
 
-The Key/Value store can be modified using either its UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or its [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes are temporary and will be lost on Consul server/cluster shutdown. So, in order to help you interact easily with the Key/Value store and manage your configuration as simple YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). The **consul-config-loader** is automatically configured when running the Consul from the `consul.yml` docker-compose file.
+The K/V store can be modified using either it's UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or it's [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes made this way are temporary and will be lost on Consul server/cluster shutdown. So, in order to help you interact easily with the Key/Value store and manage your configuration as simple YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). The **consul-config-loader** is automatically configured when starting Consul from the `consul.yml` docker-compose file but it can also be run as a standalone tool.
 It can be run in two modes:
 
-- a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with the Key/Value store.
-- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the Key/Value store.
+- a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with the K/V store.
+- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the K/V store.
 
-Note that as with the JHipster Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named `consulapp` started with a `prod` profile. Moreover, properties defined in `application.yml` will be set for all your applications.
+Note that as with the JHipster-Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named consulapp started with a prod profile. Moreover, properties defined in `application.yml` will be set for all your applications.
 
 ## <a name="microservices"></a> Creating microservices
 
