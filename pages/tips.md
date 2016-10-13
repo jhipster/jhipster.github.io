@@ -27,3 +27,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 10. [Local SMTP Server]({{ site.url }}/tips/015_tip_local_smtp_server.html)
 11. [LDAP Authentication]({{ site.url }}/tips/016_tip_ldap_authentication.html)
 12. [REPL with the remote shell]({{ site.url }}/tips/017_tip_repl_with_the_remote_shell.html)
+13. [Put _userId_ inside JWT token]({{ site.url }}/tips/018_put_userId_inside_jwt_token.html)
