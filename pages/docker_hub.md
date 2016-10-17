@@ -33,9 +33,7 @@ For Mac/Windows, you will have to obtain the IP using following command: <code>d
 </div>
 
 
-## Alternative installation of JHipster
-
-This alternative installation of JHipster is possible with this image: [jhipster/jhipster](https://hub.docker.com/r/jhipster/jhipster)
+## [jhipster/jhipster](https://hub.docker.com/r/jhipster/jhipster) : an alternative installation of JHipster
 
 See the [installation]({{ site.url }}/installation/) page for full instructions.
 
@@ -60,9 +58,7 @@ docker run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 yo jhi
 You can see all tags available [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
 
 
-## JDL-Studio offline
-
-The image used here is [jhipster/jdl-studio](https://hub.docker.com/r/jhipster/jdl-studio)
+## [jhipster/jdl-studio](https://hub.docker.com/r/jhipster/jdl-studio) : JDL-Studio offline
 
 You can use JDL-Studio offline and access to it at [http://localhost:18080](http://localhost:18080)
 
@@ -70,9 +66,9 @@ You can use JDL-Studio offline and access to it at [http://localhost:18080](http
 docker run -d -p 18080:80 jhipster/jdl-studio
 ```
 
-## Sample application with H2 or MySQL
+## [jhipster/jhipster-sample-app](https://hub.docker.com/r/jhipster/jhipster-sample-app)
 
-The image used here is [jhipster/jhipster-sample-app](https://hub.docker.com/r/jhipster/jhipster-sample-app)
+It is a sample application with H2 or MySQL.
 
 ### Quick launch
 
@@ -113,9 +109,9 @@ Access to the running application at [http://localhost:8080](http://localhost:80
 Access to the Kibana dashboard at [http://localhost:5601](http://localhost:5601)
 
 
-## Sample application with Elasticsearch
+## [jhipster/jhipster-sample-app-elasticsearch](https://hub.docker.com/r/jhipster/jhipster-sample-app-elasticsearch)
 
-The image used here is [jhipster/jhipster-sample-app-elasticsearch](https://hub.docker.com/r/jhipster/jhipster-sample-app-elasticsearch)
+It is a sample application with MySQL and Elasticsearch.
 
 ### Development profile
 
@@ -133,10 +129,11 @@ Run the application in production profile, with MySQL database and Elasticsearch
 docker-compose -f jhipster-sample-app-elasticsearch/prod.yml up
 ```
 
+## [jhipster/jhipster-sample-app-mongodb](https://hub.docker.com/r/jhipster/jhipster-sample-app-mongodb)
 
-## Sample application with MongoDB
+It is a sample application with MongoDB.
 
-The image used here is [jhipster/jhipster-sample-app-mongodb](https://hub.docker.com/r/jhipster/jhipster-sample-app-mongodb)
+### Production profile
 
 Run the application in production profile, with MongoDB database
 
@@ -145,9 +142,11 @@ docker-compose -f jhipster-sample-app-mongodb/prod.yml up
 ```
 
 
-## Sample application with Cassandra
+## [jhipster/jhipster-sample-app-cassandra](https://hub.docker.com/r/jhipster/jhipster-sample-app-cassandra)
 
-The image used here is [jhipster/jhipster-sample-app-cassandra](https://hub.docker.com/r/jhipster/jhipster-sample-app-cassandra)
+It is a sample application with a Cassandra cluster.
+
+### Production profile
 
 Run the application in production profile, with Cassandra cluster
 
@@ -155,6 +154,64 @@ Run the application in production profile, with Cassandra cluster
 docker-compose -f jhipster-sample-app-cassandra/prod.yml up
 ```
 
+Scale a Cassandra node
+
+```
+docker-compose -f jhipster-sample-app-cassandra/prod.yml scale sample-cassandra-node=2
+```
+
 
 [organization]: https://hub.docker.com/u/jhipster/
 [jhipster-docker-hub]: https://github.com/jhipster/jhipster-docker-hub
+
+
+## Microservices architecture
+
+The images used here are:
+
+- [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry)
+- [jhipster/jhipster-sample-app-gateway](https://hub.docker.com/r/jhipster/jhipster-sample-app-gateway)
+- [jhipster/jhipster-sample-app-microservice](https://hub.docker.com/r/jhipster/jhipster-sample-app-microservice)
+
+### Production profile
+
+Run the full stack in production profile
+
+```
+docker-compose -f jhipster-sample-microservices/prod/prod.yml up
+```
+
+It will start:
+
+- the JHipster registry
+- the gateway
+- a MySQL database
+- the microservice
+- a PostgreSQL database
+
+
+Scale the microservice
+
+```
+docker-compose -f jhipster-sample-microservices/prod/prod.yml scale jhipstersamplemicroservice-app=2
+```
+
+### Production profile and monitoring with ELK stack
+
+Run the full stack in production profile, with ELK stack
+
+```
+docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml up
+```
+
+Scale the microservice
+
+```
+docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml scale jhipstersamplemicroservice-app=2
+```
+
+Access to the registry at: [http://localhost:8761](http://localhost:8761)
+
+Access to the gateway at: [http://localhost:8080](http://localhost:8080)
+
+Access to the Kibana dashboard at: [http://localhost:5601](http://localhost:5601)
