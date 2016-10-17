@@ -307,7 +307,7 @@ This approach addresses a scenario when machine request run over a separate OAut
 
 ### Mocking Feign clients
 
-Components working with Feign clients should be testable. Using Feign in tests the same way it is used in production would force the JHipster registry and the UAA server to be up and reachable to the same machine where the tests are run. But in most cases, you don't want to test that Feign itself works (it usually does), but your components using Feign clients.
+Components working with Feign clients should be testable. Using Feign in tests the same way it is used in production would force the JHipster Registry and the UAA server to be up and reachable to the same machine where the tests are run. But in most cases, you don't want to test that Feign itself works (it usually does), but your components using Feign clients.
 
 To test components, which are using feign clients inside is possible using `@MockBean`, which is part of spring boot since 1.4.0.
 
