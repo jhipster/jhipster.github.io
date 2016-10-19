@@ -149,7 +149,7 @@ You might want to update your entity for the following reasons:
 TIP: to regenerate all your entities at once, you can use the following commands (remove the `--force` to have questions asked when files have changed).
 
 *   Linux & Mac: ``for f in `ls .jhipster`; do yo jhipster:entity ${f%.*} --force ; done``
-*   Windows: `for %f in (.jhipster/*) do yo jhipster:entity %f --force`
+*   Windows: `for %f in (.jhipster/*) do yo jhipster:entity %~nf --force`
 
 ## Tutorial
 
