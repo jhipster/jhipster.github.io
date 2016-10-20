@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-08-20T12:00:00-00:00
+    lastmod: 2016-10-20T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -31,10 +31,9 @@ Here's what's covered on this page:
     5.1. [Modelio](#modelioexample)  
     5.2. [UML Designer](#umldesignerexample)  
     5.3. [GenMyModel](#genmymodelexample)  
-    5.4. [Visual Paradigm](#visualparadigmexample)  
-    5.5. [Enumerations](#enumerationexamples)  
-    5.6. [Table names](#tablenames)  
-    5.7. [Required relationships](#requiredrels)  
+    5.4. [Enumerations](#enumerationexamples)  
+    5.5. [Table names](#tablenames)  
+    5.6. [Required relationships](#requiredrels)  
 6. [Testing](#testing-juml)
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)
@@ -448,46 +447,6 @@ Just click on an element and write a comment in the description field.
 ![GenMyModel, commenting]({{ site.url }}/images/jhipsteruml_genmymodel_commenting.png)
 
 
-## <a name="visualparadigmexample"></a>Visual Paradigm
-
-Visual Paradigm proposes a UML editor which supports everything JHipster-UML demands (constraints, associations, etc.).
-There is one drawback however: it's not free, but proposes a free community edition (**the tests were done with this edition**).
-
-Another issue that will be discussed later: the XMI is really heavy (it usually has more than 6K lines).
-
-Apart from these drawbacks, Visual Paradigm is an interesting editor.
-
-When launching Visual Paradigm and creating a new UML project, you'll be greeted with this view:
-
-![Visual Paradigm diagram]({{ site.url }}/images/jhipsteruml_visualparadigm_1.png)
-
-As you can see on the left hand panel, we'll need the 'Class' element, 'Composition' and 'Aggregation' elements from the 'Association' element and that's all.
-
-Visual Paradigm makes it easy to add constraints to any attribute. There's one minor problem however: its name and specification semantics are not well chosen.
-
-Take this case for instance:
-
-![Visual Paradigm diagram]({{ site.url }}/images/jhipsteruml_visualparadigm_2.png)
-
-Here, even though we specified the right constraint name and value, Visual Paradigm will not display the name (it will be hidden, except for this view). Instead, the constraint's value will be displayed everywhere else (see the title attribute from the Job Entity: 'title : string {2}').
-
-Exporting an XMI file is straightforward: click 'Export' -> 'XMI' -> select 2.1 unless selected, and export for UML2.
-
-![Visual Paradigm diagram]({{ site.url }}/images/jhipsteruml_visualparadigm_3.png)
-
-After exporting your diagram, you might notice that your XMI file is quite big. Visual Paradigm exports not only the elements in the diagram, but the place the drawing and placements informations too.
-The parsing will still be quick, but may take a bit more time.
-
-That's all you need to know to start using Visual Paradigm, the example file is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/visualparadigm.uml).
-
-### Commenting
-
-Commenting is possible only for classes and attributes (not for relationships), and is pretty straightforward. Just click on an element, add a `specification`, and add a comment.
-
-Note that the comment's title isn't taken into account, only the body is.
-
-![Visual Paradigm, commenting]({{ site.url }}/images/jhipsteruml_visualparadigm_commenting.png)
-
 ## <a name="enumerationexamples"></a>Enumerations
 
 JHipster and JHipster UML support both support enumerations.
@@ -495,8 +454,6 @@ Here's how you define them:
   - For Modelio, drag and drop the `Enumeration` object and place it somewhere. Finally, add the `Enumeration Literal` object to the enum to add it;
   - For UML Designer, there is the `Enumeration` object that can be placed and used. However, the literal is not called `Enumeration Literal` but just `Literal`;
   - GenMyModel possess the objects needed: `Enum` and `Enum Literal` in the main object panel (on the left hand side of the screen).
-  - Visual Paradigm defines an object called `Enumeration` that can be used to achieve our goal. To add values, right-click the enumeration, select `Add` and add an `Enumeration Literal`;
-  - For our JDL, simply do  `enum MyEnum { A, B }` to declare an enum.
 
 ## <a name="tablenames"></a>Table names
 
