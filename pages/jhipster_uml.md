@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-10-20T12:00:00-00:00
+    lastmod: 2016-10-22T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -77,15 +77,22 @@ Finally, an issue has been reported from a Windows user using Git Bash. The JHip
 ***
 
 # <a name="install"></a>Installation
-To install JHipster-uml simply use the command:
+To install JHipster UML simply use the command:
 
  `npm install -g jhipster-uml`
+
+If, however, you don't want to install the latest version because it doesn't match your version of the generator (see below), use this command instead:
+
+  `npm install jhipster-uml --save-dev`
 
 If you want the 'bleeding edge' (almost perfectly safe to use) version, you can clone our git repo from [our GitHub project](https://github.com/jhipster/jhipster-uml):
 
   `git clone https://github.com/jhipster/jhipster-uml.git` for HTTPS
 
   `git clone git@github.com:jhipster/jhipster-uml.git` for SSH
+
+
+JHipster UML is a tool that _can_ be used with the JHipster's generator. If you're using the generator before v3.0.0, then you must use JHipster UML v1.6.5 (latest patch release). Otherwise, using v2.0.0+ is the choice for v3.0.0+ of the generator.
 
 ***
 
