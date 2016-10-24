@@ -344,13 +344,16 @@ All Beans injecting a client will behave as mocked, so you can focus on the logi
 
 Using Springs integration tests against the REST controllers is usually bypassing the security configuration, since it would make testing hard, when the only intention is to prove the controller is functional doing what it should do. But sometimes, testing a controllers security behavior is part of testing, too.
 
-For this use-case, JHipster is providing an annotation called `@WithMockOAuth2Authentication`, which can emulate a valid authentication without forcing the user or client to exist.
+For this use-case, JHipster is providing an component called `OAuth2TokenMockUtil`, which can emulate a valid authentication without forcing the user or client to exist.
 
-To use this feature, two thing have to be done:
+To use this feature, two things have to be done:
 
-#### 1. Enabling security in the mock Spring MVC context.
+#### 1. Enabling security in the mock Spring MVC context and inject the mock util
 
 ``` java
+
+    @Inject
+    private OAuth2TokenMockUtil tokenUtil;
 
     @PostConstruct
     public void setup() {
@@ -365,28 +368,26 @@ To use this feature, two thing have to be done:
 ***In this test no single instance of the controller has to be mocked, but the
 application's `WebApplicationContext`***
 
-#### 2. Using the `@WithMockOAuth2Authentication` annotation
+#### 2. Using the `OAuth2TokenMockUtil`
 
-Annotating a test method with `@WithMockOAuth2Authentication`, emulates a security
-context. `@WithMockOAuth2Authentication` can be specified with
+The util offers a method "oaut2authentication", which is usable to MockMvc "with" notation. Currently it can be configured to mock a authentication with the following fields:
 
-* clientId
 * username
-* password
-* roles (String[])
-* scope (String[])
+* roles (Set<String>)
+* scope (Set<String>)
 
 Here is an example:
 
 ``` java
 
 @Test
-@WithMockOAuth2Authentication(roles = {"USER"})
 public void testInsufficientRoles() {
-  restMockMvc.peform(get("url/requiring/ADMIN/role")).andExpect(status().isUnauthorized());
+    restMockMvc.peform(
+        get("url/requiring/ADMIN/role")
+        .with(tokenUtil.oauth2authentication("unpriveleged.user@example.com", Sets.newSet("some-scope"), Sets.newSet("ROLE_USER")))
+    ).andExpect(status().isForbidden());
 }
 ```
-
 
 [RBAC]: https://de.wikipedia.org/wiki/Role_Based_Access_Control
 [ABAC]: https://en.wikipedia.org/wiki/Attribute-Based_Access_Control
