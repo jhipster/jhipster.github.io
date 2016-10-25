@@ -20,7 +20,7 @@ _Please note that we all do this in the spirit of Open Source._
 All discussions are public, so that everyone can participate and help each other. If you need help,
 you *should* use the methods listed here.
 
-Those tools which ensure the core team knows what's going on in the project, and that everybody
+Those tools will ensure the core team knows what's going on in the project, and that everybody
 can benefit from each other's answers.
 
 ## If you have a question on how to use JHipster
