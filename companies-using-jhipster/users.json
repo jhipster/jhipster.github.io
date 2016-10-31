@@ -422,6 +422,15 @@
     },
     {"name": "Keyhole Labs",
       "url": "https://mockola.com/"
+    },
+    {"name": "Apporiented",
+      "url": "http://www.apporiented.com/"
+    },
+    {"name": "Flexilogix",
+      "url": "http://www.flexilogix.com/"
+    },
+    {"name": "Whistic",
+      "url": "https://www.whistic.com/"
     }
   ]
 }
