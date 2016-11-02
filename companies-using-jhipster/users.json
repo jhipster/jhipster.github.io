@@ -264,6 +264,18 @@
       "category": "Government",
       "country": "France"
     },
+    {"name": "Thales",
+      "url": "https://www.thalesgroup.com",
+      "logo": "thales.png",
+      "category": "Defense",
+      "country": "France"
+    },
+    {"name": "Sopra Steria",
+      "url": "http://www.soprasteria.com/",
+      "logo": "sopra-steria.png",
+      "category": "System Integrator",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -431,6 +443,9 @@
     },
     {"name": "Whistic",
       "url": "https://www.whistic.com/"
+    },
+    {"name": "Virtugro Corporation",
+      "url": "http://www.virtugro.com/"
     }
   ]
 }
