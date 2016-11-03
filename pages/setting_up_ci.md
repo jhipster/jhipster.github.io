@@ -6,22 +6,23 @@ redirect_from:
   - /setting_up_ci.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-01-09T12:40:00-00:00
+    lastmod: 2016-11-03T12:40:00-00:00
 ---
 
 # <i class="fa fa-stethoscope"></i> Setting up Continuous Integration
 
-Setting up your own continuous integration server using Jenkins for a JHipster application is harder than for a classic Spring MVC application because of all the tools required to build and test the client code.
+Setting up Continuous Integration (CI) for a JHipster application is harder than for a classic typical Spring MVC application because of the complexity associated with maintaining a build composed of 2 software stacks:
 
-It's harder because you have to manage 2 software stacks in your build process:
+- the Java back-end code with Maven or Gradle
+- the Javascript front-end with NodeJS, NPM and Gulp
 
-- Java/Maven for the server code and the build orchestration
-- Javascript/NodeJS/Gulp/Bower for client code
+Each stack comes with its own dependency management (maven artifacts, npm packages) with potential conflicts to solve.
 
-Each stack comes with its own dependency management (artifacts, npm) with potential conflicts to solve.
+JHipster should support the following CI systems out of the box:
 
-Here are specific documentation pages to help you with your setup:
+- Jenkins:
+    - [Setting up Jenkins 1]({{ site.url }}/setting-up-ci-jenkins1/)
+    - [Setting up Jenkins 2]({{ site.url }}/setting-up-ci-jenkins2/) (recommended)
+- Travis: refer to the [Travis Documentation](https://docs.travis-ci.com/user/getting-started/), note that a `.travis.yml` configuration file is generated with your application.
 
-- [Setting up Jenkins 2]({{ site.url }}/setting-up-ci-jenkins2/)
-- [Setting up Jenkins 1 on Linux]({{ site.url }}/setting-up-ci-linux/)
-- [Setting up Jenkins 1 on Windows]({{ site.url }}/setting-up-ci-windows/)
+Moreover, the [JHipster CI module](https://github.com/pascalgrimaud/generator-jhipster-ci) provides support for other CI systems like Gitlab CI and Circle CI.
