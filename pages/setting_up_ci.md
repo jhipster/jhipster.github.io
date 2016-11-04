@@ -14,9 +14,9 @@ sitemap:
 Setting up Continuous Integration (CI) for a JHipster application is harder than for a classic typical Spring MVC application because of the complexity associated with maintaining a build composed of 2 software stacks:
 
 - the Java back-end code with Maven or Gradle
-- the Javascript front-end with NodeJS, NPM and Gulp
+- the JavaScript front-end with NodeJS, NPM and Gulp
 
-Each stack comes with its own dependency management (maven artifacts, npm packages) with potential conflicts to solve.
+Each stack comes with its own dependency management (Maven artifacts, NPM packages) with potential conflicts to solve.
 
 JHipster should support the following CI systems out of the box:
 

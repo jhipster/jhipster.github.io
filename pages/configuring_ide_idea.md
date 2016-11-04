@@ -47,7 +47,7 @@ Now click on the original `+` button which you used to add Spring in the first p
 
 You should now have Spring support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
 
-## Javascript Code Support (not available in Community Edition)
+## JavaScript Code Support (not available in Community Edition)
 
 Go and open `IntelliJ IDEA → Preferences...`.
 
@@ -77,6 +77,6 @@ By default IntelliJ IDEA does not automatically compile files when the applicati
 ## Maven IDE profile
 
 If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
-which currently only includes applying the MapStruct annotation processor. 
+which currently only includes applying the MapStruct annotation processor.
 
-Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` maven profile to activate it. 
+Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` maven profile to activate it.

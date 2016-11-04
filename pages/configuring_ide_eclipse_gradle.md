@@ -11,8 +11,8 @@ sitemap:
 
 # <i class="fa fa-keyboard-o"></i> Configuring Eclipse with Gradle
 
-To get full gradle support in eclipse you should install the [buildship plugin](https://gradle.org/eclipse/).
-Configuring the [Javascript]({{ site.url }}/configuring-ide-eclipse/) side you can follow the instructions for maven.
+To get full Gradle support in eclipse you should install the [buildship plugin](https://gradle.org/eclipse/).
+For configuring the [JavaScript]({{ site.url }}/configuring-ide-eclipse/) side you can follow the instructions for Maven.
 
 ## 1. Import your project as a Gradle project
 

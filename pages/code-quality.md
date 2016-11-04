@@ -13,7 +13,7 @@ Code quality can be easily analyzed using [SonarQube](http://sonarqube.com/), wh
 
 ## Using SonarQube with JHipster
 
-JHispter provides a specific Docker Compose configuration for SonarQube ([here is the JHipster Docker Compose documentation]({{ site.url }}/docker-compose/)) that provides an out-of-the box SonarQube instance. At the root of your project, please run:
+JHipster provides a specific Docker Compose configuration for SonarQube ([here is the JHipster Docker Compose documentation]({{ site.url }}/docker-compose/)) that provides an out-of-the box SonarQube instance. At the root of your project, please run:
 
     docker-compose -f src/main/docker/sonar.yml up -d
 

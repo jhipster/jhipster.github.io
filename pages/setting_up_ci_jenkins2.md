@@ -29,7 +29,7 @@ Launch the [Docker image](https://hub.docker.com/r/jenkinsci/jenkins/) (the defa
 
 `docker run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkinsci/jenkins`
 
-## Configuring Jenkins2
+## Configuring Jenkins 2
 
 You could install NodeJS globally but it's very likely that you may want to have different versions of NodeJS for different projects.
 

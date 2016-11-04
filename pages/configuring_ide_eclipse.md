@@ -14,7 +14,7 @@ sitemap:
 Importing your JHipster application in Eclipse will require a few manual steps. You will need to do some configuration:
 
 - on the Maven side (for Maven users)
-- on the Javascript side (so Eclipse can ignore a couple of folders for static files)
+- on the JavaScript side (so Eclipse can ignore a couple of folders for static files)
 
 ## 1. Import your project as a Maven project
 
@@ -74,7 +74,7 @@ At this stage you should not have any Java error but should still see some JavaS
 ### Maven IDE profile
 
 If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
-which currently only includes applying the MapStruct annotation processor. 
+which currently only includes applying the MapStruct annotation processor.
 
 - Right click on Project -> Properties -> Maven
 - In "Active Maven Profiles", type `IDE`
