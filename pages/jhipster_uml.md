@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-10-22T12:00:00-00:00
+    lastmod: 2016-11-11T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -49,8 +49,7 @@ Here is a list of the editors we support:
 
   - [Modelio](https://www.modeliosoft.com/);
   - [UML Designer](http://www.umldesigner.org/);
-  - [GenMyModel](https://www.genmymodel.com/) (not free, but online);
-  - [Visual Paradigm](http://www.visual-paradigm.com/) (not free).
+  - [GenMyModel](https://www.genmymodel.com/) (not free, but online).
 
 ***
 
@@ -81,7 +80,7 @@ To install JHipster UML simply use the command:
 
  `npm install -g jhipster-uml`
 
-If, however, you don't want to install the latest version because it doesn't match your version of the generator (see below), use this command instead:
+If, however, you don't want to install the latest version globally because it doesn't match your version of the generator (see below) or if you want it contained locally, use this command instead:
 
   `npm install jhipster-uml --save-dev`
 
@@ -372,8 +371,6 @@ You'll then be presented by a view like this one:
 
 Double-click on 'Class diagram' under 'Design' category.
 You can now see on the right the 'Palette'. You only need these objects: 'Class', 'PrimitiveType', 'DataType' (both under 'Enumeration'), 'Composition' and 'Aggregation' (both under 'Association').
-
-As mentioned with Modelio, our parser system doesn't care if you use an aggregation or a composition. You can use whatever you want.
 
 With UML Designer, you can create custom types by either using a DataType or a PrimitiveType (the parser recognizes both).
 
