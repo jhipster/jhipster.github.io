@@ -119,7 +119,7 @@ This option is only available if you selected an SQL database or a MongoDB datab
 
 #### Clustered HTTP sessions using Hazelcast
 
-By default, JHipster uses a HTTP session only for storing [Spring Security](http://docs.spring.io/spring-security/site/index.html)'s authentication and autorisations information. Of course, you can choose to put more data in your HTTP sessions.
+By default, JHipster uses a HTTP session only for storing [Spring Security](http://docs.spring.io/spring-security/site/index.html)'s authentication and authorisation information. Of course, you can choose to put more data in your HTTP sessions.
 Using HTTP sessions will cause issues if you are running in a cluster, especially if you don't use a load balancer with "sticky sessions".
 If you want to replicate your sessions inside your cluster, choose this option to have [Hazelcast](http://www.hazelcast.com/) configured.
 
