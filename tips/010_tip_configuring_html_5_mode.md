@@ -14,9 +14,21 @@ As you may noticed, AngularJS uses a "#" in it's urls. HTML5Mode of AngularJS re
 
 ## Activate HTML 5 Mode
 
-Open the `app.js` file and add this line in `config` method:
+Create `html5.mode.config.js` file in `webapp/app/blocks/config/` directory:
 
-    $locationProvider.html5Mode({ enabled: true, requireBase: true });
+    (function() {
+      'use strict';
+
+      angular
+        .module('<YourAppName>')
+        .config(html5ModeConfig);
+
+      html5ModeConfig.$inject = ['$locationProvider'];
+
+      function html5ModeConfig($locationProvider) {
+        $locationProvider.html5Mode({ enabled: true, requireBase: true });
+      }
+    })();
 
 Then open `index.html` and add this line in `head` tag:
 
