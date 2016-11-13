@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-11-11T12:00:00-00:00
+    lastmod: 2016-11-13T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -298,7 +298,10 @@ In JHipster-UML, each editor has been tested with the Oracle example. If you wis
 
 **Note for Mac users: Modelio is behaving weirdly on Mac (the GUI), it may be caused by the graphics and window manager on Mac, as it has not been diagnosed on Linux Ubuntu. It works, but the interaction may not be pleasant.**
 
-**Important version note: Modelio v3.3 is tested and working, however a bug exists in v3.4 preventing the user from exporting the diagram. This bug is fixed as of v3.4.1.**
+**Important version notes:**  
+  - Modelio v3.3 is tested and working, however a bug exists in v3.4 preventing the user from exporting the diagram. This bug is fixed as of v3.4.1.
+  - Modelio v3.5.X introduces a bug when dealing with bidirectional Many-to-Many relationships (the error when JHipster UML parses the XMI is `Cannot read property '0' of undefined`). This problem seems to have been fixed in later version (v3.6.X).
+
 
 Modelio can be downloaded for free [here](https://www.modelio.org/). Make sure you have Java 8 if you're downloading any of the 3.3+ versions (it won't work otherwise).
 
