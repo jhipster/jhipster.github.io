@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
 
-        <title>JHipster - A hipster stack for Java developers</title>
+        <title>JHipster presentation slides</title>
 
-        <meta name="description" content="Hipster stack for Java developers. Yeoman + Maven + Spring + AngularJS in one handy generator.">
+        <meta name="description" content="Hipster stack for Java developers. Yeoman + Spring + AngularJS in one handy generator.">
         <meta name="author" content="Julien Dubois">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,8 +40,8 @@
 
                 <section>
                     <h2>Welcome, Java Hipster</h2>
-                    <img src="images/logo-jhipster-drink-coffee.png" style="border:0;"/>
-                    <h3>Yeoman + Maven + Spring + AngularJS in one handy generator</h3>
+                    <img src="images/logo-jhipster-drink-coffee.png" class="jhipster-logo"/>
+                    <h3>Yeoman + Spring + AngularJS in one handy generator</h3>
                     <p>
                         <a href="http://jhipster.github.io">http://jhipster.github.io</a>
                     </p>
@@ -87,7 +87,7 @@
                         <p>Modern websites should be able to handle <i>huge</i> numbers of concurrent users</p>
                         <p>All using massive RESTful applications, which will hit your back-end servers <b>hard</b></p>
                         <hr/>
-                        <h3><i>We need robust, high-performance servers</i></h3>
+                        <h3><i>We need robust, scalable high-performance servers</i></h3>
                     </section>
                     <section>
                         <h3><i>Our goal is to solve those issues</i></h3>
@@ -104,7 +104,7 @@
                 <section>
                     <section data-background="#4d7e65" data-background-transition="slide">
                         <h1>Client-side technologies</h1>
-                        <h3>Yeoman, Grunt, Bower, AngularJS</h3>
+                        <h3>Yeoman, Gulp, Bower, AngularJS, Bootstrap</h3>
                     </section>
                     <section>
                         <h1>Yeoman</h1>
@@ -119,14 +119,14 @@
                         </pre>
                     </section>
                     <section>
-                        <h1>Grunt</h1>
-                        <h3>Grunt is a JavaScript task runner</h3>
+                        <h1>Gulp</h1>
+                        <h3>Gulp is a JavaScript task runner</h3>
                         <ul>
                             <li>For development, it will allow you to have "live editing" of your code, run your tests in the background...</li>
                             <li>For production, it will compress and optimize all your resources, compile your Sass code...</li>
                         </ul>
                         <pre>
-                            <code data-trim contenteditable>grunt test</code>
+                            <code data-trim contenteditable>gulp test</code>
                         </pre>
                     </section>
                     <section>
@@ -185,11 +185,11 @@
                 <section>
                     <section data-background="#4d7e65" data-background-transition="slide">
                         <h1>Server-side technologies</h1>
-                        <h3>Maven, Spring, Spring MVC REST, Spring Data JPA</h3>
+                        <h3>Maven, Spring, Spring MVC REST, Spring Data JPA, Netflix OSS</h3>
                     </section>
                     <section>
-                        <h1>Maven</h1>
-                        <h3>The most popular Java build tool</h3>
+                        <h1>Maven | Gradle</h1>
+                        <h3>The most popular Java build tools</h3>
                         <ul>
                             <li>Well-known, pre-defined directories and goals</li>
                             <li>Integration with major IDEs</li>
@@ -197,7 +197,10 @@
                         </ul>
                         <pre>
                             <code data-trim contenteditable>
-mvn
+./mvnw spring-boot:run
+                            </code>
+                            <code data-trim contenteditable>
+./gradlew bootRun
                             </code>
                         </pre>
                     </section>
@@ -208,6 +211,7 @@ mvn
                             <li>IoC, AOP and abstractions to ease application coding</li>
                             <li>Fast and lightweight, and extremely powerful <i>when needed</i></li>
                             <li>Out-of-the-box configuration by Spring Boot</li>
+                            <li>Live reload of application</li>
                         </ul>
                         <pre>
                             <code data-trim contenteditable>
@@ -221,6 +225,15 @@ public class UserService {
 }
                             </code>
                         </pre>
+                    </section>
+                    <section>
+                        <h1>Netflix OSS</h1>
+                        <h3>Netflix OSS provides great tools and frameworks for microservices</h3>
+                        <ul>
+                            <li>Eureka - Service registry for load balancing and failover.</li>
+                            <li>Zuul - Proxy for dynamic routing, monitoring and security</li>
+                            <li>Ribbon - software load balancing for services</li>
+                        </ul>
                     </section>
                     <section>
                         <h1>Liquibase</h1>
@@ -255,7 +268,7 @@ public class User implements Serializable {
                         <h1>Spring Data JPA</h1>
                         <h3>Adds extra syntaxic sugar on top of JPA</h3>
                         <ul>
-                            <li>Generate your JPA repositories <i>automatically</i></li>
+                            <li>Generates your JPA repositories <i>automatically</i></li>
                             <li>Removes a lot of boilerplate code</li>
                         </ul>
                         <pre>
@@ -311,7 +324,7 @@ public class User implements Serializable {
                         <ul>
                             <li>Leading tool, widely used across all industries</li>
                             <li>Secures URLs and Java code (Spring Beans)</li>
-                            <li>Works both with stateful (cookies) and stateless (OAuth2) Web application architectures</li>
+                            <li>Works both with stateful (cookies) and stateless (OAuth2/JWT) Web application architectures</li>
                         </ul>
                     </section>
                     <section>
@@ -352,7 +365,6 @@ public class AccountResource {
                         <h1>Monitoring</h1>
                         <h3>Ready for production with Metrics</h3>
                         <ul>
-                            <li>Formerly Yammer Metrics</li>
                             <li>Monitors the JVM, app server, Spring beans, cache, and more!</li>
                             <li>JMX or Graphite reporting</li>
                         </ul>
@@ -370,7 +382,7 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <h3>To the cloud and beyond!</h3>
                         <ul>
                             <li>Deployments should be easy on-premise and in the cloud</li>
-                            <li>Leading cloud providers like Cloud Foundry, Heroku and OpenShift all provide specific tooling and deployment options</li>
+                            <li>Leading cloud providers like Cloud Foundry, Heroku and Amazon Web Services all provide specific tooling and deployment options</li>
                         </ul>
                     </section>
 
@@ -384,12 +396,11 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                     <section>
                         <h3>You said <i>hype</i>?</h3>
                         <hr/>
-                        <p>At the time of this writing (05/2015), the project is 18 months old:</p>
+                        <p>At the time of this writing (May, 2016), JHipster has:</p>
                         <ul>
-                            <li>We have 2,169 GitHub stars and 119 contributors</li>
-                            <li>We are the 3rd most popular Yeoman generator</li>
-                            <li>We have 250K page views this month</li>
-                            <li>We've been featured on Websites everywhere (Infoworld, SD Times, JavaWorld, Reddit...)</li>
+                            <li>223 contributors, including 13 core members</li>
+                            <li>4,210 GitHub stars and 928 forks</li>
+                            <li>220,000 installations</li>
                             <li>And it's growing rapidly</li>
                         </ul>
                         <hr/>
@@ -398,8 +409,9 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                     <section>
                         <h3>We've seen lots of cool technologies</h3>
                         <ul>
-                            <li>Can Grunt and Maven be friends?</li>
+                            <li>Can Gulp and Maven be friends?</li>
                             <li>Can AngularJS and Spring MVC REST be friends?</li>
+                            <li>Can Netflix OSS and Spring be friends?</li>
                             <li>We can <i>guarantee</i> you that having everything working together smoothly, with security, caching and monitoring, isn't easy...</li>
                         </ul>
                     </section>
@@ -408,25 +420,39 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <ul>
                             <li>JHipster creates a complete working application, with all those technologies</li>
                             <li>Everthing just works out-of-the-box</li>
-                            <li>You have your Yeoman workflow working great with your Maven goals!</li>
+                            <li>You have your Gulp workflow working great with your Maven goals!</li>
+                            <li>You have Docker configuration to run everything smoothly!</li>
                         </ul>
                     </section>
                     <section>
                         <h3>But wait, there's more!</h3>
                         <ul>
-                            <li>"entity" sub-generator to generate a complete JPA entity, from database to AngularJS</li>
-                            <li>"service" sub-generator to generate a Spring business service</li>
+                            <li><strong>"entity"</strong> sub-generator to generate a complete JPA entity, from database to AngularJS</li>
+                            <li><strong>"import-jdl"</strong> sub-generator to generate a complex entity model using <a href="https://jhipster.github.io/jdl-studio/" target="_blank">JDL Studio</a></li>
+                            <li><strong>"service"</strong> sub-generator to generate a Spring business service</li>
+                            <li><strong>"languages"</strong> sub-generator to add languages for i18n</li>
                             <li>Great support for Spring Security: Ajax endpoints, secured remember-me, audits...</li>
                             <li>Great monitoring screen using Metrics</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>That's not over yet, there's even more!</h3>
+                        <ul>
+                            <li>Great support for creating microservices and gateways</li>
+                            <li>JHipster Registry (Netflix Eureka + Spring cloud config server) provided out of the box</li>
+                            <li>JHipster Console with ELK (Elasticsearch + Logstash + Kibana) monitoring out of the box</li>
+                            <li>Great support for Docker</li>
+                            <li>Additional JHipster <a href="https://jhipster.github.io/modules/marketplace/" target="_blank">Modules</a> to add more features</li>
                         </ul>
                     </section>
                     <section>
                         <h3>Production-ready</h3>
                         <ul>
                             <li>Specific Spring profile with GZipping and HTTP caching headers</li>
-                            <li>JavaScript &amp; CSS optimization and minification by Grunt</li>
+                            <li>JavaScript &amp; CSS optimization and minification by Gulp</li>
                             <li>Executable or standard WAR file, with monitoring enabled</li>
-                            <li>Sub-generators for deploying automatically to Cloud Foundry, Heroku and OpenShift</li>
+                            <li>Sub-generators for deploying automatically to Cloud Foundry, Heroku and AWS</li>
+                            <li><strong>"docker-compose"</strong> sub-generator to generate Docker configurations for deploying microservices to production</li>
                         </ul>
                     </section>
                 </section>
@@ -447,21 +473,24 @@ npm install -g generator-jhipster
                     </section>
                     <section>
                         <h1>Create an application</h1>
+                        <p>And use the embedded Maven wrapper to run it<br>
+                            <i>(hot reload of your application will work automatically)</i>
+                        </p>
                         <pre>
                             <code data-trim contenteditable>
 yo jhipster
-mvn
+./mvnw
                             </code>
                         </pre>
                     </section>
                     <section>
                         <h1>Client-side live reload</h1>
                         <p>
-                            Live reload of your client-side code (HTML, CSS, JavaScript) works thanks to Grunt. Edit any file and your browser will refresh automatically:
+                            Live reload of your client-side code (HTML, CSS, JavaScript) works thanks to Gulp and Browsersync. Edit any file and your browser will refresh automatically:
                       </p>
                         <pre>
                             <code data-trim contenteditable>
-grunt
+gulp
                             </code>
                         </pre>
                     </section>
@@ -469,18 +498,19 @@ grunt
                         <h1>Add an entity</h1>
                         <pre>
                             <code data-trim contenteditable>
-yo jhipster:entity foo
+yo jhipster:entity Foo
                             </code>
                         </pre>
                     </section>
 
                     <section>
                         <h1>Run in production</h1>
+                        <p><i>(Using Docker to run the database)</i></p>
                         <pre>
                             <code data-trim contenteditable>
-mvn -Pprod package
-cd target/
-java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod
+./mvnw -Pprod package
+docker-compose -f src/main/docker/mysql.yml up -d
+java -jar target/*.war --spring.profiles.active=prod
                             </code>
                         </pre>
 

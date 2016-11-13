@@ -13,7 +13,7 @@ What's new
 
 This is a maintenance release for our latest v1.10.0 version. For your information, maintenance is done on the "v1.x_maintenance" branch, and contains only important bug fixes that been merged on the "master" branch (which contains the new v2.0.0 code).
 
-The v2.0.0 version is taking some time to finish, as we have changed many parts of the generator. You can follow our changes on [our Github issue tracker, using the milestone "2.0.0"](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.0.0). When this is all finished, we will release a document listing what's new and what's cool in the v2.0.0 release.
+The v2.0.0 version is taking some time to finish, as we have changed many parts of the generator. You can follow our changes on [our GitHub issue tracker, using the milestone "2.0.0"](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.0.0). When this is all finished, we will release a document listing what's new and what's cool in the v2.0.0 release.
 
 This is why, as we have a couple of important fixes on the v1.x version, we have decided to release this maintenance version.
 

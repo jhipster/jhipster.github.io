@@ -8,6 +8,11 @@ JHipster release 2.5.0
 
 *JHipster gives you Spring Boot + AngularJS working together in one handy Yeoman generator.*
 
+Documentation
+----------
+
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
+
 What's new
 ----------
 
@@ -20,7 +25,7 @@ Our REST interfaces have also been improved:
 
 We are also going to improve the "GET" verb and add pagination in a future release: of course when you do performance tests with Gatling, not having pagination is an issue! If you have some feedback on using pagination, thank you for sharing it! Here is our current roadmap:
 
-- On the backend, follow the principles used by the [Github API](https://developer.github.com/v3/#pagination). You can have more information on doing pagination on a REST API on this [best practices document](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
+- On the backend, follow the principles used by the [GitHub API](https://developer.github.com/v3/#pagination). You can have more information on doing pagination on a REST API on this [best practices document](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
 - Maybe we will use the pagination support from Spring Data, but we are not sure about this yet
 - On the front-end, we will add [ngTable](http://bazalt-cms.com/ng-table/) support
 

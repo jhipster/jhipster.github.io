@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">{% if '/index.html' == page.url %}
-    <meta name="description" content="JHipster is a fully Open Source, widely used application generator. It leverages cool technologies like Spring Boot, AngularJS and Yeoman to give you a high level of productivity and quality.">{% endif %}
-    <meta name="author" content="Julien Dubois">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">{% if '/index.html' == page.url or '/' == page.url %}
+    <meta name="description" content="JHipster is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + AngularJS projects!">{% endif %}
+    <meta name="author" content="JHipster Team">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@java_hipster" />
     <meta name="twitter:title" content="Generate a full stack Java + JavaScript application in a few steps" />
     <meta name="twitter:description" content="JHipster is a fully Open Source, widely used application generator. It leverages cool technologies like Spring Boot, AngularJS and Yeoman to give you a high level of productivity and quality." />
-    <meta name="twitter:image:src" content="http://jhipster.github.io/images/screenshot_1.png" />
+    <meta name="twitter:image:src" content="http://jhipster.github.io/img/screenshot_1.png" />
     <meta name="twitter:url" content="http://jhipster.github.io/" />
-
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#353d47">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#353d47">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#353d47">
     <title>{{ page.title }}</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
 
+    <!-- CSS Libs -->
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/dataTables.bootstrap.css">
+    <!-- CSS App -->
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/themes/flat-blue.css">
+    {% if page.home == true %}
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/home.css">
+    {% endif %}
     <!-- Bootstrap Docs CSS subset to get icon -->
-    <link href="{{ site.url }}/css/bootstrap-docs.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="{{ site.url }}/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="{{ site.url }}/css/plugins/timeline.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{ site.url }}/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- JHipster CSS -->
-    <link href="{{ site.url }}/css/app.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{ site.url }}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- JHipster Font -->
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!--<link href="/css/bootstrap-docs.css" rel="stylesheet">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,184 +50,365 @@
     <![endif]-->
 
     <!-- Favicon with QHD -->
-    <link rel="icon" type="image/png" href="/images/favfa fa-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/images/favfa fa-16x16.png" sizes="16x16" />
-  </head>
+    <link rel="icon" type="image/png" href="{{ site.url }}/img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ site.url }}/img/favicon-16x16.png" sizes="16x16" />
+</head>
 
-  <body>
+<body class="flat-blue">
+    <div class="app-container{% if page.home == true %} home{% else %} expanded {% endif %}">
+        <div class="row content-container">
+            <nav class="navbar navbar-inverse navbar-fixed-top navbar-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-expand-toggle{% if page.home != true %} fa-rotate-90{% endif %}">
+                            <i class="fa fa-bars icon"></i>
+                        </button>
+                        <ol class="breadcrumb navbar-breadcrumb">
+                            <li class="active"></li>
+                        </ol>
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                            <i class="fa fa-th icon"></i>
+                        </button>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs light">
+                            <i class="fa fa-times icon"></i>
+                        </button>
+                        {% if page.home == true %}
+                        <li class="page-scroll">
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#opts">Options</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#quick">Quick Start</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#modules">Modules</a>
+                        </li>
+                        {% endif %}
+                        <li class="">
+                            <a href="https://github.com/jhipster/generator-jhipster" class="dropdown-toggle navlink" target="_blank" role="button"><i class="fa fa-github fa-2x"></i></a>
+                        </li>
+                    </ul>
 
-    <div id="wrapper">
-
-      <!-- Sidebar -->
-      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="fa fa-bars"></span>
-          </button>
-
-          <a class="navbar-brand" href="{{ site.url }}/">JHipster</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li {% if '/index.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/"><i class="fa fa-home"></i> Home</a></li>
-                    <li {% if '/releases.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/releases.html"><i class="fa fa-file-text-o"></i> Release notes</a></li>
-                    <li>
-                        <a href="#"><i class="fa fa-road"></i> JHipster in a few minutes<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/tech_stack.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tech_stack.html"><i class="fa fa-stack-overflow"></i> Technology stack</a></li>
-                            <li {% if '/presentation' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/presentation" target="_blank"><i class="fa fa-desktop"></i> Official JHipster slides</a></li>
-                            <li {% if '/screenshots.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/screenshots.html"><i class="fa fa-picture-o"></i> JHipster in 5 screenshots</a></li>
-                            <li {% if '/video_tutorial.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/video_tutorial.html"><i class="fa fa-film"></i> Video tutorial (20 minutes)</a></li>
+                </div>
+            </nav>
+            <div class="side-menu sidebar-inverse">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="side-menu-container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="/">
+                                <div class="icon"><img src="{{ site.url }}/img/logo-jhipster2x.png" height="50px"></div>
+                                <div class="title brand">JHipster </div>
+                            </a>
+                            <button type="button" class="navbar-expand-toggle pull-right visible-xs">
+                                <i class="fa fa-times icon"></i>
+                            </button>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li {% if '/index.html' == page.url %}class="active" {% endif %}>
+                                <a href="/">
+                                    <span class="icon fa fa-home"></span><span class="title">Home</span>
+                                </a>
+                            </li>
+                            <li {% if '/releases/' == page.url %}class="active" {% endif %}>
+                                <a href="{{ site.url }}/releases/">
+                                    <span class="icon fa fa-file-text-o"></span><span class="title">Release notes</span>
+                                </a>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-1">
+                                    <span class="icon fa fa-road"></span><span class="title">JHipster in a few minutes</span>
+                                </a>
+                                <!-- Dropdown level 1 -->
+                                <div id="dropdown-1" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/tech-stack/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tech-stack/"><i class="fa fa-fw fa-stack-overflow"></i> Technology stack</a></li>
+                                            <li {% if '/presentation' == page.url %}class="active" {% endif %}><a href="/presentation" target="_blank"><i class="fa fa-fw fa-desktop"></i> Official JHipster slides</a></li>
+                                            <li {% if '/screenshots/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/screenshots/"><i class="fa fa-fw fa-picture-o"></i> JHipster in 5 screenshots</a></li>
+                                            <li {% if '/video-tutorial/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/video-tutorial/"><i class="fa fa-fw fa-film"></i> Video tutorial (20 minutes)</a></li>
+                                            <li {% if '/companies-using-jhipster/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/companies-using-jhipster/"><i class="fa fa-fw fa-thumbs-up"></i> Companies using JHipster</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-2">
+                                    <span class="icon fa fa-fw fa-wrench"></span><span class="title">Setting up your environment</span>
+                                </a>
+                                <!-- Dropdown level 1 -->
+                                <div id="dropdown-2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/installation/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installation/"><i class="fa fa-fw fa-cloud-download"></i> Installing JHipster</a></li>
+                                            <li {% if '/configuring-a-corporate-proxy/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/configuring-a-corporate-proxy/"><i class="fa fa-fw fa-exchange"></i> Configuring a proxy</a></li>
+                                            <li {% if '/jhipster-app/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jhipster-app/"><i class="fa fa-fw fa-laptop"></i> JHipster App</a></li>
+                                            <li {% if '/configuring-ide/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/configuring-ide/"><i class="fa fa-fw fa-keyboard-o"></i> Configuring your IDE</a></li>
+                                            <li {% if '/docker-compose/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/docker-compose/"><i class="fa fa-fw fa-music"></i> Docker Compose</a></li>
+                                            <li {% if '/shell-plugins/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/shell-plugins/"><i class="fa fa-fw fa-terminal"></i> Shell Plugins</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-3"><span class="icon fa fa-fw fa-list-ol"></span><span class="title">Core JHipster tasks</span></a>
+                                <div id="dropdown-3" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/microservices-architecture/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-architecture/"><i class="fa fa-fw  fa-sitemap"></i> Doing microservices</a></li>
+                                            <li {% if '/creating-an-app/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-app/"><i class="fa fa-fw fa-rocket"></i> Creating an application</a></li>
+                                            <li {% if '/creating-an-entity/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-entity/"><i class="fa fa-fw fa-bolt"></i> Creating an entity</a></li>
+                                            <li {% if '/creating-a-service/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-a-service/"><i class="fa fa-fw fa-bolt"></i> Creating a service</a></li>
+                                            <li {% if '/using-dtos/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-dtos/"><i class="fa fa-fw fa-briefcase"></i> Creating DTOs</a></li>
+                                            <li {% if '/managing-relationships/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/managing-relationships/"><i class="fa fa-fw fa-sitemap"></i> Managing relationships</a></li>
+                                            <li {% if '/installing-new-languages/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installing-new-languages/"><i class="fa fa-fw fa-flag"></i> Internationalization</a></li>
+                                            <li {% if '/upgrading-an-application/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/upgrading-an-application/"><i class="fa fa-fw fa-refresh"></i> Upgrading an application</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-4"><span class="icon fa fa-fw fa-puzzle-piece"></span><span class="title">Options</span></a>
+                                <div id="dropdown-4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/security/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/security/"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
+                                            <li {% if '/using-elasticsearch/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-elasticsearch/"><i class="fa fa-fw fa-search"></i> Using Elasticsearch</a></li>
+                                            <li {% if '/using-websockets/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-websockets/"><i class="fa fa-fw fa-envelope"></i> Using Websockets</a></li>
+                                            <li {% if '/using-oracle/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-oracle/"><i class="fa fa-fw fa-archive"></i> Using Oracle</a></li>
+                                            <li {% if '/using-mongodb/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-mongodb/"><i class="fa fa-fw fa-leaf"></i> Using MongoDB</a></li>
+                                            <li {% if '/using-cassandra/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cassandra/"><i class="fa fa-fw fa-eye"></i> Using Cassandra</a></li>
+                                            <li {% if '/using-kafka/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-kafka/"><i class="fa fa-fw fa-envelope"></i> Using Kafka</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-5"><span class="icon fa fa-fw fa-code"></span><span class="title">Development</span></a>
+                                <div id="dropdown-5" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/development/"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
+                                            <li {% if '/profiles/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/profiles/"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
+                                            <li {% if '/using-angularjs/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angularjs/"><i class="fa fa-fw fa-html5"></i> Using AngularJS</a></li>
+                                            <li {% if '/customizing-bootstrap/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-6"><span class="icon fa fa-fw fa-umbrella"></span><span class="title">Test &amp; QA</span></a>
+                                <div id="dropdown-6" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/running-tests/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/running-tests/"><i class="fa fa-fw fa-shield"></i> Running tests</a></li>
+                                            <li {% if '/code-quality/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/code-quality/"><i class="fa fa-fw fa-diamond"></i> Code quality</a></li>
+                                            <li {% if '/setting-up-ci/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/setting-up-ci/"><i class="fa fa-fw fa-stethoscope"></i> Continuous Integration</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-7"><span class="icon fa fa-fw fa-cloud"></span><span class="title">Production</span></a>
+                                <div id="dropdown-7" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/production/"><i class="fa fa-fw fa-play-circle"></i> Using in production</a></li>
+                                            <li {% if '/monitoring/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/monitoring/"><i class="fa fa-fw fa-line-chart"></i> Monitoring</a></li>
+                                            <li {% if '/docker-hub/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/docker-hub/"><i class="fa fa-fw fa-cloud-upload"></i> Docker Hub</a></li>
+                                            <li {% if '/cloudfoundry/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/cloudfoundry/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
+                                            <li {% if '/heroku/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/heroku/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
+                                            <li {% if '/kubernetes/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/kubernetes/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Kubernetes</a></li>
+                                            <li {% if '/aws/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/aws/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to AWS</a></li>
+                                            <li {% if '/boxfuse/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/boxfuse/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying with Boxfuse</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-8"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Modules</span></a>
+                                <div id="dropdown-8" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/modules/marketplace/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/marketplace/"><i class="fa fa-fw fa-shopping-cart"></i> Marketplace</a></li>
+                                            <li {% if '/modules/creating-a-module/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-module/"><i class="fa fa-fw fa-cube"></i> Creating a module</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Tools</span></a>
+                                <div id="dropdown-9" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/jdl/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/"><i class="fa fa-fw fa-star"></i> JDL</a></li>
+                                            <li><a href="{{ site.url }}/jdl-studio/"><i class="fa fa-fw fa-terminal"></i> JDL Studio</a></li>
+                                            <li {% if '/jhipster-uml/' == page.url %}class="active" {% endif %}>
+                                                <a href="{{ site.url }}/jhipster-uml/"><i class="fa fa-fw fa-magic"></i> JHipster-UML</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
+                                <div id="dropdown-10" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/help/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/help/"><i class="fa fa-fw fa-users"></i> Community help</a></li>
+                                            <li {% if '/consultintg/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/consulting/"><i class="fa fa-fw fa-user-md"></i> Professional help</a></li>
+                                            <li {% if '/training/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/training/"><i class="fa fa-fw fa-graduation-cap"></i> Training</a></li>
+                                        </ul>
+                                     </div>
+                                </div>
+                            </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-wrench"></i> Setting up your environment<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/installation.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installation.html"><i class="fa fa-cloud-download"></i> Installing JHipster</a></li>
-                            <li {% if '/configuring_ide.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/configuring_ide.html"><i class="fa fa-keyboard-o"></i> Configuring Eclipse/IntelliJ</a></li>
-                            <li {% if '/docker_compose.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/docker_compose.html"><i class="fa fa-music"></i> Docker Compose</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-list-ol"></i> Core JHipster tasks<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/creating_an_app.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_app.html"><i class="fa fa-rocket"></i> Creating an application</a></li>
-                            <li {% if '/creating_an_entity.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_an_entity.html"><i class="fa fa-bolt"></i> Creating an entity</a></li>
-                            <li {% if '/creating_a_service.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/creating_a_service.html"><i class="fa fa-bolt"></i> Creating a service</a></li>
-                            <li {% if '/using_dtos.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_dtos.html"><i class="fa fa-briefcase"></i> Creating DTOs</a></li>
-                            <li {% if '/managing_relationships.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/managing_relationships.html"><i class="fa fa-sitemap"></i> Managing relationships</a></li>
-                            <li {% if '/installing_new_languages.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/installing_new_languages.html"><i class="fa fa-flag"></i> Internationalization</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-puzzle-piece"></i> Options<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/security.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/security.html"><i class="fa fa-lock"></i> Securing your app</a></li>
-                            <li {% if '/using_elasticsearch.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_elasticsearch.html"><i class="fa fa-search"></i> Using Elasticsearch</a></li>
-                            <li {% if '/using_websockets.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_websockets.html"><i class="fa fa-envelope"></i> Using Websockets</a></li>
-                            <li {% if '/using_oracle.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_oracle.html"><i class="fa fa-archive"></i> Using Oracle</a></li>
-                            <li {% if '/using_mongodb.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_mongodb.html"><i class="fa fa-leaf"></i> Using MongoDB</a></li>
-                            <li {% if '/using_cassandra.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_cassandra.html"><i class="fa fa-eye"></i> Using Cassandra</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-code"></i> Development<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/development.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/development.html"><i class="fa fa-code"></i> Using in development</a></li>
-                            <li {% if '/profiles.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/profiles.html"><i class="fa fa-group"></i> Managing profiles</a></li>
-                            <li {% if '/using_angularjs.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/using_angularjs.html"><i class="fa fa-html5"></i> Using AngularJS</a></li>
-                            <li {% if '/customizing_bootstrap.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/customizing_bootstrap.html"><i class="fa fa-css3"></i> Customizing Bootstrap</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-umbrella"></i> Test<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/running_tests.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/running_tests.html"><i class="fa fa-shield"></i> Running tests</a></li>
-                            <li {% if '/setting_up_ci.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/setting_up_ci.html"><i class="fa fa-check"></i> Continuous Integration</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-cloud"></i> Production<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/production.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/production.html"><i class="fa fa-play-circle"></i> Using in production</a></li>
-                            <li {% if '/cloudfoundry.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/cloudfoundry.html"><i class="fa fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
-                            <li {% if '/heroku.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/heroku.html"><i class="fa fa-cloud-upload"></i> Deploying to Heroku</a></li>
-                            <li {% if '/openshift.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/openshift.html"><i class="fa fa-cloud-upload"></i> Deploying to Openshift</a></li>
-                            <li {% if '/aws.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/aws.html"><i class="fa fa-cloud-upload"></i> Deploying to AWS</a></li>
-                        </ul>
-                    </li>
-                    <li {% if '/tips.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/tips.html"><i class="fa fa-cogs"></i> Tips'n tricks</a></li>
-                    <li {% if '/jhipster_uml.html' == page.url %}class="active"{% endif %}>
-                        <a href="{{ site.url }}/jhipster_uml.html"><i class="fa fa-magic"></i>
-                            JHipster-UML
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-question"></i> Help and bugs<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/help.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/help.html"><i class="fa fa-group"></i> Community help</a></li>
-                            <li {% if '/consulting.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/consulting.html"><i class="fa fa-user-md"></i> Professional help</a></li>
-                            <li {% if '/training.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/training.html"><i class="fa fa-graduation-cap "></i> Training</a></li>
-                            <li><a href="https://github.com/jhipster/generator-jhipster/issues" target="_blank"><i class="fa fa-bug"></i> Bug tracker</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-star"></i> About<span class="fa fa-angle-right pull-right"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {% if '/team.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/team.html"><i class="fa fa-coffee"></i> Team</a></li>
-                            <li {% if '/policies.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/policies.html"><i class="fa fa-gavel"></i> Policies</a></li>
-                            <li><a href="https://github.com/jhipster/generator-jhipster" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
-                            <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank"><i class="fa fa-comments"></i> Chat</a></li>
-                            <li><a href="https://twitter.com/java_hipster" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
-                            <li>
-                            <li {% if '/artwork.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/artwork.html"><i class="fa fa-pencil"></i> Artwork</a></li>
-                            <li {% if '/thanks.html' == page.url %}class="active"{% endif %}><a href="{{ site.url }}/thanks.html"><i class="fa fa-gift"></i> Thanks</a></li>
-                        </ul>
-                    </li>
-<script>
-  (function() {
-    var cx = '004687894124070278856:-ryvp1pk0xi';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
-                    </li>
-                </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
             </div>
+            <!-- Main Content -->
+
+
+            <div id="page-wrapper" class="container-fluid">
+                <div class="side-body" id="page-top">
+                    {% if page.layout_grid == true %} {{ content }} {% else %}
+                    <div class="row page-content-wrapper">
+                        <div class="col-lg-12">
+                            {{ content }}
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    {% endif %}
+
+                    <!-- Footer -->
+                    <footer class="text-center">
+                        <div class="footer-above">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="footer-col col-md-4">
+                                        <div class="col-md-4 col-sm-12">
+                                            <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="{{ site.url }}/team/">Team</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="{{ site.url }}/artwork">Artwork</a></h5>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="{{ site.url }}/policies/">Policies</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="{{ site.url }}/thanks/">Thanks</a></h5>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <h5 class="text-left"><i class="fa fa-archive fa-fw"></i> <a class="link" href="{{ site.url }}/documentation-archive/">Archives</a></h5>
+                                        </div>
+                                    </div>
+                                    <div class="footer-col col-md-4">
+                                        <ul class="list-inline">
+                                            <li>
+                                                <a href="https://twitter.com/java_hipster" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/jhipster/generator-jhipster" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-comments"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-col col-md-4 google-search">
+                                        <script>
+                                            (function () {
+                                                var cx = '004687894124070278856:-ryvp1pk0xi';
+                                                var gcse = document.createElement('script');
+                                                gcse.type = 'text/javascript';
+                                                gcse.async = true;
+                                                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                                                    '//cse.google.com/cse.js?cx=' + cx;
+                                                var s = document.getElementsByTagName('script')[0];
+                                                s.parentNode.insertBefore(gcse, s);
+                                            })();
+                                        </script>
+                                        <gcse:search></gcse:search>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-below">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        Copyright &copy; JHipster 2016 | Theme based on <a href="https://github.com/IronSummitMedia/startbootstrap-freelancer" target="_blank">Freelancer</a> and <a href="https://github.com/tui2tone/flat-admin-bootstrap-templates" target="_blank">Flat admin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+                <div class="scroll-top page-scroll visible-xs visible-sm">
+                    <a class="btn btn-primary" href="#page-top">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- /#page-wrapper -->
         </div>
-      </nav>
+        <!-- /#wrapper -->
+    </div>
+    <!-- Javascript Libs -->
+    <script type="text/javascript" src="{{ site.url }}/lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/ace.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/mode-html.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/theme-github.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/jquery.easing.min.js"></script>
 
-      <div id="page-wrapper">
-        {% if page.layout_grid == true %}
-          {{ content }}
-        {% else %}
-          <div class="row">
-              <div class="col-lg-12">
-                  {{ content }}
-              </div>
-          </div><!-- /.row -->
-        {% endif %}
+    {% if page.angularjs == true %}
+    <script type="text/javascript" src="{{ site.url }}/lib/js/angular-1.4.8.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/angular-route-1.4.8.min.js"></script>
+    {% endif %}
 
-        <div id="footer">
-          <hr/>
-        </div>
-      </div><!-- /#page-wrapper -->
-
-    </div><!-- /#wrapper -->
-
+    <!--App Javascript -->
+    <script type="text/javascript" src="{{ site.url }}/js/app.js"></script>
+    {% if page.home == true %}
+    <script type="text/javascript" src="{{ site.url }}/js/services.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/index.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/marketplace-list.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/users.js"></script>
+    {% endif %}
+    {% if page.market == true %}
+    <script type="text/javascript" src="{{ site.url }}/lib/js/c3-0.4.10.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/d3-3.5.10.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/Showdown.min.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/lib/js/markdown.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/services.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/marketplace.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/marketplace-list.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/marketplace-details.js"></script>
+    {% endif %}
+    {% if page.companies-using-jhipster == true %}
+    <script type="text/javascript" src="{{ site.url }}/js/users.js"></script>
+    {% endif %}
     <!-- JavaScript -->
-    <!-- jQuery Version 1.11.0 -->
-    <script src="{{ site.url }}/js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ site.url }}/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="{{ site.url }}/js/plugins/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="{{ site.url }}/js/sb-admin-2.js"></script>
-
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-46075199-1', 'jhipster.github.io');
-  ga('send', 'pageview');
-
+        ga('create', 'UA-46075199-1', 'jhipster.github.io');
+        ga('send', 'pageview');
     </script>
-  </body>
+</body>
+
 </html>

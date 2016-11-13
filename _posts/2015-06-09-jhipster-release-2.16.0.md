@@ -8,12 +8,17 @@ JHipster release 2.16.0
 
 *JHipster gives you Spring Boot + AngularJS working together in one handy Yeoman generator.*
 
+Documentation
+----------
+
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
+
 What's new
 ----------
 
 This new release adds a lot of new features:
 
-- [Support for the Oracle database]({{ site.url }}/using_oracle.html) is now available! And this is not part of any "enterprise" offering :-)
+- [Support for the Oracle database]({{ site.url }}/using-oracle/) is now available! And this is not part of any "enterprise" offering :-)
 - _Warning_ : Oracle support has forced us to modify a little bit our initial schema. The most important change is the `JHI_PERSISTENT_AUDIT_EVENT_DATA` table which has been renamed `JHI_PERSISTENT_AUDIT_EVT_DATA`, as Oracle doesn't allow long table names
 - We upgraded to the latest Spring Boot version (1.2.4) and the latest AngularJS version (1.4.0), so your projects are always up-to-date!
 - Internationalization is now optional: this is a new generator option, where you can remove all internationalized code

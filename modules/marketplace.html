@@ -1,0 +1,30 @@
+---
+layout: default
+title: Marketplace
+permalink: /modules/marketplace/
+redirect_from:
+  - /modules/marketplace.html
+angularjs: true
+market: true
+sitemap:
+    priority: 0.7
+    lastmod: 2015-12-10T00:00:00-00:00
+---
+
+<link href="{{ site.url }}/lib/css/c3-0.4.10.min.css" rel="stylesheet">
+
+<h1><i class="fa fa-shopping-cart"></i> Marketplace</h1>
+<div ng-app="jhipster.marketplace">
+    <div>
+        <p>
+            <i>If you want to create your own module, <a href="{{ site.url }}/modules/creating-a-module/">here is the documentation</a>.</i>
+        </p>
+        <p>
+            The list below is generated using <a href="https://npmsearch.com/">npmsearch</a> - if that service is down, you can use <a href="https://npms.io/search?q=jhipster-module">the npms.io alternate service</a>.
+        </p>
+
+
+        <div ng-view></div>
+
+    </div>
+</div>
