@@ -11,9 +11,9 @@ lastmod: 2016-11-12T22:22:00-00:00
 __Tip submitted by [@nkolosnjaji](https://github.com/nkolosnjaji)__
 
 Infinite-scroll is using spring-data Page to retrieve entities from your database.
-This will trigger two queries, one to fetch entities and second for `count all` to determine total items for paging. To avoid `count all` query which can be expensive operation when working with large datasets, use Slice instead of Page to boost performance of infinite-scroll.
+This will trigger two queries, one to fetch entities and second for `count all` to determine total items for paging. Infinite-scroll doesn't need information about total size but only if there is next page to load. To avoid `count all` query which can be expensive operation when working with large datasets, use [Slice](http://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Slice.html) instead of Page which will boost performance of infinite-scroll.
 
-Requesting a Slice of Pageable with page size 20, will fetch 21 results
+We will use custom HTTP header `X-Has-Next-Page` to send information to front-end infinite-scroll plugin.
 
   * Define new method in your Entity repository:
 
@@ -59,7 +59,7 @@ function onSuccess(data, headers) {
 }
 ```
 
-  * Use view model with infinite-scroll plugin in `webapp/app/entites/<your-entity>/<your-entities>.html`
+  * Use view model with infinite-scroll plugin in `<your-entities>.html`
 
 ```
 <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="!vm.hasNextPage">
