@@ -28,3 +28,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 11. [LDAP Authentication]({{ site.url }}/tips/016_tip_ldap_authentication.html)
 12. [REPL with the remote shell]({{ site.url }}/tips/017_tip_repl_with_the_remote_shell.html)
 13. [Kubernetes and Google Cloud SQL]({{ site.url }}/tips/018_tip_kubernetes_and_google_cloud_sql.html)
+14. [Boost performance of pagination with infinite scrolling using Slice]({{ site.url }}/tips/019_tip_infinite_scroll_with_slice.html)

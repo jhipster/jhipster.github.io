@@ -6,11 +6,11 @@ priority: 0.5
 lastmod: 2016-11-12T22:22:00-00:00
 ---
 
-# Boost infinite scroll performance with Slice
+# Boost performance of pagination with infinite scrolling using Slice
 
 __Tip submitted by [@nkolosnjaji](https://github.com/nkolosnjaji)__
 
-Infinite-scroll is using spring-data Page to retrieve entities from your database.
+Pagination with infinite scrolling is using Spring Data Page to retrieve entities from your database.
 This will trigger two queries, one to fetch entities and second for `count all` to determine total items for paging. To avoid `count all` query which can be expensive operation when working with large datasets, use Slice instead of Page to boost performance of infinite-scroll.
 
 Requesting a Slice of Pageable with page size 20, will fetch 21 results
