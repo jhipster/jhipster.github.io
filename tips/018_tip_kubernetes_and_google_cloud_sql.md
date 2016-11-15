@@ -24,10 +24,9 @@ also use a Maven build since it is my favourite one :p
 ## Prerequisites
 
 For this tutorial, you will need:
-* A Google Cloud Platform account. You can use a [60 day free trial](https://cloud.google.com/free-trial/) with $300 
-worth of free credit
-* [Google Cloud SDK](https://cloud.google.com/sdk/) since we will perform most of the operations from a terminal. I found
-the [interactive installer](https://cloud.google.com/sdk/downloads#interactive) quite convenient
+
+* A Google Cloud Platform account. You can use a [60 day free trial](https://cloud.google.com/free-trial/) with $300 worth of free credit
+* [Google Cloud SDK](https://cloud.google.com/sdk/) since we will perform most of the operations from a terminal. I found the [interactive installer](https://cloud.google.com/sdk/downloads#interactive) quite convenient
 * [Docker](https://www.docker.com/products/overview)
 * A JHipster application using MySQL as production database
 
@@ -60,8 +59,7 @@ Then you need to:
 
 * Enable [billing](https://console.cloud.google.com/billing) on the project
 * Enable [Container Engine API](https://console.cloud.google.com/projectselector/kubernetes/list) on the project
-* Enable [API Manager](https://console.cloud.google.com/apis/dashboard) for Compute Engine, Cloud SQL and Container 
-Engine
+* Enable [API Manager](https://console.cloud.google.com/apis/dashboard) for Compute Engine, Cloud SQL and Container Engine
 * Enable [Google Cloud SQL API](https://console.developers.google.com/apis/api/sqladmin/overview)
 
 Finally you need to tell `gcloud` on which project you are currently working:
