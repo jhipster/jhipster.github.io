@@ -1,12 +1,9 @@
 var gulp = require("gulp"),
-    coffee = require("gulp-coffee"),
     browserSync = require('browser-sync').create(),
     sass = require("gulp-sass"),
     mainBowerFiles = require('main-bower-files'),
     replace = require('gulp-replace'),
-    rimraf = require('rimraf'),
-    imagemin = require('gulp-imagemin'),
-    rename = require("gulp-rename");
+    imagemin = require('gulp-imagemin');
 
 gulp.task('build', function(cb) {
 
