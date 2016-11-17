@@ -29,4 +29,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 12. [REPL with the remote shell]({{ site.url }}/tips/017_tip_repl_with_the_remote_shell.html)
 13. [Kubernetes and Google Cloud SQL]({{ site.url }}/tips/018_tip_kubernetes_and_google_cloud_sql.html)
 14. [Boost performance of pagination with infinite scrolling using Slice]({{ site.url }}/tips/019_tip_infinite_scroll_with_slice.html)
-15. [Using docker containers as localhost on Mac/Windows]({{ site.url }}/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html)
+15. [Using Docker containers as localhost on Mac/Windows]({{ site.url }}/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html)

@@ -1,20 +1,20 @@
 ---
 layout: default
-title: Using docker containers as localhost on Mac/Windows
+title: Using Docker containers as localhost on Mac/Windows
 sitemap:
 priority: 0.5
 lastmod: 2016-11-15T16:00:00-00:00
 ---
 
-# Using docker containers as localhost on Mac/Windows
+# Using Docker containers as localhost on Mac/Windows
 
 __Tip submitted by [@Akuka](https://github.com/Akuka)__
 
 ## Difference between Docker on Linux and Docker on Mac/Windows environments
 
-Based on your OS, your <code>DOCKER_HOST</code> is different. 
+Based on your OS, your <code>DOCKER_HOST</code> is different.
 On Linux, it will simply be your localhost.
-For Mac/Windows, you should obtain the appropriate IP using the following command: 
+For Mac/Windows, you should obtain the appropriate IP using the following command:
 
 ```
 docker-machine ip default
