@@ -8,30 +8,37 @@ sitemap:
     priority: 0.1
     lastmod: 2014-02-21T00:00:00-00:00
 ---
+# <i class="fa fa-gift"></i> Thank you to all our contributors!
 
-# <i class="fa fa-gift"></i> Thanks
+JHipster has a lot of [contributors](https://github.com/jhipster/generator-jhipster/graphs/contributors), and there are official contributions from popular projects and companies as well. Below is a list of companies and projects contributing to JHipster. We are very thankful for their contributions.
+
+## Companies contributing to JHipster
+
+*   [Ippon Technologies](http://www.ippon.fr/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) so he can improve the project.
+*   [XebiaLabs](https://xebialabs.com/), which provides time and hardware to [@deepu105](https://twitter.com/deepu105) so he can improve the project.
+*   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/) sub-generator. It is maintained by [Ray Tsang](https://twitter.com/saturnism).
+*   [Heroku](https://www.heroku.com/) contributed the [Heroku sub-generator]({{ site.url }}/heroku/) sub-generator. It is maintained by [Joe Kutner](https://twitter.com/codefinger).
+*   [Boxfuse](https://boxfuse.com/) contributed the [Boxfuse sub-generator]({{ site.url }}/boxfuse/) sub-generator. It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
+*   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
+*   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
+*   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
+
+## Projects and communities contributing to JHipster
+
+JHipster works closely with other OSS communities, which often contribute to the project. Important contributions have been made by:
+
+*   [UI Router](https://ui-router.github.io/), the Angular router used by JHipster.
+*   [Webpack](https://webpack.github.io/), the module bundler that JHipster uses for its Angular 2 support.
+
+## Companies helping to develop JHipster
 
 These companies help us to develop JHipster
 
-*   JetBrains, which provides us free licences for the incredible [IntelliJ IDEA, ultimate edition](http://www.jetbrains.com/idea). A true hipster would never code with Eclipse :-)
-*   [npmsearch](http://npmsearch.com/) which provides the search engine used for our marketplace
+*   JetBrains, which provides us free licenses for the incredible [IntelliJ IDEA, ultimate edition](http://www.jetbrains.com/idea). A true hipster would never code with Eclipse :-)
+*   [npmsearch](http://npmsearch.com/) which provides the search engine used for our marketplace.
 *   Pivotal, which gives us free credits on their [Pivotal Web Services](http://run.pivotal.io/) cloud
-*   [ElephantSQL](http://www.elephantsql.com/), which gives us several of their "Pretty Panda" Postgresql databases
-*   YourKit, LLC, which gives us free licences for the [YourKit Java profiler](http://www.yourkit.com/java/profiler/index.jsp)
-*   EJ Technologies, which gives us free licences for the [JProfiler Java profiler](http://www.ej-technologies.com/products/jprofiler/overview.html)
+*   [ElephantSQL](http://www.elephantsql.com/), which gives us several of their "Pretty Panda" Postgresql databases.
+*   YourKit, LLC, which gives us free licenses for the [YourKit Java profiler](http://www.yourkit.com/java/profiler/index.jsp).
+*   EJ Technologies, which gives us free licenses for the [JProfiler Java profiler](http://www.ej-technologies.com/products/jprofiler/overview.html).
 
 And a very special thanks to the development team from [Galeries Lafayette](http://www.galerieslafayette.com/), which had the original idea of making Grunt work with Ant, and create a modern Web front-end on top of a more classical Spring MVC application.
-
-# <i class="fa fa-gift"></i> Companies and projects contributing to JHipster
-
-JHipster has got a lot of [contributors](https://github.com/jhipster/generator-jhipster/graphs/contributors), and there are official contributions from popular projects and companies as well. Below is the list of companies and projects contributing to JHipster and we are very thankful for their contributions.
-
-*   [Ippon Technologies](http://www.ippon.fr/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) so he can improve the project
-*   [XebiaLabs](https://xebialabs.com/), which provides time and hardware to [@deepu105](https://twitter.com/deepu105) so he can improve the project
-*   [Google](https://google.com) contributed the Kubernetes(http://kubernetes.io/) sub generator. It is maintained by [Ray Tsang](https://twitter.com/saturnism)
-*   [Heroku](https://www.heroku.com/) contributed the Heroku sub generator. It is maintained by [Joe Kutner](https://twitter.com/codefinger)
-*   [Ehcache](http://www.ehcache.org/)
-*   [Hazelcast](https://hazelcast.com/)
-*   [Liquibase](http://www.liquibase.org/)
-*   [UI Router](https://ui-router.github.io/)
-*   [Webpack](https://webpack.github.io/)
