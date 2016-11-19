@@ -188,6 +188,7 @@ JHipster gives a great choice as one can choose between an image type or any bin
 
   - `AnyBlob` or just `Blob` to create a field of the "any" binary type;
   - `ImageBlob` to create a field meant to be an image.
+  - `TextBlob` to create a field for a CLOB (long text).
 
 And you can create as many DataTypes as you like.
 
@@ -501,6 +502,12 @@ Here is the types supported by JDL:
   <tr>
     <td>ImageBlob</td>
     <td>ImageBlob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+  <tr>
+    <td>TextBlob</td>
+    <td>TextBlob</td>
     <td></td>
     <td><dfn>required, minbytes, maxbytes</dfn></td>
   </tr>
