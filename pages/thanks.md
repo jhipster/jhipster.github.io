@@ -18,7 +18,7 @@ JHipster has a lot of [contributors](https://github.com/jhipster/generator-jhips
 *   [XebiaLabs](https://xebialabs.com/), which provides time and hardware to [@deepu105](https://twitter.com/deepu105) so he can improve the project.
 *   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/). It is maintained by [Ray Tsang](https://twitter.com/saturnism).
 *   [Heroku](https://www.heroku.com/) contributed the [Heroku sub-generator]({{ site.url }}/heroku/). It is maintained by [Joe Kutner](https://twitter.com/codefinger).
-*   [Boxfuse](https://boxfuse.com/) contributed the [Boxfuse sub-generator]({{ site.url }}/boxfuse/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
+*   [Boxfuse](https://boxfuse.com/) has added [specific support for JHipster]({{ site.url }}/boxfuse/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
 *   [Stormpath](https://stormpath.com/) contributed the [Stormpath module]({{ site.url }}//modules/marketplace/#/details/generator-jhipster-stormpath) . It is maintained by [Matt Raible](https://twitter.com/mraible).
 *   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
