@@ -15,7 +15,7 @@ sitemap:
 
 This sub-generator allows deployment of your JHipster application to [Kubernetes](http://kubernetes.io/).
 
-[![]({{ site.url }}/img/logo-kubernetes.png)](http://kubernetes.io/)
+[![]({{ site.url }}/images/logo/logo-kubernetes.png)](http://kubernetes.io/)
 
 ## Limitations
 

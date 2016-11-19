@@ -13,7 +13,7 @@ sitemap:
 
 ## Summary
 
-[![]({{ site.url }}/img/docker-hub.png)](https://hub.docker.com/u/jhipster/)
+[![]({{ site.url }}/images/logo/docker-hub.png)](https://hub.docker.com/u/jhipster/)
 
 JHipster has his own [organization] at Docker Hub and provides different Docker images.
 

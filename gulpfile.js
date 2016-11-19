@@ -6,9 +6,9 @@ var gulp = require("gulp"),
 gulp.task('images', ['min-img', 'min-images', 'min-company-logo'])
 
 gulp.task('min-img', function () {
-    return gulp.src('img/**/*.{png,gif,jpg,jpeg}')
+    return gulp.src('images/logo/**/*.{png,gif,jpg,jpeg}')
         .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
-        .pipe(gulp.dest('img/'));
+        .pipe(gulp.dest('images/logo/'));
 });
 gulp.task('min-images', function () {
     return gulp.src('images/*.{png,gif,jpg,jpeg}')

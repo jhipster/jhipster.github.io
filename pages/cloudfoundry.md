@@ -17,7 +17,7 @@ It works with MySQL, PostgreSQL and MongoDB cloud providers.
 
 ## Supported clouds
 
-[![]({{ site.url }}/img/logo-pws.png)](http://run.pivotal.io/)
+[![]({{ site.url }}/images/logo/logo-pws.png)](http://run.pivotal.io/)
 
 As this sub-generator uses the Cloud Foundry command-line tool, it can deploy to all Cloud Foundry instances:
 

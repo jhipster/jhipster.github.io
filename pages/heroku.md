@@ -13,7 +13,7 @@ sitemap:
 
 This sub-generator allows deployment of your JHipster application to the [Heroku cloud](https://www.heroku.com/).
 
-[![]({{ site.url }}/img/logo-heroku.png)](https://www.heroku.com/)
+[![]({{ site.url }}/images/logo/logo-heroku.png)](https://www.heroku.com/)
 
 Heroku is helping JHipster in two ways:
 

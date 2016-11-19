@@ -21,15 +21,15 @@ Stickers are sold at [unixstickers.com]( http://www.unixstickers.com/stickers/co
 
 ## Logo downloads
 
-![]({{ site.url }}/img/logo-jhipster.png)
+![]({{ site.url }}/images/logo/logo-jhipster.png)
 
-JHipster logo [[SVG]({{ site.url }}/img/logo-jhipster.svg)] [[PNG (small)]({{ site.url }}/img/logo-jhipster.png)] [[PNG (big)]({{ site.url }}/img/logo-jhipster2x.png)]
+JHipster logo [[SVG]({{ site.url }}/images/logo/logo-jhipster.svg)] [[PNG (small)]({{ site.url }}/images/logo/logo-jhipster.png)] [[PNG (big)]({{ site.url }}/images/logo/logo-jhipster2x.png)]
 
 * * *
 
-![]({{ site.url }}/img/logo-jhipster-drink-coffee-thumbnail.png)
+![]({{ site.url }}/images/logo/logo-jhipster-drink-coffee-thumbnail.png)
 
-JHipster drinking coffee [[SVG]({{ site.url }}/img/logo-jhipster-drink-coffee.svg)] [[PNG]({{ site.url }}/img/logo-jhipster-drink-coffee.png)]
+JHipster drinking coffee [[SVG]({{ site.url }}/images/logo/logo-jhipster-drink-coffee.svg)] [[PNG]({{ site.url }}/images/logo/logo-jhipster-drink-coffee.png)]
 
 * * *
 
