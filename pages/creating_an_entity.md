@@ -78,8 +78,8 @@ JHipster supports many field types. This support depends on your database backen
 *   `LocalDate`: A `java.time.LocalDate` object, used to correctly manage dates in Java.
 *   `ZonedDateTime`: A `java.time.ZonedDateTime` object, used to correctly manage dates and times in Java.
 *   `Boolean`: A Java Boolean.
-*   `enum`: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific `enum` class to store them.
-*   `byte[]`: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store some generic binary data, or an image object. Images will be handled specifically on the AngularJS side, so they can be displayed to the end-user.
+*   `Enumeration`: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific `enum` class to store them.
+*   `Blob`: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store generic binary data, an image object, or a CLOB (long text). Images will be handled specifically on the AngularJS side, so they can be displayed to the end-user.
 
 ## Validation
 
