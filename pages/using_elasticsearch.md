@@ -6,7 +6,7 @@ redirect_from:
   - /using_elasticsearch.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-04-20T00:00:00-00:00
+    lastmod: 2016-11-21T00:00:00-00:00
 ---
 
 # <i class="fa fa-search"></i> Using Elasticsearch
@@ -25,3 +25,11 @@ When the Elasticsearch option is selected:
 *   The "repository" package has new subpackage, called "search", that holds all ElastiSearch repositories.
 *   The "User" entity gets indexed in Elasticsearch, and you can query is using the `/api/_search/users/:query` REST endpoint.
 *   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the AngularJS user interface, so you can search your entity in the main CRUD screen.
+*   When using dev profile, you can enable http access by adding this configuration in `application-dev.yml` :
+
+```
+elasticsearch:
+  properties:
+      http:
+          enabled: true
+```
