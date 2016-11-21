@@ -6,7 +6,7 @@ redirect_from:
   - /using_elasticsearch.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-04-20T00:00:00-00:00
+    lastmod: 2016-11-21T00:00:00-00:00
 ---
 
 # <i class="fa fa-search"></i> Using Elasticsearch
