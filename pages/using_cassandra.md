@@ -57,15 +57,18 @@ After adding a CQL script in the changelog directory, you can relaunch the docke
 
 #### Manually:
 
-With some prerequisites, you can run the tool manually. It could be uselful to familiarize you with the tool to later include it to your deployment pipeline.
+With some prerequisites, you can run the tool manually. It could be useful to familiarize you with the tool to later include it to your deployment pipeline.
 
 ##### Prerequisites:
 
-*   Add the Cassandra contact point environment variable, typically for Docker: ``export CASSANDRA_CONTACT_POINT=`docker-machine ip default` ``
+*   Add the Cassandra contact point environment variable, typically locally: ``export CASSANDRA_CONTACT_POINT=`127.0.0.1` ``
 *   Install a recent (>4) bash version and md5sum with your favorite package manager
 *   Have CQLSH in your classpath
 
 To run the tool use this command: `src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/`
+
+By default, the `src/main/resources/config/create-keyspace.cql` script is used to create the keyspace if necessary.
+You can override it with a second argument: `src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/ create-keyspace-prod.cql`
 
 If you only want to execute a specific script against your cluster use: `src/main/docker/cassandra/scripts/execute-cql.sh src/main/resources/config/cql/changelog/<your script>.cql`
 
