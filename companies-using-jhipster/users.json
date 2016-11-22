@@ -276,6 +276,12 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "Siemens",
+      "url": "https://www.siemens.com",
+      "logo": "siemens.png",
+      "category": "Industry",
+      "country": "Germany"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
