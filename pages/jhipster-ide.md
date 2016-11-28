@@ -36,6 +36,8 @@ JHipster IDE is created by [Jose Badeau](https://github.com/jbadeau) and [Serano
 
 ## Eclipse installation
 
+Go to the "Help -> Install new software" menu and add a new repository with URL [https://dl.bintray.com/colameo/jhipster-ide/](https://dl.bintray.com/colameo/jhipster-ide/).
+
 ![Eclipse installation]({{ site.url }}/images/jhipster_ide_eclipse.gif)
 
 ## Visual Studio Code installation
