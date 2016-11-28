@@ -76,7 +76,7 @@ European :)
 Then you need to create a Google Cloud SQL instance. You can do this via the web console, which is nice to get a good
 understanding on the available options or once again you can use `gcloud`.
 
-    gcloud beta sql instances create jhipster-sqlcloud-db3 --region=europe-west1 --tier=db-f1-micro\
+    gcloud beta sql instances create jhipster-sqlcloud-db --region=europe-west1 --tier=db-f1-micro\
      --authorized-networks=`curl -s ifconfig.co` --backup-start-time=01:00 --enable-bin-log \
      --activation-policy=ALWAYS --storage-type=HDD --storage-size=10GB
 
@@ -93,7 +93,7 @@ You can check that your instance started with the following command
 
     gcloud sql instances list
     NAME                   REGION        TIER         ADDRESS         STATUS
-    jhipster-sqlcloud-db4  europe-west1  db-f1-micro  146.148.21.155  RUNNABLE
+    jhipster-sqlcloud-db  europe-west1  db-f1-micro  146.148.21.155  RUNNABLE
 
 Since we whitelisted our IP address, we should be able to access to the DB instance with `mysql`
 
@@ -193,7 +193,7 @@ Register the key with `kubectl`
 
 First of all you can delete the generated mysql deployment file since we are going with a Cloud SQL instance.
 
-Then we need to change a few things in `jhipstergooglecloudsql-deployment.yml`. First of all the spting data source URL
+Then we need to change a few things in `jhipstergooglecloudsql-deployment.yml`. First of all the Spring data source URL
 should be changed to localhost since we will be using a Cloud SQL proxy:
 
     jdbc:mysql://localhost:3306/jhipstergooglecloudsql?useUnicode=true&characterEncoding=utf8&useSSL=false
