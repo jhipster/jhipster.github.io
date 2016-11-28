@@ -82,12 +82,12 @@ Gatling tests can be run with Maven, by running `./mvnw gatling:execute`. If you
 *   On your running application, go to the `Administration > Logs` screen, and put `org.springframework` in `debug` mode. You will see the validation errors, for example.
 *   Use the application normaly and open the Chrome `console log`: you will be able to see the REST requests with all their parameters, including the HTTP headers.
 
-For running gatling tests on a microservice application, you have to:
+For running Gatling tests on a microservice application, you have to:
 
 *   Run a registry
 *   Run a gateway
 *   Run the microservice application
-*   Then, you can run gatling tests
+*   Then, you can run Gatling tests
 
 ## Behaviour-driven development (BDD)
 
