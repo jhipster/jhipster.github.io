@@ -476,6 +476,21 @@
     },
     {"name": "hilarion 5",
       "url": "https://www.hilarion5.com/"
+    },
+    {"name": "Luxoft",
+      "url": "http://www.luxoft.com/"
+    },
+    {"name": "Roundwheel Technologies Inc.",
+      "url": "http://roundwheel.ca/"
+    },
+    {"name": "Virtrics R&D",
+      "url": "http://www.virtrics.com/"
+    },
+    {"name": "Excelian",
+      "url": "http://www.excelian.com/"
+    },
+    {"name": "LojaSoft Solutions",
+      "url": "http://www.lojasoftsolutions.com.ec/"
     }
   ]
 }
