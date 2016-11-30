@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-11-13T12:00:00-00:00
+    lastmod: 2016-11-20T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -687,6 +687,12 @@ Here is the types supported by JDL:
   <tr>
     <td>ImageBlob</td>
     <td>ImageBlob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+  <tr>
+    <td>TextBlob</td>
+    <td>TextBlob</td>
     <td></td>
     <td><dfn>required, minbytes, maxbytes</dfn></td>
   </tr>
