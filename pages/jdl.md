@@ -308,7 +308,8 @@ Just like in Java, this example demonstrates how to add Javadoc comments:
     entity MyEntity { // another form of comment
       /** A required attribute */
       myField String required,
-      mySecondField String // another form of comment
+      mySecondField String, // another form of comment
+      myThirdField String /** Entity field inline javadoc is possible too! */
     }
 
     /**
