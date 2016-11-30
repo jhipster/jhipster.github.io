@@ -45,6 +45,7 @@ These are the currently supported languages
 *   Portuguese (Brazilian)
 *   Russian
 *   Romanian
+*   Serbian
 *   Spanish
 *   Swedish
 *   Tamil
@@ -105,6 +106,8 @@ Here are the steps to install a new language called `new_lang`:
                 'pt-pt': 'Português',
                 'ro': 'Română',
                 'ru': 'Русский',
+                'sk': 'Slovenský',
+                'sr': 'Srpski',
                 'sv': 'Svenska',
                 'ta': 'தமிழ்',
                 'tr': 'Türkçe',
