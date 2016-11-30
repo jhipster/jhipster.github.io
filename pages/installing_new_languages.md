@@ -50,6 +50,7 @@ These are the currently supported languages
 *   Swedish
 *   Tamil
 *   Turkish
+*   Vietnamese
 
 _Your language is missing in JHipster? Help us improve the project with a PR!_
 
@@ -111,6 +112,7 @@ Here are the steps to install a new language called `new_lang`:
                 'sv': 'Svenska',
                 'ta': 'தமிழ்',
                 'tr': 'Türkçe',
+                'vi': 'Tiếng Việt',
                 'zh-cn': '中文（简体）',
                 'zh-tw': '繁體中文'
             }[lang];
