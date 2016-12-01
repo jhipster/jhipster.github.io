@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2016-04-17T12:00:00-00:00
+    lastmod: 2016-12-01T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -335,7 +335,26 @@ JDL possesses its own kind of comment:
 
 Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
 
-Please note that the JDL Studio directives that start with `#`` will be ignored during parsing.
+Please note that the JDL Studio directives that start with `#` will be ignored during parsing.
+
+Another form of comments are the following comments:
+```
+entity A {
+  name String /** My super field */
+  count Integer /** My other super field */
+}
+```
+Here A's name will be commented with `My super field`, B with `My other super field`.
+Yes, commas are not mandatory but it's wiser to have them so as not to make mistakes in the code.
+If you want to mix commas and following comments, beware!
+```
+entity A {
+  name String, /** My comment */
+  count Integer
+}
+```
+A's name won't have the comment, because the count will.
+
 
 ## <a name="jdlrelationships"></a>All the relationships
 
