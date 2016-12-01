@@ -99,7 +99,7 @@ To use the `docker-compose` subgenerator:
 - Create another directory, for example `mkdir docker-compose`.
 - Go into that directory: `cd docker-compose`.
 - Run the sub-generator: `yo jhipster:docker-compose`.
-- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to setup monitoring with ELK or Prometheus.
 
 This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
 
@@ -108,6 +108,7 @@ In the case of a microservice architecture, this configuration will also pre-con
 - Those services will wait until the JHipster Registry (or Consul) is running to start. This can be configured in your `bootstrap-prod.yml` file using the `spring.cloud[.consul].config.fail-fast` and `spring.cloud[.consul].config.retry` keys.
 - The registry will configure your applications, for example it will share the JWT secret token between all services.
 - Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
+
 
 ## <a name="4"></a> Working with databases
 
