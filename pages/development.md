@@ -6,7 +6,7 @@ redirect_from:
   - /development.html
 sitemap:
     priority: 0.7
-    lastmod: 2014-09-17T00:00:00-00:00
+    lastmod: 2016-12-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-code"></i> Using JHipster in development
@@ -130,7 +130,7 @@ If you want more information on using Bower, please go to [http://bower.io](http
 
 ### Running a database
 
-If you use a non-embedded database, like MySQL, MariaDB, PostgreSQL, MongoDB or Cassandra, you will need to install and configure that database.
+If you use a non-embedded database, like MySQL, MariaDB, PostgreSQL, MSSQL, MongoDB or Cassandra, you will need to install and configure that database.
 
 The easiest and recommended way with JHipster is to use Docker Compose. [Follow our Docker Compose guide here.]({{ site.url }}/docker-compose/)
 

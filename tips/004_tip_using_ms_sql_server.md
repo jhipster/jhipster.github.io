@@ -2,12 +2,14 @@
 layout: default
 title: Using MS SQL Server
 sitemap:
-priority: 0.5
-lastmod: 2015-05-28T18:40:00-00:00
+    priority: 0.1
+    lastmod: 2016-12-01T00:00:00-00:00
 ---
 # How to use JHipster with MS SQL Server
 
 __Tip submitted by [@Zyst](https://github.com/Zyst)__
+
+#### MSSQL Support has been added to the generator since this [pull request #4589](https://github.com/jhipster/generator-jhipster/pull/4589), so you don't need to do any specific configuration anymore!
 
 _Goal:_ By the end of this tutorial you will have the default JHipster application running on your SQL Server, with everything being functional.
 
