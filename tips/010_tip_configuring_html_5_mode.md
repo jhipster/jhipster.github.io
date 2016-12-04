@@ -40,7 +40,7 @@ Now, to have relative paths links working correctly (ex. activation link sent to
 
     @Controller
     public class AngularJsForwardController {
-        @RequestMapping(value = "/{[path:[^\\.]*}")
+        @RequestMapping(value = "/**/{[path:[^\\.]*}")
         public String redirect() {
             return "forward:/";
         }
