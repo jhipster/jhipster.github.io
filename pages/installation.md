@@ -33,7 +33,7 @@ We provide 4 ways of working with JHipster:
 7.  Install Bower: `npm install -g bower`
 8.  Install Gulp: `npm install -g gulp-cli` (If you have previously installed a version of gulp globally, please run `npm rm -g gulp` to make sure your old version doesn't collide with `gulp-cli`)
 9.  Install JHipster: `npm install -g generator-jhipster`
-10.  (Optional) Install yarn: `npm install -g yarn` (So you can use the yarn flag `yo jhipster --yarn`)
+10.  (Optional) Install Yarn: `npm install -g yarn` (So you can use the yarn flag `yo jhipster --yarn`)
 
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [NPM documentation](https://docs.npmjs.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
 
@@ -47,7 +47,7 @@ Now that JHipster is installed, your next step is to [create an application]({{ 
     *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
 3.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
 4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version)
-5.  Install yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
+5.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
 6.  Install Yeoman: `yarn global add yo`
 7.  Install Bower: `yarn global add bower`
 8.  Install Gulp: `yarn global add gulp-cli`
