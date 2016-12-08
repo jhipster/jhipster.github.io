@@ -6,7 +6,7 @@ redirect_from:
   - /docker_compose.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-06-19T00:00:00-00:00
+    lastmod: 2016-12-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-music"></i> Docker and Docker Compose
@@ -160,6 +160,15 @@ The application starts after few seconds (see _JHIPSTER_SLEEP_ variable) to give
 One big difference between Cassandra and the other databases, is that you can scale your cluster with Docker Compose. To have X+1 nodes in your cluster, run:
 
 - `docker-compose -f src/main/docker/cassandra-cluster.yml scale <name_of_your_app>-cassandra-node=X`
+
+### Microsoft SQL Server
+
+If you want to use the MSSQL Docker image with JHipster, there are a few steps to follow:
+
+- Increase the RAM available to Docker to at least 3.25GB
+- Run the database: `docker-compose -f src/main/docker/mssql.yml up -d`
+- Create the database with a MSSQL client of your choice
+- Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 ## <a name="5"></a> Elasticsearch
 
