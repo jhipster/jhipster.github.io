@@ -18,7 +18,6 @@ JHipster currently uses Spring WebSockets as its implementation, so you will fin
 This option has a few limitations:
 
 - By default, we use the dispatcher provided by Spring Websockets, which is an in-memory implementation. Obviously, it will not scale if you want to use several servers. If you want to do so, have a look at the Spring WebSockets documentation which explains how to configure an external broker.
-- In `WebsocketSecurityConfiguration`, the CSRF protection is turned off as it caused too many issues
 
 ## The "Tracker" example
 
