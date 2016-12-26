@@ -503,6 +503,30 @@
     },
     {"name": "Alfame Systems Oy",
       "url": "http://www.alfame.com/"
+    },
+    {"name": "AgiSol Ltd",
+      "url": "https://agisol.fi/en/"
+    },
+    {"name": "Cocolevio",
+      "url": "https://cocolev.io"
+    },
+    {"name": "Etiya",
+      "url": "http://www.etiya.com/"
+    },
+    {"name": "Pangean Global Services",
+      "url": "http://pangeanglobal.com/"
+    },
+    {"name": "Drondy",
+      "url": "https://www.drondy.com"
+    },
+    {"name": "Green Mountain Software",
+      "url": "http://greenmountainsoftware.com/"
+    },
+    {"name": "Cocolevio",
+      "url": "https://cocolev.io/"
+    },
+    {"name": "Rtone",
+      "url": "http://rtone.fr/"
     }
   ]
 }
