@@ -56,6 +56,12 @@ Then do the same with `webapp\app\admin\metrics\metrics.js`:
 
     url: '/metrics' -> url: '/appmetrics'
 
+Then if you use gulp , you must to edit the file `gulp\serve.js` and replace `proxyRoutes` variable by:
+
+    var proxyRoutes = [
+        '/'
+    ];
+
 Finally, to make the home link in the navigation bar work, open `webapp\app\layouts\navbar\navbar.html` and change:
 
     <a class="navbar-brand" href="#/"> -> <a class="navbar-brand" href="/">
