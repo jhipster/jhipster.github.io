@@ -165,7 +165,7 @@ Here are the options you can pass:
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--skip-checks` - Skip the check of the required tools (Default: false)
 * `--jhi-prefix` - Add prefix before services, controllers and states name (Default: jhi)
-* `--npm` - Use npm instead of yarn (Default: false)
+* `--npm` - Use NPM instead of Yarn (Default: false)
 
 ## <a name="4"></a> Tips
 
