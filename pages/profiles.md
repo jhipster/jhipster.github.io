@@ -23,6 +23,8 @@ Those profiles come in two different configurations:
 
 Spring profiles are set by Maven/Gradle, so we have a consistency between the two methods: you will have a `prod` profile on Maven/Gradle and Spring at the same time.
 
+_Note:_ Spring profiles are used to configure the JHipster application properties, so you should be interested in reading our [Common application properties documentation]({{ site.url }}/common-application-properties/).
+
 ## By default, JHipster will use the `dev` profile
 
 If you run the application without Maven/Gradle, launch the "Application" class (you can probably run it easily from your IDE by right-clicking on it).
