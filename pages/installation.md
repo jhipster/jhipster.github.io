@@ -169,6 +169,33 @@ If you copy-pasted the above command to run the container, notice that you have 
 `docker exec -it jhipster bash`
 
 You will login as "jhipster" user. In case you need to do a `sudo`, the password for the user is the same as the username (`jhipster`).
+An alternative for distribution which ships without sudo by default is to login with the user-id 0 like so:
+
+`docker exec -it --user=0 jhipster bash`
+
+### Docker commands in JHipster's docker container
+
+If you need to launch docker commands from within JHipster's container, e.g. to build the Dockerfiles `./gradlew bootRepackage -Pprod buildDocker`, you can use the `--group-add` flag to add the container user to the host's docker group id:
+
+    docker run --name jhipster \
+        --group-add 979 \
+        -v $(which docker):/usr/bin/docker \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -v ~/jhipster:/home/jhipster/app \
+        -v ~/.m2:/home/jhipster/.m2 \
+        -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jhipster/jhipster
+
+Note that the docker group id (979 here) can change from distribution to another. Run `cat /etc/group | grep docker` to see yours.
+
+To start the container with the correct group in a single commands, you can execute:
+
+    docker run --name jhipster \
+        --group-add $(cat /etc/group | grep docker | awk -F":" '{print $3}') \
+        -v $(which docker):/usr/bin/docker \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -v ~/jhipster:/home/jhipster/app \
+        -v ~/.m2:/home/jhipster/.m2 \
+        -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jhipster/jhipster
 
 ### Your first project
 
