@@ -129,9 +129,9 @@ Create a "jhipster" folder in your home directory:
 Run the Docker image, with the following options:
 
 *   The Docker "/home/jhipster/app" folder is shared to the local "~/jhipster" folder
-*   Forward all ports exposed by Docker (8080 for Tomcat, 3000 for BrowserSync from the "gulp serve" task, 3001 for the BrowserSync UI)
+*   Forward all ports exposed by Docker (8080 for Tomcat, 9000 for BrowserSync from the "gulp serve" task, 9001 for the BrowserSync UI)
 
-`docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jhipster/jhipster`
+`docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 9001:9001 -d -t jhipster/jhipster`
 
 <div class="alert alert-info"><i>Tip: </i>
 
@@ -144,7 +144,7 @@ If you have already started the container once before, you do not need to run th
 To check that your container is running, use the command `docker ps`:
 
     CONTAINER ID    IMAGE               COMMAND                 CREATED         STATUS          PORTS                                                       NAMES
-    4ae16c0539a3    jhipster/jhipster   "tail -f /home/jhipst"  4 seconds ago   Up 3 seconds    0.0.0.0:3000-3001->3000-3001/tcp, 0.0.0.0:8080->8080/tcp    jhipster
+    4ae16c0539a3    jhipster/jhipster   "tail -f /home/jhipst"  4 seconds ago   Up 3 seconds    0.0.0.0:9000-9001->9000-9001/tcp, 0.0.0.0:8080->8080/tcp    jhipster
 
 #### Common operations
 
@@ -156,7 +156,7 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 1.  `docker stop jhipster`
 2.  `docker rm jhipster`
 3.  `docker pull jhipster/jhipster`
-4.  `docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jhipster/jhipster`
+4.  `docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 9001:9001 -d -t jhipster/jhipster`
 
 ### Accessing the container
 
