@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    
+
     angular.module('marketplace.list', ['ngRoute', 'jhipster.service'])
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/list', {
@@ -9,13 +9,13 @@
             });
         }])
         .controller('ModuleListCtrl', ModuleListCtrl);
-    
+
     ModuleListCtrl.$inject = ['$scope', '$location', '$filter', 'ModuleService', 'NpmService'];
 
     function ModuleListCtrl($scope, $location, $filter, ModuleService, NpmService) {
         $scope.total = 0;
         $scope.loaded = false;
-        var PAGE_SIZE = 15;
+        var PAGE_SIZE = 100;
         function getModules () {
             ModuleService.getAllModules(0,PAGE_SIZE).success(function (res) {
                 if(res.total > PAGE_SIZE){
@@ -34,9 +34,8 @@
                                 $scope.modules.push(module);
                                 modulesList.push(module.name[0]);
                             }
-                            
-                        });            
-                        
+                        });
+
                         $scope.loaded = true;
 
                         NpmService.getNpmDownloadsLastMonth(modulesList.join(',')).success(function (data) {
@@ -59,7 +58,7 @@
             ModuleService.setCurrent(module);
             $location.path('/details/' + module.name[0]);
         };
-        
+
         $scope.isVerified = function (module) {
             return $scope.moduleConfig.verifiedModules && $scope.moduleConfig.verifiedModules[module.name[0]];
         };
