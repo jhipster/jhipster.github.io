@@ -26,10 +26,6 @@ As this sub-generator uses the Cloud Foundry command-line tool, it can deploy to
 *   [IBM Bluemix](https://console.ng.bluemix.net/)
 *   And of course your own private Cloud Foundry instance if you have decided to install Cloud Foundry yourself!
 
-## Limitations
-
-*   MongoDB cannot load its data with Mongeez because of [#733](https://github.com/jhipster/generator-jhipster/issues/733).
-
 ## Running the sub-generator
 
 Before running the sub-generator, you need to install the [cf Command Line Interface (CLI)](http://docs.cloudfoundry.org/devguide/installcf/), and have a Cloud Foundry account created.
