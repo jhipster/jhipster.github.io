@@ -5,7 +5,8 @@
         .factory('GHService', GHService)
         .factory('NpmService', NpmService)
         .factory('ModuleService', ModuleService)
-        .filter('jhiModuleFilter', jhiModuleFilter);
+        .filter('jhiModuleFilter', jhiModuleFilter)
+        .filter('jhiAuthorFilter', jhiAuthorFilter);
 
     GHService.$inject = ['$http'];
     NpmService.$inject = ['$http'];
@@ -65,7 +66,7 @@
             },
             getAllModules: function (start, size) {
                 /* Get all Jhipster modules */
-                return $http.get(window.location.protocol + '//npmsearch.com/query?fields=name,keywords,description,author,homepage,version,repository,created&q=keywords:jhipster-module&start='+ start +'&size=' + size).success(function (resp) {
+                return $http.get('https://api.npms.io/v2/search?q=keywords%3Ajhipster-module&from=' + start + '&size=' + size).success(function (resp) {
                     return resp;
                 });
             },
@@ -83,6 +84,16 @@
             return input.replace('generator-jhipster-','').replace(/(?:^|[\s\-\_\.])\S/g, function(a) {
                 return a.replace(/[\-\_\.]/,' ').toUpperCase();
             });
+        };
+    }
+
+    function jhiAuthorFilter() {
+        return function(input) {
+            var authors = [];
+            angular.forEach(input, function(author) {
+                authors.push(author.username? author.username : author.name);
+            });
+            return authors.join(', ');
         };
     }
 
