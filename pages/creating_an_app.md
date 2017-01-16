@@ -6,7 +6,7 @@ redirect_from:
   - /creating_an_app.html
 sitemap:
     priority: 0.7
-    lastmod: 2014-06-02T00:00:00-00:00
+    lastmod: 2016-12-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-rocket"></i> Creating an application
@@ -76,7 +76,7 @@ The OAuth 2.0 and the JWT approaches allow to use a stateless application archit
 You can choose between:
 
 - No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/))
-- An SQL database (H2, MySQL, MariaDB, PostgreSQL, Oracle), which you will access with Spring Data JPA
+- An SQL database (H2, MySQL, MariaDB, PostgreSQL, MSSQL, Oracle), which you will access with Spring Data JPA
 - [MongoDB]({{ site.url }}/using-mongodb/)
 - [Cassandra]({{ site.url }}/using-cassandra/)
 

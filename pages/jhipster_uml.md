@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-11-13T12:00:00-00:00
+    lastmod: 2016-12-20T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -489,8 +489,11 @@ To see an example of that, just remember the complete HR example from Oracle, an
 The tests are available in the test folder and can be run via `npm test`.
 We use Mocha for testing (along with chai and expect from chai).
 
-If you want, an alternative command to run the tests, or run only the tests you want, is: `mocha PATH_TO_TESTS`.
+If you want, an alternative command to run the tests, or run only the tests you want, is: `mocha`.
 Please note that you need to be in the root directory for this command to work, and you also may need to install globally mocha with `npm install -g mocha` (or just use the file in the node_modules folder, which is available to you provided you do `npm install` in JHipster-UML's directory).
+If, however, you don't want to install everything globally, just do:
+  - `npm install` to install the mocha dependency,
+  - `./node_modules/mocha/bin/mocha` to run the tests, please note that you may need to use the `\` on some "exotic" operating system/s.
 
 ***
 
@@ -687,6 +690,12 @@ Here is the types supported by JDL:
   <tr>
     <td>ImageBlob</td>
     <td>ImageBlob</td>
+    <td></td>
+    <td><dfn>required, minbytes, maxbytes</dfn></td>
+  </tr>
+  <tr>
+    <td>TextBlob</td>
+    <td>TextBlob</td>
     <td></td>
     <td><dfn>required, minbytes, maxbytes</dfn></td>
   </tr>

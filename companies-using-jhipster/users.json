@@ -276,6 +276,18 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "Siemens",
+      "url": "https://www.siemens.com",
+      "logo": "siemens.png",
+      "category": "Industry",
+      "country": "Germany"
+    },
+    {"name": "Infotel",
+      "url": "http://www.infotel.com/",
+      "logo": "infotel.png",
+      "category": "System Integrator",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -467,6 +479,78 @@
     },
     {"name": "pwnwin",
       "url": "https://www.pwnwin.com/"
+    },
+    {"name": "hilarion 5",
+      "url": "https://www.hilarion5.com/"
+    },
+    {"name": "Luxoft",
+      "url": "http://www.luxoft.com/"
+    },
+    {"name": "Roundwheel Technologies Inc.",
+      "url": "http://roundwheel.ca/"
+    },
+    {"name": "Virtrics R&D",
+      "url": "http://www.virtrics.com/"
+    },
+    {"name": "Excelian",
+      "url": "http://www.excelian.com/"
+    },
+    {"name": "LojaSoft Solutions",
+      "url": "http://www.lojasoftsolutions.com.ec/"
+    },
+    {"name": "Starman AS",
+      "url": "http://starman.ee/"
+    },
+    {"name": "UST Global",
+      "url": "http://www.ust-global.com/"
+    },
+    {"name": "Dreamix",
+      "url": "http://dreamix.eu/"
+    },
+    {"name": "Alfame Systems Oy",
+      "url": "http://www.alfame.com/"
+    },
+    {"name": "AgiSol Ltd",
+      "url": "https://agisol.fi/en/"
+    },
+    {"name": "Cocolevio",
+      "url": "https://cocolev.io"
+    },
+    {"name": "Etiya",
+      "url": "http://www.etiya.com/"
+    },
+    {"name": "Pangean Global Services",
+      "url": "http://pangeanglobal.com/"
+    },
+    {"name": "Drondy",
+      "url": "https://www.drondy.com"
+    },
+    {"name": "Green Mountain Software",
+      "url": "http://greenmountainsoftware.com/"
+    },
+    {"name": "Rtone",
+      "url": "http://rtone.fr/"
+    },
+    {"name": "iWant Technologies Pvt. Ltd.",
+      "url": "http://www.iwantunlimited.com/"
+    },
+    {"name": "Bitfork eu",
+      "url": "http://bitfork.eu/"
+    },
+    {"name": "Digital Mill S.r.l.",
+      "url": "http://www.digitalmill.it/"
+    },
+    {"name": "Garanteasy",
+      "url": "http://it.garanteasy.com/"
+    },
+    {"name": "ICTindo Mitra Solusi",
+      "url": "https://klikpeta.com/"
+    },
+    {"name": "banet GmbH",
+      "url": "https://www.banet.at/"
+    },
+    {"name": "Autview d.o.o.",
+      "url": "http://www.autview.com/"
     }
   ]
 }

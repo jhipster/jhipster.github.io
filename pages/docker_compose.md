@@ -6,7 +6,7 @@ redirect_from:
   - /docker_compose.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-06-19T00:00:00-00:00
+    lastmod: 2016-12-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-music"></i> Docker and Docker Compose
@@ -99,7 +99,7 @@ To use the `docker-compose` subgenerator:
 - Create another directory, for example `mkdir docker-compose`.
 - Go into that directory: `cd docker-compose`.
 - Run the sub-generator: `yo jhipster:docker-compose`.
-- The sub-generator will ask you which application you want to have in your architecture, and if you want to have monitoring with ELK included.
+- The sub-generator will ask you which application you want to have in your architecture, and if you want to setup monitoring with ELK or Prometheus.
 
 This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
 
@@ -108,6 +108,7 @@ In the case of a microservice architecture, this configuration will also pre-con
 - Those services will wait until the JHipster Registry (or Consul) is running to start. This can be configured in your `bootstrap-prod.yml` file using the `spring.cloud[.consul].config.fail-fast` and `spring.cloud[.consul].config.retry` keys.
 - The registry will configure your applications, for example it will share the JWT secret token between all services.
 - Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
+
 
 ## <a name="4"></a> Working with databases
 
@@ -159,6 +160,15 @@ The application starts after few seconds (see _JHIPSTER_SLEEP_ variable) to give
 One big difference between Cassandra and the other databases, is that you can scale your cluster with Docker Compose. To have X+1 nodes in your cluster, run:
 
 - `docker-compose -f src/main/docker/cassandra-cluster.yml scale <name_of_your_app>-cassandra-node=X`
+
+### Microsoft SQL Server
+
+If you want to use the MSSQL Docker image with JHipster, there are a few steps to follow:
+
+- Increase the RAM available to Docker to at least 3.25GB
+- Run the database: `docker-compose -f src/main/docker/mssql.yml up -d`
+- Create the database with a MSSQL client of your choice
+- Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 ## <a name="5"></a> Elasticsearch
 

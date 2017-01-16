@@ -8,7 +8,22 @@ sitemap:
 ---
 # <i class="fa fa-line-chart"></i> Monitoring your JHipster Applications
 
-JHipster provides several easy ways to get started with logs and metrics monitoring of your applications. Logs and metrics forwarding to a remote server can be set up simply by setting the relevant properties in your `application.yml` configuration file. Then those logs and metrics can be displayed and analyzed in real-time using a monitoring platform. Aware of the importance of monitoring your applications in production, the JHipster project offers its own monitoring solution called the [JHipster Console](https://github.com/jhipster/jhipster-console), which is detailed below.
+JHipster provides several features to get started with the monitoring of your applications :
+
+* A **"Logs"** page to let you adjust log levels at runtime
+* Metrics collection and instrumentation with [Dropwizard Metrics](http://metrics.dropwizard.io)
+* A special **"Metrics"** page to vizualize those metrics.
+
+![JHipster Metrics page][jhipster-metrics-page]
+
+However, this page can only show you the current value of those metrics whereas users would want to monitor the evolution of those values over time.
+
+Therefore JHipster applications can be configured to forward their metrics to an external monitoring system where they can be graphed over time and analyzed.
+
+To achieve this, JHipster provide :
+
+* The [JHipster Console](#jhipster-console), a custom monitoring solution based on the ELK stack and fully integrated with JHipster.
+* Metrics exporters for JMX, [Graphite](https://graphiteapp.org/) and [Prometheus](https://prometheus.io/)
 
 ## Configuring your apps for log and metrics forwarding to a remote server
 
@@ -33,6 +48,22 @@ To configure metrics monitoring, enable metrics log reporting in your JHipster a
         	    reportFrequency: 60 # seconds
 
 Setting those properties will enrich your logs with metrics coming from Dropwizard metrics.
+
+### <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported monitoring system (JMX, Graphite, Prometheus)
+
+Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
+
+    jhipster:
+        metrics:
+            jmx.enabled: true
+            graphite: # Send metrics to a Graphite server
+                enabled: true
+                host: localhost
+                port: 2003
+                prefix: jhipster
+            prometheus: # Expose Prometheus metrics on the /prometheusMetrics endpoint
+                enabled: true
+                endpoint: /prometheusMetrics
 
 ## <a name="jhipster-console"></a> Introducing the JHipster Console
 
@@ -146,5 +177,6 @@ Note that those YAML files should have a `.yaml` file extension. Read more on ho
 
 Go to [localhost:5601/app/kibana#/dashboard/alerting-dashboard](http://localhost:5601/app/kibana#/dashboard/alerting-dashboard) to see the history of all your alerts.
 
+[jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "JHipster Metrics page"
 [monitoring-dashboard]: {{ site.url }}/images/jhipster-console-monitoring.png "Monitoring Dashboard"
 [jvm-dashboard]: {{ site.url }}/images/jhipster-console-jvm.png "JVM Dashboard"
