@@ -446,14 +446,14 @@ sitemap:
                 <div ng-cloak ng-repeat="module in modules | filter: searchText | orderBy: '-downloads' | limitTo:16">
                     <div class="clearfix" ng-if="$index % 4 == 0"></div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <a ng-href="{{ site.url }}/modules/marketplace/#/details/{(module.name[0])}"
-                            title="{(module.description[0])}">
+                        <a ng-href="{{ site.url }}/modules/marketplace/#/details/{(module.package.name)}"
+                            title="{(module.package.description)}">
                             <div class="card dark module summary-inline">
                                 <div class="card-body">
                                     <i class="icon fa fa-cube fa-3x"></i>
                                     <div class="content">
-                                        <div class="title fontSmall">{(module.name[0] | jhiModuleFilter)}</div>
-                                        <div class="sub-title"><span class="fa fa-user"></span> &nbsp; {(module.author.join(','))} &nbsp; | &nbsp; <span class="fa fa-download"></span> &nbsp; {(module.downloads)}</div>
+                                        <div class="title fontSmall">{(module.package.name | jhiModuleFilter)}</div>
+                                        <div class="sub-title"><span class="fa fa-user"></span> &nbsp; {(module.package.author.name)} &nbsp; | &nbsp; <span class="fa fa-download"></span> &nbsp; {(module.downloads)}</div>
                                     </div>
                                     <div class="clear-both"></div>
                                 </div>
