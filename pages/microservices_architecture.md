@@ -60,7 +60,7 @@ The JHipster microservices architecture works in the following way:
 
 In the diagram below, the green components are specific to your application and the blue components provide its underlying infrastructure.
 
-![Diagram]({{ site.url }}/images/microservices_architecture_2.png)
+![Diagram]({{ site.url }}/images/microservices_architecture_2.png =800x)
 
 ## <a name="gateway"></a> The JHipster API gateway
 
