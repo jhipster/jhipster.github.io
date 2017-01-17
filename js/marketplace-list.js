@@ -15,7 +15,7 @@
     function ModuleListCtrl($scope, $location, $filter, ModuleService, NpmService) {
         $scope.total = 0;
         $scope.loaded = false;
-        var PAGE_SIZE = 100;
+        var PAGE_SIZE = 25;
         function getModules () {
             ModuleService.getAllModules(0,PAGE_SIZE).success(function (res) {
                 if(res.total > PAGE_SIZE){
@@ -30,17 +30,18 @@
 
                         $scope.modules = []
                         angular.forEach(res.results, function(module, key) {
-                            if(!($scope.moduleConfig.blacklistedModules && $scope.moduleConfig.blacklistedModules[module.name[0]])){
+                            if(!($scope.moduleConfig.blacklistedModules && $scope.moduleConfig.blacklistedModules[module.package.name])){
                                 $scope.modules.push(module);
-                                modulesList.push(module.name[0]);
+                                modulesList.push(module.package.name);
                             }
+
                         });
 
                         $scope.loaded = true;
 
                         NpmService.getNpmDownloadsLastMonth(modulesList.join(',')).success(function (data) {
                             angular.forEach($scope.modules, function(module, key) {
-                                var npmstats = data[module.name[0]];
+                                var npmstats = data[module.package.name];
                                 if (npmstats != undefined) {
                                     module.downloads = npmstats.downloads;
                                 } else {
@@ -56,11 +57,11 @@
 
         $scope.details = function (module) {
             ModuleService.setCurrent(module);
-            $location.path('/details/' + module.name[0]);
+            $location.path('/details/' + module.package.name);
         };
 
         $scope.isVerified = function (module) {
-            return $scope.moduleConfig.verifiedModules && $scope.moduleConfig.verifiedModules[module.name[0]];
+            return $scope.moduleConfig.verifiedModules && $scope.moduleConfig.verifiedModules[module.package.name];
         };
     }
 })();

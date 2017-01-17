@@ -3,9 +3,10 @@
         ng-click="list()"
         class="btn btn-info btn-sm">Back to modules list</button>
 
-<h2>{(module.name[0] | jhiModuleFilter)}</h2>
+<h2>{(module.package.name | jhiModuleFilter)}</h2>
 
 <i><p>by <a href="{(module.npminfo.author.url)}" target="_blank">{(module.npminfo.author.name)}</a>(<a href="https://www.npmjs.com/~{(module.npminfo._npmUser.name)}" target="_blank">{(module.npminfo._npmUser.name)}</a>)</i>
+<i><p>Maintained by {(module.npminfo.maintainers | jhiAuthorFilter)}</i>
 <p>
     Latest version: {(module.npminfo.version)}
 </p>
@@ -33,4 +34,3 @@
 <h3>Downloads for last month</h3>
 
 <div id="chart"></div>
-
