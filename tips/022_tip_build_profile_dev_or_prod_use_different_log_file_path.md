@@ -18,7 +18,7 @@ How do i according to the different environment config log file path?
 
 Enable logging output to a file, edit file `src/main/resource/logback-spring.xml`
 
-```
+```xml
 <configuration>
 ...
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -90,7 +90,7 @@ processResources {
 }
 ```
 
-*Check that*
+**Check that**
 
 Build profile dev
 ```
@@ -108,7 +108,7 @@ Open file `build/resources/logback-spring.xml` and look at, the mark `#logback.f
 
 Enable logging output to a file, edit file `src/main/resource/logback-spring.xml`
 
-```
+```xml
 <configuration>
 ...
 <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -138,7 +138,7 @@ Enable logging output to a file, edit file `src/main/resource/logback-spring.xml
 
 Then edit file `pom.xml`, position at id is dev profile element
 
-```
+```xml
 <profile>
   <id>dev</id>
   ...
@@ -153,7 +153,7 @@ Then edit file `pom.xml`, position at id is dev profile element
 
 Then edit position at id is prod profile element
 
-```
+```xml
 <profile>
   <id>prod</id>
   ...
@@ -166,7 +166,7 @@ Then edit position at id is prod profile element
 </profile>
 ```
 
-*Check that*
+**Check that**
 
 Build profile dev
 ```
@@ -178,4 +178,4 @@ Build profile prod
 $ ./mvnw clean package -Pprod
 ```
 
-Open file `build/resources/logback-spring.xml` and look at, the mark `@logback.fileNamePattern@` already replaced by `dev/prod` log file path.
+Open file `target/classes/logback-spring.xml` and look at, the mark `@logback.fileNamePattern@` already replaced by `dev/prod` log file path.
