@@ -179,3 +179,8 @@ $ ./mvnw clean package -Pprod
 ```
 
 Open file `target/classes/logback-spring.xml` and look at, the mark `@logback.fileNamePattern@` already replaced by `dev/prod` log file path.
+
+
+## Finally
+
+All similar according to build profile change the configuration file, you can use a similar method, build happy!
