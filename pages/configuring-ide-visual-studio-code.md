@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-keyboard-o"></i> Configuring Visual Studio Code
 
-Visual Studio Code is an Open Source text editor made by Microsoft. It has excellent support for TypeScript, so many people want to use it for developing AngularJS 2 applications.
+Visual Studio Code is an Open Source text editor made by Microsoft. It has excellent support for TypeScript, so many people want to use it for developing Angular 2 applications.
 
 ![Screenshot]({{ site.url }}/images/configuring_ide_visual_studio_code_1.png)
 
@@ -52,3 +52,28 @@ To use it within Visual Studio Code, you need to:
 In the first terminal, your JHipster application should automatically redeploy, and use your new code.
 
 If you use the JHipster App, this is only a matter of clicking on 2 buttons (one for running the application, the other for compiling it), and your application will automatically redeploy in the same way.
+
+## Custom settings
+
+For best performance, it's recommended to exclude some folders, in your project's `.vscode` folder create a `settings.json` file as below:
+
+{% highlight javascript %}
+{
+    // Configure glob patterns for excluding files and folders.
+    "files.exclude": {
+        "**/.git": true,
+        "**/.idea": true,
+        "**/.mvn": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true
+    },
+    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
+    "search.exclude": {
+        "**/node": true,
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/target": true
+    }
+}
+{% endhighlight %}
