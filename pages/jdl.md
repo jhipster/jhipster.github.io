@@ -37,8 +37,8 @@ Here is the full JDL documentation:
   3.6 [Microservice-related options](#microserviceoptions)
 4. [Commenting](#commentingjdl)  
 5. [All the relationships](#jdlrelationships)  
-6. [Constants](#constants)
-7. [Annexes](#annexes)
+6. [Constants](#constants)  
+7. [Annexes](#annexes)  
 8. [Issues and bugs](#issues)  
 
 ***
