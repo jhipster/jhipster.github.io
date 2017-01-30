@@ -288,6 +288,12 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "Ordina - JWorks",
+      "url": "https://ordina-jworks.github.io/",
+      "logo": "ordina-jworks.png",
+      "category": "System Integrator",
+      "country": "Belgium"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -542,6 +548,24 @@
     },
     {"name": "Autview d.o.o.",
       "url": "http://www.autview.com/"
+    },
+    {"name": "Codedose",
+      "url": "http://www.codedose.com/"
+    },
+    {"name": "Digital Mill",
+      "url": "http://www.digitalmill.it/"
+    },
+    {"name": "ForsysLab",
+      "url": "https://www.forsyslab.com/"
+    },
+    {"name": "Talquest",
+      "url": "https://www.talquest.com/"
+    },
+    {"name": "MERAK Systems",
+      "url": "http://www.meraksystems.com/"
+    },
+    {"name": "Aracla",
+      "url": "https://aracla.com/"
     }
   ]
 }
