@@ -22,7 +22,7 @@ Once you have created your application, you will want to create _entities_. For 
 *   A JPA Entity
 *   A Spring Data JPA Repository
 *   A Spring MVC REST Controller, which has the basic CRUD operations
-*   An AngularJS router, a controller and a service
+*   An Angular router, a component and a service
 *   An HTML view
 *   Integration tests, to validate everything works as expected
 *   Performance tests, to see if everything works smoothly
@@ -37,7 +37,7 @@ The "entity" sub-generator will create all the necessary files, and provide a CR
 Below are the supported options.
 
 *   `--table-name <table_name>` - By default JHipster will generate a table name based on your entity name, if you would like to have a different table name you can do so by passing this option.
-*   `--angular-suffix <suffix>` - If you want all your AngularJS routes to have a custom suffix you can pass that using this option.
+*   `--angular-suffix <suffix>` - If you want all your Angular routes to have a custom suffix you can pass that using this option.
 *   `--regenerate` - This will regenerate an existing entity without asking any questions.
 *   `--skip-server` - This will skip the server-side code and will generate only the client-side code.
 *   `--skip-client` - This will skip the client-side code and will generate only the server-side code.
@@ -58,7 +58,7 @@ If you used the JDL Studio:
 
 ## Entity fields
 
-For each entity, you can add as many fields as you want. You will need to input the field names and their types, and JHipster will generate for you all the required code and configuration, from the AngularJS HTML view to the Liquibase changelog.
+For each entity, you can add as many fields as you want. You will need to input the field names and their types, and JHipster will generate for you all the required code and configuration, from the Angular HTML view to the Liquibase changelog.
 
 Those fields cannot contain reserved keywords in the technologies you are using. For example, if you use MySQL:
 
@@ -79,7 +79,7 @@ JHipster supports many field types. This support depends on your database backen
 *   `ZonedDateTime`: A `java.time.ZonedDateTime` object, used to correctly manage dates and times in Java.
 *   `Boolean`: A Java Boolean.
 *   `Enumeration`: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific `enum` class to store them.
-*   `Blob`: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store generic binary data, an image object, or a CLOB (long text). Images will be handled specifically on the AngularJS side, so they can be displayed to the end-user.
+*   `Blob`: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store generic binary data, an image object, or a CLOB (long text). Images will be handled specifically on the Angular side, so they can be displayed to the end-user.
 
 ## Validation
 

@@ -15,20 +15,19 @@ sitemap:
 
 Single Web page application:
 
-*   Responsive Web Design
+*   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
-*   [Twitter Bootstrap](http://getbootstrap.com/)
-*   [AngularJS](http://angularjs.org/)
-*   Compatible with IE9+ and modern browsers
-*   Full internationalization support with [Angular Translate](https://github.com/angular-translate/angular-translate)
+*   [AngularJS v1.x](http://angularjs.org/) or [Angular v2+](https://angular.io/)
+*   Compatible with IE11 and modern browsers
+*   Full internationalization support
 *   Optional [Sass](https://www.npmjs.com/package/node-sass) support for CSS design
 *   Optional WebSocket support with Spring Websocket
 
 With the great [Yeoman](http://yeoman.io/) development workflow:
 
-*   Easy installation of new JavaScript libraries with [Bower](http://bower.io/)
-*   Build, optimization and live reload with [Gulp.js](http://www.gulpjs.com)
-*   Testing with [Karma](http://karma-runner.github.io/) and [PhantomJS](http://phantomjs.org/)
+*   Easy installation of new JavaScript libraries with [Bower](http://bower.io/) or [Yarn](https://yarnpkg.com/)
+*   Build, optimization and live reload with [Gulp.js](http://www.gulpjs.com) or [Webpack](https://webpack.js.org/)
+*   Testing with [Karma](http://karma-runner.github.io/), [PhantomJS](http://phantomjs.org/) and [Protractor](http://www.protractortest.org)
 
 And what if a single Web page application isn't enough for your needs?
 
