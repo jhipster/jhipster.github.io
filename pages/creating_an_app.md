@@ -163,7 +163,9 @@ Here are the options you can pass:
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
-* `--check-install` - Check your installation is correct (Default: true)
+* `--skip-checks` - Skip the check of the required tools (Default: false)
+* `--jhi-prefix` - Add prefix before services, controllers and states name (Default: jhi)
+* `--npm` - Use NPM instead of Yarn (Default: false)
 
 ## <a name="4"></a> Tips
 
