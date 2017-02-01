@@ -59,7 +59,7 @@ tasks.withType(NodeTask) {
         println()
     }
 }
-tasks.withType(com.moowork.gradle.node.npm.NpmInstallTask) {
+tasks.withType(com.moowork.gradle.node.npm.NpmTask) {
     doLast {
         println()
     }
