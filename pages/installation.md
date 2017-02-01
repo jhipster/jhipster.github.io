@@ -162,11 +162,7 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 1.  `docker stop jhipster`
 2.  `docker rm jhipster`
 3.  `docker pull jhipster/jhipster`
-<<<<<<< HEAD
 4.  `docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 9001:9001 -d -t jhipster/jhipster`
-=======
-4.  `docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster`
->>>>>>> prepare-jhipster-4
 
 ### Accessing the container
 
