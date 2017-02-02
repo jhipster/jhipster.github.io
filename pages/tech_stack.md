@@ -15,9 +15,9 @@ sitemap:
 
 Single Web page application:
 
+*   [AngularJS v1.x](http://angularjs.org/) or [Angular v2+](https://angular.io/)
 *   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
-*   [AngularJS v1.x](http://angularjs.org/) or [Angular v2+](https://angular.io/)
 *   Compatible with IE11 and modern browsers
 *   Full internationalization support
 *   Optional [Sass](https://www.npmjs.com/package/node-sass) support for CSS design
