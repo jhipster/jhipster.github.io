@@ -61,7 +61,7 @@ JHipster is a complete upgrade of Spring libraries, with some major refactoring.
 
 - Constructor-based injection is considered cleaner by many people, in particular as it eases testing
 - JHipster now has constructor-based injection both in Spring and in Angular, making the code more homogeneous
-- This removes totally the need for CDI (the Context and Dependency Injection specification from Java EE) in the project, so we have removed it
+- This removes the need for the `@Inject` annotations, so we have deleted the `javax.inject` dependency from the project
 
 "AAA" ranking on Sonar
 ---------------
