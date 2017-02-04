@@ -145,7 +145,7 @@ If you want more information on using Bower, please go to [http://bower.io](http
 
 ### Running Webpack
 
-_We highly recommend you use this feature, as it allows to have live reloading of your client-side code._
+_This step is required to see changes in your TypeScript code and have live reloading of your client-side code._
 
 Running Webpack is the default task in the `package.json` file, so you just need to run:
 
