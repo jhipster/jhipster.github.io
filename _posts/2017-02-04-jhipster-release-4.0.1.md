@@ -18,11 +18,15 @@ As always, __[you can check all closed tickets and merged pull requests here](ht
 How to upgrade
 ------------
 
+**Automatic upgrade only works for JHipster 3.x applications**
+
 For an automatic upgrade, use the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) on an existing application:
 
 ```
 yo jhipster:upgrade
 ```
+
+**Manual upgrades (works for JHipster 4.x applications)**
 
 For a manual upgrade, first upgrade your version of JHipster with:
 
