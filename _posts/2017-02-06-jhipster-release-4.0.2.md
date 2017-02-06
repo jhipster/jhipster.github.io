@@ -9,7 +9,7 @@ JHipster release 4.0.2
 What's new
 ----------
 
-This is the second patch release from JHipster 4.0.0, with many small bugs corrected, mostly for people using Angular 2.
+This is the second patch release for JHipster 4.0.0, with many small bugs corrected, mostly for people using Angular 2.
 
 Closed tickets and merged pull requests
 ------------
