@@ -88,7 +88,7 @@ To get the automatically-generated admin password on the JHipster Registry, type
 
 To use this password, update all of your microservices and your gateway to use the credentials for the registry by running this command:
 
-`heroku config:set JHIPSTER_REGISTRY_URL="http://user:[password]@[appname].herokuapp.com"`
+`heroku config:set JHIPSTER_REGISTRY_URL="https://user:[password]@[appname].herokuapp.com"`
 
 ## Troubleshooting
 
