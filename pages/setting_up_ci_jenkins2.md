@@ -25,7 +25,7 @@ Download the `jenkins.war`
 
 Launch the [Docker image](https://hub.docker.com/r/jenkinsci/jenkins/) (the default port has been changed to 18080):
 
-`docker run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkinsci/jenkins`
+`docker container run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkinsci/jenkins`
 
 ## Create a new Job
 
