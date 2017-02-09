@@ -55,11 +55,8 @@ JHipster comes with three additional profiles used as switches:
 
 *   `swagger` to enable swagger
 *   `no-liquibase` to disable liquibase
-*   `shell`to enable the [Spring Boot remote shell](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-remote-shell.html)
 
 These can be used along with both the `dev` and `prod` profiles. Please note that by default, the `swagger` profile is disabled in `prod` and enabled in `dev` by setting the `spring.profiles.include` property in `application.yml`.
-
-`shell` is only used at build time.
 
 `swagger` and `no-liquibase` are only used at runtime:
 
@@ -69,9 +66,9 @@ These can be used along with both the `dev` and `prod` profiles. Please note tha
 With Maven, you can also use those profiles directly:
 
 *   `./mvnw -Pprod,swagger,no-liquibase`
-*   `./mvnw -Pdev,no-liquibase,shell`
+*   `./mvnw -Pdev,no-liquibase`
 
 With Gradle, you can also use those profiles directly:
 
 *   `./gradlew -Pprod -Pswagger -Pno-liquibase`
-*   `./gradlew -Pno-liquibase -Pshell`
+*   `./gradlew -Pno-liquibase`

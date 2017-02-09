@@ -10,6 +10,8 @@ lastmod: 2016-09-22T22:22:00-00:00
 
 __Tip submitted by [@cbornet](https://github.com/cbornet)__
 
+**As the Spring Boot remote shell will be removed in Spring Boot 2.0, this tip is deprecated**
+
 Since v3.8, JHipster has a `shell` Maven/Gradle profile that will include the [Spring Boot remote shell](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-remote-shell.html).
 If your project was generated with JHipster < 3.8, you'll need to add the `spring-boot-starter-remote-shell` dependency manually.
 
@@ -20,19 +22,19 @@ For this:
 
   * Start your app
 
-  * Open an ssh session in a terminal (here for user admin, password: admin): 
-  
+  * Open an ssh session in a terminal (here for user admin, password: admin):
+
 ```
-ssh -p2000 admin@localhost 
+ssh -p2000 admin@localhost
 ```
 
-  * Once connected, switch to Groovy REPL mode: 
+  * Once connected, switch to Groovy REPL mode:
 
 ```
 > repl groovy
 ```
 
-  * Get the BeanFactory: 
+  * Get the BeanFactory:
 
 ```
 > bf = context.attributes['spring.beanfactory']
