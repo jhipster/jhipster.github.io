@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using AngularJS
+title: Using Angular
 permalink: /using-angular/
 sitemap:
     priority: 0.7
