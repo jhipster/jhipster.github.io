@@ -79,7 +79,7 @@ Global variables:
 - `baseName`: the name of the application
 - `packageName`: the Java package name
 - `mainClassName`: the main Java class name
-- `angularAppName`: the AngularJS application name
+- `angularAppName`: the Angular application name
 - `packageFolder`: the Java package folder
 - `javaDir`: the directory for the Java application, including the package folders
 - `resourceDir`: the directory containing the Java resources (always `src/main/resources`)

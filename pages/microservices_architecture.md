@@ -53,7 +53,7 @@ _The rest of this guide is only for people interested in doing a microservices a
 
 The JHipster microservices architecture works in the following way:
 
- * A [gateway](#gateway) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an AngularJS application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
+ * A [gateway](#gateway) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an Angular application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
  * The [JHipster Registry](#jhipster-registry) is a runtime application, using the usual JHipster structure, on which all applications registers and get their configuration from.
  * Microservices are JHipster-generated applications (using application type `microservice application` when you generate them), that handle REST requests. They are stateless, and several instances of them can be launched in parallel to handle heavy loads.
  * The [JHipster Console](https://github.com/jhipster/jhipster-console) is a monitoring & alerting console, based on the ELK stack.
