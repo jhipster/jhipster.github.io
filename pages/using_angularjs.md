@@ -11,6 +11,8 @@ sitemap:
 
 # <i class="fa fa-html5"></i> Using AngularJS
 
+**Please note** that this section refers to AngularJS 1.x. If you are using Angular 2+, please go to the [using Angular documentation]({{ site.url }}/using-angular/).
+
 ## Project Structure
 
 The JHipster client code can be found under `src/main/webapp`, and follows closely the  [John Papa AngularJS 1 style guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md). Please read this guide first if you have any question on our application structure, file names, JavaScript conventions...
@@ -78,7 +80,7 @@ JHipster uses [angular-ui-router](http://angular-ui.github.io/ui-router/) to org
 
 For each state, the required authorities are listed in the state's data, and when the authority list is empty it means that the state can be accessed anonymously.
 
-The authority names are defined in server's class `AuthoritiesConstants.java`.
+The authorities are also defined on the server-side in the class `AuthoritiesConstants.java`, and logically the client and server-side authorities should be the same.
 
 In the example below, the 'sessions' state can be accessed only by authenticated users who have `ROLE_USER` authority:
 
