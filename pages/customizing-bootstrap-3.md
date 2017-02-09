@@ -1,19 +1,22 @@
 ---
 layout: default
-title: Customizing Bootstrap
-permalink: /customizing-bootstrap/
+title: Customizing Bootstrap 3
+permalink: /customizing-bootstrap-3/
 redirect_from:
   - /customizing_bootstrap.html
+  - /customizing-bootstrap/
 sitemap:
     priority: 0.7
     lastmod: 2015-01-30T18:40:00-00:00
 ---
 
-# <i class="fa fa-css3"></i> Customizing Bootstrap
+# <i class="fa fa-css3"></i> Customizing Bootstrap 3
 
-_Pro tip: don't forget to run `gulp` to get immediate feedback of your changes!_
+**Please note** that this section refers to AngularJS 1.x with Bootstrap 3. If you are using Angular 2+ with Bootstrap 4, please go to the [Bootstrap 4 documentation]({{ site.url }}/customizing-bootstrap-4/).
 
 ## Basic customisation
+
+_Pro tip: don't forget to run `gulp` to get immediate feedback of your changes!_
 
 The simplest way to customize how your JHipster application looks like is by
 overriding CSS styles in `src/main/webapp/content/css/main.css` if you don't use
