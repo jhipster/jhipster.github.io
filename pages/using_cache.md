@@ -12,12 +12,12 @@ sitemap:
 A cache can be used at three levels in JHipster:
 
 - As an Hibernate 2nd-level cache, a caching solution can give a huge performance boost to your application. This is what people usually do with JHipster, and it is only available for SQL databases.
-- For clustered HTTP sessions, a cache it will replicate users' HTTP sessions over several nodes, allowing the application to scale horizontally. This solution is only available with Hazelcast. This is only useful if you have a stateful application, which is not the default in JHipster, and which isn't recommended. You will also need a front-end load-balancer in front of your application nodes.
+- For clustered HTTP sessions, a caching solution will replicate users' HTTP sessions over several nodes, allowing the application to scale horizontally. This solution is only available with Hazelcast. This is only useful if you have a stateful application, which is not the default in JHipster, and which isn't recommended. You will also need a front-end load-balancer in front of your application nodes.
 - With the Spring caching abstraction, using the `@EnableCaching` annotation. This isn't provided by default with JHipster, as it is trivial to setup (just add the `@EnableCaching` annotation). This needs to be tuned according to your specific business needs, and works at a higher level than the Hibernate 2nd-level cache. However, we do not recommend to use both the Spring caching abstraction and the Hibernate 2nd-level cache, as this will make cache invalidation issues even more complex.
 
 ## Common configuration
 
-Caches are configured in the `CacheConfiguration` class, and can also be tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/) .
+Caches are configured in the `CacheConfiguration` class, and can also be tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/).
 
 ## Caching with Ehcache
 
