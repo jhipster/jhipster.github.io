@@ -49,4 +49,4 @@ And a very special thanks to the development team from [Galeries Lafayette](http
 If you'd like to support us by making a small donation, it takes only a few seconds.
 <p/>
 <i class="jamatto-donate" jamatto-bid="github.io" jamatto-amounts="0.10 0.20 0.50" jamatto-ccy="USD" ></i>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jamatto.com/api/js/jamatto.min.js"></script>
