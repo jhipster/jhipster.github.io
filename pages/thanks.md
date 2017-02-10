@@ -43,3 +43,10 @@ These companies help us to develop JHipster
 *   EJ Technologies, which gives us free licenses for the [JProfiler Java profiler](http://www.ej-technologies.com/products/jprofiler/overview.html).
 
 And a very special thanks to the development team from [Galeries Lafayette](http://www.galerieslafayette.com/), which had the original idea of making Grunt work with Ant, and create a modern Web front-end on top of a more classical Spring MVC application.
+
+## Support us
+
+If you'd like to support us by making a small donation, it takes only a few seconds.
+<p/>
+<i class="jamatto-donate" jamatto-bid="github.io" jamatto-amounts="0.10 0.20 0.50" jamatto-ccy="USD" ></i>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
