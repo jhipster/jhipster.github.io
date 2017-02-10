@@ -58,7 +58,7 @@ If you are on Windows, use:
 
 **Please note** that this WAR file uses the profile we selected when building it. As it was built using the `prod` file in the previous section, it will therefore run with the `prod` profile.
 
-## Generating an optimized JavaScript application with Gulp
+## (only for AngularJS 1.x) Generating an optimized JavaScript application with Gulp
 
 This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, just run:
 
@@ -73,6 +73,20 @@ This code will be served when you run the application with the `prod` profile.
 **Please note** That you will still be able to debug your JavaScript application as JHipster generates [source maps](https://developers.google.com/web/tools/chrome-devtools/debug/readability/source-maps).
 
 **If you have some images missing** after the minification process, this is most likely because you are using some third-party Bower packages that do not correctly reference their images in their `bower.json` configuration. The easiest way to correct this is to add those images yourself in your `src/main/webapp/content/images` folder and change the references to those images to point there.
+
+## (only for Angular 2+) Generating an optimized JavaScript application with Webpack
+
+This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, just run:
+
+`yarn run webpack:build`
+
+This will use [Webpack](https://webpack.github.io/) to process all your static resources (CSS, TypeScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
+
+During this process, Webpack will compile the TypeScript code into JavaScript code, and will also generate source maps, so the client-side application can still be debugged.
+
+Those optimized assets will be generated in `target/www` for Maven or `build/www` for Gradle, and will be included in your final production WAR.
+
+This code will be served when you run the application with the `prod` profile.
 
 ## GZipping
 
