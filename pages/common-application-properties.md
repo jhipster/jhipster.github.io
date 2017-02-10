@@ -25,7 +25,7 @@ Like any Spring Boot application, JHipster allows you to configure any standard 
 
 ## <a name="2"></a> JHipster application properties
 
-JHipster provides specific application properties, which come from the [JHipster server-side library](https://github.com/jhipster/jhipster). Those properties are standard for all JHipster projects, but some of them only work depending on what you selected when you built your application: for example the `jhipster.cache.ehcache` key only works if you selected Ehcache as your 2nd-level Hibernate cache.
+JHipster provides specific application properties, which come from the [JHipster server-side library](https://github.com/jhipster/jhipster). Those properties are standard for all JHipster projects, but some of them only work depending on what you selected when you built your application: for example the `jhipster.cache.hazelcast` key only works if you selected Hazelcast as your 2nd-level Hibernate cache.
 
 Those properties are configured using the `io.github.jhipster.config.JHipsterProperties` class.
 
@@ -46,10 +46,6 @@ Here is a documentation for those properties:
 
         # Hibernate 2nd level cache, used by CacheConfiguration
         cache:
-            ehcache: # Ehcache configuration
-                # By default the cache size is very small
-                # In production, use the JHipster metrics to tune it
-                max-bytes-local-heap: 16M
             hazelcast: # Hazelcast configuration
                 time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
                 backup-count: 1 # Number of objects backups
