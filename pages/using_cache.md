@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Oracle
+title: Using a cache
 permalink: /using-cache/
 sitemap:
     priority: 0.7
