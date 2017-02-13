@@ -28,7 +28,7 @@ With JHipster, Ehcache has two limitations:
 - It cannot be used for HTTP sessions clustering
 - It cannot work as a distributed cache, as it doesn't have an API allowing to add new nodes programmatically
 
-Ehcache has a specific XML configuration, which is located at `src/main/resources/config/ehcache/ehcache-dev.xml` for "dev" mode, and `src/main/resources/config/ehcache/ehcache-prod.xml` for "prod" mode. By default, the "dev" mode uses 16Mb of RAM, and the "prod" mode uses 64Mb of RAM. Those caches should be tuned depending on your specific business needs, and the JHipster monitoring screen can help you better understand cache usage in your application.
+Ehcache has a specific XML configuration, which is located at `src/main/resources/config/ehcache/ehcache-dev.xml` for "dev" mode, and `src/main/resources/config/ehcache/ehcache-prod.xml` for "prod" mode. By default, the "dev" mode uses caches with 100 entries, and the "prod" uses caches with 1,000 entries. Those caches should be tuned depending on your specific business needs, and the JHipster monitoring screen can help you better understand cache usage in your application. Please refer to the Ehcache documentation to fine-tune those caches.
 
 ## Caching with Hazelcast
 
@@ -36,7 +36,7 @@ Ehcache has a specific XML configuration, which is located at `src/main/resource
 
 - It can be used for HTTP sessions clustering
 - It is the default option for microservices, as we expect microservices to scale
-- When used in a a monolith, Hazelcast needs to have the JHipster Registry option in order to scale
+- When used in a a monolith, Hazelcast needs to have the [JHipster Registry]({{ site.url }}/microservices-architecture/#jhipster-registry/) option in order to scale
 
 For scaling both monoliths and microservices, Hazelcast will use the configured service discovery in order to find new nodes, and scale horizontally. With microservices, this will work both with the JHipster Registry and Consul, and for monoliths this will only work with the JHipster Registry.
 
