@@ -345,10 +345,7 @@ Note the URL on which your JHipster Registry is deployed. Your applications must
 
     eureka:
         instance:
-            hostname: <your_jhipster_registry_url>.herokuapp.com
-            non-secure-port: 80
+            hostname: https://admin:[password]@[appname].herokuapp.com
             prefer-ip-address: false
 
 You can now deploy and scale the gateway(s) and microservices. The Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications to fetch their configuration on the Spring Cloud Config server.
-
-**Warning** The above configuration uses HTTP, but in order to have your architecture secured in production, use HTTPS to connect to the JHipster Registry! As the admin password is sent using HTTP Basic authentication, using an encrypted communication channel is very highly recommended.
