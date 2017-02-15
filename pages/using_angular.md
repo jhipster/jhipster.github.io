@@ -100,14 +100,18 @@ In the example below, the 'sessions' state is designed to be accessed only by au
         canActivate: [UserRouteAccessService]
     };
 
-Once those authorities are defined in the router, they can be used through two directives:
+Once those authorities are defined in the router, they can be used through `jhiHasAnyAuthority` directive within its 2 variants based on type of argument:
 
-- `jhiHasAuthority` that only displays the HTML component if the user has the required authority
-- `jhiHasAnyAuthority` that only displays the HTML component if the user has one of the listed authorities
+- for a single string, the directive only displays the HTML component if the user has the required authority
+- for an array of strings, the directive displays the HTML component if the user has one of the listed authorities
 
 For example, the following text will only be displayed to users having the `ROLE_ADMIN` authority:
 
-    <h1 jhiHasAuthority="ROLE_ADMIN">Hello, admin user</h1>
+    <h1 *jhiHasAnyAuthority="'ROLE_ADMIN'">Hello, admin user</h1>
+
+For example, the following text will only be displayed to users having one of the `ROLE_ADMIN` or `ROLE_USER` authorities:
+
+    <h1 *jhiHasAnyAuthority="`['ROLE_ADMIN', 'ROLE_USER']">Hello, dear user</h1>
 
 *Please note* that those directives only show or hide HTML components on the client-side, and that you also need to secure your code on the server-side!
 
