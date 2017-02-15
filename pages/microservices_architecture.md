@@ -35,7 +35,7 @@ sitemap:
 8. [Monitoring with JHipster Console and the ELK stack](#monitoring)
 9. [Production](#production)
   * [Going to production with Docker Swarm](#docker_swarm)
-  * [Going to production with CloudFoundry](#cloudfoundry)
+  * [Going to production with Cloud Foundry](#cloudfoundry)
   * [Going to production with Heroku](#heroku)
 
 ## <a name="microservices_vs_monolithic"></a> Microservices vs Monolithic architecture
@@ -313,9 +313,9 @@ Compared with monolithic applications, gateways and microservices monitoring con
 
 As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) to learn more about using Docker Compose with JHipster.
 
-### <a name="cloudfoundry"></a> Going to production with CloudFoundry
+### <a name="cloudfoundry"></a> Going to production with Cloud Foundry
 
-The [CloudFoundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
+The [Cloud Foundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
 
 - Use the sub-generator to deploy first the JHipster Registry (which is a normal JHipster application).
 - Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL:
