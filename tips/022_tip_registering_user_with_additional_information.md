@@ -1,3 +1,11 @@
+---
+layout: default
+title: Registering a user with additional information
+sitemap:
+priority: 0.5
+lastmod: 2017-02-15T22:30:00-00:00
+---
+
 # Registering a user with additional information
 
 __Tip submitted by [@Paul-Etienne](https://github.com/Paul-Etienne)__
@@ -20,7 +28,7 @@ public class UserExtra implements Serializable {
 
     @Id
     private Long id;
-    
+
     @Column(name = "phone")
     private String phone;
 
@@ -28,7 +36,7 @@ public class UserExtra implements Serializable {
     @MapsId
     private User user;
     ...
-    
+
 }
 ```
 
@@ -55,15 +63,15 @@ This ManagedUserVM class located in web/rest/vm has to be updated as well so tha
 public class ManagedUserVM extends UserDTO {
 
     // Default attributes omitted for brevity
-    
+
     private String phone;
-    
+
     ...
-    
+
     public String getPhone() {
         return phone;
     }
-    
+
 }
 ```
 

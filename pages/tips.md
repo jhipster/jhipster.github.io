@@ -30,3 +30,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 13. [Boost performance of pagination with infinite scrolling using Slice]({{ site.url }}/tips/019_tip_infinite_scroll_with_slice.html)
 14. [Using Docker containers as localhost on Mac/Windows]({{ site.url }}/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html)
 15. [Prevent error/hanging on Windows when using Gradle]({{ site.url }}/tips/021_tip_prevent_error_and_hanging_on_windows_when_using_gradle.html)
+16. [Registering a user with additional information]({{ site.url }}/tips/022_tip_registering_user_with_additional_information.html)
