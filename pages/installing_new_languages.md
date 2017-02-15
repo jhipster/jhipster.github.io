@@ -118,7 +118,7 @@ Here are the steps to install a new language called `new_lang`:
             }[lang];
         }
 
-The new language `new_lang` is now available in the language menu, and it is available both in the front-end AngularJS application and in the back-end Spring application.
+The new language `new_lang` is now available in the language menu, and it is available both in the front-end Angular application and in the back-end Spring application.
 
 ## How to remove an existing language?
 

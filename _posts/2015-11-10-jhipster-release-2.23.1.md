@@ -25,9 +25,9 @@ Most important bug fixes
 
 OAuth2 authentication was broken when the new Spring Boot 1.3.0 devtools were selected (issue [#2291](https://github.com/jhipster/generator-jhipster/issues/2291)). So we have removed, for the moment, our `CustomUserDetails` class, which was causing the issue: discussion is still under way on how we will solve this in the long term.
 
-### CloudFoundry deployment
+### Cloud Foundry deployment
 
-Deployment to CloudFoundry was broken (issue [#2225](https://github.com/jhipster/generator-jhipster/issues/2225)), as there is an incompatibility between Spring Boot 1.3.0 and CloudFoundry (see the CloudFoundry issue [here](https://github.com/cloudfoundry/cli/issues/411)). For the moment we have removed the "executable" flag on our generated WAR files, and have updated the documentation accordingly (you can't run the WAR files directly with `./my_application.war`, you need to do `java -jar my_application.war`instead).
+Deployment to Cloud Foundry was broken (issue [#2225](https://github.com/jhipster/generator-jhipster/issues/2225)), as there is an incompatibility between Spring Boot 1.3.0 and Cloud Foundry (see the Cloud Foundry issue [here](https://github.com/cloudfoundry/cli/issues/411)). For the moment we have removed the "executable" flag on our generated WAR files, and have updated the documentation accordingly (you can't run the WAR files directly with `./my_application.war`, you need to do `java -jar my_application.war`instead).
 
 ### Wrong HTTP cache headers in production
 

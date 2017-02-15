@@ -15,20 +15,19 @@ sitemap:
 
 Single Web page application:
 
-*   Responsive Web Design
+*   [AngularJS v1.x](http://angularjs.org/) or [Angular v2+](https://angular.io/)
+*   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
-*   [Twitter Bootstrap](http://getbootstrap.com/)
-*   [AngularJS](http://angularjs.org/)
-*   Compatible with IE9+ and modern browsers
-*   Full internationalization support with [Angular Translate](https://github.com/angular-translate/angular-translate)
+*   Compatible with IE11 and modern browsers
+*   Full internationalization support
 *   Optional [Sass](https://www.npmjs.com/package/node-sass) support for CSS design
 *   Optional WebSocket support with Spring Websocket
 
 With the great [Yeoman](http://yeoman.io/) development workflow:
 
-*   Easy installation of new JavaScript libraries with [Bower](http://bower.io/)
-*   Build, optimization and live reload with [Gulp.js](http://www.gulpjs.com)
-*   Testing with [Karma](http://karma-runner.github.io/) and [PhantomJS](http://phantomjs.org/)
+*   Easy installation of new JavaScript libraries with [Bower](http://bower.io/) or [Yarn](https://yarnpkg.com/)
+*   Build, optimization and live reload with [Gulp.js](http://www.gulpjs.com) or [Webpack](https://webpack.js.org/)
+*   Testing with [Karma](http://karma-runner.github.io/), [PhantomJS](http://phantomjs.org/) and [Protractor](http://www.protractortest.org)
 
 And what if a single Web page application isn't enough for your needs?
 
@@ -60,4 +59,4 @@ Ready to go into production:
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance
 *   Builds a standard WAR file or an executable JAR file
-*   Support for all major cloud providers: AWS, CloudFoundry, Heroku, Kubernetes, Docker...
+*   Support for all major cloud providers: AWS, Cloud Foundry, Heroku, Kubernetes, Docker...

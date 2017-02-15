@@ -23,6 +23,8 @@ Those profiles come in two different configurations:
 
 Spring profiles are set by Maven/Gradle, so we have a consistency between the two methods: you will have a `prod` profile on Maven/Gradle and Spring at the same time.
 
+_Note:_ Spring profiles are used to configure the JHipster application properties, so you should be interested in reading our [Common application properties documentation]({{ site.url }}/common-application-properties/).
+
 ## By default, JHipster will use the `dev` profile
 
 If you run the application without Maven/Gradle, launch the "Application" class (you can probably run it easily from your IDE by right-clicking on it).
@@ -53,11 +55,8 @@ JHipster comes with three additional profiles used as switches:
 
 *   `swagger` to enable swagger
 *   `no-liquibase` to disable liquibase
-*   `shell`to enable the [Spring Boot remote shell](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-remote-shell.html)
 
 These can be used along with both the `dev` and `prod` profiles. Please note that by default, the `swagger` profile is disabled in `prod` and enabled in `dev` by setting the `spring.profiles.include` property in `application.yml`.
-
-`shell` is only used at build time.
 
 `swagger` and `no-liquibase` are only used at runtime:
 
@@ -67,9 +66,9 @@ These can be used along with both the `dev` and `prod` profiles. Please note tha
 With Maven, you can also use those profiles directly:
 
 *   `./mvnw -Pprod,swagger,no-liquibase`
-*   `./mvnw -Pdev,no-liquibase,shell`
+*   `./mvnw -Pdev,no-liquibase`
 
 With Gradle, you can also use those profiles directly:
 
 *   `./gradlew -Pprod -Pswagger -Pno-liquibase`
-*   `./gradlew -Pno-liquibase -Pshell`
+*   `./gradlew -Pno-liquibase`

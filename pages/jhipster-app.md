@@ -13,6 +13,8 @@ sitemap:
 
 The JHipster App lives in the menu bar, and helps running the most usual JHipster tasks.
 
+*Please note* that the JHipster App does not work yet with Angular 2
+
 ## Downloads
 
 The application binairies (for Mac, Windows and Linux) are available on [the GitHub release page](https://github.com/jhipster/jhipster-app/releases).

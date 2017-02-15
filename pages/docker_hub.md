@@ -44,7 +44,7 @@ These following commands can be used in specific use cases.
 Launch `yo jhipster` in the current folder, with the latest release
 
 ```
-docker run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster yo jhipster
+docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster yo jhipster
 ```
 
 ### Use JHipster v3.0.0
@@ -52,7 +52,7 @@ docker run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster yo jhipster
 Launch `yo jhipster` in the current folder, with an older release:
 
 ```
-docker run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 yo jhipster
+docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 yo jhipster
 ```
 
 You can see all tags available [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
@@ -63,7 +63,7 @@ You can see all tags available [here](https://hub.docker.com/r/jhipster/jhipster
 You can use JDL-Studio offline and access to it at [http://localhost:18080](http://localhost:18080)
 
 ```
-docker run -d -p 18080:80 jhipster/jdl-studio
+docker container run -d -p 18080:80 jhipster/jdl-studio
 ```
 
 ## [jhipster/jhipster-sample-app](https://hub.docker.com/r/jhipster/jhipster-sample-app)
@@ -75,7 +75,7 @@ It is a sample application with H2 or MySQL.
 Run a simple jhipster application directly with Docker, in development profile
 
 ```
-docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=dev jhipster/jhipster-sample-app
+docker container run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=dev jhipster/jhipster-sample-app
 ```
 
 Then, you can access to the application at [http://localhost:8080](http://localhost:8080)

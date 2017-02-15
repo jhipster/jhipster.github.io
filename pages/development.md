@@ -13,23 +13,38 @@ sitemap:
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
-## IDE configuration
+## Summary
+
+1. [General configuration](#general-configuration)
+2. [Running the Java server](#running-java-server)
+3. [Working with AngularJS 1](#working-with-angularjs-1)
+4. [Working with Angular](#working-with-angular)
+5. [Using a database](#using-a-database)
+6. [Internationalization](#internationalization)
+
+## <a name="general-configuration"></a> General configuration
+
+### IDE configuration
 
 If you haven't configured your IDE yet, please go to the [Configuring your IDE]({{ site.url }}/configuring-ide/) page.
 
-## Application configuration
+### Application configuration
 
 By default, JHipster uses the "development" profile, so you don't have to configure anything.
 
 If you want more information on the available profiles, please go the section titled "[Profiles]({{ site.url }}/profiles/)".
 
-## Running the application
+If you want to configure some specific JHipster properties, have a look at the [common application properties]({{ site.url }}/common-application-properties/) page.
+
+## <a name="running-java-server"></a> Running the Java server
 
 ### As a "main" Java class
 
 From your IDE, right-click on the "Application" class at the root of your Java package hierarchy, and run it directly. You should also be able to debug it as easily.
 
 The application will be available on [http://localhost:8080](http://localhost:8080).
+
+This application will have "hot reload" enabled by default, so if you compile a class, the Spring application context should refresh itself automatically, without the need to restart the server.
 
 ### As a Maven project
 
@@ -63,7 +78,7 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 If you want more information on using Gradle, please go to [https://gradle.org](https://gradle.org)
 
-## Using Gulp
+## <a name="working-with-angularjs-1"></a> Working with AngularJS 1
 
 ### Using the Java server and Gulp together
 
@@ -77,7 +92,7 @@ You can use Gulp to work on the client-side JavaScript application:
 
 This should open up your Web browser, with live reload enabled, on [http://localhost:9000](http://localhost:9000). This works thanks to [BrowserSync](http://www.browsersync.io/), and you can access its administration screen on [http://localhost:3001](http://localhost:3001).
 
-This provides below very impressive features:
+This provides very impressive features:
 
 *   As soon as you modify one of your HTML/CSS/JavaScript file, your browser will refresh itself automatically
 *   As soon as you add/remove a javascript file it will be added to the `index.html`, your browser will refresh itself automatically
@@ -126,7 +141,43 @@ Or, if you want to trigger the injection manually, just run:
 
 If you want more information on using Bower, please go to [http://bower.io](http://bower.io). For more information on using Gulp Inject, please go to [https://github.com/klei/gulp-inject](https://github.com/klei/gulp-inject).
 
-## Using a database
+## <a name="working-with-angular"></a> Working with Angular
+
+### Running Webpack
+
+_This step is required to see changes in your TypeScript code and have live reloading of your client-side code._
+
+Running Webpack is the default task in the `package.json` file, so you just need to run:
+
+`yarn start`
+
+(or, if you use NPM, `npm start`).
+
+This provides very impressive features:
+
+*   As soon as you modify one of your HTML/CSS/TypeScript file, your browser will refresh itself automatically
+*   When you test your application on several different browsers or devices, all your clicks/scrolls/inputs should be automatically synchronized on all screens
+
+This will launch:
+
+- A Webpack task that will automatically compile TypeScript code into JavaScript
+- A Webpack "hot module reload" server that will run on [http://localhost:9060/](http://localhost:9060/) (and has a proxy to [http://127.0.0.1:8080/api](http://127.0.0.1:8080/api) to access the Java back-end)
+- A BrowserSync task that will run on [http://localhost:9000/](http://localhost:9000/), which has a proxy to [http://localhost:9060/](http://localhost:9060/) (the Webpack "hot module reload" server), and which will synchronize the user's clicks/scrolls/inputs
+- The BrowserSync UI, which will be available on [http://localhost:3001/](http://localhost:3001/)
+
+### Other Yarn/NPM tasks
+
+Those tasks are the same whether you use Yarn or NPM, we use the `yarn` command as an example but you can replace it with `npm`.
+
+- `yarn lint`: check for code style issues in the TypeScript code
+- `yarn lint:fix`: try to automatically correct TypeScript lint issues
+- `yarn tsc`: compile the TypeScript code
+- `yarn test`: run unit tests with Karma
+- `yarn test:watch`: keep the karma unit tests running, for live feedback when code is changed
+- `yarn e2e`: run "end to end" tests with Protractor (only works if the Protractor option has been selected when the project was generated)
+
+
+## <a name="using-a-database"></a> Using a database
 
 ### Running a database
 
@@ -199,14 +250,17 @@ If you prefer (or need) to do a database update manually, here is the developmen
 
 If you want more information on using Liquibase, please go to [http://www.liquibase.org](http://www.liquibase.org).
 
-## Internationalization
+## <a name="internationalization"></a> Internationalization
 
 Internationalization (or i18n) is a first-class citizen in JHipster, as we believe it should be set up at the beginning of your project (and not as an afterthought).
 
-Usage is really easy thanks to [Angular Translate](https://github.com/PascalPrecht/angular-translate), which provides a simple AngularJS directive for i18n.
+Usage is really easy:
+
+- With AngularJS 1, thanks to [Angular Translate](https://github.com/PascalPrecht/angular-translate), which provides a simple AngularJS directive for i18n
+- With Angular 2+, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which works the same way as Angular Translate, and uses the same files
 
 For example, to add a translation to the "first name" field, just add a "translate" attribute with a key: `<label translate="settings.form.firstname">First Name</label>`
 
-This key references a JSON document, which will return the translated String. AngularJS will then replace the "First Name" String with the translated version.
+This key references a JSON document, which will return the translated String. Angular will then replace the "First Name" String with the translated version.
 
 If you want more information on using languages, read our [Installing new languages documentation]({{ site.url }}/installing-new-languages/).

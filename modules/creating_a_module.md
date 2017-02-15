@@ -79,7 +79,7 @@ Global variables:
 - `baseName`: the name of the application
 - `packageName`: the Java package name
 - `mainClassName`: the main Java class name
-- `angularAppName`: the AngularJS application name
+- `angularAppName`: the Angular application name
 - `packageFolder`: the Java package folder
 - `javaDir`: the directory for the Java application, including the package folders
 - `resourceDir`: the directory containing the Java resources (always `src/main/resources`)
@@ -119,6 +119,8 @@ And all the variables from the JHipster `.yo-rc.json` file:
 - `addBowerrcParameter`: add a new parameter in the `.bowerrc`
 - `addBowerDependency`: add a new package in the `bower.json` file
 - `addBowerOverride`: add an override configuration in the `bower.json` file
+- `addNpmDependency`: add a new dependency in the `package.json` file
+- `addNpmDevDependency`: add a new devDependency in the `package.json` file
 - `addMainCSSStyle`: add a new style in the `main.css` file
 - `addMainSCSSStyle`: add a new style in the `main.scss` file
 - `addAngularJsModule`: add a new module in the `app.js` file
@@ -150,7 +152,7 @@ And all the variables from the JHipster `.yo-rc.json` file:
 - `getModuleHooks`: get the array of all registered module hooks for the application
 - `updateEntityConfig`: update the json configuration file for an entity with given key and value
 - `getExistingEntities`: get sorted list of entities according to changelog date in the current application
-- `isJhipsterVersionLessThan`: check if the JHipster version used to generate the project is less than a particular version 
+- `isJhipsterVersionLessThan`: check if the JHipster version used to generate the project is less than a particular version
 
 
 ## Registering a module to the JHipster marketplace

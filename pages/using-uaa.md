@@ -122,7 +122,7 @@ When a microservice boots up, it usually expects the UAA server is already up to
 
 From this point there are two use cases that may happen in this basic setup: user calls and machine calls.
 
-For the user calls, the AngularJS application is requesting a bearer access token (which is a JWT token) using OAuth2's password grant, and saves this token to local storage (so no cookies are used at any stage). This bearer token is injected as authorization header into each request performed by the AngularJS `$http` object.
+For the user calls, the Angular application is requesting a bearer access token (which is a JWT token) using OAuth2's password grant, and saves this token to local storage (so no cookies are used at any stage). This bearer token is injected as authorization header into each request performed by the AngularJS `$http` object.
 
 For the machine calls, the machine has to authenticate as a UAA using client credentials grant. JHipster provides a standard solution, described in [secure inter-service-communication using feign clients](#inter-service-communication)
 
@@ -313,12 +313,12 @@ To test components, which are using feign clients inside is possible using `@Moc
 
 Here is an example, testing `SomeService` works as expected, with mocked values for the client:
 
-``` java 
+``` java
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(App.class)
 public class SomeServiceTest {
-    
+
     @MockBean
     private OtherServiceClient otherServiceClient;
 
@@ -337,7 +337,7 @@ public class SomeServiceTest {
 }
 ```
 
-So with this technology you are simulating the behavior of the other service, and provide expected resource entity which would come from the origin. 
+So with this technology you are simulating the behavior of the other service, and provide expected resource entity which would come from the origin.
 All Beans injecting a client will behave as mocked, so you can focus on the logic of these Beans.
 
 ### Emulating OAuth2 authentication
