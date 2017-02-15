@@ -17,5 +17,5 @@ The project [djfarrelly/maildev](https://github.com/djfarrelly/MailDev) is a sim
 To start locally the SMTP server with Docker:
 
 ```
-docker run -d -p 1080:80 -p 25:25 djfarrelly/maildev
+docker container run -d -p 1080:80 -p 25:25 djfarrelly/maildev
 ```

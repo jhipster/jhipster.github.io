@@ -77,7 +77,7 @@ If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be
 
 ### What command should we use for push Docker image to repository?
 
-The default command to push to Docker Hub is `docker push`
+The default command to push to Docker Hub is `docker image push`
 For example, if you use the Google Cloud to host your Docker images, it will be: `gcloud docker push`
 
 
@@ -97,11 +97,11 @@ Or when using gradle:
 
 Tag locally your image:
 
-`docker tag application username/application`
+`docker image tag application username/application`
 
 Push your image to Docker Hub:
 
-`docker push username/application`
+`docker image push username/application`
 
 ## Deploying a monolith application
 

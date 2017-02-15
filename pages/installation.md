@@ -111,11 +111,11 @@ On Linux, you might need to run the `docker` command as root user if your user i
 
 Pull the latest JHipster Docker image:
 
-`docker pull jhipster/jhipster`
+`docker image pull jhipster/jhipster`
 
 Pull the development JHipster Docker image:
 
-`docker pull jhipster/jhipster:master`
+`docker image pull jhipster/jhipster:master`
 
 You can see all tags [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
 
@@ -137,7 +137,7 @@ Run the Docker image, with the following options:
 *   The Docker "/home/jhipster/app" folder is shared to the local "~/jhipster" folder
 *   Forward all ports exposed by Docker (8080 for the Java application, 9000 for BrowserSync, 3001 for the BrowserSync UI)
 
-`docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster`
+`docker container run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster`
 
 <div class="alert alert-info"><i>Tip: </i>
 
@@ -147,38 +147,38 @@ If you have already started the container once before, you do not need to run th
 
 #### Check if the container is running
 
-To check that your container is running, use the command `docker ps`:
+To check that your container is running, use the command `docker container ps`:
 
     CONTAINER ID    IMAGE               COMMAND                 CREATED         STATUS          PORTS                                                       NAMES
     4ae16c0539a3    jhipster/jhipster   "tail -f /home/jhipst"  4 seconds ago   Up 3 seconds    0.0.0.0:9000-3001->9000-3001/tcp, 0.0.0.0:8080->8080/tcp    jhipster
 
 #### Common operations
 
-*   To stop the container execute: `docker stop jhipster`
-*   And to start again, execute: `docker start jhipster`
+*   To stop the container execute: `docker container stop jhipster`
+*   And to start again, execute: `docker container start jhipster`
 
 In case you update the Docker image (rebuild or pull from the Docker hub), it's better to remove the existing container, and run the container all over again. To do so, first stop the container, remove it and then run it again:
 
-1.  `docker stop jhipster`
-2.  `docker rm jhipster`
-3.  `docker pull jhipster/jhipster`
-4.  `docker run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster`
+1.  `docker container stop jhipster`
+2.  `docker container rm jhipster`
+3.  `docker image pull jhipster/jhipster`
+4.  `docker container run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster`
 
 ### Accessing the container
 
 The easiest way to log into the running container is by executing following command:
 
-`docker exec -it <container_name> bash`
+`docker container exec -it <container_name> bash`
 
 If you copy-pasted the above command to run the container, notice that you have to specify `jhipster` as the container name:
 
-`docker exec -it jhipster bash`
+`docker container exec -it jhipster bash`
 
 You will log in as the "jhipster" user.
 
 If you want to log in as "root", as the `sudo` command isn't available in Ubuntu Xenial, you need to run:
 
-`docker exec -it --user root jhipster bash`
+`docker container exec -it --user root jhipster bash`
 
 ### Your first project
 
