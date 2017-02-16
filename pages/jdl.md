@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2017-01-27T12:00:00-00:00
+    lastmod: 2017-02-16T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -117,18 +117,19 @@ The relationships declaration is done as follows:
   - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
   - `<from entity>` is the name of the entity owner of the relationship: the source,
   - `<to entity>` is the name of the entity where the relationship goes to: the destination,
-  - `<relationship name>` is the name of the field having the other end as type.
+  - `<relationship name>` is the name of the field having the other end as type,
+  - `required` whether the injected field is required.
 
 
 Here's a simple example:
 
-A Book has one Author, an Author has several Books.
+A Book has one, required, Author, an Author has several Books.
 
     entity Book
     entity Author
 
     relationship OneToMany {
-      Author{book} to Book{writer(name)}
+      Author{book} to Book{writer(name) required}
     }
 
 Of course, in real cases, you'd have a lot of relationships and always writing the same three lines could be tedious.
