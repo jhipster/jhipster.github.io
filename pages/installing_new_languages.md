@@ -72,7 +72,7 @@ Here are the steps to install a new language called `new_lang`:
 
 1.  Duplicate the `src/main/webapp/i18/en` folder to `src/main/webapp/i18/new_lang` (this is where all the front-end translations are stored)
 2.  Translate all files under the folder `src/main/webapp/i18/new_lang`
-3.  Add the languege code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/components/language/language.constants.js`
+3.  For AngularJS 1 add the languege code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/components/language/language.constants.js`
 
         .constant('LANGUAGES', [
             'en',
@@ -81,42 +81,18 @@ Here are the steps to install a new language called `new_lang`:
             // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
         ]
 
+    For Angular 2+ add the languege code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/shared/language/language.constants.ts`
+
+        export const LANGUAGES: string[] = [
+            'en',
+            'fr',
+            'new_lang'
+            // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
+        ];
+
 4.  In the `src/main/resources/i18n` folder, copy the `messages_en.properties` file to `messages_new_lang.properties` (this is where the server-side translations are stored)
 5.  Translate all keys in the `messages_new_lang.properties` file
-6.  Add the new language's name in the function of `filter('findLanguageFromKey')` in the `src/main/webapp/app/components/language/language.filter.js` file
-
-        function findLanguageFromKeyFilter(lang) {
-            return {
-                'ca': 'Català',
-                'da': 'Dansk',
-                'de': 'Deutsch',
-                'el': 'Ελληνικά',
-                'en': 'English',
-                'es': 'Español',
-                'fr': 'Français',
-                'gl': 'Galego',
-                'hu': 'Magyar',
-                'hi': 'हिंदी',
-                'it': 'Italiano',
-                'ja': '日本語',
-                'ko': '한국어',
-                'mr': 'मराठी',
-                'nl': 'Nederlands',
-                'pl': 'Polski',
-                'pt-br': 'Português (Brasil)',
-                'pt-pt': 'Português',
-                'ro': 'Română',
-                'ru': 'Русский',
-                'sk': 'Slovenský',
-                'sr': 'Srpski',
-                'sv': 'Svenska',
-                'ta': 'தமிழ்',
-                'tr': 'Türkçe',
-                'vi': 'Tiếng Việt',
-                'zh-cn': '中文（简体）',
-                'zh-tw': '繁體中文'
-            }[lang];
-        }
+6.  For AngularJS 1 add the new language's name in the function of `filter('findLanguageFromKey')` in the `src/main/webapp/app/components/language/language.filter.js` file. For Angular 2+ add the new language's name in the `languages` variable of `FindLanguageFromKeyPipe` in the `src/main/webapp/app/shared/language/language.pipe.ts`
 
 The new language `new_lang` is now available in the language menu, and it is available both in the front-end Angular application and in the back-end Spring application.
 
@@ -125,5 +101,5 @@ The new language `new_lang` is now available in the language menu, and it is ava
 Here are the steps to remove a language called `old_lang`:
 
 1.  Remove the language folder from `src/main/webapp/i18/old_lang`
-2.  Remove the constant entry in `src/main/webapp/app/components/language/language.constants.js`
+2.  Remove the constant entry in `src/main/webapp/app/components/language/language.constants.js` or `src/main/webapp/app/shared/language/language.constants.ts`
 3.  Remove the `src/main/resources/i18n/messages_old_lang.properties` file

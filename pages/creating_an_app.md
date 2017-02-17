@@ -55,17 +55,6 @@ You can either use:
 *   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
 *   JHipster UAA server [BETA]: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
 
-### Which *Framework* would you like to use for the client?
-
-The client side framework to use.
-
-You can either use:
-
-*   AngularJS version 1.x
-*   Angular version 2+ [BETA]
-
-> Please note that Angular 2+ support is currently in BETA and hence may not be suitable for production use.
-
 ### What is the base name of your application?
 
 This is the name of your application.
@@ -144,6 +133,17 @@ Websockets can be enabled using Spring Websocket. We also provide a complete sam
 
 Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message broker.
 
+### Which *Framework* would you like to use for the client?
+
+The client side framework to use.
+
+You can either use:
+
+*   AngularJS version 1.x
+*   Angular version 2+ [BETA]
+
+> Please note that Angular 2+ support is currently in BETA and hence may not be suitable for production use.
+
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 
 [Node-sass](https://www.npmjs.com/package/node-sass) a great solution to simplify designing CSS. To be used efficiently, you will need to run a [Gulp](http://www.gulpjs.com) server, which will be configured automatically.
@@ -177,7 +177,7 @@ Here are the options you can pass:
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--skip-checks` - Skip the check of the required tools (Default: false)
-* `--jhi-prefix` - Add prefix before services, controllers and states name (Default: jhi)
+* `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
 * `--npm` - Use NPM instead of Yarn (Default: false)
 
 ## <a name="4"></a> Tips
