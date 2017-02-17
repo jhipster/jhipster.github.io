@@ -11,11 +11,12 @@ sitemap:
 
 # <i class="fa fa-search"></i> Using Elasticsearch
 
-Elasticsearch is an option that adds seach capabilities on top of your database.
+Elasticsearch is an option that adds search capabilities on top of your database.
 
 This option has some limitations:
 
-*   It only works with SQL databases. There should not be too much work to add this feature to the Cassandra and MongoDB options, but as Elasticsearch support is new in JHipster, we first focus on our main use case before making it available for everyone.
+*   It only works with SQL databases. MongoDB and Cassandra support will be added in the future (help is welcome!).
+*   There is no consistency between your database and Elasticsearch, so you might have out-of-sync data. This is normal, as Elasticsearch is not a real database. As a result, you will probably need to write some specific code to synchronize your data, for example using the Spring `@Scheduled` annotation, to run every evening.
 
 When the Elasticsearch option is selected:
 
