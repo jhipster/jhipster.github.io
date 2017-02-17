@@ -6,7 +6,7 @@
 
         <title>JHipster presentation slides</title>
 
-        <meta name="description" content="Hipster stack for Java developers. Yeoman + Spring + AngularJS in one handy generator.">
+        <meta name="description" content="Hipster stack for Java developers. Yeoman + Spring + Angular in one handy generator.">
         <meta name="author" content="Julien Dubois">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -41,7 +41,7 @@
                 <section>
                     <h2>Welcome, Java Hipster</h2>
                     <img src="images/logo-jhipster-drink-coffee.png" class="jhipster-logo"/>
-                    <h3>Yeoman + Spring + AngularJS in one handy generator</h3>
+                    <h3>Yeoman + Spring + Angular in one handy generator</h3>
                     <p>
                         <a href="http://jhipster.github.io">http://jhipster.github.io</a>
                     </p>
@@ -104,7 +104,7 @@
                 <section>
                     <section data-background="#4d7e65" data-background-transition="slide">
                         <h1>Client-side technologies</h1>
-                        <h3>Yeoman, Gulp, Bower, AngularJS, Bootstrap</h3>
+                        <h3>Yeoman, Webpack, Yarn, Angular, Bootstrap</h3>
                     </section>
                     <section>
                         <h1>Yeoman</h1>
@@ -119,25 +119,25 @@
                         </pre>
                     </section>
                     <section>
-                        <h1>Gulp</h1>
-                        <h3>Gulp is a JavaScript task runner</h3>
+                        <h1>Webpack</h1>
+                        <h3>Webpack is a JavaScript build platform</h3>
                         <ul>
-                            <li>For development, it will allow you to have "live editing" of your code, run your tests in the background...</li>
+                            <li>For development, it will allow you to have "live editing" of your code</li>
                             <li>For production, it will compress and optimize all your resources, compile your Sass code...</li>
                         </ul>
                         <pre>
-                            <code data-trim contenteditable>gulp test</code>
+                            <code data-trim contenteditable>yarn webpack:build</code>
                         </pre>
                     </section>
                     <section>
-                        <h1>Bower</h1>
-                        <h3>Bower is a package manager for your JavaScript assets</h3>
+                        <h1>Yarn</h1>
+                        <h3>Yarn is a package manager for your JavaScript dependencies</h3>
                         <ul>
                             <li>You can search, install and update your JavaScript libraries</li>
                             <li>It provides a <i>huge</i> number of libraries</li>
                         </ul>
                         <pre>
-                            <code data-trim contenteditable>bower install angular</code>
+                            <code data-trim contenteditable>yarn add angular</code>
                         </pre>
                     </section>
                     <section>
@@ -152,7 +152,7 @@
                         </pre>
                     </section>
                     <section>
-                        <h1>AngularJS</h1>
+                        <h1>Angular</h1>
                         <h3>The most popular JavaScript framework</h3>
                         <ul>
                             <li>Powerful &amp; easy to learn</li>
@@ -160,8 +160,13 @@
                         </ul>
                         <pre>
                             <code data-trim contenteditable>
-<input type="text" ng-model="yourName" placeholder="Enter a name here">
-<h1>Hello {{yourName}}!</h1>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `<h1>Hello {{name}}</h1>`
+})
+export class AppComponent { name = 'Angular'; }
                             </code>
                         </pre>
                     </section>
@@ -185,7 +190,7 @@
                 <section>
                     <section data-background="#4d7e65" data-background-transition="slide">
                         <h1>Server-side technologies</h1>
-                        <h3>Maven, Spring, Spring MVC REST, Spring Data JPA, Netflix OSS</h3>
+                        <h3>Maven, Gradle, Spring, Spring MVC REST, Spring Data JPA, Netflix OSS</h3>
                     </section>
                     <section>
                         <h1>Maven | Gradle</h1>
@@ -396,11 +401,11 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                     <section>
                         <h3>You said <i>hype</i>?</h3>
                         <hr/>
-                        <p>At the time of this writing (May, 2016), JHipster has:</p>
+                        <p>At the time of this writing (Feb, 2017), JHipster has:</p>
                         <ul>
-                            <li>223 contributors, including 13 core members</li>
-                            <li>4,210 GitHub stars and 928 forks</li>
-                            <li>220,000 installations</li>
+                            <li>294 contributors, including 19 core members</li>
+                            <li>6,163 GitHub stars and 1410 forks</li>
+                            <li>300,000 + installations</li>
                             <li>And it's growing rapidly</li>
                         </ul>
                         <hr/>
@@ -409,8 +414,8 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                     <section>
                         <h3>We've seen lots of cool technologies</h3>
                         <ul>
-                            <li>Can Gulp and Maven be friends?</li>
-                            <li>Can AngularJS and Spring MVC REST be friends?</li>
+                            <li>Can Webpack and Maven be friends?</li>
+                            <li>Can Angular and Spring MVC REST be friends?</li>
                             <li>Can Netflix OSS and Spring be friends?</li>
                             <li>We can <i>guarantee</i> you that having everything working together smoothly, with security, caching and monitoring, isn't easy...</li>
                         </ul>
@@ -420,14 +425,14 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <ul>
                             <li>JHipster creates a complete working application, with all those technologies</li>
                             <li>Everthing just works out-of-the-box</li>
-                            <li>You have your Gulp workflow working great with your Maven goals!</li>
+                            <li>You have your Webpack workflow working great with your Maven goals!</li>
                             <li>You have Docker configuration to run everything smoothly!</li>
                         </ul>
                     </section>
                     <section>
                         <h3>But wait, there's more!</h3>
                         <ul>
-                            <li><strong>"entity"</strong> sub-generator to generate a complete JPA entity, from database to AngularJS</li>
+                            <li><strong>"entity"</strong> sub-generator to generate a complete JPA entity, from database to Angular</li>
                             <li><strong>"import-jdl"</strong> sub-generator to generate a complex entity model using <a href="https://jhipster.github.io/jdl-studio/" target="_blank">JDL Studio</a></li>
                             <li><strong>"service"</strong> sub-generator to generate a Spring business service</li>
                             <li><strong>"languages"</strong> sub-generator to add languages for i18n</li>
@@ -449,7 +454,7 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <h3>Production-ready</h3>
                         <ul>
                             <li>Specific Spring profile with GZipping and HTTP caching headers</li>
-                            <li>JavaScript &amp; CSS optimization and minification by Gulp</li>
+                            <li>JavaScript &amp; CSS optimization and minification by Webpack</li>
                             <li>Executable or standard WAR file, with monitoring enabled</li>
                             <li>Sub-generators for deploying automatically to Cloud Foundry, Heroku and AWS</li>
                             <li><strong>"docker-compose"</strong> sub-generator to generate Docker configurations for deploying microservices to production</li>
@@ -466,8 +471,8 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <h1>Install Yeoman</h1>
                         <pre>
                             <code data-trim contenteditable>
-npm install -g yo
-npm install -g generator-jhipster
+yarn add global yo
+yarn add global generator-jhipster
                             </code>
                         </pre>
                     </section>
@@ -486,11 +491,11 @@ yo jhipster
                     <section>
                         <h1>Client-side live reload</h1>
                         <p>
-                            Live reload of your client-side code (HTML, CSS, JavaScript) works thanks to Gulp and Browsersync. Edit any file and your browser will refresh automatically:
+                            Live reload of your client-side code (HTML, CSS, JavaScript) works thanks to Webpack and Browsersync. Edit any file and your browser will refresh automatically:
                       </p>
                         <pre>
                             <code data-trim contenteditable>
-gulp
+yarn start
                             </code>
                         </pre>
                     </section>
