@@ -71,9 +71,9 @@ The NPM documentation recommends not installing any NPM package as root. Follow 
 
 __Solution 2__
 
-  - `docker exec -u root -it jhipster bash`,
+  - `docker container exec -u root -it jhipster bash`,
   - `npm install -g YOUR_PACKAGE`,
-  - then exit and log into the container normally: `docker exec -it jhipster bash`
+  - then exit and log into the container normally: `docker container exec -it jhipster bash`
 
 ## <a name="3"></a> Building and running a Docker image of your application
 
@@ -132,8 +132,8 @@ Follow these steps to do so:
 - Build the image: `docker-compose -f src/main/docker/mongodb-cluster.yml build`
 - Run the database: `docker-compose -f src/main/docker/mongodb-cluster.yml up -d`
 - Scale the mongodb node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=X`
-- Init the replica set (param is the number of node, folder is the folder where the YML file is located, it's `docker` by default): `docker exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=X, folder="<yml_folder_name>"' init_replicaset.js`
-- Init the shard: `docker exec -it <name_of_your_app>-mongodb mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
+- Init the replica set (param is the number of node, folder is the folder where the YML file is located, it's `docker` by default): `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=X, folder="<yml_folder_name>"' init_replicaset.js`
+- Init the shard: `docker container exec -it <name_of_your_app>-mongodb mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
@@ -195,16 +195,16 @@ The Sonar reports will be available at: [http://localhost:9000](http://localhost
 
 ### List the containers
 
-You can use `docker ps -a` to list all the containers
+You can use `docker container ps -a` to list all the containers
 
-    $ docker ps -a
+    $ docker container ps -a
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
     fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-mysql
 
 ### Docker stats for containers
-`docker stats` or {% raw %}`docker stats $(docker ps --format={{.Names}})`{% endraw %} to list all running containers with CPU, Memory, Networking I/O and Block I/O stats.
+`docker container stats` or {% raw %}`docker container stats $(docker container ps --format={{.Names}})`{% endraw %} to list all running containers with CPU, Memory, Networking I/O and Block I/O stats.
 
-    $ docker stats {% raw %}$(docker ps --format={{.Names}}){% endraw %}
+    $ docker container stats {% raw %}$(docker container ps --format={{.Names}}){% endraw %}
     CONTAINER                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O               BLOCK I/O             PIDS
     jhuaa-mysql               0.04%               221 MB / 7.966 GB     2.77%               66.69 kB / 36.78 kB   8.802 MB / 302.5 MB   37
     00compose_msmongo-app_1   0.09%               965.6 MB / 7.966 GB   12.12%              121.3 kB / 54.64 kB   89.84 MB / 14.88 MB   35
@@ -225,7 +225,7 @@ Run `docker-compose scale test-app=4` to have 4 instances of application "test" 
 
 You can also use directly Docker:
 
-`docker stop <container_id>`
+`docker container stop <container_id>`
 
 When you stop a container, the data is not deleted, unless you delete the container.
 
@@ -233,7 +233,7 @@ When you stop a container, the data is not deleted, unless you delete the contai
 
 Be careful! All data will be deleted:
 
-`docker rm <container_id>`
+`docker container rm <container_id>`
 
 
 ## <a name="8"></a> Memory Tweaking

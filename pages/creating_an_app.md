@@ -34,9 +34,11 @@ To generate your application, type:
 
 Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#2).
 
-Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd).
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
+
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## <a name="2"></a> Questions asked when generating an application
 
@@ -52,6 +54,17 @@ You can either use:
 *   Microservice application: in a microservices architecture, this is one of the services.
 *   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
 *   JHipster UAA server [BETA]: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
+
+### Which *Framework* would you like to use for the client?
+
+The client side framework to use.
+
+You can either use:
+
+*   AngularJS version 1.x
+*   Angular version 2+ [BETA]
+
+> Please note that Angular 2+ support is currently in BETA and hence may not be suitable for production use.
 
 ### What is the base name of your application?
 
@@ -137,7 +150,7 @@ Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message b
 
 ### Would you like to enable translation support with Angular Translate?
 
-By default JHipster provides excellent internationalization support, both on the client side with [Angular Translate](https://angular-translate.github.io/) and on the server side. However, internationalization adds a little overhead, and is a little bit more complex to manage, so you can choose not to install this feature.
+By default JHipster provides excellent internationalization support, both on the client side and on the server side. However, internationalization adds a little overhead, and is a little bit more complex to manage, so you can choose not to install this feature.
 
 ### Which testing frameworks would you like to use?
 
@@ -145,7 +158,7 @@ By default JHipster provide Java unit/integration testing (using Spring's JUnit 
 
 *   Performance tests using Gatling
 *   Behaviour tests using Cucumber
-*   AngularJS integration tests with Protractor
+*   Angular integration tests with Protractor
 
 You can find more information on our ["Running tests" guide]({{ site.url }}/running-tests/).
 
@@ -159,11 +172,13 @@ Here are the options you can pass:
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
 * `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `yo jhipster:server`.
-* `--skip-server` - Skip the server-side application generation, so you only have the AngularJS front-end code generated (Default: false). This is same as running client sub-generator with `yo jhipster:client`.
+* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `yo jhipster:client`.
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
-* `--check-install` - Check your installation is correct (Default: true)
+* `--skip-checks` - Skip the check of the required tools (Default: false)
+* `--jhi-prefix` - Add prefix before services, controllers and states name (Default: jhi)
+* `--npm` - Use NPM instead of Yarn (Default: false)
 
 ## <a name="4"></a> Tips
 

@@ -42,22 +42,24 @@ Spring Security and AngularJS both have CSRF protection out-of-the-box, but unfo
 
 JHipster provide "social login", using Spring Social, so users can connect to your application using their Google, Facebook or Twitter authentication. This is configured using Sping Boot's starter modules.
 
-## OAuth2 Authentication
-
-OAuth2 is a stateless security mechanism, so you might prefer it if you want to scale your application across several machines. Spring Security provides an OAuth2 implementation, which we have configured for you.
-
-The biggest issue with OAuth2 is that requires to have several database tables in order to store its security tokens. If you are using an SQL database, we provide the necessary Liquibase changlog so that those tables are automatically created for you.
-
-As Spring Security only supports OAuth2 with SQL databases, we have also implemented our own MongoDB version. We generate for you all the OAuth2 implementation for MongoDB, as well as the necessary MongoDB configuration.
-
-This solution uses a secret key, which should be configured in your application.yml file, as the "authentication.oauth.secret" property.
-
 ## JWT authentication
 
-[JSON Web Token (JWT)](https://jwt.io/) authentication, like OAuth2, is a stateless security mechanism, so it's another good option if you want to scale on several different servers.
+[JSON Web Token (JWT)](https://jwt.io/) authentication is a stateless security mechanism, so it's a good option if you want to scale your application on several different servers.
+
+Please note that this is the default option when using a [microservices architecture]({{ site.url }}/microservices-architecture/).
 
 This authentication mechanism doesn't exist by default with Spring Security, it's a JHipster-specific integration of [the Java JWT project](https://github.com/jwtk/jjwt). It is easier to use and implement than OAuth2, as it does not require a persistence mechanism, so it works on all SQL and NoSQL options.
 
 This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
 
 The secret key should be configured in the `application.yml` file, as the `jhipster.security.authentication.jwt.secret` property.
+
+## OAuth2 Authentication
+
+OAuth2 is a stateless security mechanism, like JWT. Spring Security provides an OAuth2 implementation, which is have configured by JHipster.
+
+The biggest issue with OAuth2 is that requires to have several database tables in order to store its security tokens. If you are using an SQL database, we provide the necessary Liquibase changlog so that those tables are automatically created for you.
+
+As Spring Security only supports OAuth2 with SQL databases, we have also implemented our own MongoDB version. We generate for you all the OAuth2 implementation for MongoDB, as well as the necessary MongoDB configuration.
+
+This solution uses a secret key, which should be configured in your application.yml file, as the "authentication.oauth.secret" property.

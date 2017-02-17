@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">{% if '/index.html' == page.url or '/' == page.url %}
-    <meta name="description" content="JHipster is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + AngularJS projects!">{% endif %}
+    <meta name="description" content="JHipster is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + Angular projects!">{% endif %}
     <meta name="author" content="JHipster Team">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@java_hipster" />
-    <meta name="twitter:title" content="Generate a full stack Java + JavaScript application in a few steps" />
-    <meta name="twitter:description" content="JHipster is a fully Open Source, widely used application generator. It leverages cool technologies like Spring Boot, AngularJS and Yeoman to give you a high level of productivity and quality." />
-    <meta name="twitter:image:src" content="http://jhipster.github.io/images/screenshot_1.png" />
+    <meta name="twitter:title" content="Generate a full stack Java + Angular application in a few steps" />
+    <meta name="twitter:description" content="JHipster is a fully Open Source, widely used application generator. It leverages cool technologies like Spring Boot, Angular and Yeoman to give you a high level of productivity and quality." />
+    <meta name="twitter:image:src" content="http://jhipster.github.io/images/twitter-card.png?20170202" />
     <meta name="twitter:url" content="http://jhipster.github.io/" />
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#353d47">
@@ -178,6 +178,7 @@
                                             <li {% if '/security/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/security/"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
                                             <li {% if '/using-elasticsearch/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-elasticsearch/"><i class="fa fa-fw fa-search"></i> Using Elasticsearch</a></li>
                                             <li {% if '/using-websockets/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-websockets/"><i class="fa fa-fw fa-envelope"></i> Using Websockets</a></li>
+                                            <li {% if '/using-cache/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cache/"><i class="fa fa-fw fa-line-chart"></i> Using a cache</a></li>
                                             <li {% if '/using-oracle/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-oracle/"><i class="fa fa-fw fa-archive"></i> Using Oracle</a></li>
                                             <li {% if '/using-mongodb/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-mongodb/"><i class="fa fa-fw fa-leaf"></i> Using MongoDB</a></li>
                                             <li {% if '/using-cassandra/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cassandra/"><i class="fa fa-fw fa-eye"></i> Using Cassandra</a></li>
@@ -193,8 +194,11 @@
                                         <ul class="nav navbar-nav">
                                             <li {% if '/development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/development/"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
                                             <li {% if '/profiles/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/profiles/"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
+                                            <li {% if '/common-application-properties/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/common-application-properties/"><i class="fa fa-fw fa-flask"></i> Common application properties</a></li>
                                             <li {% if '/using-angularjs/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angularjs/"><i class="fa fa-fw fa-html5"></i> Using AngularJS</a></li>
-                                            <li {% if '/customizing-bootstrap/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap</a></li>
+                                            <li {% if '/using-angular/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angular/"><i class="fa fa-fw fa-html5"></i> Using Angular</a></li>
+                                            <li {% if '/customizing-bootstrap-3/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap-3/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap 3</a></li>
+                                            <li {% if '/customizing-bootstrap-4/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap-4/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap 4</a></li>
                                         </ul>
                                     </div>
                                 </div>

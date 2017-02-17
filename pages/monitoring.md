@@ -49,7 +49,7 @@ To configure metrics monitoring, enable metrics log reporting in your JHipster a
 
 Setting those properties will enrich your logs with metrics coming from Dropwizard metrics.
 
-### <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported monitoring system (JMX, Graphite, Prometheus)
+### <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Graphite, Prometheus)
 
 Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
 
@@ -64,6 +64,8 @@ Forwarding metrics to alternative systems is also supported and can also simply 
             prometheus: # Expose Prometheus metrics on the /prometheusMetrics endpoint
                 enabled: true
                 endpoint: /prometheusMetrics
+
+Note that in order to enable prometheus metrics reporting with a maven application, you will need to build it with the `prometheus` maven profile so that the prometheus client libraries are available on the classpath.
 
 ## <a name="jhipster-console"></a> Introducing the JHipster Console
 

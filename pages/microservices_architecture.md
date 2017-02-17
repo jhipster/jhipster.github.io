@@ -35,7 +35,7 @@ sitemap:
 8. [Monitoring with JHipster Console and the ELK stack](#monitoring)
 9. [Production](#production)
   * [Going to production with Docker Swarm](#docker_swarm)
-  * [Going to production with CloudFoundry](#cloudfoundry)
+  * [Going to production with Cloud Foundry](#cloudfoundry)
   * [Going to production with Heroku](#heroku)
 
 ## <a name="microservices_vs_monolithic"></a> Microservices vs Monolithic architecture
@@ -53,7 +53,7 @@ _The rest of this guide is only for people interested in doing a microservices a
 
 The JHipster microservices architecture works in the following way:
 
- * A [gateway](#gateway) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an AngularJS application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
+ * A [gateway](#gateway) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an Angular application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
  * The [JHipster Registry](#jhipster-registry) is a runtime application, using the usual JHipster structure, on which all applications registers and get their configuration from.
  * Microservices are JHipster-generated applications (using application type `microservice application` when you generate them), that handle REST requests. They are stateless, and several instances of them can be launched in parallel to handle heavy loads.
  * The [JHipster Console](https://github.com/jhipster/jhipster-console) is a monitoring & alerting console, based on the ELK stack.
@@ -313,9 +313,9 @@ Compared with monolithic applications, gateways and microservices monitoring con
 
 As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) to learn more about using Docker Compose with JHipster.
 
-### <a name="cloudfoundry"></a> Going to production with CloudFoundry
+### <a name="cloudfoundry"></a> Going to production with Cloud Foundry
 
-The [CloudFoundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
+The [Cloud Foundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
 
 - Use the sub-generator to deploy first the JHipster Registry (which is a normal JHipster application).
 - Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL:
@@ -345,10 +345,7 @@ Note the URL on which your JHipster Registry is deployed. Your applications must
 
     eureka:
         instance:
-            hostname: <your_jhipster_registry_url>.herokuapp.com
-            non-secure-port: 80
+            hostname: https://admin:[password]@[appname].herokuapp.com
             prefer-ip-address: false
 
 You can now deploy and scale the gateway(s) and microservices. The Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications to fetch their configuration on the Spring Cloud Config server.
-
-**Warning** The above configuration uses HTTP, but in order to have your architecture secured in production, use HTTPS to connect to the JHipster Registry! As the admin password is sent using HTTP Basic authentication, using an encrypted communication channel is very highly recommended.

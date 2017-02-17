@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2016-12-01T12:00:00-00:00
+    lastmod: 2017-02-16T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -37,8 +37,9 @@ Here is the full JDL documentation:
   3.6 [Microservice-related options](#microserviceoptions)
 4. [Commenting](#commentingjdl)  
 5. [All the relationships](#jdlrelationships)  
-6. [Annexes](#annexes)
-7. [Issues and bugs](#issues)  
+6. [Constants](#constants)  
+7. [Annexes](#annexes)  
+8. [Issues and bugs](#issues)  
 
 ***
 
@@ -116,18 +117,19 @@ The relationships declaration is done as follows:
   - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
   - `<from entity>` is the name of the entity owner of the relationship: the source,
   - `<to entity>` is the name of the entity where the relationship goes to: the destination,
-  - `<relationship name>` is the name of the field having the other end as type.
+  - `<relationship name>` is the name of the field having the other end as type,
+  - `required` whether the injected field is required.
 
 
 Here's a simple example:
 
-A Book has one Author, an Author has several Books.
+A Book has one, required, Author, an Author has several Books.
 
     entity Book
     entity Author
 
     relationship OneToMany {
-      Author{book} to Book{writer(name)}
+      Author{book} to Book{writer(name) required}
     }
 
 Of course, in real cases, you'd have a lot of relationships and always writing the same three lines could be tedious.
@@ -422,6 +424,26 @@ Finally, in this example we have the Car that knows of its drivers, and the Driv
     }
 
 Please note that the owning side of the relationship has to be on the left side
+
+# <a name="constants"></a>Constants
+
+As of JHipster Core v1.2.7, the JDL supports numerical constants.
+Here is an example:
+
+```
+DEFAULT_MIN_LENGTH = 1
+DEFAULT_MAX_LENGTH = 42
+DEFAULT_MIN_BYTES = 20
+DEFAULT_MAX_BYTES = 40
+DEFAULT_MIN = 0
+DEFAULT_MAX = 41
+
+entity A {
+  name String minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH)
+  content TextBlob minbytes(DEFAULT_MIN_BYTES) maxbytes(DEFAULT_MAX_BYTES)
+  count Integer min(DEFAULT_MIN) max(DEFAULT_MAX)
+}
+```
 
 # <a name="annexes"></a>Annexes
 

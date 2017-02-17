@@ -21,7 +21,6 @@ This sub-generator allows deployment of your JHipster application to [Kubernetes
 
 - Cassandra is not supported yet
 - ELK with [JHipster Console]({{ site.url }}/monitoring/) is not supported yet
-- Consul is not supported yet
 
 ## Pre-requisites
 
@@ -78,7 +77,7 @@ If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be
 
 ### What command should we use for push Docker image to repository?
 
-The default command to push to Docker Hub is `docker push`
+The default command to push to Docker Hub is `docker image push`
 For example, if you use the Google Cloud to host your Docker images, it will be: `gcloud docker push`
 
 
@@ -98,17 +97,55 @@ Or when using gradle:
 
 Tag locally your image:
 
-`docker tag application username/application`
+`docker image tag application username/application`
 
 Push your image to Docker Hub:
 
-`docker push username/application`
+`docker image push username/application`
 
-## Deploying the application
+## Deploying a monolith application
 
-Deploy your application
+Deploy your application:
 
-`kubectl apply -f application`
+`kubectl apply -f application/`
+
+It will create a Kubernetes deployment for your application and its associated dependent services (database, elasticsearch...) as well as a Kubernetes service to expose the application to the outside.
+
+## Deploying a microservice application
+
+### Deploying a Service Registry in Kubernetes
+
+Although, Kubernetes does feature its own internal service discovery with **Kube-DNS**, JHipster rely on Spring Cloud for service discovery, so it depends on a third party service registry like Eureka or Consul. This has the advantage of being platform independent and to work similarly in production and on a local development machine.
+
+Consequently, for microservices applications, the JHipster Kubernetes sub-generator will generate Kubernetes manifest files to deploy service registries like the **JHipster-Registry** (based on Eureka) or **Consul**. Moreover, the generated microservices and gateway Kubernetes manifests will contains the appropriate configuration to register themselves to their central registry.
+
+### Managing the JHipster Registry or Consul in Kubernetes
+
+For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a special kind of Kubernetes resource that can handle stateful applications and will let you scale your service registries for high-availability. For more information on high-availability for Eureka and Consul refer to their respective documentation.
+
+### Centralized configuration in Kubernetes
+
+Centralized configuration is also setup using either **Spring Cloud Config Server** (when using the JHipster-Registry) or the **Consul Key/Value store** (when using Consul). By default, both configuration servers load their configuration from a Kubernetes [ConfigMap](http://kubernetes.io/docs/user-guide/configmap/) which contains property files in this format :
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: application-config
+  namespace: default
+data:
+  application.yml: |- # global properties shared by all applications
+    jhipster:
+      security:
+        authentication:
+          jwt:
+            secret: secret
+  gateway-prod.yml: |- # gateway application properties for the "prod" profile
+    foo:
+      bar: foobar
+```
+
+By default, configuration servers run in development mode, which means that YAML property files are read directly from the filesystem and hot-reloaded on changes. For production it is advised to setup configuration from a git repository as explained in our microservice documentation for the [JHipster-Registry config server](/microservices-architecture/#consul_app_configuration) and [Consul config server](/microservices-architecture/#consul_app_configuration).
 
 ## More information
 
