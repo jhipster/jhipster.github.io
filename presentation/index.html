@@ -41,7 +41,7 @@
                 <section>
                     <h2>Welcome, Java Hipster</h2>
                     <img src="images/logo-jhipster-drink-coffee.png" class="jhipster-logo"/>
-                    <h3>Yeoman + Spring + AngularJS in one handy generator</h3>
+                    <h3>Spring Boot + Angular in one handy generator</h3>
                     <p>
                         <a href="http://jhipster.github.io">http://jhipster.github.io</a>
                     </p>
@@ -104,7 +104,18 @@
                 <section>
                     <section data-background="#4d7e65" data-background-transition="slide">
                         <h1>Client-side technologies</h1>
-                        <h3>Yeoman, Gulp, Bower, AngularJS, Bootstrap</h3>
+                        <h3>Yeoman, Webpack, Angular, Bootstrap</h3>
+                    </section>
+                    <section>
+                        <h1></h1>
+                        <h3>Yarn</h3>
+                        <ul>
+                            <li>Fast and reliable dependency management</li>
+                            <li>Used to install and run all client-side tools</li>
+                        </ul>
+                        <pre>
+                            <code data-trim contenteditable>yarn global add generator-jhipster</code>
+                        </pre>
                     </section>
                     <section>
                         <h1>Yeoman</h1>
@@ -119,25 +130,23 @@
                         </pre>
                     </section>
                     <section>
-                        <h1>Gulp</h1>
-                        <h3>Gulp is a JavaScript task runner</h3>
+                        <h1>Webpack</h1>
+                        <h3>Module bundler for client-side assets</h3>
                         <ul>
-                            <li>For development, it will allow you to have "live editing" of your code, run your tests in the background...</li>
-                            <li>For production, it will compress and optimize all your resources, compile your Sass code...</li>
+                            <li>Compiles, minifies, optimizes the front-end</li>
+                            <li>Essential tooling to have compilation and hot-reload of Angular + TypeScript</li>
+                            <li>Allows efficient production builds on the client-side</li>
                         </ul>
-                        <pre>
-                            <code data-trim contenteditable>gulp test</code>
-                        </pre>
                     </section>
                     <section>
-                        <h1>Bower</h1>
-                        <h3>Bower is a package manager for your JavaScript assets</h3>
+                        <h1>BrowserSync</h1>
+                        <h3>Hot reload of application changes</h3>
                         <ul>
-                            <li>You can search, install and update your JavaScript libraries</li>
-                            <li>It provides a <i>huge</i> number of libraries</li>
+                            <li>Automatically refreshes the browser when code is modified</li>
+                            <li>Synchronizes several browsers in real-time, so changes can be checked instantly</li>
                         </ul>
                         <pre>
-                            <code data-trim contenteditable>bower install angular</code>
+                            <code data-trim contenteditable>yarn start</code>
                         </pre>
                     </section>
                     <section>
@@ -148,22 +157,17 @@
                             <li>It is <i>very</i> fast, and can run continously in the background</li>
                         </ul>
                         <pre>
-                            <code data-trim contenteditable>karma start src/test/javascript/karma.conf.js</code>
+                            <code data-trim contenteditable>yarn test</code>
                         </pre>
                     </section>
                     <section>
-                        <h1>AngularJS</h1>
+                        <h1>Angular</h1>
                         <h3>The most popular JavaScript framework</h3>
                         <ul>
+                            <li>Both AngularJS 1.x and Angular 2+ are supported by JHipster</li>
                             <li>Powerful &amp; easy to learn</li>
                             <li>Data binding, form validation, i18n... all out of the box</li>
                         </ul>
-                        <pre>
-                            <code data-trim contenteditable>
-<input type="text" ng-model="yourName" placeholder="Enter a name here">
-<h1>Hello {{yourName}}!</h1>
-                            </code>
-                        </pre>
                     </section>
                     <section>
                         <h1>Twitter Bootstrap</h1>
@@ -219,7 +223,7 @@
 @Transactional
 public class UserService {
 
-    @Inject
+    @Autowired
     private UserRepository userRepository;
 
 }
@@ -338,8 +342,7 @@ public class User implements Serializable {
                             <code data-trim contenteditable>
 @RestController
 public class AccountResource {
-    @RequestMapping(value = "/app/rest/account",
-            method = RequestMethod.POST)
+    @PostMapping("/account")
     public void saveAccount(@RequestBody UserDTO userDTO) {
         userService.updateUserInformation(userDTO);
     }
@@ -396,11 +399,11 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                     <section>
                         <h3>You said <i>hype</i>?</h3>
                         <hr/>
-                        <p>At the time of this writing (May, 2016), JHipster has:</p>
+                        <p>At the time of this writing (February, 2017), JHipster has:</p>
                         <ul>
-                            <li>223 contributors, including 13 core members</li>
-                            <li>4,210 GitHub stars and 928 forks</li>
-                            <li>220,000 installations</li>
+                            <li>296 contributors, including 19 core members</li>
+                            <li>6,190 GitHub stars and 1,413 forks</li>
+                            <li>420,000 installations</li>
                             <li>And it's growing rapidly</li>
                         </ul>
                         <hr/>
@@ -409,8 +412,8 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                     <section>
                         <h3>We've seen lots of cool technologies</h3>
                         <ul>
-                            <li>Can Gulp and Maven be friends?</li>
-                            <li>Can AngularJS and Spring MVC REST be friends?</li>
+                            <li>Can Webpack and Maven be friends?</li>
+                            <li>Can Angular and Spring MVC REST be friends?</li>
                             <li>Can Netflix OSS and Spring be friends?</li>
                             <li>We can <i>guarantee</i> you that having everything working together smoothly, with security, caching and monitoring, isn't easy...</li>
                         </ul>
@@ -420,14 +423,14 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <ul>
                             <li>JHipster creates a complete working application, with all those technologies</li>
                             <li>Everthing just works out-of-the-box</li>
-                            <li>You have your Gulp workflow working great with your Maven goals!</li>
+                            <li>You have your Webpack tasks working great with your Maven goals!</li>
                             <li>You have Docker configuration to run everything smoothly!</li>
                         </ul>
                     </section>
                     <section>
                         <h3>But wait, there's more!</h3>
                         <ul>
-                            <li><strong>"entity"</strong> sub-generator to generate a complete JPA entity, from database to AngularJS</li>
+                            <li><strong>"entity"</strong> sub-generator to generate a complete JPA entity, from database to Angular</li>
                             <li><strong>"import-jdl"</strong> sub-generator to generate a complex entity model using <a href="https://jhipster.github.io/jdl-studio/" target="_blank">JDL Studio</a></li>
                             <li><strong>"service"</strong> sub-generator to generate a Spring business service</li>
                             <li><strong>"languages"</strong> sub-generator to add languages for i18n</li>
@@ -449,7 +452,7 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <h3>Production-ready</h3>
                         <ul>
                             <li>Specific Spring profile with GZipping and HTTP caching headers</li>
-                            <li>JavaScript &amp; CSS optimization and minification by Gulp</li>
+                            <li>TypeScript &amp; CSS optimization and minification by Webpack</li>
                             <li>Executable or standard WAR file, with monitoring enabled</li>
                             <li>Sub-generators for deploying automatically to Cloud Foundry, Heroku and AWS</li>
                             <li><strong>"docker-compose"</strong> sub-generator to generate Docker configurations for deploying microservices to production</li>
@@ -466,8 +469,8 @@ public void saveAccount(@RequestBody UserDTO userDTO) {
                         <h1>Install Yeoman</h1>
                         <pre>
                             <code data-trim contenteditable>
-npm install -g yo
-npm install -g generator-jhipster
+yarn global add yo
+yarn global add generator-jhipster
                             </code>
                         </pre>
                     </section>
@@ -486,11 +489,11 @@ yo jhipster
                     <section>
                         <h1>Client-side live reload</h1>
                         <p>
-                            Live reload of your client-side code (HTML, CSS, JavaScript) works thanks to Gulp and Browsersync. Edit any file and your browser will refresh automatically:
+                            Live reload of your client-side code (HTML, CSS, TypeScript) works thanks to Webpack and Browsersync. Edit any file and your browser will refresh automatically:
                       </p>
                         <pre>
                             <code data-trim contenteditable>
-gulp
+yarn start
                             </code>
                         </pre>
                     </section>
@@ -510,7 +513,7 @@ yo jhipster:entity Foo
                             <code data-trim contenteditable>
 ./mvnw -Pprod package
 docker-compose -f src/main/docker/mysql.yml up -d
-java -jar target/*.war --spring.profiles.active=prod
+java -jar target/*.war
                             </code>
                         </pre>
 
