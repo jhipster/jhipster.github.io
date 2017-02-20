@@ -15,15 +15,15 @@ sitemap:
     <div class="col-md-6 col-sm-12">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/ZGF4gEM4FuA" frameborder="0" allowfullscreen></iframe>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/XRREt1KB4Y8" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label">JHipster Blog Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>This 20-minutes tutorial shows how to create a JHipster application, work with
-                the provided tools (Maven, Gulp), use the entity sub-generator to
+                <p>This 12-minutes tutorial shows how to create a JHipster 4 application, work with
+                the provided tools (Maven, Webpack), use the JDL Studio to
                 create several entities with their relationships, and deploy the end result to the cloud in production.</p>
                 <p>Presented by Matt Raible (<a href="https://twitter.com/mraible"><i>@mraible</i></a>)</p>
-                <p>Published on 7 Feb 2016</p>
+                <p>Published on 18 Feb 2017</p>
             </div>
         </div>
     </div>
@@ -85,8 +85,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -94,7 +92,7 @@ sitemap:
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label">(in French) What's new for JHipster in 2016?<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>New features of JHipster in 2016, with a focus on microservice architecture. Warning, this talk is in French!</p>
+                <p>New features of JHipster in 2016, with a focus on microservice architecture.</p>
                 <p>Presented by Julien Dubois (<a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a>)</p>
                 <p>Published on 9 May 2016</p>
             </div>
@@ -126,8 +124,21 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZGF4gEM4FuA" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">JHipster Blog Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>This 20-minutes tutorial shows how to create a JHipster application, work with
+                the provided tools (Maven, Gulp), use the entity sub-generator to
+                create several entities with their relationships, and deploy the end result to the cloud in production.</p>
+                <p>Presented by Matt Raible (<a href="https://twitter.com/mraible"><i>@mraible</i></a>)</p>
+                <p>Published on 7 Feb 2016</p>
+            </div>
+        </div>
+    </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
