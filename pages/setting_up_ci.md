@@ -45,6 +45,14 @@ The CI/CD pipeline you want to generate:
 - GitLab CI
 - CircleCI
 
+### Jenkins pipeline: what tasks/integrations do you want to include ?
+
+The tasks/integrations you want to include in the Jenkins pipeline:
+
+- Perform the build in a Docker container
+- Analyze code with Sonar
+- Send build status to Gitlab
+
 ### What is the name of the Sonar server ?
 
 Choose the name of the Sonar server.
