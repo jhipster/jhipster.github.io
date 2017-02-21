@@ -55,13 +55,13 @@ If you use a private GitLab CI, you can use directly the runners.
 
 If you use official gitlab.com pipeline, you need to use Docker container.
 
-### Deploy to heroku?
+### Deploy to Heroku?
 
 - In Jenkins pipeline
 - In GitLab CI
 - In CircleCI
 
-You have to add the `HEROKU_API_KEY` as environment variables.
+You have to add the `HEROKU_API_KEY` environment variable.
 
 - Jenkins pipeline: you should use the [Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
 - GitLab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
