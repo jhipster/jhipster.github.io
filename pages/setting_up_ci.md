@@ -25,7 +25,7 @@ JHipster should support the following CI systems out of the box:
     - [Setting up Jenkins 2]({{ site.url }}/setting-up-ci-jenkins2/) (recommended)
 - Travis: refer to the [Travis Documentation](https://docs.travis-ci.com/user/getting-started/)
 - CircleCI: refer to the [CircleCI Documentation](https://circleci.com/docs/getting-started/)
-- Gitlab CI: refer to the [Gitlab CI Documentation](https://about.gitlab.com/gitlab-ci/)
+- GitLab CI: refer to the [GitLab CI Documentation](https://about.gitlab.com/gitlab-ci/)
 
 ## Running the sub-generator
 
@@ -42,27 +42,27 @@ The CI/CD pipeline you want to generate:
 
 - Jenkins pipeline
 - Travis CI
-- Gitlab CI
+- GitLab CI
 - CircleCI
 
 ### What is the name of the Sonar server ?
 
 Choose the name of the Sonar server.
 
-### In Gitlab CI perform the build in a docker container (hint: gitlab.com uses docker container)?
+### In GitLab CI perform the build in a docker container (hint: gitlab.com uses docker container)?
 
-If you use a private Gitlab CI, you can use directly the runners.
+If you use a private GitLab CI, you can use directly the runners.
 
 If you use official gitlab.com pipeline, you need to use Docker container.
 
 ### Deploy to heroku?
 
 - In Jenkins pipeline
-- In Gitlab CI
+- In GitLab CI
 - In CircleCI
 
 You have to add the `HEROKU_API_KEY` as environment variables.
 
 - Jenkins pipeline: you should use the [Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
-- Gitlab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
+- GitLab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
 - CircleCI: read the [documentation about setting environment variables](https://circleci.com/docs/environment-variables/#setting-environment-variables-for-all-commands-without-adding-them-to-git)
