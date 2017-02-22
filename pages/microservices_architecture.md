@@ -211,6 +211,22 @@ This configuration is a Spring Boot configuration, like the one found in the JHi
 
 On startup, your gateways and microservices app will query the Registry's config server and overwrite their local properties with the ones defined there.
 
+<div name="boostrap-config-remark" class="alert alert-info"><b>Important remark on using bootstrap properties in development :</b>
+<br>
+The <b>bootstrap-*.yml</b> files define properties loaded during the bootstrap phase of the Spring application context.
+<br>
+On startup, it is important that either <b>bootstrap-dev.yml</b> or <b>boostrap-prod.yml</b> is correctly loaded by your application and that the <b>spring.cloud.config.uri</b> key points to a running configuration server.
+<br><br>
+When starting the application from Maven, Gradle or the executable jar this is properly handled. However, in development when running a microservice or gateway from the main class in your IDE, you will need to <b>explictly</b> set the Spring profile to <b>dev</b>.
+<br>
+To achieve this either:
+<ul>
+<li>Set the program arguments to <b>--spring.profiles.active=dev</b></li>
+<li>Set the VM options to <b>-Dspring.profiles.active=dev</b></li>
+<li>Set the following environment variable <b>SPRING_PROFILES_ACTIVE=dev</b></li>
+</ul>
+</div>
+
 Two kinds of configurations sources are available:
 
 - A `native` configuration, which is used by default in development (using the JHipster `dev` profile), and which uses the local filesystem.
@@ -255,6 +271,10 @@ It can be run in two modes:
 - a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the Key/Value store.
 
 Note that as with the JHipster Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named `consulapp` started with a `prod` profile. Moreover, properties defined in `application.yml` will be set for all your applications.
+
+<div class="alert alert-info"><b>Note :</b>
+The <a href="#boostrap-config-remark">above remark</a> about <b>bootstrap-*.yml</b> files also applies when using Consul configuration.
+</div>
 
 ## <a name="microservices"></a> Creating microservices
 
