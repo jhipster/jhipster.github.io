@@ -55,17 +55,6 @@ You can either use:
 *   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
 *   JHipster UAA server [BETA]: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
 
-### Which *Framework* would you like to use for the client?
-
-The client side framework to use.
-
-You can either use:
-
-*   AngularJS version 1.x
-*   Angular version 2+ [BETA]
-
-> Please note that Angular 2+ support is currently in BETA and hence may not be suitable for production use.
-
 ### What is the base name of your application?
 
 This is the name of your application.
@@ -143,6 +132,17 @@ Websockets can be enabled using Spring Websocket. We also provide a complete sam
 #### Asynchronous messages using Apache Kafka
 
 Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message broker.
+
+### Which *Framework* would you like to use for the client?
+
+The client side framework to use.
+
+You can either use:
+
+*   AngularJS version 1.x
+*   Angular version 2+ [BETA]
+
+> Please note that Angular 2+ support is currently in BETA and hence may not be suitable for production use.
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 
