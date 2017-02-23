@@ -52,6 +52,9 @@ Here is a documentation for those properties:
             hazelcast: # Hazelcast configuration
                 time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
                 backup-count: 1 # Number of objects backups
+            ehcache: # Ehcache configuration
+                time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+                max-entries: 100 # Number of objects in each cache entry
 
         # E-mail properties
         mail:
