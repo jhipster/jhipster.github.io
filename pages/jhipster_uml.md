@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2016-12-20T12:00:00-00:00
+    lastmod: 2017-02-22T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -236,12 +236,6 @@ Finally, you can choose the service for your entities using `-service`.
  `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-service]`
 
 **Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
-
-If you plan on using a JDL file as input, the services, DTOs and paginations are not specified via the command line but in the file itself (see the [JDL]({{ site.url }}/jdl/) section of this documentation for more information).
-Here's how you use JHipster-UML with a JDL file:
-
- `jhipster-uml <your_file.jh> [-db (sql | mongodb | cassandra)]`
-
 
 Finally, if you need help, there's a command for that too:
 
@@ -474,7 +468,7 @@ The convention `<ENTITY_NAME>\s*(<TABLE_NAME>)` is universal no matter the edito
 
 However, if you don't want to pick a special table name, you can just write the class name. JHipster UML will take care of converting it to an appropriate table name. For instance, if you class name is `MyClass`, then your table name would be `my_class`.
 
-Note that this feature is available for UML editors since v1.6.2. Concerning the JDL, as it has its own project, the change is expected to happen with some delay (just for this addition).
+Note that this feature is available for UML editors since v1.6.2. 
 
 ## <a name="requiredrels"></a>Required relationships
 
@@ -594,7 +588,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 
 # <a name="annexes"></a>Annexes
 
-Here is the types supported by JDL:
+Here is the types supported by this project:
 
 <table class="table table-striped table-responsive">
   <tr>
