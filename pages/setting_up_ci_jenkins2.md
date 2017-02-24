@@ -45,6 +45,4 @@ Launch the [Docker image](https://hub.docker.com/r/jenkinsci/jenkins/) (the defa
 
 ## Jenkinsfile
 
-An example of Jenkinsfile which is generated can be found [here](https://raw.githubusercontent.com/jhipster/jhipster-sample-app/master/Jenkinsfile)
-
 ![Jenkins2 result]({{ site.url }}/images/jenkins2_result.png)

@@ -41,6 +41,9 @@ Here is a documentation for those properties:
 
         # HTTP configuration
         http:
+            # V_1_1 for HTTP/1.1 or V_2_0 for HTTP/2.
+            # To use HTTP/2 you will need SSL support (see the Spring Boot "server.ssl" configuration)
+            version: V_1_1
             cache: # Used by io.github.jhipster.web.filter.CachingHttpHeadersFilter
                 timeToLiveInDays: 1461 # Static assets are cached for 4 years by default
 
@@ -49,6 +52,9 @@ Here is a documentation for those properties:
             hazelcast: # Hazelcast configuration
                 time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
                 backup-count: 1 # Number of objects backups
+            ehcache: # Ehcache configuration
+                time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+                max-entries: 100 # Number of objects in each cache entry
 
         # E-mail properties
         mail:
