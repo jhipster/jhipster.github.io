@@ -13,7 +13,7 @@ sitemap:
 
 A showcase of awesome applications built with Jhipster.
 
-If you want your application to feature here just submit a PR to the [website](https://github.com/jhipster/jhipster.github.io) or let us know via Twitter using the `@java_hipster` tag.
+If you want your application to feature here just submit a PR to the [website](https://github.com/jhipster/jhipster.github.io) or let us know via Twitter using the [@java_hipster](https://twitter.com/java_hipster) tag.
 
 <br/><br/><br/>
 
@@ -31,7 +31,7 @@ If you want your application to feature here just submit a PR to the [website](h
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="560" height="315" src="http://app.klask.io/#/" frameborder="0" allowfullscreen></iframe>
+                <img width="560" height="315" src="{{ site.url }}/images/showcase/app.klask.io.png" />
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="http://app.klask.io/#/" target="_blank">Klask.io</a></h3>
@@ -41,7 +41,7 @@ If you want your application to feature here just submit a PR to the [website](h
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="560" height="315" src="http://www.21-points.com/#/" frameborder="0" allowfullscreen></iframe>
+                <img width="560" height="315" src="{{ site.url }}/images/showcase/www.21-points.com.png" />
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="http://www.21-points.com/#/" target="_blank">21 Points</a></h3>
@@ -53,7 +53,7 @@ If you want your application to feature here just submit a PR to the [website](h
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="560" height="315" src="http://bluemagiccat.com/" frameborder="0" allowfullscreen></iframe>
+                <img width="560" height="315" src="{{ site.url }}/images/showcase/bluemagiccat.com.png" />
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="http://bluemagiccat.com/" target="_blank">Blue Magic Cat</a></h3>
