@@ -81,7 +81,7 @@ Here are the steps to install a new language called `new_lang`:
             // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
         ]
 
-    For Angular 2+ add the languege code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/shared/language/language.constants.ts`
+    For Angular 2+ add the language code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/shared/language/language.constants.ts`
 
         export const LANGUAGES: string[] = [
             'en',
