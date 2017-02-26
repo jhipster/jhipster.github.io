@@ -128,7 +128,6 @@ sitemap:
             </div>
         </div>
     </div>
-<<<<<<< HEAD
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -144,8 +143,6 @@ sitemap:
             </div>
         </div>
     </div>
-=======
->>>>>>> 2d1c1e6... fix videos
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -159,6 +156,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
