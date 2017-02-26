@@ -566,6 +566,30 @@
     },
     {"name": "Aracla",
       "url": "https://aracla.com/"
+    },
+    {"name": "Shenll Technology Solutions Pvt Ltd.",
+      "url": "http://www.shenll.com/"
+    },
+    {"name": "3AP AG",
+      "url": "https://www.3ap.ch/"
+    },
+    {"name": "Squeed",
+      "url": "http://www.squeed.com/"
+    },
+    {"name": "Palixo",
+      "url": "http://www.palixo.com/"
+    },
+    {"name": "Menteq Inc.",
+      "url": "http://menteq.com/"
+    },
+    {"name": "akquinet AG",
+      "url": "http://www.akquinet.de/"
+    },
+    {"name": "EquationsWork",
+      "url": "http://equations.work/"
+    },
+    {"name": "CIeNET Technologies",
+      "url": "http://www.cienet.com.cn/"
     }
   ]
 }
