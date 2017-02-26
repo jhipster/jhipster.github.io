@@ -33,6 +33,12 @@ If you run the application with Maven, run `./mvnw` to use our Maven Wrapper, or
 
 If you run the application with Gradle, run `./gradlew` to use our Gradle Wrapper, or `gradle` to use your own Gradle installation.
 
+When using Angular 2+ if you need to do a clean run with webpack compilation enabled for `dev` profile you can pass the `webpack` param as below
+
+  `./mvnw -Pdev,webpack`
+  or
+  `./gradlew -Pdev -Pwebpack`
+
 ## In production, JHipster has to run with the `prod` profile
 
 You can run JHipster in production directly using Maven or Gradle:
