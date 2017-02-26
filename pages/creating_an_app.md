@@ -177,7 +177,7 @@ Here are the options you can pass:
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--skip-checks` - Skip the check of the required tools (Default: false)
-* `--jhi-prefix` - Add prefix before services, controllers and states name (Default: jhi)
+* `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
 * `--npm` - Use NPM instead of Yarn (Default: false)
 
 ## <a name="4"></a> Tips
