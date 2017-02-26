@@ -72,7 +72,7 @@ Here are the steps to install a new language called `new_lang`:
 
 1.  Duplicate the `src/main/webapp/i18/en` folder to `src/main/webapp/i18/new_lang` (this is where all the front-end translations are stored)
 2.  Translate all files under the folder `src/main/webapp/i18/new_lang`
-3.  For AngularJS 1 add the languege code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/components/language/language.constants.js`
+3.  For AngularJS 1 add the language code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/components/language/language.constants.js`
 
         .constant('LANGUAGES', [
             'en',
