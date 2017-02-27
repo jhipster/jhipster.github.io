@@ -21,10 +21,13 @@ If you want your application to be featured here just submit a PR to the [websit
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/t2VaGxYRjW8" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4K5hP7sgJPA" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="https://github.com/xavierpandis/soundxtreamRS" target="_blank">SoundXtream Audio Platform</a></h3>
+				<p><b>Created by:</b> <a href="http://www.linkedin.com/in/xavierpandisgarcia" target="_blank">Xavier Pandis Garcia</a>
+				<br/>
+				<b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank">Alfredo Rueda Unsain</a></p>
             </div>
         </div>
     </div>
