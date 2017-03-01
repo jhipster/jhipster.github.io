@@ -31,7 +31,7 @@ Once the analysis completes, it will be available on the SonarQube dashboard, wh
 
 The JHipster generator project publishes a sample project which is analyzed every time a new commit is merged in the "master" branch:
 
-[Analysis of the sample JHipster project](https://sonarqube.com/overview?id=1054756)
+[Analysis of the sample JHipster project](https://sonarqube.com/dashboard?id=io.github.jhipster.sample%3Ajhipster-sample-application)
 
 This allows the JHipster team to make sure that you will start developing your project on the cleanest code possible.
 
