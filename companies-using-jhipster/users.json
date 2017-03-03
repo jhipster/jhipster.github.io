@@ -294,6 +294,12 @@
       "category": "System Integrator",
       "country": "Belgium"
     },
+    {"name": "Pivotal",
+      "url": "https://pivotal.io/",
+      "logo": "pivotal.png",
+      "category": "Software Editor",
+      "country": "USA"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -590,6 +596,12 @@
     },
     {"name": "CIeNET Technologies",
       "url": "http://www.cienet.com.cn/"
+    },
+    {"name": "OGResearch",
+      "url": "http://ogresearch.com/"
+    },
+    {"name": "SmartFizz",
+      "url": "http://www.smartfizz.fr/"
     }
   ]
 }
