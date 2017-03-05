@@ -13,7 +13,7 @@ _Goal:_ By the using below mail settings you will have the default JHipster appl
 
 Start by running JHipster with `yo jhipster` to create a new application or use an existing JHipster generated application.
 
-## Choose any of below Email Service for your Application : 
+## Choose any of below Email Service for your Application :
 
 ### 1. Email Config - Gmail
 
@@ -87,7 +87,7 @@ _application-dev.yml_
             [...]
 
     jhipster:       
-        mail: 
+        mail:
             from: yahoouserid@gmail.com  #Replace this field with your Gmail username.
             [...]
 __Note__ : For Yahoo Mail, `username` property in **spring.mail** must match the `from` property in **jhipster.mail**.
@@ -114,6 +114,30 @@ _application-dev.yml_
                 starttls.enable: true
                 ssl.trust: smtp.zoho.com
             [...]
+
+
+### 4. Email Config - AWS SES
+
+Go into `src\main\resources\config\application-dev.yml` and change your application to use the below AWS SES configuration:
+
+_application-dev.yml_
+
+    spring:
+        profiles:
+            active: dev
+        mail:
+            host: email-smtp.us-east-1.amazonaws.com
+            port: 465
+            username: ********************
+            password: ********************************************
+            protocol: smtps
+            debug: true
+            properties.mail.smtp:
+                starttls.enable: true
+                starttls.required: true
+                ssl.enable: true
+            properties.mail.smtps:
+                auth: true
 
 
 *Similarly you can configure any other email service. Just check the SMTP Mail Server and Server Port of your Email Service and change the above fields accordingly*
