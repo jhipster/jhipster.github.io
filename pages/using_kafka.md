@@ -22,7 +22,6 @@ __WARNING!__ This is a new feature, of <b>BETA</b> quality. Use it at your own r
 - Generate a Docker Compose configuration file, with the sample `topic-jhipster` topic, so Kafka is usable by simply typing `docker-compose -f src/main/docker/kafka.yml up -d`.
 - Provide support for Kafka in a microservice environment, when using Docker. The Docker Compose sub-generator will generate a specific Kafka configuration, if one microservice or one gateway uses Kafka. All microservices and gateways will then use that Kafka broker for all their messages. The broker is common for all applications, as it is typically used as a message broker between applications.
 
-## Limitations
+## Limitation
 
-- The Kafka option is currently incompatible with the Gatling option (for performance testing). It is because they require different versions of Scala. This will be solved in the next Spring Cloud Stream release.
 - We currently do not provide a complete example on working with Kafka, and we have no client-side code using Kafka.
