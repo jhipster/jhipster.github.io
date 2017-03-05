@@ -188,7 +188,7 @@ with `yarn install` command can contain some broken libraries that are first dow
 some time to restore even from cache and even on latest SSD/Flash drives. In case you suspect 
 that your cache contains some broken libraries, simply run `yarn cache clean` followed by `yarn install` so all 
 libraries will be downloaded again into cache and then copied into you project's root folder. Do this only 
-as a last resort if deleting of `yarn.lock` file didn`t help as this procedure will take a longest time to complete
+as a last resort if deleting of `yarn.lock` file didn't help as this procedure will take a longest time to complete
 (10min+ on SSD drive for example).
 
 ### Other Yarn/NPM tasks
