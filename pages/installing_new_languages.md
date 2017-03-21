@@ -50,6 +50,7 @@ These are the currently supported languages
 *   Spanish
 *   Swedish
 *   Tamil
+*   Thai
 *   Turkish
 *   Vietnamese
 
