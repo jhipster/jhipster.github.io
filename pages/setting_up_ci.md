@@ -52,10 +52,26 @@ The tasks/integrations you want to include in the Jenkins pipeline:
 - Perform the build in a Docker container
 - Analyze code with Sonar
 - Send build status to Gitlab
+- Build and publish a Docker image
+
+**Note**: when you select Jenkins pipeline, a new `src/main/docker/jenkins.yml` file will be generated.
+So you can test Jenkins locally by running:
+
+```
+docker-compose -f src/main/docker/jenkins.yml up -d
+```
 
 ### What is the name of the Sonar server ?
 
 Choose the name of the Sonar server.
+
+### What is the URL of the Docker registry ?
+
+By default, you can use Docker Hub: [https://registry.hub.docker.com](https://registry.hub.docker.com)
+
+### What is the Jenkins Credentials ID for the Docker registry ?
+
+By default, you can use: `docker login`
 
 ### In GitLab CI perform the build in a docker container (hint: gitlab.com uses docker container)?
 

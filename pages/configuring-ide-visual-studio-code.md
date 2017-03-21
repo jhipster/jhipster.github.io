@@ -57,7 +57,7 @@ If you use the JHipster App, this is only a matter of clicking on 2 buttons (one
 
 For best performance, it's recommended to exclude some folders, in your project's `.vscode` folder create a `settings.json` file as below:
 
-{% highlight javascript %}
+```
 {
     // Configure glob patterns for excluding files and folders.
     "files.exclude": {
@@ -76,4 +76,4 @@ For best performance, it's recommended to exclude some folders, in your project'
         "**/target": true
     }
 }
-{% endhighlight %}
+```
