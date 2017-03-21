@@ -602,6 +602,21 @@
     },
     {"name": "SmartFizz",
       "url": "http://www.smartfizz.fr/"
+    },
+    {"name": "Mavinci",
+      "url": "http://www.mavinci.com.tr/"
+    },
+    {"name": "Software Evolutivo",
+      "url": "http://softwareevolutivo.com.ec/"
+    },
+    {"name": "Deolan",
+      "url": "http://www.deolan.com/"
+    },
+    {"name": "NewPay",
+      "url": "https://www.hnapay.com/"
+    },
+    {"name": "nouvelle MARQUE",
+      "url": "https://nouvelle-marque.com/"
     }
   ]
 }
