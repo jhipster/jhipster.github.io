@@ -8,6 +8,8 @@ lastmod: 2015-05-28T18:40:00-00:00
 
 # Add Querydsl support
 
+# /!\ This tip is deprecated since JHipster v4.1.0
+
 __Tip submitted by [@omrzljak](https://github.com/omrzljak)__
 
 In some cases Spring Data [query possibilities](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries) are not enough to make your queries. You can use `@Query` annotation and [write your own](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.json-based). Some of us like to write type safe queries like [Querydsl](http://www.Querydsl.com/) provides.
