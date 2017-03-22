@@ -10,8 +10,6 @@ gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 
 # <i class="fa fa-refresh"></i> Upgrading an application
 
-**WARNING** At the moment, this only works with the technologies used with JHipster 3.x (to be more precise: if you use NPM and AngularJS 1.x). If you are using JHipster 4.x (with Yarn and/or Angular 2+), this sub-generator will not work. If you want to help on this, check [#5116](https://github.com/jhipster/generator-jhipster/issues/5116).
-
 When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrading an existing application to this new version, without erasing your changes.
 
 This is helpful to:
