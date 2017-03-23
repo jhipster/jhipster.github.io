@@ -300,6 +300,12 @@
       "category": "Software Editor",
       "country": "USA"
     },
+    {"name": "Conseil d'état",
+      "url": "http://www.conseil-etat.fr/",
+      "logo": "conseil-etat.png",
+      "category": "Government",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
