@@ -224,7 +224,7 @@ If a wrong option is specified, JDL will inform you of that with a nice, red mes
 No services specified will create a resource class which will call the repository interface directly. This is the default and simplest option, see A.
 Service with serviceClass (see B) will make the resource call the service class which will call the repository interface. Service with serviceImpl (see C) will make a service interface which will be used by the resource class. The interface is implemented by an impl class which will call the repository interface.
 
-Use no service if not sure it's the simplest option and good for CRUD. Use service with a Class if you will have a lot of business logic which will use multple repository's making it ideal for a service class. Jhipster's are not a fan of unnecessary Interfaces but if you like them go for service with impl.
+Use no service if not sure it's the simplest option and good for CRUD. Use service with a Class if you will have a lot of business logic which will use multiple repositories making it ideal for a service class. Jhipster's are not a fan of unnecessary Interfaces but if you like them go for service with impl.
 
     entity A {}
     entity B {}
