@@ -8,7 +8,7 @@ lastmod: 2017-01-03T22:30:00-00:00
 
 # Prevent error/hanging on Windows when using Gradle
 
-# /!\ This tip is deprecated since JHipster v4.1.1 as we upgraded to Gradle 3.4
+## /!\ This tip is deprecated since JHipster v4.1.1 as we upgraded to Gradle 3.4
 
 __Tip submitted by [@kaidohallik](https://github.com/kaidohallik)__
 
