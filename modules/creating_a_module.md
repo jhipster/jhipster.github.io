@@ -100,7 +100,7 @@ And all the variables from the JHipster `.yo-rc.json` file:
 - `buildTool`: the Java build tool
 - `enableTranslation`: if translations are enabled
 - `nativeLanguage`: native language selected for i18n
-- `languages`: additional languages selecetd for i18n
+- `languages`: additional languages selected for i18n
 - `enableSocialSignIn`: if social login is enabled
 - `testFrameworks`: an array of the test frameworks selected
 - `jhiPrefix`: the prefix applied before services, controllers and states names of JHipster components
