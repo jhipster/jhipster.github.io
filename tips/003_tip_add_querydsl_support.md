@@ -8,7 +8,7 @@ lastmod: 2015-05-28T18:40:00-00:00
 
 # Add Querydsl support
 
-# /!\ This tip is deprecated since JHipster v4.1.0
+## /!\ This tip is deprecated since JHipster v4.1.0
 
 __Tip submitted by [@omrzljak](https://github.com/omrzljak)__
 
