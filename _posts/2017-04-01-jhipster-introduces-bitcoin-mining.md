@@ -1,7 +1,12 @@
 ---
 layout: default
-title: JHipster introduces Bitcoin mining
+title: JHipster introduces Bitcoin mining (April Fools 2017)
 ---
+
+April Fools 2017
+==================
+
+**The following announcement is our 2017 April Fools joke, so of course you should NOT consider it seriously**
 
 JHipster introduces Bitcoin mining
 ==================
