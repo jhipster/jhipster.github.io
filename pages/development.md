@@ -169,8 +169,7 @@ This will launch:
 
 Direct project dependencies are configured into `package.json`, but transitive dependencies are defined into the `yarn.lock` file, that get generated when `yarn install` is run.
 
-It is advised to check `yarn.lock` into source control
-([link](https://yarnpkg.com/en/docs/yarn-lock#toc-check-into-source-control)), so all team members of a project have the versions of all dependencies. Running `yarn install` again will regenerate the `yarn.lock` with the latest versions of transitive dependencies.
+It is advised to check `yarn.lock` [into source control](https://yarnpkg.com/en/docs/yarn-lock#toc-check-into-source-control), so all team members of a project have the versions of all dependencies. Running `yarn install` again will regenerate the `yarn.lock` with the latest versions of transitive dependencies.
 
 ### Other Yarn/NPM tasks
 
