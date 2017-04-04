@@ -165,6 +165,32 @@ This will launch:
 - A BrowserSync task that will run on [http://localhost:9000/](http://localhost:9000/), which has a proxy to [http://localhost:9060/](http://localhost:9060/) (the Webpack "hot module reload" server), and which will synchronize the user's clicks/scrolls/inputs
 - The BrowserSync UI, which will be available on [http://localhost:3001/](http://localhost:3001/)
 
+### About yarn, yarn.lock and yarn cache(important):
+
+Project dependencies are configured in `package.json`, but exact versions of these 
+dependencies are defined in `yarn.lock` file, both files located in the root folder of your project. 
+It is advised to check `yarn.lock` into source control
+([link](https://yarnpkg.com/en/docs/yarn-lock#toc-check-into-source-control)), but at times when you
+run `yarn install` yarn.lock file gets regenerated and at most times with latest versions of libraries so at
+at some point you might experience that your `yarn start` command don't work and no webpack source is injected into
+browser([link](https://github.com/jhipster/generator-jhipster/issues/5362#issuecomment-284175620)) or any other issue. 
+In any similar case don't try to remove `node_modules` folder in root folder of your project as this won't solve 
+the issue, but instead do the following first
+
+1. delete yarn.lock file from project root folder
+2. run `yarn install` to generate new `yarn.lock` file for current project's `package.json`
+3. run `yarn start` again
+
+Another possible issues you can face connected with yarn is that your `node_modules` folder that is created
+with `yarn install` command can contain some broken libraries that are first downloaded into yarn cache
+([link](https://yarnpkg.com/lang/en/docs/cli/cache/)) and then simply copied from yarn cache into you project's 
+`node_modules` each time you run `yarn isntall`. The `node_modules` is usually 38000+ files and 400MB+ big and takes quite 
+some time to restore even from cache and even on latest SSD/Flash drives. In case you suspect 
+that your cache contains some broken libraries, simply run `yarn cache clean` followed by `yarn install` so all 
+libraries will be downloaded again into cache and then copied into you project's root folder. Do this only 
+as a last resort if deleting of `yarn.lock` file didn't help as this procedure will take a longest time to complete
+(10min+ on SSD drive for example).
+
 ### Other Yarn/NPM tasks
 
 Those tasks are the same whether you use Yarn or NPM, we use the `yarn` command as an example but you can replace it with `npm`.
