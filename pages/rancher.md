@@ -19,7 +19,7 @@ This sub-generator allows deployment of your JHipster application to [Rancher](h
 
 ## Limitations
 
-- Spring config server only support Git urls for now
+- Cassandra and Mongo cluster are not supported for now.
 
 ## Pre-requisites
 
@@ -51,22 +51,26 @@ Enter the path.
 
 Select your applications.
 
+### Do you want to setup monitoring for your applications ?
+
+Deploy JHipster Console or Prometheus to do monitoring on your application
 
 ### Enter the admin password used to secure the JHipster Registry admin
 
 This question is only displayed if you choose microservices architecture.
 
+### Would you like to enable rancher load balancing support?
+
+Activate Load balancing service on Rancher. It will only bind your gateway application and map port 80 to your gateway port (by default 8080).
 
 ### What should we use for the base Docker repository name?
 
 If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be your Docker Hub login.
 
-
 ### What command should we use for push Docker image to repository?
 
 The default command to push to Docker Hub is `docker push`
 For example, if you use the Google Cloud to host your Docker images, it will be: `gcloud docker push`
-
 
 ## Updating your deployed application
 
@@ -80,7 +84,7 @@ Or when using gradle:
 
 `./gradlew -Pprod bootRepackage buildDocker -x test`
 
-### Pushing to Docker Hub
+### Pushing to your Docker registry (Docker Hub)
 
 Tag locally your image:
 
@@ -90,27 +94,43 @@ Push your image to Docker Hub:
 
 `docker push username/application`
 
-## Deploying a monolith application
+### Generating your Rancher configuration
 
-Deploy your application:
+Create rancher folder on root folder
 
-`kubectl apply -f application/`
+`mkdir rancher`
 
-It will create a Kubernetes deployment for your application and its associated dependent services (database, elasticsearch...) as well as a Kubernetes service to expose the application to the outside.
+Go to it and generate yout rancher configuration
 
-## Deploying a microservice application
+```
+cd rancher
+yo jhipster:rancher-compose
+```
 
-### Deploying a Service Registry in Rancher
+Follow instruction and answer all questions.
+You will then have to new files `docker-compose.yml`and `rancher-compose.yml`.
 
-Although, Kubernetes does feature its own internal service discovery with **Kube-DNS**, JHipster rely on Spring Cloud for service discovery, so it depends on a third party service registry like Eureka or Consul. This has the advantage of being platform independent and to work similarly in production and on a local development machine.
+### Use local configuration for Config server
 
-Consequently, for microservices applications, the JHipster Kubernetes sub-generator will generate Kubernetes manifest files to deploy service registries like the **JHipster-Registry** (based on Eureka) or **Consul**. Moreover, the generated microservices and gateway Kubernetes manifests will contains the appropriate configuration to register themselves to their central registry.
+On same folder as your rancher configuration you should have a directory with name `registry-config-sidekick` when using a registry.
 
-### Managing the JHipster Registry or Consul in Rancher
+This sidekick allow you to use a local configuration file (located inside the directory) for the deployed config server instance compare to GIT method.
 
-WAITING PIERREBESSON PR
+To use it, you need to build this image and deploy it to the same registry as your previous built image.
 
-By default, configuration servers run in development mode, which means that YAML property files are read directly from the filesystem and hot-reloaded on changes. For production it is advised to setup configuration from a git repository as explained in our microservice documentation for the [JHipster-Registry config server](/microservices-architecture/#consul_app_configuration) and [Consul config server](/microservices-architecture/#consul_app_configuration).
+```
+cd registry-config-sidekick
+docker build -t username/registry-config-sidekick .
+docker push username/registry-config-sidekick
+```
+
+Configuration files will be included into this image and then the Config Server instance will be able to map those files and use them.
+
+## Deploying to your Rancher server
+
+Once all your images have been pushed into your registry, you will be able to create your Stack on your Rancher server and use both your docker-compose configuration and the rancher-compose one.
+
+By default rancher-compose deploy only one instance of each service for performance purpose.
 
 ## More information
 
