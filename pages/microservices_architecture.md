@@ -80,7 +80,7 @@ If there are several instances of the same service running, the gateway will get
 - Load balance HTTP requests using [Netflix Ribbon](https://github.com/Netflix/ribbon).
 - Provide a circuit breaker using [Netflix Hystrix](https://github.com/Netflix/hystrix), so that failed instances are quickly and safely removed.
 
-Each gateway as a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.
+Each gateway has a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.
 
 ### <a name="security"></a> Security
 
@@ -252,7 +252,7 @@ The Key/Value (K/V) store can be modified using either it's UI available at [htt
 It can be run in two modes:
 
 - a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with Consul.
-- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a git repository as configuration source for the Key/Value store.
+- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a Git repository as a configuration source for the Key/Value store.
 
 Note that as with the JHipster Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named `consulapp` started with a `prod` profile. Moreover, properties defined in `application.yml` will be set for all your applications.
 
