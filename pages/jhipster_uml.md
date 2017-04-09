@@ -247,6 +247,28 @@ Finally, if you need help, there's a command for that too:
 
 **Note: If you want to use the classes and methods available, the preferred entry point of JHipster-UML is the ParserFactory (so that you don't open the file, read it, find the root element, etc.).**
 
+## <a name="jumlfile"></a>JHipster-UML file
+
+JHipster-UML can be configured by the command line and / or by a JSON based configuration file, the `jumlfile`.
+The options described in the help can be used in the both but the commande line take precedence over the `jumlfile`.
+
+### A concrete example 
+
+jumlfile content:
+```javascript
+{
+  "db": "sql",
+  "force": "true"
+}
+```
+Call:
+```
+jhipster-uml --no-force
+```
+You Will have the following executed options:
+- db : sql
+- force : false (without force)
+
 
 ## <a name="whatsgenerated"></a>What's generated
 
