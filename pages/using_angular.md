@@ -120,7 +120,7 @@ For example, the following text will only be displayed to users having the `ROLE
 
 For example, the following text will only be displayed to users having one of the `ROLE_ADMIN` or `ROLE_USER` authorities:
 
-    <h1 *jhiHasAnyAuthority="`['ROLE_ADMIN', 'ROLE_USER']">Hello, dear user</h1>
+    <h1 *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']">Hello, dear user</h1>
 
 *Please note* that those directives only show or hide HTML components on the client-side, and that you also need to secure your code on the server-side!
 
