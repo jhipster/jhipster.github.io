@@ -34,9 +34,11 @@ To upgrade your application, type:
 
 `yo jhipster:upgrade`
 
-If you want to run the upgrade sub-generator even if no new JHipster version is available, type:
+Here are the options you can pass:
 
-`yo jhipster:upgrade --force`
+* `--verbose` - Log each step of the upgrade process in detail
+* `--target-version=4.2.0` - Upgrade to the target version instead of the latest release, useful if a project is several versions behind
+* `--force` - Run the upgrade sub-generator even if no new JHipster version is available
 
 ## Graphical view of the upgrade process
 
