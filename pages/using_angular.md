@@ -163,15 +163,15 @@ The shorthand methods `success`, `info`, `warning` and `error` will have a defau
 
 <div class="alert alert-info"><i>Info: </i>
 
-The Angular-Cli and JHipster can be used in parallel for development purpose and each of this options have their own configuration and build strategy. By default, JHipster is using his own when deploying application or for CI-CD integration.
+The Angular Cli and JHipster can be used in parallel for development purpose and each of this options have their own configuration and build strategy. By default, JHipster is using its own when deploying application or for CI-CD integration.
 
 </div>
 
 ### Overview
 
-The Angular CLI is a tool to develop, scaffold and maintain Angular applications. JHipster integrate [Angular Cli](https://cli.angular.io/) tool for that purpose.
+The Angular CLI is a tool to develop, scaffold and maintain Angular applications. JHipster integrates [Angular Cli](https://cli.angular.io/) tool for that purpose.
 
-This integration is done by adding a `.angular-cli.json` file on application root folder and his dependence on `package.json` file.
+This integration is done by adding a `.angular-cli.json` file in the application root folder and its dependencies in the `package.json`.
 
 ### Usage
 
@@ -226,7 +226,7 @@ Scaffold  | Usage
 
 ### Test
 
-For consuitency purpose on JHipster application, tests execution are only available through `yarn` command:
+For consistency purpose on JHipster application, tests execution are only available through `yarn` command:
 
 ```bash
 yarn test
@@ -234,13 +234,11 @@ yarn test
 
 ### i18n
 
-JHipster is using `ng2-translate` dependency for translation purpose. Angular Cli i18n is based on default Angular tool.
-
-That's why, JHipster is not compatible with Angular Cli for now.
+JHipster is using `ng2-translate` dependency for translation purpose. Angular Cli i18n is based on default Angular i18n support which is incompatible with JHipster.
 
 ### Running server
 
-If you prefer Angular Cli tool to develop you application, you can run your server directly by using his dedicated command.
+If you prefer Angular Cli tool to develop you application, you can run your server directly by using its dedicated command.
 
 ```bash
 ng serve
