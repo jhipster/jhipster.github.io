@@ -163,7 +163,7 @@ The shorthand methods `success`, `info`, `warning` and `error` will have a defau
 
 <div class="alert alert-info"><i>Info: </i>
 
-[Angular CLI](https://cli.angular.io/) and JHipster can be used in parallel for development, and both have their own configuration files. By default, JHipster is using its own configuration when deploying applications or when using the CI-CD sub-generator.
+Angular CLI and JHipster can be used in parallel for development, and both have their own configuration files. By default, JHipster is using its own configuration when deploying applications or when using the CI-CD sub-generator.
 
 </div>
 
