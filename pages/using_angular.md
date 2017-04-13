@@ -159,19 +159,19 @@ The shorthand methods `success`, `info`, `warning` and `error` will have a defau
         )
     );
 
-## Using Angular Cli
+## Using Angular CLI
 
 <div class="alert alert-info"><i>Info: </i>
 
-The Angular Cli and JHipster can be used in parallel for development purpose and each of this options have their own configuration and build strategy. By default, JHipster is using its own when deploying application or for CI-CD integration.
+[Angular CLI](https://cli.angular.io/) and JHipster can be used in parallel for development, and both have their own configuration files. By default, JHipster is using its own configuration when deploying applications or when using the CI-CD sub-generator.
 
 </div>
 
 ### Overview
 
-The Angular CLI is a tool to develop, scaffold and maintain Angular applications. JHipster integrates [Angular Cli](https://cli.angular.io/) tool for that purpose.
+[Angular CLI](https://cli.angular.io/) is a tool to develop, scaffold and maintain Angular applications. JHipster generates the Angular CLI configuration file, so the Angular CLI workflows work with JHipster.
 
-This integration is done by adding a `.angular-cli.json` file in the application root folder and its dependencies in the `package.json`.
+This integration is done by generating a `.angular-cli.json` file in the application root folder and adding its dependencies in the `package.json` file.
 
 ### Usage
 
@@ -181,7 +181,7 @@ ng help
 
 ### Building
 
-You can now build your front-end using the Angular Cli.
+You can build your front-end using Angular CLI.
 
 ```bash
 ng build
@@ -201,8 +201,8 @@ You can use the `ng generate` (or just `ng g`) command to generate Angular compo
 ng generate component my-new-component
 ng g component my-new-component # using the alias
 
-# components support relative path generation
-# if in the directory src/app/feature/ and you run
+# Components support relative path generation
+# Go to src/app/feature/ and run
 ng g component new-cmp
 # your component will be generated in src/app/feature/new-cmp
 # but if you were to run
@@ -226,7 +226,7 @@ Scaffold  | Usage
 
 ### Test
 
-For consistency purpose on JHipster application, tests execution are only available through `yarn` command:
+For consistency purpose on JHipster application, tests execution are only available through the `yarn` command:
 
 ```bash
 yarn test
@@ -234,11 +234,11 @@ yarn test
 
 ### i18n
 
-JHipster is using `ng2-translate` dependency for translation purpose. Angular Cli i18n is based on default Angular i18n support which is incompatible with JHipster.
+JHipster is using the `ng2-translate` dependency for translation purpose. Angular CLI i18n is based on the default Angular i18n support, which is incompatible with JHipster.
 
-### Running server
+### Running the server
 
-If you prefer Angular Cli tool to develop you application, you can run your server directly by using its dedicated command.
+If you prefer to use Angular CLI to develop you application, you can run your server directly by using its dedicated command.
 
 ```bash
 ng serve
@@ -252,8 +252,8 @@ To use your local backend server, use:
 ng serve --proxy-conf proxy.conf.json
 ```
 
-You will now be able to access your api.
+You will then be able to access your API.
 
 ### Conclusion
 
-For more information about the Angular Cli, you need to visit the official website [https://cli.angular.io/](https://cli.angular.io/)
+For more information about the Angular CLI, please visit the official website [https://cli.angular.io/](https://cli.angular.io/)
