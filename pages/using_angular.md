@@ -158,3 +158,102 @@ The shorthand methods `success`, `info`, `warning` and `error` will have a defau
             this.alerts
         )
     );
+
+## Using Angular Cli
+
+<div class="alert alert-info"><i>Info: </i>
+
+The Angular Cli and JHipster can be used in parallel for development purpose and each of this options have their own configuration and build strategy. By default, JHipster is using its own when deploying application or for CI-CD integration.
+
+</div>
+
+### Overview
+
+The Angular CLI is a tool to develop, scaffold and maintain Angular applications. JHipster integrates [Angular Cli](https://cli.angular.io/) tool for that purpose.
+
+This integration is done by adding a `.angular-cli.json` file in the application root folder and its dependencies in the `package.json`.
+
+### Usage
+
+```bash
+ng help
+```
+
+### Building
+
+You can now build your front-end using the Angular Cli.
+
+```bash
+ng build
+```
+
+Or for production :
+
+```bash
+ng build --prod
+```
+
+### Generating Components, Directives, Pipes and Services
+
+You can use the `ng generate` (or just `ng g`) command to generate Angular components:
+
+```bash
+ng generate component my-new-component
+ng g component my-new-component # using the alias
+
+# components support relative path generation
+# if in the directory src/app/feature/ and you run
+ng g component new-cmp
+# your component will be generated in src/app/feature/new-cmp
+# but if you were to run
+ng g component ../newer-cmp
+# your component will be generated in src/app/newer-cmp
+```
+You can find all possible blueprints in the table below:
+
+Scaffold  | Usage
+---       | ---
+[Component](https://github.com/angular/angular-cli/wiki/generate-component) | `ng g component my-new-component`
+[Directive](https://github.com/angular/angular-cli/wiki/generate-directive) | `ng g directive my-new-directive`
+[Pipe](https://github.com/angular/angular-cli/wiki/generate-pipe)           | `ng g pipe my-new-pipe`
+[Service](https://github.com/angular/angular-cli/wiki/generate-service)     | `ng g service my-new-service`
+[Class](https://github.com/angular/angular-cli/wiki/generate-class)         | `ng g class my-new-class`
+[Guard](https://github.com/angular/angular-cli/wiki/generate-guard)         | `ng g guard my-new-guard`
+[Interface](https://github.com/angular/angular-cli/wiki/generate-interface) | `ng g interface my-new-interface`
+[Enum](https://github.com/angular/angular-cli/wiki/generate-enum)           | `ng g enum my-new-enum`
+[Module](https://github.com/angular/angular-cli/wiki/generate-module)       | `ng g module my-module`
+
+
+### Test
+
+For consistency purpose on JHipster application, tests execution are only available through `yarn` command:
+
+```bash
+yarn test
+```
+
+### i18n
+
+JHipster is using `ng2-translate` dependency for translation purpose. Angular Cli i18n is based on default Angular i18n support which is incompatible with JHipster.
+
+### Running server
+
+If you prefer Angular Cli tool to develop you application, you can run your server directly by using its dedicated command.
+
+```bash
+ng serve
+```
+
+By using it, it will compile your Angular application and allow you to access it on `http://localhost:4200`. However your backend will not be available from it by default.
+
+To use your local backend server, use:
+
+```bash
+ng serve --proxy-conf proxy.conf.json
+```
+
+You will now be able to access your api.
+
+### Conclusion
+
+For more information about the Angular Cli, you need to visit the official website [https://cli.angular.io/](https://cli.angular.io/)
