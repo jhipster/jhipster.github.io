@@ -65,7 +65,7 @@ Forwarding metrics to alternative systems is also supported and can also simply 
                 enabled: true
                 endpoint: /prometheusMetrics
 
-Note that in order to enable prometheus metrics reporting with a maven application, you will need to build it with the `prometheus` maven profile so that the prometheus client libraries are available on the classpath.
+Note that in order to enable prometheus metrics reporting, you will need to build the application with the `prometheus` profile so that the prometheus client libraries are available on the classpath.
 
 ## <a name="jhipster-console"></a> Introducing the JHipster Console
 
