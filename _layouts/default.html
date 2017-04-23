@@ -261,7 +261,8 @@
                                 </div>
                             </li>
                             <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
-                            <li class="panel panel-default dropdown">
+                            <li {% if '/education/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/education/"><span class="icon fa fa-fw fa-graduation-cap"></span><span class="title">JHipster for Education</span></a></li>
+                            li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
                                 <div id="dropdown-10" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
