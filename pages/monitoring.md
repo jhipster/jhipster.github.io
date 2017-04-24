@@ -83,7 +83,7 @@ The JHipster Console is a Docker-based project that adds features on top of the 
 
 ### Monitoring a JHipster microservice architecture
 
-The JHipster Console fully support the monitoring of a JHipster microservice architecture and even provide the following microservice specific features :
+The JHipster Console fully supports the monitoring of a JHipster microservice architecture and even provides the following microservice specific features :
 
 - Distributed tracing with Zipkin
 - Log enriching with service name, instance ID, Zipkin correlation IDs
