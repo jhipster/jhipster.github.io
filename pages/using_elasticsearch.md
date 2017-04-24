@@ -28,9 +28,10 @@ When the Elasticsearch option is selected:
 
 ### Using in Development
 
-In development, JHipster uses an embedded Elasticsearch cluster.  The embedded instance is configured to store data files under the target folder, a simple `mvn clean` will destroy the persisted indices.  You will need to re-index your data if this happens.
+In development, JHipster uses an embedded Elasticsearch cluster.  The embedded instance is configured to store data files under the target folder, a simple `./mvn clean` will destroy the persisted indices.  You will need to re-index your data if this happens.
 
-You can enable http access by adding this configuration in `application-dev.yml` :
+You can enable HTTP access by adding this configuration in `application-dev.yml` :
+
 ```
 elasticsearch:
   properties:
@@ -40,4 +41,4 @@ elasticsearch:
 
 ### Using in Production
 
-In production, JHipster expects an external Elasticsearch instance.  By default, the app looks for Elasticsearch running on localhost.  This can be configured by the standard Spring Boot properties, in the `application-prod.yml` file.
+In production, JHipster expects an external Elasticsearch instance. By default, the application looks for an Elasticsearch instance running on localhost. This can be configured by using the standard Spring Boot properties, in the `application-prod.yml` file.
