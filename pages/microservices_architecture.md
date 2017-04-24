@@ -32,7 +32,9 @@ sitemap:
   * [Distributed caching with HazelCast](#hazelcast)
   * [Microservices with no database](#no_database)
 7. [Using Docker Compose](#docker_compose)
-8. [Monitoring with JHipster Console and the ELK stack](#monitoring)
+8. [Monitoring with JHipster Console](#monitoring)
+  * [Log and metrics monitoring with the the ELK stack](#elk)
+  * [Distributed tracing with Zipkin](#zipkin)
 9. [Production](#production)
   * [Going to production with Docker Swarm](#docker_swarm)
   * [Going to production with Cloud Foundry](#cloudfoundry)
@@ -301,11 +303,19 @@ Working on a microservices architecture means you will need several different se
 
 A specific section on microservices is included in our [Docker Compose documentation]({{ site.url }}/docker-compose#microservices), and we highly recommend that you get familiar with it when working on a microservices architecture.
 
-## <a name="monitoring"></a> Monitoring with JHipster Console and the ELK stack
+## <a name="monitoring"></a> Monitoring with the JHipster Console
+
+### <a name="elk"></a> Log and metrics monitoring with the ELK stack
 
 When using the Docker-Compose sub-generator, you will be asked if you want to add monitoring to your infrastructure. This option, will add the JHipster-Console to your `docker-compose.yml` file. Once started, it will be available on [http://localhost:5601](http://localhost:5601) and start to gather your applications' logs and metrics. For instructions on how to set up monitoring for your applications please refer to the [monitoring documentation]({{ site.url }}/monitoring).
 
-Compared with monolithic applications, gateways and microservices monitoring configuration provide additional features to help you effectively monitor a microservices cluster. For example logs are enriched with each application's name, host, port and Eureka ServiceId so that you can trace from which service they are originating from. Moreover the JHipster Console comes with default dashboards that give you a view of all your services at the same time.
+For gateways and microservices applications, additional features are provided to help you effectively monitor a microservices cluster. For example logs are enriched with each application's name, host, port and Eureka/Consul ServiceId so that you can trace from which service instance they are originating from. The JHipster Console also comes with default dashboards that give you an overview of all your services metrics.
+
+### <a name="zipkin"></a> Distributed tracing with Zipkin
+
+JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile and set the `spring.zipkin.enabled` property to true. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs. The Zipkin server and UI is provided as part of the JHipster Console and integrates with the Kibana dashboard.
+
+Zipkin also provide a service dependency graph feature that lets you visualize the dependencies between microservices over time.
 
 ## <a name="production"></a> Production
 
