@@ -65,7 +65,7 @@ Forwarding metrics to alternative systems is also supported and can also simply 
                 enabled: true
                 endpoint: /prometheusMetrics
 
-Note that in order to enable prometheus metrics reporting, you will need to build the application with the `prometheus` profile so that the prometheus client libraries are available on the classpath.
+Note that in order to enable prometheus metrics reporting, you will need to build it with the `prometheus` maven/gradle profile so that the prometheus client libraries are available on the classpath.
 
 ## <a name="jhipster-console"></a> Introducing the JHipster Console
 
@@ -80,6 +80,15 @@ The ELK stack is composed of:
 The JHipster Console is a Docker-based project that adds features on top of the official Elasticsearch, Logstash and Kibana Docker images. We have made a few visual changes to Kibana and set-up useful dashboards, so that you can get started to monitor your JHipster applications in minutes instead of the hours that would be needed to set up your own monitoring infrastructure.
 
 ![JHipster Console Monitoring Dashboard][monitoring-dashboard]
+
+### Monitoring a JHipster microservice architecture
+
+The JHipster Console fully support the monitoring of a JHipster microservice architecture and even provide the following microservice specific features :
+
+- Distributed tracing with Zipkin
+- Log enriching with service name, instance ID, Zipkin correlation IDs
+- Zipkin server and UI to visualize traces and spans
+- Linking between the Zipkin UI and Kibana so that you can jump to the logs corresponding to a particular trace ID (to use this, click on the <span class="btn btn-primary btn-xs badge">Logs</span> icon in the trace page)
 
 ## Setting up JHipster Console
 
