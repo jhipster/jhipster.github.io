@@ -166,7 +166,7 @@ For this example, a `Person` can be the owner of many cars, and he can also be t
 
 For this we need to use the relationship names, which we have left with their default values in the previous examples.
 
-Generate the `Person` entity, which has tow one-to-many relationships to the `Car` entity:
+Generate the `Person` entity, which has two one-to-many relationships to the `Car` entity:
 
     yo jhipster:entity Person
     ...
