@@ -166,6 +166,12 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 
 ### Accessing the container
 
+<div class="alert alert-warning"><i>Warning: </i>
+
+On Windows, you need to execute the Docker Quick Terminal as Administrator to be able to create symlinks during the `yarn install` step.
+
+</div>
+
 The easiest way to log into the running container is by executing following command:
 
 `docker container exec -it <container_name> bash`
