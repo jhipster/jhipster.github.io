@@ -29,4 +29,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 12. [Boost performance of pagination with infinite scrolling using Slice]({{ site.url }}/tips/019_tip_infinite_scroll_with_slice.html)
 13. [Using Docker containers as localhost on Mac/Windows]({{ site.url }}/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html)
 14. [Registering a user with additional information]({{ site.url }}/tips/022_tip_registering_user_with_additional_information.html)
-15. [Use QueryDSL]({{ site.url }}/tips/tips/003_tip_add_querydsl_support.html)
+15. [Use QueryDSL]({{ site.url }}/tips/003_tip_add_querydsl_support.html)
