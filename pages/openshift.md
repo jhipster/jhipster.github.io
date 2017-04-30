@@ -13,7 +13,7 @@ sitemap:
 
 **WARNING!** This is a new sub-generator, of **BETA** quality WIP release. Feedback is highly welcome!
 
-This sub-generator allows deployment of your JHipster application to [Openshift Container Platform](https://www.openshift.com/) / OpenShift Origin](https://www.openshift.org/).
+This sub-generator allows deployment of your JHipster application to [Openshift Container Platform](https://www.openshift.com/) / [OpenShift Origin](https://www.openshift.org/).
 
 [![]({{ site.url }}/images/logo/logo-openshift.png)](https://www.openshift.com/)
 
@@ -25,7 +25,7 @@ This sub-generator allows deployment of your JHipster application to [Openshift 
 
 ## Install Options
 
-OpenShift comes in two flavors,
+OpenShift offers two options,
 
 - OpenShift Origin - is the open source upstream project that powers OpenShift
 - OpenShift Container Platform - is the enterprise container application platform supported by Red Hat
@@ -45,12 +45,12 @@ You have to install:
 
 You must have a Docker registry. If you don’t have one, you can use the official [Docker Hub](https://hub.docker.com/)
 
-Minishift allows you to try out both Origin and Container Platform locally
+Minishift allows you to try out both Origin and Container Platform locally,
 
 - [OpenShift Origin](https://github.com/minishift/minishift)
 - [OpenShift Container Platform](https://developers.redhat.com/products/cdk/overview/) - Red Hat Container Development Kit provides a minishift packaged pre-built Container Development Environment based on Red Hat Enterprise Linux. Developers can now get Red Hat Container Development Kit via the no-cost Red Hat Enterprise Linux® Developer Suite subscription for development purposes by registering and downloading through [redhat.com](developers.redhat.com).
 
-The sub-generator works fine with both Origin and CDK.
+The sub-generator works fine with both Origin and Container Platform and uses the same image versions as Docker.
 
 ## Running the sub-generator
 
