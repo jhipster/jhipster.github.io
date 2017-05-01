@@ -147,9 +147,9 @@ It will create a OpenShift deployment for your application and its associated de
 
 Although, OpenShift does feature its own internal service discovery with **Kube-DNS** and centralized config management with ConfigMaps, as JHipster relies on Spring Cloud for configuration management and Eureka/Consul for service discovery, OpenShift deployment does support the same as well.
 
-Consequently, for microservices applications, the JHipster OpenShift sub-generator will generate manifest files to deploy the **JHipster-Registry** (based on Eureka) or **Consul**. Moreover, the generated microservices and gateway Kubernetes manifests will contain the appropriate configuration to register themselves to their central registry service.
+Consequently, for microservices applications, the JHipster OpenShift sub-generator will generate manifest files to deploy the **JHipster-Registry** (based on Eureka) or **Consul**. Moreover, the generated microservices and gateway manifests will contain the appropriate configuration to register themselves to their central registry service.
 
-### Managing the JHipster Registry or Consul in Kubernetes
+### Managing the JHipster Registry or Consul
 
 For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a special kind of deployment artifact that can handle stateful applications and will let you scale your service registries for high-availability. Kindly note **StatefulSets** are not yet production ready feature in OpenShift. It is in technology preview (BETA) and you need **OpenShift version >=3.5** to use this feature.
 
