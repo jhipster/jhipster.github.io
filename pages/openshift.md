@@ -11,17 +11,17 @@ sitemap:
 
 # [BETA] Deploying to OpenShift
 
-**WARNING!** This is a new sub-generator, of **BETA** quality WIP release. Feedback is highly welcome!
+**WARNING!** This is a new sub-generator, of **BETA** quality WIP release! Feedback is highly welcome!! Happy OpenShifting!!!
 
-This sub-generator allows deployment of your JHipster application to [Openshift Container Platform](https://www.openshift.com/) / [OpenShift Origin](https://www.openshift.org/).
+This sub-generator allows deployment of JHipster applications to [Openshift Container Platform](https://www.openshift.com/) / [OpenShift Origin](https://www.openshift.org/).
 
 [![]({{ site.url }}/images/logo/logo-openshift.png)](https://www.openshift.com/)
 
 ## Work-in-progress
 
-- Postgres on persistent storage is yet not fully tested
-- Mongo and Cassandra replication mode is yet not tested
-- Prometheus is not supported yet
+- Postgres on persistent storage is not yet tested
+- Mongo and Cassandra replication mode is not yet tested
+- Prometheus is not yet supported
 
 ## Install Options
 
@@ -54,7 +54,7 @@ The sub-generator works fine with both Origin and Container Platform and uses th
 
 ## Running the sub-generator
 
-To generate config files for OpenShift, run this command in a new folder:
+To generate config files for OpenShift, run this command in the project/root folder:
 
 `yo jhipster:openshift`
 
@@ -181,7 +181,7 @@ data:
 - If you face issues running StatefulSets or Services with persistent storage, make sure persistent volumes are properly initialized  
 - If you face issues running StatefulSets, check the persistent volume claims. If PVCs' take longer time than usual while initializing, try creating it manually
 - After running the generators, make sure you are in the chosen namespace **oc project <namespace>** before applying the oc commands
-- Image pulling for non-app service (like elasticsearch, registry, console etc,.) for the first time will take some time as it needs to be pulled from public registry to the container registry. If any of the dependent services fail, try deploying it once the services with which it is dependent on are up and running.
+- Image pulling for services like elasticsearch, registry, console etc,. for the first time will take some time as it needs to be pulled from public registry to the container registry. If any of the dependent services fail because of this, try deploying it once the services with which it is dependent on are up and running.
 
 ## More information
 
