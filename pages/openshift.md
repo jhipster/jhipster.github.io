@@ -21,7 +21,7 @@ This sub-generator allows deployment of your JHipster application to [Openshift 
 
 - Postgres on persistent storage is yet not fully tested
 - Mongo and Cassandra replication mode is yet not tested
-- ELK with [JHipster Console]({{ site.url }}/monitoring/) is not supported yet
+- Prometheus is not supported yet
 
 ## Install Options
 
@@ -138,14 +138,13 @@ OR
   `oc apply -f <directoryPath>/ocp/app1gw`
 and then install the apps from OpenShift console by choosing the template created in the chosen namespace
 
-
 It will create a OpenShift deployment for your application and its associated dependent services (database, elasticsearch...) as well as OpenShift service for pod to pod communications(inter service) and a route to access the application from outside.
 
 ## Info regarding microservice application(s)
 
 ### Deploying a Service Registry
 
-Although, OpenShift does feature its own internal service discovery with **Kube-DNS** and centralized config management with ConfigMaps, as JHipster relies on Spring Cloud for configuration management and Eureka/Consul for service discovery, OpenShift deployment does support the same as well.
+Although, OpenShift does feature its own internal service discovery with **Kube-DNS**, centralized config management with ConfigMaps and centralized logging through EFK stack, as JHipster relies on Spring Cloud for configuration management, Eureka/Consul for service discovery and jhipster-console(ELK) for log management, OpenShift deployment does support the same as well.
 
 Consequently, for microservices applications, the JHipster OpenShift sub-generator will generate manifest files to deploy the **JHipster-Registry** (based on Eureka) or **Consul**. Moreover, the generated microservices and gateway manifests will contain the appropriate configuration to register themselves to their central registry service.
 
@@ -182,6 +181,7 @@ data:
 - If you face issues running StatefulSets or Services with persistent storage, make sure persistent volumes are properly initialized  
 - If you face issues running StatefulSets, check the persistent volume claims. If PVCs' take longer time than usual while initializing, try creating it manually
 - After running the generators, make sure you are in the chosen namespace **oc project <namespace>** before applying the oc commands
+- Image pulling for non-app service (like elasticsearch, registry, console etc,.) for the first time will take some time as it needs to be pulled from public registry to the container registry. If any of the dependent services fail, try deploying it once the services with which it is dependent on are up and running.
 
 ## More information
 
