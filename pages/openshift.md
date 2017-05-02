@@ -19,7 +19,6 @@ This sub-generator allows deployment of JHipster applications to [Openshift Cont
 
 ## Work-in-progress
 
-- Postgres on persistent storage is not yet tested
 - Mongo and Cassandra replication mode is not yet tested
 - Prometheus is not yet supported
 
@@ -182,6 +181,7 @@ data:
 - If you face issues running StatefulSets, check the persistent volume claims. If PVCs' take longer time than usual while initializing, try creating it manually
 - After running the generators, make sure you are in the chosen namespace **oc project <namespace>** before applying the oc commands
 - Image pulling for services like elasticsearch, registry, console etc,. for the first time will take some time as it needs to be pulled from public registry to the container registry. If any of the dependent services fail because of this, try deploying it once the services with which it is dependent on are up and running.
+- Please make sure you have the necessary privilege (may require admin) to run scc service that is required to run some of the pods.
 
 ## More information
 
