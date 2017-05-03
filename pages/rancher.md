@@ -134,4 +134,4 @@ By default rancher-compose deploy only one instance of each service for performa
 
 ## More information
 
-*   [Rancher documentation](http://rancher.com/docs/)
+*   [Rancher documentation](http://docs.rancher.com/)
