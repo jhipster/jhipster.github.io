@@ -384,7 +384,7 @@ Here is an example:
 public void testInsufficientRoles() {
     restMockMvc.peform(
         get("url/requiring/ADMIN/role")
-        .with(tokenUtil.oauth2authentication("unpriveleged.user@example.com", Sets.newSet("some-scope"), Sets.newSet("ROLE_USER")))
+        .with(tokenUtil.oauth2Authentication("unpriveleged.user@example.com", Sets.newSet("some-scope"), Sets.newSet("ROLE_USER")))
     ).andExpect(status().isForbidden());
 }
 ```
