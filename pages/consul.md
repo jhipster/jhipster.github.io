@@ -7,11 +7,11 @@ sitemap:
     lastmod: 2017-05-03T00:00:00-00:00
 ---
 
-### <a name="consul"></a> [BETA] Consul
+# <i class="fa fa-bullseye"></i> [BETA] Consul
 
 WARNING! This is a new feature, of BETA quality. Use it at your own risk! Feedback is highly welcome!
 
-#### <a name="consul-overview"></a> <b>Consul overview</b>
+## Consul overview
 
 As an alternative to the JHipster Registry you can choose to use [Consul](https://www.consul.io/), a datacenter management solution from Hashicorp.
 Compared to Eureka it has a number of advantages:
@@ -26,15 +26,11 @@ To get started with developping applications that rely on a Consul registry, you
 
 You can also use the [Docker Compose subgenerator]({{ site.url }}/docker-compose/#docker-compose-subgen) to generate a docker configuration for several consul-enabled applications.
 
-<!--
-#### <a name="securing_consul"></a> <b>Securing Consul</b>
--->
-
-#### <a name="consul_app_configuration"></a> <b>Application configuration with Consul</b>
+## Application configuration with Consul
 
 If you have chosen the Consul option when generating your JHipster microservice or gateway app, they will be automatically configured to retrieve their configuration from Consul's **Key/Value store**.
 
-The Key/Value (K/V) store can be modified using either it's UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or it's [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes made this way are temporary and will be lost on Consul server/cluster shutdown. So, in order to help you interact easily with the Key/Value store and manage your configuration as simple YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). The **consul-config-loader** is automatically configured when starting Consul from the `consul.yml` docker-compose file but it can also be run as a standalone tool.
+The Key/Value (K/V) store can be modified using either its UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or its [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes made this way are temporary and will be lost on Consul server/cluster shutdown. So, in order to help you interact easily with the Key/Value store and manage your configuration as simple YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). The **consul-config-loader** is automatically configured when starting Consul from the `consul.yml` docker-compose file but it can also be run as a standalone tool.
 It can be run in two modes:
 
 - a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with Consul.

@@ -11,7 +11,7 @@ What's new
 
 This is the third patch release for JHipster 4.0.0, with 52 bug fixes and tickets closed.
 
-One big improvement is that you are now able to use the [JHipster Registry]({{ site.url }}/microservices-architecture/#jhipster-registry/) with a monolith application, in order to use a distributed Hazelcast cache. You can find more information about this on our ["Using a cache" documentation]({{ site.url }}/using-cache/).
+One big improvement is that you are now able to use the [JHipster Registry]({{ site.url }}/jhipster-registry/) with a monolith application, in order to use a distributed Hazelcast cache. You can find more information about this on our ["Using a cache" documentation]({{ site.url }}/using-cache/).
 
 We have also greatly improved our documentation, so you should find more easily help on common problems, like running `yarn start` to have your client-side development server running.
 

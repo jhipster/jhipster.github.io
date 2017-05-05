@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-exchange"></i> The JHipster API Gateway
 
-JHipster can generate a API gateways. A gateway is a normal JHipster application, so you can use the usual JHipster options and development workflows on that project, but it also acts as the entrance to your microservices. More specifically, it provides HTTP routing and load balancing, quality of service, security and API documentation for all microservices.
+JHipster can generate API gateways. A gateway is a normal JHipster application, so you can use the usual JHipster options and development workflows on that project, but it also acts as the entrance to your microservices. More specifically, it provides HTTP routing and load balancing, quality of service, security and API documentation for all microservices.
 
 ## Summary
 
@@ -107,7 +107,7 @@ If you want to add more rules, or modify the existing rules, you need to code th
 - Adding limits per minute or per day
 - Removing all limits for "admin" users
 
-### <a name="acl"></a> Access control policy
+## <a name="acl"></a> Access control policy
 
 By default all registered microservices are available through the gateway. If you want to exclude a specific API from being exposed through the gateway, you can use the gateway's specific access control policy filter. It is configurable using the `jhipster.gateway.authorized-microservices-endpoints` key in the `application-*.yml` files:
 

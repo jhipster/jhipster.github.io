@@ -13,6 +13,26 @@ sitemap:
 
 The JHipster Registry is a runtime application, provided by the JHipster team. Like the JHipster generator, it is an Open Source, Apache 2-licensed application, and its source code is available on GitHub under the JHipster organization at [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry).
 
+The JHipster Registry has three main purposes:
+
+- It is a an Eureka server, that serves as a discovery server for applications. This is how JHipster handles routing, load balancing and scalability for all applications.
+- It is a Spring Cloud Config server, that provide runtime configuration to all applications.
+- It is an administration server, with dashboards to monitor and manage applications.
+
+All those features are packaged into one convenient application with a modern Angular-based user interface.
+
+![]({{ site.url }}/images/jhipster-registry-animation.gif)
+
+## Summary
+
+1. [Installation](#installation)
+2. [Service discovery with Eureka](#eureka)
+3. [Application configuration with Spring Cloud Config](#spring-cloud-config)
+4. [Administration dashboards](#dashboards)
+5. [Securing the JHipster Registry](#security)
+
+## <a name="installation"></a> Installation
+
 The JHipster Registry can be cloned/forked/downloaded directly from [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry), and we recommend you use the same version tag as the one you use for your JHipster generator. As the JHipster Registry is also a JHipster-generated application, you can run it like any other JHipster application:
 
 - run it with `./mvnw` in development, it will use by default the `dev` profile and the Eureka Registry will be available at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
@@ -24,20 +44,20 @@ If you'd rather run the JHipster Registry from a Docker image, it is available a
 
 Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/) for more information on using the JHipster Registry with Docker Compose.
 
-## Securing the JHipster Registry
+## <a name="eureka"></a> Service discovery with Eureka
 
-The JHipster Registry is secured by default. You can login using the usual "admin/admin" login and password that are used in normal JHipster applications.
+![]({{ site.url }}/images/jhipster-registry-eureka.png)
 
-Applications also connect to the JHipster Registry using that same "admin" user, but use HTTP Basic authentication. So if your microservices cannot access the registry, and you see some "401 authentication error" messages, it is because you have misconfigured those applications.
+The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eureka), that provides service discovery for all applications.
 
-In order to secure your JHipster Registry:
+- This is very useful for microservices architectures: this is how the gateways know which microservices are available, and which instances are up
+- For all applications, including monoliths, this is how the Hazelcast distributed cache can automatically scale, see [the Hazelcast cache documentation]({{ site.url }}/using-cache/)
 
-- You must change the default "admin" password. This password is set using the standard Spring Boot property `security.user.password`, so you can use the usual Spring Boot mechanisms to modify it: you could modify the project's `application-*.yml` files, or add a `SECURITY_USER_PASSWORD` environment variable. The [Docker Compose sub-generator]({{ site.url }}/docker-compose/) uses the environment variable method.
-- As your applications will connect to the registry using HTTP, it is very important to secure that connection channel. There are many ways to do it, and the easiest one is probably to use HTTPS.
+## <a name="spring-cloud-config"></a> Application configuration with Spring Cloud Config
 
-## Application configuration with the JHipster Registry
+![]({{ site.url }}/images/jhipster-registry-spring-cloud-config.png)
 
-The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eureka) and also a [Spring Config Server](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html): when applications are launched they will first connect to the JHipster Registry to get their configuration. This is true for both gateways and microservices.
+The JHipster Registry is a [Spring Config Server](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html): when applications are launched they will first connect to the JHipster Registry to get their configuration. This is true for both gateways and microservices.
 
 This configuration is a Spring Boot configuration, like the one found in the JHipster `application-*.yml` files, but it is stored in a central server, so it is easier to manage.
 
@@ -52,3 +72,53 @@ To manage your centralized configuration you just need to add `appname-profile.y
 For example, adding properties in a `gateway-prod.yml` file will set those properties only for the application named **gateway** started with a **prod** profile. Moreover, properties defined in `application[-dev|prod].yml` will be set for all your applications.
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
+
+## <a name="dashboards"></a> Administration dashboards
+
+The JHipster Registry provides administration dashboards, which are used for all application types. As soon as an application registers on the Eureka server, it will become available in the dashboards.
+
+In order to access sensitive information from the applications, the JHipster Registry will use a JWT token (this is why the JHipster Registry only works for applications using JWT). The JWT key used to sign the request should be the same for the applications and the JHipster Registry: as by default the JHipster Registry configures applications through Spring Cloud Config, this should work out-of-the-box, as it will send the same key to all applications.
+
+### The metrics dashboard
+
+![]({{ site.url }}/images/jhipster-registry-metrics.png)
+
+The metrics dashboard uses Dropwizard metrics to give a detailed view of the application performance.
+
+It gives metrics on:
+
+- the JVM
+- HTTP requests
+- methods used in Spring Beans (using the `@Timed` annotation)
+- database connection pool
+
+By clicking on the eye next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
+
+### The health dashboard
+
+![]({{ site.url }}/images/jhipster-registry-health.png)
+
+The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. Many health checks are provided out-of-the-box by Spring Boot Actuator, and it's also very easy to add application-specific health checks.
+
+### The configuration dashboard
+
+![]({{ site.url }}/images/jhipster-registry-configuration.png)
+
+The configuration dashboard uses Spring Boot Actuator's configuration endpoint to give a full view of the Spring configuration of the current application.
+
+### The logs dashboard
+
+![]({{ site.url }}/images/jhipster-registry-logs.png)
+
+The logs dashboard allows to manage at runtime the Logback configuration of the running application. Changing the log level of a Java package is as simple as clicking on a button, which is very convenient both in development and in production.
+
+## <a name="security"></a> Securing the JHipster Registry
+
+The JHipster Registry is secured by default. You can login using the usual "admin/admin" login and password that are used in normal JHipster applications.
+
+Applications also connect to the JHipster Registry using that same "admin" user, but use HTTP Basic authentication. So if your microservices cannot access the registry, and you see some "401 authentication error" messages, it is because you have misconfigured those applications.
+
+In order to secure your JHipster Registry:
+
+- You must change the default "admin" password. This password is set using the standard Spring Boot property `security.user.password`, so you can use the usual Spring Boot mechanisms to modify it: you could modify the project's `application-*.yml` files, or add a `SECURITY_USER_PASSWORD` environment variable. The [Docker Compose sub-generator]({{ site.url }}/docker-compose/) uses the environment variable method.
+- As your applications will connect to the registry using HTTP, it is very important to secure that connection channel. There are many ways to do it, and the easiest one is probably to use HTTPS.
