@@ -150,15 +150,6 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/4958079?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Thibaut Mottet</h3>
-                <p><a href="https://twitter.com/moifort_"><i>@moifort_</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/17892?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Matt Raible</h3>
