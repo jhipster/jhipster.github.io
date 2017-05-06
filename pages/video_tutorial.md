@@ -35,11 +35,24 @@ sitemap:
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/wJruVpv0WH4" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">(in French) 3 hours of JHipster at Devoxx France 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>3 hours of JHipster live presentation and demo by our creator <a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a> at Devoxx France 2017.</p>
+                <p>Slides are available on <a href="https://fr.slideshare.net/julien.dubois/tre-productif-avec-jhipster-devoxx-france-2017" target="_blank">SlideShare</a>.
+                <p>Published on 24 April 2017</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/dzdjP3CPOCs" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label">3 hours of JHipster at Devoxx 2016<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>3 hours of JHipster live presentation and demo by our leads <a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a> and <a href="https://twitter.com/deepu105"><i>@deepu105</i></a> at Devoxx Belgium.</p>
+                <p>3 hours of JHipster live presentation and demo by our leads <a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a> and <a href="https://twitter.com/deepu105"><i>@deepu105</i></a> at Devoxx Belgium 2016.</p>
                 <p>Slides are available on <a href="http://www.slideshare.net/julien.dubois/devoxx-being-productive-with-jhipster" target="_blank">SlideShare</a> and code developed live is on <a href="https://github.com/jhipster/devoxx-2016" target="_blank">GitHub</a></p>
                 <p>Published on 8 November 2016</p>
             </div>
@@ -58,6 +71,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -72,8 +87,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -100,6 +113,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -113,8 +128,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -143,6 +156,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -156,8 +171,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
