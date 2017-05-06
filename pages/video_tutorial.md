@@ -40,7 +40,7 @@ sitemap:
             <div class="caption">
                 <h3 id="thumbnail-label">(in French) 3 hours of JHipster at Devoxx France 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
                 <p>3 hours of JHipster live presentation and demo by our creator <a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a> at Devoxx France 2017.</p>
-                <p>Slides are available on <a href="https://fr.slideshare.net/julien.dubois/tre-productif-avec-jhipster-devoxx-france-2017" target="_blank">SlideShare</a>.
+                <p>Slides are available on <a href="https://fr.slideshare.net/julien.dubois/tre-productif-avec-jhipster-devoxx-france-2017" target="_blank">SlideShare</a>.</p>
                 <p>Published on 24 April 2017</p>
             </div>
         </div>
