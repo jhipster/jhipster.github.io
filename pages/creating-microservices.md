@@ -7,9 +7,9 @@ sitemap:
     lastmod: 2017-05-03T00:00:00-00:00
 ---
 
-## <a name="microservices"></a> Creating microservices
+# <i class="fa fa-bolt"></i> Creating microservices
 
-Microservices are a type of JHipster applications, that have no front-end (the AngularJS front-end must be generated on a gateway), and which work with the JHipster Registry to be configured and discovered.
+Microservices are a type of JHipster applications, that have no front-end (the Angular front-end must be generated on a [gateway]({{ site.url }}/api-gateway/)), and which work with the [JHipster Registry]({{ site.url }}/jhipster-registry/) to be configured, discovered, and managed.
 
 ## <a name="generating_entities"></a> Generating entities in a microservices architecture
 
