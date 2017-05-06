@@ -8,26 +8,59 @@ sitemap:
 ---
 # <i class="fa fa-line-chart"></i> Monitoring your JHipster Applications
 
-JHipster provides several features to get started with the monitoring of your applications :
+JHipster provides several options to monitor your applications at runtime.
 
-* A **"Logs"** page to let you adjust log levels at runtime
-* Metrics collection and instrumentation with [Dropwizard Metrics](http://metrics.dropwizard.io)
-* A special **"Metrics"** page to vizualize those metrics.
+## Summary
+
+1. [Generated dashboards](#generated-dashboards)
+2. [JHipster Registry](#jhipster-registry)
+3. [JHipster Console](#jhipster-console)
+4. [Forwarding metrics to a supported third party monitoring system (JMX, Graphite, Prometheus)](#metrics-exporters)
+5. [Zipkin](#zipkin)
+6. [Alerting with Elastalert](#elastalert)
+
+## <a name="generated-dashboards"></a> Generated dashboards
+
+For monoliths and gateways, JHipster generates several dashboards to monitor each application. Those dashboards are available at runtime, and are the easiest way to do some simple monitoring.
 
 ![JHipster Metrics page][jhipster-metrics-page]
 
-However, this page can only show you the current value of those metrics whereas users would want to monitor the evolution of those values over time.
+### The metrics dashboard
+
+The metrics dashboard uses Dropwizard metrics to give a detailed view of the application performance.
+
+It gives metrics on:
+
+- the JVM
+- HTTP requests
+- methods used in Spring Beans (using the `@Timed` annotation)
+- database connection pool
+
+By clicking on the eye next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
+
+### The health dashboard
+
+The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. Many health checks are provided out-of-the-box by Spring Boot Actuator, and it's also very easy to add application-specific health checks.
+
+### The logs dashboard
+
+The logs dashboard allows to manage at runtime the Logback configuration of the running application. Changing the log level of a Java package is as simple as clicking on a button, which is very convenient both in development and in production.
+
+## <a name="jhipster-registry"></a> JHipster Registry
+
+The JHipster Registry has [its own documentation page here]({{ site.url }}/jhipster-registry/).
+
+It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application failure.
+
+## <a name="jhipster-console"></a> JHipster Console
+
+The dashboards described in the previous sections only show the current value of application metrics, when advanced users want to monitor the evolution of those values over time.
 
 Therefore JHipster applications can be configured to forward their metrics to an external monitoring system where they can be graphed over time and analyzed.
 
-To achieve this, JHipster provide :
+To achieve this, JHipster provide the JHipster Console, a custom monitoring solution based on the ELK stack and fully integrated with JHipster.
 
-* The [JHipster Console](#jhipster-console), a custom monitoring solution based on the ELK stack and fully integrated with JHipster.
-* Metrics exporters for JMX, [Graphite](https://graphiteapp.org/) and [Prometheus](https://prometheus.io/)
-
-## Configuring your apps for log and metrics forwarding to a remote server
-
-### <a name="configuring-log-forwarding"></a> Forwarding logs to the JHipster Console
+### Forwarding logs to the JHipster Console
 
 To configure a JHipster application to forward their logs to JHipster Console, enable logstash logging in their `application-dev.yml` or `application-prod.yml`:
 
@@ -49,27 +82,11 @@ To configure metrics monitoring, enable metrics log reporting in your JHipster a
 
 Setting those properties will enrich your logs with metrics coming from Dropwizard metrics.
 
-### <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Graphite, Prometheus)
+### Overview of the JHipster Console
 
-Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
+The JHipster Console is a monitoring tool based on the [ELK Stack](https://www.elastic.co/products). It provides ready-to-use dashboards and analytics tools to have a real-time overview of your infrastructure's performance.
 
-    jhipster:
-        metrics:
-            jmx.enabled: true
-            graphite: # Send metrics to a Graphite server
-                enabled: true
-                host: localhost
-                port: 2003
-                prefix: jhipster
-            prometheus: # Expose Prometheus metrics on the /prometheusMetrics endpoint
-                enabled: true
-                endpoint: /prometheusMetrics
-
-Note that in order to enable prometheus metrics reporting, you will need to build it with the `prometheus` maven/gradle profile so that the prometheus client libraries are available on the classpath.
-
-## <a name="jhipster-console"></a> Introducing the JHipster Console
-
-The [JHipster Console](https://github.com/jhipster/jhipster-console) is a monitoring tool based on the [ELK Stack](https://www.elastic.co/products). It provides ready-to-use dashboards and analytics tools to have a real-time overview of your infrastructure's performance.
+It is an Open Source application, available on GitHub at [jhipster/jhipster-console](https://github.com/jhipster/jhipster-console).
 
 The ELK stack is composed of:
 
@@ -77,7 +94,7 @@ The ELK stack is composed of:
 - [Logstash](https://www.elastic.co/products/logstash) to manage and process the logs received from the applications
 - [Kibana](https://www.elastic.co/products/kibana) to visualize the logs with a nice interface
 
-The JHipster Console is a Docker-based project that adds features on top of the official Elasticsearch, Logstash and Kibana Docker images. We have made a few visual changes to Kibana and set-up useful dashboards, so that you can get started to monitor your JHipster applications in minutes instead of the hours that would be needed to set up your own monitoring infrastructure.
+The JHipster Console is a Docker-based project that adds features on top of the official Elasticsearch, Logstash and Kibana Docker images. We have made a few visual changes to Kibana and set up useful dashboards, so that you can get started to monitor your JHipster applications in minutes instead of the hours that would be needed to set up your own monitoring infrastructure.
 
 ![JHipster Console Monitoring Dashboard][monitoring-dashboard]
 
@@ -90,7 +107,7 @@ The JHipster Console fully supports the monitoring of a JHipster microservice ar
 - Zipkin server and UI to visualize traces and spans
 - Linking between the Zipkin UI and Kibana so that you can jump to the logs corresponding to a particular trace ID (to use this, click on the <span class="btn btn-primary btn-xs badge">Logs</span> icon in the trace page)
 
-## Setting up JHipster Console
+### Setting up JHipster Console
 
 If you already have a JHipster [microservice architecture]({{ site.url }}/microservices-architecture/) set up with the Docker Compose workflow, the JHipster Console can be automatically set up by the Docker Compose sub-generator.
 
@@ -105,7 +122,7 @@ Then you will be able to start the console with:
 It will start Elasticsearch, Logstash, Kibana and ElastAlert all at once. You will then be able to access the JHipster Console at [http://localhost:5601](http://localhost:5601). It should automatically receive logs from your applications if they have been correctly configured to forward their logs and metrics to Logstash.
 
 <div class="alert alert-warning"><i> Warning: </i>
-if you use docker-machine to create the Docker host, instead of http://localhost:5601 please use your Docker's host IP here i.e., http://&lt;Dockerhostip&gt;:5601
+if you use docker-machine to create the Docker host, instead of http://localhost:5601 please use your Docker's host IP here i.e., http://&lt;docker-host-ip&gt;:5601
 </div>
 
 To stop everything, run:
@@ -118,17 +135,15 @@ Once stopped, you can remove the containers if you don't intend to start them ag
 
 You can combine the two previous commands in one by running: `docker-compose down`.
 
-## Using JHipster Console
+### Using JHipster Console
 
 Once your application is running with logs and metrics forwarding enabled, you can view a dashboards by clicking on the **Load Saved Dashboards** icon ( <i class="fa fa-folder-open-o"></i> ) in the **Dashboard** tab.
 
 <div class="alert alert-info">Tip: If you encounter the following error with dashboards: <i>Cannot read property 'byName' of undefined</i>, try refreshing the <b>logstash-*</b> index pattern field list under <b>Settings</b> > <b>Indices</b> using the yellow refresh button (<i class="fa fa-refresh"></i>)</div>
 
-
 You can also use Kibana's **Discover** and **Visualize** tabs to explore your data and create new visualizations. To understand how to use Kibana's interface effectively please refer to its official documentation in particular the [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html), [Visualize](https://www.elastic.co/guide/en/kibana/current/visualize.html) and [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) sections of the Kibana User Guide.
 
 ![JHipster Console JVM Dashboard][jvm-dashboard]
-
 
 ### Data persistence with docker volumes
 
@@ -150,11 +165,37 @@ You can then put this data in a JSON file in one of the `jhipster-console/dashbo
 
 If you have created useful dashboards and visualizations for your JHipster applications please consider contributing those back to the community by submitting a Pull Request on the [JHipster Console's GitHub project](https://github.com/jhipster/jhipster-console).
 
+## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Graphite, Prometheus)
+
+JHipster also provides Metrics exporters for JMX, [Graphite](https://graphiteapp.org/) and [Prometheus](https://prometheus.io/).
+
+Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
+
+    jhipster:
+        metrics:
+            jmx.enabled: true
+            graphite: # Send metrics to a Graphite server
+                enabled: true
+                host: localhost
+                port: 2003
+                prefix: jhipster
+            prometheus: # Expose Prometheus metrics on the /prometheusMetrics endpoint
+                enabled: true
+                endpoint: /prometheusMetrics
+
+Note that in order to enable Prometheus metrics reporting, you will need to build it with the `prometheus` Maven/Gradle profile so that the Prometheus client libraries are available on the classpath.
+
+## <a name="zipkin"></a> Zipkin
+
+JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile and set the `spring.zipkin.enabled` property to true. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs. The Zipkin server and UI is provided as part of the JHipster Console and integrates with the Kibana dashboard.
+
+Zipkin also provide a service dependency graph feature that lets you visualize the dependencies between microservices over time.
+
 ## <a name="alerting"></a> Alerting with Elastalert
 
 JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. Elastalert is simple to use and able to define complex alerting rules to detect failures, spikes or any pattern based on an Elasticsearch Query.
 
-#### Enable alerting
+### Enable alerting
 
 To enable alerting, setup the `jhipster-alerter` container by adding the following lines to your `docker-compose.yml`.
 
@@ -165,7 +206,7 @@ To enable alerting, setup the `jhipster-alerter` container by adding the followi
         #    - ./alerts/config.yaml:/opt/elastalert/config.yaml
         #    - ./alerts/rules/:/opt/elastalert/rules
 
-#### Configure alerting
+### Configure alerting
 
 Elastalert configuration can be modified in `alerts/config.yaml`. For example, you can configure the alerting frequency and the buffer period, by changing the following properties:
 
@@ -176,17 +217,17 @@ Elastalert configuration can be modified in `alerts/config.yaml`. For example, y
 
 Then you will need to write some rules that define when alerts will be thrown.
 
-#### Write alertings rules
+### Write alertings rules
 
-To define new alerts, add new YAML rule files in `alerts/rules` and then test them over past data with:
+To define new alerts, add new Yaml rule files in `alerts/rules` and then test them over past data with:
 
     ./test-alerting-rule.sh rule.yaml
 
-Note that those YAML files should have a `.yaml` file extension. Read more on how to write rules at [Elastalert's official documentation](https://elastalert.readthedocs.org/en/latest/ruletypes.html).
+Note that those Yaml files should have a `.yaml` file extension. Read more on how to write rules at [Elastalert's official documentation](https://elastalert.readthedocs.org/en/latest/ruletypes.html).
 
-#### Alerting dashboard
+### Alerting dashboard
 
-Go to [localhost:5601/app/kibana#/dashboard/alerting-dashboard](http://localhost:5601/app/kibana#/dashboard/alerting-dashboard) to see the history of all your alerts.
+Go to [http://localhost:5601/app/kibana#/dashboard/alerting-dashboard](http://localhost:5601/app/kibana#/dashboard/alerting-dashboard) to see the history of all your alerts.
 
 [jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "JHipster Metrics page"
 [monitoring-dashboard]: {{ site.url }}/images/jhipster-console-monitoring.png "Monitoring Dashboard"
