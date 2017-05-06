@@ -59,17 +59,29 @@ You can either use:
 
 This is the name of your application.
 
+### Would you like to install other generators from the JHipster Marketplace?
+
+The [JHipster Marketplace]({{ site.url }}/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
+
 ### What is your default Java package name?
 
 Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. Of course you can override it by providing a new value.
 
+### Do you want to use the JHipster Registry to configure, monitor and scale your application?
+
+The [JHipster Registry]({{ site.url }}/jhipster-registry/) is an Open Source tool used to manage your application at runtime.
+
+It is required when using a microservices architecture (this is why this question is only asked when generating a monolith).
+
 ### Which *type* of authentication would you like to use?
+
+This question won't be asked if you selected the [JHipster Registry]({{ site.url }}/jhipster-registry/), as it requires the use of JWT authentication.
 
 You can either use:
 
+*   [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
 *   A classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.
 *   An OAuth 2.0 authentication mechanism (JHipster then provides the necessary OAuth2 server code and database tables).
-*   A mechanism using [JSON Web Token (JWT)](https://jwt.io/)
 
 The OAuth 2.0 and the JWT approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our [securing your application]({{ site.url }}/security/) page.
 
