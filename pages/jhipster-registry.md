@@ -33,14 +33,31 @@ All those features are packaged into one convenient application with a modern An
 
 ## <a name="installation"></a> Installation
 
+### Spring profiles
+
+The JHipster Registry uses the usual JHipster `dev` and `prod` Spring profiles, as well as the standard `native` and `git`profiles from Spring Cloud Config.
+
+As a result:
+
+- Using the `dev` profile will run the JHipster Registry with the `dev` and the `native` profiles. The `native` profile will load the Spring Cloud configuration from the filesystem, looking for the `central-config` directory, which is relative to the running directory.
+- Using the `prod` profile will run the JHipster Registry with the `prod` and the `git` profiles. The `git` profile will load the Spring Cloud configuration from a Git repository, which is by default [https://github.com/jhipster/jhipster-registry-sample-config](https://github.com/jhipster/jhipster-registry-sample-config). In a real-world usage, this repository should be changed, either by reconfiguring it in the `src/main/resources/config/bootstrap-prod.yml` file, or by reconfiguring the `spring.cloud.config.server.git.uri` Spring property.
+
+Once the JHipster Registry is running, you can check its configuration in the `Configuration > Cloud Config` menu. Please note that if you can't log in, it might be because the JWT signature key is not correctly set up, which is a sign that your configuration isn't good.
+
+### Building from source
+
 The JHipster Registry can be cloned/forked/downloaded directly from [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry), and we recommend you use the same version tag as the one you use for your JHipster generator. As the JHipster Registry is also a JHipster-generated application, you can run it like any other JHipster application:
 
-- run it with `./mvnw` in development, it will use by default the `dev` profile and the Eureka Registry will be available at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
-- use `./mvnw -Pprod package` to package it in production, and generate the usual JHipster executable WAR file.
+- run it with `./mvnw` in development, it will use by default the `dev` profile and it will be available at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
+- use `./mvnw -Pprod package` to package it in production, and generate the usual JHipster executable WAR file. You can then run the WAR file using the `dev` or `prod` Spring profile, for example: `./jhipster-registry-3.0.0.war --spring.profiles.active=prod`
+
+Please note that to use the `native` profile, you need to have a `central-config` directory with your configuration, so if you run `./jhipster-registry-3.0.0.war --spring.profiles.active=dev`, you need to have that directory set up.
+
+### Using Docker
 
 If you'd rather run the JHipster Registry from a Docker image, it is available an Docker Hub at [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry/). This image is already pre-configured in the Docker configuration that is provided with each microservice application:
 
-- run `docker-compose -f src/main/docker/jhipster-registry.yml up` to start the JHipster Registry. The Eureka Registry will be available on port `8761` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
+- run `docker-compose -f src/main/docker/jhipster-registry.yml up` to start the JHipster Registry. It will be available on port `8761` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
 
 Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/) for more information on using the JHipster Registry with Docker Compose.
 
