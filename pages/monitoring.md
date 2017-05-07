@@ -191,6 +191,8 @@ JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Sp
 
 Zipkin also provide a service dependency graph feature that lets you visualize the dependencies between microservices over time.
 
+The Zipkin instance should be available on [http://127.0.0.1:9411/](http://127.0.0.1:9411/) if you run it on your machine, or on http://&lt;docker-host-ip&gt;:9411 if you run it with Docker.
+
 ## <a name="alerting"></a> Alerting with Elastalert
 
 JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. Elastalert is simple to use and able to define complex alerting rules to detect failures, spikes or any pattern based on an Elasticsearch Query.
