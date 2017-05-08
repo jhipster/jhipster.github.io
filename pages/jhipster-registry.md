@@ -61,6 +61,12 @@ If you'd rather run the JHipster Registry from a Docker image, it is available a
 
 Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/) for more information on using the JHipster Registry with Docker Compose.
 
+### Running in the cloud
+
+It's very easy to host a JHipster Registry instance in the cloud. This is mandatory in production, but this can also be useful in development (there is no need to run it on your laptop).
+
+Please read [the "microservices in production" documentation]({{ site.url }}/microservices-in-production/) to learn how to deploy the JHipster Registry to Cloud Foundry or to Heroku. 
+
 ## <a name="eureka"></a> Service discovery with Eureka
 
 ![]({{ site.url }}/images/jhipster-registry-eureka.png)

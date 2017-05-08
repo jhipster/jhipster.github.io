@@ -35,10 +35,10 @@ As Docker Swarm uses the same API as Docker Machine, deploying your microservice
 
 The [Cloud Foundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
 
-- Use the sub-generator to deploy first the JHipster Registry (which is a normal JHipster application).
+- Use the [Cloud Foundry sub-generator]({{ site.url }}/cloudfoundry/) to deploy first the JHipster Registry (which is a normal JHipster application).
 - Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL:
-  - In the `bootstrap-prod.yml` file, the `spring.cloud.config.uri` must point to `http://<your_jhipster_registry_url>/config/`
-  - In the `application-prod.yml` file, the `eureka.client.serviceUrl.defaultZone` must point to `http://<your_jhipster_registry_url>/eureka/`
+  - In the `bootstrap-prod.yml` file, the `spring.cloud.config.uri` must point to `http(s)://<your_jhipster_registry_url>/config/`
+  - In the `application-prod.yml` file, the `eureka.client.serviceUrl.defaultZone` must point to `http(s)://<your_jhipster_registry_url>/eureka/`
 - Deploy your gateway(s) and microservices
 - Scale your applications as usual with Cloud Foundry
 
