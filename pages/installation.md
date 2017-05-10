@@ -215,9 +215,9 @@ On your host machine, you should be able to :
 <div class="alert alert-warning"><i>Warning: </i>
     By default, Docker is not installed inside the <code>jhipster/jhipster</code> image.
     <br/>
-    So you won't be able:
+    So you won't be able to:
     <ul>
-        <li>to use the docker-compose files</li>
-        <li>to build a Docker image (Maven goal: <code>docker:build</code> or Gradle task: <code>buildDocker</code>)</li>
+        <li>use the docker-compose files</li>
+        <li>build a Docker image (Maven goal: <code>docker:build</code> or Gradle task: <code>buildDocker</code>)</li>
     </ul>
 </div>
