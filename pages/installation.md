@@ -211,3 +211,13 @@ On your host machine, you should be able to :
 
 *   Access the running application at `http://DOCKER_HOST:8080`
 *   Get all the generated files inside your shared folder
+
+<div class="alert alert-warning"><i>Warning: </i>
+    By default, Docker is not installed inside the <code>jhipster/jhipster</code> image.
+    <br/>
+    So you won't be able:
+    <ul>
+        <li>to use the docker-compose files</li>
+        <li>to build a Docker image (Maven goal: <code>docker:build</code> or Gradle task: <code>buildDocker</code>)</li>
+    </ul>
+</div>
