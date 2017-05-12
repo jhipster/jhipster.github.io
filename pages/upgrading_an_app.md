@@ -32,7 +32,7 @@ Go into the application's root directory:
 
 To upgrade your application, type:
 
-`yo jhipster:upgrade`
+`jhipster upgrade`
 
 Here are the options you can pass:
 
@@ -61,9 +61,9 @@ Below are the steps processed by the JHipster upgrade sub-generator:
 5. Checkout the `jhipster_upgrade` branch.
 6. Upgrade JHipster to the latest available version globally.
 7. Clean the current project directory.
-8. Re-generate the application using the `yo jhipster --force --with-entities` command.
+8. Re-generate the application using the `jhipster --force --with-entities` command.
 9. Commit the generated code to the `jhipster_upgrade` branch.
-10. Merge the `jhipster_upgrade` branch back to the original branch from where the `yo jhipster:upgrade` command was launched.
+10. Merge the `jhipster_upgrade` branch back to the original branch from where the `jhipster upgrade` command was launched.
 11. Now you just need to proceed with resolving merge conflicts if there are any.
 
 Congratulations, your application is now upgraded with the latest version of JHipster!

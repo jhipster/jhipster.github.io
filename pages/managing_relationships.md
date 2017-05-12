@@ -32,7 +32,7 @@ In that case, two options are available:
 - [JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor.
 - [JDL Studio]({{ site.url }}/jdl-studio/), our online tool to create entities and relationships using our domain-specific language.
 
-You can generate entities with relationships from a JDL file using the `import-jdl` sub-generator, by running `yo jhipster:import-jdl your-jdl-file.jh`.
+You can generate entities with relationships from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
 
 ## Available relationships
 
@@ -64,7 +64,7 @@ So this is a simple one-to-many relationship (one owner has many cars) on one si
 
 We will create the `Owner` first. Here are the relevant JHipster questions for the `Owner`:
 
-    yo jhipster:entity Owner
+    jhipster entity Owner
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -77,7 +77,7 @@ Please note that we selected the default options concerning the names of the rel
 
 Now we can generate the `Car`:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -113,14 +113,14 @@ You would do that relationship for two reasons:
 
 In that case, you would still create the `Owner` first, this time with no relationship:
 
-    yo jhipster:entity Owner
+    jhipster entity Owner
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? No
 
 And then the `Car` entity, as in the previous example:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -168,7 +168,7 @@ For this we need to use the relationship names, which we have left with their de
 
 Generate the `Person` entity, which has two one-to-many relationships to the `Car` entity:
 
-    yo jhipster:entity Person
+    jhipster entity Person
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -186,7 +186,7 @@ Generate the `Person` entity, which has two one-to-many relationships to the `Ca
 
 Generate the `Car` entity, which use the same relationship name has was configured in the `Person` entity:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -229,7 +229,7 @@ For JPA, one of those two entities will need to manage the relationship: in our 
 
 Let us generate the non-owning side of the relationship, the `Driver`, with a many-to-many relationship:
 
-    yo jhipster:entity Driver
+    jhipster entity Driver
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -241,7 +241,7 @@ Let us generate the non-owning side of the relationship, the `Driver`, with a ma
 
 Then generate the `Car`, with the owning side of the many-to-many relationship:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -270,7 +270,7 @@ Following our example, a one-to-one relationship would mean that a `Driver` can 
 
 Let us create the non-owning side of the relationship, in our case the `Driver`:
 
-    yo jhipster:entity Driver
+    jhipster entity Driver
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -282,7 +282,7 @@ Let us create the non-owning side of the relationship, in our case the `Driver`:
 
 Then generate the `Car`, which owns the relationship:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -312,14 +312,14 @@ A unidirectional one-to-one relationship means that the `citizen` instance can g
 
 Generate the `Passport` entity first, without any relationship to its owner:
 
-    yo jhipster:entity Passport
+    jhipster entity Passport
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? No
 
 Then, generate the `Citizen` entity:
 
-    yo jhipster:entity Citizen
+    jhipster entity Citizen
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes

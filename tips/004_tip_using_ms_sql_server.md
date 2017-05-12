@@ -13,7 +13,7 @@ __Tip submitted by [@Zyst](https://github.com/Zyst)__
 
 _Goal:_ By the end of this tutorial you will have the default JHipster application running on your SQL Server, with everything being functional.
 
-Start by running JHipster normally with `yo jhipster`, select the options to use token based authentication, SQL, MySQL as the dev. database, MySQL as the prod. database, Yes with ehcache, No Elasticsearch, No clustered HTTP, No Websockets, Maven, Grunt, and no Sass.
+Start by running JHipster normally with `jhipster`, select the options to use token based authentication, SQL, MySQL as the dev. database, MySQL as the prod. database, Yes with ehcache, No Elasticsearch, No clustered HTTP, No Websockets, Maven, Grunt, and no Sass.
 
 We then add the MS SQL Server JDBC dependency to the project `pom.xml` file.
 

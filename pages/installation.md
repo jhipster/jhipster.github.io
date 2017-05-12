@@ -192,12 +192,12 @@ You can then go to the /home/jhipster/app directory in your container, and start
 
 `cd /home/jhipster/app`
 
-`yo jhipster`
+`jhipster`
 
 <div class="alert alert-warning"><i>Warning: </i>
 
 On Windows, if you use Docker for Windows, you can have an issue with Yarn (see this <a href="https://github.com/yarnpkg/yarn/issues/1961">ticket</a>).
-In that case, you can use <code>yo jhipster --npm</code>, for using NPM instead of Yarn.
+In that case, you can use <code>jhipster --npm</code>, for using NPM instead of Yarn.
 
 </div>
 

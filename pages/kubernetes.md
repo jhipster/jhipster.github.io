@@ -41,7 +41,7 @@ You can use it to test your application before pushing it to [Kubernetes](http:/
 
 To generate config files for Kubernetes, run this command in a new folder:
 
-`yo jhipster:kubernetes`
+`jhipster kubernetes`
 
 Then answer all the questions to deploy your application.
 
