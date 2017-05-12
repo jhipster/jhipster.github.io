@@ -38,6 +38,7 @@ Note: if you have problem to use these tools globally, be sure you have `$HOME/.
 
 On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
 
+JHipster uses [Yeoman](http://yeoman.io/) for code generation.
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [Yarn documentation](https://yarnpkg.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
 
 Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)

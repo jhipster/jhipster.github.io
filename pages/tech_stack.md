@@ -23,7 +23,7 @@ Single Web page application:
 *   Optional [Sass](https://www.npmjs.com/package/node-sass) support for CSS design
 *   Optional WebSocket support with Spring Websocket
 
-With the great [Yeoman](http://yeoman.io/) development workflow:
+With the great development workflow:
 
 *   Easy installation of new JavaScript libraries with [Bower](http://bower.io/) or [Yarn](https://yarnpkg.com/)
 *   Build, optimization and live reload with [Gulp.js](http://www.gulpjs.com) or [Webpack](https://webpack.js.org/)
