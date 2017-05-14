@@ -20,7 +20,6 @@ This sub-generator allows deployment of JHipster applications to [Openshift Cont
 ## Work-in-progress
 
 - Mongo and Cassandra replication mode is not yet tested
-- Prometheus is not yet supported
 
 ## Install Options
 
