@@ -121,7 +121,7 @@ If you just want to start your database, and not the other services, use the Doc
 - With MySQL: `docker-compose -f src/main/docker/mysql.yml up`
 - With MariaDB: `docker-compose -f src/main/docker/mariadb.yml up`
 - With PostgreSQL: `docker-compose -f src/main/docker/postgresql.yml up`
-- With PostgreSQL: `docker-compose -f src/main/docker/oracle.yml up`
+- With Oracle: `docker-compose -f src/main/docker/oracle.yml up`
 - With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
 - With Cassandra: `docker-compose -f src/main/docker/cassandra.yml up`
 
