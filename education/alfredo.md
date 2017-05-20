@@ -1,50 +1,44 @@
 ---
 layout: default
-title: JHipster for Education
-permalink: /education/
+title: JHipster for Education - Alfredo Rueda
+permalink: /education/alfredo/
 redirect_from:
-  - /education.html
+  - /alfredo.html
+  - /education/alfredo.html
 sitemap:
     priority: 0.7
-    lastmod: 2017-04-23T00:00:00-00:00
+    lastmod: 2017-05-20T00:00:00-00:00
 ---
 
 
 JHipster for Education
 ======================
 
-JHipster is a magical jewel that has changed my life as a Software Development Professor. From an academic point of view, it is a perfect gift from the open source community to complement the theoretical aspects of Software Engineering.
+From an academic point of view, JHipster is a perfect gift from the open source community to complement the theoretical aspects of Software Engineering.
 
 At the Software Engineering level, it's essential to teach the theoretical principles of:
 
 * Object-oriented programming fundamentals: encapsulation, abstraction, inheritance, polymorphism, etc.
-* Architectural and design patterns of object oriented software systems.
-* It is also imperative to teach:
-	 * Dependency Injection
-	 * REST API Design
-	 * Continuous Integration
-	 * Deploy applications on Cloud Platforms
+* Architectural and design patterns of object oriented software systems: Classical patterns and modern ones like Dependency Injection, REST API Design.
+* It is also imperative to teach:	 
 	 * Design and implementation of data repositories with relational systems
 	 * Design and implementation of data repositories with NoSQL systems
 	 * Design and implementation of multiple frontends: Web, Android, iOS, etc.
-	 * Communicating frontends with the backend through the REST API
 	 * Authentication and Security
 	 * Automatic testing frameworks
 	 * Version control systems
 	 * Build manager systems
 	 * Micro-services based Architectures
 	 * Messaging systems (EAI)
+	 * Continuous Integration
+     * Deploy applications on Cloud Platforms
 
 Writing appropriate theoretical materials to teach this huge range of concepts, technologies, methodologies and best practices is certainly viable for the best educational centers. However, providing realistic student exercises with the latest versions of all open source products, that allow the development of web applications, is an almost impossible goal. Orchestrating the integration of all the open source products that support a modern web application: [https://jhipster.github.io/tech-stack/](https://jhipster.github.io/tech-stack/) is only possible, when a vibrant community of passionate developers work unceasingly to achieve excellence at all times.
 
 Traditionally, the practical aspects of Software Development taught in learning centres, used to work with outdated software and was not aligned with the needs of the business world. However, with the emergence of JHipster, it is perfectly feasible to offer a high-quality education on a theoretical and practical realistic level.
 
-Shown below, I present the best academic projects that have been developed recently at [www.stucom.com](www.stucom.com)
-If you are interested in learning more about these projects, or about the application of JHipster at the educational level, you can contact me on twitter [@aruedaunsain](https://twitter.com/aruedaunsain) and I will be very happy to share experiences.
 
-It would be super interesting to publish the best academic projects developed with JHipster from all educational centres in the world.
-
-Project Examples
+Academic project examples
 ----------------
 **Project:** SoundXtream app
 **Description:** SoundCloud-inspired music platform called the SoundXtream Audio Platform.
