@@ -11,7 +11,7 @@ __Tip submitted by [@RawSanj](https://github.com/RawSanj)__
 
 _Goal:_ By the using below mail settings you will have the default JHipster application configured to send emails from Gmail, Outlook or Yahoo.
 
-Start by running JHipster with `yo jhipster` to create a new application or use an existing JHipster generated application.
+Start by running JHipster with `jhipster` to create a new application or use an existing JHipster generated application.
 
 ## Choose any of below Email Service for your Application :
 

@@ -14,7 +14,7 @@ The JDL is a JHipster specific domain language where we have added the possibili
 
 You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share the URL of your JDL model as well.
 
-You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `yo jhipster:import-jdl your-jdl-file.jh`.
+You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
 You can also generate entities from a JDL file using [JHipster UML]({{ site.url }}/jhipster-uml/), by running `jhipster-uml your-jdl-file.jh` from the root of the generated JHipster application. To learn more about JHipster UML, and install it, go to the [JHipster UML documentation]({{ site.url }}/jhipster-uml/).
 
 This can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
@@ -55,12 +55,12 @@ You can then use JDL files to generate entities:
 
   - simply create a file with the extension '.jh' or '.jdl',
   - declare your entities and relationships or create and download the file with [JDL-Studio]({{ site.url }}/jdl-studio/),
-  - in your JHipster application's root folder, run `yo jhipster:import-jdl my_file.jdl` or `jhipster-uml my_file.jdl`.
+  - in your JHipster application's root folder, run `jhipster import-jdl my_file.jdl` or `jhipster-uml my_file.jdl`.
 
 and *Voilà*, you are done!
 
 If you work in a team, perhaps you would like to have multiple files instead of one. We added this option so that you don't manually
-concatenate all the files into one, you just have to run `yo jhipster:import-jdl my_file1.jh my_file2.jh` or `jhipster-uml my_file1.jh my_file2.jh`.
+concatenate all the files into one, you just have to run `jhipster import-jdl my_file1.jh my_file2.jh` or `jhipster-uml my_file1.jh my_file2.jh`.
 
 If you want to use it in your project, you can add do so by doing `npm install jhipster-core --save` to install it locally, and save it in your `package.json` file.
 

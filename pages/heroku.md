@@ -35,7 +35,7 @@ Authentication successful.
 
 To deploy your application to Heroku, run this command:
 
-`yo jhipster:heroku`
+`jhipster heroku`
 
 This should package your application in "production" mode, create an Heroku application with a database, upload your code, and start the application.
 
@@ -73,7 +73,7 @@ JHipster microservices require a JHipster Registry as described in the [Doing mi
 
 [![Deploy to Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
 
-Once the registry is deployed, you can run the `yo jhipster:heroku` command against your microservice or gateway. The Heroku sub-generator will prompt you for the URL of your registry, which will be in the form `https://[appname].herokuapp.com`.
+Once the registry is deployed, you can run the `jhipster heroku` command against your microservice or gateway. The Heroku sub-generator will prompt you for the URL of your registry, which will be in the form `https://[appname].herokuapp.com`.
 
 A registry running on Heroku has a few limitations, including:
 

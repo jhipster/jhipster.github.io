@@ -30,7 +30,7 @@ Go to that directory:
 
 To generate your application, type:
 
-`yo jhipster`
+`jhipster`
 
 Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#2).
 
@@ -176,15 +176,15 @@ You can find more information on our ["Running tests" guide]({{ site.url }}/runn
 
 ## <a name="3"></a> Command-line options
 
-You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `yo jhipster --help`.
+You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `jhipster app --help`.
 
 Here are the options you can pass:
 
 * `--help` - Print the generator's options and usage
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
-* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `yo jhipster:server`.
-* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `yo jhipster:client`.
+* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `jhipster server`.
+* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `jhipster client`.
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
@@ -194,7 +194,7 @@ Here are the options you can pass:
 
 ## <a name="4"></a> Tips
 
-If you are an advanced user you can use our client and server sub-generators by running `yo jhipster:client --[options]` and `yo jhipster:server --[options]`.
+If you are an advanced user you can use our client and server sub-generators by running `jhipster client --[options]` and `jhipster server --[options]`.
 Run the above sub-generators with `--help` flag to view all the options that can be passed.
 
-You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `yo jhipster --force --with-entities`.
+You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force --with-entities`.

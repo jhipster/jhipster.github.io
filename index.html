@@ -108,7 +108,6 @@ sitemap:
                 <div class="col-md-12">
                     <div>
                         <ul>
-                            <li><b>May 18-19, 2017 in Barcelona, Spain:</b> at <a href="http://2017.springio.net/" target="_blank">Spring IO</a>, Deepu K Sasidharan will present "Building Spring boot + Angular2 apps in minutes with JHipster" and conduct a workshop "Build complex Spring Boot microservices architecture using JHipster"</li>
                             <li><b>May 26-27, 2017 in Kyiv, Ukraine:</b> at <a href="http://jeeconf.com/program/using-jhipster-4-for-generating-angularspring-apps/" target="_blank">JEE Conf</a>, Yakov Fain will present "Using JHipster 4 for generating Angular / Spring apps"</li>
                             <li><b>June 2, 2017 in Singapore:</b> at <a href="https://voxxeddays.com/singapore/" target="_blank">Voxxed Days Singapore</a>, Sendil Kumar N will talk about "Angular 2, Yarn and Webpack 2 in JHipster 4"</li>
                             <li><b>June 20-21, 2017 in New York, USA:</b> at <a href="https://www.springdays.io/ehome/spring-days/new-york" target="_blank">Spring Days New York</a>, Yakov Fain will present "JHipster 4: Bringing Together Angular and Spring Boot"</li>
@@ -129,15 +128,12 @@ sitemap:
             <div class="row">
                 <span class="title text-center">
                     <div class="head-icons">
-                        <a href="http://yeoman.io/" target="_blank"><img src="images/logo/logo-yeoman.png" class="project-icon img-responsive"></a> <i class="fa fa-4x">+</i>
                         <a href="http://projects.spring.io/spring-boot/" target="_blank"><img src="images/logo/logo-spring-boot.png" class="project-icon img-responsive"></a> <i class="fa fa-4x">+</i> <a href="https://angularjs.org/" target="_blank"><img src="images/logo/logo-angularjs.png" class="project-icon img-responsive"></a><br class="visible-xs"> <i class="fa fa-4x">=</i> <a href="/"><img src="images/logo/logo-jhipster-small2x.png" class="project-icon img-responsive"></a>
                     </div>
                     <p class="lead">
-                        JHipster is a
-                        <a href="http://yeoman.io/" target="_blank">Yeoman generator</a>,
-                        used to create a
-                        <a href="http://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a> + <a href="https://angular.io/" target="_blank">Angular</a>
-                        project. <br>
+                      JHipster is a development platform to generate, develop and deploy
+                      <a class="dark" href="http://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a> + <a class="dark" href="https://angularjs.org/" target="_blank">Angular</a>
+                      web applications and spring microservices. <br>
                     </p>
                 </span>
             </div>
@@ -145,11 +141,12 @@ sitemap:
                 <div class="col-md-6">
                     <h2 class="hipster-font heading">Goal</h2>
                     <p>
-                        Our goal is to generate for you a complete and modern Web app, unifying:
+                        Our goal is to generate for you a complete and modern Web app or microservice architecture, unifying:
                     </p>
                     <ul>
                         <li>A high-performance and robust Java stack on the server side with Spring Boot</li>
                         <li>A sleek, modern, mobile-first front-end with Angular and Bootstrap</li>
+                        <li>A robust microservice architecture with JHipster Registry, Netflix OSS, ELK stack and Docker</li>
                         <li>A powerful workflow to build your application with Yeoman, Webpack/Gulp and Maven/Gradle</li>
                     </ul>
                 </div>
@@ -457,9 +454,9 @@ sitemap:
                 <div class="col-lg-12">
                     <p>Install JHipster <code>yarn global add generator-jhipster</code></p>
                     <p>Create a new directory and go into it <code>mkdir myApp &amp;&amp; cd myApp</code></p>
-                    <p>Run JHipster and follow instructions on screen <code>yo jhipster</code></p>
+                    <p>Run JHipster and follow instructions on screen <code>jhipster</code></p>
                     <p>Model your entities with <a href="{{ site.url }}/jdl-studio/" target="_blank">JDL Studio</a> and download the resulting <code>jhipster-jdl.jh</code> file</p>
-                    <p>Generate your entities with <code>yo jhipster:import-jdl jhipster-jdl.jh</code></p>
+                    <p>Generate your entities with <code>jhipster import-jdl jhipster-jdl.jh</code></p>
                 </div>
                 <div class="col-lg-12">
                     <p>

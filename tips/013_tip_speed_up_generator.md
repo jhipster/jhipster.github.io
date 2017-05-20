@@ -65,7 +65,7 @@ ln -s <your path>/jhipster-speedup/node_modules
 Generate a new project, and answer to all questions:
 
 ```
-yo jhipster
+jhipster
 ```
 
 The first time, it will take several minutes.

@@ -98,7 +98,7 @@ To use the `docker-compose` subgenerator:
 - You need to have all your monolith(s), gateway(s) and microservices in the same directory.
 - Create another directory, for example `mkdir docker-compose`.
 - Go into that directory: `cd docker-compose`.
-- Run the sub-generator: `yo jhipster:docker-compose`.
+- Run the sub-generator: `jhipster docker-compose`.
 - The sub-generator will ask you which application you want to have in your architecture, and if you want to setup monitoring with ELK or Prometheus.
 
 This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
