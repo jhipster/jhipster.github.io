@@ -54,7 +54,7 @@ The sub-generator works fine with both Origin and Container Platform and uses th
 
 To generate config files for OpenShift, run this command in the project/root folder:
 
-`yo jhipster:openshift`
+`jhipster openshift`
 
 Then answer all the questions to deploy your application.
 
