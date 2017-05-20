@@ -1,10 +1,18 @@
-_site
-/node_modules
-/bower_components
-debug.log
-
-# Intellij
-.idea/
+target
+.idea
 *.iml
+*.im
+*.ipr
 *.iws
-Gemfile.lock
+overlays
+.DS_Store
+.settings
+*.swp
+*.log
+.project
+.classpath
+.mvn
+mvnw
+mvn*
+node_modules/
+.gitignore
