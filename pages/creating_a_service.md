@@ -17,9 +17,9 @@ This is a very simple sub-generator, compared to the ["entity" sub-generator]({{
 
 Its goal is to generate a Spring Service bean, which is where your application's business logic is supposed to be coded.
 
-In order to generate a "bar" Service bean, just type:
+In order to generate a "Bar" Service bean, just type:
 
-`yo jhipster:service bar`
+`jhipster service Bar`
 
 _This will generate a simple "BarService": very few lines of codes, but they usually come with a lot of questions. We are trying to answer the most common ones below._
 

@@ -41,18 +41,18 @@ These following commands can be used in specific use cases.
 
 ### Use the latest release of JHipster
 
-Launch `yo jhipster` in the current folder, with the latest release
+Launch `jhipster` in the current folder, with the latest release
 
 ```
-docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster yo jhipster
+docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster jhipster
 ```
 
 ### Use JHipster v3.0.0
 
-Launch `yo jhipster` in the current folder, with an older release:
+Launch `jhipster` in the current folder, with an older release:
 
 ```
-docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 yo jhipster
+docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 jhipster
 ```
 
 You can see all tags available [here](https://hub.docker.com/r/jhipster/jhipster/tags/)

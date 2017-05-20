@@ -38,6 +38,7 @@ Note: if you have problem to use these tools globally, be sure you have `$HOME/.
 
 On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
 
+JHipster uses [Yeoman](http://yeoman.io/) for code generation.
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [Yarn documentation](https://yarnpkg.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
 
 Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
@@ -166,6 +167,12 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 
 ### Accessing the container
 
+<div class="alert alert-warning"><i>Warning: </i>
+
+On Windows, you need to execute the Docker Quick Terminal as Administrator to be able to create symlinks during the `yarn install` step.
+
+</div>
+
 The easiest way to log into the running container is by executing following command:
 
 `docker container exec -it <container_name> bash`
@@ -186,12 +193,12 @@ You can then go to the /home/jhipster/app directory in your container, and start
 
 `cd /home/jhipster/app`
 
-`yo jhipster`
+`jhipster`
 
 <div class="alert alert-warning"><i>Warning: </i>
 
 On Windows, if you use Docker for Windows, you can have an issue with Yarn (see this <a href="https://github.com/yarnpkg/yarn/issues/1961">ticket</a>).
-In that case, you can use <code>yo jhipster --npm</code>, for using NPM instead of Yarn.
+In that case, you can use <code>jhipster --npm</code>, for using NPM instead of Yarn.
 
 </div>
 
@@ -205,3 +212,13 @@ On your host machine, you should be able to :
 
 *   Access the running application at `http://DOCKER_HOST:8080`
 *   Get all the generated files inside your shared folder
+
+<div class="alert alert-warning"><i>Warning: </i>
+    By default, Docker is not installed inside the <code>jhipster/jhipster</code> image.
+    <br/>
+    So you won't be able to:
+    <ul>
+        <li>use the docker-compose files</li>
+        <li>build a Docker image (Maven goal: <code>docker:build</code> or Gradle task: <code>buildDocker</code>)</li>
+    </ul>
+</div>

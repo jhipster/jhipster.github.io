@@ -33,7 +33,7 @@ You must have a Docker registry. If you don’t have one, you can use the offici
 
 To generate config files for Rancher, run this command in a new folder:
 
-`yo jhipster:rancher-compose`
+`jhipster rancher-compose`
 
 Then answer all the questions to deploy your application.
 
@@ -104,7 +104,7 @@ Go to it and generate yout rancher configuration
 
 ```
 cd rancher
-yo jhipster:rancher-compose
+jhipster rancher-compose
 ```
 
 Follow instruction and answer all questions.
@@ -134,4 +134,4 @@ By default rancher-compose deploy only one instance of each service for performa
 
 ## More information
 
-*   [Rancher documentation](http://rancher.com/docs/)
+*   [Rancher documentation](http://docs.rancher.com/)

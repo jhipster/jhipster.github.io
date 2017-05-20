@@ -31,7 +31,7 @@ JHipster should support the following CI systems out of the box:
 
 To generate these config files, run this command in your project folder:
 
-`yo jhipster:ci-cd`
+`jhipster ci-cd`
 
 Then answer all the questions.
 

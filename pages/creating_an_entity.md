@@ -34,7 +34,7 @@ If you have several entities, you will likely want to have relationships between
 *   A database foreign key
 *   Specific JavaScript and HTML code for managing this relationship
 
-The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see [project structure]({{ site.url }}/using-angularjs/)). The sub generator can be invoked by running `yo jhipster:entity <entityName> --[options]`. Reference for those options can be found by typing `yo jhipster:entity --help`
+The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see [project structure]({{ site.url }}/using-angularjs/)). The sub generator can be invoked by running `jhipster entity <entityName> --[options]`. Reference for those options can be found by typing `jhipster entity --help`
 
 Below are the supported options.
 
@@ -55,7 +55,7 @@ In that case, two options are available:
 
 If you used the JDL Studio:
 
-*   You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `yo jhipster:import-jdl your-jdl-file.jh`.
+*   You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
 *   If you want to use JHipster UML instead of the `import-jdl` sub-generator, you need to install it by running `npm install -g jhipster-uml`, and then run `jhipster-uml yourFileName.jh`.
 
 ## Entity fields
@@ -76,9 +76,10 @@ JHipster supports many field types. This support depends on your database backen
 *   `Long`: A Java Long.
 *   `Float`: A Java Float.
 *   `Double`: A Java Double.
-*   `BigDecimal`: A `java.math.BigDecimal` object, used when you want exact mathematic calculations (often used for financial operations).
-*   `LocalDate`: A `java.time.LocalDate` object, used to correctly manage dates in Java.
-*   `ZonedDateTime`: A `java.time.ZonedDateTime` object, used to correctly manage dates and times in Java.
+*   `BigDecimal`: A [java.math.BigDecimal](https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html) object, used when you want exact mathematic calculations (often used for financial operations).
+*   `LocalDate`: A [java.time.LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) object, used to correctly manage dates in Java.
+*   `Instant`: A [java.time.Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html) object, used to represent a timestamp, an instantaneous point on the time-line.
+*   `ZonedDateTime`: A [java.time.ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html) object, used to represent a local date-time in a given timezone (typically a calendar appointment). Note that time zones are neither supported by the REST nor by the persistence layers so you should most probably use `Instant` instead.
 *   `Boolean`: A Java Boolean.
 *   `Enumeration`: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific `enum` class to store them.
 *   `Blob`: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store generic binary data, an image object, or a CLOB (long text). Images will be handled specifically on the Angular side, so they can be displayed to the end-user.
@@ -150,8 +151,8 @@ You might want to update your entity for the following reasons:
 
 TIP: to regenerate all your entities at once, you can use the following commands (remove the `--force` to have questions asked when files have changed).
 
-*   Linux & Mac: ``for f in `ls .jhipster`; do yo jhipster:entity ${f%.*} --force ; done``
-*   Windows: `for %f in (.jhipster/*) do yo jhipster:entity %~nf --force`
+*   Linux & Mac: ``for f in `ls .jhipster`; do jhipster entity ${f%.*} --force ; done``
+*   Windows: `for %f in (.jhipster/*) do jhipster entity %~nf --force`
 
 ## Tutorial
 
@@ -163,7 +164,7 @@ This is a short tutorial on creating two entities (a Author and a Book) which ha
 
 As we want to have a one-to-many relationship between Authors and Books (one author can write many books), we need to create the Author first. At the database level, JHipster will then be able to add a foreign key on the Book table, linking to the Author table.
 
-`yo jhipster:entity author`
+`jhipster entity author`
 
 Answer the next questions concerning the fields of this entity, the author has:
 
@@ -176,7 +177,7 @@ Then answer the questions concerning the relationships, the author has:
 
 ### Generate the "Book" entity
 
-`yo jhipster:entity book`
+`jhipster entity book`
 
 Answer the next questions concerning the fields of this entity, the book has:
 

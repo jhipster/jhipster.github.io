@@ -36,7 +36,7 @@ Ehcache has a specific XML configuration, which is located at `src/main/resource
 
 - It can be used for HTTP sessions clustering
 - It is the default option for microservices, as we expect microservices to scale
-- When used in a a monolith, Hazelcast needs to have the [JHipster Registry]({{ site.url }}/microservices-architecture/#jhipster-registry/) option in order to scale
+- When used in a a monolith, Hazelcast needs to have the [JHipster Registry]({{ site.url }}/jhipster-registry/) option in order to scale
 
 For scaling both monoliths and microservices, Hazelcast will use the configured service discovery in order to find new nodes, and scale horizontally. With microservices, this will work both with the JHipster Registry and Consul, and for monoliths this will only work with the JHipster Registry.
 

@@ -39,7 +39,7 @@ aws_secret_access_key = your_secret_key
 
 To deploy your application to Amazon AWS, type:
 
-`yo jhipster:aws`
+`jhipster aws`
 
 This should package your application in "production" mode, create an Bean Stalk application (with a MySQL database), upload your code, and start the application.
 
@@ -47,7 +47,7 @@ This should package your application in "production" mode, create an Bean Stalk 
 
 When your application is already deployed, you can re-deploy it by run the sub-generator again:
 
-`yo jhipster:aws`
+`jhipster aws`
 
 The sub generator ask your database credentials again but they will be ignored during the update.
 

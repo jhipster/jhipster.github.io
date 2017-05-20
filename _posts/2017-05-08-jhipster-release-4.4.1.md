@@ -1,28 +1,34 @@
 ---
 layout: default
-title: Release 4.0.3
+title: Release 4.4.1
 ---
 
-JHipster release 4.0.3
+JHipster release 4.4.1
 ==================
 
 What's new
 ----------
 
-This is the third patch release for JHipster 4.0.0, with 52 bug fixes and tickets closed.
+This is the first patch release for JHipster v4.4.0, which contains a fix for the following issue, which affects users who selected one of the Hazelcast options, with a monolith:
 
-One big improvement is that you are now able to use the [JHipster Registry]({{ site.url }}/jhipster-registry/) with a monolith application, in order to use a distributed Hazelcast cache. You can find more information about this on our ["Using a cache" documentation]({{ site.url }}/using-cache/).
-
-We have also greatly improved our documentation, so you should find more easily help on common problems, like running `yarn start` to have your client-side development server running.
+- [Bean method 'eurekaRegistration' not loaded because @ConditionalOnProperty](https://github.com/jhipster/generator-jhipster/issues/5732)
 
 Closed tickets and merged pull requests
 ------------
-As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.0.3+is%3Aclosed)__.
+As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.4.1+is%3Aclosed)__.
 
 How to upgrade
 ------------
 
-**Manual upgrades (works for JHipster 4.x applications)**
+**Automatic upgrade**
+
+For an automatic upgrade, use the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) on an existing application:
+
+```
+yo jhipster:upgrade
+```
+
+**Manual upgrades**
 
 For a manual upgrade, first upgrade your version of JHipster with:
 
@@ -47,14 +53,6 @@ You can also update your entities one-by-one by running again the entity sub-gen
 
 ```
 yo jhipster:entity Foo
-```
-
-**Automatic upgrade only works for JHipster 3.x applications**
-
-For an automatic upgrade, use the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) on an existing application:
-
-```
-yo jhipster:upgrade
 ```
 
 Help and bugs

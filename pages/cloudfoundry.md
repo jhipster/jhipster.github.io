@@ -32,7 +32,7 @@ Before running the sub-generator, you need to install the [cf Command Line Inter
 
 To deploy your application to Cloud Foundry, type:
 
-`yo jhipster:cloudfoundry`
+`jhipster cloudfoundry`
 
 You will have a couple of questions to configure your database, asking you the name of your database service and the plan you want to use. The available databases depend on your current Cloud Foundry installation, type `cf marketplace` to know which services and plans are available on your Cloud Foundry marketplace. By default, the database and plan selected are the free PostgreSQL service from ElephantSQL on the public Pivotal Cloud Foundry instance, as they sponsor JHipster.
 
@@ -52,7 +52,7 @@ When your application is already deployed, you can re-deploy it by building it n
 
 You can also run the sub-generator again, by typing another time:
 
-`yo jhipster:cloudfoundry`
+`jhipster cloudfoundry`
 
 ## More information
 

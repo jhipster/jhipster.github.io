@@ -3,14 +3,12 @@ layout: default
 title: Add Querydsl support
 sitemap:
 priority: 0.5
-lastmod: 2015-05-28T18:40:00-00:00
+lastmod: 2017-04-27T08:40:00-00:00
 ---
 
 # Add Querydsl support
 
-## /!\ This tip is deprecated since JHipster v4.1.0
-
-__Tip submitted by [@omrzljak](https://github.com/omrzljak)__
+__Tip submitted by [@omrzljak](https://github.com/omrzljak), updated by [@arnaud-deprez](https://github.com/arnaud-deprez)__
 
 In some cases Spring Data [query possibilities](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries) are not enough to make your queries. You can use `@Query` annotation and [write your own](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.json-based). Some of us like to write type safe queries like [Querydsl](http://www.Querydsl.com/) provides.
 
@@ -32,26 +30,50 @@ There is also a plugin for Maven. Maven configuration is fully described in the 
 
 ### build.gradle
 
-Add the `Querydsl plugin` configuration to `build.gradle`
+In `build.gradle`, add the dependency to `Querydsl plugin`
 
-    buildscript {
-      repositories {
+```groovy
+buildscript {
+    repositories {
         jcenter()
-      }
-
-      dependencies {
-        classpath "com.ewerk.gradle.plugins:querydsl-plugin:1.0.3"
-      }
     }
-
-    apply plugin: "com.ewerk.gradle.plugins.querydsl"
-
-    querydsl {
-      // we use mongodb
-      springDataMongo = true
+    dependencies {
+        classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.9"
     }
+}
 
-    compile "com.mysema.querydsl:querydsl-mongodb:3.6.0"
+apply from: 'gradle/querydsl.gradle'
+```
+Define the `Querydsl version` to use in your `gradle.properties`
+
+```properties
+querydsl_version=4.1.4
+```
+
+Then create a the file `gradle/querydsl.gradle` with
+
+```groovy
+apply plugin: "com.ewerk.gradle.plugins.querydsl"
+
+sourceSets {
+    main {
+        java {
+            srcDir "$buildDir/generated/source/apt/main"
+        }
+    }
+}
+
+querydsl {
+    // we use mongodb
+    springDataMongo = true
+    querydslSourcesDir = "$buildDir/generated/source/apt/main"
+}
+
+dependencies {
+    compile "com.querydsl:querydsl-mongodb:${querydsl_version}"
+    compileOnly "com.querydsl:querydsl-apt:${querydsl_version}"
+}
+```
 
 __Note__ we use MongoDB but Querydsl plugin supports also [more options](https://github.com/ewerk/gradle-plugins/tree/master/Querydsl-plugin).
 
@@ -59,27 +81,6 @@ If you run `gradle build` you will see output like this
 `Note: Generating net.jogat.names.domain.QName for [net.jogat.names.domain.Name]`
 
 For every domain class which is annotated with @Document Querydsl plugin will generate one Predicate class.
-
-### pom.xml
-After adding `com.mysema.maven:apt-maven-plugin` to your project, you need to edit `org.bsc.maven:maven-processor-plugin`. You have to add the directory with generated classes of `apt-maven-plugin` to configuration of `maven-processor-plugin`, for example:
-
-    <plugin>
-        <groupId>org.bsc.maven</groupId>
-        <artifactId>maven-processor-plugin</artifactId>
-        <version>2.2.4</version>
-        <configuration>
-            <defaultOutputDirectory>
-                ${project.build.directory}/generated-sources/java
-            </defaultOutputDirectory>
-            <additionalSourceDirectories>
-                <additionalSourceDirectory>
-                    ${project.build.directory}/generated-sources/java
-                </additionalSourceDirectory>
-            </additionalSourceDirectories>
-            ...
-        </configuration>
-        ...
-    </plugin>
 
 ## Change Repository classes
 
@@ -97,8 +98,11 @@ To extend the rest controller for support parameterized request, you have to add
     @RequestMapping("/api")
     class NameResource {
 
-        @Inject
-        NameRepository nameRepository;
+        private final NameRepository nameRepository;
+        
+        public NameResource(NameRepository nameRepository) {
+            this.nameRepository = nameRepository;
+        }
 
         @RequestMapping(value = "/names",
             method = RequestMethod.GET,
@@ -118,14 +122,15 @@ Also in `NameResourceIntTest` you have to support `QuerydslPredicateArgumentReso
 
     public class NameResourceIntTest {
         ...
-        @Inject
+        @Autowired
+        private NameRepository nameRepository;
+        @Autowired
         private QuerydslPredicateArgumentResolver querydslPredicateArgumentResolver;
 
         @PostConstruct
         public void setup() {
             MockitoAnnotations.initMocks(this);
-            NameResource nameResource = new nameResource();
-            ReflectionTestUtils.setField(nameResource, "nameRepository", nameRepository);
+            NameResource nameResource = new nameResource(nameRepository);
             this.restNameMockMvc = MockMvcBuilders.standaloneSetup(nameResource)
                 .setCustomArgumentResolvers(pageableArgumentResolver, querydslPredicateArgumentResolver)
                 .setMessageConverters(jacksonMessageConverter).build();
@@ -139,7 +144,9 @@ More details can be found in [the documentation](http://docs.spring.io/spring-da
 
 Gradle or maven plugins have generated class QName which can be used for writing queries for Name.class. Here is Java example:
 
-    QName name = QName.name;
+```java
+QName name = QName.name;
 
-    // count all names whose list "categorie" contains string "TOP_EVER"
-    nameRepository.count(name.categories.contains("TOP_EVER"));
+// count all names whose list "categorie" contains string "TOP_EVER"
+nameRepository.count(name.categories.contains("TOP_EVER"));
+```

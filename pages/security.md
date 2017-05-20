@@ -56,10 +56,10 @@ The secret key should be configured in the `application.yml` file, as the `jhips
 
 ## OAuth2 Authentication
 
-OAuth2 is a stateless security mechanism, like JWT. Spring Security provides an OAuth2 implementation, which is have configured by JHipster.
+OAuth2 is a stateless security mechanism, like JWT. Spring Security provides an OAuth2 implementation, which is  configured by JHipster.
 
 The biggest issue with OAuth2 is that requires to have several database tables in order to store its security tokens. If you are using an SQL database, we provide the necessary Liquibase changlog so that those tables are automatically created for you.
 
-As Spring Security only supports OAuth2 with SQL databases, we have also implemented our own MongoDB version. We generate for you all the OAuth2 implementation for MongoDB, as well as the necessary MongoDB configuration.
+As Spring Security only supports OAuth2 with SQL databases, we have also implemented our own MongoDB version. JHipster generates the OAuth2 implementation for MongoDB, as well as the necessary MongoDB configuration.
 
-This solution uses a secret key, which should be configured in your application.yml file, as the "authentication.oauth.secret" property.
+This solution uses a secret key, which should be configured in the `application-*.yml` files, using the `jhipster.security.authentication.oauth` properties. See the the [common application properties]({{ site.url }}/common-application-properties/) documentation for more information on this configuration.

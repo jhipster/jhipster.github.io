@@ -30,7 +30,7 @@ Go to that directory:
 
 To generate your application, type:
 
-`yo jhipster`
+`jhipster`
 
 Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#2).
 
@@ -59,17 +59,29 @@ You can either use:
 
 This is the name of your application.
 
+### Would you like to install other generators from the JHipster Marketplace?
+
+The [JHipster Marketplace]({{ site.url }}/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
+
 ### What is your default Java package name?
 
 Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. Of course you can override it by providing a new value.
 
+### Do you want to use the JHipster Registry to configure, monitor and scale your application?
+
+The [JHipster Registry]({{ site.url }}/jhipster-registry/) is an Open Source tool used to manage your application at runtime.
+
+It is required when using a microservices architecture (this is why this question is only asked when generating a monolith).
+
 ### Which *type* of authentication would you like to use?
+
+This question won't be asked if you selected the [JHipster Registry]({{ site.url }}/jhipster-registry/), as it requires the use of JWT authentication.
 
 You can either use:
 
+*   [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
 *   A classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.
 *   An OAuth 2.0 authentication mechanism (JHipster then provides the necessary OAuth2 server code and database tables).
-*   A mechanism using [JSON Web Token (JWT)](https://jwt.io/)
 
 The OAuth 2.0 and the JWT approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our [securing your application]({{ site.url }}/security/) page.
 
@@ -164,15 +176,15 @@ You can find more information on our ["Running tests" guide]({{ site.url }}/runn
 
 ## <a name="3"></a> Command-line options
 
-You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `yo jhipster --help`.
+You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `jhipster app --help`.
 
 Here are the options you can pass:
 
 * `--help` - Print the generator's options and usage
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
-* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `yo jhipster:server`.
-* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `yo jhipster:client`.
+* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `jhipster server`.
+* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `jhipster client`.
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
@@ -182,7 +194,7 @@ Here are the options you can pass:
 
 ## <a name="4"></a> Tips
 
-If you are an advanced user you can use our client and server sub-generators by running `yo jhipster:client --[options]` and `yo jhipster:server --[options]`.
+If you are an advanced user you can use our client and server sub-generators by running `jhipster client --[options]` and `jhipster server --[options]`.
 Run the above sub-generators with `--help` flag to view all the options that can be passed.
 
-You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `yo jhipster --force --with-entities`.
+You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force --with-entities`.

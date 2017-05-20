@@ -98,7 +98,7 @@ To use the `docker-compose` subgenerator:
 - You need to have all your monolith(s), gateway(s) and microservices in the same directory.
 - Create another directory, for example `mkdir docker-compose`.
 - Go into that directory: `cd docker-compose`.
-- Run the sub-generator: `yo jhipster:docker-compose`.
+- Run the sub-generator: `jhipster docker-compose`.
 - The sub-generator will ask you which application you want to have in your architecture, and if you want to setup monitoring with ELK or Prometheus.
 
 This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
@@ -112,7 +112,7 @@ In the case of a microservice architecture, this configuration will also pre-con
 
 ## <a name="4"></a> Working with databases
 
-### MySQL, MariaDB, PostgreSQL, MongoDB or Cassandra
+### MySQL, MariaDB, PostgreSQL, Oracle, MongoDB or Cassandra
 
 Running `docker-compose -f src/main/docker/app.yml up` already starts up your database automatically.
 
@@ -121,19 +121,21 @@ If you just want to start your database, and not the other services, use the Doc
 - With MySQL: `docker-compose -f src/main/docker/mysql.yml up`
 - With MariaDB: `docker-compose -f src/main/docker/mariadb.yml up`
 - With PostgreSQL: `docker-compose -f src/main/docker/postgresql.yml up`
+- With Oracle: `docker-compose -f src/main/docker/oracle.yml up`
 - With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
 - With Cassandra: `docker-compose -f src/main/docker/cassandra.yml up`
 
 ### MongoDB Cluster Mode
 
-If you want to use MongoDB with a replica set or shards and a shared configuration between them, you need to build and set up manually Mongo images.
+If you want to use MongoDB with a replica set or shards and a shared configuration between them, you need to build and set up manually MongoDB images.
 Follow these steps to do so:
 
 - Build the image: `docker-compose -f src/main/docker/mongodb-cluster.yml build`
 - Run the database: `docker-compose -f src/main/docker/mongodb-cluster.yml up -d`
-- Scale the mongodb node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=X`
-- Init the replica set (param is the number of node, folder is the folder where the YML file is located, it's `docker` by default): `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=X, folder="<yml_folder_name>"' init_replicaset.js`
-- Init the shard: `docker container exec -it <name_of_your_app>-mongodb mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
+- Scale the MongoDB node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=<X>`
+- Init the replica set (parameter X is the number of nodes you input in the previous step, folder is the folder where the YML file is located, it's `docker` by default): `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=<X>, folder="<yml_folder_name>"' init_replicaset.js`
+- Init the shard: `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb_1 mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
+- Build a Docker image of your application: `./mvnw package -Pprod docker:build`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
