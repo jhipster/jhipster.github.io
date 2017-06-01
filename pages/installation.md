@@ -34,7 +34,7 @@ We provide 4 ways of working with JHipster:
 8.  Only for AngularJS 1, install Gulp: `yarn global add gulp-cli`
 9.  Install JHipster: `yarn global add generator-jhipster`
 
-Note: if you have problem to use these tools globally, be sure you have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
+Note: if you have problems to use these tools globally, be sure you have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
 
 On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
 
