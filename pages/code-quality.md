@@ -11,7 +11,7 @@ sitemap:
 
 Code quality can be easily analyzed using [SonarCloud](https://sonarcloud.io), which is automatically configured by JHipster.
 
-## Using SonarQube with JHipster
+## Using Sonar with JHipster
 
 JHipster provides a specific Docker Compose configuration for Sonar ([here is the JHipster Docker Compose documentation]({{ site.url }}/docker-compose/)) that provides an out-of-the box Sonar instance. At the root of your project, please run:
 
