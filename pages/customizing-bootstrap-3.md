@@ -41,20 +41,20 @@ imports `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/boot
 ## Advanced customisation
 
 If you want to go further into Bootstrap customisation by excluding some components, adding new ones or replacing standard ones with yours, you must exclude the standard Bootstrap SASS files from the
-`inject` task in `gulpfile.js` so that your custom one is picked up instead:
+gulp `inject` task so that your custom one is picked up instead:
 
-gulpfile.js
+gulp/inject.js
 
-	gulp.task('inject:vendor', function () {
-	    ...
-        return es.merge(stream, gulp.src(config.sassVendor)
-            ...
-            .pipe(inject(gulp.src(bowerFiles({filter:['**/*.{scss,sass}', '!/bootstrap-sass/assets/stylesheets/']}), {read: false}), {
-                ...
-            }))
-            ...
+    function vendor() {
+    ...
+
+    return es.merge(stream, gulp.src(config.sassVendor)
         ...
-    });
+        .pipe(inject(gulp.src(bowerFiles({filter:['**/*.{scss,sass}', '!/bootstrap-sass/assets/stylesheets/']}), {read: false}), {
+           ...
+        }))
+        ...
+}
 
 
 Copy `src/main/webapp/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss` to `src/main/webapp/scss/_custom-bootstrap.scss`
