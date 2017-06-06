@@ -11,12 +11,18 @@ sitemap:
 
 # <i class="fa fa-keyboard-o"></i> Configuring Intellij IDEA
 
-## Import your project
+## Open your project
 
 - Simply open your project normally
 - Maven should be detected, and your project will build automatically
 
+If you want more control on your setup, you can also choose "Import project".
+
 ## Exclude directories
+
+If you use Git, just initialize your project (`git init && git add . && git commit 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
+
+To exclude directories manually:
 
 - Right-click on the `node_modules/` folder
 - Select "Mark Directory As" and select "Excluded"
@@ -25,7 +31,7 @@ sitemap:
 
 As the `node_modules/` directory is only used internally by JHipster, it can be safetly excluded.
 
-_Note_ Some people also like to exclude the `src/main/webapp/bower_components` folder, as there is a lot of JavaScript code in that folder. However, this folder contains the frameworks and tools used when developing the application, so excluding it will cause issues with the JavaScript code support that is configured below. Therefore, it is _not recommended_ to exclude this folder.
+_Note_ When using AngularJS 1, some people also like to exclude the `src/main/webapp/bower_components` folder, as there is a lot of JavaScript code in that folder. However, this folder contains the frameworks and tools used when developing the application, so excluding it will cause issues with the JavaScript code support that is configured below. Therefore, it is _not recommended_ to exclude this folder.
 
 ## Spring Support (not available in Community Edition)
 
