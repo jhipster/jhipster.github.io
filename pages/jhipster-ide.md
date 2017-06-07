@@ -7,7 +7,7 @@ sitemap:
     lastmod: 2016-11-26T22:00:00-00:00
 ---
 
-# JHipster IDE
+# <i class="fa fa-object-group"></i>JHipster IDE
 
 JHipster IDE is an Xtext DSL which provides textual editing support of JHipster Domain Language files for popular IDEs and editors such as Eclipse and Visual Studio Code. 
 
