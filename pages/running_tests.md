@@ -77,7 +77,7 @@ Performance tests are done with [Gatling](http://gatling.io/), and are located i
 
 Gatling tests can be run with Maven, by running `./mvnw gatling:execute`. If you have several tests, JHipster will ask which test should be run. When using Gradle you should run `./gradlew gatlingRun -x cleanResources`.
 
-**Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
+**Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. Also tests for creating entities that have a required relationship with another entity will fail out of the box. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
 *   On your running application, go to the `Administration > Logs` screen, and put `org.springframework` in `debug` mode. You will see the validation errors, for example.
 *   Use the application normaly and open the Chrome `console log`: you will be able to see the REST requests with all their parameters, including the HTTP headers.
