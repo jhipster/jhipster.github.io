@@ -104,6 +104,19 @@ Edit the `proxies` session in your `~/.m2/settings.xml` file
 </proxies>
 ```
 
+### Maven Wrapper
+
+Create a new file `.mvn/jvm.config` inside the project folder and set the properties accordingly:
+
+```
+-Dhttp.proxyHost=host 
+-Dhttp.proxyPort=port 
+-Dhttps.proxyHost=host 
+-Dhttps.proxyPort=port 
+-Dhttp.proxyUser=username 
+-Dhttp.proxyPassword=password
+```
+
 ## Gradle configuration
 
 Add the below in your `gradle.properties` file and in your `gradle/wrapper/gradle-wrapper.properties` file if you are downloading the wrapper over a proxy
