@@ -20,7 +20,7 @@ If you want more control on your setup, you can also choose "Import project".
 
 ## Exclude directories
 
-If you use Git, just initialize your project (`git init && git add . && git commit 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
+If you use Git, just initialize your project (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
 
 To exclude directories manually:
 
