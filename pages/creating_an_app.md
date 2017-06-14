@@ -160,7 +160,7 @@ You can either use:
 
 [Node-sass](https://www.npmjs.com/package/node-sass) a great solution to simplify designing CSS. To be used efficiently, you will need to run a [Gulp](http://www.gulpjs.com) server, which will be configured automatically.
 
-### Would you like to enable translation support with Angular Translate?
+### Would you like to enable internationalization support?
 
 By default JHipster provides excellent internationalization support, both on the client side and on the server side. However, internationalization adds a little overhead, and is a little bit more complex to manage, so you can choose not to install this feature.
 
