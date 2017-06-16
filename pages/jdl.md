@@ -552,6 +552,12 @@ Here is the types supported by JDL:
     <td></td>
     <td><dfn>required, minbytes, maxbytes</dfn></td>
   </tr>
+  <tr>
+    <td>Instant</td>
+    <td>Instant</td>
+    <td>Instant</td>
+    <td><dfn>required</dfn></td>
+  </tr>
 </table>
 
 # <a name="issues"></a>Issues and bugs
