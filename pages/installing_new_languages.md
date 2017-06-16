@@ -52,6 +52,7 @@ These are the currently supported languages
 *   Tamil
 *   Thai
 *   Turkish
+*   Ukrainian
 *   Vietnamese
 
 _Your language is missing in JHipster? Help us improve the project with a PR!_
