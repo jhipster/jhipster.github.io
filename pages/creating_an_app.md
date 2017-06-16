@@ -59,10 +59,6 @@ You can either use:
 
 This is the name of your application.
 
-### Would you like to install other generators from the JHipster Marketplace?
-
-The [JHipster Marketplace]({{ site.url }}/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
-
 ### What is your default Java package name?
 
 Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. Of course you can override it by providing a new value.
@@ -173,6 +169,10 @@ By default JHipster provide Java unit/integration testing (using Spring's JUnit 
 *   Angular integration tests with Protractor
 
 You can find more information on our ["Running tests" guide]({{ site.url }}/running-tests/).
+
+### Would you like to install other generators from the JHipster Marketplace?
+
+The [JHipster Marketplace]({{ site.url }}/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
 
 ## <a name="3"></a> Command-line options
 
