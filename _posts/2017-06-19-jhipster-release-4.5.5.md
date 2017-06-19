@@ -1,25 +1,23 @@
 ---
 layout: default
-title: Release 4.5.4
+title: Release 4.5.5
 ---
 
-JHipster release 4.5.4
+JHipster release 4.5.5
 ==================
 
 What's new
 ----------
 
-This is the fourth patch release for JHipster v4.5.0.
+This is the fifth patch release for JHipster v4.5.0.
 
-This release has many minor bugs corrected, and some libraries upgrades.
+This release corrects a security issue in the JHipster Registry (see [jhipster/jhipster-registry #150](https://github.com/jhipster/jhipster-registry/issues/150)), and is a recommended upgrade for people using it.
 
-It was triggered because of a [https://npms.io/](https://npms.io/) outage, and this service is used by our marketplace (so it caused errors when using the marketplace).
-
-This issue is tracked by [#5934](https://github.com/jhipster/generator-jhipster/issues/5934) but we had many duplicates. As a related note, we had a big increase this week in GitHub tickets not following our [guidelines](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md): if you need help, please read those guidelines, and don't make the whole team lose time.
+Other noteworthy changes several updates in our Angular 4 code, as we move forward to release it out of beta - see [#5907](https://github.com/jhipster/generator-jhipster/pull/5907) [#5926](https://github.com/jhipster/generator-jhipster/pull/5926) [#5932](https://github.com/jhipster/generator-jhipster/pull/5932).
 
 Closed tickets and merged pull requests
 ------------
-As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.4+is%3Aclosed)__.
+As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.5+is%3Aclosed)__.
 
 How to upgrade
 ------------
