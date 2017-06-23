@@ -61,13 +61,11 @@ When a new node is added, it will register itself to the service discovery (for 
 With JHipster, Infinispan can be used for
 
 - Entity L2 cache
-- HTTP session clustering
 - Application cache in any of the aforesaid mode by making use of jcache[@CacheResult]/spring[@Cacheable] caching abstractions
 
 Following is the pre-configured default configuration:
 
 - Entities operate in invalidation cache mode
-- Sessions operate in distributed cache mode
 - For application specific caching, three caching configurations are pre defined
   - **local-app-data** for caching data local to the nodes
   - **dist-app-data** for distributed caching of data across nodes (no of copies determined by the distributed replica count)
@@ -75,4 +73,6 @@ Following is the pre-configured default configuration:
 
 Eviction, time-to-live and max-entries for each of the individual operation mode in the cache and the replica count for the distributed mode can be fine tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/). Fine tune the properties in *jhipster.cache.infinispan* for application specific caching and *spring.jpa.properties.[hibernate.cache.x]* for L2 specific caching.
 
-Though Infinispan 9.0.0.Final GA and later releases added support to run Infinispan embedded caching applications on Kubernetes and OpenShift, hibernate dependency is not yet updated to 9.x releases and hence jHipster Infinispan caching apps won't run on Kubernetes and OpenShift.
+If the JHipster Registry is enabled, then the host list will be populated from the registry. If the JHipster Registry is not enabled, host discovery will be based on the default transport settings defined in the 'config-file' packaged within the Jar. Infinispan supports discovery natively for most of the platforms like Kubernets/OpenShift, AWS, Azure and Google
+
+Though Infinispan 9.0.0.Final GA and later releases added support to run Infinispan embedded caching applications on Kubernetes and OpenShift by making use of native KUBE_PING discovery, Hibernate dependency is not yet updated to 9.x releases and hence native discovery is not supported on Kubernetes and OpenShift. However you can run the applications by making use of JHipster Registry for instances discovery.
