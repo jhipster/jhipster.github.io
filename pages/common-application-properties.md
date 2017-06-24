@@ -59,17 +59,17 @@ Here is a documentation for those properties:
                 config-file: default-configs/default-jgroups-tcp.xml
                 # local app cache
                 local:
-                  time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
-                  max-entries: 100 # Number of objects in each cache entry
+                    time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
+                    max-entries: 100 # Number of objects in each cache entry
                 #distributed app cache
                 distributed:
-                  time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
-                  max-entries: 100 # Number of objects in each cache entry
-                  instance-count: 1
+                    time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
+                    max-entries: 100 # Number of objects in each cache entry
+                    instance-count: 1
                 #replicated app cache
                 replicated:
-                  time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
-                  max-entries: 100 # Number of objects in each cache entry
+                    time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
+                    max-entries: 100 # Number of objects in each cache entry
 
         # E-mail properties
         mail:
