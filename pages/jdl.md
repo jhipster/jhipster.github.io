@@ -14,8 +14,7 @@ The JDL is a JHipster specific domain language where we have added the possibili
 
 You can use our online [JDL-Studio]({{ site.url }}/jdl-studio/) IDE to create JDL and its UML visualization. You can create and export or share the URL of your JDL model as well.
 
-You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
-You can also generate entities from a JDL file using [JHipster UML]({{ site.url }}/jhipster-uml/), by running `jhipster-uml your-jdl-file.jh` from the root of the generated JHipster application. To learn more about JHipster UML, and install it, go to the [JHipster UML documentation]({{ site.url }}/jhipster-uml/).
+Once you have a generated project (either existing one or generated with `yo jhipter`), you can generate entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh` (make sure to execute this command under your JHipster project). You can also generate entities from a JDL file using [JHipster UML]({{ site.url }}/jhipster-uml/), by running `jhipster-uml your-jdl-file.jh` from the root of the generated JHipster application. To learn more about JHipster UML, and install it, go to the [JHipster UML documentation]({{ site.url }}/jhipster-uml/).
 
 This can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
