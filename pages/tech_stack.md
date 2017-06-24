@@ -15,7 +15,7 @@ sitemap:
 
 Single Web page application:
 
-*   [AngularJS v1.x](http://angularjs.org/) or [Angular v2+](https://angular.io/)
+*   [AngularJS v1.x](http://angularjs.org/) or [Angular 4](https://angular.io/)
 *   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
 *   Compatible with IE11 and modern browsers
@@ -53,7 +53,7 @@ A complete [Spring application](http://spring.io/):
 Ready to go into production:
 
 *   Monitoring with [Metrics](http://metrics.dropwizard.io/)
-*   Caching with [ehcache](http://ehcache.org/) (local cache) or [hazelcast](http://www.hazelcast.com/) (distributed cache)
+*   Caching with [ehcache](http://ehcache.org/) (local cache), [hazelcast](http://www.hazelcast.com/) or [Infinispan](http://infinispan.org/)
 *   Optional HTTP session clustering with [hazelcast](http://www.hazelcast.com/)
 *   Optimized static resources (gzip filter, HTTP cache headers)
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
