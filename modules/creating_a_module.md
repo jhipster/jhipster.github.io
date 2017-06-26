@@ -40,9 +40,9 @@ A JHipster module:
 A JHipster module must import the generator-jhipster:
 
 ```
-    const shelljs = require('shelljs');
+    const util = require('util');
     const BaseGenerator = require('generator-jhipster/generators/generator-base');
-    const constants = require('generator-jhipster/generators/generator-constants');
+    const jhipsterConstants = require('generator-jhipster/generators/generator-constants');
 
     const JhipsterGenerator = generator.extend({});
     util.inherits(JhipsterGenerator, BaseGenerator);
@@ -56,7 +56,7 @@ A JHipster module must import the generator-jhipster:
 
 Then, you can access to JHipster's variables and functions directly.
 
-Note: you don't need to use the composability described at [http://yeoman.io/authoring/composability.html](http://yeoman.io/authoring/composability.html) any more.
+**Note**: you don't need to use the composability described at [http://yeoman.io/authoring/composability.html](http://yeoman.io/authoring/composability.html) any more.
 
 ## Hooks
 
@@ -86,25 +86,13 @@ this.registerModule(npmPackageName, hookFor, hookType[, callbackSubGenerator[, d
 
 You have to use this function:
 
-```
-    _getConfig() {
-        const fromPath = '.yo-rc.json';
-        if (shelljs.test('-f', fromPath)) {
-            const fileData = this.fs.readJSON(fromPath);
-            if (fileData && fileData['generator-jhipster']) {
-                return fileData['generator-jhipster'];
-            }
-        }
-        return false;
-    },
-```
-
-Then, you can access to configuration in `.yo-rc.json`:
+You can access to configuration in `.yo-rc.json`:
 
 ```
-    this.baseName = this._getConfig().baseName;
-    this.baseName = this._getConfig().packageName;
-    this.baseName = this._getConfig().clientFramework;
+    this.jhipsterAppConfig = this.getJhipsterAppConfig();
+    this.baseName = this.jhipsterAppConfig.baseName;
+    this.baseName = this.jhipsterAppConfig.packageName;
+    this.baseName = this.jhipsterAppConfig.clientFramework;
 ```
 
 ### Global variables:
@@ -112,9 +100,9 @@ Then, you can access to configuration in `.yo-rc.json`:
 You can use constants in [generator-constants](https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-constants.js):
 
 ```
-    const javaDir = `${constants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
-    const resourceDir = constants.SERVER_MAIN_RES_DIR;
-    const webappDir = constants.CLIENT_MAIN_SRC_DIR;
+    const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
+    const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
+    const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
 ```
 
 ### Functions:
@@ -125,6 +113,8 @@ You can use all functions in [generator-base](https://github.com/jhipster/genera
     this.angularAppName = this.getAngularAppName(); // get the Angular application name.
     this.printJHipsterLogo(); // to print the JHipster logo
 ```
+
+**Note**: the functions in `generator-base.js` and variables in `generator-constants.js` are part of public API and hence will follow semver. But other files like `generator-base-private.js`, `utils.js` etc will not follow semver and might break methods across minor versions.
 
 ## Registering a module to the JHipster marketplace
 
