@@ -56,8 +56,6 @@ A JHipster module must import the generator-jhipster:
 
 Then, you can access to JHipster's variables and functions directly.
 
-**Note**: you don't need to use the composability described at [http://yeoman.io/authoring/composability.html](http://yeoman.io/authoring/composability.html) any more.
-
 ## Hooks
 
 JHipster will call certain hooks before and after some of its tasks, currently available and planned tasks are listed below.
@@ -91,8 +89,8 @@ You can access to configuration in `.yo-rc.json`:
 ```
     this.jhipsterAppConfig = this.getJhipsterAppConfig();
     this.baseName = this.jhipsterAppConfig.baseName;
-    this.baseName = this.jhipsterAppConfig.packageName;
-    this.baseName = this.jhipsterAppConfig.clientFramework;
+    this.packageName = this.jhipsterAppConfig.packageName;
+    this.clientFramework = this.jhipsterAppConfig.clientFramework;
 ```
 
 ### Global variables:
@@ -114,7 +112,7 @@ You can use all functions in [generator-base](https://github.com/jhipster/genera
     this.printJHipsterLogo(); // to print the JHipster logo
 ```
 
-**Note**: the functions in `generator-base.js` and variables in `generator-constants.js` are part of public API and hence will follow semver. But other files like `generator-base-private.js`, `utils.js` etc will not follow semver and might break methods across minor versions.
+**Note**: The functions in `generator-base.js` and variables in `generator-constants.js` are part of public API and hence will follow semver versioning. But other files like `generator-base-private.js`, `utils.js` etc will not follow semver versioning and might break method signature across minor versions.
 
 ## Registering a module to the JHipster marketplace
 
