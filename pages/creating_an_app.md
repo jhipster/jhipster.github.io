@@ -172,7 +172,7 @@ You can find more information on our ["Running tests" guide]({{ site.url }}/runn
 
 ### Would you like to install other generators from the JHipster Marketplace?
 
-The [JHipster Marketplace]({{ site.url }}/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
+The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
 
 ## <a name="3"></a> Command-line options
 
