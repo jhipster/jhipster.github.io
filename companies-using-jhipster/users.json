@@ -312,6 +312,12 @@
       "category": "Finance",
       "country": "France"
     },
+    {"name": "SFR",
+      "url": "https://www.sfr.fr/",
+      "logo": "sfr.png",
+      "category": "Telecom",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -671,6 +677,24 @@
     },
     {"name": "Geosparc",
       "url": "http://www.geosparc.com/"
+    },
+    {"name": "Benefits by Design Inc.",
+      "url": "https://www.bbd.ca/"
+    },
+    {"name": "Basis Tecnologia da Informação S.A.",
+      "url": "https://www.basis.com.br/"
+    },
+    {"name": "Hardis Group",
+      "url": "http://www.hardis-group.com/"
+    },
+    {"name": "Officina",
+      "url": "http://www.officina.cc/"
+    },
+    {"name": "DigitalDune",
+      "url": "http://digitaldune.fr/"
+    },
+    {"name": "TenMax",
+      "url": "https://www.tenmax.io"
     }
   ]
 }
