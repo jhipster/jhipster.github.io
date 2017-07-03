@@ -143,6 +143,16 @@ Here is a documentation for those properties:
         social:
             redirect-after-sign-in: "/#/home" # Redirect URL after successful authentication
 
+        # By default cross-origin resource sharing (CORS) is disabled. Uncomment to enable.
+        # Configure a standard org.springframework.web.cors.CorsConfiguration
+        cors:
+            allowed-origins: "*"
+            allowed-methods: GET, PUT, POST, DELETE, OPTIONS
+            allowed-headers: "*"
+            exposed-headers:
+            allow-credentials: true
+            max-age: 1800
+
         # Ribbon displayed on the top left-hand side of JHipster applications
         ribbon:
             # Comma-separated list of profiles that display a ribbon
