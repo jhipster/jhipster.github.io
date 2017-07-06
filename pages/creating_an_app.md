@@ -187,6 +187,8 @@ Here are the options you can pass:
 * `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `jhipster client`.
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
+* `--auth` - Specify the authentication type when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
+* `--db` - Specify the database when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--skip-checks` - Skip the check of the required tools (Default: false)
 * `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
