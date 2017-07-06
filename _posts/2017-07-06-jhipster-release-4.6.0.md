@@ -26,6 +26,10 @@ Our Angular 4 support is now ready for production:
 
 In total, this release has 72 closed tickets and pull requests, out of which 11 were marked `invalid`. This is an improvement over the past releases, but please if you have a question or a bug, don't spam the development team and follow [our guidelines](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
 
+**Deprecation warning (for module developers)**
+
+The JHipster Module sub generator is deprecated. We now recommend using commonJS or ES6 require/import to get `generator-base` in order to use our Public API. See [creating a module]({{ site.url }}/modules/creating-a-module/) page for more details.
+
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.6.0+is%3Aclosed)__.
