@@ -105,18 +105,19 @@ For example, adding properties in a `gateway-prod.yml` file will set those prope
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
 
 ### <a name="encryption"></a> Using encrypted config values in config files.
-To encrypt config file values at rest, for example, database passwords, you need to
 
-- download and install the [JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) by following instructions in the downloaded files. 
-- set the `encrypt.key` in `bootstrap.yml` (not `application.yml`) or the environment variable `ENCRYPT_KEY` with your symmetic key passphrase. 
+To encrypt configuration values (for example, database passwords) you need to:
 
-If everything is setup correctly, you should be able to send POST request to `/config/encrypt` and `/config/decrypt` endpoints with the text you want to manipulate in the `body` of the request.
+- download the [JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) and install it by following the instructions in the downloaded files.
+- set the `encrypt.key` in `bootstrap.yml` (not `application.yml`) or use the environment variable `ENCRYPT_KEY` with your symmetric key passphrase.
 
-e.g. `curl localhost:8761/config/encrypt -d mypassword`
+If everything is setup correctly, you should be able to send POST requests to `/config/encrypt` and `/config/decrypt` endpoints with the text you want to manipulate in the `body` of the requests.
 
-The cipher text must be placed in any `*.yml` like so `password= '{cipher}myciphertextafterencryotion'` and it will be decrypted by config server before sending to clients. This way your configuration files at rest (in git or native) do not have plain text values.
+For example: `curl localhost:8761/config/encrypt -d mypassword`
 
-For more information refer to [Encryption and Decryption](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html#_encryption_and_decryption) documentation.
+The cipher text must be placed in any `*.yml` configuration file, in the form `password= '{cipher}myciphertextafterencryotion'` and it will be decrypted by the config server before sending it to its clients. This way your configuration files (stored in Git or stored "natively" on your filesystem) do not have plain text values.
+
+For more information, please refer to Spring Cloud Config's [Encryption and Decryption documentation](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html#_encryption_and_decryption).
 
 ## <a name="dashboards"></a> Administration dashboards
 
