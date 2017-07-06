@@ -104,6 +104,20 @@ For example, adding properties in a `gateway-prod.yml` file will set those prope
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
 
+### <a name="encryption"></a> Using encrypted config values in config files.
+To encrypt config file values at rest, for example, database passwords, you need to
+
+- download and install the [JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) by following instructions in the downloaded files. 
+- set the `encrypt.key` in `bootstrap.yml` (not `application.yml`) or the environment variable `ENCRYPT_KEY` with your symmetic key passphrase. 
+
+If everything is setup correctly, you should be able to send POST request to `/config/encrypt` and `/config/decrypt` endpoints with the text you want to manipulate in the `body` of the request.
+
+e.g. `curl localhost:8761/config/encrypt -d mypassword`
+
+The cipher text must be placed in any `*.yml` like so `password= '{cipher}myciphertextafterencryotion'` and it will be decrypted by config server before sending to clients. This way your configuration files at rest (in git or native) do not have plain text values.
+
+For more information refer to [Encryption and Decryption](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html#_encryption_and_decryption) documentation.
+
 ## <a name="dashboards"></a> Administration dashboards
 
 The JHipster Registry provides administration dashboards, which are used for all application types. As soon as an application registers on the Eureka server, it will become available in the dashboards.
