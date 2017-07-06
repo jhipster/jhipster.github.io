@@ -143,14 +143,12 @@ Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message b
 
 ### Which *Framework* would you like to use for the client?
 
-The client side framework to use.
+The client-side framework to use.
 
 You can either use:
 
-*   AngularJS version 1.x
-*   Angular version 2+ [BETA]
-
-> Please note that Angular 2+ support is currently in BETA and hence may not be suitable for production use.
+*   Angular version 4+
+*   AngularJS version 1.x (which will be deprecated in the future)
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 
