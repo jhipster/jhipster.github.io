@@ -24,7 +24,7 @@ Our Angular 4 support is now ready for production:
 
 **Minor improvements**
 
-In total, this release has 72 closed tickets and bug requests, out of which 11 were marked `invalid`. This is an improvement over the past releases, but please if you have a question or a bug, don't spam the development team and follow [our guidelines](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+In total, this release has 72 closed tickets and pull requests, out of which 11 were marked `invalid`. This is an improvement over the past releases, but please if you have a question or a bug, don't spam the development team and follow [our guidelines](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
 
 Closed tickets and merged pull requests
 ------------
