@@ -35,7 +35,7 @@ sitemap:
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=YmEKClTBkUI" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YmEKClTBkUI" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label">Building Spring boot + Angular4 apps in minutes with JHipster at Spring IO Barcelona 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
