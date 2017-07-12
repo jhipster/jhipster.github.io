@@ -35,6 +35,19 @@ sitemap:
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=YmEKClTBkUI" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Building Spring boot + Angular4 apps in minutes with JHipster at Spring IO Barcelona 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>JHipster Spring boot + Angular4 live presentation and demo by our co-lead <a href="https://twitter.com/deepu105"><i>@deepu105</i></a> at Spring IO Barcelona 2017.</p>
+                <p>Slides are available <a href="https://deepu.js.org/jh-slides-springio-2017/#/intro" target="_blank">here</a>.</p>
+                <p>Published on 7 July 2017</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/wJruVpv0WH4" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
@@ -58,6 +71,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -71,8 +86,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -100,6 +113,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -113,8 +128,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -141,6 +154,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -156,8 +171,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
