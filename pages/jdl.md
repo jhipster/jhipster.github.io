@@ -110,13 +110,14 @@ Note that JHipster adds a default `id` field so that you don't have to worry abo
 The relationships declaration is done as follows:
 
     relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
-      <from entity>[{<relationship name>}] to <to entity>[{<relationship name>}]
+      <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]
     }
 
   - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
   - `<from entity>` is the name of the entity owner of the relationship: the source,
   - `<to entity>` is the name of the entity where the relationship goes to: the destination,
   - `<relationship name>` is the name of the field having the other end as type,
+  - `<display field>` is the name of the field that should show up in select boxes (default: `id`),
   - `required` whether the injected field is required.
 
 
@@ -150,7 +151,7 @@ relationship ManyToMany {
 }
 ```
 
-By default, the joining is done by the `id` field... But if you want the joining to be done by another field, then you can do things like:
+The join is always done using the `id` field which is also the default field shown when editing a relation in the frontend. If another field should be shown instead, you can specify it like this:
 
 ```
 entity A {
@@ -164,6 +165,7 @@ relationship OneToOne {
 }
 ```
 
+This makes JHipster generate a resource that returns both `id` and `name` to the frontend, so the linked entitie's name can be shown instead.
 
 ### <a name="enumerationdeclaration"></a> Enumerations
 
