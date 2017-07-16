@@ -165,7 +165,7 @@ relationship OneToOne {
 }
 ```
 
-This makes JHipster generate a resource that returns both `id` and `name` to the frontend, so the linked entitie's name can be shown instead.
+This makes JHipster generate a REST resource that returns both `id` and `name` of the linked entity to the frontend, so the name can be shown to the user instead.
 
 ### <a name="enumerationdeclaration"></a> Enumerations
 
