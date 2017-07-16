@@ -57,6 +57,19 @@ In that case, two options are available:
 If you used the JDL Studio:
 
 *   You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
+
+    * If you do not want to regenerate your entities, while importing a JDL, you can use the `--json-only` flag to skip entity creation part and create only the json files in `.jhipster` folder.
+
+    ```
+    jhipster import-jdl ./my-jdl-file.jdl --json-only
+    ```
+    
+    * By default `import-jdl` regenerates only entities which have changed, if you want all your entities to be regenerated then pass in the `--force`  flag. Please note that this will overwrite all your local changes to the entity files
+
+    ```
+    jhipster import-jdl ./my-jdl-file.jdl --force
+    ```
+
 *   If you want to use JHipster UML instead of the `import-jdl` sub-generator, you need to install it by running `npm install -g jhipster-uml`, and then run `jhipster-uml yourFileName.jh`.
 
 ## Entity fields
