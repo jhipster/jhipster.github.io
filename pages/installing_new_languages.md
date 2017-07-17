@@ -23,13 +23,16 @@ If you are sure you will never translate this application into another language 
 
 These are the currently supported languages
 
+*   Arabic (Libyan)
 *   Armenian
 *   Bahasa Indonesia
 *   Catalan
 *   Chinese (Simplified)
 *   Chinese (Traditional)
+*   Czech
 *   Danish
 *   English
+*   Farsi
 *   French
 *   Galician
 *   German
