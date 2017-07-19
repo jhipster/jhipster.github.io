@@ -9,9 +9,8 @@ sitemap:
     lastmod: 2016-08-12T00:00:00-00:00
 ---
 
-# [BETA] Deploying to Kubernetes
+# Deploying to Kubernetes
 
-**WARNING!** This is a new sub-generator, of **BETA** quality. Use it at your own risk! Feedback is highly welcome!
 
 This sub-generator allows deployment of your JHipster application to [Kubernetes](http://kubernetes.io/).
 
@@ -20,7 +19,6 @@ This sub-generator allows deployment of your JHipster application to [Kubernetes
 ## Limitations
 
 - Cassandra is not supported yet
-- ELK with [JHipster Console]({{ site.url }}/monitoring/) is not supported yet
 
 ## Pre-requisites
 
@@ -113,6 +111,28 @@ It will create a Kubernetes deployment for your application and its associated d
 
 ## Deploying a microservice application
 
+Before deploying your microservices, first deploy the service discovery service (JHipster Registry or Consul). If you selected JHipster Console or Prometheus, it is recommended to deploy them before the microservices. The sub-generator placed a README file with the correct order of execution.
+
+### custom namespaces
+
+It is possible to specify a custom namespace for the entire deployment. To perform custom commands, you have to specify the target namespace, like in this example:
+
+`kubectl get pods -n <custom-namespace>`
+
+### Scaling your deployments
+
+You can scale your apps using 
+
+`kubectl scale deployment <app-name> --replicas <replica-count> `
+
+### zero-downtime deployments
+
+The default way to update a running app in kubernetes is to deploy a new image tag to your docker registry and then deploy it using
+
+`kubectl set image deployment/<app-name>-app <app-name>=<new-image>`
+
+Using livenessProbes and readinessProbe allows you to tell kubernetes about the state of your apps, in order to ensure availability of your services. You will need minimum 2 replicas for every app deployment, you want to have zero-downtime deployed. This is because the rolling upgrade strategy first kills a running replica in order to place a new. Running only one replica will cause a short downtime during upgrades.
+
 ### Deploying a Service Registry in Kubernetes
 
 Although, Kubernetes does feature its own internal service discovery with **Kube-DNS**, JHipster rely on Spring Cloud for service discovery, so it depends on a third party service registry like Eureka or Consul. This has the advantage of being platform independent and to work similarly in production and on a local development machine.
@@ -146,6 +166,72 @@ data:
 ```
 
 By default, configuration servers run in development mode, which means that YAML property files are read directly from the filesystem and hot-reloaded on changes. For production it is advised to setup configuration from a git repository as explained in our microservice documentation for the [JHipster-Registry config server](/microservices-architecture/#consul_app_configuration) and [Consul config server](/microservices-architecture/#consul_app_configuration).
+
+### exposing headless service
+
+The registry is deployed using a headless service in kubernetes, so the primary service has no IP address, and cannot get a node port. You can create a secondary service for any type, using:
+
+`kubectl expose service jhipster-registry --type=NodePort --name=exposed-registry `
+
+and explore the details using
+
+`kubectl get svc exposed-registry `
+
+For scaling the JHipster registry, use
+
+`kubectl scale statefulset jhipster-registry --replicas 3 `
+
+## Monitoring tools
+
+The sub-generator provides monitoring tools and configuration for usage with your apps.
+
+### JHipster console
+
+Your application logs can be found in JHipster console (powered by Kibana). You can find its service details by
+`kubectl get svc jhipster-console `
+
+Point your browser to an IP of any of your nodes and use the node port described in the output.
+
+### Prometheus metrics
+
+If not already done, install the [Prometheus operator by CoreOS](https://github.com/coreos/prometheus-operator). You can quickly deploy the operator using 
+
+
+`kubectl create -f https://raw.githubusercontent.com/coreos/prometheus-operator/master/bundle.yaml`
+
+**hint**: use must build your apps with `prometheus` profile active!
+
+The prometheus instance for your apps can be explored using
+
+`kubectl get svc prometheus-appname `
+
+## Troubleshooting
+
+> my apps doesn't get pulled, because of 'imagePullBackof'
+
+check the registry your kubernetes cluster is accessing. If you are using a private registry, you should add it to your namespace by `kubectl create secret docker-registry` (check the [docs](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) for more info)
+
+> my apps get killed, before they can boot up
+
+This can occur, if your cluster has low resource (e.g. Minikube). Increase the `initialDelySeconds` value of livenessProbe of your deployments
+
+> my apps are starting very slow, despite I have a cluster with many resources
+
+The default setting is optimized for middle scale clusters. You are free to increase the JAVA_OPTS environment variable, and resource requests and limits to improve the performance. Be careful!
+
+> I have selected prometheus but no targets are visible
+
+This depends on the setup of prometheus operator and the access control policies in your cluster. Version 1.6.0+ is needed for the RBAC setup to work.
+
+> I have selected prometheus, but my targets never get scraped
+
+This means your apps are probably not built using the `prometheus` profile in Maven/Gradle
+
+> my SQL based microservice stuck during liquibase initialization when running multiple replicas
+
+
+Sometimes the database changelog lock gets corrupted. You will need to connect to the database using `kubectl exec -it` and removes all lines of liquibases `databasechangeloglock` table.
+
 
 ## More information
 
