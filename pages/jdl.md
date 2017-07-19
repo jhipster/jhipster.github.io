@@ -61,6 +61,14 @@ and *Voilà*, you are done!
 If you work in a team, perhaps you would like to have multiple files instead of one. We added this option so that you don't manually
 concatenate all the files into one, you just have to run `jhipster import-jdl my_file1.jh my_file2.jh` or `jhipster-uml my_file1.jh my_file2.jh`.
 
+If you do not want to regenerate your entities, while importing a JDL, you can use the `--json-only` flag to skip entity creation part and create only the json files in `.jhipster` folder.
+
+    jhipster import-jdl ./my-jdl-file.jdl --json-only
+    
+By default `import-jdl` regenerates only entities which have changed, if you want all your entities to be regenerated then pass in the `--force`  flag. Please note that this will overwrite all your local changes to the entity files
+
+    jhipster import-jdl ./my-jdl-file.jdl --force
+
 If you want to use it in your project, you can add do so by doing `npm install jhipster-core --save` to install it locally, and save it in your `package.json` file.
 
 ## <a name="jdllanguage"></a> The language
