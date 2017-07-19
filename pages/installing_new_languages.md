@@ -23,36 +23,38 @@ If you are sure you will never translate this application into another language 
 
 These are the currently supported languages
 
-*   Arabic (Libyan)
+*   Arabic (Libya)
 *   Armenian
-*   Bahasa Indonesia
+*   Indonesian
 *   Catalan
 *   Chinese (Simplified)
 *   Chinese (Traditional)
 *   Czech
 *   Danish
+*   Dutch
 *   English
+*   Estonian
 *   Farsi
 *   French
 *   Galician
 *   German
 *   Greek
 *   Hindi
+*   Hungarian
 *   Italian
 *   Japanese
-*   Hindi
-*   Hungarian
 *   Korean
 *   Marathi
-*   Netherlands
 *   Polish
 *   Portuguese
 *   Portuguese (Brazilian)
-*   Russian
 *   Romanian
+*   Russian
+*   Slovak
 *   Serbian
 *   Spanish
 *   Swedish
+*   Turkish
 *   Tamil
 *   Thai
 *   Turkish
