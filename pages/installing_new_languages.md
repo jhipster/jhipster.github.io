@@ -102,6 +102,18 @@ Here are the steps to install a new language called `new_lang`:
 4.  In the `src/main/resources/i18n` folder, copy the `messages_en.properties` file to `messages_new_lang.properties` (this is where the server-side translations are stored)
 5.  Translate all keys in the `messages_new_lang.properties` file
 6.  For AngularJS 1 add the new language's name in the function of `filter('findLanguageFromKey')` in the `src/main/webapp/app/components/language/language.filter.js` file. For Angular 2+ add the new language's name in the `languages` variable of `FindLanguageFromKeyPipe` in the `src/main/webapp/app/shared/language/language.pipe.ts`
+7.  For Angular 2+ add the new language bundling to `webpack.common.js`
+
+        new MergeJsonWebpackPlugin({
+            output: {
+                groupBy: [
+                    { pattern: "./src/main/webapp/i18n/en/*.json", fileName: "./i18n/en.json" },
+                    { pattern: "./src/main/webapp/i18n/new_lang/*.json", fileName: "./i18n/new_lang.json" }
+                    // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
+                ]
+            }
+        })
+        
 
 The new language `new_lang` is now available in the language menu, and it is available both in the front-end Angular application and in the back-end Spring application.
 
