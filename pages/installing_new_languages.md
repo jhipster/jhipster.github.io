@@ -113,7 +113,7 @@ Here are the steps to install a new language called `new_lang`:
                 ]
             }
         })
-        
+8.  If it's a contribution to support officially this language, you need to add the language to `test/templates/all-languages/.yo-rc.json` in the `generator-jhipster` project.
 
 The new language `new_lang` is now available in the language menu, and it is available both in the front-end Angular application and in the back-end Spring application.
 
