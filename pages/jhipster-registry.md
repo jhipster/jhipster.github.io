@@ -48,13 +48,13 @@ Once the JHipster Registry is running, you can check its configuration in the `C
 
 The JHipster Registry is available as an executable WAR file on our [Releases page](https://github.com/jhipster/jhipster-registry/releases).
 
-Download the WAR file, and run it as a usual JHipster application, using the profile you want to use (see the previous section about profiles). For example, to run it with the dev profile:
+Download the WAR file, and run it as a usual JHipster application, using the profile you want to use (see the previous section about profiles). For example, to run it with the :
 
     ./jhipster-registry-<version>.war --security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.native.search-locations=file:./central-config
 
 Note that it is important to provide a JWT secret key to the registry on startup, either via the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_SECRET` environment variable or with arguments as shown above. Another possible way is to set this value in the `application.yml` file of your centralized configuration source (which is loaded on startup by all your applications including the registry).
 
-Similarly, to run the registry with the prod profile, adapt the arguments to your setup, for example:
+Similarly, to run the registry with the `prod` profile, adapt the arguments to your setup, for example:
 
     ./jhipster-registry-3.1.0.war --spring.profiles.active=prod --security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.git.uri=https://github.com/jhipster/jhipster-registry-sample-config
 
