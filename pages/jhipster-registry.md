@@ -48,9 +48,15 @@ Once the JHipster Registry is running, you can check its configuration in the `C
 
 The JHipster Registry is available as an executable WAR file on our [Releases page](https://github.com/jhipster/jhipster-registry/releases).
 
-Download the WAR file, and run it as a usual JHipster application, using the profile you want to use (see the previous section about profiles). For example:
+Download the WAR file, and run it as a usual JHipster application, using the profile you want to use (see the previous section about profiles). For example, to run it with the dev profile:
 
-    ./jhipster-registry-3.1.0.war --spring.profiles.active=prod --spring.cloud.config.server.git.uri=https://github.com/jhipster/jhipster-registry-sample-config
+    ./jhipster-registry-<version>.war --security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.native.search-locations=file:./central-config
+
+Note that it is important to provide a JWT secret key to the registry on startup, either via the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_SECRET` environment variable or with arguments as shown above. Another possible way is to set this value in the `application.yml` file of your centralized configuration source (which is loaded on startup by all your applications including the registry).
+
+Similarly, to run the registry with the prod profile, adapt the arguments to your setup, for example:
+
+    ./jhipster-registry-3.1.0.war --spring.profiles.active=prod --security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.git.uri=https://github.com/jhipster/jhipster-registry-sample-config
 
 ### Building from source
 
@@ -63,7 +69,7 @@ Please note that to use the `native` profile, you need to have a `central-config
 
 ### Using Docker
 
-If you'd rather run the JHipster Registry from a Docker image, it is available an Docker Hub at [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry/). This image is already pre-configured in the Docker configuration that is provided with each microservice application:
+If you'd rather run the JHipster Registry from a Docker image, it is available on Docker Hub at [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry/). A docker-compose file to easily run this image is already present within each microservice `src/main/docker` directory:
 
 - run `docker-compose -f src/main/docker/jhipster-registry.yml up` to start the JHipster Registry. It will be available on port `8761` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
 
@@ -110,10 +116,10 @@ The JHipster Registry has a specific `configuration > encryption` page to allow 
 
 To encrypt configuration values (for example, database passwords) you need to:
 
-- download the [JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) and install it by following the instructions in the downloaded files.
-- set the `encrypt.key` in `bootstrap.yml` (not `application.yml`) or use the environment variable `ENCRYPT_KEY` with your symmetric key passphrase.
+- download the [JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) and install it by following the instructions in the downloaded files (this is only required if you are using the Oracle JDK).
+- set the `encrypt.key` property in `bootstrap.yml` (not `application.yml`) or use the `ENCRYPT_KEY` environment variable with your symmetric key passphrase.
 
-If everything is setup correctly, you should be able to use the specific `configuration > encryption` page, and also send POST requests to `/config/encrypt` and `/config/decrypt` endpoints with the text you want to manipulate in the `body` of the requests.
+If everything is setup correctly, you should be able to use the specific `Configuration > Encryption` page, and also send POST requests to `/config/encrypt` and `/config/decrypt` endpoints with the text you want to manipulate in the `body` of the requests.
 
 For example: `curl localhost:8761/config/encrypt -d mypassword`
 
