@@ -59,7 +59,7 @@ UI unit tests are written in [Jasmine](http://jasmine.github.io) and run with [K
 
 Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
 
-*   Those tests can be run using `gulp test`.
+*   Those tests can be run using `yarn test` (For AngularJS 1.x: `gulp test`).
 *   To debug your JS tests, you will need to disable minification and Istanbul covarage on your Javascript files. To do so start Karma with the --debug option, something like this: `./node_modules/karma/bin/karma start src/test/javascript/karma.conf.js --debug`, then navigate to [Karma debug page](http://localhost:9876/debug.html) and open your Javascript console.
 *   Tip: if you want to focus on a single test change the module description from `describe('...', function() {` to `fdescribe('...', function() {` and Jasmine will run this test only.
 
@@ -69,7 +69,7 @@ UI integration tests are done with [Protractor](https://angular.github.io/protra
 
 Those tests will launch a Web browser and use the application like a real user would do, so you need to have a real application running, with its database set-up.
 
-Those tests can be run using `gulp protractor` or `gulp itest`.
+Those tests can be run using `yarn e2e` (For AngularJS 1.x: `gulp protractor` or `gulp itest`).
 
 ## Performance tests
 
