@@ -35,9 +35,9 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="https://github.com/xavierpandis/soundxtreamRS" target="_blank">SoundXtream Audio Platform</a></h3>
-				<p><b>Created by:</b> <a href="http://www.linkedin.com/in/xavierpandisgarcia" target="_blank">Xavier Pandis Garcia</a>
-				<br/>
-				<b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank">Alfredo Rueda Unsain</a></p>
+                <p><b>Created by:</b> <a href="http://www.linkedin.com/in/xavierpandisgarcia" target="_blank">Xavier Pandis Garcia</a>
+                <br/>
+                <b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank">Alfredo Rueda Unsain</a></p>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="https://github.com/jotabono/rockallum" target="_blank">The Rock Bible</a></h3>
-				        <p><b>Created by:</b> <a href="http://www.javierbono.com" target="_blank">Javier Bono</a>
+                <p><b>Created by:</b> <a href="http://www.javierbono.com" target="_blank">Javier Bono</a></p>
             </div>
         </div>
     </div>
@@ -93,11 +93,10 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="https://github.com/arnaugarcia/assessoriatorrelles" target="_blank">Real State Camp</a></h3>
-				        <p><b>Created by:</b> <a href="http://arnaugarcia.com" target="_blank">Arnau García Gallego</a> and <a href="https://alfdocimo.github.io/" target="_blank">Alfredo Narvaez Docimo</a>
-				        <br/>
-				        <b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank">Alfredo Rueda Unsain</a></p>
+                        <p><b>Created by:</b> <a href="http://arnaugarcia.com" target="_blank">Arnau García Gallego</a> and <a href="https://alfdocimo.github.io/" target="_blank">Alfredo Narvaez Docimo</a>
+                        <br/>
+                        <b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank">Alfredo Rueda Unsain</a></p>
             </div>
         </div>
     </div>
 </div>
-
