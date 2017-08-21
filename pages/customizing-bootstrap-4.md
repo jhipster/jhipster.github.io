@@ -4,7 +4,7 @@ title: Customizing Bootstrap 4
 permalink: /customizing-bootstrap-4/
 sitemap:
     priority: 0.7
-    lastmod: 2017-02-09:40:00-00:00
+    lastmod: 2017-02-09T00:00:00-00:00
 ---
 
 # <i class="fa fa-css3"></i> Customizing Bootstrap 4
