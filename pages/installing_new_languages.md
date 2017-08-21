@@ -113,14 +113,18 @@ Here are the steps to install a new language called `new_lang`:
                 ]
             }
         })
-        
+
 
 The new language `new_lang` is now available in the language menu, and it is available both in the front-end Angular application and in the back-end Spring application.
+
+### Contributing the language to generator-jhipster
+
+If you would like to contribute a new language to the generator follow steps 1, 2, 4 and 5 from above. Add an entry for the new language to the `LANGUAGES` constant in `generators/generator-constants.js` and add the language to `test/templates/all-languages/.yo-rc.json` in the `generator-jhipster` project. Submit a PR with all these changes.
 
 ## How to remove an existing language?
 
 Here are the steps to remove a language called `old_lang`:
-
+ 
 1.  Remove the language folder from `src/main/webapp/i18/old_lang`
-2.  Remove the constant entry in `src/main/webapp/app/components/language/language.constants.js` or `src/main/webapp/app/shared/language/language.constants.ts`
+2.  Remove the constant entry in `src/main/webapp/app/components/language/language.constants.js` or `src/main/webapp/app/shared/language/language.constants.ts` and `webpack.common.js`
 3.  Remove the `src/main/resources/i18n/messages_old_lang.properties` file
