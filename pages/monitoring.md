@@ -80,7 +80,7 @@ To configure metrics monitoring, enable metrics log reporting in your JHipster a
                 enabled: true
         	    reportFrequency: 60 # seconds
 
-Setting those properties will enrich your logs with metrics coming from Dropwizard metrics.
+Setting those properties will enrich your forwarded logs with metrics coming from Dropwizard metrics.
 
 ### Overview of the JHipster Console
 
@@ -159,7 +159,7 @@ If you are using Docker Machine on Mac or Windows, your Docker daemon has only l
 
 ### Save your custom searches, visualizations and dashboards as JSON for auto import
 
-Searches, visualization and dashboards created in Kibana can be exported using the **Settings** > **Objects** menu.
+Searches, visualization and dashboards created in Kibana can be exported using the **Management** > **Saved Objects** menu.
 You can then extract the JSON description of a specific object under the `_source` field of the export.json file.
 You can then put this data in a JSON file in one of the `jhipster-console/dashboards` sub-folder for auto-import.
 
@@ -199,14 +199,13 @@ JHipster Console comes with built-in alerting by integrating [Elastalert](https:
 
 ### Enable alerting
 
-To enable alerting, setup the `jhipster-alerter` container by adding the following lines to your `docker-compose.yml`.
+To enable alerting, setup the `jhipster-alerter` container by adding the following lines [`docker-compose.yml`](https://github.com/jhipster/jhipster-console/blob/master/bootstrap/docker-compose.yml).
 
     jhipster-alerter:
-        build: jhipster/jhipster-alerter
-        # Uncomment this section to load your alerting configuration for a volume
+        image: jhipster/jhipster-alerter
         #volumes:
-        #    - ./alerts/config.yaml:/opt/elastalert/config.yaml
-        #    - ./alerts/rules/:/opt/elastalert/rules
+        #    - ../jhipster-alerter/rules/:/opt/elastalert/rules/
+        #    - ../alerts/config.yaml:/opt/elastalert/config.yaml
 
 ### Configure alerting
 
@@ -226,10 +225,6 @@ To define new alerts, add new Yaml rule files in `alerts/rules` and then test th
     ./test-alerting-rule.sh rule.yaml
 
 Note that those Yaml files should have a `.yaml` file extension. Read more on how to write rules at [Elastalert's official documentation](https://elastalert.readthedocs.org/en/latest/ruletypes.html).
-
-### Alerting dashboard
-
-Go to [http://localhost:5601/app/kibana#/dashboard/alerting-dashboard](http://localhost:5601/app/kibana#/dashboard/alerting-dashboard) to see the history of all your alerts.
 
 [jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "JHipster Metrics page"
 [monitoring-dashboard]: {{ site.url }}/images/jhipster-console-monitoring.png "Monitoring Dashboard"
