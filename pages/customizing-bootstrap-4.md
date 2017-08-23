@@ -27,4 +27,8 @@ For example to use the border-radius mixin:
 ```
 Make sure you import only partials and not main sass files, otherwise you will end up generating duplicate css which might cause issues
 
+To change the default bootstrap settings like colors, border-radius, etc, add or change the value of the property in the partial file `src/main/webapp/content/scss/_bootstrap-variable.scss`
+
+All values defined in bootstrap [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss) can be overwritten here
+
 Please refer official [Bootstrap](https://v4-alpha.getbootstrap.com/getting-started/options/) documentation for more details on customizations
