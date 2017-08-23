@@ -13,12 +13,23 @@ sitemap:
 
 ## Installation types
 
-We provide 4 ways of working with JHipster:
+We provide 5 ways of working with JHipster:
 
-*   A "local installation with Yarn", which is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
-*   A "local installation with NPM", which is the same as classical "local installation with Yarn", but using NPM instead of [Yarn](https://yarnpkg.com/)
-*   A Vagrant-based "[development box](https://github.com/jhipster/jhipster-devbox)", with all tools already set up in a Ubuntu-based virtual machine.
-*   A "[Docker](https://www.docker.io/)" container, which brings you a lightweight, virtualized container with JHipster installed.
+*   [JHipster Online](https://start.jhipster.tech/) is a simple way to generate an application without installing JHipster in the first place.
+*   "Local installation with Yarn" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
+*   "Local installation with NPM" is the same as classical "local installation with Yarn", but using NPM instead of [Yarn](https://yarnpkg.com/)
+*   The Vagrant-based "[development box](https://github.com/jhipster/jhipster-devbox)", with all tools already set up in a Ubuntu-based virtual machine.
+*   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight, virtualized container with JHipster installed.
+
+## JHipster Online (for users wanting a simplified way to run JHipster)
+
+[JHipster Online](https://start.jhipster.tech/) allows you to easily generate JHipster applications, without having to install JHipster.
+
+This is intended for people trying JHipster for the first time, or who just want to have a look at what JHipster provides.
+
+While it is easier to use, it is not the "full JHipster experience", and once your application is generated you will still need to follow most of the steps from the next section ("Local installation with Yarn"), as you will still need Java (to run your application) and Yarn (to manage your front-end code).
+
+In the future, we expect JHipster Online to provide more features, of course.
 
 ## Local installation with Yarn (recommended for normal users)
 
