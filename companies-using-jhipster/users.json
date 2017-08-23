@@ -318,6 +318,18 @@
       "category": "Telecom",
       "country": "France"
     },
+    {"name": "Ministère de la Défense",
+      "url": "http://www.defense.gouv.fr/",
+      "logo": "ministere-de-la-defense.png",
+      "category": "Government",
+      "country": "France"
+    },
+    {"name": "Capgemini",
+      "url": "https://www.capgemini.com/",
+      "logo": "capgemini.png",
+      "category": "System Integrator",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -695,6 +707,39 @@
     },
     {"name": "TenMax",
       "url": "https://www.tenmax.io"
+    },
+    {"name": "Segasec",
+      "url": "https://segasec.com"
+    },
+    {"name": "infoowl",
+      "url": "http://www.infoowl.net/"
+    },
+    {"name": "Wanari Lft",
+      "url": "http://www.wanari.com/"
+    },
+    {"name": "Ground Gurus",
+      "url": "https://www.groundgurus.ph/"
+    },
+    {"name": "coinv",
+      "url": "http://www.coinv.com/"
+    },
+    {"name": "Kellton Tech Solutions Ltd.",
+      "url": "https://www.kelltontech.com/"
+    },
+    {"name": "Massive",
+      "url": "https://www.massive.co/"
+    },
+    {"name": "DB1",
+      "url": "http://www.db1.com.br/"
+    },
+    {"name": "Néovia",
+      "url": "https://sineo.neovia.fr/"
+    },
+    {"name": "Famoco",
+      "url": "https://www.famoco.com/"
+    },
+    {"name": "Fresh Gravity",
+      "url": "http://www.freshgravity.com/"
     }
   ]
 }
