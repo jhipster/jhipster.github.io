@@ -25,10 +25,11 @@ For example to use the border-radius mixin:
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins/border-radius";
 ```
-Make sure you import only partials and not main sass files, otherwise you will end up generating duplicate css which might cause issues
 
-To change the default bootstrap settings like colors, border-radius, etc, add or change the value of the property in the partial file `src/main/webapp/content/scss/_bootstrap-variable.scss`
+Make sure you import only partials and not main Sass files, otherwise you will end up generating duplicate CSS which might cause issues.
 
-All values defined in bootstrap [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss) can be overwritten here
+To change the default Bootstrap settings like colors, border-radius, etc, add or change the value of the property in the partial file `src/main/webapp/content/scss/_bootstrap-variable.scss`
 
-Please refer official [Bootstrap](https://v4-alpha.getbootstrap.com/getting-started/options/) documentation for more details on customizations
+All values defined in Bootstrap [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss) can be overwritten here.
+
+Please refer to the official [Bootstrap](https://v4-alpha.getbootstrap.com/getting-started/options/) documentation for more details on customizations.
