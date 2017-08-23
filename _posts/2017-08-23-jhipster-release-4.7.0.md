@@ -9,7 +9,7 @@ JHipster release 4.7.0
 What's new
 ----------
 
-- Major new feature: Generate criteria class and backend for filtering: [read the new documentation here]({{ site.url }}/entities-filtering/) - see [#5540](https://github.com/jhipster/generator-jhipster/pull/5540)
+- Major new feature: Generate criteria class and backend for filtering using JPA! [read the new documentation here]({{ site.url }}/entities-filtering/) - see [#5540](https://github.com/jhipster/generator-jhipster/pull/5540)
 - Major new feature: Support for API-first dev using swagger-codegen - see [#6229](https://github.com/jhipster/generator-jhipster/pull/6229)
 - Spring dependencies upgrades - see [#6268](https://github.com/jhipster/generator-jhipster/pull/6268)
 - Bootstrap, ng-bootstrap and Webpack upgrades - see [#](https://github.com/jhipster/generator-jhipster/pull/6233)

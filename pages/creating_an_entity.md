@@ -63,7 +63,7 @@ If you used the JDL Studio:
     ```
     jhipster import-jdl ./my-jdl-file.jdl --json-only
     ```
-    
+
     * By default `import-jdl` regenerates only entities which have changed, if you want all your entities to be regenerated then pass in the `--force`  flag. Please note that this will overwrite all your local changes to the entity files
 
     ```
@@ -130,6 +130,10 @@ Entity relationships are only available for SQL databases. It is a fairly comple
 ## Data Transfer Objects (DTOs)
 
 By default JHipster entities do not use DTOs, but they are available as an option. Here is the documentation: [Using DTOs]({{ site.url }}/using-dtos/).
+
+## Filtering
+
+Optionally, entities stored in SQL databases can be filtered using JPA. Here is the documentation: [Filtering your entities]({{ site.url }}/entities-filtering/).
 
 ## Pagination
 
