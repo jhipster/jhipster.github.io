@@ -219,8 +219,9 @@ You can do the same with the JDL:
 
     dto A, B with mapstruct
 
-    paginate A, C with infinite-scroll
-    paginate B with pager
+    paginate A with infinite-scroll
+    paginate B with pagination
+    paginate C with pager  // pager is only available in AngularJS
 
     service A with serviceClass
     service C with serviceImpl
@@ -253,7 +254,7 @@ JDL also supports mass-option setting. it is possible to do:
 
     dto * with mapstruct
     service all with serviceImpl
-    paginate C, with pager
+    paginate C with pagination
 
 Note that `*` and `all` are equivalent.
 Latest version introduces exclusions (which is quite a powerful option when setting options for every entity):
@@ -265,7 +266,7 @@ Latest version introduces exclusions (which is quite a powerful option when sett
 
     dto * with mapstruct except A
     service all with serviceImpl except A, B, C
-    paginate C, with pager
+    paginate C with pagination
 
 
 With JHipster, you can also tell whether you don't want any client code, or server code. Even if you want to add a suffix to Angular-related files, you can do that in JHipster.
