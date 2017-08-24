@@ -24,6 +24,7 @@ We are currently creating JHipster meetups all around the world!
 - [New York JHipster meetup](https://www.meetup.com/JHipster-NYC/)
 - [Paris JHipster meetup](https://www.meetup.com/JHipster-User-Group/)
 - [Zurich JHipster meetup](https://www.meetup.com/JHipster/)
+- [Dublin JHipster meetup](https://www.meetup.com/JHipsterDublin/)
 
 ## Meetups being created
 
