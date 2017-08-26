@@ -23,13 +23,16 @@ JHipster has a lot of [contributors](https://github.com/jhipster/generator-jhips
 *   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
 *   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
+*   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support. It is maintained by [Srinivasa Vasu](https://twitter.com/srinivasavasu) who is also a core JHipster team member.
 
 ## Projects and communities contributing to JHipster
 
-JHipster works closely with other OSS communities, which often contribute to the project. Important contributions have been made by:
+JHipster works closely with other OSS communities, which often contributes code, advice and reviews to the project. Important contributions have been made by:
 
 *   [UI Router](https://ui-router.github.io/), the Angular router used by JHipster.
 *   [Webpack](https://webpack.github.io/), the module bundler that JHipster uses for its Angular 2 support.
+*   [Gradle](https://gradle.org/), one of the build supported by JHipster.
+*   [Angular](https://angular.io/), one of the Client framework supported by JHipster.
 
 ## Companies helping to develop JHipster
 
