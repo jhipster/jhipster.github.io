@@ -46,7 +46,7 @@ You must have a Docker registry. If you don’t have one, you can use the offici
 Minishift allows you to try out both Origin and Container Platform locally,
 
 - [OpenShift Origin](https://github.com/minishift/minishift)
-- [OpenShift Container Platform](https://developers.redhat.com/products/cdk/overview/) - Red Hat Container Development Kit provides a minishift packaged pre-built Container Development Environment based on Red Hat Enterprise Linux. Developers can now get Red Hat Container Development Kit via the no-cost Red Hat Enterprise Linux® Developer Suite subscription for development purposes by registering and downloading through [redhat.com](developers.redhat.com).
+- [OpenShift Container Platform](https://developers.redhat.com/products/cdk/overview/) - Red Hat Container Development Kit provides a Minishift packaged pre-built Container Development Environment based on Red Hat Enterprise Linux. Developers can now get Red Hat Container Development Kit via the no-cost Red Hat Enterprise Linux® Developer Suite subscription for development purposes by registering and downloading through [redhat.com](https://developers.redhat.com).
 
 The sub-generator works fine with both Origin and Container Platform and uses the same image versions as Docker.
 
