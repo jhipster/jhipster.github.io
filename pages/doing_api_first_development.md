@@ -32,7 +32,7 @@ Or for gradle:
 ```bash
 ./gradlew swagger
 ```
-Then implement the interfaces generated in `target/generated-sources/swagger/src/main/java/${package}/web/api/controller` with `@RestController` classes.
+Then implement the interfaces generated in `${buildDirectory}/generated-sources/swagger/src/main/java/${package}/web/api/controller` with `@RestController` classes.
 
 Example of code to write yourself for the famous [petstore](http://petstore.swagger.io):
 ```java
