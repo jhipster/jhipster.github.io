@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Kafka Streaming with Spring Cloud Stream
+title: Kafka with Spring Cloud Stream
 sitemap:
 priority: 0.5
 lastmod: 2017-08-29T17:37:00-00:00
@@ -127,8 +127,7 @@ public class ProducerResource{
 ```
 
 ##### Consumer Service
-We will consume the messages using Kafka streaming and simply log them to the console.
-
+We can consume the messages using `StreamListener` for message mapping and automatic type conversion.
 ```
 @Service
 public class ConsumerService {
