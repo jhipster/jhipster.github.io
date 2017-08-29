@@ -11,7 +11,7 @@ __Tip submitted by [@eosimosu](https://github.com/eosimosu)__
 
 ### Prerequisite
 
-Generate a new app and make sure to select `Asynchronous messages using Apache Kafka` when prompted for technologies you would like to use. A docker compose configuration file is generated and you can Kafka start with the command:
+Generate a new app and make sure to select `Asynchronous messages using Apache Kafka` when prompted for technologies you would like to use. A docker compose configuration file is generated and you can start Kafka with the command:
 
 `docker-compose -f src/main/docker/kafka.yml up -d`
 
