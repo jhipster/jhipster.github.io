@@ -90,3 +90,6 @@ You have to add the `HEROKU_API_KEY` environment variable.
 - Jenkins pipeline: you should use the [Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
 - GitLab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
 - CircleCI: read the [documentation about setting environment variables](https://circleci.com/docs/environment-variables/#setting-environment-variables-for-all-commands-without-adding-them-to-git)
+
+Before using the deployment to Heroku, you need to use the [Heroku sub-generator]({{ site.url }}/heroku) locally before.
+It will created all files needed by your Continuous Integration Tool.
