@@ -3,7 +3,7 @@ layout: default
 title: Kafka Streaming with Spring Cloud Stream
 sitemap:
 priority: 0.5
-lastmod: 2017-02-15T22:30:00-00:00
+lastmod: 2017-08-29T17:37:00-00:00
 ---
 
 __Tip submitted by [@eosimosu](https://github.com/eosimosu)__
