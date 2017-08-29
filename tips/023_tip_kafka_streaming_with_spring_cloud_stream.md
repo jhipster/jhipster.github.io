@@ -146,7 +146,7 @@ public class ConsumerService {
 
 ### Running the app
 
-Allow access to the endpoint in SecurityConfiguration.java.
+Allow access to the endpoint in `SecurityConfiguration.java`.
 
 `.antMatchers("/api/greetings/**").permitAll()`
 
