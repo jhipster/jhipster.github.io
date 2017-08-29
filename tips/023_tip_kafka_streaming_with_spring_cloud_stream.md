@@ -97,7 +97,7 @@ This corresponds to:
 `spring.cloud.stream.bindings.<channelName>.<topic>`
 
 
-#### Producer and Consumer
+### Producer and Consumer
 
 ##### Producer Resource
 Let's create a simple REST endpoint that we can invoke so send messages to a Kafka topic.
