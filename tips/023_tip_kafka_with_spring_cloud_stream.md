@@ -100,7 +100,7 @@ This corresponds to:
 ### Producer and Consumer
 
 ##### Producer Resource
-Let's create a simple REST endpoint that we can invoke so send messages to the Kafka topic, `greetings`.
+Let's create a simple REST endpoint that we can invoke to send messages to the Kafka topic, `greetings`.
 
 ```
 
