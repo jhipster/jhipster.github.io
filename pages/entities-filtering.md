@@ -17,9 +17,9 @@ Additionally, these filters should follow a sane, and concise pattern, and they 
 
 ## Public interface
 
-For every entity, you can enable filtering in the entity generator, and after, you can call your `/api/my-entity` GET endpoint with the following parameters :
+For each entity, you can enable filtering in the entity generator, and after, you can call your `/api/my-entity` GET endpoint with the following parameters :
 
-* For every *xyz* field
+* For each *xyz* field
     * *xyz.equals=someValue*
         - To list all the entities, where xyz equals to 'someValue'
     * *xyz.equals=someValue,otherValue*
@@ -43,11 +43,15 @@ For every entity, you can enable filtering in the entity generator, and after, y
 
 Of course, they can be combined freely.
 
+A good way to experience the expressiveness of this filter API is to use it from swagger-ui in the API docs page of your JHipster application.
+
+![]({{ site.url }}/images/entities_filtering_swagger.png)
+
 ## Implementation
 
 When this feature is enabled, a new service named as `EntityQueryService` and an `EntityCriteria` is generated. Spring will convert the request parameters into the fields of the `EntityCriteria` class.
 
-In the `EntityQueryService`, we convert the criteria object into a static, and type safe, JPA query object. For this, it is **required** that the **static metamodel generation is enabled** in the build.
+In the `EntityQueryService`, we convert the criteria object into a static, and type safe, JPA query object. For this, it is **required** that the **static metamodel generation is enabled** in the build. See the [JPA Static Metamodel Generator documentation](http://docs.jboss.org/hibernate/orm/current/topical/html_single/metamodelgen/MetamodelGenerator.html) for details.
 
 To prove that the generated criteria is working, and Spring is well configured, the `EntityResourceIntTest` is extended with lots of test cases, one for each individual filter.
 
