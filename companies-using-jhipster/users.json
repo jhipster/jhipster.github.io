@@ -740,6 +740,21 @@
     },
     {"name": "Fresh Gravity",
       "url": "http://www.freshgravity.com/"
+    },
+    {"name": "Endado.com",
+      "url": "https://www.endado.com/"
+    },
+    {"name": "CS Systèmes d'information",
+      "url": "http://www.c-s.fr/"
+    },
+    {"name": "Sonalake",
+      "url": "https://sonalake.com/"
+    },
+    {"name": "Exus",
+      "url": "http://www.exus.co.uk/"
+    },
+    {"name": "Stylez corp.",
+      "url": "https://www.stylez.co.jp/case/case01/"
     }
   ]
 }
