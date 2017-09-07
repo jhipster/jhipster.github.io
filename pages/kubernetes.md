@@ -6,7 +6,7 @@ redirect_from:
   - /kubernetes.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-08-12T00:00:00-00:00
+    lastmod: 2017-09-07T19:14:00-00:00
 ---
 
 # Deploying to Kubernetes
@@ -78,7 +78,7 @@ For example, if you use the Google Cloud to host your Docker images, it will be:
 
 When your application is already deployed, you can re-deploy it by building a new Docker image:
 
-`./mvnw package -Pprod -DskipTests docker:build`
+`./mvnw package -Pprod -DskipTests dockerfile:build`
 
 Or when using Gradle:
 

@@ -3,7 +3,7 @@ layout: default
 title: Kubernetes and Google Cloud SQL
 sitemap:
 priority: 0.5
-lastmod: 2016-11-13T19:00:00-00:00
+lastmod: 2017-09-07T19:14:00-00:00
 ---
 
 # Kubernetes and Google Cloud SQL
@@ -145,7 +145,7 @@ command let us use `gcloud docker -- push` in order to push to the project conta
 
 Build your image
 
-    mvn package -Pprod docker:build
+    mvn package -Pprod dockerfile:build
 
 Tag the image (replace with your jhipster application name). We use v1 as a tag to be able to easily deploy new versions
 of the application or rollback if something goes horribly wrong.
