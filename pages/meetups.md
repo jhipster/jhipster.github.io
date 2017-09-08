@@ -19,16 +19,25 @@ We are currently creating JHipster meetups all around the world!
 
 ## Existing meetups
 
-- [Lyon JHipster meetup](https://www.meetup.com/JHipster-Lyon/)
-- [Melbourne JHipster meetup](https://www.meetup.com/fr-FR/jHipster-Melbourne/)
-- [New York JHipster meetup](https://www.meetup.com/JHipster-NYC/)
-- [Paris JHipster meetup](https://www.meetup.com/JHipster-User-Group/)
-- [Zurich JHipster meetup](https://www.meetup.com/JHipster/)
-- [Dublin JHipster meetup](https://www.meetup.com/JHipsterDublin/)
+**North America**
+
+- [New York, USA - JHipster meetup](https://www.meetup.com/JHipster-NYC/)
+- [Washington, USA - JHipster meetup](https://www.meetup.com/JHipster-DC/)
+
+**Europe**
+
+- [Dublin, Ireland - JHipster meetup](https://www.meetup.com/JHipsterDublin/)
+- [Lyon, France - JHipster meetup](https://www.meetup.com/JHipster-Lyon/)
+- [Paris, France - JHipster meetup](https://www.meetup.com/JHipster-User-Group/)
+- [Zurich, Switzerland - JHipster meetup](https://www.meetup.com/JHipster/)
+
+**Oceania**
+
+- [Melbourne, Australia - JHipster meetup](https://www.meetup.com/fr-FR/jHipster-Melbourne/)
 
 ## Meetups being created
 
 *Contact the team if you want to help creating one of those meetups*
 
-- Amsterdam JHipster meetup
-- Brussels JHipster meetup
+- Amsterdam, Netherlands JHipster meetup
+- Brussels, Belgium JHipster meetup
