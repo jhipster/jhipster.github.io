@@ -84,7 +84,7 @@ To create a Docker image of your application, and push it into your Docker regis
 
 This will package your application with the `prod` profile, and install the image.
 
-On Windows, due to [lack of named pipes](https://github.com/spotify/docker-client/issues/875), you may have to tune settings for Docker and turned on “Expose daemon on tcp://localhost:2375 without TLS”.
+On Windows, due to [lack of named pipes](https://github.com/spotify/docker-client/issues/875), you may have to tune settings for Docker and turn on “Expose daemon on tcp://localhost:2375 without TLS”.
 
 To run this image, use the Docker Compose configuration located in the `src/main/docker` folder of your application:
 
