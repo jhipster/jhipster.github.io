@@ -229,6 +229,6 @@ On your host machine, you should be able to :
     So you won't be able to:
     <ul>
         <li>use the docker-compose files</li>
-        <li>build a Docker image (Maven goal: <code>docker:build</code> or Gradle task: <code>buildDocker</code>)</li>
+        <li>build a Docker image (Maven goal: <code>dockerfile:build</code> or Gradle task: <code>buildDocker</code>)</li>
     </ul>
 </div>
