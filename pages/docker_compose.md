@@ -6,7 +6,7 @@ redirect_from:
   - /docker_compose.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-12-01T00:00:00-00:00
+    lastmod: 2017-09-07T19:14:00-00:00
 ---
 
 # <i class="fa fa-music"></i> Docker and Docker Compose

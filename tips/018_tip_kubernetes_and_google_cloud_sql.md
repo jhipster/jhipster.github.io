@@ -3,7 +3,7 @@ layout: default
 title: Kubernetes and Google Cloud SQL
 sitemap:
 priority: 0.5
-lastmod: 2016-11-13T19:00:00-00:00
+lastmod: 2017-09-07T19:14:00-00:00
 ---
 
 # Kubernetes and Google Cloud SQL
