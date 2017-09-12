@@ -20,3 +20,5 @@ This is a generic JHipster error, which comes with a message. The message should
 ## How can this page be customized?
 
 Error pages are configured in each application's `ErrorConstants` class. If you want to provide your own error pages in your application, please modify this class accordingly.
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
