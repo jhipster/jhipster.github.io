@@ -79,7 +79,7 @@ __Solution 2__
 
 To create a Docker image of your application, and push it into your Docker registry:
 
-- With Maven, type: `./mvnw package -Pprod dockerfile:build`
+- With Maven, type: `./mvnw package -Pprod docker:build`
 - With Gradle, type: `./gradlew bootRepackage -Pprod buildDocker`
 
 This will package your application with the `prod` profile, and install the image.
