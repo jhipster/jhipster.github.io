@@ -58,6 +58,12 @@ If you are on Windows, use:
 
 **Please note** that this WAR file uses the profile we selected when building it. As it was built using the `prod` file in the previous section, it will therefore run with the `prod` profile.
 
+## Running the application in a Docker container
+
+JHipster has first-class support for Docker: it is very easy to bundle your executable WAR file in a Docker image, and run it inside Docker.
+
+To learn how to package your application with Docker, please read our [Docker Compose documentation]({{ site.url }}/docker-compose/).
+
 ## (only for AngularJS 1.x) Generating an optimized JavaScript application with Gulp
 
 This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, just run:
