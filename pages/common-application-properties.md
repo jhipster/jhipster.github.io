@@ -143,8 +143,11 @@ Here is a documentation for those properties:
         social:
             redirect-after-sign-in: "/#/home" # Redirect URL after successful authentication
 
-        # By default cross-origin resource sharing (CORS) is disabled.
-        # Configure a standard org.springframework.web.cors.CorsConfiguration
+        # By default cross-origin resource sharing (CORS) is enabled in "dev" mode for
+        # monoliths and gateways.
+        # It is disabled by default in "prod" mode for security reasons, and for microservices
+        # (as you are supposed to use a gateway to access them).
+        # This configures a standard org.springframework.web.cors.CorsConfiguration
         # Note that "exposed-headers" is mandatory for JWT-based security, which uses
         # the "Authorization" header, and which is not a default exposed header.
         cors:

@@ -61,8 +61,8 @@ This is an easy-to-use solution, but it can be less secure in production.
 JHipster provides out-of-the-box a CORS configuration:
 
 - CORS can be configured using the `jhipster.cors` property, as defined in [the JHipster common application properties]({{ site.url }}/common-application-properties/)
-- It is enabled by default in `dev` mode
-- It is disabled by default in `prod` mode
+- It is enabled by default in `dev` mode for monoliths and gateways. It is disabled by default for microservices as you are supposed to access them through a gateway.
+- It is disabled by default in `prod` mode, for security reasons.
 
 ## Using NGinx
 
