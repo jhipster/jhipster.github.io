@@ -181,17 +181,7 @@ ng help
 
 ### Building
 
-You can build your front-end using Angular CLI.
-
-```bash
-ng build
-```
-
-Or for production :
-
-```bash
-ng build --prod
-```
+You should not use `ng build` to build your front-end, as JHipster has its own scripts. Check our ["using in development" documentation]({{ site.url }}/development/) and our ["using in production" documentation]({{ site.url }}/production/).
 
 ### Generating Components, Directives, Pipes and Services
 
