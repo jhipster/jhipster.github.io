@@ -108,6 +108,8 @@ Here is a documentation for those properties:
             contact-email:
             license:
             license-url:
+            host:
+            protocols:
 
         # DropWizard Metrics configuration, used by MetricsConfiguration
         metrics:
