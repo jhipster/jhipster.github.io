@@ -2,3 +2,5 @@
 
 User-agent: *
 Disallow: /documentation-archive/
+Disallow: /releases/
+Allow: /
