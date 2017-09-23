@@ -26,6 +26,7 @@ This new version comes with 116 bug fixes and PRs!
 - The Openshift sub-generator has been removed, as it has been broken for a long time - see [#1896](https://github.com/jhipster/generator-jhipster/issues/1896).
 - And we have merged several small bug fixes, which you can list [using the 2.27.0 milestone with the `bug` label](https://github.com/jhipster/generator-jhipster/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A2.27.0+is%3Aclosed+label%3Abug).
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 

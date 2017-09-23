@@ -15,6 +15,7 @@ What's new
 * We have upgraded to the latest Spring Boot 1.0.0.RC2. This causes a [warning when running the executable WAR](https://github.com/spring-projects/spring-boot/issues/348)
 * We updated the generator dependencies version, as we had some issues running the generator on Mac OS X
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

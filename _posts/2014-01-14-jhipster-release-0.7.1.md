@@ -13,6 +13,7 @@ What's new
 
 - This is a minor bug correction, that makes the Karma tests passing with the latest AngularJS version (if your "grunt test" failed, it should be corrected)
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

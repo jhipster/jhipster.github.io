@@ -53,6 +53,7 @@ Our first open positions for working on JHipster are:
 - Senior VP of sales and customer success. Must have a mustache or a beard.
 - VP of marketing. Main role will be to write next year’s April fools’ statement.
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

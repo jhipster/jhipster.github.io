@@ -14,6 +14,7 @@ This is a patch release, with 2 important bug fixes for the "import-jdl" sub-gen
 - "import-jdl" subgenerator is not generating correct imports [#3871](https://github.com/jhipster/generator-jhipster/issues/3871)
 - No errors from import-jdl [#3870](https://github.com/jhipster/generator-jhipster/issues/3870)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.5.1+is%3Aclosed)__.

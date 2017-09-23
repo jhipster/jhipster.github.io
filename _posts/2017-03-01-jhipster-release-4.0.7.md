@@ -18,6 +18,7 @@ It includes 60 closed tickets and PRs, here are the most important ones:
 - Fix OAuth2 security [#5303](https://github.com/jhipster/generator-jhipster/issues/5303).
 - Ehcache programmatic configuration (no XML) [#5286](https://github.com/jhipster/generator-jhipster/pull/5286).
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.0.7+is%3Aclosed)__.

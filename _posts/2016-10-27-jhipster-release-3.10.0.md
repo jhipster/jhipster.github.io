@@ -20,6 +20,7 @@ Lots of new features and bug fixes in this new release, here are the most import
 - Several improvements in the upgrade sub-generator [#4306](https://github.com/jhipster/generator-jhipster/pull/4306)
 - Fix MongoDB running with Cloud Foundry [#4363](https://github.com/jhipster/generator-jhipster/issues/4363)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.10.0+is%3Aclosed)__.

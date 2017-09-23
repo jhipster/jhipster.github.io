@@ -19,6 +19,7 @@ Most importantly:
 - We updated the Liquibase/JPA configuration so that they now match 100%. We even run the Hibernate schema validation tool when running the tests ("mvn test"). However, this will probably break existing Liquibase configuration, or be too strict for most users: please notify us, and we will remove this check in future releases if it is too strict!
 
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

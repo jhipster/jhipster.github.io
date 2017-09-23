@@ -20,6 +20,7 @@ This is a small bug-fixing release, for people using DTOs on Linux.
 
 Version 2.13.0 was coded and tested on Mac OS X, which is supposed to be a Unix-like OS, and have a "real" filesystem. Turns out its filesystem is not case-sensitive by default (you can test yours with `diskutil info /`), which caused our issue [#1545](https://github.com/jhipster/generator-jhipster/pull/1545).
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.13.1+is%3Aclosed)__.
 
 How to upgrade

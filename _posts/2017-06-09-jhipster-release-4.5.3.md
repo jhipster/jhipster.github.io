@@ -18,6 +18,7 @@ Here are the highlights of this release:
 - Many Angular 4 updates, including Progressive Web App support! - see PR [#5880](https://github.com/jhipster/generator-jhipster/pull/5880) and PR [#5878](https://github.com/jhipster/generator-jhipster/pull/5878)
 - Missed update in Elasticsearch after update user via service/UserService.updateUser - see ticket [#5867](https://github.com/jhipster/generator-jhipster/issues/5867)
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.3+is%3Aclosed)__.

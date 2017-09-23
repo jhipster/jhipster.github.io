@@ -21,6 +21,7 @@ This is a bug-fix release, mostly to correct the two following issues:
 - An error in the watch path of BrowserSync [#3033](https://github.com/jhipster/generator-jhipster/pull/3033)
 - Sass files not being picked up properly [#3000](https://github.com/jhipster/generator-jhipster/issues/3000)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 

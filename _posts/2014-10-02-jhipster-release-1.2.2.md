@@ -20,6 +20,7 @@ This is a maintenance release, with:
 - A correction to an [important Atmosphere issue](https://github.com/jhipster/generator-jhipster/issues/623)
 - And several minor improvements and corrections
 
+<!--googleoff: index-->
 [You can check the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.2.2+is%3Aclosed).
 
 How to upgrade

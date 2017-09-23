@@ -26,10 +26,11 @@ All those are possible thanks to a lot of very complex code that is generated in
 This version also comes with some less important changes:
 
 - Many improvements on the Metrics page
-- All Grunt libraries are now fixed, as we had to many issues with broken JavaScript libraires. This is the same thing we have done with Bower in the previous release
+- All Grunt libraries are now fixed, as we had to many issues with broken JavaScript libraries. This is the same thing we have done with Bower in the previous release
 - We have switched from HSQLDB to H2, as it provides a nice Web console, available with the "/console" URL of your application. This allows you to check that hot reload really updated your database!
-- Several bugfixes, most noticeably in the Atmosphere code
+- Several bug fixes, most noticeably in the Atmosphere code
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

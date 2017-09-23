@@ -16,6 +16,7 @@ JHipster 0.15.0 comes with two important updates:
 - A new "registration" page, that was one of our most requested features: [#309](https://github.com/jhipster/generator-jhipster/pull/309)
 - Corrected a database error that was occuring in production mode: [#305](https://github.com/jhipster/generator-jhipster/issues/305)
 
+<!--googleoff: index-->
 And of course several minor bugfixes and improvements, which are listed [here](https://github.com/jhipster/generator-jhipster/issues?milestone=4&page=1&state=closed)
 
 How to upgrade

@@ -16,6 +16,7 @@ This includes 44 closed tickets and PRs, and it has 2 very important upgrades:
 - Support for Spring Boot 1.5.1, which includes a major upgrade for many dependencies
 - Continuous Integration support has been moved to a specific sub-generator, and now supports Jenkins, Travis, GitLab and CircleCI. You can find more information on our [Continuous Integration documentation]({{ site.url }}/setting-up-ci/).
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.0.6+is%3Aclosed)__.

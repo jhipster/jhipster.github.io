@@ -13,6 +13,7 @@ This is a bug-fix release, because of issue [#4283](https://github.com/jhipster/
 
 This is important for everyone using our microservices architecture, as basically the JHipster Registry couldn't register correctly services, because of an issue with the latest SpringFox v2.6.0 release. So we reverted SpringFox to the previous v2.5.0 release, and will do the upgrade later.
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.9.1+is%3Aclosed)__.

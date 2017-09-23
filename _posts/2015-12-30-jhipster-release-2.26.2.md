@@ -23,6 +23,7 @@ Most important news are:
 - Libraries upgrades: Spring Boot 1.3.1, Gradle 2.10, Liquibase 3.4.2
 - Correction of Hazelcast issues when using clustered HTTP sessions
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 

@@ -20,6 +20,7 @@ This is a bugfix release, correcting [a platform-specific bug on Windows](https:
 
 Please note that this issue was corrected by [@andidev](https://github.com/andidev) and tested by [@atomfrede](https://github.com/atomfrede), all under 24h! Thank you!
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.1.1+is%3Aclosed)__.
 
 How to upgrade

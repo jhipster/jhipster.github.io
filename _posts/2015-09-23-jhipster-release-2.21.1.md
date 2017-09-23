@@ -23,6 +23,7 @@ This is a bug fixing release, which mainly:
 - Fixes issue [#2026](https://github.com/jhipster/generator-jhipster/issues/2026) : Cassandra support was broken because of the new user management system
 - Fixes issue [#2030](https://github.com/jhipster/generator-jhipster/issues/2030) : when the "no i18n" option was selected, user management was broken
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.21.1+is%3Aclosed)__.
 
 How to upgrade

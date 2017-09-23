@@ -21,6 +21,7 @@ Lots of new exciting features in this release, as well as the usual bug fixes. H
 - Upgrade to the latest Spring Cloud Stream "Brooklyn" release, which allows to use the latest Kafka API version.
 - Elasticsearch support in Kubernetes: [#4269](https://github.com/jhipster/generator-jhipster/pull/4269)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.9.0+is%3Aclosed)__.

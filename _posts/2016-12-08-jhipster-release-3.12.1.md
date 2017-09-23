@@ -15,6 +15,7 @@ The biggest new feature is the support of Microsoft SQL Server, now that it is a
 
 This release will be used as a base for our upcoming Angular 2 migration: we will merge very soon the Angular 2 code into our master branch, so you can expect an alpha release of JHipster 4 very soon.
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.12.1+is%3Aclosed)__.

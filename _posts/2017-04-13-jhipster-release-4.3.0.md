@@ -16,6 +16,7 @@ What's new
 - pngquant and optipng have been removed, see [#5553](https://github.com/jhipster/generator-jhipster/issues/5553)
 - The upgrade sub-generator has been improved, its updated documentation is [here]({{ site.url }}/upgrading-an-application/).
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.3.0+is%3Aclosed)__.

@@ -16,6 +16,7 @@ What's new
 - The connection pool has changed: we now use [HikariCP](https://github.com/brettwooldridge/HikariCP)
 - For users who have chosen to use Spring 4, updated the application to Spring 4.0.0.RC2
 
+<!--googleoff: index-->
 
 How to upgrade
 ------------

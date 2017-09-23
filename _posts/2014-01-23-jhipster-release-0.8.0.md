@@ -36,6 +36,7 @@ As Spring Boot is really new, we expect you have a few questions about this upgr
 - We lose 2 seconds at start-up with Tomcat (no problem with Jetty): this looks like an issue with Tomcat, when no web.xml file exists
 
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

@@ -26,6 +26,7 @@ Most importantly, we have:
 
 The number of questions asked by the generator has thus increased, and we have a huge number of possible outputs depending on your choices. Hopefully all of them will work :-)
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

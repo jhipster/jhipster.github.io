@@ -33,6 +33,7 @@ Deployment to Cloud Foundry was broken (issue [#2225](https://github.com/jhipste
 
 Our HTTP cache headers where wrong in production (issue [#2239](https://github.com/jhipster/generator-jhipster/issues/2239)). We have corrected then, and have now excellent performance in production back again!
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 

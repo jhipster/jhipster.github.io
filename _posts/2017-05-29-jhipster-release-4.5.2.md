@@ -17,6 +17,7 @@ In total, 50 bugs and PRs have been fixed, here are the most important changes:
 - Hand-code the UserMapper as we don't want to force people to use MapStruct by default [#5808](https://github.com/jhipster/generator-jhipster/issues/5808)
 - Fix the LoggingAspect which wasn't working anymore [#5823](https://github.com/jhipster/generator-jhipster/issues/5823)
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.2+is%3Aclosed)__.

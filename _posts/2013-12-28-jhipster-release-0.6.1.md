@@ -14,6 +14,7 @@ What's new
 - German version of JHipster thanks to [@micsta](https://twitter.com/micsta)
 - Several bug fixes: the biggest one was on the CachingHttpHeadersFilter: it should work a lot better, don't hesitate to contact us if you find some caching issues in production!
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

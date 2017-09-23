@@ -18,6 +18,7 @@ What's new
 
 This is a bug-fixing release to solve [#1420](https://github.com/jhipster/generator-jhipster/issues/1420), which was causing errors when using uppercase letters in many-to-many relationships with PostgreSQL.
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.9.2+is%3Aclosed)__.
 
 How to upgrade

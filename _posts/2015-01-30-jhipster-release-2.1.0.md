@@ -28,6 +28,7 @@ __WARNING__ As our security mechanisms have changed, your .yo-rc.json files need
 
 Concerning our roadmap, we hope to have soon a working Cassandra implementation. This should be a very interesting option!
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.1.0+is%3Aclosed)__.
 
 How to upgrade
