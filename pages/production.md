@@ -37,6 +37,11 @@ Or when using Gradle:
 
 This will generate two files (if your application is called "jhipster"):
 
+When using Maven:
+*   `target/jhipster-0.0.1-SNAPSHOT.war`
+*   `target/jhipster-0.0.1-SNAPSHOT.war.original`
+
+When using Gradle:
 *   `build/libs/jhipster-0.0.1-SNAPSHOT.war`
 *   `build/libs/jhipster-0.0.1-SNAPSHOT.war.original`
 
