@@ -32,4 +32,4 @@ To change the default Bootstrap settings like colors, border-radius, etc, add or
 
 All values defined in Bootstrap [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss) can be overwritten here.
 
-Please refer to the official [Bootstrap](https://v4-alpha.getbootstrap.com/getting-started/options/) documentation for more details on customizations.
+Please refer to the official [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/options/) documentation for more details on customizations.
