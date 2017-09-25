@@ -37,8 +37,13 @@ Or when using Gradle:
 
 This will generate two files (if your application is called "jhipster"):
 
+When using Maven:
 *   `target/jhipster-0.0.1-SNAPSHOT.war`
 *   `target/jhipster-0.0.1-SNAPSHOT.war.original`
+
+When using Gradle:
+*   `build/libs/jhipster-0.0.1-SNAPSHOT.war`
+*   `build/libs/jhipster-0.0.1-SNAPSHOT.war.original`
 
 The first one is an executable WAR file (see next section to run it). It can also be deployed on an application server, but as it includes runtime libraries, we recommend you use the second, `.original` file if you want to deploy JHipster on an application server like Tomcat, Weblogic or Websphere.
 
