@@ -36,8 +36,9 @@ Other important changes
 - The entity sub-generator got many new features like option to update existing entities, custom table name, AngularJS suffix etc. Check the documentation [here]({{ site.url }}/creating-an-entity/) for details.
 - The `fast` profile has been removed and instead you now have profile switches. Check the documentation [here]({{ site.url }}/profiles/) for details.
 - We have changed the way application is packaged, to improve performance. Find more details [here]({{ site.url }}/production/).
-- You can now choose a base language and additional languages during application generation if you have choosen internationalization.
+- You can now choose a base language and additional languages during application generation if you have chosen internationalization.
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 This is a huge release for us and as always, __[you can check all the 596 closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.0.0+is%3Aclosed)__.

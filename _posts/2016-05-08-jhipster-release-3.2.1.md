@@ -21,6 +21,7 @@ Cool new features:
 - We have a brand new [JHipster DevBox](https://github.com/jhipster/jhipster-devbox). It is based on the latest Ubuntu Xenial release, uses XUbuntu, and has many improved applications.
 - There should now be a notification when a new version is released [#3562](https://github.com/jhipster/generator-jhipster/pull/3562). Of course, this couldn't have been tested for real, so let's wait for the next version to see if it works :-)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.2.1+is%3Aclosed)__.

@@ -15,6 +15,7 @@ What's new
 - You can now create a single executable JAR file of the application, for easy deployment. It is documentated in the [production section](/production/)
 - Several bug fixes and minor improvements, and updated documentation
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

@@ -21,6 +21,7 @@ This is a bug-fixing release. The biggest changes come from those two issues:
 - [#1479](https://github.com/jhipster/generator-jhipster/issues/1479): we now have a new question in the entity sub-generator so you can do two relationships between the same two entities.
 - [#1468](https://github.com/jhipster/generator-jhipster/issues/1468): one-to-one mappings now have a @JsonIgnore annotation so we don't have a circular reference in our JSON views.
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.12.0+is%3Aclosed)__.
 
 How to upgrade

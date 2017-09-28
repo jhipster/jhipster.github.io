@@ -63,6 +63,7 @@ Upgrades
 - Upgrade to Spring Boot 1.4 [#3900](https://github.com/jhipster/generator-jhipster/pull/3900), which also upgraded the project to the latest Tomcat release (and caused issue [#3995](https://github.com/jhipster/generator-jhipster/issues/3995))
 - Upgrade to the latest NPM and Bower dependencies [#3888](https://github.com/jhipster/generator-jhipster/pull/3888)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.6.0+is%3Aclosed)__.

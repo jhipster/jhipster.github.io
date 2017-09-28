@@ -42,6 +42,7 @@ You can now use H2's disk-persistence mechanism. This is not yet fully working w
 
 Initial support for Behavior-driven development using Cucumber is now available at application generation.
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 

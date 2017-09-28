@@ -23,6 +23,7 @@ This is an upgrade and a bug-fix version for JHipster 3.1.0, with some major new
 - JHipster Console v1.2.0 released, with some bug fixes for alerting
 - Many small UI improvements and bug corrections
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.2.0+is%3Aclosed)__.

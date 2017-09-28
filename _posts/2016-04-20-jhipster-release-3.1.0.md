@@ -17,6 +17,7 @@ This is an upgrade and a bug-fix version for JHipster 3.0.0, with 161 closed tic
 - The Heroku sub-generator has had many improvements, in particular if you use it with the JHipster Registry
 - Many small UI improvements and bug corrections
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.1.0+is%3Aclosed)__.

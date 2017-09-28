@@ -33,6 +33,7 @@ This follows the discussion from [#1278](https://github.com/jhipster/generator-j
 
 If those choices do not suit you, don't hesitate to send us comments, and remember that all this can be easily changed in your JPA mapping!
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.8.0+is%3Aclosed)__.
 
 How to upgrade

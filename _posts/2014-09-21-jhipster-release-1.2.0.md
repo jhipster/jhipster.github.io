@@ -16,6 +16,7 @@ This is a bug-fixing release, [you can check the closed tickets here](https://gi
 We have had several issues with Liquibase and Spring Loaded, which should now all be solved. As those issues
 were quite important, this is a recommended update for all users.
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

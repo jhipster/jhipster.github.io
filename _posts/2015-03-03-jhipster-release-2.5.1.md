@@ -29,6 +29,7 @@ We have 4 pagination options:
 - A complete pagination system, based on [the Bootstrap pagination component](http://getbootstrap.com/components/#pagination)
 - An infinite scroll system, based on [the infinite scroll directive](http://sroze.github.io/ngInfiniteScroll/)
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.5.1+is%3Aclosed)__.
 
 How to upgrade

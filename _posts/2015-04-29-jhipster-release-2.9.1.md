@@ -18,6 +18,7 @@ What's new
 
 This is a minor release to fix [#1419](https://github.com/jhipster/generator-jhipster/issues/1419), which was making hot reloading of CSS files fail.
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.9.1+is%3Aclosed)__.
 
 How to upgrade

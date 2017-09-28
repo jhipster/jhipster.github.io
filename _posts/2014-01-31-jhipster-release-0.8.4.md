@@ -15,6 +15,7 @@ Added spring-milestones as a pluginRepository, so spring-boot-maven-plugin in ve
 
 See [#112](https://github.com/jhipster/generator-jhipster/pull/112) for more information.
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

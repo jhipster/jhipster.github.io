@@ -15,6 +15,7 @@ This is a maintenance release for our latest v1.10.x version, to use the newly-r
 
 This release should be easier to use for people using a corporate Maven repository, as they might not have access to the Spring snapshot librairies.
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

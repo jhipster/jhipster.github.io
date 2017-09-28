@@ -17,6 +17,7 @@ What's new
 * All Bower dependencies are now hard-coded in the generated bower.json file. This means we stop trusting other projects when they publish a so-called "updatable" dependency, as this has caused far too many issues. Now everybody using JHipster will have the same Bower dependencies, unless you choose to do a "bower update" yourself, of course!
 * Several minor bug corrections, reformatting and improvements
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

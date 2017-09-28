@@ -13,6 +13,7 @@ What's new
 
 We corrected several important issues in our "production" profile, mostly related to our use of Spring Boot. We recommend all users who want to use the production profile to upgrade.
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

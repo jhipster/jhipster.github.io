@@ -21,6 +21,7 @@ Other notable improvements are:
 - Updated the images to have our new logo created by [@ggaulard](https://twitter.com/ggaulard)
 - Support for 2 new langages (traditional Chinese and Swedish), for an impressive total of 13 supported languages!
 
+<!--googleoff: index-->
 [You can check the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.5.0+is%3Aclosed).
 
 How to upgrade

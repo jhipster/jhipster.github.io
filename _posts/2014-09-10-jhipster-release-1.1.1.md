@@ -15,7 +15,7 @@ This is a bug-fixing release with [a few tickets resolved](https://github.com/jh
 
 Most importantly, we corrected an error in the Gradle build, and an error when using Token-based authentication. If you have generated your project with the default settings, both of them shouldn't have any impact on your existing application.
 
-
+<!--googleoff: index-->
 How to upgrade
 ------------
 

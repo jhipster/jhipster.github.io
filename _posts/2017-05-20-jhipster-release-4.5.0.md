@@ -32,6 +32,7 @@ This release contains 63 closed tickets and Pull Requests:
 - Lots of unit tests and polishing, giving us an incredible score of 96.2% code coverage on our sample project! Many thanks to [Christophe Bornet](https://twitter.com/cbornet_) on this part.
 - Many library upgrades, as usual
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.0+is%3Aclosed)__.

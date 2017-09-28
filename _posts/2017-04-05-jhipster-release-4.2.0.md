@@ -18,6 +18,7 @@ Other really cool features are:
 - [ELK 5](https://www.elastic.co/fr/v5) and [Zipkin](http://zipkin.io/) support in our microservices architecture by [Pierre Besson](https://twitter.com/pibesson) - beware, the new dashboards are gorgeous :-)
 - [Rancher](http://rancher.com/rancher/) support by [Steve Houël](https://twitter.com/SteveHouel), documentation should be available in the next few days.
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.2.0+is%3Aclosed)__.

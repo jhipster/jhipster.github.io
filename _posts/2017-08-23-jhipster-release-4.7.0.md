@@ -17,6 +17,7 @@ What's new
 - Migratation of Logstash appender from UDP to TCP - see [#6102](https://github.com/jhipster/generator-jhipster/issues/6102)
 - Many minor bugs and small new features
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.7.0+is%3Aclosed)__.

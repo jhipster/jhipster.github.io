@@ -19,6 +19,7 @@ This is a maintenance release, with:
 
 [You can check the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.2.1+is%3Aclosed).
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 
