@@ -7,9 +7,7 @@ sitemap:
     lastmod: 2017-05-03T00:00:00-00:00
 ---
 
-# <i class="fa fa-bullseye"></i> [BETA] Consul
-
-WARNING! This is a new feature, of BETA quality. Use it at your own risk! Feedback is highly welcome!
+# <i class="fa fa-bullseye"></i> Consul
 
 ## Consul overview
 
@@ -20,7 +18,13 @@ Compared to Eureka it has a number of advantages:
 - It favors consistency over availability so changes in the state of your cluster are propagated more quickly.
 - Consul service discovery can simply interoperate with existing applications through its [DNS interface](https://www.consul.io/docs/agent/dns.html) or [HTTP API](https://www.consul.io/docs/agent/http.html).
 
-To get started with developping applications that rely on a Consul registry, you can start a Consul instance in a docker container:
+## Architecture diagram
+
+<img src="{{ site.url }}/images/microservices_architecture_detail.003.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
+
+## Getting started
+
+To get started with developing applications that rely on a Consul registry, you can start a Consul instance in a docker container:
 
 - run `docker-compose -f src/main/docker/consul.yml up` to start a Consul server in `dev` mode. Consul will then be available on port `8500` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8500/](http://127.0.0.1:8500/).
 

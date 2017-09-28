@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using UAA for Microservice Security
+title: Using JHipster UAA for Microservice Security
 permalink: /using-uaa/
 redirect_from:
   - /security.html
@@ -8,9 +8,7 @@ sitemap:
     priority: 0.7
     lastmod: 2016-08-25T00:00:00-00:00
 ---
-# <i class="fa fa-lock"></i> [BETA] Using UAA for Microservice Security
-
-__WARNING!__ This is a new feature, of <b>BETA</b> quality. Use it at your own risk! Feedback is highly welcome!
+# <i class="fa fa-lock"></i> Using JHipster UAA for Microservice Security
 
 JHipster UAA is a user accounting and authorizing service for securing JHipster microservices using the OAuth2 authorization protocol.
 
@@ -18,19 +16,23 @@ To clearly distinct JHipster UAA from other "UAA"s as cloudfoundrys UAA, JHipste
 
 ## Summary
 
-1. [Security claims of microservice architecture](#claims)
-2. [Understanding OAuth2 in this context](#oauth2)
-3. [Using JHipster UAA](#jhipster-uaa)
+1. [Architecture diagram](#architecture_diagram)
+2. [Security claims of microservice architecture](#claims)
+3. [Understanding OAuth2 in this context](#oauth2)
+4. [Using JHipster UAA](#jhipster-uaa)
   * Basic setup
   * Understanding the components
   * Common mistakes
-4. [Securing inter-service-communication using Feign clients](#inter-service-communication)
+5. [Securing inter-service-communication using Feign clients](#inter-service-communication)
   * Using Eureka, Ribbon, Hystrix and Feign
   * Using `@AuthorizedFeignClients`
-5. [Testing UAA applications](#testing)
+6. [Testing UAA applications](#testing)
   * Stubbing feign clients
   * Emulating OAuth2 authentication
 
+## <a name="architecture_diagram"></a> Architecture diagram
+
+<img src="{{ site.url }}/images/microservices_architecture_detail.002.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
 
 ## <a name="claims"></a> 1. Security claims of microservice architecture
 

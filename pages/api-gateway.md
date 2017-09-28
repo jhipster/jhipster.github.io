@@ -13,11 +13,16 @@ JHipster can generate API gateways. A gateway is a normal JHipster application, 
 
 ## Summary
 
-1. [HTTP routing](#http_routing)
-2. [Security](#security)
-3. [Automatic documentation](#documentation)
-4. [Rate limiting](#rate_limiting)
-5. [Access control policy](#acl)
+1. [Architecture diagram](#architecture_diagram)
+2. [HTTP routing](#http_routing)
+3. [Security](#security)
+4. [Automatic documentation](#documentation)
+5. [Rate limiting](#rate_limiting)
+6. [Access control policy](#acl)
+
+## <a name="architecture_diagram"></a> Architecture diagram
+
+<img src="{{ site.url }}/images/microservices_architecture_detail.001.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
 
 ## <a name="http_routing"></a> HTTP requests routing using the gateway
 
