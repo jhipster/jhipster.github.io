@@ -14,6 +14,7 @@ This is a bug-fix version, and a recommended upgrade for all 3.4.1 users:
 - Fix an important bug making the JavaScript production builds fail [#3732](https://github.com/jhipster/generator-jhipster/issues/3732)
 - Upgrade Spring Cloud to Brixton SR1 [#3716](https://github.com/jhipster/generator-jhipster/issues/3716)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.4.2+is%3Aclosed)__.

@@ -14,6 +14,7 @@ What's new
 - [karma](http://karma-runner.github.io/) tests thanks to [@jollivetc](https://twitter.com/jollivetc)
 - Several important bug fixes
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

@@ -20,6 +20,7 @@ JHipster 0.18.0 is a bug-fixing release, that corrects [47 issues](https://githu
 
 We also have some new Spanish, Korean and Turkish translations, thanks to everyone contributing to the project!
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

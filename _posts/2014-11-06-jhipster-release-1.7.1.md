@@ -8,6 +8,7 @@ JHipster release 1.7.1
 
 *JHipster gives you Spring Boot + AngularJS working together in one handy Yeoman generator.*
 
+<!--googleoff: index-->
 What's new
 ----------
 

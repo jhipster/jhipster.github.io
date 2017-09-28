@@ -64,6 +64,7 @@ __Is this new version more fun than the previous one?__
 
 Oh yes, a lot more!
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

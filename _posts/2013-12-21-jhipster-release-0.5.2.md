@@ -13,6 +13,7 @@ What's new
 
 - Corrected a bug when running tests with HazelCast
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

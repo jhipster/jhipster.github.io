@@ -16,6 +16,7 @@ What's new
 
 In total, 72 tickets and PR have been closed, so there are also many minor issues which have been fixed.
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.8.0+is%3Aclosed)__.

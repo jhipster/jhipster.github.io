@@ -24,6 +24,7 @@ More specifically, we included the following fixes:
 
 Many thanks to everybody sending us Pull Requests, we are very happy to have so many people contributing.
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

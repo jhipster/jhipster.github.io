@@ -17,6 +17,7 @@ What's new
 - We updated to the latest Spring 4.0.1 version, which corrects a number of issues. If you had issues with wrong stacktraces with *org.springframework.scheduling.annotation.SchedulingConfiguration.setBeanFactory*, that should now be solved
 - The whole documentation has been updated to reflect those changes
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

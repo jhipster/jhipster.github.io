@@ -17,6 +17,7 @@ It was triggered because of a [https://npms.io/](https://npms.io/) outage, and t
 
 This issue is tracked by [#5934](https://github.com/jhipster/generator-jhipster/issues/5934) but we had many duplicates. As a related note, we had a big increase this week in GitHub tickets not following our [guidelines](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md): if you need help, please read those guidelines, and don't make the whole team lose time.
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.4+is%3Aclosed)__.

@@ -15,6 +15,7 @@ This is a bugfix release, correcting an issue with HazelCast.
 
 - Fixed [JHipster version 0.8.1 has issues with HazelCast](https://github.com/jhipster/generator-jhipster/issues/106)
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

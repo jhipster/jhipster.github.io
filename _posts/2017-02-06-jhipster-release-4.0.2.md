@@ -11,6 +11,7 @@ What's new
 
 This is the second patch release for JHipster 4.0.0, with many small bugs corrected, mostly for people using Angular 2.
 
+<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.0.2+is%3Aclosed)__.

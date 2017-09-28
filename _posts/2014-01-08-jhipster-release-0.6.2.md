@@ -20,6 +20,7 @@ If you want to try out our new [Docker](https://www.docker.io/) container :
 - Have a look at our separate [jhipster-docker](https://github.com/jhipster/jhipster-docker) project
 - If you live in Paris, please join us at the next [Docker Paris](http://www.meetup.com/Docker-Paris/events/156241722/) event, where we will present the solution 
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

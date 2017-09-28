@@ -19,6 +19,7 @@ What's new
 - JSON pretty print in dev mode [#3830](https://github.com/jhipster/generator-jhipster/issues/3830)
 - Better SpringFox configuration for pagination parameters [#3844](https://github.com/jhipster/generator-jhipster/pull/3844)
 
+<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.5.0+is%3Aclosed)__.

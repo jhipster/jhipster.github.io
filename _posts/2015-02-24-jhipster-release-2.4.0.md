@@ -22,6 +22,7 @@ Along with our JPA and MongoDB support, JHipster is the only Yeoman generator wh
 
 If you want more information on our Cassandra support, we have a [specific documentation available](https://jhipster.github.io/using-cassandra/).
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.4.0+is%3Aclosed)__.
 
 How to upgrade

@@ -22,6 +22,7 @@ If you still have the `Error: Cannot find module 'ejs'` issue, please send us a 
 
 Those issues still come from our migration to Yeoman 0.20.1, which has been very complicated, but this should be the end of them! That's the price to pay to be ready for Yeoman 1.0.
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.15.2+is%3Aclosed)__.
 
 How to upgrade

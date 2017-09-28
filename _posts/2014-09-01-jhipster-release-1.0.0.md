@@ -21,6 +21,7 @@ For our next minor releases we will still focus on stability and compatibility b
 
 Thank you to all our contributors and users! If you like our project, please give us a star on GitHub, and follow us on Twitter!
 
+<!--googleoff: index-->
 How to upgrade
 ------------
 

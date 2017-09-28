@@ -18,6 +18,7 @@ What's new
 
 The biggest news in this release is that we have the [password reset feature](https://github.com/jhipster/generator-jhipster/pull/1343) working, thanks to the great work of [Frederik Hahne](https://twitter.com/atomfrede). Frederik is also our Gradle maintainer, and is one of our [top contibutors](https://github.com/jhipster/generator-jhipster/graphs/contributors), many thanks to him!!
 
+<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.10.0+is%3Aclosed)__.
 
 How to upgrade
