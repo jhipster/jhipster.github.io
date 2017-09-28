@@ -22,7 +22,6 @@ yo jhipster:entity foo
 ```
 - Corrected a bug in grunt-time which was hanging the build in "prod" mode
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

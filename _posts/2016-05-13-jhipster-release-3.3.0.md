@@ -18,7 +18,6 @@ Important changes and bug fixes:
 - Spring Data Cassandra support has been removed, so we use directly the DataStax Driver. This has allowed us to upgrade the Driver to a more recent version, and be ready for Cassandra 3.0 [#3570](https://github.com/jhipster/generator-jhipster/pull/3570)
 - The mail health check is now disabled by default, as it was causing issues with the Registry and Cassandra [#3579](https://github.com/jhipster/generator-jhipster/issues/3579)
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.3.0+is%3Aclosed)__.

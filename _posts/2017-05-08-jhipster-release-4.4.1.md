@@ -13,7 +13,6 @@ This is the first patch release for JHipster v4.4.0, which contains a fix for th
 
 - [Bean method 'eurekaRegistration' not loaded because @ConditionalOnProperty](https://github.com/jhipster/generator-jhipster/issues/5732)
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.4.1+is%3Aclosed)__.

@@ -20,7 +20,6 @@ This new release adds the [support for Java enum types](https://github.com/jhips
 
 We also fixed many small bugs, and upgraded Spring Security and MapStruct.
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.17.0+is%3Aclosed)__.
 
 How to upgrade

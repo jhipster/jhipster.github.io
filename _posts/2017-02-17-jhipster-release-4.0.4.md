@@ -16,7 +16,6 @@ There are 2 important changes to notice:
 - We now have HTTP/2 support thanks to top hipster [Matt Raible](https://twitter.com/mraible). Configuration is available in the `application-*.yml` files, with a new JHipsterProperties entry.
 - For Angular 2+ users, we used to have a `jhiHasAuthority` and a `jhiHasAnyAuthority` directives, which basically did the same thing, so now only the `jhiHasAnyAuthority` directive is available.
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.0.4+is%3Aclosed)__.

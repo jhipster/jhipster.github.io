@@ -20,7 +20,6 @@ This is a minor release, which validates that our new [Heroku](https://www.herok
 
 In the last 4 days, we've had more than 100 applications deployed on Heroku (this is a rough estimate, from the statistics we gather), and had some great feedback which helped iron out a few minor issues.
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.11.1+is%3Aclosed)__.
 
 How to upgrade

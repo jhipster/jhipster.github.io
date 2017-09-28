@@ -8,8 +8,6 @@ JHipster release 0.3.1
 
 *JHipster gives you Yeoman + Maven + Spring + AngularJS all working together in one handy generator.*
 
-<!--googleoff: index-->
-
 What's new
 ----------
 

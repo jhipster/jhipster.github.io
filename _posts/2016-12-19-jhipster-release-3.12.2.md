@@ -13,7 +13,6 @@ This is a patch release, that corrects ticket [#4680](https://github.com/jhipste
 
 This is a simple and recommended upgrade for everyone.
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.12.2+is%3Aclosed)__.

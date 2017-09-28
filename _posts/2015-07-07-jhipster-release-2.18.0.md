@@ -26,7 +26,6 @@ We upgraded to Swagger 2, now called "SpringFox", see [#1508](https://github.com
 
 Last but not least, we also upgraded to Spring Boot 1.2.5 (highly recommended upgrade as there is a security fix), Cassandra 2.1.7 (which fixes also a number of bugs) and Gatling 2.1.6.
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.18.0+is%3Aclosed)__.
 
 How to upgrade

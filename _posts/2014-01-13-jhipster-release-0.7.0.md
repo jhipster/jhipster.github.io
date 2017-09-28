@@ -15,7 +15,6 @@ What's new
 - We now have a usable [Docker](https://www.docker.io/) configuration, which is fully documentated on our [updated installation page](/installation/).
 - We updated all Maven/NPM/Bower dependencies, so that your generated application stays on the cutting edge!
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

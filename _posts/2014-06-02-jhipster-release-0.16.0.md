@@ -15,7 +15,6 @@ JHipster 0.16.0 comes with one new major feature: [Gradle](http://www.gradle.org
 
 In case you were wondering: yes, you can use Gradle OR Maven on the backend, and Grunt OR Gulp.js on the frontend. All 4 combinations should work the same!
 
-<!--googleoff: index-->
 And of course we have several bugfixes and improvements, which are listed [here](https://github.com/jhipster/generator-jhipster/issues?milestone=5&page=1&state=closed)
 
 How to upgrade

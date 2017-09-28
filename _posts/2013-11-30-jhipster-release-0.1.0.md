@@ -12,8 +12,6 @@ We have also moved the JHipster github repository to the newly created JHipster 
 
 [https://github.com/jhipster](https://github.com/jhipster)
 
-<!--googleoff: index-->
-
 So please:
 
 - Update your bookmarks

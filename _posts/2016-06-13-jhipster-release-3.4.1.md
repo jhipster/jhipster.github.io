@@ -15,7 +15,6 @@ This is a bug-fix version, with 2 notable changes:
 - We still recommend using a NodeJS LTS (Long Term Support) version, but if you want to live on the bleeding edge, NodeJS 6.x should now work correctly [#3663](https://github.com/jhipster/generator-jhipster/issues/3663)
 - Docker images containing JHipster applications should now be 40% smaller! [#3700](https://github.com/jhipster/generator-jhipster/issues/3700)
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.4.1+is%3Aclosed)__.

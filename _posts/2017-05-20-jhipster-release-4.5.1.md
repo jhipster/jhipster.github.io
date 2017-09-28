@@ -16,7 +16,6 @@ Unfortunately, the only way for us to validate that everything is fine is to do 
 - Check our [Twitter account @java_hipster](https://twitter.com/java_hipster) and notify us if necessary
 - Use our [GitHub issue tracker](https://github.com/jhipster/generator-jhipster/issues) to track the problem
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.1+is%3Aclosed)__.

@@ -24,7 +24,6 @@ Important bug fixes:
 - robots.txt secured in gateway applications [#3626](https://github.com/jhipster/generator-jhipster/issues/3626)
 - Error when starting a microservice app, using app.yml, with Docker Compose [#3607](https://github.com/jhipster/generator-jhipster/issues/3607)
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.4.0+is%3Aclosed)__.

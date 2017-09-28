@@ -15,7 +15,6 @@ What's new
 - The whole Spring Configuration is now XML-less. The last XML configuration file is web.xml (Java EE always loved XML!!).
 - We have a new "service" sub-generator, for generating business services. You can find its new and up-to-date documentation [here]({{ site.url }}/creating-a-service/).
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

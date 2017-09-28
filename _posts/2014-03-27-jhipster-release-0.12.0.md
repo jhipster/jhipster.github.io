@@ -21,7 +21,6 @@ This means 3 things:
 - our Java Agent has changed, you now need to use "-javaagent:spring_loaded/springloaded-jhipster.jar -noverify -Dspringloaded=plugins=io.github.jhipster.loaded.instrument.JHipsterLoadtimeInstrumentationPlugin"
 - and that you can use JHipster-Loaded in other, non-jhipster projects
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

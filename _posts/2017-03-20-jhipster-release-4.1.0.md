@@ -15,7 +15,6 @@ The JHipster Registry reached release v2.6.0, with a new Spring Cloud version, a
 
 We also closed 51 issues and pull requests (see the list below), and upgraded many dependencies.
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.1.0+is%3Aclosed)__.

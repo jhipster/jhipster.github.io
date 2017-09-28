@@ -22,7 +22,6 @@ This is a very big release with [more than 100 closed tickets and PRs](https://g
 - Update to Spring Cloud Brixton.SR5 - see [#4074](https://github.com/jhipster/generator-jhipster/pull/4074) [#4094](https://github.com/jhipster/generator-jhipster/pull/4094)
 - Improvements to our Kubernetes sub-generator - see [#4049](https://github.com/jhipster/generator-jhipster/pull/4049) and [#4044](https://github.com/jhipster/generator-jhipster/pull/4044)
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.7.0+is%3Aclosed)__.

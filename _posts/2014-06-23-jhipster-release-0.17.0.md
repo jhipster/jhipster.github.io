@@ -17,7 +17,6 @@ For a full list of what has been corrected, please go to [this page](https://git
 
 We are more and more in a "feature freeze" mode, as we are leaning towards our first 1.0 release.
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

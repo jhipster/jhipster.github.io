@@ -18,7 +18,6 @@ What's new
 
 This is a bug-fixing release, only to correct our Gradle build (see [#1572](https://github.com/jhipster/generator-jhipster/issues/1572)). If you do not use Gradle, you do not have to upgrade!
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.15.1+is%3Aclosed)__.
 
 How to upgrade

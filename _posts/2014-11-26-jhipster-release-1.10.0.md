@@ -19,7 +19,7 @@ The highlights of this release are:
 - We have a new "fast" profile, which is documented [here](https://jhipster.github.io/profiles/). You can expect to start up a JHipster application in 4 seconds!
 - We have corrected lots of small issues, and upgraded most libraries (like Hazelcast or Atmosphere)
 
-<!--googleoff: index-->
+
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.10.0+is%3Aclosed)__.
 
 How to upgrade

@@ -35,7 +35,6 @@ Other important features and bug fixes are:
 - Support for long file names on Windows with Gradle - [#4323](https://github.com/jhipster/generator-jhipster/issues/4323)
 
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.12.0+is%3Aclosed)__.

@@ -20,7 +20,6 @@ This is a **bug fix** release, for ticket [#2497](https://github.com/jhipster/ge
 
 We have added a new Travis build to test the XAuth option, so this should never happen again!
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 

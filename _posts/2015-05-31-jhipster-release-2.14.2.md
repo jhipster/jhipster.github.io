@@ -18,7 +18,6 @@ What's new
 
 This is small bug-fixing release for issue [#1549](https://github.com/jhipster/generator-jhipster/issues/1549), which was causing UI errors when dates are used (so this is affecting almost everyone!).
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.14.2+is%3Aclosed)__.
 
 How to upgrade

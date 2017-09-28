@@ -16,7 +16,6 @@ We also updated:
 - ng-bootstrap to the latest 1.0.0-beta.4 release
 - Spring Boot to the latest 1.5.7 release
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.8.2+is%3Aclosed)__.

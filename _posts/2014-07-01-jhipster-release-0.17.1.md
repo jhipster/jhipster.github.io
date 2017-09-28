@@ -16,7 +16,6 @@ JHipster 0.17.1 is a bug-fixing release:
 - We are having a very annoying, very hard to reproduce bug (at least [@juliendubois](https://twitter.com/juliendubois) can't reproduce it!) when generating a new entity, see [#404](https://github.com/jhipster/generator-jhipster/issues/404) for more information. Thanks for commenting the bug or notifying [@juliendubois](https://twitter.com/juliendubois) if you have the bug, and if you do NOT have the bug -> we are trying to find out which strange combinaison of node/npm/OS/whatever causes this issue. This is, of course, our top priority at the moment.
 - We are migrating to Spring Boot 1.1.3 (which corrects some minor Spring Boot issues, see [the Spring blog](http://spring.io/blog/2014/06/27/spring-boot-1-1-3-available-now) for more information).
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

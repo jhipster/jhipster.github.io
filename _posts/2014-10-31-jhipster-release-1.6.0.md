@@ -19,7 +19,6 @@ Lots of exciting stuff in the new release! Here are the most important improveme
 - We upgraded AngularJS and Angular Translate to more recent versions
 - [#701](https://github.com/jhipster/generator-jhipster/issues/701) was causing compilation errors when using OAuth2 with an SQL database
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.6.0+is%3Aclosed)__.
 
 How to upgrade

@@ -26,8 +26,7 @@ JHipster has migrated to the newly-released stable version of Spring Boot 1.3.0,
 
 The [JHipster devbox](https://github.com/jhipster/jhipster-devbox) is now available! It is a virtualized development environment with JHipster and many other useful tools already installed.
 
-C<!--googleoff: index-->
-losed tickets
+Closed tickets
 ------------
 
 As always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.24.0+is%3Aclosed)__.

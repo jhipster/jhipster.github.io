@@ -18,7 +18,6 @@ This is a bug-fixing release, that comes with major new features like Kafka supp
 - Migration to Spring Boot 1.4.1 - see [#4185](https://github.com/jhipster/generator-jhipster/pull/4185)
 - Migration to Gradle 3.1 - see [#4168](https://github.com/jhipster/generator-jhipster/pull/4168)
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.8.0+is%3Aclosed)__.

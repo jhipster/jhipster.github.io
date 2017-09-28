@@ -22,7 +22,6 @@ We are currently preparing our 2.0 release, which is why we are cleaning up the 
 
 Feel free to have a look at [at our 2.0 branch](https://github.com/jhipster/generator-jhipster/tree/v2.0) and send us your comments!
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.9.0+is%3Aclosed)__.
 
 How to upgrade

@@ -15,7 +15,6 @@ This is the first patch release for JHipster v4.6.0. This is a recommended upgra
 - Fix the Gradle build on Windows - see [#6064](https://github.com/jhipster/generator-jhipster/issues/6064).
 - Fix Angular 4 deployment on Heroku - see [#6059](https://github.com/jhipster/generator-jhipster/issues/6059).
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.6.1+is%3Aclosed)__.

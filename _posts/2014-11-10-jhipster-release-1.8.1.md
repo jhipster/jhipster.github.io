@@ -15,7 +15,6 @@ This is a quick release to solve critical issue [#747](https://github.com/jhipst
 
 By the way, JDK 7 will be "end of life'd" in April, 2015, so we will probably drop support for it in a few months.
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

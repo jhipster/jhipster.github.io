@@ -59,7 +59,6 @@ __Roadmap__
 
 In October we hope to be able to move to Spring Boot 1.3, which is close to being stable. The new dev tools should be a great addition to what we currently provide, so we are expecting a much enhanced development workflow.
 
-<!--googleoff: index-->
 __Closed tickets__
 
 We had nearly 50 tickets closed in this release, so a lot of bugs have been fixed, and many smaller enhancements have been added.

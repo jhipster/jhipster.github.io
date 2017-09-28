@@ -27,7 +27,6 @@ Here are the most important ones:
 - CLOB validation annotations are wrong - [#4344](https://github.com/jhipster/generator-jhipster/issues/4344)
 
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.11.0+is%3Aclosed)__.

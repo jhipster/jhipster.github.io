@@ -13,7 +13,6 @@ What's new
 
 JHipster 0.18.1 is a bug-fixing release, that corrects [5 issues](https://github.com/jhipster/generator-jhipster/issues?milestone=9&page=1&state=closed). If you updated to 0.18.0 yesterday, we recommend that you upgrade to 0.18.1!
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

@@ -50,7 +50,6 @@ When generating an entity, a new question is now available, which will ask you i
 
 Logging now inherits the Spring Boot default logging configuration, so it looks much better.
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 

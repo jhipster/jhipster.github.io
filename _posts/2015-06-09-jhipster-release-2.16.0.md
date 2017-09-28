@@ -25,7 +25,6 @@ This new release adds a lot of new features:
 - Grunt should now run faster, as it doesn't use the `concurrent` task anymore. There is a new [tip to turn it back on]({{ site.url }}/tips/005_tip_concurrent_task_grunt.html) if needed
 - We have a new Romanian translation, so we now support 18 languages!
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.16.0+is%3Aclosed)__.
 
 How to upgrade

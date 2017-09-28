@@ -26,7 +26,6 @@ This new releases comes with 135 closed tickets and pull requests! Here are the 
 - Much improved Zuul and Eureka settings, giving a huge performance increase, more quality and stability, than when using the standard Spring Cloud settings
 - Support for JSR310's Instant type, see [#5684](https://github.com/jhipster/generator-jhipster/pull/5684)
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.4.0+is%3Aclosed)__.

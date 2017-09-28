@@ -13,7 +13,6 @@ What's new
 
 JHipster 0.17.2 is a bug-fixing release, that should correct our [major #404 issue](https://github.com/jhipster/generator-jhipster/issues/404). Thanks for commenting the bug and notifying [@juliendubois](https://twitter.com/juliendubois) if you still have the bug!!
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

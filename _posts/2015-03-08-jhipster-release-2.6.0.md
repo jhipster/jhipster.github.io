@@ -29,7 +29,6 @@ Also noteworthy is that database columns are correctly generated, depending on t
 
 More information is available in our [entity sub-generator documentation](https://jhipster.github.io/creating-an-entity/).
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.6.0+is%3Aclosed)__.
 
 How to upgrade

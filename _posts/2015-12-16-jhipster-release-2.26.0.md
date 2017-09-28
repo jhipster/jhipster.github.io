@@ -35,7 +35,6 @@ As we use more and more Angular UI features (the router, the modular views), we 
 
 We've had a lot of Hazelcast issues recently, so all of this code has been reworked and refactored!
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 

@@ -13,7 +13,6 @@ This is a patch release, which uses JHipster Registry 3.1.2, which was just rele
 
 If you are using AngularJS 1, we also [changed the required NodeJS version](https://github.com/jhipster/generator-jhipster/commit/2017a6f74302e1aa21e23fbe99eb7d7ec7897f86). Please note that we still recommend to use an LTS version, as the "stable" version has an history of breaking up JHipster!
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.8.1+is%3Aclosed)__.

@@ -15,7 +15,6 @@ One big improvement is that you are now able to use the [JHipster Registry]({{ s
 
 We have also greatly improved our documentation, so you should find more easily help on common problems, like running `yarn start` to have your client-side development server running.
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.0.3+is%3Aclosed)__.

@@ -15,7 +15,6 @@ This is the first patch release of JHipster 4.1.0.
 - With this release, the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) is working again! As this is a small patch release, this is the good moment for everyone to test it! If you have it working (or not!), don't hesitate to tweet it and mention [@java_hipster](https://twitter.com/java_hipster).
 - The most important bug fix on this release is [#5458](https://github.com/jhipster/generator-jhipster/pull/5458), as this made errors in all applications using OAuth2. Concerning OAuth2, please note that only 0,46% of applications used this option during the last month: there have already been talks to remove this, as it has a big maintenance cost, for very few users. So if you like OAuth2, please help maintaining it!
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.1.1+is%3Aclosed)__.

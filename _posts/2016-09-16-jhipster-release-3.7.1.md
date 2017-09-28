@@ -18,7 +18,6 @@ This is a bug-fixing release, with a few new features.
 - The Maven Spring Boot plugin now runs in fork mode, which allows hot-reload using the Spring Boot devtools.
 - We now support officially Visual Studio Code, [here is our new specific documentation]({{ site.url }}/configuring-ide-visual-studio-code/)
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.7.1+is%3Aclosed)__.

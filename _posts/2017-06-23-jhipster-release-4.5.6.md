@@ -18,7 +18,6 @@ This release also comes with some really awesome new features:
 - After months of being stuck, our [Upgrade sub-generator is fixed!](https://github.com/jhipster/generator-jhipster/pull/5966). Many thanks to [Tien Tran](https://github.com/tientq) who fixed this! Of course there are many use cases when upgrading, and this is still very new, so feedback is **highly welcome**.
 - Infinispan support for both Hibernate 2nd-level cache and Spring Cache abstraction - see [#5874](https://github.com/jhipster/generator-jhipster/issues/5874) - many thanks to [@srinivasavasu](https://twitter.com/srinivasavasu) from Red Hat! This is still in **BETA** and should be more tested, but you can already try it and send us your feedback.
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.5.6+is%3Aclosed)__.

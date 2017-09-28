@@ -61,7 +61,6 @@ We will have a great work to remove all Java 7 code in the near future, which sh
 - Clean up our code, and probably even improve the Java 8 code
 - Migrate to the new date/time API, which everybody seems to be waiting for
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 

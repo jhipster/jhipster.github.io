@@ -15,7 +15,6 @@ This is a minor release, correcting a few bugs from yesterday's 3.6.0 release.
 - The Elasticsearch Docker image has been upgraded to v2.3.5, which is its latest version, and which works with Spring Boot 1.4. See [#4000](https://github.com/jhipster/generator-jhipster/issues/4000).
 - Kubernetes now uses the same image versions as Docker. See [#4002](https://github.com/jhipster/generator-jhipster/pull/4002).
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 As always, __[you can check all closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A3.6.1+is%3Aclosed)__.

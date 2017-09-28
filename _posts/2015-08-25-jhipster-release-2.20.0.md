@@ -26,7 +26,6 @@ The new and noteworthy features are:
 - Corrections on the DTO option (with MapStruct), which should go out of beta in the next release
 - Many, many minor bugs corrected (83 issues closed in total!)
 
-<!--googleoff: index-->
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.20.0+is%3Aclosed)__.
 
 How to upgrade

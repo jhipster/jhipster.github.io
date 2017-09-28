@@ -15,7 +15,6 @@ This is a bugfix release, correcting an issue with Postgresql.
 
 - Fixed [JHipster 0.8.0 fails with Postgresql](https://github.com/jhipster/generator-jhipster/issues/105)
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

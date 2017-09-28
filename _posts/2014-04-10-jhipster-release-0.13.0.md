@@ -22,7 +22,6 @@ Most importantly, we have:
 
 Warning: it looks like in "production" mode we have an issue in the "uglify" task, that doesn't minify correctly the JavaScript files in the index.html file. It seems to depend on the "uglify" task version, if you encounter that issue please do not hesitate to contact [@juliendubois](https://twitter.com/juliendubois) who is struggling to reproduce that issue.
 
-<!--googleoff: index-->
 How to upgrade
 ------------
 

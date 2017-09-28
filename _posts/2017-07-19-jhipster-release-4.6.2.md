@@ -17,7 +17,6 @@ This is the second patch release for JHipster v4.6.0.
 - Support for Bahasa Indonesia language - see [#6092](https://github.com/jhipster/generator-jhipster/pull/6092).
 - Lots of small improvements and minor bug fixes.
 
-<!--googleoff: index-->
 Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A4.6.2+is%3Aclosed)__.

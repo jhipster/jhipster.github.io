@@ -23,7 +23,6 @@ This version is at the same time a bug-fix release and a first step towards migr
 
 And in case you missed it, we have released [the JDL Studio]({{ site.url }}/jdl-studio/) to help you generate your entities. Check it out and send us feedback!
 
-<!--googleoff: index-->
 Closed tickets
 ------------
 
