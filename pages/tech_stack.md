@@ -15,7 +15,7 @@ sitemap:
 
 Single Web page application:
 
-*   [AngularJS v1.x](http://angularjs.org/) or [Angular 4](https://angular.io/)
+*   [Angular 4](https://angular.io/) or [AngularJS v1.x](http://angularjs.org/)
 *   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
 *   Compatible with IE11 and modern browsers
@@ -25,9 +25,9 @@ Single Web page application:
 
 With the great development workflow:
 
-*   Easy installation of new JavaScript libraries with [Bower](http://bower.io/) or [Yarn](https://yarnpkg.com/)
-*   Build, optimization and live reload with [Gulp.js](http://www.gulpjs.com) or [Webpack](https://webpack.js.org/)
-*   Testing with [Karma](http://karma-runner.github.io/), [PhantomJS](http://phantomjs.org/) and [Protractor](http://www.protractortest.org)
+*   Easy installation of new JavaScript libraries with [Yarn](https://yarnpkg.com/) or [Bower](http://bower.io/)
+*   Build, optimization and live reload with [Webpack](https://webpack.js.org/) or [Gulp.js](http://www.gulpjs.com)
+*   Testing with [Karma](http://karma-runner.github.io/), [Headless Chrome](https://github.com/GoogleChrome/puppeteer) and [Protractor](http://www.protractortest.org)
 
 And what if a single Web page application isn't enough for your needs?
 
@@ -50,13 +50,21 @@ A complete [Spring application](http://spring.io/):
 *   [Cassandra](http://cassandra.apache.org/) support if you'd rather use a column-oriented NoSQL database instead of JPA
 *   [Kafka](http://kafka.apache.org/) support if you want to use a publish-subscribe messaging system
 
-Ready to go into production:
+## Technology stack for microservices
 
-*   Monitoring with [Metrics](http://metrics.dropwizard.io/)
+Microservices are optional, and fully supported:
+
+* HTTP routing using [Netflix Zuul](https://github.com/Netflix/zuul) or [Traefik](https://traefik.io/)
+* Service discovery using [Netflix Eureka](https://github.com/Netflix/eureka) or [HashiCorp Consul](https://www.consul.io/)
+
+## Ready to go into production:
+
+*   Monitoring with [Metrics](http://metrics.dropwizard.io/) and [the ELK Stack](https://www.elastic.co/products)
 *   Caching with [ehcache](http://ehcache.org/) (local cache), [hazelcast](http://www.hazelcast.com/) or [Infinispan](http://infinispan.org/)
 *   Optional HTTP session clustering with [hazelcast](http://www.hazelcast.com/)
 *   Optimized static resources (gzip filter, HTTP cache headers)
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance
 *   Builds a standard WAR file or an executable JAR file
-*   Support for all major cloud providers: AWS, Cloud Foundry, Heroku, Kubernetes, Docker...
+*   Full Docker and Docker Compose support
+*   Support for all major cloud providers: AWS, Cloud Foundry, Heroku, Kubernetes, OpenShift, Docker...
