@@ -91,5 +91,5 @@ You have to add the `HEROKU_API_KEY` environment variable.
 - GitLab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
 - CircleCI: read the [documentation about setting environment variables](https://circleci.com/docs/environment-variables/#setting-environment-variables-for-all-commands-without-adding-them-to-git)
 
-Before using the deployment to Heroku, you need to use the [Heroku sub-generator]({{ site.url }}/heroku) locally before.
-It will created all files needed by your Continuous Integration Tool.
+Before using the deployment to Heroku, you need to use the [Heroku sub-generator]({{ site.url }}/heroku) locally.
+It will create all files needed by your Continuous Integration Tool.
