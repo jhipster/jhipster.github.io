@@ -330,6 +330,12 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "CERN",
+      "url": "https://home.cern/",
+      "logo": "cern.png",
+      "category": "Research",
+      "country": "Switzerland"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -767,6 +773,18 @@
     },
     {"name": "Lnet Communication",
       "url": "http://www.lnet.ma/"
+    },
+    {"name": "Donyapardaz",
+      "url": "http://donyapardaz.com/"
+    },
+    {"name": "Steradian Consulting",
+      "url": "http://steradian.co.id/"
+    },
+    {"name": "RSTN Consulting",
+      "url": "http://www.rstn.com/"
+    },
+    {"name": "Mimacom",
+      "url": "http://www.mimacom.com/"
     }
   ]
 }
