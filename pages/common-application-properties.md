@@ -91,10 +91,6 @@ Here is a documentation for those properties:
                     secret: # JWT secret key
                     token-validity-in-seconds: 86400 # Token is valid 24 hours
                     token-validity-in-seconds-for-remember-me: 2592000 # Remember me token is valid 30 days
-                oauth: # Used by the JHipster OAuth 2 MongoDB specific implementation
-                    client-id: # OAuth client ID
-                    client-secret: # OAuth client secret
-                    token-validity-in-seconds: 1800 # Token is valid 30 minutes
 
         # Swagger configuration
         swagger:
