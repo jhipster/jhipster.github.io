@@ -48,18 +48,111 @@ JHipster provide "social login", using Spring Social, so users can connect to yo
 
 Please note that this is the default option when using a [microservices architecture]({{ site.url }}/microservices-architecture/).
 
-This authentication mechanism doesn't exist by default with Spring Security, it's a JHipster-specific integration of [the Java JWT project](https://github.com/jwtk/jjwt). It is easier to use and implement than OAuth2, as it does not require a persistence mechanism, so it works on all SQL and NoSQL options.
+This authentication mechanism doesn't exist by default with Spring Security, it's a JHipster-specific integration of [the Java JWT project](https://github.com/jwtk/jjwt). It is easier to use and implement than OAuth 2.0, as it does not require a persistence mechanism, so it works on all SQL and NoSQL options.
 
 This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
 
 The secret key should be configured in the `application.yml` file, as the `jhipster.security.authentication.jwt.secret` property.
 
-## OAuth2 Authentication
+## OAuth 2.0 Authentication
 
-OAuth2 is a stateless security mechanism, like JWT. Spring Security provides an OAuth2 implementation, which is  configured by JHipster.
+OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides an OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuthSso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
 
-The biggest issue with OAuth2 is that requires to have several database tables in order to store its security tokens. If you are using an SQL database, we provide the necessary Liquibase changlog so that those tables are automatically created for you.
+To log in to your app, you'll need to have [Keycloak](https://keycloak.org) up and running. The JHipster Team has created a Docker container for you that has the default users and roles. Start Keycloak using the following command.
 
-As Spring Security only supports OAuth2 with SQL databases, we have also implemented our own MongoDB version. JHipster generates the OAuth2 implementation for MongoDB, as well as the necessary MongoDB configuration.
+```
+docker-compose -f src/main/docker/keycloak.yml up
+```
 
-This solution uses a secret key, which should be configured in the `application-*.yml` files, using the `jhipster.security.authentication.oauth` properties. See the the [common application properties]({{ site.url }}/common-application-properties/) documentation for more information on this configuration.
+The security settings in `src/main/resources/application.yml` are configured for this image.
+
+```yaml
+oauth2.issuer: http://localhost:9080/auth/realms/jhipster
+
+security:
+    basic:
+        enabled: false
+    oauth2:
+        client:
+            accessTokenUri: ${oauth2.issuer}/protocol/openid-connect/token
+            userAuthorizationUri: ${oauth2.issuer}/protocol/openid-connect/auth
+            clientId: web_app
+            clientSecret: web_app
+            clientAuthenticationScheme: form
+            scope: openid profile email
+        resource:
+            userInfoUri: ${oauth2.issuer}/protocol/openid-connect/userinfo
+            tokenInfoUri: ${oauth2.issuer}/protocol/openid-connect/token/introspectr
+            preferTokenInfo: false
+```
+
+### Okta
+
+If you'd like to use Okta instead of Keycloak, you'll need to change a few things. First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta instance, that has a name like `https://dev-123456.oktapreview.com`.
+
+Modify `src/main/resources/application.yml` to use your Okta settings.
+
+```yaml
+oauth2.issuer: https://dev-123456.oktapreview.com/oauth2/default
+
+security:
+    basic:
+        enabled: false
+    oauth2:
+        client:
+            accessTokenUri: ${oauth2.issuer}/v1/token
+            userAuthorizationUri: ${oauth2.issuer}/v1/authorize
+            clientId: {clientId}
+            clientSecret: {clientSecret}
+            clientAuthenticationScheme: form
+            scope: openid profile email
+        resource:
+            userInfoUri: ${oauth2.issuer}/v1/userinfo
+            tokenInfoUri: ${oauth2.issuer}/v1/introspect
+            preferTokenInfo: false
+```
+
+Create an OIDC App in Okta to get a `{clientId}` and `{clientSecret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the Next button. Give the app a name you’ll remember, and specify "http://localhost:8080" as a Base URI and Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
+
+Create a `ROLE_ADMIN` and `ROLE_USER` group and add users into them. Create a user with username "admin@jhipster.org" and password "Java is hip in 2017!". Modify e2e tests to use this account when running integration tests. You'll need to change credentials in `src/test/javascript/e2e/account/account.spec.ts` and `src/test/javascript/e2e/admin/administration.spec.ts`.
+
+Navigate to **API** > **Authorization Servers**, click the **Authorization Servers** tab and edit the default one. Click the **Claims** tab and **Add Claim**. Name it "groups" or "roles", and include it in the ID Token. Set the value type to "Groups" and set the filter to be a Regex of `.*`.
+
+After making these changes, you should be good to go! If you have any issues, please post them to [Stack Overflow](https://stackoverflow.com/questions/tagged/jhipster). Make sure to tag your question with "jhipster" and "okta".
+
+You can also use environment variables to override the defaults. For example:
+
+```bash
+#!/bin/bash
+export SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI="https://dev-158606.oktapreview.com/oauth2/default/v1/token"
+export SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="https://dev-158606.oktapreview.com/oauth2/default/v1/authorize"
+export SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="https://dev-158606.oktapreview.com/oauth2/default/v1/userinfo"
+export SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="https://dev-158606.oktapreview.com/oauth2/default/v1/introspect"
+export SECURITY_OAUTH2_CLIENT_CLIENT_ID="XXX"
+export SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="YYY"
+```
+
+You can use these settings when you deploy to Heroku with the following script:
+
+```bash
+heroku config:set \
+  FORCE_HTTPS="true" \
+  SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI="$SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI" \
+  SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI" \
+  SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI" \
+  SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI" \
+  SECURITY_OAUTH2_CLIENT_CLIENT_ID="$SECURITY_OAUTH2_CLIENT_CLIENT_ID" \
+  SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
+```
+
+For Cloud Foundry, you can use the following:
+
+```bash
+cf set-env javaoneblog FORCE_HTTPS true
+cf set-env javaoneblog SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI "$SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI"
+cf set-env javaoneblog SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI "$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI"
+cf set-env javaoneblog SECURITY_OAUTH2_RESOURCE_USER_INFO_URI "$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI"
+cf set-env javaoneblog SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI "$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI"
+cf set-env javaoneblog SECURITY_OAUTH2_CLIENT_CLIENT_ID "$SECURITY_OAUTH2_CLIENT_CLIENT_ID"
+cf set-env javaoneblog SECURITY_OAUTH2_CLIENT_CLIENT_SECRET "$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
+```

@@ -22,8 +22,9 @@ Using Docker and Docker Compose is highly recommended in development, and is als
 5. [Working with databases](#4)
 6. [Elasticsearch](#5)
 7. [Sonar](#6)
-8. [Common commands](#7)
-9. [Memory Tweaking](#8)
+7. [Keycloak](#7)
+8. [Common commands](#8)
+9. [Memory Tweaking](#9)
 
 ## <a name="1"></a> Description
 
@@ -91,6 +92,12 @@ To run this image, use the Docker Compose configuration located in the `src/main
 - `docker-compose -f src/main/docker/app.yml up`
 
 This command will start up your application and the services it relies on (database, search engine, JHipster Registry...).
+
+If you chose OAuth 2.0 for authentication, Keycloak will be started with this command. To make things work, you'll need to make sure to add the following to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
+
+```
+127.0.0.1	keycloak
+```
 
 ## <a name="docker-compose-subgen"></a> Generating a custom Docker-Compose configuration for multiple applications
 
@@ -195,7 +202,15 @@ To analyze your code, run Sonar on your project:
 
 The Sonar reports will be available at: [http://localhost:9000](http://localhost:9000)
 
-## <a name="7"></a> Common commands
+## <a name="7"></a> Keycloak
+
+If you chose OAuth 2.0 as your authentication, Keycloak is used as the default identity provider. Running `docker-compose -f src/main/docker/app.yml up` starts up Keycloak automatically.
+
+If you just want to start Keycloak, and not the other services, use its specific Docker Compose configuration:
+
+- `docker-compose -f src/main/docker/keycloak.yml up`
+
+## <a name="8"></a> Common commands
 
 ### List the containers
 
@@ -240,7 +255,7 @@ Be careful! All data will be deleted:
 `docker container rm <container_id>`
 
 
-## <a name="8"></a> Memory Tweaking
+## <a name="9"></a> Memory Tweaking
 
 In order to optimize memory usage for applications running in the container, you can setup Java memory parameters on `Dockerfile` or `docker-compose.yml`
 
