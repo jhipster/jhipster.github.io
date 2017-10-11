@@ -184,6 +184,7 @@ Here are the options you can pass:
 
 * `--help` - Print the generator's options and usage
 * `--skip-cache` - Do not remember prompt answers (Default: false)
+* `--skip-git` - Do not add the generated project to Git automatically (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
 * `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `jhipster server`.
 * `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `jhipster client`.
