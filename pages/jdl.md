@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2017-02-16T12:00:00-00:00
+    lastmod: 2017-10-11T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -38,6 +38,8 @@ Here is the full JDL documentation:
 5. [All the relationships](#jdlrelationships)  
 6. [Constants](#constants)  
 7. [Annexes](#annexes)  
+  7.1 [Available types and constraints](#types_and_constraints)  
+  7.2 [Available options](#all_options)  
 8. [Issues and bugs](#issues)  
 
 ***
@@ -108,9 +110,17 @@ entity D {
 }
 ```
 
+Regexes are a bit special as they are used like this (from v1.3.6):
+```
+entity A {
+  myString required min(1) max(42) pattern(/[A-Z]+/)
+}
+```
+If you're using the generator prior to v4.9.X, you'd need to use patterns like this `pattern('[A-Z]+'`).
+
 Because the JDL was made to be simple to use and read, if your entity is empty (no field), you can just declare an entity with `entity A` or `entity A {}`.
 
-Note that JHipster adds a default `id` field so that you don't have to worry about it.
+Note that JHipster adds a default `id` field so that you needn't worry about it.
 
 
 ### <a name="relationshipdeclaration"></a> Relationship declaration
@@ -457,6 +467,8 @@ entity A {
 
 # <a name="annexes"></a>Annexes
 
+## <a name="types_and_constraints"></a>Available types and constraints
+
 Here is the types supported by JDL:
 
 <table class="table table-striped table-responsive">
@@ -569,6 +581,29 @@ Here is the types supported by JDL:
     <td><dfn>required</dfn></td>
   </tr>
 </table>
+
+## <a name="all_options"></a> Available options
+
+### Unary options
+
+These options don't have any value:
+  - `skipClient`
+  - `skipServer`
+  - `skipUserManagement`
+  - `noFluentMethod`
+  - `filter`
+
+They can be used like this: `<OPTION> <ENTITIES | * | all> except? <ENTITIES>`
+
+### Binary options
+
+These options take values:
+  - `dto` (`mapstruct`)
+  - `service` (`serviceClass`, `serviceImpl`)
+  - `paginate` (`pager`, `pagination`, `infinite-scroll`)
+  - `searchEngine` (`elasticsearch`)
+  - `microservice` (custom value)
+  - `angularSuffix` (custom value)
 
 # <a name="issues"></a>Issues and bugs
 
