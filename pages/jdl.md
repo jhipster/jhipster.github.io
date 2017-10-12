@@ -589,7 +589,6 @@ Here is the types supported by JDL:
 These options don't have any value:
   - `skipClient`
   - `skipServer`
-  - `skipUserManagement`
   - `noFluentMethod`
   - `filter`
 
