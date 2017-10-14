@@ -89,6 +89,7 @@ You can choose between:
 - An SQL database (H2, MySQL, MariaDB, PostgreSQL, MSSQL, Oracle), which you will access with Spring Data JPA
 - [MongoDB]({{ site.url }}/using-mongodb/)
 - [Cassandra]({{ site.url }}/using-cassandra/)
+- [Couchbase]({{ site.url }}/using-couchbase/)
 
 ### Which *production* database would you like to use?
 
@@ -121,7 +122,7 @@ This is a multi-select answer, to add one or several other technologies to the a
 
 #### Social login (Google, Facebook, Twitter)
 
-This option is only available if you selected an SQL database or a MongoDB database. It adds [Spring Social](http://projects.spring.io/spring-social/) support to JHipster, so end-users can log-in using their Google, Facebook or Twitter account.
+This option is only available if you selected an SQL, MongoDB, or Couchbase database. It adds [Spring Social](http://projects.spring.io/spring-social/) support to JHipster, so end-users can log-in using their Google, Facebook or Twitter account.
 
 #### API first development using swagger-codegen
 

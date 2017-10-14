@@ -46,7 +46,7 @@ A complete [Spring application](http://spring.io/):
 *   [Spring Data JPA](http://projects.spring.io/spring-data-jpa/) + Bean Validation
 *   Database updates with [Liquibase](http://www.liquibase.org/)
 *   [Elasticsearch](https://github.com/elastic/elasticsearch) support if you want to have search capabilities on top of your database
-*   [MongoDB](http://www.mongodb.org) support if you'd rather use a document-oriented NoSQL database instead of JPA
+*   [MongoDB](http://www.mongodb.org) and [Couchbase](https://www.couchbase.com) support if you'd rather use a document-oriented NoSQL database instead of JPA
 *   [Cassandra](http://cassandra.apache.org/) support if you'd rather use a column-oriented NoSQL database instead of JPA
 *   [Kafka](http://kafka.apache.org/) support if you want to use a publish-subscribe messaging system
 

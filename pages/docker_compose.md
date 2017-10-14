@@ -133,6 +133,7 @@ If you just want to start your database, and not the other services, use the Doc
 - With Oracle: `docker-compose -f src/main/docker/oracle.yml up`
 - With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
 - With Cassandra: `docker-compose -f src/main/docker/cassandra.yml up`
+- With Couchbase: `docker-compose -f src/main/docker/couchbase.yml up`
 
 ### MongoDB Cluster Mode
 
@@ -148,6 +149,17 @@ Follow these steps to do so:
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
+
+### Couchbase Cluster Mode
+
+If you want to use Couchbase with multiple nodes, you need to build and set up manually Couchbase images.
+Follow these steps to do so:
+
+- Build the image: `docker-compose -f src/main/docker/couchbase-cluster.yml build`
+- Run the database: `docker-compose -f src/main/docker/couchbase-cluster.yml up -d`
+- Scale the Couchbase node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/couchbase-cluster.yml scale <name_of_your_app>-couchbase-node=<X>`
+- Build a Docker image of your application: `./mvnw package -Pprod dockerfile:build`
+- Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 ### Cassandra
 
