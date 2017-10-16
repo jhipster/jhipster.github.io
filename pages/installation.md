@@ -33,17 +33,17 @@ In the future, we expect JHipster Online to provide more features, of course.
 
 ## Local installation with Yarn (recommended for normal users)
 
-1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2.  (Optional) Install a Java build tool.
+1.  安装 Java 8 [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+2.  (可选) 安装 Java 编译工具。
     *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
     *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
-3.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
-4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version)
-5.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
-6.  Install Yeoman: `yarn global add yo`
-7.  Only for AngularJS 1, install Bower: `yarn global add bower`
-8.  Only for AngularJS 1, install Gulp: `yarn global add gulp-cli`
-9.  Install JHipster: `yarn global add generator-jhipster`
+3.  安装 Git [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
+4.  安装 Node.js [the Node.js website](http://nodejs.org/) (prefer an LTS version)
+5.  安装 Yarn [the Yarn website](https://yarnpkg.com/en/docs/install)
+6.  安装 Yeoman: `yarn global add yo`
+7.  如果在使用 AngularJS 1, 安装 Bower: `yarn global add bower`
+8.  如果在使用 AngularJS 1, 安装 Gulp: `yarn global add gulp-cli`
+9.  安装 JHipster: `yarn global add generator-jhipster`
 
 Note: if you have problems to use these tools globally, be sure you have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
 
