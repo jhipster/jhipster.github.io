@@ -9,69 +9,69 @@ sitemap:
     lastmod: 2016-12-21T00:00:00-00:00
 ---
 
-# <i class="fa fa-cloud-download"></i> Installing JHipster
+# <i class="fa fa-cloud-download"></i> 安装 JHipster
 
-## Installation types
+## 安装方式
 
-We provide 5 ways of working with JHipster:
+我们提供了 5 种安装 JHipster 的方式：
 
-*   [JHipster Online](https://start.jhipster.tech/) is a simple way to generate an application without installing JHipster in the first place.
-*   "Local installation with Yarn" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
-*   "Local installation with NPM" is the same as classical "local installation with Yarn", but using NPM instead of [Yarn](https://yarnpkg.com/)
-*   The Vagrant-based "[development box](https://github.com/jhipster/jhipster-devbox)", with all tools already set up in a Ubuntu-based virtual machine.
-*   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight, virtualized container with JHipster installed.
+*   [JHipster Online](https://start.jhipster.tech/) 是一个最简单的方式来使用 JHipster 生成应用，甚至不需要安装本地 JHipster。
+*   "使用 Yarn 本地安装" 是典型的安装方式。所有需要的组件都会安装在你的机器上，设置稍微有点复杂，但是是大部分人的选择。如果不确定选择哪种安装方式，选择这个就是了。
+*   "使用 NPM 本地安装" 基本类似 "使用 Yarn 本地安装"，区别在于使用 NPM 而不是 [Yarn](https://yarnpkg.com/)
+*   基于 Vagrant "[development box](https://github.com/jhipster/jhipster-devbox)", 所有工具都安装在一个 Ubuntu 虚拟机中。
+*   基于 "[Docker](https://www.docker.io/)" 容器，提供更轻量的、虚拟容器的 JHipster 环境。
 
-## JHipster Online (for users wanting a simplified way to run JHipster)
+## JHipster Online (为那些希望简单上手 JHipster 的用户)
 
-[JHipster Online](https://start.jhipster.tech/) allows you to easily generate JHipster applications, without having to install JHipster.
+[JHipster Online](https://start.jhipster.tech/) 使你能方便的生成 JHipster 应用，且不需要安装 JHipster。
 
-This is intended for people trying JHipster for the first time, or who just want to have a look at what JHipster provides.
+目的适用于那些第一次尝试 JHipster 的用户，或者简单看一下 JHipster 能力的用户。
 
-While it is easier to use, it is not the "full JHipster experience", and once your application is generated you will still need to follow most of the steps from the next section ("Local installation with Yarn"), as you will still need Java (to run your application) and Yarn (to manage your front-end code).
+虽然使用上简单，但这个并非 "完整的 JHipster 体验", and once your application is generated you will still need to follow most of the steps from the next section ("Local installation with Yarn"), as you will still need Java (to run your application) and Yarn (to manage your front-end code).
 
 In the future, we expect JHipster Online to provide more features, of course.
 
-## Local installation with Yarn (recommended for normal users)
+## 使用 Yarn 本地安装（推荐方式）
 
-1.  安装 Java 8 [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+1.  安装 Java 8 [Oracle 官网](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 2.  (可选) 安装 Java 编译工具。
-    *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
-    *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
-3.  安装 Git [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
-4.  安装 Node.js [the Node.js website](http://nodejs.org/) (prefer an LTS version)
-5.  安装 Yarn [the Yarn website](https://yarnpkg.com/en/docs/install)
+    *   无论你使用的是 [Maven](http://maven.apache.org/) 还是 [Gradle](http://www.gradle.org/)，你都不需要安装任何额外的工具，因为 JHipster 自动安装了 [Maven Wrapper](https://github.com/takari/maven-wrapper) 或 [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html)。
+    *   如果你不希望使用这些 wrapper，可以去官网下载独立安装 [Maven](http://maven.apache.org/) 或 [Gradle](http://www.gradle.org/)。
+3.  安装 Git [git-scm.com](http://git-scm.com/)。如果你是 Git 新手，我们也推荐你使用工具 [SourceTree](http://www.sourcetreeapp.com/)。
+4.  安装 Node.js [Node.js 官网](http://nodejs.org/) (建议选择 LTS 版本)
+5.  安装 Yarn [the Yarn 官网](https://yarnpkg.com/en/docs/install)
 6.  安装 Yeoman: `yarn global add yo`
 7.  如果在使用 AngularJS 1, 安装 Bower: `yarn global add bower`
 8.  如果在使用 AngularJS 1, 安装 Gulp: `yarn global add gulp-cli`
 9.  安装 JHipster: `yarn global add generator-jhipster`
 
-Note: if you have problems to use these tools globally, be sure you have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
+说明：如果你在使用这些工具时遇到问题，务必确保你的环境变量 path 里有 `$HOME/.config/yarn/global/node_modules/.bin` 这个目录。
 
-On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
+在 Mac 或 Linux 上：```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
 
-JHipster uses [Yeoman](http://yeoman.io/) for code generation.
-To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [Yarn documentation](https://yarnpkg.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
+JHipster 使用 [Yeoman](http://yeoman.io/) 来作为代码生成器。
+需要更多关于 Yeoman 的信息、帮助、使用技巧，请看一下 [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html)，在 [提交 Bug](https://github.com/jhipster/generator-jhipster/issues?state=open) 也请阅读 [Yarn documentation](https://yarnpkg.com/)。
 
-Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
+一旦 JHipster 安装好了，下一步就可以开始：[创建应用]({{ site.url }}/creating-an-app/)
 
 ## Local installation with NPM (alternative to Yarn)
 
-1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2.  (Optional) Install a Java build tool.
-    *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
-    *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
-3.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
-4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version). This will also install `npm`, which is the node package manager we are using in the next commands.
-5.  (Recommended) Update NPM: `npm install -g npm`
-6.  Install Yeoman: `npm install -g yo`
-7.  Only for AngularJS 1, install Bower: `npm install -g bower`
-8.  Only for AngularJS 1, install Gulp: `npm install -g gulp-cli` (If you have previously installed a version of gulp globally, please run `npm rm -g gulp` to make sure your old version doesn't collide with `gulp-cli`)
-9.  Install JHipster: `npm install -g generator-jhipster`
-10.  (Optional) Install Yarn: `npm install -g yarn` (If so, after generating a project, `yarn install` will be launched instead of `npm install`)
+1.  安装 Java 8 [Oracle 官网](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+2.  (可选) 安装 Java 编译工具。
+    *   无论你使用的是 [Maven](http://maven.apache.org/) 还是 [Gradle](http://www.gradle.org/)，你都不需要安装任何额外的工具，因为 JHipster 自动安装了 [Maven Wrapper](https://github.com/takari/maven-wrapper) 或 [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html)。
+    *   如果你不希望使用这些 wrapper，可以去官网下载独立安装 [Maven](http://maven.apache.org/) 或 [Gradle](http://www.gradle.org/)。
+3.  安装 Git [git-scm.com](http://git-scm.com/)。如果你是 Git 新手，我们也推荐你使用工具 [SourceTree](http://www.sourcetreeapp.com/)。
+4.  安装 Node.js [Node.js 官网](http://nodejs.org/) (建议选择 LTS 版本)。安装 Node.js 的同时也会安装好 `npm`, 接下来的命令所需要的包管理工具。
+5.  (推荐) 升级 NPM: `npm install -g npm`
+6.  安装 Yeoman: `npm install -g yo`
+7.  如果在使用 AngularJS 1, 安装 Bower: `npm install -g bower`
+8.  如果在使用 AngularJS 1, 安装 Gulp: `npm install -g gulp-cli` (如果你之前有全局安装过 gulp, 请先运行 `npm rm -g gulp` 来确保老版本会不和新版本 `gulp-cli` 冲突)
+9.  安装 JHipster: `npm install -g generator-jhipster`
+10.  (可选) 安装 Yarn: `npm install -g yarn` (这么做的话，创建完一个项目，会自动使用 `yarn install` 来代替 `npm install`)
 
-You can find here the [NPM documentation](https://docs.npmjs.com/).
+请查阅 [NPM 文档](https://docs.npmjs.com/).
 
-## Vagrant box installation
+## Vagrant box 安装
 
 The [JHipster development box](https://github.com/jhipster/jhipster-devbox) project gives you a virtual machine with all the necessary tools to develop your JHipster project.
 
@@ -81,7 +81,7 @@ Besides JHipster, this virtual machine includes many development tools, as well 
 
 Please go to the [JHipster development box page](https://github.com/jhipster/jhipster-devbox) for installation and configuration information.
 
-## Docker installation (for advanced users only)
+## Docker 安装 (限高级用户使用)
 
 _Please note: this Docker image is for running the JHipster generator inside a container. It's completely different from the [Docker and Docker Compose configurations]({{ site.url }}/docker-compose/) that JHipster will generate, which goal is to run your generated application inside a container_
 

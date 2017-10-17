@@ -9,16 +9,16 @@ sitemap:
     lastmod: 2016-12-01T00:00:00-00:00
 ---
 
-# <i class="fa fa-rocket"></i> Creating an application
+# <i class="fa fa-rocket"></i> 创建应用
 
-_**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
+_**请查看我们的 [视频教程]({{ site.url }}/video-tutorial/) 来学习创建 JHipster 应用**_
 
-1. [Quick start](#1)
-2. [Questions asked when generating an application](#2)
-3. [Command-line options](#3)
-4. [Tips](#4)
+1. [快速上手](#1)
+2. [创建应用的各选项](#2)
+3. [命令行选项](#3)
+4. [小提示](#4)
 
-## <a name="1"></a> Quick start
+## <a name="1"></a> 快速上手
 
 First of all, create an empty directory in which you will create your application:
 
@@ -40,11 +40,11 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 **Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
-## <a name="2"></a> Questions asked when generating an application
+## <a name="2"></a> 创建应用的各选项
 
 _Some questions change depending on the previous choices you have made. For example, you won't need to configure an Hibernate cache if you didn't select an SQL database._
 
-### Which *type* of application would you like to create?
+### Which *type* of application would you like to create? （你要创建的应用类型）
 
 Your type of application depends on whether you wish to use a microservices architecture or not. A full explanation on microservices is [available here]({{ site.url }}/microservices-architecture/), if unsure use the default "Monolithic application".
 
@@ -55,21 +55,21 @@ You can either use:
 *   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
 *   JHipster UAA server [BETA]: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
 
-### What is the base name of your application?
+### What is the base name of your application? （应用名称）
 
 This is the name of your application.
 
-### What is your default Java package name?
+### What is your default Java package name? （Java 包名）
 
 Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. Of course you can override it by providing a new value.
 
-### Do you want to use the JHipster Registry to configure, monitor and scale your application?
+### Do you want to use the JHipster Registry to configure, monitor and scale your application? （是否需要使用 JHipster Registry 来配置、监控和扩展你的应用）
 
 The [JHipster Registry]({{ site.url }}/jhipster-registry/) is an Open Source tool used to manage your application at runtime.
 
 It is required when using a microservices architecture (this is why this question is only asked when generating a monolith).
 
-### Which *type* of authentication would you like to use?
+### Which *type* of authentication would you like to use? （使用哪种认证）
 
 This question won't be asked if you selected the [JHipster Registry]({{ site.url }}/jhipster-registry/), as it requires the use of JWT authentication.
 
@@ -81,7 +81,7 @@ You can either use:
 
 The OAuth 2.0 and the JWT approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our [securing your application]({{ site.url }}/security/) page.
 
-### Which *type* of database would you like to use?
+### Which *type* of database would you like to use? （使用哪种数据库）
 
 You can choose between:
 
@@ -90,13 +90,13 @@ You can choose between:
 - [MongoDB]({{ site.url }}/using-mongodb/)
 - [Cassandra]({{ site.url }}/using-cassandra/)
 
-### Which *production* database would you like to use?
+### Which *production* database would you like to use? （生产环境使用哪种数据库）
 
 This is the database you will use with your "production" profile. To configure it, please modify your `src/main/resources/config/application-prod.yml` file.
 
 If you want to use Oracle, you will need to [install the Oracle JDBC driver manually]({{ site.url }}/using-oracle/).
 
-### Which *development* database would you like to use?
+### Which *development* database would you like to use? （开发环境使用哪种数据库）
 
 This is the database you will use with your "development" profile. You can either use:
 
@@ -106,16 +106,16 @@ This is the database you will use with your "development" profile. You can eithe
 
 To configure it, please modify your `src/main/resources/config/application-dev.yml` file.
 
-### Do you want to use Hibernate 2nd level cache?
+### Do you want to use Hibernate 2nd level cache? （是否使用 Hibernate 二级缓存）
 
 [Hibernate](http://hibernate.org/) is the JPA provider used by JHipster. For performance reasons, we highly recommend you to use a cache, and to tune it according to your application's needs.
 If you choose to do so, you can use either [ehcache](http://ehcache.org/) (local cache) or [Hazelcast](http://www.hazelcast.com/) (distributed cache, for use in a clustered environnement)
 
-### Would you like to use Maven or Gradle?
+### Would you like to use Maven or Gradle? （使用 Maven 或 Gradle）
 
 You can build your generated Java application either with [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/). Maven is more stable and more mature. Gradle is more flexible, easier to extend, and more hype.
 
-### Which other technologies would you like to use?
+### Which other technologies would you like to use? （使用哪些额外的技术）
 
 This is a multi-select answer, to add one or several other technologies to the application. Available technologies are:
 
@@ -162,7 +162,7 @@ You can either use:
 
 By default JHipster provides excellent internationalization support, both on the client side and on the server side. However, internationalization adds a little overhead, and is a little bit more complex to manage, so you can choose not to install this feature.
 
-### Which testing frameworks would you like to use?
+### Which testing frameworks would you like to use? （使用哪些测试框架）
 
 By default JHipster provide Java unit/integration testing (using Spring's JUnit support) and JavaScript unit testing (using Karma.js). As an option, you can also add support for:
 
@@ -172,17 +172,17 @@ By default JHipster provide Java unit/integration testing (using Spring's JUnit 
 
 You can find more information on our ["Running tests" guide]({{ site.url }}/running-tests/).
 
-### Would you like to install other generators from the JHipster Marketplace?
+### Would you like to install other generators from the JHipster Marketplace? （是否要从 JHipster Marketplace 上下载额外的插件）
 
 The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
 
-## <a name="3"></a> Command-line options
+## <a name="3"></a> 命令行选项
 
 You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `jhipster app --help`.
 
 Here are the options you can pass:
 
-* `--help` - Print the generator's options and usage
+* `--help` - 输出所有选项和使用帮助
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-git` - Do not add the generated project to Git automatically (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
@@ -197,7 +197,7 @@ Here are the options you can pass:
 * `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
 * `--npm` - Use NPM instead of Yarn (Default: false)
 
-## <a name="4"></a> Tips
+## <a name="4"></a> 小提示
 
 If you are an advanced user you can use our client and server sub-generators by running `jhipster client --[options]` and `jhipster server --[options]`.
 Run the above sub-generators with `--help` flag to view all the options that can be passed.

@@ -72,7 +72,9 @@ a:hover {
   text-indent: 1em; }
 
 .brand {
-  font-family: 'Pacifico', cursive; }
+  /*font-family: 'Pacifico', cursive;*/
+  font-family: 'SimHei', cursive;
+}
 
 .light {
   color: #fff; }
