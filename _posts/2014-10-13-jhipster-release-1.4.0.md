@@ -11,7 +11,7 @@ JHipster release 1.4.0
 What's new
 ----------
 
-The entity sub-generator has been once again improved, and can now generate one-to-many and many-to-one relationships between entities. Please check our [updated documentation](https://jhipster.github.io/creating-an-entity/). Of course, we plan to support many-to-many relationships in the future.
+The entity sub-generator has been once again improved, and can now generate one-to-many and many-to-one relationships between entities. Please check our [updated documentation]({{ site.url }}/creating-an-entity/). Of course, we plan to support many-to-many relationships in the future.
 
 [You can check the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.4.0+is%3Aclosed).
 

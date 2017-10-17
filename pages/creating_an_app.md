@@ -6,7 +6,7 @@ redirect_from:
   - /creating_an_app.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-12-01T00:00:00-00:00
+    lastmod: 2017-10-17T00:00:00-00:00
 ---
 
 # <i class="fa fa-rocket"></i> Creating an application
@@ -53,7 +53,7 @@ You can either use:
 *   Monolithic application: this a classical, one-size-fits-all application. It's easier to use and develop, and is our recommended default.
 *   Microservice application: in a microservices architecture, this is one of the services.
 *   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
-*   JHipster UAA server [BETA]: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
+*   JHipster UAA server: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
 
 ### What is the base name of your application?
 
@@ -71,15 +71,16 @@ It is required when using a microservices architecture (this is why this questio
 
 ### Which *type* of authentication would you like to use?
 
-This question won't be asked if you selected the [JHipster Registry]({{ site.url }}/jhipster-registry/), as it requires the use of JWT authentication.
+Answers to this question depend on previous answers. For example, if you selected the [JHipster Registry]({{ site.url }}/jhipster-registry/) above, you can only use JWT authentication.
 
-You can either use:
+Here are all the possible options:
 
-*   [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
-*   A classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.
-*   An OAuth 2.0 authentication mechanism (JHipster then provides the necessary OAuth2 server code and database tables).
+*   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
+*   HTTP Session Authentication: the classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.
+*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://www.okta.com), which handles authentication outside of the application.
+*   Authentication with JHipster UAA server: this uses a <a href="/using-uaa/">JHipster UAA server</a> that must be generated separately, and which is an OAuth2 server that handles authentication outside of the application.
 
-The OAuth 2.0 and the JWT approaches allow to use a stateless application architecture (they do not rely on the HTTP Session). You can find more information on our [securing your application]({{ site.url }}/security/) page.
+You can find more information on our [securing your application]({{ site.url }}/security/) page.
 
 ### Which *type* of database would you like to use?
 

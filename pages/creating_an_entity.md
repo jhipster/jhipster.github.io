@@ -13,7 +13,7 @@ sitemap:
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need to run `yarn start` (for TypeScript/Angular 2+) or `gulp` (for JavaScript/AngularJS 1). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## Introduction
 

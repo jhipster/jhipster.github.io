@@ -8,7 +8,7 @@ JHipster release 4.0.0
 
 This new major release is a huge step forward, after nearly one year of very hard work.
 
-This would never have been possible without our wonderful [core dev team](https://jhipster.github.io/team/) and our incredible number of [contributors](https://github.com/jhipster/generator-jhipster/graphs/contributors)! Thank you so much, everyone!
+This would never have been possible without our wonderful [core dev team]({{ site.url }}/team/) and our incredible number of [contributors](https://github.com/jhipster/generator-jhipster/graphs/contributors)! Thank you so much, everyone!
 
 Summary
 ------------
@@ -16,7 +16,7 @@ Summary
 JHipster now support both AngularJS 1 and Angular 2.x, making it:
 
 - The only available "full stack" generator for Angular 2.x
-- The only generator that creates non-trivial Angular 2.x code, in particular using our [JDL Studio](https://jhipster.github.io/jdl-studio/)
+- The only generator that creates non-trivial Angular 2.x code, in particular using our [JDL Studio]({{ site.url }}/jdl-studio/)
 
 We have also removed a lot of our previous pain points, so that generation is easier, faster, and safer.
 

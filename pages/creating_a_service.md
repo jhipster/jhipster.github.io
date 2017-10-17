@@ -1,25 +1,26 @@
 ---
 layout: default
 title: Creating a service
-permalink: /creating-a-service/
+permalink: /creating-a-spring-service/
 redirect_from:
   - /creating_a_service.html
+  - /creating-a-service/
 sitemap:
     priority: 0.7
-    lastmod: 2014-02-17T00:00:00-00:00
+    lastmod: 2017-10-17T00:00:00-00:00
 ---
 
-# <i class="fa fa-bolt"></i> Creating a service
+# <i class="fa fa-bolt"></i> Creating a Spring service
 
 ## Introduction
 
-This is a very simple sub-generator, compared to the ["entity" sub-generator]({{ site.url }}/creating-an-entity/).
+_Note: this sub-generator is much simpler than the [entity sub-generator]({{ site.url }}/creating-an-entity/) that creates full CRUD entities_
 
-Its goal is to generate a Spring Service bean, which is where your application's business logic is supposed to be coded.
+This sub-generator generates a Spring Service bean, which is where your application's business logic is supposed to be coded.
 
 In order to generate a "Bar" Service bean, just type:
 
-`jhipster service Bar`
+`jhipster spring-service Bar`
 
 _This will generate a simple "BarService": very few lines of codes, but they usually come with a lot of questions. We are trying to answer the most common ones below._
 
@@ -57,7 +58,7 @@ _Tip:_ use `@Transactional(readOnly = true)` on a method if you are not modifyin
 
 ## Can we add security to Service Beans?
 
-Yes! Just add Spring Security's `@Secured` annotation on your class or on your methods, and use the provided AuthoritiesConstants class to restrict access to specific user authorities.
+Yes! Just add Spring Security's `@Secured` annotation on your class or on your methods, and use the provided `AuthoritiesConstants` class to restrict access to specific user authorities.
 
 ## Can we monitor Service Beans?
 
