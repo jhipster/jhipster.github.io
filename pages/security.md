@@ -143,7 +143,7 @@ heroku config:set \
   SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
 ```
 
-For Cloud Foundry, you can use something like the following, where `$appName` is the name of your app. 
+For Cloud Foundry, you can use something like the following, where `$appName` is the name of your app.
 
 ```bash
 cf set-env $appName FORCE_HTTPS true
