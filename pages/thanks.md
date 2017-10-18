@@ -8,11 +8,11 @@ sitemap:
     priority: 0.1
     lastmod: 2014-02-21T00:00:00-00:00
 ---
-# <i class="fa fa-gift"></i> Thank you to all our contributors!
+# <i class="fa fa-gift"></i> 感谢所有的贡献者！
 
-JHipster has a lot of [contributors](https://github.com/jhipster/generator-jhipster/graphs/contributors), and there are official contributions from popular projects and companies as well. Below is a list of companies and projects contributing to JHipster. We are very thankful for their contributions.
+JHipster 有很多的 [贡献者](https://github.com/jhipster/generator-jhipster/graphs/contributors), 并且有很多从知名的项目或公司来的贡献者。下面是一个贡献了 JHipster 的公司及项目的清单。我们对此表示由衷的感激。
 
-## Companies contributing to JHipster
+## 参与贡献 JHipster 的公司
 
 *   [Ippon Technologies](http://www.ippon.fr/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) so he can improve the project.
 *   [XebiaLabs](https://xebialabs.com/), which provides time and hardware to [@deepu105](https://twitter.com/deepu105) so he can improve the project.
@@ -25,7 +25,7 @@ JHipster has a lot of [contributors](https://github.com/jhipster/generator-jhips
 *   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
 *   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support. It is maintained by [Srinivasa Vasu](https://twitter.com/srinivasavasu) who is also a core JHipster team member.
 
-## Projects and communities contributing to JHipster
+## 参与贡献 JHipster 的项目
 
 JHipster works closely with other OSS communities, which often contributes code, advice and reviews to the project. Important contributions have been made by:
 
@@ -34,7 +34,7 @@ JHipster works closely with other OSS communities, which often contributes code,
 *   [Gradle](https://gradle.org/), one of the build supported by JHipster.
 *   [Angular](https://angular.io/), one of the Client framework supported by JHipster.
 
-## Companies helping to develop JHipster
+## 帮助开发 JHipster 的公司
 
 These companies help us to develop JHipster
 

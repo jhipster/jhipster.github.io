@@ -1,5 +1,6 @@
 This is the source of JHipster's public [Web site](http://www.jhipster.tech/).
 =======
+译注：[中文版网站](https://jhipster-china.github.io/)
 
 This Web site is rendered with GitHub pages.
 

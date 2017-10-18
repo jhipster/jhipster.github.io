@@ -57,7 +57,7 @@ sitemap:
 * HTTP 路由：[Netflix Zuul](https://github.com/Netflix/zuul) 或 [Traefik](https://traefik.io/)
 * 服务发现： [Netflix Eureka](https://github.com/Netflix/eureka) 或 [HashiCorp Consul](https://www.consul.io/)
 
-## Ready to go into production:
+## 生产环境准备
 
 *   监控：[Metrics](http://metrics.dropwizard.io/) 及 [the ELK Stack](https://www.elastic.co/products)
 *   缓存：[ehcache](http://ehcache.org/) (本地缓存), [hazelcast](http://www.hazelcast.com/) 或 [Infinispan](http://infinispan.org/)

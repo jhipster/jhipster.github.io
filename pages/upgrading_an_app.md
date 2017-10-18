@@ -8,29 +8,29 @@ sitemap:
 gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 ---
 
-# <i class="fa fa-refresh"></i> Upgrading an application
+# <i class="fa fa-refresh"></i> 升级应用
 
-When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrading an existing application to this new version, without erasing your changes.
+每当有新的 JHipster 版本发布，JHipster 的 upgrade sub-generator 可以帮助我们升级一个现有的应用到最新版，并且不会丢失你所做的变更。
 
-This is helpful to:
+这非常有用：
 
 - Have the latest JHipster features in an existing application
-- Get the changes when there is an important bug fix or security update
+- 获得重要的补丁修复或安全更新
 - Retain your changes in your codebase, and easily merge them with newly generated code
 
 _Please read this page carefully before doing an upgrade, to understand how the upgrade process works_
 
-## Requirements
+## 准备工作
 
-For this sub-generator to work you need to have `git` installed from [http://git-scm.com](http://git-scm.com/).
+要让这个 sub-generator 工作，你需要事先安装好 `git` [http://git-scm.com](http://git-scm.com/).
 
-## Running the upgrade sub-generator
+## 执行升级工具
 
 Go into the application's root directory:
 
 `cd myapplication/`
 
-To upgrade your application, type:
+升级，执行:
 
 `jhipster upgrade`
 
@@ -40,7 +40,7 @@ Here are the options you can pass:
 * `--target-version=4.2.0` - Upgrade to the target version instead of the latest release, useful if a project is several versions behind
 * `--force` - Run the upgrade sub-generator even if no new JHipster version is available
 
-## Graphical view of the upgrade process
+## 升级过程的图形化视角
 
 Here is how the upgrade process works graphically (read the sections below to have a textual explanation):
 
@@ -68,7 +68,7 @@ Below are the steps processed by the JHipster upgrade sub-generator:
 
 Congratulations, your application is now upgraded with the latest version of JHipster!
 
-## Specific steps executed on first upgrade
+## 第一次升级的具体步骤
 
 On the first execution of the JHipster upgrade sub-generator, in order to avoid erasing all your changes, some additional steps are run:
 
@@ -76,6 +76,6 @@ On the first execution of the JHipster upgrade sub-generator, in order to avoid 
 2. The whole application is generated (using your current JHipster version).
 3. A block-merge commit is made on the `master` branch: no alteration is made on your codebase on the `master` branch; this is just a practical way to record in Git that the HEAD of `master` is up-to-date with the current JHipster version.
 
-### Advice
+### 建议
 
 Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.

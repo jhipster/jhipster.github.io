@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-10-18T00:00:00-00:00
 ---
 
-# <i class="fa fa-file-image-o"></i> Showcase
+# <i class="fa fa-file-image-o"></i> 应用展示
 
 A showcase of awesome applications built with JHipster.
 

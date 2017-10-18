@@ -20,25 +20,25 @@ _**请查看我们的 [视频教程]({{ site.url }}/video-tutorial/) 来学习�
 
 ## <a name="1"></a> 快速上手
 
-First of all, create an empty directory in which you will create your application:
+首先，创建一个空的目录来放你的项目：
 
 `mkdir myapplication`
 
-Go to that directory:
+进入目录：
 
 `cd myapplication/`
 
-To generate your application, type:
+开始创建项目，输入命令：
 
 `jhipster`
 
 Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#2).
 
-Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd).
+一旦项目创建完成，你可以使用 Maven（Linux/MacOS/Windows PowerShell 上执行 `./mvnw`，在 Windows Cmd 里执行 `mvnw`） 或 Gradle (在 Linux/MacOS/Windows PowerShell 上执行 `./gradlew`，在 Windows Cmd 里执行 `gradlew`).
 
-The application will be available on [http://localhost:8080](http://localhost:8080)
+应用启动在： [http://localhost:8080](http://localhost:8080)
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**重要** 如果你希望使用 "动态加载" JavaScript/TypeScript 代码的功能，你需要执行 `gulp` (JavaScript/AngularJS 1) 或 `yarn start` (TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## <a name="2"></a> 创建应用的各选项
 
@@ -119,25 +119,25 @@ You can build your generated Java application either with [Maven](http://maven.a
 
 This is a multi-select answer, to add one or several other technologies to the application. Available technologies are:
 
-#### Social login (Google, Facebook, Twitter)
+#### Social login (Google, Facebook, Twitter)（社区登入功能）
 
 This option is only available if you selected an SQL database or a MongoDB database. It adds [Spring Social](http://projects.spring.io/spring-social/) support to JHipster, so end-users can log-in using their Google, Facebook or Twitter account.
 
-#### API first development using swagger-codegen
+#### API first development using swagger-codegen（API 优先开发模式，使用 swagger-codegen）
 
 This option lets you do [API-first development]({{ site.url }}/doing-api-first-development) for your application by integrating the [Swagger-Codegen](https://github.com/swagger-api/swagger-codegen) into the build.
 
-#### Search engine using ElasticSearch
+#### Search engine using ElasticSearch（搜索引擎 ElasticSearch）
 
 [Elasticsearch](https://github.com/elastic/elasticsearch) will be configured using Spring Data Elasticsearch. You can find more information on our [Elasticsearch guide]({{ site.url }}/using-elasticsearch/).
 
-#### Clustered HTTP sessions using Hazelcast
+#### Clustered HTTP sessions using Hazelcast（使用 Hazelcast 来设置 Http Session 集群）
 
 By default, JHipster uses a HTTP session only for storing [Spring Security](http://docs.spring.io/spring-security/site/index.html)'s authentication and authorisation information. Of course, you can choose to put more data in your HTTP sessions.
 Using HTTP sessions will cause issues if you are running in a cluster, especially if you don't use a load balancer with "sticky sessions".
 If you want to replicate your sessions inside your cluster, choose this option to have [Hazelcast](http://www.hazelcast.com/) configured.
 
-#### WebSockets using Spring Websocket
+#### WebSockets using Spring Websocket （使用 Spring Websocket）
 
 Websockets can be enabled using Spring Websocket. We also provide a complete sample to show you how to use the framework efficiently.
 
@@ -145,7 +145,7 @@ Websockets can be enabled using Spring Websocket. We also provide a complete sam
 
 Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message broker.
 
-### Which *Framework* would you like to use for the client?
+### Which *Framework* would you like to use for the client? （使用哪种客户端框架）
 
 The client-side framework to use.
 
@@ -154,11 +154,11 @@ You can either use:
 *   Angular version 4+
 *   AngularJS version 1.x (which will be deprecated in the future)
 
-### Would you like to use the LibSass stylesheet preprocessor for your CSS?
+### Would you like to use the LibSass stylesheet preprocessor for your CSS? （使用 LibSass 预处理 CSS？）
 
 [Node-sass](https://www.npmjs.com/package/node-sass) a great solution to simplify designing CSS. To be used efficiently, you will need to run a [Gulp](http://www.gulpjs.com) server, which will be configured automatically.
 
-### Would you like to enable internationalization support?
+### Would you like to enable internationalization support? （支持国际化？）
 
 By default JHipster provides excellent internationalization support, both on the client side and on the server side. However, internationalization adds a little overhead, and is a little bit more complex to manage, so you can choose not to install this feature.
 

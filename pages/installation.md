@@ -54,7 +54,7 @@ JHipster 使用 [Yeoman](http://yeoman.io/) 来作为代码生成器。
 
 一旦 JHipster 安装好了，下一步就可以开始：[创建应用]({{ site.url }}/creating-an-app/)
 
-## Local installation with NPM (alternative to Yarn)
+## 使用 NPM 本地安装 (类似 Yarn)
 
 1.  安装 Java 8 [Oracle 官网](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 2.  (可选) 安装 Java 编译工具。
@@ -85,7 +85,7 @@ Please go to the [JHipster development box page](https://github.com/jhipster/jhi
 
 _Please note: this Docker image is for running the JHipster generator inside a container. It's completely different from the [Docker and Docker Compose configurations]({{ site.url }}/docker-compose/) that JHipster will generate, which goal is to run your generated application inside a container_
 
-### Information
+### 信息
 
 JHipster has a specific [Dockerfile](https://github.com/jhipster/generator-jhipster/blob/master/Dockerfile), which provides a [Docker](https://www.docker.io/) image.
 
@@ -93,7 +93,7 @@ It makes a Docker "Automated build" that is available on: [https://hub.docker.co
 
 This image will allow you to run JHipster inside Docker.
 
-### Prerequisites
+### 前提
 
 This depends on your operating system.
 
@@ -117,9 +117,9 @@ Kitematic is an easy-to-use graphical interface provided with the Docker Toolbox
 
 On Linux, you might need to run the `docker` command as root user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as a non-root user. Follow the steps on [http://askubuntu.com/a/477554](http://askubuntu.com/a/477554) to do so.
 
-### Usage on Linux/Mac Windows (using Docker Toolbox)
+### Linux/Mac Windows 使用说明 (使用 Docker Toolbox)
 
-#### Pull the image
+#### 拉取镜像
 
 Pull the latest JHipster Docker image:
 
@@ -131,7 +131,7 @@ Pull the development JHipster Docker image:
 
 You can see all tags [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
 
-#### Run the image
+#### 运行容器
 
 <div class="alert alert-warning"><i>Warning: </i>
 
@@ -157,14 +157,14 @@ If you have already started the container once before, you do not need to run th
 
 </div>
 
-#### Check if the container is running
+#### 检查容器是否正常运行
 
 To check that your container is running, use the command `docker container ps`:
 
     CONTAINER ID    IMAGE               COMMAND                 CREATED         STATUS          PORTS                                                       NAMES
     4ae16c0539a3    jhipster/jhipster   "tail -f /home/jhipst"  4 seconds ago   Up 3 seconds    0.0.0.0:9000-3001->9000-3001/tcp, 0.0.0.0:8080->8080/tcp    jhipster
 
-#### Common operations
+#### 一些常规操作
 
 *   To stop the container execute: `docker container stop jhipster`
 *   And to start again, execute: `docker container start jhipster`
@@ -176,7 +176,7 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 3.  `docker image pull jhipster/jhipster`
 4.  `docker container run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster`
 
-### Accessing the container
+### 访问容器
 
 <div class="alert alert-warning"><i>Warning: </i>
 
@@ -198,7 +198,7 @@ If you want to log in as "root", as the `sudo` command isn't available in Ubuntu
 
 `docker container exec -it --user root jhipster bash`
 
-### Your first project
+### 第一个项目
 
 You can then go to the /home/jhipster/app directory in your container, and start building your app inside Docker:
 
@@ -216,7 +216,7 @@ Once your application is created, you can run all the normal gulp/bower/maven co
 
 `./mvnw`
 
-**Congratulations! You've launched your JHipster app inside Docker!**
+**恭喜你! 你已经成功在 Docker 里运行了一个 JHipster 应用！**
 
 On your host machine, you should be able to :
 

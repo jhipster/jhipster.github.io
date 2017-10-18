@@ -9,80 +9,80 @@ sitemap:
     lastmod: 2015-11-28T17:13:00-00:00
 ---
 
-# <i class="fa fa-keyboard-o"></i> Configuring Intellij IDEA
+# <i class="fa fa-keyboard-o"></i> 配置 Intellij IDEA
 
-## Open your project
+## 打开你的项目
 
-- Simply open your project normally
-- Maven should be detected, and your project will build automatically
+- 首先打开你的项目
+- IDEA 会检测到 Maven , 然后你的项目会开始自动编译
 
-If you want more control on your setup, you can also choose "Import project".
+如果你希望更多的控制项目的设置，你可以选择导入项目 “Import project”
 
-## Exclude directories
+## 排除一些目录
 
-If you use Git, just initialize your project (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
+如果你使用 Git, 只需要用 Git 初始化你的项目 (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA 会自动排除一些目录 (所以，你不需要做任何额外的操作).
 
-To exclude directories manually:
+如果要手动排除一些目录:
 
-- Right-click on the `node_modules/` folder
-- Select "Mark Directory As" and select "Excluded"
+- 右键 `node_modules/` 目录
+- 选择 "Mark Directory As"，选择 "Excluded"
 
 ![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
-As the `node_modules/` directory is only used internally by JHipster, it can be safetly excluded.
+同样的，`node_modules/` 目录只需要被 JHipster 本地调用，它也可以被排除掉。
 
-_Note_ When using AngularJS 1, some people also like to exclude the `src/main/webapp/bower_components` folder, as there is a lot of JavaScript code in that folder. However, this folder contains the frameworks and tools used when developing the application, so excluding it will cause issues with the JavaScript code support that is configured below. Therefore, it is _not recommended_ to exclude this folder.
+_注意_ 在使用 AngularJS 1 时，一些开发者习惯于排除目录 `src/main/webapp/bower_components` ，因为那里面有很多 JavaScript 代码。但是，这个目录中包含着开发应用所需的框架和工具，所以简单的排除它们会引起 JavaScript 支持的一些错误。所以，这种情况下，_不建议_ 排除这个目录。
 
-## Spring Support (not available in Community Edition)
+## Spring 支持 (注意 IDEA CE 版本不支持)
 
-To add Spring support to many of the JHipster modules from a new project first go to `File → Project Structure`.
+添加 Spring 支持，打开菜单：`File → Project Structure`.
 
 ![Project Structure]({{ site.url }}/images/configuring_ide_idea_2.png)
 
-Then go to the Modules tab, click on the `+` button, and then click on "Spring" to add Spring code assistance to your project.
+进入 Modules 标签，点击 `+` 按钮，选择 "Spring" 来添加 Spring 代码助手。
 
 ![Spring]({{ site.url }}/images/configuring_ide_idea_3.png)
 
-It will tell you there are unmapped Spring configuration files, click on the `+` sign on the  bottom right (not the original one) and select all the Spring files that belong to your project, just clicking the folder is enough to select everything.
+你会得到一个没有 map 到 Spring 配置文件的提示，点击右下角的 `+` (不是之前那个 + 按钮)，选择所有你项目上的 Spring 文件，选择目录就可以选择所有文件。
 
 ![Spring Application Context]({{ site.url }}/images/configuring_ide_idea_4.png)
 
-After that click `OK`, and Spring should be configured with proper code assistance.
+点击 `OK`, and Spring should be configured with proper code assistance.
 
 Now click on the original `+` button which you used to add Spring in the first place, and add Hibernate. You do not need to add any files on this one, just adding it there will give you Hibernate based code assistance. Remember to click `OK` on the Project structure dialog.
 
 You should now have Spring support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
 
-## JavaScript Code Support (not available in Community Edition)
+## JavaScript 代码支持 (注意 IDEA CE 版本不支持)
 
-Go and open `IntelliJ IDEA → Preferences...`.
+打开 `IntelliJ IDEA → Preferences...`.
 
 ![Settings]({{ site.url }}/images/configuring_ide_idea_5.png)
 
-Navigate to `Languages & Frameworks → Javascript → Bower` (or type "Bower" on the top search bar)
+导航到 `Languages & Frameworks → Javascript → Bower` (or type "Bower" on the top search bar)
 
 ![Navigate to Bower]({{ site.url }}/images/configuring_ide_idea_6.png)
 
-Point to your `bower.json`, which is located at the root of your project. The project's libraries, like Angular.js, should be automatically recognized.
+指向你的 `bower.json` 文件，该文件在你的项目根目录下。项目的一些包，比如 Angular.js，应该就能自动识别到了。
 
 After configuring this you should have fairly extensive code support for the Javascript libraries in JHipster.
 
-## Application "hot restart" with Spring Boot devtools
+## 使用 Spring Boot devtools 来使项目支持 "热重启" 
 
 [Spring Boot devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) is configured by JHipster, and will "hot restart" your application when classes from your project are compiled. This is a must-have feature, as it makes your application updated on the fly.
 
-By default IntelliJ IDEA does not automatically compile files when the application is running. To enable the "Compile on save" feature:
+默认情况下，IntelliJ IDEA 设置为不会自动编译项目文件。如果要打开 "Compile on save" 设置:
 
-* Go to `File -> Settings -> Build, Execution, Deployment -> Compiler` and enable "Make project automatically"
-* Open the Action window :
+* `File -> Settings -> Build, Execution, Deployment -> Compiler`，勾选 "Make project automatically"
+* 打开 Action 设置窗口 :
   * Linux : `CTRL+SHIFT+A`
   * Mac OSX : `SHIFT+COMMAND+A`
   * Windows : `CTRL+ALT+SHIFT+/`
-* Enter `Registry...` and enable `compiler.automake.allow.when.app.running`
+* 输入 `Registry...`，勾选 `compiler.automake.allow.when.app.running`
 
-## Maven IDE profile
+## Maven 的 IDE profile 支持
 
-If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
+如果你使用的是 Maven, 你需要在 Intellij IDEA 里激活 `IDE` profile 功能。This is used for applying IDE-specific tweaks
 which currently only includes applying the MapStruct annotation processor.
 
-Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` maven profile to activate it.
+打开 "Maven Projects" 工具窗口 (View -> Tool Windows), 点击 `IDE` maven profile 来激活这项功能。（译注：我没找到）

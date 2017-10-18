@@ -9,34 +9,36 @@ sitemap:
     lastmod: 2014-10-10T00:00:00-00:00
 ---
 
-# <i class="fa fa-bolt"></i> Creating an entity
+# <i class="fa fa-bolt"></i> 创建实体对象
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
 **Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
-## Introduction
+## 介绍
 
-Once you have created your application, you will want to create _entities_. For example, you might want to create an _Author_ and a _Book_ entity. For each entity, you will need:
+当你创建好了应用，就可以开始创建 _实体对象_ 了。例如，你可能需要创建一个 _Author（作者）_ 和一个 _Book（书籍）_ 的实体对象。
+对每个实体对象，你需要：
 
-*   A database table
-*   A Liquibase change set
-*   A JPA Entity
-*   A Spring Data JPA Repository
-*   A Spring MVC REST Controller, which has the basic CRUD operations
-*   An Angular router, a component and a service
-*   An HTML view
-*   Integration tests, to validate everything works as expected
-*   Performance tests, to see if everything works smoothly
+*   一张数据库表
+*   一个 Liquibase 变更记录
+*   一个 JPA 实体对象
+*   一个 Spring Data JPA Repository
+*   一个 Spring MVC REST Controller, 来处理基础的 CRUD 操作
+*   一个 Angular router, 一个 component 以及一个 service
+*   一个 HTML 视图
+*   集成测试，来验证一切运行正常
+*   性能测试，来验证一切运行平滑
 
-If you have several entities, you will likely want to have relationships between them. For this, you will need:
+如果你有多个实体对象，你可能还希望设置它们之间的关系。你需要：
 
-*   A database foreign key
-*   Specific JavaScript and HTML code for managing this relationship
+*   一个数据库外键
+*   特别的 JavaScript 和 HTML 代码来管理这些关系
 
-The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see [project structure]({{ site.url }}/using-angularjs/)). The sub generator can be invoked by running `jhipster entity <entityName> --[options]`. Reference for those options can be found by typing `jhipster entity --help`
+使用 "entity" sub-generator 来创建所有这些必要的文件，以及这些实体对象的 CRUD 前端 (see [project structure]({{ site.url }}/using-angularjs/)). 该 sub generator 可以这样执行：`jhipster entity <entityName> --[options]`. 
+查看相关帮助：`jhipster entity --help`
 
-Below are the supported options.
+下面是该命令可支持的选项：
 
 *   `--table-name <table_name>` - By default JHipster will generate a table name based on your entity name, if you would like to have a different table name you can do so by passing this option.
 *   `--angular-suffix <suffix>` - If you want all your Angular routes to have a custom suffix you can pass that using this option.
@@ -45,7 +47,7 @@ Below are the supported options.
 *   `--skip-client` - This will skip the client-side code and will generate only the server-side code.
 *   `--db` - Specify the database when skipping server side generation, has no effect otherwise.
 
-## JHipster UML and JDL Studio
+## JHipster UML 和 JDL Studio 工具
 
 This page describes how to create entities with JHipster using the standard command-line interface. If you want to create many entities, you might prefer to use a graphical tool.
 
@@ -54,9 +56,9 @@ In that case, two options are available:
 *   [JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor.
 *   [JDL Studio]({{ site.url }}/jdl-studio/), our online tool to create entities and relationships using our domain-specific language [JDL]({{ site.url }}/jdl/).
 
-If you used the JDL Studio:
+如果你使用 JDL Studio:
 
-*   You can generate entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
+*   你可以使用 `import-jdl` sub-generator 从这个 JDL 文件来生成实体对象，执行：`jhipster import-jdl your-jdl-file.jh`.
 
     * If you do not want to regenerate your entities, while importing a JDL, you can use the `--json-only` flag to skip entity creation part and create only the json files in `.jhipster` folder.
 
@@ -72,7 +74,7 @@ If you used the JDL Studio:
 
 *   If you want to use JHipster UML instead of the `import-jdl` sub-generator, you need to install it by running `npm install -g jhipster-uml`, and then run `jhipster-uml yourFileName.jh`.
 
-## Entity fields
+## 实体对象字段
 
 For each entity, you can add as many fields as you want. You will need to input the field names and their types, and JHipster will generate for you all the required code and configuration, from the Angular HTML view to the Liquibase changelog.
 
@@ -81,7 +83,7 @@ Those fields cannot contain reserved keywords in the technologies you are using.
 *   You cannot use Java reserved keywords (as your code will not compile)
 *   You cannot use MySQL reserved keywords (as your database schema update will fail)
 
-## Field types
+## 字段类型
 
 JHipster supports many field types. This support depends on your database backend, so we use Java types to describe them: a Java `String` will be stored differently in Oracle or Cassandra, and it is one of JHipster's strengths to generate the correct database access code for you.
 
@@ -98,7 +100,7 @@ JHipster supports many field types. This support depends on your database backen
 *   `Enumeration`: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific `enum` class to store them.
 *   `Blob`: A Blob object, used to store some binary data. When this type is selected, the sub-generator will ask you if you want to store generic binary data, an image object, or a CLOB (long text). Images will be handled specifically on the Angular side, so they can be displayed to the end-user.
 
-## Validation
+## 验证
 
 Validation can be set up for each field. Depending on the field type, different validation options will be available.
 
@@ -123,19 +125,19 @@ Validation has a few limitations:
 *   Regular Expression patterns don't work the same in JavaScript and in Java, so if you configure one, you might need to tweak one of the generated patterns
 *   JHipster generates unit tests that work for generic entities, without knowing your validation rules: it is possible that the generated tests do not pass the validation rules. In that case, you will need to update the sample values used in your unit tests, so that they pass the validation rules.
 
-## Entity relationships
+## 实体对象之间的关系
 
 Entity relationships are only available for SQL databases. It is a fairly complex subject, which has its own documentation page: [Managing relationships]({{ site.url }}/managing-relationships/).
 
-## Data Transfer Objects (DTOs)
+## 数据传输对象 (DTOs)
 
-By default JHipster entities do not use DTOs, but they are available as an option. Here is the documentation: [Using DTOs]({{ site.url }}/using-dtos/).
+JHipster 默认不会生成 DTOs, but they are available as an option. Here is the documentation: [Using DTOs]({{ site.url }}/using-dtos/).
 
-## Filtering
+## 过滤
 
 Optionally, entities stored in SQL databases can be filtered using JPA. Here is the documentation: [Filtering your entities]({{ site.url }}/entities-filtering/).
 
-## Pagination
+## 翻页
 
 Please note that pagination is not available if you created your application with [Cassandra]({{ site.url }}/using-cassandra/). Of course this will be added in a future release.
 
@@ -148,7 +150,7 @@ When the entity is generated, JHipster provides 4 pagination options:
 *   A complete pagination system, based on [the Bootstrap pagination component](http://getbootstrap.com/components/#pagination)
 *   An infinite scroll system, based on [the infinite scroll directive](http://sroze.github.io/ngInfiniteScroll/)
 
-## Updating an existing entity
+## 更新现有的实体对象
 
 The entity configuration is saved in a specific `.json` file, in the `.jhipster` directory. So if you run the sub-generator again, using an existing entity name, you can update or regenerate the entity.
 
@@ -172,13 +174,13 @@ TIP: to regenerate all your entities at once, you can use the following commands
 *   Linux & Mac: ``for f in `ls .jhipster`; do jhipster entity ${f%.*} --force ; done``
 *   Windows: `for %f in (.jhipster/*) do jhipster entity %~nf --force`
 
-## Tutorial
+## 教程
 
 This is a short tutorial on creating two entities (a Author and a Book) which have a one-to-many relationship.
 
 **Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
-### Generate the "Author" entity
+### 创建 "Author" 实体对象
 
 As we want to have a one-to-many relationship between Authors and Books (one author can write many books), we need to create the Author first. At the database level, JHipster will then be able to add a foreign key on the Book table, linking to the Author table.
 
@@ -193,7 +195,7 @@ Then answer the questions concerning the relationships, the author has:
 
 *   A one-to-many relationship with the "book" entity (which doesn't exist yet)
 
-### Generate the "Book" entity
+### 创建 "Book" 实体对象
 
 `jhipster entity book`
 
@@ -209,7 +211,7 @@ Then answer the questions concerning the relationships, the book:
 *   Has many-to-one relationship with the "author" entity
 *   And this relationship uses the "name" field (from the Author entity) to be displayed
 
-### Check the generated code
+### 检查生成好的代码
 
 Run the generated test suite, with `mvn test`, which will test the Author entity and the Book entity.
 
@@ -217,7 +219,7 @@ Launch the application (for example with `mvn`), log in and select the "Author" 
 
 Check the database tables, to see if your data is correctly inserted.
 
-### Improve the generated code
+### 改进代码
 
 The generated files contain all the basic CRUD operations, and don't need to be modified if your needs are simple.
 
@@ -225,7 +227,7 @@ If you want to modify the generated code or the database schema, you should foll
 
 If you want some more complex business behaviors, you might need to add a Spring `@Service` class, using the [service sub-generator]({{ site.url }}/creating-a-service/).
 
-### You're done!
+### 全部搞定！
 
 Your generated CRUD page should look like this:
 

@@ -9,9 +9,9 @@ sitemap:
     lastmod: 2014-12-10T00:00:00-00:00
 ---
 
-# <i class="fa fa-flag"></i> Internationalization
+# <i class="fa fa-flag"></i> 国际化支持
 
-## Introduction
+## 介绍
 
 During the generation of a new project you will be asked whether or not you want to enable internationalization support.
 
@@ -19,7 +19,7 @@ If enabling it you will need to select the native language of your application. 
 
 If you are sure you will never translate this application into another language you should not enable the internationalization.
 
-## Supported languages
+## 支持的语言
 
 These are the currently supported languages
 
@@ -63,7 +63,7 @@ These are the currently supported languages
 
 _Your language is missing in JHipster? Help us improve the project with a PR!_
 
-## How to add languages after project generation?
+## 在项目创建后如何增加国际化支持？
 
 To do this you can run the languages sub-generator with:
 
@@ -73,7 +73,7 @@ To do this you can run the languages sub-generator with:
 
 Note that you will need to regenerate your entities if you would like to have them translated in the language you just added.
 
-## How to add a new language that is not supported?
+## 如何添加一个新的语言支持？
 
 All languages are saved in the folder `src/main/webapp/i18n` (client side) and `src/main/resources/i18n` (server side)
 
@@ -117,11 +117,11 @@ Here are the steps to install a new language called `new_lang`:
 
 The new language `new_lang` is now available in the language menu, and it is available both in the front-end Angular application and in the back-end Spring application.
 
-### Contributing the language to generator-jhipster
+### 向 generator-jhipster 贡献新的语言支持
 
 If you would like to contribute a new language to the generator follow steps 1, 2, 4 and 5 from above. Add an entry for the new language to the `LANGUAGES` constant in `generators/generator-constants.js` and add the language to `test/templates/all-languages/.yo-rc.json` in the `generator-jhipster` project. Submit a PR with all these changes.
 
-## How to remove an existing language?
+## 需要删掉某个语言支持？
 
 Here are the steps to remove a language called `old_lang`:
  
