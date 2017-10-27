@@ -19,7 +19,7 @@ We provide 5 ways of working with JHipster:
 *   "Local installation with Yarn" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
 *   "Local installation with NPM" is the same as classical "local installation with Yarn", but using NPM instead of [Yarn](https://yarnpkg.com/)
 *   The Vagrant-based "[development box](https://github.com/jhipster/jhipster-devbox)", with all tools already set up in a Ubuntu-based virtual machine.
-*   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight, virtualized container with JHipster installed.
+*   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight container with JHipster installed.
 
 ## JHipster Online (for users wanting a simplified way to run JHipster)
 
@@ -33,43 +33,56 @@ In the future, we expect JHipster Online to provide more features, of course.
 
 ## Local installation with Yarn (recommended for normal users)
 
+### Quick setup when using Angular
+
 1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2.  (Optional) Install a Java build tool.
+2.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version)
+3.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
+4.  If you want to use the JHipster Marketplace, install Yeoman: `yarn global add yo`
+5.  Install JHipster: `yarn global add generator-jhipster`
+
+Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
+
+### Quick setup when using AngularJS 1.x
+
+1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+2.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version)
+3.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
+4.  Install Bower: `yarn global add bower`
+5.  Install Gulp: `yarn global add gulp-cli`
+4.  If you want to use the JHipster Marketplace, install Yeoman: `yarn global add yo`
+5.  Install JHipster: `yarn global add generator-jhipster`
+
+Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
+
+### Optional installations for Angular and AngularJS 1.x
+
+1. Install a Java build tool.
     *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
     *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
-3.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
-4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version)
-5.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
-6.  Install Yeoman: `yarn global add yo`
-7.  Only for AngularJS 1, install Bower: `yarn global add bower`
-8.  Only for AngularJS 1, install Gulp: `yarn global add gulp-cli`
-9.  Install JHipster: `yarn global add generator-jhipster`
+2.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
+    * JHipster will try to commit your project to Git, if it is installed.
+    * The [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) requires to have Git installed.
 
-Note: if you have problems to use these tools globally, be sure you have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
+### Troubleshooting
+
+If you have problems using Yarn globally, be sure to have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
 
 On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
 
 JHipster uses [Yeoman](http://yeoman.io/) for code generation.
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [Yarn documentation](https://yarnpkg.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
 
-Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
-
 ## Local installation with NPM (alternative to Yarn)
 
-1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2.  (Optional) Install a Java build tool.
-    *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
-    *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
-3.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
-4.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version). This will also install `npm`, which is the node package manager we are using in the next commands.
-5.  (Recommended) Update NPM: `npm install -g npm`
-6.  Install Yeoman: `npm install -g yo`
-7.  Only for AngularJS 1, install Bower: `npm install -g bower`
-8.  Only for AngularJS 1, install Gulp: `npm install -g gulp-cli` (If you have previously installed a version of gulp globally, please run `npm rm -g gulp` to make sure your old version doesn't collide with `gulp-cli`)
-9.  Install JHipster: `npm install -g generator-jhipster`
-10.  (Optional) Install Yarn: `npm install -g yarn` (If so, after generating a project, `yarn install` will be launched instead of `npm install`)
+This is the same procedure as using Yarn, with two differences:
 
-You can find here the [NPM documentation](https://docs.npmjs.com/).
+1. Instead of installing Yarn in step 3, update NPM: `npm install -g npm`
+2. Use `npm install -g` instead of `yarn global add`, for example:
+    * To install Yeoman, type: `npm install -g yo`
+    * To install JHipster, type: `npm install -g generator-jhipster`
+
+You can find more information in the [NPM documentation](https://docs.npmjs.com/).
 
 ## Vagrant box installation
 
