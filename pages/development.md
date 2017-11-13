@@ -214,6 +214,18 @@ This option is bit more complex than using H2, but you have a some important ben
 *   Your application starts a little bit faster
 *   You can use the great `./mvnw liquibase:diff` goal (see below)
 
+**Note**: for MySQL, you probably need to start your database with these options:
+
+*   `--lower_case_table_names=1` : see the [documentation](https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html)
+*   `--skip-ssl` : see the [documentation](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connection-options.html#option_general_ssl)
+*   `--character_set_server=utf8` : see the [documentation](https://dev.mysql.com/doc/refman/5.7/en/server-options.html#option_mysqld_character-set-server)
+*   `--explicit_defaults_for_timestamp` : see the [documentation](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp)
+
+The command is:
+
+    mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8 --explicit_defaults_for_timestamp
+
+
 ## Database updates
 
 If you add or modify a JPA entity, you will need to update your database schema.
