@@ -336,6 +336,12 @@
       "category": "Research",
       "country": "Switzerland"
     },
+    {"name": "Rolls-Royce",
+      "url": "https://www.rolls-royce.com/",
+      "logo": "rolls-royce.png",
+      "category": "Industry",
+      "country": "United Kingdom"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -785,6 +791,36 @@
     },
     {"name": "Mimacom",
       "url": "http://www.mimacom.com/"
+    },
+    {"name": "Vuvu",
+      "url": "https://vuvu.am/"
+    },
+    {"name": "Keleo Solutions",
+      "url": "http://www.keleo-solutions.com/"
+    },
+    {"name": "CI Wise Inc.",
+      "url": "https://ciwise.com/"
+    },
+    {"name": "DXC technology",
+      "url": "https://www.dxc.technology/"
+    },
+    {"name": "New High Glass",
+      "url": "http://newhighglass.net/"
+    },
+    {"name": "visualchina",
+      "url": "https://500px.me/"
+    },
+    {"name": "Sarifo's Tech Solutions",
+      "url": "https://www.sarifostech.com"
+    },
+    {"name": "fullstack3 Limited",
+      "url": "https://www.wama.cloud/"
+    },
+    {"name": "Naru Ltd.",
+      "url": "https://www.naru.tn/"
+    },
+    {"name": "Big Bang Soft",
+      "url": "http://bigbangsoft.fr/"
     }
   ]
 }
