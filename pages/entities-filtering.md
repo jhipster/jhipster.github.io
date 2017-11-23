@@ -15,6 +15,11 @@ After the basic CRUD functionalities are implemented for an entity, there is a v
 so the server could be used more effectively. These filters should be sent as the request parameters, so any client - and any browser - could use it easily.
 Additionally, these filters should follow a sane, and concise pattern, and they must be allowed combining them freely.
 
+## How to activate
+
+When generating an entity, select services or service implementation, to enable filtering in the generator. If you want to enable filtering for existing entities, you can modifiy the entity configuration in your projects ".jhipster" directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true`.
+
+
 ## Public interface
 
 For each entity, you can enable filtering in the entity generator, and after, you can call your `/api/my-entity` GET endpoint with the following parameters :
