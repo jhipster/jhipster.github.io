@@ -197,6 +197,7 @@ Here are the options you can pass:
 * `--skip-checks` - Skip the check of the required tools (Default: false)
 * `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
 * `--npm` - Use NPM instead of Yarn (Default: false)
+* `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
 
 ## <a name="4"></a> Tips
 
