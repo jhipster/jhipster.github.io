@@ -150,6 +150,22 @@ input.gsc-search-button {
     margin-right: 3px;
 }
 
+
+.navbar-top.navbar {
+    text-transform: uppercase;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    a:focus {
+        outline: 0;
+    }
+    .navbar-nav {
+        letter-spacing: 1px;
+        li a:focus {
+            outline: 0;
+        }
+    }
+}
+
 // Navbar
 .navbar {
     z-index: 10001;
@@ -2046,6 +2062,7 @@ footer {
 .btn-outline {
     margin-top: 15px;
     border: solid 2px #fff;
+    border-radius: 25px;
     font-size: 20px;
     color: #fff;
     background: 0 0;
@@ -2057,6 +2074,10 @@ footer {
         border: solid 2px #fff;
         color: $primary-color;
         background: #fff;
+    }
+    &.blue {
+        color: $primary-color;
+        border-color: $primary-color;
     }
 }
 .team-member{
