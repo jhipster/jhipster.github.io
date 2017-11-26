@@ -212,7 +212,7 @@ section {
     &.news {
         padding: 10px 0;
     }
-    &.success {
+    &.success, &.blue {
         color: #fff;
         background: $primary-color;
         a {
@@ -427,4 +427,12 @@ form .row:first-child .floating-label-form-group {
 
 .fontSmall {
    font-size: 1em;
+}
+
+.padding-t-25 {
+    padding-top: 25px !important;
+}
+
+.padding-b-25 {
+    padding-bottom: 25px !important;
 }

@@ -9,3 +9,4 @@ npm-debug.log
 *.iml
 *.iws
 Gemfile.lock
+.jekyll-metadata

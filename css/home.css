@@ -150,13 +150,13 @@ section {
     font-size: 3em; }
   section.news {
     padding: 10px 0; }
-  section.success {
+  section.success, section.blue {
     color: #fff;
     background: #3E8ACC; }
-    section.success a {
+    section.success a, section.blue a {
       outline: 0;
       color: #2c3e50; }
-      section.success a:hover, section.success a:focus, section.success a:active, section.success a.active {
+      section.success a:hover, section.success a:focus, section.success a:active, section.success a.active, section.blue a:hover, section.blue a:focus, section.blue a:active, section.blue a.active {
         outline: 0;
         color: #2c3e50; }
   section .title {
@@ -314,3 +314,9 @@ form .row:first-child .floating-label-form-group {
 
 .fontSmall {
   font-size: 1em; }
+
+.padding-t-25 {
+  padding-top: 25px !important; }
+
+.padding-b-25 {
+  padding-bottom: 25px !important; }

@@ -34,7 +34,7 @@ gulp.task("watch", function() {
 gulp.task('init-server', function() {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./_site"
         }
     });
 });
