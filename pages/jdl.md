@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2017-10-11T12:00:00-00:00
+    lastmod: 2017-11-27T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -102,7 +102,7 @@ Here's an example of a JDL code:
 ```
 entity A
 entity B
-entity C {}
+entity C
 entity D {
   name String required,
   address String required maxlength(100),
@@ -113,7 +113,7 @@ entity D {
 Regexes are a bit special as they are used like this (from v1.3.6):
 ```
 entity A {
-  myString required min(1) max(42) pattern(/[A-Z]+/)
+  myString String required minlength(1) maxlength(42) pattern(/[A-Z]+/)
 }
 ```
 If you're using the generator prior to v4.9.X, you'd need to use patterns like this `pattern('[A-Z]+'`).
@@ -138,17 +138,20 @@ The relationships declaration is done as follows:
   - `<display field>` is the name of the field that should show up in select boxes (default: `id`),
   - `required` whether the injected field is required.
 
-
 Here's a simple example:
 
 A Book has one, required, Author, an Author has several Books.
 
     entity Book
-    entity Author
+    entity Author {
+      name String required
+    }
 
     relationship OneToMany {
       Author{book} to Book{writer(name) required}
     }
+
+Here, the `Book` class will have a **required** field named `writer` that will be linked through the `name` field of `Author`.
 
 Of course, in real cases, you'd have a lot of relationships and always writing the same three lines could be tedious.
 That's why you can declare something like:
@@ -169,7 +172,7 @@ relationship ManyToMany {
 }
 ```
 
-The join is always done using the `id` field which is also the default field shown when editing a relation in the frontend. If another field should be shown instead, you can specify it like this:
+The join is always done using the `id` field which is also the default field shown when editing a relation in the front-end. If another field should be shown instead, you can specify it like this:
 
 ```
 entity A {
@@ -183,7 +186,7 @@ relationship OneToOne {
 }
 ```
 
-This makes JHipster generate a REST resource that returns both `id` and `name` of the linked entity to the frontend, so the name can be shown to the user instead.
+This makes JHipster generate a REST resource that returns both `id` and `name` of the linked entity to the front-end, so the name can be shown to the user instead.
 
 ### <a name="enumerationdeclaration"></a> Enumerations
 
@@ -222,10 +225,8 @@ You can do the same with the JDL:
     entity A {
       name String required
     }
-
-    entity B {}
-
-    entity C {}
+    entity B
+    entity C
 
     dto A, B with mapstruct
 
@@ -246,9 +247,9 @@ Service with serviceClass (see B) will make the resource call the service class 
 
 Use no service if not sure it's the simplest option and good for CRUD. Use service with a Class if you will have a lot of business logic which will use multiple repositories making it ideal for a service class. Jhipster's are not a fan of unnecessary Interfaces but if you like them go for service with impl.
 
-    entity A {}
-    entity B {}
-    entity C {}
+    entity A
+    entity B
+    entity C
 
     // no service for A
     service B with serviceClass
@@ -387,16 +388,16 @@ Explanation on how to create relationships with JDL.
 
 A bidirectional relationship where the Car has a Driver, and the Driver has a Car.
 
-    entity Driver {}
-    entity Car {}
+    entity Driver
+    entity Car
     relationship OneToOne {
       Car{driver} to Driver{car}
     }
 
 A Unidirectional example where a Citizen has a Passport, but the Passport has no access to sole its owner.
 
-    entity Citizen {}
-    entity Passport {}
+    entity Citizen
+    entity Passport
     relationship OneToOne {
       Citizen{passport} to Passport
     }
@@ -406,16 +407,16 @@ A Unidirectional example where a Citizen has a Passport, but the Passport has no
 
 A bidirectional relationship where the Owner has none, one or more Car objects, and the Car knows its owner.
 
-    entity Owner {}
-    entity Car {}
+    entity Owner
+    entity Car
     relationship OneToMany {
       Owner{car} to Car{owner}
     }
 
 Unidirectional versions for this relationship are not supported by JHipster, but it would look like this:
 
-    entity Owner {}
-    entity Car {}
+    entity Owner
+    entity Car
     relationship OneToMany {
       Owner{car} to Car
     }
@@ -426,8 +427,8 @@ Unidirectional versions for this relationship are not supported by JHipster, but
 The reciprocal version of One-to-Many relationships is the same as previously.
 The unidirectional version where the Car knows its owners:
 
-    entity Owner {}
-    entity Car {}
+    entity Owner
+    entity Car
     relationship ManyToOne {
       Car{owner} to Owner
     }
@@ -437,8 +438,8 @@ The unidirectional version where the Car knows its owners:
 
 Finally, in this example we have the Car that knows of its drivers, and the Driver object can access its cars.
 
-    entity Driver {}
-    entity Car {}
+    entity Driver
+    entity Car
     relationship ManyToMany {
       Car{driver} to Driver{car}
     }
@@ -600,7 +601,7 @@ These options take values:
   - `dto` (`mapstruct`)
   - `service` (`serviceClass`, `serviceImpl`)
   - `paginate` (`pager`, `pagination`, `infinite-scroll`)
-  - `searchEngine` (`elasticsearch`)
+  - `search` (`elasticsearch`)
   - `microservice` (custom value)
   - `angularSuffix` (custom value)
 
