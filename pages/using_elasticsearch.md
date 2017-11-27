@@ -15,7 +15,7 @@ Elasticsearch is an option that adds search capabilities on top of your database
 
 This option has some limitations:
 
-*   It only works with SQL databases. MongoDB and Cassandra support will be added in the future (help is welcome!).
+*   It only works with SQL databases. MongoDB, Cassandra and Couchbase support will be added in the future (help is welcome!).
 *   There is no consistency between your database and Elasticsearch, so you might have out-of-sync data. This is normal, as Elasticsearch is not a real database. As a result, you will probably need to write some specific code to synchronize your data, for example using the Spring `@Scheduled` annotation, to run every evening.
     *   This also means if your database is changed outside of your application, your search indexes will be out-of-sync.  The [Elasticsearch Reindexer](http://www.jhipster.tech/modules/marketplace/#/details/generator-jhipster-elasticsearch-reindexer) JHipster module can help in these situations.
 
