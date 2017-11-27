@@ -6,7 +6,7 @@ redirect_from:
   - /jhipster_uml.html
 sitemap:
     priority: 0.5
-    lastmod: 2017-02-22T12:00:00-00:00
+    lastmod: 2017-11-27T12:00:00-00:00
 ---
 
 # <i class="fa fa-magic"></i> JHipster-UML
@@ -31,9 +31,10 @@ Here's what's covered on this page:
     5.1. [Modelio](#modelioexample)  
     5.2. [UML Designer](#umldesignerexample)  
     5.3. [GenMyModel](#genmymodelexample)  
-    5.4. [Enumerations](#enumerationexamples)  
-    5.5. [Table names](#tablenames)  
-    5.6. [Required relationships](#requiredrels)  
+    5.4. [Other editors](#othereditors)  
+    5.5. [Enumerations](#enumerationexamples)  
+    5.6. [Table names](#tablenames)  
+    5.7. [Required relationships](#requiredrels)  
 6. [Testing](#testing-juml)
 7. [Contributing: issues and enhancements](#contributing)  
     7.1. [Parser modifications](#parsermodifications)
@@ -55,7 +56,7 @@ Here is a list of the editors we support:
 
 # <a name="issues"></a>Issues and bugs
 
-JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
 
 Please use our project for submitting issues and Pull Requests:
 
@@ -78,11 +79,19 @@ Finally, an issue has been reported from a Windows user using Git Bash. The JHip
 # <a name="install"></a>Installation
 To install JHipster UML simply use the command:
 
- `npm install -g jhipster-uml`
+ ```
+   npm install -g jhipster-uml
+   # or
+   yarn global add jhipster-uml
+ ```
 
 If, however, you don't want to install the latest version globally because it doesn't match your version of the generator (see below) or if you want it contained locally, use this command instead:
 
-  `npm install jhipster-uml --save-dev`
+  ```
+    npm install jhipster-uml --save-dev
+    # or
+    yarn add jhipster-uml --dev
+  ```
 
 If you want the 'bleeding edge' (almost perfectly safe to use) version, you can clone our git repo from [our GitHub project](https://github.com/jhipster/jhipster-uml):
 
@@ -306,8 +315,7 @@ Each editor will be discussed here, so that you know how to get a good XMI file.
 In JHipster-UML, each editor has been tested with the Oracle example. If you wish to see the examples in a "dummy project", you just have to download these files for each editor, and test JHipster and JHipster-UML:
   - For Modelio: [modelio.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi);
   - For UML Designer: [umldesigner.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml);
-  - For GenMyModel: [genmymodel_evolve.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi);
-  - And for Visual Paradigm: [visualparadigm.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/visualparadigm.uml).
+  - For GenMyModel: [genmymodel_evolve.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
 
 
 ## <a name="modelioexample"></a>Modelio
@@ -417,6 +425,7 @@ Commenting is possible for classes and attributes (not relationships), and achie
 
 
 ## <a name="genmymodelexample"></a>GenMyModel
+
 GenMyModel is an in-browser UML editor that can be found [here](https://dashboard.genmymodel.com/). You can use it for free but with restrictions, we hope that this editor will enable users to fiddle around with JHipster-UML without the constraint of downloading an application.
 
 The XMI file example is located [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
@@ -450,6 +459,7 @@ Unfortunately, you can not create custom constraints for attributes to fit the J
 
 Once the diagram is done, you can export it to XMI. To do it, simply click on Tool -> Export as UML (XMI)
 
+
 ### Unidirectional relationships
 
 In GenMyModel, creating unidirectional relationships is pretty easy: just remove the name from the field you don't want and you're good to go.
@@ -468,6 +478,14 @@ Commenting is available for classes, attributes and relationship fields.
 Just click on an element and write a comment in the description field.
 
 ![GenMyModel, commenting]({{ site.url }}/images/jhipsteruml_genmymodel_commenting.png)
+
+
+## <a name="#othereditors"></a> Other editors
+
+### Sparx EA
+
+Support for dealing with this editor has been added by Guillaume Finance.
+Here is the [repo](https://github.com/guillaumefinance/MDG-Sparx-EA-UML-JHipster), and you can read the presentation [here](http://www.umlchannel.com/en/enterprise-architect/item/204-mdg-viseo-ea-uml-to-jhipster-generator-jdl-uml-model-sparx-enterprise-architect).
 
 
 ## <a name="enumerationexamples"></a>Enumerations
