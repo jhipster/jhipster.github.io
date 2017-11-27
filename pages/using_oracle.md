@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2015-06-08T18:40:00-00:00
 ---
 
-# <i class="fa fa-archive"></i> Using Oracle
+# <i class="fa fa-database"></i> Using Oracle
 
 When using JPA, you have the option to use the Oracle database.
 
