@@ -16,7 +16,7 @@ Summary
 JHipster now support both AngularJS 1 and Angular 2.x, making it:
 
 - The only available "full stack" generator for Angular 2.x
-- The only generator that creates non-trivial Angular 2.x code, in particular using our [JDL Studio]({{ site.url }}/jdl-studio/)
+- The only generator that creates non-trivial Angular 2.x code, in particular using our [JDL Studio](https://start.jhipster.tech/jdl-studio/)
 
 We have also removed a lot of our previous pain points, so that generation is easier, faster, and safer.
 
