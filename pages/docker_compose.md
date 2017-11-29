@@ -93,11 +93,7 @@ To run this image, use the Docker Compose configuration located in the `src/main
 
 This command will start up your application and the services it relies on (database, search engine, JHipster Registry...).
 
-If you chose OAuth 2.0 for authentication, Keycloak will be started with this command. To make things work, you'll need to make sure to add the following to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
-
-```
-127.0.0.1	keycloak
-```
+If you chose OAuth 2.0 for authentication, be sure to read our [Keycloak section on this documentation](#7).
 
 ## <a name="docker-compose-subgen"></a> Generating a custom Docker-Compose configuration for multiple applications
 
@@ -217,6 +213,14 @@ The Sonar reports will be available at: [http://localhost:9000](http://localhost
 ## <a name="7"></a> Keycloak
 
 If you chose OAuth 2.0 as your authentication, Keycloak is used as the default identity provider. Running `docker-compose -f src/main/docker/app.yml up` starts up Keycloak automatically.
+
+To make things work, you'll need to make sure to add the following to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
+
+```
+127.0.0.1	keycloak
+```
+
+This is because you will access your application with a browser on your machine (which name is localhost, or `127.0.0.1`), but inside Docker it will run in its own container, which name is `keycloak`.
 
 If you just want to start Keycloak, and not the other services, use its specific Docker Compose configuration:
 

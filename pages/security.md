@@ -22,7 +22,26 @@ By default, JHipster comes with 4 different users:
 
 For security reasons, you should change those default passwords.
 
-## HTTP Session Authentication
+JHipster provides 4 main security mechanisms:
+
+1. [JSON Web Tokens (JWT)](#jwt)
+2. [Session-based authentication](#session)
+3. [OAuth2 and OpenID Connect](#oauth2)
+4. [JHipster UAA documentation]({{ site.url }}/using-uaa/) (which has a separate documentation page as this is more complex)
+
+## <a name="jwt"></a> JSON Web Tokens (JWT)
+
+[JSON Web Token (JWT)](https://jwt.io/) authentication is a stateless security mechanism, so it's a good option if you want to scale your application on several different servers.
+
+Please note that this is the default option when using a [microservices architecture]({{ site.url }}/microservices-architecture/).
+
+This authentication mechanism doesn't exist by default with Spring Security, it's a JHipster-specific integration of [the Java JWT project](https://github.com/jwtk/jjwt).
+
+This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
+
+The secret key should be configured in the `application.yml` file, as the `jhipster.security.authentication.jwt.secret` property.
+
+## <a name="session"></a> Session-based authentication
 
 This is the "classical" Spring Security authentication mechanism, but we have improved it quite significantly. It uses the HTTP Session, so it is a stateful mechanism: if you plan to scale your application on multiple servers, you need to have a load balancer with sticky sessions so that each user stays on the same server.
 
@@ -42,27 +61,21 @@ Spring Security and AngularJS both have CSRF protection out-of-the-box, but unfo
 
 JHipster provide "social login", using Spring Social, so users can connect to your application using their Google, Facebook or Twitter authentication. This is configured using Sping Boot's starter modules.
 
-## JWT authentication
-
-[JSON Web Token (JWT)](https://jwt.io/) authentication is a stateless security mechanism, so it's a good option if you want to scale your application on several different servers.
-
-Please note that this is the default option when using a [microservices architecture]({{ site.url }}/microservices-architecture/).
-
-This authentication mechanism doesn't exist by default with Spring Security, it's a JHipster-specific integration of [the Java JWT project](https://github.com/jwtk/jjwt). 
-
-This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
-
-The secret key should be configured in the `application.yml` file, as the `jhipster.security.authentication.jwt.secret` property.
-
-## OAuth 2.0 Authentication
+## <a name="oauth2"></a> OAuth2 and OpenID Connect
 
 OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuthSso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
 
-To log in to your app, you'll need to have [Keycloak](https://keycloak.org) up and running. The JHipster Team has created a Docker container for you that has the default users and roles. Start Keycloak using the following command.
+### Keycloak
+
+[Keycloak](https://keycloak.org) is the default OpenID Connect server configured with JHipster.
+
+To log into your application, you'll need to have [Keycloak](https://keycloak.org) up and running. The JHipster Team has created a Docker container for you that has the default users and roles. Start Keycloak using the following command.
 
 ```
 docker-compose -f src/main/docker/keycloak.yml up
 ```
+
+If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation]({{ site.url }}/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
 The security settings in `src/main/resources/application.yml` are configured for this image.
 

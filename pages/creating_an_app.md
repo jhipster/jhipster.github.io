@@ -53,7 +53,7 @@ You can either use:
 *   Monolithic application: this a classical, one-size-fits-all application. It's easier to use and develop, and is our recommended default.
 *   Microservice application: in a microservices architecture, this is one of the services.
 *   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
-*   JHipster UAA server: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer <a href="/using-uaa/">JHipster UAA documentation</a> for more information.
+*   JHipster UAA server: in a microservices architecture, this is an OAuth2 authentication server that secures microservices. Refer to the [JHipster UAA documentation]({{ site.url }}/using-uaa/) for more information.
 
 ### What is the base name of your application?
 
@@ -78,7 +78,7 @@ Here are all the possible options:
 *   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
 *   HTTP Session Authentication: the classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.
 *   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://www.okta.com), which handles authentication outside of the application.
-*   Authentication with JHipster UAA server: this uses a <a href="/using-uaa/">JHipster UAA server</a> that must be generated separately, and which is an OAuth2 server that handles authentication outside of the application.
+*   Authentication with JHipster UAA server: this uses a [JHipster UAA server]({{ site.url }}/using-uaa/) that must be generated separately, and which is an OAuth2 server that handles authentication outside of the application.
 
 You can find more information on our [securing your application]({{ site.url }}/security/) page.
 
