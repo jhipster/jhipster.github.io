@@ -149,6 +149,21 @@
                             </li>
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-2">
+                                    <span class="icon fa fa-fw fa-handshake-o"></span><span class="title">Contributing</span>
+                                </a>
+                                <!-- Dropdown level 1 -->
+                                <div id="dropdown-2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/sponsors/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/sponsors/"><i class="fa fa-usd fa-cloud-download"></i> Financial sponsors</a></li>
+                                            <li {% if '/contributing-individuals/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/contributing-individuals/"><i class="fa fa-keyboard-o fa-exchange"></i> Contributing individuals</a></li>
+                                            <li {% if '/contributing-companies/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/contributing-companies/"><i class="fa fa-fw fa-building"></i> Contributing companies</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-3">
                                     <span class="icon fa fa-fw fa-wrench"></span><span class="title">Setting up your environment</span>
                                 </a>
                                 <!-- Dropdown level 1 -->
@@ -165,7 +180,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-3"><span class="icon fa fa-fw fa-list-ol"></span><span class="title">Core JHipster tasks</span></a>
+                                <a data-toggle="collapse" href="#dropdown-4"><span class="icon fa fa-fw fa-list-ol"></span><span class="title">Core JHipster tasks</span></a>
                                 <div id="dropdown-3" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -182,7 +197,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-4"><span class="icon fa fa-fw fa-sitemap"></span><span class="title">Microservices</span></a>
+                                <a data-toggle="collapse" href="#dropdown-5"><span class="icon fa fa-fw fa-sitemap"></span><span class="title">Microservices</span></a>
                                 <div id="dropdown-4" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -199,7 +214,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-5"><span class="icon fa fa-fw fa-puzzle-piece"></span><span class="title">Options</span></a>
+                                <a data-toggle="collapse" href="#dropdown-6"><span class="icon fa fa-fw fa-puzzle-piece"></span><span class="title">Options</span></a>
                                 <div id="dropdown-5" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -219,7 +234,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-6"><span class="icon fa fa-fw fa-code"></span><span class="title">Development</span></a>
+                                <a data-toggle="collapse" href="#dropdown-7"><span class="icon fa fa-fw fa-code"></span><span class="title">Development</span></a>
                                 <div id="dropdown-6" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -236,7 +251,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-7"><span class="icon fa fa-fw fa-umbrella"></span><span class="title">Test &amp; QA</span></a>
+                                <a data-toggle="collapse" href="#dropdown-8"><span class="icon fa fa-fw fa-umbrella"></span><span class="title">Test &amp; QA</span></a>
                                 <div id="dropdown-7" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -248,7 +263,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-8"><span class="icon fa fa-fw fa-cloud"></span><span class="title">Production</span></a>
+                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-cloud"></span><span class="title">Production</span></a>
                                 <div id="dropdown-8" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -267,7 +282,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Modules</span></a>
+                                <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Modules</span></a>
                                 <div id="dropdown-9" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -278,7 +293,7 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Tools</span></a>
+                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Tools</span></a>
                                 <div id="dropdown-10" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -295,7 +310,7 @@
                             </li>
                             <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
+                                <a data-toggle="collapse" href="#dropdown-12"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
                                 <div id="dropdown-11" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
@@ -333,14 +348,13 @@
                                     <div class="footer-col col-md-4">
                                         <div class="col-md-4 col-sm-12">
                                             <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="{{ site.url }}/team/">Team</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="{{ site.url }}/artwork">Artwork</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="{{ site.url }}/artwork/">Artwork</a></h5>
                                         </div>
                                         <div class="col-md-4 col-sm-12">
                                             <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="{{ site.url }}/policies/">Policies</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-gift fa-fw"></i> <a class="link" href="{{ site.url }}/thanks/">Thanks</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-meetup fa-fw"></i> <a class="link" href="{{ site.url }}/meetups/">Meetups</a></h5>
                                         </div>
                                         <div class="col-md-4 col-sm-12">
-                                            <h5 class="text-left"><i class="fa fa-meetup fa-fw"></i> <a class="link" href="{{ site.url }}/meetups/">Meetups</a></h5>
                                             <h5 class="text-left"><i class="fa fa-database fa-fw"></i> <a class="link" href="{{ site.url }}/documentation-archive/">Archives</a></h5>
                                         </div>
                                     </div>
