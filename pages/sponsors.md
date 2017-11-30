@@ -14,7 +14,7 @@ JHipster uses [OpenCollective](https://opencollective.com/generator-jhipster) to
 
 - Visibility on the front page of our website for all sponsors and backers (about 100,000 views/month at the end of 2017)
 - Visibility on the Readme file of the main project for all sponsors and backers (about 60,000 views/month at the end of 2017)
-- Company logos on all [http://www.jhipster.tech](http://www.jhipster.tech) pages for gold sponsors (about 450,000 views/month at the end of 2017)
+- Company logos (or) link to your websites on all [http://www.jhipster.tech](http://www.jhipster.tech) pages for gold sponsors (about 450,000 views/month at the end of 2017)
 - "Thank you" tweet from [@java_hipster](https://twitter.com/java_hipster)
 
 More benefits will come in the future!
