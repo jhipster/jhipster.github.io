@@ -42,6 +42,10 @@ h6 {
     font-weight: 700;
 }
 
+h3.heading {
+    font-size: 35px;
+}
+
 hr {
     &.star-light,
     &.star-primary {
@@ -51,6 +55,10 @@ hr {
         border: 0;
         border-top: solid 5px;
         text-align: center;
+        &.smaller {
+            max-width: 150px;
+            border-top: solid 3px;
+        }
     }
     &.star-light:after,
     &.star-primary:after {
@@ -175,21 +183,6 @@ header {
             .navbar-brand {
                 font-size: 1.5em;
             }
-        }
-    }
-}
-
-.navbar-top.navbar {
-    text-transform: uppercase;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    a:focus {
-        outline: 0;
-    }
-    .navbar-nav {
-        letter-spacing: 1px;
-        li a:focus {
-            outline: 0;
         }
     }
 }
@@ -435,4 +428,12 @@ form .row:first-child .floating-label-form-group {
 
 .padding-b-25 {
     padding-bottom: 25px !important;
+}
+
+.open-collective-info {
+    font-size: 120%;
+    a {
+        color: white;
+        text-decoration: underline
+    }
 }

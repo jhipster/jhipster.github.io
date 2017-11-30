@@ -28,6 +28,9 @@ h6 {
   font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700; }
 
+h3.heading {
+  font-size: 35px; }
+
 hr.star-light, hr.star-primary {
   margin: 30px auto 30px;
   padding: 0;
@@ -35,6 +38,9 @@ hr.star-light, hr.star-primary {
   border: 0;
   border-top: solid 5px;
   text-align: center; }
+  hr.star-light.smaller, hr.star-primary.smaller {
+    max-width: 150px;
+    border-top: solid 3px; }
 
 hr.star-light:after, hr.star-primary:after {
   content: "\f005";
@@ -124,17 +130,6 @@ header {
       padding: 10px 0; }
       .navbar-fixed-top.navbar-shrink .navbar-brand {
         font-size: 1.5em; } }
-
-.navbar-top.navbar {
-  text-transform: uppercase;
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700; }
-  .navbar-top.navbar a:focus {
-    outline: 0; }
-  .navbar-top.navbar .navbar-nav {
-    letter-spacing: 1px; }
-    .navbar-top.navbar .navbar-nav li a:focus {
-      outline: 0; }
 
 .navbar-default,
 .navbar-inverse {
@@ -320,3 +315,9 @@ form .row:first-child .floating-label-form-group {
 
 .padding-b-25 {
   padding-bottom: 25px !important; }
+
+.open-collective-info {
+  font-size: 120%; }
+  .open-collective-info a {
+    color: white;
+    text-decoration: underline; }
