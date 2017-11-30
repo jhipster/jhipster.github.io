@@ -12,7 +12,7 @@ sitemap:
 
 JHipster UAA is a user accounting and authorizing service for securing JHipster microservices using the OAuth2 authorization protocol.
 
-To clearly distinct JHipster UAA from other "UAA"s as cloudfoundrys UAA, JHipster UAA is an fully configured OAuth2 authorization server with the users and roles endpoints inside, wrapped into a usual JHipster application. This allows the developer to deeply configure every aspect of his user domain, without restricting on policies by other ready-to-use UAAs.
+To clearly distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](https://github.com/cloudfoundry/uaa), JHipster UAA is an fully configured OAuth2 authorization server with the users and roles endpoints inside, wrapped into a usual JHipster application. This allows the developer to deeply configure every aspect of his user domain, without restricting on policies by other ready-to-use UAAs.
 
 ## Summary
 

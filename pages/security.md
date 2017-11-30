@@ -27,7 +27,7 @@ JHipster provides 4 main security mechanisms:
 1. [JSON Web Tokens (JWT)](#jwt)
 2. [Session-based authentication](#session)
 3. [OAuth2 and OpenID Connect](#oauth2)
-4. [JHipster UAA documentation]({{ site.url }}/using-uaa/) (which has a separate documentation page as this is more complex)
+4. [JHipster User Account and Authentication (UAA)]({{ site.url }}/using-uaa/) (which has a separate documentation page as this is more complex)
 
 ## <a name="jwt"></a> JSON Web Tokens (JWT)
 
