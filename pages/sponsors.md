@@ -12,8 +12,8 @@ JHipster uses [OpenCollective](https://opencollective.com/generator-jhipster) to
 
 ## Benefits of being a sponsor
 
-- Visibility on the front page of our website for all sponsors and backers (about 100,000 views/month at the end of 2017)
-- Visibility on the Readme file of the main project for all sponsors and backers (about 60,000 views/month at the end of 2017)
+- Visibility on the front page of [http://www.jhipster.tech](http://www.jhipster.tech) for all sponsors and backers (about 100,000 views/month at the end of 2017)
+- Visibility on the Readme file of the main project for all sponsors and backers (about 15,000 views/month at the end of 2017)
 - Company logos on all [http://www.jhipster.tech](http://www.jhipster.tech) pages for gold sponsors (about 450,000 views/month at the end of 2017)
 - "Thank you" tweet from [@java_hipster](https://twitter.com/java_hipster)
 
@@ -23,7 +23,9 @@ More benefits will come in the future!
 
 As you can read in [the OpenCollective documentation](https://opencollective.com/learn-more), the way your money will be used will be public and totally transparent.
 
-Your money will first be used to cover direct project costs:
+Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
+
+Money will first be used to cover direct project costs:
 
 - Website hosting
 - Developer tooling
