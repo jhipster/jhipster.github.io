@@ -19,6 +19,8 @@ JHipster uses [OpenCollective](https://opencollective.com/generator-jhipster) to
 
 More benefits will come in the future!
 
+Please go to our [OpenCollective page](https://opencollective.com/generator-jhipster) to become a sponsor.
+
 ## What will the project do with the money?
 
 As you can read in [the OpenCollective documentation](https://opencollective.com/learn-more), the way your money will be used will be public and totally transparent.
