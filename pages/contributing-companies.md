@@ -15,10 +15,10 @@ sitemap:
 
 *   [Ippon Technologies](http://www.ippon.fr/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) so he can improve the project.
 *   [XebiaLabs](https://xebialabs.com/), which provides time and hardware to [@deepu105](https://twitter.com/deepu105) so he can improve the project.
+*   [Okta](https://developer.okta.com/), which provides time and hardware to [@mraible](https://twitter.com/mraible) so he can improve the project. They also contributed the [OIDC support]({{ site.url }}/security/#oauth2) and [Ionic module]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic). 
 *   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/). It is maintained by [Ray Tsang](https://twitter.com/saturnism).
 *   [Heroku](https://www.heroku.com/) contributed the [Heroku sub-generator]({{ site.url }}/heroku/). It is maintained by [Joe Kutner](https://twitter.com/codefinger).
 *   [Boxfuse](https://boxfuse.com/) has added [specific support for JHipster]({{ site.url }}/boxfuse/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
-*   [Stormpath](https://stormpath.com/) contributed the [Stormpath module]({{ site.url }}//modules/marketplace/#/details/generator-jhipster-stormpath). It is maintained by [Matt Raible](https://twitter.com/mraible).
 *   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
 *   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
