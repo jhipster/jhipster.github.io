@@ -21,9 +21,11 @@ Angular 2+ is using TypeScript instead of JavaScript, and as a result some speci
 4. Now run `./mvnw` or `./gradlew` to launch the application server and it should be available at [localhost:8080](localhost:8080) this also serves the client side code compiled from the above steps.
 5. Now run `yarn start` in a new terminal to launch Webpack dev-server with BrowserSync. This will take care of compiling your TypeScript code, and automatically reloading your browser.
 
-If you start making changes to the client side code without having `yarn start` running, nothing will be reflected as the changes are not compiled so you need to either run `yarn webpack:build:dev` manually after changes or have `yarn start` running.
+If you start making changes to the client side code without having `yarn start` running, nothing will be reflected as the changes are not compiled so you need to either run `yarn webpack:build` manually after changes or have `yarn start` running.
 
-You can also force maven/gradle to run the `webpack:build:dev` task while starting by passing the `webpack` profile like `./mvnw -Pdev,webpack` or `./gradlew -Pdev -Pwebpack`. This is especially helpful after running a `clean` task.
+You can also force maven/gradle to run the `webpack:dev` task while starting by passing the `webpack` profile like `./mvnw -Pdev,webpack` or `./gradlew -Pdev -Pwebpack`. This is especially helpful after running a `clean` task.
+
+Other available yarn/npm commands can be found in the `scripts` section of your project's `package.json` file.
 
 - To work on your code in your browser, we recommend using [Angular Augury](https://augury.angular.io/), so you can visualize your routes and debug your code easily
 
