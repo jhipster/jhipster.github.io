@@ -52,6 +52,15 @@ Here is a documentation for those properties:
             hazelcast: # Hazelcast configuration
                 time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
                 backup-count: 1 # Number of objects backups
+                # Configure the Hazelcast management center
+                # Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
+                management-center:
+                    enabled: false # Hazelcast management center is disabled by default
+                    update-interval: 3 # Updates are sent to the Hazelcast management center every 3 seconds by default
+                    # Default URL for Hazelcast management center when using JHipster's Docker Compose configuration
+                    # See src/main/docker/hazelcast-management-center.yml
+                    # Warning, the default port is 8180 as port 8080 is already used by JHipster
+                    url: http://localhost:8180/mancenter
             ehcache: # Ehcache configuration
                 time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
                 max-entries: 100 # Number of objects in each cache entry
