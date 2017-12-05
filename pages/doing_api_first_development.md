@@ -6,7 +6,7 @@ redirect_from:
   - /doing-api-first-development.html
 sitemap:
     priority: 0.7
-    lastmod: 2017-08-23T00:00:00-00:00
+    lastmod: 2017-12-05T00:00:00-00:00
 ---
 
 # <i class="fa fa-search"></i> Doing API-First development
@@ -33,6 +33,8 @@ Or for gradle:
 ./gradlew swagger
 ```
 Then implement the interfaces generated in `${buildDirectory}/generated-sources/swagger/src/main/java/${package}/web/api/controller` with `@RestController` classes.
+
+Note : the implementation class and its interface must belong to the same package.
 
 Example of code to write yourself for the famous [petstore](http://petstore.swagger.io):
 ```java
