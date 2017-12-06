@@ -161,7 +161,6 @@ input.gsc-search-button {
       height: 60px;
       background-color: transparent;
       border: 0px;
-      position: absolute;
       right: 0;
       -moz-transition: all 0.25s linear;
       -webkit-transition: all 0.25s linear;
