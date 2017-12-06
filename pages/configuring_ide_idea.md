@@ -89,6 +89,4 @@ Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` ma
 
 ## Gradle 
 
-In order to get best out of box experience you should delegate all [ide build/run actions to gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing works out of the box
-and you won't have duplicated classes when mixing ide and cli builds. If you are using an older version ( < 2016.3) you have to enable 
-annotaion processing manually.
+In order to get the best out-of-the-box experience with Gradle you should delegate all [IDE build/run actions to Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing is automatically configured and you won't have duplicated classes when mixing IDE and cli builds. If you are using an older version ( < 2016.3) you have to enable annotaion processing manually.
