@@ -20,7 +20,7 @@ By default, JHipster comes with 4 different users:
 *   "user", who is a normal user with "ROLE_USER" authorization. His default password is "user"
 *   "admin", who is an admin user with "ROLE_USER" and "ROLE_ADMIN" authorizations. His default password is "admin"
 
-For security reasons, you should change those default passwords.
+For security reasons, you should change those default passwords in production.
 
 JHipster provides 4 main security mechanisms:
 
@@ -39,11 +39,19 @@ This authentication mechanism doesn't exist by default with Spring Security, it'
 
 This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
 
-The secret key should be configured in the `application.yml` file, as the `jhipster.security.authentication.jwt.secret` property.
+### Securing JWT
+
+- The secret key is configured in the `application.yml` file, as the `jhipster.security.authentication.jwt.secret` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry]({{ site.url }}/jhipster-registry/) (our recommended option), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
+- You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
 ## <a name="session"></a> Session-based authentication
 
 This is the "classical" Spring Security authentication mechanism, but we have improved it quite significantly. It uses the HTTP Session, so it is a stateful mechanism: if you plan to scale your application on multiple servers, you need to have a load balancer with sticky sessions so that each user stays on the same server.
+
+### Securing Session-based authentication
+
+- For remember-me authentication, the remember-me key is configured in the `application-dev.yml` and `application-prod.yml` files, as the `jhipster.security.remember-me.key` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry]({{ site.url }}/jhipster-registry/) (our recommended option), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
+- You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
 ### Improved remember-me mechanism
 
