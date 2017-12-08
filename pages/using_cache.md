@@ -54,7 +54,7 @@ When a new node is added, it will register itself to the service discovery (for 
     Member [172.18.0.11]:5701 - 6114ae28-56cd-4840-a575-4d73a6003744
     }
 
-To work better with Hazelcast, JHipster includes support to the Hazelcast Management Center:
+To work better with Hazelcast, JHipster includes support for the Hazelcast Management Center:
 
 - Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing you application.
 - It is configured using JHipster [common application properties]({{ site.url }}/common-application-properties/), using the key `jhipster.cache.hazelcast.management-center`, in your `application-dev.yml` and `application-prod.yml` files. Please note that it is disabled by default.
