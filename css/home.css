@@ -321,3 +321,6 @@ form .row:first-child .floating-label-form-group {
   .open-collective-info a {
     color: white;
     text-decoration: underline; }
+
+.project-icon {
+  width: 65px; }
