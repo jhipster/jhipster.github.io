@@ -115,6 +115,7 @@ Bean validation will then be used to automatically validate domain objects when 
 Validation information will also be used to generate more precise database column metadata:
 
 *   Required fields will be marked non-nullable
+*   Unique fields will create a unique constraint
 *   Fields which have a maximum length will have the same column length
 
 Validation has a few limitations:
