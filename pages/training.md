@@ -17,5 +17,5 @@ Training sessions are delivered by core team members and top users, and are avai
 
 ## JHipster Master Class
 
-*   [United States](http://www.ipponusa.com/training/jhipster-master/)
+*   [United States](https://www.ippon.tech/training/jhipster-master/)
 *   [France](http://www.ippon.fr/formation/jhipster-master-class/)
