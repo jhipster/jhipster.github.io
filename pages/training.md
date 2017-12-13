@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-08-27T00:00:00-00:00
 ---
 
-# <i class="fa fa-graduation-cap "></i> Training
+# <i class="fa fa-graduation-cap"></i> Training
 
 If you need help to get started on JHipster, you should attend one of our training sessions!
 
@@ -19,3 +19,5 @@ Training sessions are delivered by core team members and top users, and are avai
 
 *   [United States](https://www.ippon.tech/training/jhipster-master/)
 *   [France](http://www.ippon.fr/formation/jhipster-master-class/)
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
