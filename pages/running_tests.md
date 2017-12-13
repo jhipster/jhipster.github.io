@@ -56,13 +56,59 @@ UI tests come in two flavors with JHipster: unit tests with KarmaJS, and integra
 
 ### KarmaJS
 
-UI unit tests are written in [Jasmine](http://jasmine.github.io) and run with [Karma.js](http://karma-runner.github.io/) and [PhantomJS](http://phantomjs.org/), and are located in the `src/test/javascript/spec` folder.
+UI unit tests are located in the `src/test/javascript/spec` folder. They are written in [Jasmine](http://jasmine.github.io) and run with [Karma.js](http://karma-runner.github.io/).
 
 Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
 
 *   Those tests can be run using `yarn test` (For AngularJS 1.x: `gulp test`).
 *   To debug your JS tests, you will need to disable minification and Istanbul covarage on your Javascript files. To do so start Karma with the --debug option, something like this: `./node_modules/karma/bin/karma start src/test/javascript/karma.conf.js --debug`, then navigate to [Karma debug page](http://localhost:9876/debug.html) and open your Javascript console.
 *   Tip: if you want to focus on a single test change the module description from `describe('...', function() {` to `fdescribe('...', function() {` and Jasmine will run this test only.
+
+### Manage KarmaJS connection to browsers
+
+As Karma is only a test runner, it needs to connect to an actual browser to use as a runtime. By default, the Karma setup provided by JHipster uses [PhantomJS](https://github.com/karma-runner/karma-phantomjs-launcher). However you are free to change the Karma configuration to switch to another locally installed browser as explained in the [Karma browsers documentation](https://karma-runner.github.io/1.0/config/browsers.html).
+
+Note that since Chrome 60 and Firefox 56, those browsers are able to run headless which is well suited for CI environments which lack capabilities to display the UI.
+
+#### Replacing PhantomJS by Headless Chrome
+
+If you would prefer to use a "real" browser rather than PhantomJS, the [Puppeteer](https://github.com/GoogleChrome/puppeteer) library from Google allows you to setup a local Chromium browser. To setup Puppeteer for your project, run :
+
+```
+yarn add --dev puppeteer
+```
+or if using npm :
+```
+npm install --save-dev puppeteers
+```
+
+Then edit your `karma.conf.js` with the following configuration :
+```javascript
+process.env.CHROME_BIN = require('puppeteer').executablePath()
+
+module.exports = function(config) {
+  config.set({
+    ...
+    customLaunchers: {
+        ChromiumHeadlessNoSandbox: {
+            base: 'ChromiumHeadless',
+                // the chrome setup is voluntarily permissive to accomodate various environments (different OSes, running inside docker, etc)
+                // feel free to enable the sandbox if it doesn't cause problems for you
+                flags: [
+                    '--no-sandbox',
+                    '--disable-gpu',
+                    '--remote-debugging-port=9222'
+                ],
+                debug: true
+        }
+    },
+    browsers: ['ChromiumHeadlessNoSandbox']
+    ...
+  })
+}
+```
+
+**Limitations:** Depending on your environment, you might encounter some issues to make Puppeteer and the locally downloaded Chromium binary work, in this case refer to the [Puppeteer troubleshooting documentation](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md) for instructions. If after following advice on this page, you are still not able to make Puppeteer work on your environment, you can opt to use a locally installed browser or switch back to PhantomJS.
 
 ### Protractor
 
