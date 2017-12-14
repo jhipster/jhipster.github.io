@@ -10,16 +10,38 @@ sitemap:
 
 JHipster uses [OpenCollective](https://opencollective.com/generator-jhipster) to gather money. This money is used to cover project expenses (like running this website) in a transparent way ([See the OpenCollective documentation](https://opencollective.com/learn-more)), and your donation will help the project live and grow successfully.
 
-## Benefits of being a sponsor
+Please go to our [OpenCollective page](https://opencollective.com/generator-jhipster) to become a backer or a sponsor.
 
-- Visibility on the front page of [http://www.jhipster.tech](http://www.jhipster.tech) for all sponsors and backers (about 100,000 views/month at the end of 2017)
-- Visibility on the Readme file of the main project for all sponsors and backers (about 15,000 views/month at the end of 2017)
-- Company logos on all [http://www.jhipster.tech](http://www.jhipster.tech) pages for gold sponsors (about 450,000 views/month at the end of 2017)
-- "Thank you" tweet from [@java_hipster](https://twitter.com/java_hipster)
+## Benefits of being a backer
 
-More benefits will come in the future!
+Backers donate $2 per month to the project, and get the following benefits:
 
-Please go to our [OpenCollective page](https://opencollective.com/generator-jhipster) to become a sponsor.
+- Visibility on the front page of [http://www.jhipster.tech](http://www.jhipster.tech) in the "backers" section (about 100,000 views/month at the end of 2017).
+- Visibility on the GitHub main project page in the "backers" section (about 15,000 views/month at the end of 2017).
+- "Thank you" tweet from [@java_hipster](https://twitter.com/java_hipster).
+
+## Benefits of being a bronze sponsor
+
+Bronze sponsors donate $100 per month to the project, and get the following benefits:
+
+- Visibility on the front page of [http://www.jhipster.tech](http://www.jhipster.tech) in the "sponsors" section (about 100,000 views/month at the end of 2017).
+- Visibility on the GitHub main project page in the "sponsors" section (about 15,000 views/month at the end of 2017).
+- "Thank you" tweet from [@java_hipster](https://twitter.com/java_hipster).
+
+## Benefits of being a silver sponsor
+
+Silver sponsors donate $500 per month to the project, and get the following benefits:
+
+- Same benefits as bronze sponsors (visibility on main pages, and thank you tweet).
+- 1 "hipster ticket": you can raise one issue per year, which will be labelled with the ["$ sponsor" label](https://github.com/jhipster/generator-jhipster/issues?utf8=%E2%9C%93&q=label%3A%22%24+sponsor%22+). That issue will then be given the highest possible priority by the JHipster core dev team, within reason. If needed, we will also do a specific patch release for you.
+
+## Benefits of being a gold sponsor
+
+Gold sponsors donate $1000 per month to the project, and get the following benefits:
+
+- Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
+- 3 "hipster tickets" per year (instead of 1 for silver sponsors).
+- Company logos on all [http://www.jhipster.tech](http://www.jhipster.tech) page footers (about 450,000 views/month at the end of 2017).
 
 ## What will the project do with the money?
 
@@ -38,4 +60,4 @@ Then, money will be used to:
 - Pay Meetup fees
 - Pay expenses for developer gatherings: travel & food expenses for core team meetings
 
-And if we have enough money, we might in the future give "bug bounties" to developers who correct major bugs or add impressive new features.
+And if we have enough money, we might in the future give "bug bounties" to developers who correct major bugs, add impressive new features, or fix "hipster tickets" that were raised by silver and gold sponsors.
