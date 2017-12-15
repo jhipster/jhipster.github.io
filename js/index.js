@@ -39,7 +39,7 @@ $('.navbar-collapse ul li a').click(function () {
             $scope.gitConfig = data;
         });
         var page = 0;
-        $scope.gitConftributors = '...';
+        $scope.gitContributors = '...';
         var noOfContributors = 0;
         function getContributors(){
 
@@ -50,7 +50,7 @@ $('.navbar-collapse ul li a').click(function () {
                     getContributors();
                 } else {
                     // some how there seems to be additional 30 added to actual number, so dirty hack
-                    $scope.gitConftributors = noOfContributors - 30;
+                    $scope.gitContributors = noOfContributors - 30;
                 }
             });
         }
