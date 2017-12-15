@@ -49,8 +49,8 @@ $('.navbar-collapse ul li a').click(function () {
                     page ++;
                     getContributors();
                 } else {
-                    // some how there seems to be additional 30 added to actual number, so dirty hack
-                    $scope.gitContributors = noOfContributors - 30;
+                    // some how there seems to be additional 11 added to actual number, so dirty hack
+                    $scope.gitContributors = noOfContributors - 11;
                 }
             });
         }
