@@ -12,7 +12,7 @@ sitemap:
 
 JHipster UAA is a user accounting and authorizing service for securing JHipster microservices using the OAuth2 authorization protocol.
 
-To clearly distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](https://github.com/cloudfoundry/uaa), JHipster UAA is an fully configured OAuth2 authorization server with the users and roles endpoints inside, wrapped into a usual JHipster application. This allows the developer to deeply configure every aspect of his user domain, without restricting on policies by other ready-to-use UAAs.
+To clearly distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](https://github.com/cloudfoundry/uaa), JHipster UAA is a fully configured OAuth2 authorization server with the users and roles endpoints inside, wrapped into a usual JHipster application. This allows the developer to deeply configure every aspect of his user domain, without restricting on policies by other ready-to-use UAAs.
 
 ## Summary
 
@@ -22,6 +22,7 @@ To clearly distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](ht
 4. [Using JHipster UAA](#jhipster-uaa)
   * Basic setup
   * Understanding the components
+  * Refresh Tokens
   * Common mistakes
 5. [Securing inter-service-communication using Feign clients](#inter-service-communication)
   * Using Eureka, Ribbon, Hystrix and Feign
@@ -36,11 +37,11 @@ To clearly distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](ht
 
 ## <a name="claims"></a> 1. Security claims of microservice architecture
 
-Before digging into OAuth2 and its application on JHipster microservices, it's important to clearify the claims to a solid security solution.
+Before digging into OAuth2 and its application on JHipster microservices, it's important to clarify the claims to a solid security solution.
 
 ### 1. Central authentication
 
-Since microservices is about building mostly independent and autonomous applications, we want to have an consistent authentication experience, so the user won't notice his requests are served by different applications with possibly individual security configuration.
+Since microservices is about building mostly independent and autonomous applications, we want to have a consistent authentication experience, so the user won't notice his requests are served by different applications with possibly individual security configuration.
 
 ### 2. Statelessness
 
@@ -52,7 +53,7 @@ There is a need of having a clear distinction of different users, and also diffe
 
 ### 4. Fine-grained access control
 
-While maintaining a centralized roles, there is a need of configuring detailed access control policies in each microservice. A microservice should be unaware of the responsibility of recognizing users, and must just authorize incoming requests.
+While maintaining centralized roles, there is a need of configuring detailed access control policies in each microservice. A microservice should be unaware of the responsibility of recognizing users, and must just authorize incoming requests.
 
 ### 5. Safe from attacks
 
@@ -60,7 +61,7 @@ No matter how much problems a security solution may solve, it should be strong a
 
 ### 6. Scalability
 
-Using stateless protocols is not a warranty of the security solution is scalable. In the end, there should not be any single point of failure. An counter-example is a shared auth database or single auth-server-instance, which is hit once per request.
+Using stateless protocols is not a warranty of the security solution is scalable. In the end, there should not be any single point of failure. A counter-example is a shared auth database or single auth-server-instance, which is hit once per request.
 
 
 ## <a name="oauth2"></a> 2. Understanding OAuth2 in this context
@@ -70,14 +71,14 @@ Using the OAuth2 protocol (note: it's a **protocol**, not a framework, not an ap
 ![JHipster UAA architecture]({{ site.url }}/images/jhipster_uaa.png)
 
 * Every request to any endpoint of the architecture is performed via an "client"
-* A "client" is a abstract word for things like "AngularJS $http client", some "REST-Client", "curl", or anything able to perform requests.
+* A "client" is an abstract word for things like "AngularJS $http client", some "REST-Client", "curl", or anything able to perform requests.
 * A "client" may also be used in conjunction with user authentication, like the AngularJS $http in the frontend client application
 * Every microservice serving resources on endpoints (including the UAA), are resource servers
-* Blue arrows show clients authenticate on an oauth authorization server
+* Blue arrows show clients authenticate on an Oauth authorization server
 * Green arrows show requests on resource servers performed by the client
 * The UAA server is a combination of authorization server and resource server
 * The UAA server is the owner of all the data inside the microservice applications (it approves automatically access to resource servers)
-* Clients accessing resources with user authentication, are authenticated using "password grant"
+* Clients accessing resources with user authentication, are authenticated using "password grant" with the client ID and secret safely stored in the gateway configuration files
 * Clients accessing resources without user, are authenticated using "client credentials grant"
 * Every client is defined inside UAA (web-app, internal, ...)
 
@@ -94,7 +95,7 @@ As an addition, the following rules can be applied for access control:
 
 When scaffolding a JHipster microservice, you may choose the UAA options instead of JWT authentication.
 
-**note**: the UAA solution is also using JWT, which are addressable to custom configuration as well as JWT, using default Spring Cloud Security.
+**Note**: the UAA solution is also using JWT, which are addressable to custom configuration as well as JWT, using default Spring Cloud Security.
 
 ### Basic setup
 
@@ -116,92 +117,33 @@ The JHipster UAA server does three things out of the box:
 
 * It serves the default JHipster user domain, containing user and account resource (this is done by gateway in JWT authentication)
 * It implements `AuthorizationServerConfigurerAdapter` for OAuth2 and is defining basic clients ("web_app" and "internal")
-* It serves the JWT public key on "/oauth/token_key", which has to be consumed by all other microservices
+* It serves the JWT public key on `/oauth/token_key`, which has to be consumed by all other microservices
 
 The choices of a database, cache solution, search engine, build tools and further JHipster options are open to the developer.
 
-When a microservice boots up, it usually expects the UAA server is already up to share its public key. The service first calls "/oauth/token_key" to fetch the public key and configure it for key signing (`JwtAccessTokenConverter`)
+When a microservice boots up, it usually expects the UAA server is already up to share its public key. The service first calls `/oauth/token_key` to fetch the public key and configure it for key signing (`JwtAccessTokenConverter`).
+
+If the UAA is not up, the application will continue to start and fetch the public key at a later time.  There are two properties - `uaa.signature-verification.ttl` controls how long the key lives before it is fetched again, `uaa.signature-verification.public-key-refresh-rate-limit` limits requests to UAA to avoid spamming it. These values are usually left at their default values. In any case, if verification fails, then the microservice will check if there's a new key. That way, keys can be replaced on the UAA and the services will catch up.
 
 From this point there are two use cases that may happen in this basic setup: user calls and machine calls.
 
-For the user calls, the Angular application is requesting a bearer access token (which is a JWT token) using OAuth2's password grant, and saves this token to local storage (so no cookies are used at any stage). This bearer token is injected as authorization header into each request performed by the AngularJS `$http` object.
+For the user calls, a login request is sent to the gateway's `/auth/login` endpoint.  This endpoint uses `OAuth2TokenEndpointClientAdapter` to send a request to the UAA authenticating with the "password" grant.  Because this request happens on the gateway, the client ID and secret are not stored in any client-side code and are inaccessible to users.  The gateway returns a new Cookie containing the token, and this cookie is sent with each request performed from the client to the JHipster backend.
 
 For the machine calls, the machine has to authenticate as a UAA using client credentials grant. JHipster provides a standard solution, described in [secure inter-service-communication using feign clients](#inter-service-communication)
+
+### Refresh Tokens
+
+The general flow for refreshing access tokens happens on the gateway and is as follows:
+
+- Authentication is done via `AuthResource` calling `OAuth2AuthenticationService`'s authenticate which will set Cookies.
+- For each request, the `RefreshTokenFilter` (installed by `RefreshTokenFilterConfigurer`) checks whether the access token is expired and whether it has a valid refresh token
+- If so, then it triggers the refresh process via `OAuth2AuthenticationService` refreshToken.
+- This uses the `OAuth2TokenEndpointClient` interface to send a refresh token grant to the OAuth2 server of choice, in our case UAA (via `UaaTokenEndpointClient`).
+- The result of the refresh grant is then used downstream as new cookies and set upstream (to the browser) as new cookies.
 
 ### Common mistakes
 
 Here is a brief list of the very major things a developer should be aware of.
-
-#### ***The public key resolving leads to several issues***
-
-Using the token key endpoint of UAA makes it possible to easily change the signing key as often as needed. The need that a UAA server **must** be up in order to start a simple service, may cause problems in several use cases as testing or CI.
-
-One workaround is rendering a static public key from the keytool like this:
-
-``` sh
-$ keytool -list -rfc --keystore keystore.jks | openssl x509 -inform pem -pubkey
-Keystore-Password:  password
------BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhhQiXi8xvkNnDGjOHkVv
-wo5TJdW2ITlQV+6Ke5b4EA184YsDCYmRl61KpqdJAWSYM0gfj2N1mSArTLCrG951
-S8LJUofr7+bqL8Dn5jBQ+wTA4RSGykRxZua0V1KeQBmSgBFI+KDWMqbfVpuje8mF
-qyxF5tGutoLXCTQdr0+LC9rMbW8g3hck9VaEuIUGaPKDN+i0vp8Jy/QtXYz8Jccx
-0To2BRSjs97wt/3Uhz0rzMA+l0Q0yGcmUbVH/fzOPyXRwhuoDM+qmQZQCrl38drm
-5/RuoYY9zR0LEjD9BnmJTe1Py5/CInpDz4Brs87xqLHttRLqKSWai0VZjFu0bgek
-KQIDAQAB
------END PUBLIC KEY-----
------BEGIN CERTIFICATE-----
-MIIDdzCCAl+gAwIBAgIEctm4NzANBgkqhkiG9w0BAQsFADBsMQkwBwYDVQQGEwAx
-CTAHBgNVBAgTADEJMAcGA1UEBxMAMRwwGgYDVQQKExNjb20ubXljb21wYW55Lm15
-YXBwMRQwEgYDVQQLEwtEZXZlbG9wbWVudDEVMBMGA1UEAxMMSmF2YSBIaXBzdGVy
-MB4XDTE2MDgyNDE3NDEyN1oXDTE2MTEyMjE3NDEyN1owbDEJMAcGA1UEBhMAMQkw
-BwYDVQQIEwAxCTAHBgNVBAcTADEcMBoGA1UEChMTY29tLm15Y29tcGFueS5teWFw
-cDEUMBIGA1UECxMLRGV2ZWxvcG1lbnQxFTATBgNVBAMTDEphdmEgSGlwc3RlcjCC
-ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIYUIl4vMb5DZwxozh5Fb8KO
-UyXVtiE5UFfuinuW+BANfOGLAwmJkZetSqanSQFkmDNIH49jdZkgK0ywqxvedUvC
-yVKH6+/m6i/A5+YwUPsEwOEUhspEcWbmtFdSnkAZkoARSPig1jKm31abo3vJhass
-RebRrraC1wk0Ha9PiwvazG1vIN4XJPVWhLiFBmjygzfotL6fCcv0LV2M/CXHMdE6
-NgUUo7Pe8Lf91Ic9K8zAPpdENMhnJlG1R/38zj8l0cIbqAzPqpkGUAq5d/Ha5uf0
-bqGGPc0dCxIw/QZ5iU3tT8ufwiJ6Q8+Aa7PO8aix7bUS6iklmotFWYxbtG4HpCkC
-AwEAAaMhMB8wHQYDVR0OBBYEFP/8Ff8Vm8MZI7RG+epJn7eqWIjJMA0GCSqGSIb3
-DQEBCwUAA4IBAQAv8OLwsGlf1z8lqSHgPqjudU9rc6OCkcTIo4c9L2JmKd6c3AVm
-4G4F0pFoXS5t2NNPzb+8TludX6y8LcFb4VaFidlpXD0E9g7p+7f64TTHFPwX8dkh
-9Ylc8DkDZkXTES/s5PPixrwnlPsN2/+zsGtCzoHpqYU1NEe6ldKnWnDySvXfEiPX
-18G6TchSwJZl3mwTDmC5Ys2AGVlOOteYW/giLZlpQmKdB0zbR5CzlFrViDHUSrU9
-A6WCM2t6MbwdfGMBKfD/zjTLTZoFCb6nI3xT5sbpIDetqQZm1ZJyUB5kCEv9ztBB
-fOheJ7Om3so/wKygSrYgmmhEvdNcccPlTbPa
------END CERTIFICATE-----
-```
-
-This public key (including dashed lines) must be copied as "public.cert" into the resource folder of the microservice. Then, instead of configuring the `JwtAccessTokenConverter` with load balanced requests to the UAA server, the Beans in `MicroserviceSecurityConfiguration` have to be configured the following way:
-
-``` java
-
-
-    @Bean
-    public TokenStore tokenStore() {
-        return new JwtTokenStore(jwtAccessTokenConverter());
-    }
-
-    @Bean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        Resource resource = new ClassPathResource("public.cert");
-        String publicKey;
-        try {
-            publicKey = new String(FileCopyUtils.copyToByteArray(resource.getInputStream()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        converter.setVerifierKey(publicKey);
-        return converter;
-
-    }
-```
-
-The benefit of this approach is that the microservices now have no need of ever interacting with the UAA server, to be sure that client requests are valid authorized requests. Since there is no initial communication between these applications, it's also a bit more secure.
-
-The disadvantage is that signing key changes now have to be handled manually, which makes things like different keys for production/staging harder than with the default solution.
 
 #### ***Using the same signing key for production and staging***
 
@@ -213,11 +155,11 @@ If an attacker manages to intercept an access token, he will gain all the rights
 
 #### ***Using access tokens in URL***
 
-As of standard, access tokens can be either passed by URL or in headers. From the TLS point of view, both ways are secure. In practice passing tokens via URL is less secure, since there several ways of getting the URL from records.
+As of standard, access tokens can be either passed by URL, in headers, or in a cookie. From the TLS point of view, all three ways are secure. In practice passing tokens via URL is less secure, since there several ways of getting the URL from records.
 
 #### ***Switching to symmetric signing keys***
 
-RSA is not required for JWT signing, and Spring Security does provide symmetric token signing as well. This also solves some problems, which make development harder. But this is insecure, since an attacker just need to get into one single microservice to be able to generate its own JWT tokens.
+RSA is not required for JWT signing, and Spring Security does provide symmetric token signing as well. This also solves some problems, which make development harder. But this is insecure, since an attacker just needs to get into one single microservice to be able to generate its own JWT tokens.
 
 ## <a name="inter-service-communication"></a> 4. Secure inter-service-communication using Feign clients
 
@@ -241,7 +183,7 @@ So to sum up, when we got a URL like "http://uaa/oauth/token/" with 2 instances 
 * Hystrix: a circuit breaker system solving fall-back scenarios on service fails
 * Feign: using all that in a declarative style
 
-In real world, there is no warranty of all instances of all services to be up. So Hystrix works as a circuit breaker, to handle failure scenarios in a well defined way, using fallbacks.
+In real world, there is no warranty of all instances of all services to be up. So Hystrix works as a circuit breaker, to handle failure scenarios in a well-defined way, using fallbacks.
 
 But wiring and coding all these things manually is a lot of work: Feign provides the option of writing ***Ribbon*** load balanced REST clients for endpoints registered in ***Eureka***, with fallback implementations controlled using ***Hystrix***, using nothing more then an Java interfaces with some annotations.
 
@@ -339,12 +281,12 @@ public class SomeServiceTest {
 }
 ```
 
-So with this technology you are simulating the behavior of the other service, and provide expected resource entity which would come from the origin.
+So with this technology you are simulating the behavior of the other service, and provide expected resource entity, which would come from the origin.
 All Beans injecting a client will behave as mocked, so you can focus on the logic of these Beans.
 
 ### Emulating OAuth2 authentication
 
-Using Springs integration tests against the REST controllers is usually bypassing the security configuration, since it would make testing hard, when the only intention is to prove the controller is functional doing what it should do. But sometimes, testing a controllers security behavior is part of testing, too.
+Using Spring's integration tests against the REST controllers is usually bypassing the security configuration, since it would make testing hard, when the only intention is to prove the controller is functional doing what it should do. But sometimes, testing a controller's security behavior is part of testing, too.
 
 For this use-case, JHipster is providing an component called `OAuth2TokenMockUtil`, which can emulate a valid authentication without forcing the user or client to exist.
 
