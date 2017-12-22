@@ -21,10 +21,12 @@ For complex use cases, however, you might want to use Data Transfer Objects (or 
 
 ## How DTOs work in JHipster
 
-When generating a JHipster entity, you have the option to also generate a DTO for this entity. If you select that option:
+When generating a JHipster entity, you have the option to add a service layer: the DTO option will only be available if you choose to have a service layer, as it needs that layer to handle the mapping (if you are using JPA, this is because the service layer is transactional, so lazy-loading will work).
+
+Once you have selected to have a service layer, you will have the option to generate a DTO for the entity. If you select that option:
 
 - A DTO will be generated, and it will be mapped on the underlying entity.
-- It will aggregate many-to-one relationships, only using the ID and the field used to display it with AngularJS. For example, a many-to-one relationship to the `User` entity will add a `userId` field and a `userLogin` field to the DTO.
+- It will aggregate many-to-one relationships, only using the ID and the field used to display it in your client-side framework (Angular, for example). As a result, a many-to-one relationship to the `User` entity will add a `userId` field and a `userLogin` field to the DTO.
 - It will ignore one-to-many relationships and many-to-many relationships on the non-owner side: this matches the way entities work (they have a `@JsonIgnore` annotation on those fields).
 - For a many-to-many relationship on the owner side: it will use DTOs from the other entity and use them in a `Set`. Thus, this can only work if the other entity also uses DTOs.
 
@@ -41,8 +43,8 @@ We have found it very clean and efficient, and liked that it does not use reflec
 MapStruct is an annotation processor, and as such it should also be set up to be run automatically when your IDE compiles the project.
 
 If you are using Maven, you need to activate the `IDE` maven profile in your IDE. Gradle users don't need to apply anything IDE-specific.
-  
-Instructions for activating the profile are included in [Configuring your IDE]({{ site.url }}/configuring-ide/). 
+
+Instructions for activating the profile are included in [Configuring your IDE]({{ site.url }}/configuring-ide/).
 
 ## Advanced MapStruct usage
 
@@ -70,7 +72,3 @@ Here is an example code, fetching a `User` entity:
             return userRepository.findOne(id);
         }
     }
-
-## Future roadmap
-
-In the future, if we find out that MapStruct is not enough for everyone, we will add another DTO mapper. The easiest solution would be to generate that mapping automatically with JHipster, and not use any third-party library.
