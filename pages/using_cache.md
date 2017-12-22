@@ -11,9 +11,9 @@ sitemap:
 
 A cache can be used at three levels in JHipster:
 
-- As an Hibernate 2nd-level cache, a caching solution can give a huge performance boost to your application. This is what people usually do with JHipster, and it is only available for SQL databases.
-- With the Spring caching abstraction, using the `@EnableCaching` annotation, which is enabled by default if you selected Ehcache/Hazelcast/Infinispan. This needs to be tuned according to your specific business needs, and works at a higher level than the Hibernate 2nd-level cache. However, we do not recommend to use both the Spring caching abstraction and the Hibernate 2nd-level cache, as this will make cache invalidation issues even more complex.
-- For clustered HTTP sessions, a caching solution will replicate users' HTTP sessions over several nodes, allowing the application to scale horizontally. This solution is available with Hazelcast. This is only useful if you have a stateful application, which is not the default in JHipster, and which isn't recommended. You will also need a front-end load-balancer in front of your application nodes.
+- With the Spring cache abstraction, which is a specific question when your application is generated, and which uses the Spring Boot `@EnableCaching` annotation. This needs to be tuned according to your specific business needs, and works at a higher level than the Hibernate 2nd-level cache.
+- As an Hibernate 2nd-level cache, a caching solution can give a huge performance boost to your application. This is what people usually do with JHipster, and it is only available for SQL databases. We do not recommend to use both the Spring cache abstraction and the Hibernate 2nd-level cache for the same objects, as this will make cache invalidation issues even more complex.
+- For clustered HTTP sessions, a caching solution will replicate users' HTTP sessions over several nodes, allowing the application to scale horizontally. This solution is only available with Hazelcast. This is only useful if you have a stateful application, which is not the default in JHipster, and which isn't recommended. You will also need a front-end load-balancer in front of your application nodes.
 
 ## Common configuration
 
@@ -40,9 +40,10 @@ Those values should be tuned depending on your specific business needs, and the 
 
 - It can be used for HTTP sessions clustering
 - It is the default option for microservices, as we expect microservices to scale
-- When used in a a monolith, Hazelcast needs to have the [JHipster Registry]({{ site.url }}/jhipster-registry/) option in order to scale
+- It is the default option for gateways, as we expect them to scale, and as Hazelcast is used to distribute the [gateway rate-limiting information]({{ site.url }}/api-gateway/#rate_limiting)
+- When used within a monolith, Hazelcast needs to have the [JHipster Registry]({{ site.url }}/jhipster-registry/) option in order to scale
 
-For scaling both monoliths and microservices, Hazelcast will use the configured service discovery in order to find new nodes, and scale horizontally. With microservices, this will work both with the JHipster Registry and Consul, and for monoliths this will only work with the JHipster Registry.
+For scaling applications, Hazelcast will use the configured service discovery in order to find new nodes, and scale horizontally. With microservices and gateways, this will work both with the JHipster Registry and Consul, and for monoliths this will only work with the JHipster Registry.
 
 When a new node is added, it will register itself to the service discovery (for instance, it will be available in the JHipster Registry), and look for other nodes of the same type. If it finds one or several nodes of the same type, it will create a clustered cache with them: you should see in the logs of each node a message, like in the following example:
 
@@ -66,23 +67,23 @@ To work better with Hazelcast, JHipster includes support for the Hazelcast Manag
   - [local](http://infinispan.org/docs/stable/user_guide/user_guide.html#local_mode)
   - [invalidation](http://infinispan.org/docs/stable/user_guide/user_guide.html#invalidation_mode)
   - [distributed](http://infinispan.org/docs/stable/user_guide/user_guide.html#replicated_mode)
-  - [replicated](http://infinispan.org/docs/stable/user_guide/user_guide.html#distribution_mode).
+  - [replicated](http://infinispan.org/docs/stable/user_guide/user_guide.html#distribution_mode)
 
-With JHipster, Infinispan can be used for
+With JHipster, Infinispan can be used:
 
-- Hibernate L2 cache
-- Application cache in any of the aforesaid mode by making use of jcache[@CacheResult]/spring[@Cacheable] caching abstractions
+- As an implementation of the Spring Cache abstraction
+- As an Hibernate 2nd level cache
 
 Following is the pre-configured default configuration:
 
 - Entities operate in invalidation cache mode
-- For application specific caching, three caching configurations are pre defined
+- For application-specific caching, three caching configurations are pre-defined
   - **local-app-data** for caching data local to the nodes
   - **dist-app-data** for distributed caching of data across nodes (number of copies determined by the distributed replica count)
   - **repl-app-data** for replicating data across nodes
 
-Eviction, time-to-live and max-entries for each of the individual operation mode in the cache and the replica count for the distributed mode can be fine-tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/). Fine tune the properties in *jhipster.cache.infinispan* for application specific caching and *spring.jpa.properties.[hibernate.cache.x]* for L2 specific caching.
+Eviction, time-to-live and max-entries for each of the individual operation mode in the cache and the replica count for the distributed mode can be fine-tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/). Fine tune the properties in `jhipster.cache.infinispan` for application-specific caching and `spring.jpa.properties` for Hibernate's 2nd level cache.
 
-If the JHipster Registry is enabled, then the host list will be populated from the registry. If the JHipster Registry is not enabled, host discovery will be based on the default transport settings defined in the 'config-file' packaged within the Infinispan Jar. Infinispan supports discovery natively for most of the platforms like Kubernets/OpenShift, AWS, Azure and Google
+If the JHipster Registry is enabled, then the host list will be populated from the registry. If the JHipster Registry is not enabled, host discovery will be based on the default transport settings defined in the `config-file` packaged within the Infinispan Jar. Infinispan supports discovery natively for most of the platforms like Kubernets/OpenShift, AWS, Azure and Google.
 
 Though Infinispan 9.0.0.Final GA and later releases added support to run Infinispan embedded caching applications on Kubernetes and OpenShift by making use of native KUBE_PING discovery, Hibernate dependency is not yet updated to 9.x releases and hence native discovery is not supported on Kubernetes and OpenShift. However you can run the applications by making use of JHipster Registry for instances discovery.
