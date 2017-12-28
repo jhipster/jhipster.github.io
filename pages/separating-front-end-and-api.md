@@ -115,7 +115,7 @@ It also reads a `./nginx/site.conf` file: this is a NGinx-specific configuration
 This configuration means that:
 
 - NGinx will run on port `80`
-- it will read the static assets in folder `/usr/share/nginx/html`, and
-- it will act as a proxy from `/api` to `http://api.jhipster.tech:8081/api`
+- It will read the static assets in folder `/usr/share/nginx/html`, and
+- It will act as a proxy from `/api` to `http://api.jhipster.tech:8081/api`
 
 This configuration will require some tuning depending on your specific needs, but should be a good enough starting point for most applications.
