@@ -122,6 +122,10 @@ header {
             height: 100%;
             padding: 15px;
             margin: 0 auto;
+            & img {
+                width: 220px;
+                height: 328px;    
+            }
         }
         .brand {
             font-size: 5em;
