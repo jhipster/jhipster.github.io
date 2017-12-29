@@ -10,13 +10,18 @@ $color-blue: #3E8ACC;
 $dark-blue: #09486b;
 body {
     overflow-x: hidden;
+    font-size: 16px;
 }
 
 p {
-    font-size: 20px;
+    font-size: 1.2em;
     &.small {
         font-size: 16px;
     }
+}
+
+.text-body {
+    font-size: 1.2em;
 }
 
 a {
@@ -201,7 +206,7 @@ input.search-text {
 }
 
 section {
-    padding: 100px 0;
+    padding: 0;
     h2 {
         margin: 0;
         font-size: 3em;
@@ -432,6 +437,22 @@ form .row:first-child .floating-label-form-group {
 
 .padding-b-25 {
     padding-bottom: 25px !important;
+}
+
+.padding-t-50 {
+    padding-top: 50px !important;
+}
+
+.padding-b-50 {
+    padding-bottom: 50px !important;
+}
+
+.margin-t-25 {
+    margin-top: 25px !important;
+}
+
+.margin-b-25 {
+    margin-bottom: 25px !important;
 }
 
 .open-collective-info {

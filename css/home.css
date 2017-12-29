@@ -4,12 +4,16 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  font-size: 16px; }
 
 p {
-  font-size: 20px; }
+  font-size: 1.2em; }
   p.small {
     font-size: 16px; }
+
+.text-body {
+  font-size: 1.2em; }
 
 a {
   outline: 0;
@@ -142,7 +146,7 @@ input.search-text {
   color: #fff; }
 
 section {
-  padding: 100px 0; }
+  padding: 0; }
   section h2 {
     margin: 0;
     font-size: 3em; }
@@ -318,6 +322,18 @@ form .row:first-child .floating-label-form-group {
 
 .padding-b-25 {
   padding-bottom: 25px !important; }
+
+.padding-t-50 {
+  padding-top: 50px !important; }
+
+.padding-b-50 {
+  padding-bottom: 50px !important; }
+
+.margin-t-25 {
+  margin-top: 25px !important; }
+
+.margin-b-25 {
+  margin-bottom: 25px !important; }
 
 .open-collective-info {
   font-size: 120%; }
