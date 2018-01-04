@@ -9,7 +9,7 @@ JHipster release 4.13.2
 What's new
 ----------
 
-This patch was triggered because of this issue, as it affects everyone:
+This patch release was triggered because of this issue, as it affects everyone:
 
 - Tests on AuditsComponent fail with Prod profile [#6937](https://github.com/jhipster/generator-jhipster/issues/6937)
 
