@@ -105,7 +105,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/motorsports-database.racing.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="http://bluemagiccat.com/" target="_blank">Motorsports Database</a></h3>
+                <h3 id="thumbnail-label"><a href="https://www.motorsports-database.racing" target="_blank">Motorsports Database</a></h3>
             </div>
         </div>
     </div>
