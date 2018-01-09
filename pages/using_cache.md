@@ -9,11 +9,10 @@ sitemap:
 
 # <i class="fa fa-line-chart"></i> Using a cache
 
-A cache can be used at three levels in JHipster:
+A cache can be used at two levels in JHipster:
 
 - With the Spring cache abstraction, which is a specific question when your application is generated, and which uses the Spring Boot `@EnableCaching` annotation. This needs to be tuned according to your specific business needs, and works at a higher level than the Hibernate 2nd-level cache.
 - As an Hibernate 2nd-level cache, a caching solution can give a huge performance boost to your application. This is what people usually do with JHipster, and it is only available for SQL databases. We do not recommend to use both the Spring cache abstraction and the Hibernate 2nd-level cache for the same objects, as this will make cache invalidation issues even more complex.
-- For clustered HTTP sessions, a caching solution will replicate users' HTTP sessions over several nodes, allowing the application to scale horizontally. This solution is only available with Hazelcast. This is only useful if you have a stateful application, which is not the default in JHipster, and which isn't recommended. You will also need a front-end load-balancer in front of your application nodes.
 
 ## Common configuration
 
@@ -23,10 +22,7 @@ Caches are configured in the `CacheConfiguration` class, and can also be tuned u
 
 [Ehcache](http://www.ehcache.org/) is the default cache with monoliths in JHipster. Ehcache is simple to setup and configure, and starts up very fast, so it's a perfect solution for "normal" monoliths.
 
-With JHipster, Ehcache has two limitations:
-
-- It cannot be used for HTTP sessions clustering
-- It cannot work as a distributed cache, as it doesn't have an API allowing to add new nodes programmatically
+With JHipster, Ehcache cannot work as a distributed cache, as it doesn't have an API allowing to add new nodes programmatically
 
 Ehcache is configured in the `CacheConfiguration` Spring configuration bean, which defines 2 properties (`time-to-live-seconds` and `max-entries`) in the JHipster [common application properties]({{ site.url }}/common-application-properties/). More properties can be added in your application's specific `ApplicationProperties` Spring configuration bean.
 
@@ -38,7 +34,6 @@ Those values should be tuned depending on your specific business needs, and the 
 
 [Hazelcast](https://hazelcast.com/) can work as a local cache (like Ehcache), but can also work as a distributed cache. As a result:
 
-- It can be used for HTTP sessions clustering
 - It is the default option for microservices, as we expect microservices to scale
 - It is the default option for gateways, as we expect them to scale, and as Hazelcast is used to distribute the [gateway rate-limiting information]({{ site.url }}/api-gateway/#rate_limiting)
 - When used within a monolith, Hazelcast needs to have the [JHipster Registry]({{ site.url }}/jhipster-registry/) option in order to scale

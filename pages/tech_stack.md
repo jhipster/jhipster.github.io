@@ -61,7 +61,6 @@ Microservices are optional, and fully supported:
 
 *   Monitoring with [Metrics](http://metrics.dropwizard.io/) and [the ELK Stack](https://www.elastic.co/products)
 *   Caching with [ehcache](http://ehcache.org/) (local cache), [hazelcast](http://www.hazelcast.com/) or [Infinispan](http://infinispan.org/)
-*   Optional HTTP session clustering with [hazelcast](http://www.hazelcast.com/)
 *   Optimized static resources (gzip filter, HTTP cache headers)
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance
