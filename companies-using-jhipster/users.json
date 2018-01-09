@@ -821,6 +821,27 @@
     },
     {"name": "Big Bang Soft",
       "url": "http://bigbangsoft.fr/"
+    },
+    {"name": "Code Match",
+      "url": "https://www.code-match.io"
+    },
+    {"name": "Hyperchilli",
+      "url": "http://www.hyperchilli.com/"
+    },
+    {"name": "CodeRobot",
+      "url": "http://coderobot.com.mx/"
+    },
+    {"name": "Studio Diseno Innovative Solutions Pvt Ltd",
+      "url": "http://studiodiseno.com/"
+    },
+    {"name": "Grupo Kinexo",
+      "url": "http://grupokinexo.com/"
+    },
+    {"name": "Fentime",
+      "url": "https://www.fentime.com/"
+    },
+    {"name": "RnD4U",
+      "url": "https://software.rnd4u.com/"
     }
   ]
 }
