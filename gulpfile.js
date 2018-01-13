@@ -29,6 +29,7 @@ gulp.task("sass", function() {
 
 gulp.task("watch", function() {
   gulp.watch('./css/**/*.scss',['sass']);
+  gulp.watch(['./js/**/*.js', './**/*.html', './**/*.md']).on('change', browserSync.reload);
 });
 
 gulp.task('init-server', function() {
@@ -40,3 +41,5 @@ gulp.task('init-server', function() {
 });
 
 gulp.task('dev', ['sass','watch','init-server']);
+
+gulp.task('default', ['dev']);

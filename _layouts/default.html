@@ -341,12 +341,45 @@
                     <!-- /.row -->
                     {% endif %}
 
-                    <div class="text-center">
-                        JHipster is sponsored by:<br/>
-                        <a href="https://developer.okta.com/signup?utm_source=JHipster&utm_medium=logo&utm_campaign=Gold-Sponsor" target="_blank"><img src="{{ site.url }}/images/open-collective/okta.png" style="width: 160px; height: 54px; margin: 10px 0"></a>
-                    </div>
                     <!-- Footer -->
                     <footer class="text-center">
+                        {% if page.home != true %}
+                        <hr>
+                        <div class="footer-logos">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        JHipster is sponsored by:
+                                    </div>
+                                    <!-- change to below commented line when adding more logos -->
+                                    <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
+                                    <div class="col-md-offset-4 col-sm-12 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://developer.okta.com/signup?utm_source=JHipster&utm_medium=logo&utm_campaign=Gold-Sponsor" target="_blank"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="108px"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://developer.okta.com/signup?utm_source=JHipster&utm_medium=logo&utm_campaign=Gold-Sponsor" target="_blank"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="108px"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://developer.okta.com/signup?utm_source=JHipster&utm_medium=logo&utm_campaign=Gold-Sponsor" target="_blank"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="108px"></a>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
                         <div class="footer-above">
                             <div class="container">
                                 <div class="row">
