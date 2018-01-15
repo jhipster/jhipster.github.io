@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Deploying to AWS with Elastic Beanstalk
+title: Deploying to AWS (with Elastic Container Service Or Elastic Beanstalk)
 permalink: /aws/
 redirect_from:
   - /aws.html
@@ -9,23 +9,74 @@ sitemap:
     lastmod: 2016-09-04T00:00:00-00:00
 ---
 
-# <i class="fa fa-cloud-upload"></i> [BETA] Deploying to AWS with Elastic Beanstalk
+# <i class="fa fa-cloud-upload"></i> [BETA] Deploying to AWS
 
-**WARNING!** This is a new sub-generator, of **BETA** quality. Use it at your own risk! Feedback is highly welcome!
+<a href="https://aws.amazon.com/what-is-cloud-computing"><img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing"></a>
 
-**WARNING!** Amazon does not provide a free tier, and does not sponsor JHipster. As such, we cannot test this sub-generator, and cannot guarantee that it works correctly. If you want us to be able to test this generator, you can consider sponsoring the project.
+There are two different sub-generators for deploying JHipster projects to AWS:
+* **aws-containers**: A Docker container based sub-generator for deploying applications via AWS Fargate.
+* **aws**: An instance based sub-generator for deploying appliations via Elastic Beanstalk.
 
-This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/).
+***
+
+## *aws-containers* sub-generator
+This sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this. 
+- [AWS Fargate](https://aws.amazon.com/fargate/): A new AWS service which allows containers to be run without needing to worry about the underlying VM instance infrastructure. The sub-generator currently uses Elastic Container Service to manage the containers.
+- [Elastic Container Registry](https://aws.amazon.com/ecr/): A Docker Image repository, where the application images are stored.
+- [Elastic Load Balanacer - Network Load Balancer](https://aws.amazon.com/elasticloadbalancing): Load balanacer is used to direct traffic to containers.
+- [Aurora](https://aws.amazon.com/rds/aurora): A AWS managed database service, which is MySQL and PostgreSQL compatible.
+- [AWS S3](https://aws.amazon.com/s3): File storage used to store CloudFormation scripts.
+- [CloudWatch](https://aws.amazon.com/cloudwatch): Distributed log collection tool used to view the status of containers.
+- [AWS Cloudformation](https://aws.amazon.com/cloudformation):  All services (besides AWS System Manager) are defined in a set of CloudFormation files. The base file contains high level servies, and then each application is defined in its own nested stack.
+- [AWS System Manager - Parameter Store](https://aws.amazon.com/systems-manager/features/): A Secure password storage mechanism, which is used to store the database password. Running the sub-generator will introduce a new Spring Cloud component which will read in the password on application startup.
+- [AWS - IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html): The generator creates a new role which the ECS tasks will execute under, with an associated policy.
+
+![AWS Component Diagram]({{ site.url }}/images/aws_component_diagram.svg?sanitize=true)
+
+If you choose to deploy the application, the generator will go through a number of steps before the application starts.
+1. Rebuilds the application's Docker Imager, so it includes the newly generated Spring Cloud classes.
+2. Creates an S3 bucket for the CloudFormation YAML files.
+3. Uploads the Cloudformation YAML files to the S3 bucket.
+4. Creates the CloudFormation stack (excluding the ECS Service). The service is initially excluded so we have the opportunity to upload the required Docker Images into the newly created registry.
+5. Tag Docker Images and Upload to Registry.
+6. Set Database access password in AWS SSM. This has been excluded from the Cloudformation file because it currently does not support SecureStrings, and it is bad-practice to store passwords within Cloudformation.
+7. Update Stack to include ECS Service. Prints out Load Balancer URL.
+
+### Limitations 
+- Currently only works with monolithic applications.
+- Only the following database types are supported: Mysql, MariaDB (via Amazon Aurora), and PostgreSQL.
+- Fargate is, at time of writing, only available in the `us-west-2` region. Check [this list](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) before attempting to run the sub-generator against a different region.
+- Instance to instance communication is currently not supported.
+
+### Running the sub-generator
+<div class="alert alert-warning"><i>Warning: </i>
+This generator will start incuring costs as soon as the deployment starts. Do not leave it running for extended lengths without understanding the costing implications of the components used. </div>
+
+Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials`` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret. 
+
+Within your generated application, run:
+
+
+`jhipster aws-containers`
+
+
+The sub-generator will ask a number of questions regarding how you would like your application deployed, using information it will determine from your AWS environment. There are a couple of things to consider:
+- The application can be deployed in either a single tier (using a default VPC configuration), or a two-tier model (example CloudFormation file [here](https://github.com/satterly/AWSCloudFormation-samples/blob/master/multi-tier-web-app-in-vpc.template)). When determining your deployment subnets, you should ensure that the application is being deployed across at least two Availability Zones, otherwise Amazon Aurora will not deploy correctly.
+
+***
+
+## *aws* sub-generator
+This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/) using [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html).
 
 <div class="alert alert-info"> <i>Tip:</i> As an alternative to Elastic Beanstalk you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/boxfuse/">Boxfuse</a>.  
 Boxfuse comes with first-class support for JHipster as well as support for both MySQL and PostgreSQL databases.</div>
 
-## Limitations
+### Limitations
 
 *   You can only use it with a MySQL database (PostgreSQL and Oracle will be added later).
 *   Websockets doesn't work behind the load balancer by default.
 
-## Running the sub-generator
+### Running the sub-generator
 
 Before running the sub-generator, you need to setup your AWS SDK credentials.  Log in with your Amazon AWS account and create a user for your JHipster application. To grant this user the required permissions attach the `AWSElasticBeanstalkFullAccess` policy.
 
@@ -43,7 +94,7 @@ To deploy your application to Amazon AWS, type:
 
 This should package your application in "production" mode, create an Bean Stalk application (with a MySQL database), upload your code, and start the application.
 
-## Updating your deployed application
+### Updating your deployed application
 
 When your application is already deployed, you can re-deploy it by run the sub-generator again:
 
@@ -51,7 +102,7 @@ When your application is already deployed, you can re-deploy it by run the sub-g
 
 The sub generator ask your database credentials again but they will be ignored during the update.
 
-## More information
+### More information
 
 *   [AWS SDK for JavaScript](http://aws.amazon.com/sdk-for-node-js)
 *   [Progressbar for WAR upload](https://github.com/tj/node-progress)
