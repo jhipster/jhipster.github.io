@@ -1,67 +1,67 @@
 ---
 layout: default
-title: Deploying to AWS (with Elastic Container Service Or Elastic Beanstalk)
+title: Deploying to AWS
 permalink: /aws/
-redirect_from:
-  - /aws.html
+# redirect_from:
+#   - /aws.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-09-04T00:00:00-00:00
+    lastmod: 2018-01-17T00:00:00-00:00
 ---
 
 # <i class="fa fa-cloud-upload"></i> [BETA] Deploying to AWS
 
-<a href="https://aws.amazon.com/what-is-cloud-computing"><img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing"></a>
+[![Powered by AWS Cloud Computing]({{ site.url }}/images/logo/logo-aws.png)](https://aws.amazon.com/what-is-cloud-computing)
 
 There are two different sub-generators for deploying JHipster projects to AWS:
-* **aws-containers**: A Docker container based sub-generator for deploying applications via AWS Fargate.
+* **aws-containers**: A Docker container based sub-generator for deploying applications via AWS Elastic Container Service.
 * **aws**: An instance based sub-generator for deploying appliations via Elastic Beanstalk.
 
 ***
 
 ## *aws-containers* sub-generator
-This sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this. 
+This sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this:
 - [AWS Fargate](https://aws.amazon.com/fargate/): A new AWS service which allows containers to be run without needing to worry about the underlying VM instance infrastructure. The sub-generator currently uses Elastic Container Service to manage the containers.
 - [Elastic Container Registry](https://aws.amazon.com/ecr/): A Docker Image repository, where the application images are stored.
-- [Elastic Load Balanacer - Network Load Balancer](https://aws.amazon.com/elasticloadbalancing): Load balanacer is used to direct traffic to containers.
+- [Elastic Load Balanacer - Network Load Balancer](https://aws.amazon.com/elasticloadbalancing): The Network Load balanacer is used to direct traffic to containers.
 - [Aurora](https://aws.amazon.com/rds/aurora): A AWS managed database service, which is MySQL and PostgreSQL compatible.
 - [AWS S3](https://aws.amazon.com/s3): File storage used to store CloudFormation scripts.
 - [CloudWatch](https://aws.amazon.com/cloudwatch): Distributed log collection tool used to view the status of containers.
-- [AWS Cloudformation](https://aws.amazon.com/cloudformation):  All services (besides AWS System Manager) are defined in a set of CloudFormation files. The base file contains high level servies, and then each application is defined in its own nested stack.
+- [AWS Cloudformation](https://aws.amazon.com/cloudformation):  All required services (besides AWS System Manager Parameters) are defined in a set of CloudFormation files. The base file contains high level services, and then each application is defined in its own file, which is called a nested stack.
 - [AWS System Manager - Parameter Store](https://aws.amazon.com/systems-manager/features/): A Secure password storage mechanism, which is used to store the database password. Running the sub-generator will introduce a new Spring Cloud component which will read in the password on application startup.
 - [AWS - IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html): The generator creates a new role which the ECS tasks will execute under, with an associated policy.
 
 ![AWS Component Diagram]({{ site.url }}/images/aws_component_diagram.svg?sanitize=true)
 
-If you choose to deploy the application, the generator will go through a number of steps before the application starts.
+If you choose to deploy the application, the sub-generator will go through a number of steps before the application starts.
 1. Rebuilds the application's Docker Imager, so it includes the newly generated Spring Cloud classes.
 2. Creates an S3 bucket for the CloudFormation YAML files.
 3. Uploads the Cloudformation YAML files to the S3 bucket.
-4. Creates the CloudFormation stack (excluding the ECS Service). The service is initially excluded so we have the opportunity to upload the required Docker Images into the newly created registry.
+4. Creates the CloudFormation stack (excluding the ECS Service). The service is initially excluded so we have the opportunity to upload the required Docker Images into the newly created registry so the service will start successfully when its created.
 5. Tag Docker Images and Upload to Registry.
 6. Set Database access password in AWS SSM. This has been excluded from the Cloudformation file because it currently does not support SecureStrings, and it is bad-practice to store passwords within Cloudformation.
 7. Update Stack to include ECS Service. Prints out Load Balancer URL.
 
 ### Limitations 
 - Currently only works with monolithic applications.
-- Only the following database types are supported: Mysql, MariaDB (via Amazon Aurora), and PostgreSQL.
+- Only the following database types are supported (all via Aurora): Mysql, MariaDB and PostgreSQL.
 - Fargate is, at time of writing, only available in the `us-west-2` region. Check [this list](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) before attempting to run the sub-generator against a different region.
 - Instance to instance communication is currently not supported.
+- SSL is not enabled.
 
 ### Running the sub-generator
 <div class="alert alert-warning"><i>Warning: </i>
 This generator will start incuring costs as soon as the deployment starts. Do not leave it running for extended lengths without understanding the costing implications of the components used. </div>
 
-Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials`` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret. 
+Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they are accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials`` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret. 
 
-Within your generated application, run:
-
+Within a **new folder** run:
 
 `jhipster aws-containers`
 
-
 The sub-generator will ask a number of questions regarding how you would like your application deployed, using information it will determine from your AWS environment. There are a couple of things to consider:
 - The application can be deployed in either a single tier (using a default VPC configuration), or a two-tier model (example CloudFormation file [here](https://github.com/satterly/AWSCloudFormation-samples/blob/master/multi-tier-web-app-in-vpc.template)). When determining your deployment subnets, you should ensure that the application is being deployed across at least two Availability Zones, otherwise Amazon Aurora will not deploy correctly.
+- If you need to remove the generated CloudFormation stack, you must remove all created ECR images before attempting to delete the stack. CloudFormation cannot delete the registry if it is still holding images.
 
 ***
 
