@@ -230,25 +230,25 @@ Note that you don't need to supply the database type (sql, mongodb, or cassandra
 If, however, you wish to execute JHipster-UML outside a JHipster app, you need to pass an extra argument: the database type name.
 Here is the command to execute:
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)]`
 
-The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
+The JHipster DTOs can be generated too, simply pass the `--dto` arg to enable this feature.
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--dto]`
 
-You can choose the pagination for your entities using `-paginate`.
+You can choose the pagination for your entities using `--paginate`.
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-paginate]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--paginate]`
 
-Finally, you can choose the service for your entities using `-service`.
+Finally, you can choose the service for your entities using `--service`.
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-service]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--service]`
 
 **Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
 
 Finally, if you need help, there's a command for that too:
 
- `jhipster-uml -help`
+ `jhipster-uml --help`
 
 
 * step 3 - that's it!
