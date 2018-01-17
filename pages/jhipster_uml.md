@@ -232,17 +232,17 @@ Here is the command to execute:
 
  `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)]`
 
-The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
+The JHipster DTOs can be generated too, simply pass the `--dto` arg to enable this feature.
 
- `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [-dto]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--dto]`
 
-You can choose the pagination for your entities using `-paginate`.
+You can choose the pagination for your entities using `--paginate`.
 
- `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [-paginate]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--paginate]`
 
-Finally, you can choose the service for your entities using `-service`.
+Finally, you can choose the service for your entities using `--service`.
 
- `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [-service]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--service]`
 
 **Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
 
