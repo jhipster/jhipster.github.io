@@ -49,9 +49,12 @@ If you choose to deploy the application, the sub-generator will go through a num
 - Instance to instance communication is currently not supported.
 - SSL is not enabled.
 
-### Running the sub-generator
+### Costs
 <div class="alert alert-warning"><i>Warning: </i>
 This generator will start incuring costs as soon as the deployment starts. Do not leave it running for extended lengths without understanding the costing implications of the components used. </div>
+The services used by this generator are not covered by the [AWS Free Tier](https://aws.amazon.com/free/). This generator is designed to allow applications to be run in a production-grade manner, and at this time is not recommended for small or cost sensitive workloads.
+
+### Running the sub-generator
 
 Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they are accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials`` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret. 
 
@@ -62,6 +65,14 @@ Within a **new folder** run:
 The sub-generator will ask a number of questions regarding how you would like your application deployed, using information it will determine from your AWS environment. There are a couple of things to consider:
 - The application can be deployed in either a single tier (using a default VPC configuration), or a two-tier model (example CloudFormation file [here](https://github.com/satterly/AWSCloudFormation-samples/blob/master/multi-tier-web-app-in-vpc.template)). When determining your deployment subnets, you should ensure that the application is being deployed across at least two Availability Zones, otherwise Amazon Aurora will not deploy correctly.
 - If you need to remove the generated CloudFormation stack, you must remove all created ECR images before attempting to delete the stack. CloudFormation cannot delete the registry if it is still holding images.
+
+### Updating your deployed application
+
+When your application is already deployed, you can re-deploy it by run the sub-generator again:
+
+`jhipster aws-containers`
+
+You will be re-prompted to confirm your settings, giving you the oppoortunity to re-adjust things like the performance level. Note, in some circumstances the application will have issues terminating the previously deployed task instances, which may require them to be manually terminated via the console or CLI.
 
 ***
 
