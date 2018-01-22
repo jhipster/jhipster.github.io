@@ -54,7 +54,7 @@ This only works in `dev` mode, but this is a very powerful way of accessing diff
 
 ## Using CORS
 
-CORS ([Cross-origin request sharing](https://fr.wikipedia.org/wiki/Cross-origin_resource_sharing)) allow to access different back-end servers with the same front-end, without configuring a proxy.
+CORS ([Cross-origin request sharing](https://wikipedia.org/wiki/Cross-origin_resource_sharing)) allow to access different back-end servers with the same front-end, without configuring a proxy.
 
 This is an easy-to-use solution, but it can be less secure in production.
 
