@@ -38,8 +38,10 @@ $('.navbar-collapse ul li a').click(function () {
         GHService.getGitHubConfig('jhipster', 'generator-jhipster').success(function (data) {
             $scope.gitConfig = data;
         });
+        $scope.gitContributors = '400+';
+        /*
+        // Commented out as this isn't efficient now we have 400+ contributors
         var page = 0;
-        $scope.gitContributors = '...';
         var noOfContributors = 0;
         function getContributors(){
 
@@ -56,6 +58,7 @@ $('.navbar-collapse ul li a').click(function () {
         }
 
         getContributors();
+        */
 
         NpmService.getNpmDownloadsLastMonth('generator-jhipster').success(function (data) {
             $scope.npmDownloads = data.downloads;
