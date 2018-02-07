@@ -10,10 +10,11 @@ To run this locally
 * Run `bundle install` if you are running it for the first time.
 ** If you install it into a vendor directory, do not forget to add that directory in the exclusions into _config.yml!
 * Run `bundle exec jekyll serve` in the cloned repo folder
-* you will be able to access the site at http://localhost:4000
+* You will be able to access the site at http://localhost:4000
 
-Or with Docker (recommended way on Windows)
+Or with Docker and Docker-Compose (recommended way on Windows)
+
 * [Fork this](https://github.com/jhipster/jhipster.github.io/fork) repo and clone to your file system
-* `docker container run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 4000:4000 jekyll/jekyll:pages bundle exec jekyll serve`
-* or on Windows: `docker container run --rm --label=jekyll --volume=%CD%:/srv/jekyll -it -p 4000:4000 jekyll/jekyll:pages bundle exec jekyll serve`
-* you will be able to access the site at http://localhost:4000
+* Run `docker-compose up`
+* You will be able to access the site at http://0.0.0.0:4000
+

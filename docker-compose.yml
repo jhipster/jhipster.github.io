@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  site:
+    container_name: jhipster.github.io
+    command: jekyll serve
+    image: jekyll/jekyll:latest
+    volumes:
+      - ./:/srv/jekyll
+      # this volume will keep all gems
+      - ./vendor/bundle:/usr/local/bundle
+    ports:
+      - 4000:4000
