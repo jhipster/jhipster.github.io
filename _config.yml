@@ -1,6 +1,6 @@
 safe:        true
 markdown: kramdown
-exclude: [node_modules, bower_components]
+exclude: [node_modules, bower_components, vendor]
 kramdown:
   input: GFM
 gems:
