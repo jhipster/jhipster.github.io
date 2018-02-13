@@ -131,6 +131,8 @@ security:
             prefer-token-info: false
 ```
 
+**NOTE:** If you're using microservices, you'll need to remove the `security.oauth2.resource.jwt.key-uri` key/value too. This retrieves a public key from Keycloak, and Okta doesn't have this same functionality. You can [track this issue on GitHub](https://github.com/jhipster/generator-jhipster/issues/7116). 
+
 Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080` as a Base URI and `http://localhost:8080/login` as a Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
 
 Create a `ROLE_ADMIN` and `ROLE_USER` group (**Users** > **Groups** > **Add Group**) and add users to them. You can use the account you signed up with, or create a new user (**Users** > **Add Person**). Navigate to **API** > **Authorization Servers**, click the **Authorization Servers** tab and edit the default one. Click the **Claims** tab and **Add Claim**. Name it "groups" or "roles", and include it in the ID Token. Set the value type to "Groups" and set the filter to be a Regex of `.*`.
