@@ -125,9 +125,10 @@ security:
             client-authentication-scheme: form
             scope: openid profile email
         resource:
-            userInfoUri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
-            tokenInfoUri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
-            preferTokenInfo: false
+            filter-order: 3
+            user-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
+            token-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
+            prefer-token-info: false
 ```
 
 **NOTE:** If you're using microservices, you'll need to remove the `security.oauth2.resource.jwt.key-uri` key/value too. This retrieves a public key from Keycloak, and Okta doesn't have this same functionality. You can [track this issue on GitHub](https://github.com/jhipster/generator-jhipster/issues/7116). 
