@@ -652,7 +652,7 @@ These options take values:
   - `search` (`elasticsearch`)
   - `microservice` (custom value)
   - `angularSuffix` (custom value)
-  - `clientRootFolder` (custom value
+  - `clientRootFolder` (custom value)
 
 # <a name="issues"></a>Issues and bugs
 
