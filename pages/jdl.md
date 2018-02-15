@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2017-11-27T12:00:00-00:00
+    lastmod: 2018-02-15T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -37,10 +37,11 @@ Here is the full JDL documentation:
 4. [Commenting](#commentingjdl)  
 5. [All the relationships](#jdlrelationships)  
 6. [Constants](#constants)  
-7. [Annexes](#annexes)  
-  7.1 [Available types and constraints](#types_and_constraints)  
-  7.2 [Available options](#all_options)  
-8. [Issues and bugs](#issues)  
+7. [Workflows](#workflows)  
+8. [Annexes](#annexes)  
+  8.1 [Available types and constraints](#types_and_constraints)  
+  8.2 [Available options](#all_options)  
+9. [Issues and bugs](#issues)  
 
 ***
 
@@ -466,6 +467,53 @@ entity A {
 }
 ```
 
+# <a name="workflows"></a>Workflows
+
+## <a name="workflow_monolith"></a>Monolith workflow
+
+There's no special workflow here:
+  - Create your application
+  - Create your JDL file
+  - Import it
+
+## <a name="workflow_microservice"></a>Microservice workflow
+
+Dealing with microservices is a bit trickier, but the JDL gives you some options to handle your entities as you see fit.
+
+With the `microservice <ENTITIES> with <MICROSERVICE_APP_NAME>` you can specify which entity gets generated in which microservice.
+Take this setup for instance:
+```
+entity A
+entity B
+entity C
+
+microservice A with firstMS
+microservice B with secondMS
+```
+Given two JHipster applications ('firstMS' and 'secondMS'), here's what you're going to get if you import the JDL file in the two applications:
+  - In 'firstMS', entities `A` and `C` will be generated.
+  - In 'secondMS', entities `B` and `C` will be generated.
+
+`C` gets generated in both because if there's no microservice option specifying where this entity gets generated, it will be generated everywhere.
+If you decide to import this JDL in a monolith app, every entity will be generated (monoliths don't have restriction options in the JDL).
+
+Note: if you want to make the same entity be generated in two different microservices, you can write two JDL files instead of updating the JDL file. everytime.
+
+The previous example couldn't have been written like this:
+```
+entity A
+entity B
+entity C
+
+microservice * except B with firstMS
+microservice * except A with secondMS
+```
+Here's the result:
+  - In 'firstMS', only the entity `C` will be generated
+  - In 'secondMS', entities `B` and `C` will be generated.
+It's because, at parsing-time, if an option overlaps with another, the latter takes precedence.
+
+
 # <a name="annexes"></a>Annexes
 
 ## <a name="types_and_constraints"></a>Available types and constraints
@@ -604,6 +652,7 @@ These options take values:
   - `search` (`elasticsearch`)
   - `microservice` (custom value)
   - `angularSuffix` (custom value)
+  - `clientRootFolder` (custom value
 
 # <a name="issues"></a>Issues and bugs
 
