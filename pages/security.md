@@ -71,7 +71,7 @@ JHipster provide "social login", using Spring Social, so users can connect to yo
 
 ## <a name="oauth2"></a> OAuth2 and OpenID Connect
 
-OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuthSso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
+OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuth2Sso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
 
 ### Keycloak
 
