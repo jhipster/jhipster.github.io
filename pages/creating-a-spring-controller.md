@@ -13,7 +13,7 @@ sitemap:
 
 _Note: this sub-generator is much simpler than the [entity sub-generator]({{ site.url }}/creating-an-entity/) that creates full CRUD entities_
 
-This is sub-generator generates a Spring MVC REST Controller. It is also able to create simple REST methods.
+This sub-generator generates a Spring MVC REST Controller. It is also able to create simple REST methods.
 
 In order to generate a "Foo" Spring MVC REST controller, just type:
 

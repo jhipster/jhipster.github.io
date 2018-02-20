@@ -71,7 +71,7 @@ JHipster provide "social login", using Spring Social, so users can connect to yo
 
 ## <a name="oauth2"></a> OAuth2 and OpenID Connect
 
-OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuthSso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
+OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuth2Sso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
 
 ### Keycloak
 
@@ -130,6 +130,8 @@ security:
             token-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
             prefer-token-info: false
 ```
+
+**NOTE:** If you're using microservices, you'll need to remove the `security.oauth2.resource.jwt.key-uri` key/value too. This retrieves a public key from Keycloak, and Okta doesn't have this same functionality. You can [track this issue on GitHub](https://github.com/jhipster/generator-jhipster/issues/7116). 
 
 Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080` as a Base URI and `http://localhost:8080/login` as a Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
 
