@@ -46,7 +46,7 @@ If you choose to deploy the application, the sub-generator will go through a num
 - Currently only works with monolithic applications.
 - Only the following database types are supported (all via Aurora): Mysql, MariaDB and PostgreSQL.
 - Fargate is, at time of writing, only available in the `us-west-2` region. Check [this list](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) before attempting to run the sub-generator against a different region.
-- Instance to instance communication is currently not supported.
+- Instance to instance communication is currently not supported. The biggest consequence of this is that cache synchronisation is not supported between nodes. It is recommended to look at AWS' [ElasticCache](https://aws.amazon.com/elasticache/) service for distributed caching requirements.
 - SSL is not enabled.
 
 ### Costs
@@ -56,7 +56,7 @@ The services used by this generator are not covered by the [AWS Free Tier](https
 
 ### Running the sub-generator
 
-Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they are accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials`` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret. 
+Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they are accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret. 
 
 Within a **new folder** run:
 
@@ -73,6 +73,15 @@ When your application is already deployed, you can re-deploy it by run the sub-g
 `jhipster aws-containers`
 
 You will be re-prompted to confirm your settings, giving you the oppoortunity to re-adjust things like the performance level. Note, in some circumstances the application will have issues terminating the previously deployed task instances, which may require them to be manually terminated via the console or CLI.
+
+### Deleting your application
+To delete your deployed application:
+* Navigate to `Elastic Container Service > Repositories > [Your application names]` and delete all images within the repository. Do not delete the repository itself. You cannot delete the application via CloudFormation if there are images within the repository.
+* Navigate to `CloudFormation` and delete the stack which you have created. This will deprovision the majority of services.
+
+For a complete cleanup of your environment, there are two additional configurations which need to be deleted.
+* Remove the stored password via `AWS Systems Manager > Parameter Store`.
+* Remove the CloudFormation template files from the generated `S3` bucket, which is in the format `[Stack Name]-[timestamp]`.
 
 ***
 
