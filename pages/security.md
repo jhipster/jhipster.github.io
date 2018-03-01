@@ -136,7 +136,7 @@ security:
             prefer-token-info: false
 ```
 
-**NOTE:** If you're using microservices, you'll need to remove the `security.oauth2.resource.jwt.key-uri` key/value too. This retrieves a public key from Keycloak, and Okta doesn't have this same functionality. You can [track this issue on GitHub](https://github.com/jhipster/generator-jhipster/issues/7116).
+**NOTE:** If you're using microservices with JHipster 4.14.0 (or previous), you'll need to replace `security.oauth2.resource.jwt.key-uri` with  `security.oauth2.resource.jwk.key-set-uri` and set the value to  `https://{yourOktaDomain}.com/oauth2/default/v1/keys`. See [jhipster/generator-jhipster#7116](https://github.com/jhipster/generator-jhipster/issues/7116) for more information.
 
 Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080` as a Base URI and `http://localhost:8080/login` as a Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
 
@@ -153,6 +153,7 @@ export SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI="https://{yourOktaDomain}.com/oau
 export SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="https://{yourOktaDomain}.com/oauth2/default/v1/authorize"
 export SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="https://{yourOktaDomain}.com/oauth2/default/v1/userinfo"
 export SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="https://{yourOktaDomain}.com/oauth2/default/v1/introspect"
+export SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI="https://{yourOktaDomain}.com/oauth2/default/v1/keys"
 export SECURITY_OAUTH2_CLIENT_CLIENT_ID="{client-id}"
 export SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="{client-secret}"
 ```
@@ -168,6 +169,7 @@ heroku config:set \
   SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI" \
   SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI" \
   SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI" \
+  SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI="$SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI" \
   SECURITY_OAUTH2_CLIENT_CLIENT_ID="$SECURITY_OAUTH2_CLIENT_CLIENT_ID" \
   SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
 ```
@@ -180,6 +182,7 @@ cf set-env $appName SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI "$SECURITY_OAUTH2_CL
 cf set-env $appName SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI "$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI"
 cf set-env $appName SECURITY_OAUTH2_RESOURCE_USER_INFO_URI "$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI"
 cf set-env $appName SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI "$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI"
+cf set-env $appName SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI "$SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_CLIENT_ID "$SECURITY_OAUTH2_CLIENT_CLIENT_ID"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_CLIENT_SECRET "$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
 ```
