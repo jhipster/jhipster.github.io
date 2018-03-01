@@ -106,6 +106,11 @@ security:
             prefer-token-info: false
 ```
 
+As by default Keycloak uses an embedded H2 database, you will lose the created users if you restart your Docker container. To keep your data, please read the [Keycloak Docker documentation](https://hub.docker.com/r/jboss/keycloak/). One solution, with keeping the H2 database, is to do the following:
+
+- Add a volume that will be persisted: `./keycloak-db:/opt/jboss/keycloak/standalone/data`
+- Change the migration strategy from `OVERWRITE_EXISTING`, to `IGNORE_EXISTING` (in the command section)
+
 ### Okta
 
 If you'd like to use Okta instead of Keycloak, you'll need to change a few things. First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.oktapreview.com`.
@@ -131,7 +136,7 @@ security:
             prefer-token-info: false
 ```
 
-**NOTE:** If you're using microservices, you'll need to remove the `security.oauth2.resource.jwt.key-uri` key/value too. This retrieves a public key from Keycloak, and Okta doesn't have this same functionality. You can [track this issue on GitHub](https://github.com/jhipster/generator-jhipster/issues/7116). 
+**NOTE:** If you're using microservices, you'll need to remove the `security.oauth2.resource.jwt.key-uri` key/value too. This retrieves a public key from Keycloak, and Okta doesn't have this same functionality. You can [track this issue on GitHub](https://github.com/jhipster/generator-jhipster/issues/7116).
 
 Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080` as a Base URI and `http://localhost:8080/login` as a Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
 
