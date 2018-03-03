@@ -52,7 +52,7 @@ To setup a JHipster project in Jenkins, use the following configuration:
 * Build Triggers
     * Poll SCM / Schedule: `H/5 * * * *`
 * Build
-    * Invoke Gradle script / Use Gradle Wrapper / Tasks: `-Pprod clean test bootRepackage`
+    * Invoke Gradle script / Use Gradle Wrapper / Tasks: `-Pprod clean test bootWar`
     * Execute Shell / Command:
         ````
         ./gradlew bootRun &

@@ -53,7 +53,7 @@ When your application is already deployed, you can prepare a new deployment by t
 
 Or when using gradle:
 
-`./gradlew -Pprod bootRepackage -x test`
+`./gradlew -Pprod bootWar -x test`
 
 ### Pushing to production
 
