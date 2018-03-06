@@ -39,6 +39,16 @@ Here is a documentation for those properties:
             max-pool-size: 50 # Maximum pool size
             queue-capacity: 10000 # Queue capacity of the pool
 
+        # Specific configuration for JHipster gateways
+        # See http://www.jhipster.tech/api-gateway/ for more information on JHipster gateways
+        gateway:
+            rate-limiting:
+                enabled: false # Rate limiting is disabled by default
+                limit: 100_000L # By default we allow 100,000 API calls
+                duration-in-seconds: 3_600 # By default the rate limiting is reinitialized every hour
+            authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
+                app1: /api # recommended prod configuration, it allows the access to all API calls from the "app1" microservice
+
         # HTTP configuration
         http:
             # V_1_1 for HTTP/1.1 or V_2_0 for HTTP/2.
