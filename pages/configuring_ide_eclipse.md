@@ -79,3 +79,11 @@ If you are using Maven, you need to activate the `IDE` profile in Eclipse. This 
 - In "Active Maven Profiles", type `dev,IDE`
 
 With this configuration, you will be using both the JHipster `dev` and `IDE` profiles.
+
+### Configuring MapStruct plugins
+
+In case for the IDE correctly recognize the mapstruct code generator some more things needs to be done.
+
+You should use the plugin m2e-apt : http://mapstruct.org/documentation/ide-support/. Installing the m2e-apt plugin, enable Eclipse to work along mapstruct.
+
+Also you can install the plugin: MapStruct Eclipse Plugin (https://marketplace.eclipse.org/content/mapstruct-eclipse-plugin) for help and tips from the IDE. 
