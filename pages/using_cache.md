@@ -57,7 +57,7 @@ When a new node is added, it will register itself to the service discovery (for 
 
 To work better with Hazelcast, JHipster includes support for the Hazelcast Management Center:
 
-- Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing you application.
+- Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing your application.
 - It is configured using JHipster [common application properties]({{ site.url }}/common-application-properties/), using the key `jhipster.cache.hazelcast.management-center`, in your `application-dev.yml` and `application-prod.yml` files. Please note that it is disabled by default.
 - JHipster generates a Docker Compose configuration to run easily the Hazelcast Management Center. Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/), and run the application using `docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`.
 
