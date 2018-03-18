@@ -6,7 +6,7 @@ redirect_from:
   - /security.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-01-27T00:00:00-00:00
+    lastmod: 2018-03-18T18:20:00-00:00
 ---
 
 # <i class="fa fa-lock"></i> Securing your application
@@ -64,10 +64,6 @@ We have added a very complete cookie theft protection mechanism: we store your s
 ### CSRF protection
 
 Spring Security and AngularJS both have CSRF protection out-of-the-box, but unfortunately they don't use the same cookies or HTTP headers! In practice, you have in fact no protection at all for CSRF attacks. Of course, we re-configure both tools so that they correctly work together.
-
-## Social Login
-
-JHipster provide "social login", using Spring Social, so users can connect to your application using their Google, Facebook or Twitter authentication. This is configured using Sping Boot's starter modules.
 
 ## <a name="oauth2"></a> OAuth2 and OpenID Connect
 
