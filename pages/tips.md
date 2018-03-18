@@ -6,7 +6,7 @@ redirect_from:
   - /tips.html
 sitemap:
     priority: 0.7
-    lastmod: 2017-04-27T08:40:00-00:00
+    lastmod: 2018-03-18T18:20:00-00:00
 ---
 
 # <i class="fa fa-cogs"></i> Tips'n tricks
@@ -30,3 +30,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 1. [Registering a user with additional information]({{ site.url }}/tips/022_tip_registering_user_with_additional_information.html)
 1. [Use QueryDSL]({{ site.url }}/tips/003_tip_add_querydsl_support.html)
 1. [Protecting Kibana with Apache (Basic Authentication)]({{ site.url }}/tips/023_tip_protecting_kibana_with_apache_basic_authent.html)
+1. [Enabling Social Login with OAuth2]({{ site.url }}/tips/024_tip_enabling_social_login_with_oauth2.html)
