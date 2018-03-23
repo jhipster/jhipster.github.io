@@ -3,6 +3,7 @@ layout: default
 title: Using React
 permalink: /using-react/
 sitemap:
+  - /using_react.html
     priority: 0.7
     lastmod: 2015-01-29T23:41:00-00:00
 ---
@@ -50,7 +51,7 @@ Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) to create a
 ```
 webapp
 ├── app                                        
-│   ├── entities
+│   └── entities
 │       ├── foo                           - CRUD front-end for the Foo entity
 │       │   ├── foo-delete-dialog.tsx     - Delete dialog component
 │       │   ├── foo-detail.tsx            - Detail page component
@@ -59,11 +60,11 @@ webapp
 │       │   ├── foo.tsx                   - Entity main component
 │       │   └── index.tsx                 - Entity main routes
 │       └── index.tsx                     - Entities routes    
-├── i18n                                  - Translation files
-│    ├── en                               - English translations
-│    │   ├── foo.json                     - English translation of Foo name, fields, ...
-│    ├── fr                               - French translations
-│    │   ├── foo.json                     - French translation of Foo name, fields, ...
+└── i18n                                  - Translation files
+     ├── en                               - English translations
+     │   ├── foo.json                     - English translation of Foo name, fields, ...
+     └── fr                               - French translations
+         └── foo.json                     - French translation of Foo name, fields, ...
 ```
 
 Please note that the default language translations would be based on what you have choosen during app generation. 'en' and 'fr' are shown here only for demonstration.
@@ -122,12 +123,12 @@ export default (state = initialState, action) => {
 };
 ```
 In order to access your store and update the current application state, you need to dispatch
-actions to the store as mentioned previously. Actions are simple JavaScript object and must have a **type**, which describe what 
+actions to the store as mentioned previously. Actions are simple JavaScript objects and must have a **type**, which describe what 
 the action is going to perform and a usually they have also a **payload** which corresponds to
 data you want to pass to the store.
 
 Here is an action to access the store:
-```
+``` typescript
 const apiUrl = SERVER_API_URL + '/api/foos';
 
 // Action
@@ -145,7 +146,24 @@ when necessary (for instance, everytime the component is updated).
 
 Jhipster uses the [React router](https://github.com/ReactTraining/react-router) to organize the differents parts of your application.
 
-// TODO: put private route and permissions stuff
+When it comes to routes that require authentication, the [react-jhipster](https://github.com/jhipster/react-jhipster) lib provides [PrivateRoute](https://github.com/jhipster/react-jhipster/blob/master/src/component/private-route.tsx). This component will simply prevent any unauthenticated user from accessing a route. 
+
+Here is an example of PrivateRoute usage:
+``` typescript
+const Routes = () => (
+  <div className="view-routes">
+    <Route exact path="/" component={Home} />
+    <Route path="/login" component={Login} />
+    <PrivateRoute path="/account" component={Account} />
+  </div>
+);
+```
+As you can see, unauthenticated user can access `/` and `/login` but accessing `/account` requires to be logged in.
+
+ Please note that PrivateRoute uses the `authentication.isAuthenticated` store value to know if the user is authenticated.
+
+
+[comment]: <> (TODO: put private route and permissions stuff. This section will remain incomplete as long as the react permission system is not implemented.)
 
 ## Notification System
 JHipster uses [react-toastify](https://github.com/fkhadra/react-toastify) alerts for the notification system, and has an 
@@ -154,7 +172,14 @@ i18n-capable AlertService which can be used throughout the generated application
 By default JHipster will show success notifications whenever an entity is created/updated/deleted 
 and error notifications when there is an error caught from the response.
 
-####TODO: Explain how to use Toaster ?
+[comment]: <> (TODO: Explain how to use Toaster ?)
+
+
+## Build and Run
+
+You can build and run your project by executing `mvnw` (`mvnw.cmd` for Windows).
+
+Hot reload is also available by using the command `yarn run start`. Note that an active `mvnw` instance is required for `yarn run start` to work properly.
 
 Frameworks/Libraries used
 - react 16.2.0
