@@ -16,7 +16,7 @@ Please go to our [OpenCollective page](https://opencollective.com/generator-jhip
 
 Backers donate $2 per month to the project, and get the following benefits:
 
-- Visibility on the front page of [http://www.jhipster.tech](http://www.jhipster.tech) in the "backers" section (about 110,000 views/month on January, 2018).
+- Visibility on the front page of [https://www.jhipster.tech](https://www.jhipster.tech) in the "backers" section (about 110,000 views/month on January, 2018).
 - Visibility on the GitHub main project page in the "backers" section (about 15,000 views/month on January, 2018).
 - "Thank you" tweet from [@java_hipster](https://twitter.com/java_hipster).
 
@@ -24,7 +24,7 @@ Backers donate $2 per month to the project, and get the following benefits:
 
 Bronze sponsors donate $100 per month to the project, and get the following benefits:
 
-- Visibility on the front page of [http://www.jhipster.tech](http://www.jhipster.tech) in the "sponsors" section (about 110,000 views/month on January, 2018).
+- Visibility on the front page of [https://www.jhipster.tech](https://www.jhipster.tech) in the "sponsors" section (about 110,000 views/month on January, 2018).
 - Visibility on the GitHub main project page in the "sponsors" section (about 15,000 views/month on January, 2018).
 - "Thank you" tweet from [@java_hipster](https://twitter.com/java_hipster).
 
@@ -41,7 +41,7 @@ Gold sponsors donate $1000 per month to the project, and get the following benef
 
 - Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
 - 3 "hipster tickets" per year (instead of 1 for silver sponsors).
-- Company logos on all [http://www.jhipster.tech](http://www.jhipster.tech) page footers (about 550,000 views/month on January, 2018).
+- Company logos on all [https://www.jhipster.tech](https://www.jhipster.tech) page footers (about 550,000 views/month on January, 2018).
 
 ## What will the project do with the money?
 

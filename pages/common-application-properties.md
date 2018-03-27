@@ -40,7 +40,7 @@ Here is a documentation for those properties:
             queue-capacity: 10000 # Queue capacity of the pool
 
         # Specific configuration for JHipster gateways
-        # See http://www.jhipster.tech/api-gateway/ for more information on JHipster gateways
+        # See https://www.jhipster.tech/api-gateway/ for more information on JHipster gateways
         gateway:
             rate-limiting:
                 enabled: false # Rate limiting is disabled by default

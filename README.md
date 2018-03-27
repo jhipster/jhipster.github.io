@@ -1,4 +1,4 @@
-This is the source of JHipster's public [Web site](http://www.jhipster.tech/).
+This is the source of JHipster's public [Web site](https://www.jhipster.tech/).
 =======
 
 This Web site is rendered with GitHub pages.

@@ -14,7 +14,7 @@ This is an emergency patch release to fix the [broken 'prod' profile build](http
 Please note that:
 
 - This bug also affects both Angular ([here is the ticket](https://github.com/angular/angular/issues/21173)) and Angular CLI ([here is the ticket](https://github.com/angular/angular-cli/issues/8997)). So JHipster users are lucky as we solved this quicker than both Angular and Angular CLI, and provide the only working Angular "prod" build at the moment :-)
-- This bug comes from uglify-es, which is a transitive dependency pulled by uglifyjs-webpack-plugin. This is why our [Policy 4](http://www.jhipster.tech/policies/) is to fix dependencies, but we can't force our dependencies to do the same. Of course we did a [Pull Request to the uglifyjs-webpack-plugin project](https://github.com/webpack-contrib/uglifyjs-webpack-plugin/pull/199) to solve this on their side, but they haven't merged it yet.
+- This bug comes from uglify-es, which is a transitive dependency pulled by uglifyjs-webpack-plugin. This is why our [Policy 4](https://www.jhipster.tech/policies/) is to fix dependencies, but we can't force our dependencies to do the same. Of course we did a [Pull Request to the uglifyjs-webpack-plugin project](https://github.com/webpack-contrib/uglifyjs-webpack-plugin/pull/199) to solve this on their side, but they haven't merged it yet.
 
 Many thanks to [@pascalgrimaud](https://twitter.com/pascalgrimaud) who found the bug, and corrected it!
 
