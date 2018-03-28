@@ -19,6 +19,7 @@ For React routes we follow a dash cased naming convention so that the URLs are c
 When you generate an entity the route names, route URLs and REST API endpoint URLs are generated according to this convention, also entity names are automatically pluralized where required.
 
 Here is the main project structure:
+[comment] <> (TODO: what is the purpose of typings.d.ts)
 ```
 webapp
 ├── app                             - Your application
@@ -35,7 +36,7 @@ webapp
 │   ├── app.tsx                     - The application main class
 │   ├── index.tsx                   - Index script
 │   ├── routes.tsx                  - Application main routes
-│   └── typings.d.ts                - TODO: the that is fuck ?
+│   └── typings.d.ts                - 
 ├── i18n                            - Translation files
 ├── static                          - Contains your static files such as images and fonts
 ├── swagger-ui                      - Swagger UI front-end
@@ -174,12 +175,6 @@ and error notifications when there is an error caught from the response.
 
 [comment]: <> (TODO: Explain how to use Toaster ?)
 
-
-## Build and Run
-
-You can build and run your project by executing `mvnw` (`mvnw.cmd` for Windows).
-
-Hot reload is also available by using the command `yarn run start`. Note that an active `mvnw` instance is required for `yarn run start` to work properly.
 
 Frameworks/Libraries used
 - react 16.2.0
