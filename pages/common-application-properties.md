@@ -4,7 +4,7 @@ title: Common application properties
 permalink: /common-application-properties/
 sitemap:
     priority: 0.7
-    lastmod: 2016-12-29T00:00:00-00:00
+    lastmod: 2018-03-18T18:20:00-00:00
 ---
 
 # <i class="fa fa-flask"></i> Common application properties
@@ -40,7 +40,7 @@ Here is a documentation for those properties:
             queue-capacity: 10000 # Queue capacity of the pool
 
         # Specific configuration for JHipster gateways
-        # See http://www.jhipster.tech/api-gateway/ for more information on JHipster gateways
+        # See https://www.jhipster.tech/api-gateway/ for more information on JHipster gateways
         gateway:
             rate-limiting:
                 enabled: false # Rate limiting is disabled by default
@@ -155,10 +155,6 @@ Here is a documentation for those properties:
                 queue-size: 512 # Queue for buffering logs
             spectator-metrics: # Reports Netflix Spectator metrics in the logs
                 enabled: false # Spectator is disabled by default
-
-        # Spring Social specific configuration, for Twitter/Facebook/Google authentication
-        social:
-            redirect-after-sign-in: "/#/home" # Redirect URL after successful authentication
 
         # By default cross-origin resource sharing (CORS) is enabled in "dev" mode for
         # monoliths and gateways.

@@ -15,6 +15,9 @@ sitemap:
 
 **WARNING!** Amazon does not provide a free tier, and does not sponsor JHipster. As such, we cannot test this sub-generator, and cannot guarantee that it works correctly. If you want us to be able to test this generator, you can consider sponsoring the project.
 
+<div class="alert alert-warning"> This sub-generator is currently broken because of <a href="https://github.com/jhipster/generator-jhipster/issues/7086">#7086</a> - it does not look like a big issue, but nobody on the team is currently available to work on this, so any help is warmly welcome.
+</div>
+
 This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/).
 
 <div class="alert alert-info"> <i>Tip:</i> As an alternative to Elastic Beanstalk you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/boxfuse/">Boxfuse</a>.  
