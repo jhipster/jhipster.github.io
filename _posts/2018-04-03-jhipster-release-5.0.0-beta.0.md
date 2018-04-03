@@ -41,7 +41,7 @@ What's new?
     - This also adds [Husky](https://github.com/typicode/husky) and list-staged to enable pre-commit hooks
     - Please use the `skip-commit-hook` flag to disable the pre-commit hooks when generating the application
 - JDL v2 with application generation support [#7339](https://github.com/jhipster/generator-jhipster/pull/7339)
-    - The [JHipster Domain Language](https://www.jhipster.tech/jdl/) has been re-implemented from scratch to have a faster, more powerful parser
+    - The [JHipster Domain Language]({{ site.url }}/jdl/) has been re-implemented from scratch to have a faster, more powerful parser
     - As a result, the language evolved dramatically, and you can now build full applications using the JDL, and not just entities. This is a huge news if you want to share and reuse your JHipster configuration.
 - New JHipster blueprints (still a work-in-progress)
     - The blueprints system allows to easily extends and/or replace JHipster templates. This is how the new [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) works. This isn’t well-documented yet, but JHipster Kotlin already gives a nice working example.
@@ -57,7 +57,7 @@ Documentation
 We have started to merge the JHipster v5 documentation on the main website:
 
 - It is not yet complete, please don’t hesitate to help if you find issues
-- If you are using JHipster v4, don’t forget we have [the full versioned archives available here](https://www.jhipster.tech/documentation-archive/).
+- If you are using JHipster v4, don’t forget we have [the full versioned archives available here]({{ site.url }}/documentation-archive/).
 
 What’s missing
 ------------
@@ -94,7 +94,7 @@ How you can help
 
 If you find any issue, please [open a ticket](https://github.com/jhipster/generator-jhipster/issues) and follow our [guidelines](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
 
-We are expecting to do a stable release in the next 2 weeks, but please remember that most people on the team are doing this on their free time. So if your company is benefiting from JHipster, you can also help by telling your boss to [sponsor the project](https://www.jhipster.tech/sponsors/) - that money will be used to reward contributors, and help us to release even better versions, more quickly!
+We are expecting to do a stable release in the next 2 weeks, but please remember that most people on the team are doing this on their free time. So if your company is benefiting from JHipster, you can also help by telling your boss to [sponsor the project]({{ site.url }}/sponsors/) - that money will be used to reward contributors, and help us to release even better versions, more quickly!
 
 Do you want to know more?
 ------------
