@@ -34,7 +34,7 @@ Another nice feature is Xdocker which allows to edit, build and run Docker files
 The newest version 1.3.x is a maintenance release where we have uplifted the underlying frameworks/tools, improved functionalities and fixed bugs. In this release, we were also able to get rid of Graphviz (see https://graphviz.gitlab.io) as we can now generate “dot graphs” directly in Java. Therefore, the installation of this tool is optional and not anymore required. However, Graphviz is the fastest way for generating diagrams and can still be used if this is an important aspect for you.
 
 ## Installation Prerequisites
-- [See JHipster installation page ](http://www.jhipster.tech/installation/)
+- [See JHipster installation page ](https://www.jhipster.tech/installation/)
 
 ## JetBrains IntelliJ
 

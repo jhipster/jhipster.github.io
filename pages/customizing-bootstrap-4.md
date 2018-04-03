@@ -9,8 +9,6 @@ sitemap:
 
 # <i class="fa fa-css3"></i> Customizing Bootstrap 4
 
-**Please note** that this section refers to Angular 2+ with Bootstrap 4. If you are using AngularJS 1.x with Bootstrap 3, please go to the [Bootstrap 3 documentation]({{ site.url }}/customizing-bootstrap-3/).
-
 ## Basic customization
 
 _Pro tip: don't forget to run `yarn start` to get immediate feedback of your changes!_

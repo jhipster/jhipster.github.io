@@ -6,7 +6,7 @@ redirect_from:
   - /creating_an_app.html
 sitemap:
     priority: 0.7
-    lastmod: 2017-10-17T00:00:00-00:00
+    lastmod: 2018-03-18T18:20:00-00:00
 ---
 
 # <i class="fa fa-rocket"></i> Creating an application
@@ -38,7 +38,7 @@ Once the application is generated, you can launch it using Maven (`./mvnw` on Li
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## <a name="2"></a> Questions asked when generating an application
 
@@ -76,7 +76,7 @@ Answers to this question depend on previous answers. For example, if you selecte
 Here are all the possible options:
 
 *   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
-*   HTTP Session Authentication: the classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)). You can use this option with Spring Social, which will enable you to use "social login" (such as Google, Facebook, Twitter): this is configured by Spring Boot's support of Spring Social.
+*   HTTP Session Authentication: the classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)).
 *   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://www.okta.com), which handles authentication outside of the application.
 *   Authentication with JHipster UAA server: this uses a [JHipster UAA server]({{ site.url }}/using-uaa/) that must be generated separately, and which is an OAuth2 server that handles authentication outside of the application.
 
@@ -126,10 +126,6 @@ You can build your generated Java application either with [Maven](http://maven.a
 
 This is a multi-select answer, to add one or several other technologies to the application. Available technologies are:
 
-#### Social login (Google, Facebook, Twitter)
-
-This option is only available if you selected an SQL, MongoDB, or Couchbase database. It adds [Spring Social](http://projects.spring.io/spring-social/) support to JHipster, so end-users can log-in using their Google, Facebook or Twitter account.
-
 #### API first development using swagger-codegen
 
 This option lets you do [API-first development]({{ site.url }}/doing-api-first-development) for your application by integrating the [Swagger-Codegen](https://github.com/swagger-api/swagger-codegen) into the build.
@@ -158,8 +154,8 @@ The client-side framework to use.
 
 You can either use:
 
-*   Angular version 4+
-*   AngularJS version 1.x (which will be deprecated in the future)
+*   Angular version 5+
+*   React
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 

@@ -317,7 +317,11 @@ input.gsc-search-button {
         }
     }
 }
-
+.container-fluid {
+    .container {
+        max-width: 100%;
+    }
+}
 // Side Menu Lib
 .app-container {
     min-height: 100%;
@@ -487,6 +491,7 @@ input.gsc-search-button {
 }
 
 .app-container.expanded {
+    overflow: hidden;
     .app-footer {
         left: $side-menu-width;
         .wrapper {
@@ -1927,6 +1932,7 @@ body.login-page {
 
 footer {
     color: #fff;
+    background-color: #fff;
     a {
         color: #fff;
         &.link {
@@ -1939,8 +1945,23 @@ footer {
     h3 {
         margin-bottom: 30px;
     }
+    .footer-logos {
+        color: #333;
+        .thumbnail {
+            border: none;
+        }
+        .logo-container {
+            overflow:hidden;
+            a {
+                display: inline-block;
+                width:50%;
+                height:50%;
+                padding: 10px;
+            }
+        }
+    }
     .footer-above {
-        padding-top: 50px;
+        padding-top: 20px;
         background-color: #2c3e50;
     }
     .footer-col {
@@ -2103,5 +2124,15 @@ footer {
     	left:0;
     	width:100%;
     	height:100%;
+    }
+}
+
+.logo-container {
+	overflow:hidden;
+    a {
+        display: inline-block;
+    	width:100%;
+        height:100%;
+        padding: 20px;
     }
 }

@@ -6,7 +6,7 @@ redirect_from:
   - /security.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-01-27T00:00:00-00:00
+    lastmod: 2018-03-18T18:20:00-00:00
 ---
 
 # <i class="fa fa-lock"></i> Securing your application
@@ -63,15 +63,11 @@ We have added a very complete cookie theft protection mechanism: we store your s
 
 ### CSRF protection
 
-Spring Security and AngularJS both have CSRF protection out-of-the-box, but unfortunately they don't use the same cookies or HTTP headers! In practice, you have in fact no protection at all for CSRF attacks. Of course, we re-configure both tools so that they correctly work together.
-
-## Social Login
-
-JHipster provide "social login", using Spring Social, so users can connect to your application using their Google, Facebook or Twitter authentication. This is configured using Sping Boot's starter modules.
+Spring Security and Angular both have CSRF protection out-of-the-box, but unfortunately they don't use the same cookies or HTTP headers! In practice, you have in fact no protection at all for CSRF attacks. Of course, we re-configure both tools so that they correctly work together.
 
 ## <a name="oauth2"></a> OAuth2 and OpenID Connect
 
-OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuthSso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
+OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides OAuth 2.0 support, and this is leveraged by JHipster with its `@EnableOAuth2Sso` annotation.  If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
 
 ### Keycloak
 
@@ -93,17 +89,23 @@ security:
         enabled: false
     oauth2:
         client:
-            accessTokenUri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token
-            userAuthorizationUri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/auth
-            clientId: web_app
-            clientSecret: web_app
-            clientAuthenticationScheme: form
+            access-token-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token
+            user-authorization-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/auth
+            client-id: web_app
+            client-secret: web_app
+            client-authentication-scheme: form
             scope: openid profile email
         resource:
-            userInfoUri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/userinfo
-            tokenInfoUri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token/introspect
-            preferTokenInfo: false
+            filter-order: 3
+            user-info-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/userinfo
+            token-info-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token/introspect
+            prefer-token-info: false
 ```
+
+As by default Keycloak uses an embedded H2 database, you will lose the created users if you restart your Docker container. To keep your data, please read the [Keycloak Docker documentation](https://hub.docker.com/r/jboss/keycloak/). One solution, with keeping the H2 database, is to do the following:
+
+- Add a volume that will be persisted: `./keycloak-db:/opt/jboss/keycloak/standalone/data`
+- Change the migration strategy from `OVERWRITE_EXISTING`, to `IGNORE_EXISTING` (in the command section)
 
 ### Okta
 
@@ -117,19 +119,22 @@ security:
         enabled: false
     oauth2:
         client:
-            accessTokenUri: https://{yourOktaDomain}.com/oauth2/default/v1/token
-            userAuthorizationUri: https://{yourOktaDomain}.com/oauth2/default/v1/authorize
-            clientId: {clientId}
-            clientSecret: {clientSecret}
-            clientAuthenticationScheme: form
+            access-token-uri: https://{yourOktaDomain}.com/oauth2/default/v1/token
+            user-authorization-uri: https://{yourOktaDomain}.com/oauth2/default/v1/authorize
+            client-id: {client-id}
+            client-secret: {client-secret}
+            client-authentication-scheme: form
             scope: openid profile email
         resource:
-            userInfoUri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
-            tokenInfoUri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
-            preferTokenInfo: false
+            filter-order: 3
+            user-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
+            token-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
+            prefer-token-info: false
 ```
 
-Create an OIDC App in Okta to get a `{clientId}` and `{clientSecret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080` as a Base URI and `http://localhost:8080/login` as a Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
+**NOTE:** If you're using microservices with JHipster 4.14.0 (or previous), you'll need to replace `security.oauth2.resource.jwt.key-uri` with  `security.oauth2.resource.jwk.key-set-uri` and set the value to  `https://{yourOktaDomain}.com/oauth2/default/v1/keys`. See [jhipster/generator-jhipster#7116](https://github.com/jhipster/generator-jhipster/issues/7116) for more information.
+
+Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080` as a Base URI and `http://localhost:8080/login` as a Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
 
 Create a `ROLE_ADMIN` and `ROLE_USER` group (**Users** > **Groups** > **Add Group**) and add users to them. You can use the account you signed up with, or create a new user (**Users** > **Add Person**). Navigate to **API** > **Authorization Servers**, click the **Authorization Servers** tab and edit the default one. Click the **Claims** tab and **Add Claim**. Name it "groups" or "roles", and include it in the ID Token. Set the value type to "Groups" and set the filter to be a Regex of `.*`.
 
@@ -144,8 +149,9 @@ export SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI="https://{yourOktaDomain}.com/oau
 export SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="https://{yourOktaDomain}.com/oauth2/default/v1/authorize"
 export SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="https://{yourOktaDomain}.com/oauth2/default/v1/userinfo"
 export SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="https://{yourOktaDomain}.com/oauth2/default/v1/introspect"
-export SECURITY_OAUTH2_CLIENT_CLIENT_ID="{clientId}"
-export SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="{clientSecret}"
+export SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI="https://{yourOktaDomain}.com/oauth2/default/v1/keys"
+export SECURITY_OAUTH2_CLIENT_CLIENT_ID="{client-id}"
+export SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="{client-secret}"
 ```
 
 You can put this in an `~/.okta.env` file and run `source ~/.okta.env` to override Keycloak with Okta.
@@ -159,6 +165,7 @@ heroku config:set \
   SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI" \
   SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI" \
   SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI" \
+  SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI="$SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI" \
   SECURITY_OAUTH2_CLIENT_CLIENT_ID="$SECURITY_OAUTH2_CLIENT_CLIENT_ID" \
   SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
 ```
@@ -171,6 +178,7 @@ cf set-env $appName SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI "$SECURITY_OAUTH2_CL
 cf set-env $appName SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI "$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI"
 cf set-env $appName SECURITY_OAUTH2_RESOURCE_USER_INFO_URI "$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI"
 cf set-env $appName SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI "$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI"
+cf set-env $appName SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI "$SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_CLIENT_ID "$SECURITY_OAUTH2_CLIENT_CLIENT_ID"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_CLIENT_SECRET "$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
 ```

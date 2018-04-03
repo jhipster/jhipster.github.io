@@ -11,7 +11,7 @@ sitemap:
 
 ## Introduction
 
-JHipster is a "full-stack" development tool, and its goal is to make you work efficiently with your front-end code (AngularJS/Angular) and your back-end code (Spring Boot).
+JHipster is a "full-stack" development tool, and its goal is to make you work efficiently with your front-end code (Angular/React) and your back-end code (Spring Boot).
 
 However, it is a common requirement to separate the front-end and the back-end codes, typically because they are developed by different teams and have a different lifecycle.
 
@@ -54,7 +54,7 @@ This only works in `dev` mode, but this is a very powerful way of accessing diff
 
 ## Using CORS
 
-CORS ([Cross-origin request sharing](https://fr.wikipedia.org/wiki/Cross-origin_resource_sharing)) allow to access different back-end servers with the same front-end, without configuring a proxy.
+CORS ([Cross-origin request sharing](https://wikipedia.org/wiki/Cross-origin_resource_sharing)) allow to access different back-end servers with the same front-end, without configuring a proxy.
 
 This is an easy-to-use solution, but it can be less secure in production.
 

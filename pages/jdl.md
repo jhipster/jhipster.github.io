@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2017-11-27T12:00:00-00:00
+    lastmod: 2018-03-18T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -23,24 +23,27 @@ The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-co
 _If you like the JHipster Domain Language, don't forget to give the project a star on [GitHub](https://github.com/jhipster/jhipster-core/)!_
 _If you like the JDL Studio don't forget to give the project a star on [GitHub](https://github.com/jhipster/jdl-studio/)!_
 
-Here is the full JDL documentation:
+Here is the JDL documentation:
 
 1. [JDL Sample](#sample)
-2. [How to use it](#howtojdl)  
-3. [The language](#jdllanguage)  
-  3.1 [Entity Declaration](#entitydeclaration)  
-  3.2 [Relationship Declaration](#relationshipdeclaration)  
-  3.3 [Enumerations](#enumerationdeclaration)  
-  3.4 [Blobs](#blobdeclaration)  
-  3.5 [Option declaration](#optiondeclaration)  
-  3.6 [Microservice-related options](#microserviceoptions)
-4. [Commenting](#commentingjdl)  
-5. [All the relationships](#jdlrelationships)  
-6. [Constants](#constants)  
-7. [Annexes](#annexes)  
-  7.1 [Available types and constraints](#types_and_constraints)  
-  7.2 [Available options](#all_options)  
-8. [Issues and bugs](#issues)  
+1. [How to use it](#howtojdl)
+1. [The language](#jdllanguage)
+   1. [Application Declaration](#applicationdeclaration)
+   1. [Entity Declaration](#entitydeclaration)
+   1. [Relationship Declaration](#relationshipdeclaration)
+   1. [Enumerations](#enumerationdeclaration)
+   1. [Blobs](#blobdeclaration)
+   1. [Option declaration](#optiondeclaration)
+   1. [Microservice-related options](#microserviceoptions)
+1. [Commenting](#commentingjdl)
+1. [All the relationships](#jdlrelationships)
+1. [Constants](#constants)
+1. [Workflows](#workflows)
+1. [Annexes](#annexes)
+   1. [Available application options](#application_options)
+   1. [Available field types and constraints](#types_and_constraints)
+   1. [Available options](#all_options)
+1. [Issues and bugs](#issues)
 
 ***
 
@@ -73,6 +76,8 @@ By default `import-jdl` regenerates only entities which have changed, if you wan
 
 If you want to use it in your project, you can add do so by doing `npm install jhipster-core --save` to install it locally, and save it in your `package.json` file.
 
+---
+
 ## <a name="jdllanguage"></a> The language
 We tried to keep the syntax as friendly as we can for developers.
 You can do three things with it:
@@ -80,6 +85,141 @@ You can do three things with it:
   - Declare the relationships between them,
   - And declare some JHipster specific options.
 
+
+### <a name="applicationdeclaration"></a> Application declaration
+
+As of v2.0.0, application declaration is possible (compatible with JHipster v5).
+The most basic declaration is done as follows:
+
+```
+application {
+  config {}
+}
+```
+
+A JHipster application has a config with default values and using the previous syntax will
+ensure your application use the default values (as if you didn't make any specific choice).
+The resulting application will have:
+  - baseName: `jhipster`
+  - applicationType: `monolith`
+  - databaseType: `sql`
+  - etc.
+
+Now, if you want some custom options:
+
+```
+application {
+  config {
+    baseName myapp,
+    path "../", // the generated folder will be "../myapp"
+    applicationType microservice,
+    prodDatabaseType postgresql,
+    buildTool gradle
+  }
+}
+```
+
+Those options are only a sample of what's available in the JDL.
+The complete list of options is available in the annexes, [here](#annexes).
+
+Note the non-standard `path` option. This one is used by the subgens to generate applications elsewhere than
+the current folder.
+
+If you want more than one application, here's how you do it:
+
+```
+application {
+  config {
+    baseName myFirstApp,
+    path "../", // the generated folder will be "../myFirstApp"
+  }
+}
+
+application {
+  config {
+    baseName mySecondApp,
+    path "../",
+    applicationType microservice
+  }
+}
+```
+
+You can have as many application as you want in as many file as you wish: there's no limitation.
+
+Declaring entities is the most basic thing available and now you can set what entity should be generated
+in the applications you want.
+
+Let's improve the previous example:
+
+```
+application {
+  config {
+    baseName myMonolith,
+    path "../",
+    applicationType monolith
+  }
+  entities * except C, D
+}
+
+application {
+  config {
+    baseName myGateway,
+    path "../",
+    applicationType gateway,
+    serverPort 9042
+  }
+  entities * except A, B
+}
+
+application {
+  config {
+    baseName microserviceA,
+    path "../",
+    applicationType microservice
+  }
+  entities C
+}
+
+application {
+  config {
+    baseName microserviceB,
+    path "../",
+    applicationType microservice,
+    serverPort 8082
+  }
+  entities D
+}
+
+entity A
+entity B
+entity C
+entity D
+
+dto * with mapstruct
+paginate D with pager
+```
+
+Now, several things will happen when generating these applications and folders:
+  - Four applications will be created:
+    - myMonolith in `../myMonolith`, with the server port `8080`
+    - myGateway in `../myGateway`, with the server port `9042`
+    - microserviceA in `../microserviceA`, with the server port `8081`
+      - Even though we didn't specify a server port, JHipster sets one by default.
+      - For microservices, the default one is `8081`
+      - For gateways and monoliths, it's `8080`
+      - For UAA apps, it's `9999`
+    - microserviceB in `../microserviceB` with the server port `8082`
+  - Four entities will be generated
+    - `A` and `B` in the monolith
+    - `C` and `D` both in the gateway
+      - `C` in the first microservice
+      - `D` in the second microservice
+  - The `microservice` option is implicit for `C` and `D`
+    - Because they get generated on the two microservices, this option will be set by default.
+  - Options work the same way as before 
+
+Note that generator sets default values if they aren't present (like the `databaseType`).
+JHipster Core does the exact same things.
 
 ### <a name="entitydeclaration"></a> Entity declaration
 
@@ -466,11 +606,247 @@ entity A {
 }
 ```
 
+# <a name="workflows"></a>Workflows
+
+## <a name="workflow_monolith"></a>Monolith workflow
+
+There's no special workflow here:
+  - Create your application
+  - Create your JDL file
+  - Import it
+
+## <a name="workflow_microservice"></a>Microservice workflow
+
+Dealing with microservices is a bit trickier, but the JDL gives you some options to handle your entities as you see fit.
+
+With the `microservice <ENTITIES> with <MICROSERVICE_APP_NAME>` you can specify which entity gets generated in which microservice.
+Take this setup for instance:
+```
+entity A
+entity B
+entity C
+
+microservice A with firstMS
+microservice B with secondMS
+```
+Given two JHipster applications ('firstMS' and 'secondMS'), here's what you're going to get if you import the JDL file in the two applications:
+  - In 'firstMS', entities `A` and `C` will be generated.
+  - In 'secondMS', entities `B` and `C` will be generated.
+
+`C` gets generated in both because if there's no microservice option specifying where this entity gets generated, it will be generated everywhere.
+If you decide to import this JDL in a monolith app, every entity will be generated (monoliths don't have restriction options in the JDL).
+
+Note: if you want to make the same entity be generated in two different microservices, you can write two JDL files instead of updating the JDL file. everytime.
+
+The previous example couldn't have been written like this:
+```
+entity A
+entity B
+entity C
+
+microservice * except B with firstMS
+microservice * except A with secondMS
+```
+Here's the result:
+  - In 'firstMS', only the entity `C` will be generated
+  - In 'secondMS', entities `B` and `C` will be generated.
+It's because, at parsing-time, if an option overlaps with another, the latter takes precedence.
+
+---
+
+
 # <a name="annexes"></a>Annexes
 
-## <a name="types_and_constraints"></a>Available types and constraints
+## <a name="application_options">Available application options
 
-Here is the types supported by JDL:
+Here are the application options supported in the JDL:
+
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>JDL option name</th>
+    <th>Default value</th>
+    <th>Possible values</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>applicationType</td>
+    <td>monolith</td>
+    <td>monolith, microservice, gateway, uaa</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>authenticationType</td>
+    <td>jwt or uaa</td>
+    <td>jwt, session, uaa, oauth2</td>
+    <td>uaa for UAA apps, jwt otherwise</td>
+  </tr>
+  <tr>
+    <td>baseName</td>
+    <td>jhipster</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>buildTool</td>
+    <td>maven</td>
+    <td>maven, gradle</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>cacheProvider</td>
+    <td>ehcache or hazelcast</td>
+    <td>ehcache, hazelcast, infinispan, no</td>
+    <td>ehcache for monoliths and gateways, hazelcast otherwise</td>
+  </tr>
+  <tr>
+    <td>clientFramework</td>
+    <td>angularX</td>
+    <td>angularX, react</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>clientPackageManager</td>
+    <td>yarn</td>
+    <td>yarn, npm</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>databaseType</td>
+    <td>sql</td>
+    <td>sql, mongodb, cassandra, couchbase</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>devDatabaseType</td>
+    <td>h2Disk</td>
+    <td>h2Disk, h2Memory, *</td>
+    <td>* + the prod database type</td>
+  </tr>
+  <tr>
+    <td>enableHibernateCache</td>
+    <td>true</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>enableSwaggerCodegen</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>enableTranslation</td>
+    <td>true</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>jhiPrefix</td>
+    <td>jhi</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>jhipsterVersion</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>languages</td>
+    <td>[en, fr]</td>
+    <td>Languages available in JHipster</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>messageBroker</td>
+    <td>false</td>
+    <td>kafka, false</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>nativeLanguage</td>
+    <td>en</td>
+    <td>Any language supported by JHipster</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>packageName</td>
+    <td>com.mycompany.myapp</td>
+    <td></td>
+    <td>Sets the packageFolder option</td>
+  </tr>
+  <tr>
+    <td>prodDatabaseType</td>
+    <td>mysql</td>
+    <td>mysql, mariadb, mssql, postgresql, oracle, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>searchEngine</td>
+    <td>false</td>
+    <td>elasticsearch, false</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>serverPort</td>
+    <td>8080, 8081 or 9999</td>
+    <td></td>
+    <td>Depends on the app type</td>
+  </tr>
+  <tr>
+    <td>serviceDiscoveryType</td>
+    <td>false</td>
+    <td>eureka, consul, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>skipClient</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>skipServer</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>skipUserManagement</td>
+    <td>true</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>testFrameworks</td>
+    <td>[]</td>
+    <td>protactor, cucumber, gatling</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>uaaBaseName</td>
+    <td></td>
+    <td></td>
+    <td>Mandatory for gateway and microservices if auth type is uaa</td>
+  </tr>
+  <tr>
+    <td>useSass</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>websocket</td>
+    <td>false</td>
+    <td>spring-websocket, false</td>
+    <td></td>
+  </tr>
+</table>
+
+## <a name="types_and_constraints"></a>Available field types and constraints
+
+Here are the types supported in the JDL:
 
 <table class="table table-striped table-responsive">
   <tr>
@@ -604,6 +980,7 @@ These options take values:
   - `search` (`elasticsearch`)
   - `microservice` (custom value)
   - `angularSuffix` (custom value)
+  - `clientRootFolder` (custom value)
 
 # <a name="issues"></a>Issues and bugs
 

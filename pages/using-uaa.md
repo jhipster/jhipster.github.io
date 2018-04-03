@@ -71,8 +71,8 @@ Using the OAuth2 protocol (note: it's a **protocol**, not a framework, not an ap
 ![JHipster UAA architecture]({{ site.url }}/images/jhipster_uaa.png)
 
 * Every request to any endpoint of the architecture is performed via an "client"
-* A "client" is an abstract word for things like "AngularJS $http client", some "REST-Client", "curl", or anything able to perform requests.
-* A "client" may also be used in conjunction with user authentication, like the AngularJS $http in the frontend client application
+* A "client" is an abstract word for things like "Angular $http client", some "REST-Client", "curl", or anything able to perform requests.
+* A "client" may also be used in conjunction with user authentication, like the Angular $http in the frontend client application
 * Every microservice serving resources on endpoints (including the UAA), are resource servers
 * Blue arrows show clients authenticate on an Oauth authorization server
 * Green arrows show requests on resource servers performed by the client

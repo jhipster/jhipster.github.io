@@ -45,7 +45,7 @@ To package the application as a "production" WAR, with Maven please type:
 
 Or when using Gradle, please type:
 
-`./gradlew -Pprod bootRepackage`
+`./gradlew -Pprod bootWar`
 
 This will generate two files (if your application is called "jhipster"):
 
@@ -119,7 +119,7 @@ By default, compression will work on all static resources (HTML, CSS, JavaScript
 
 With the `prod` profile, JHipster configures a Servlet filter that puts specific HTTP cache headers on your static resources (JavaScript, CSS, fonts...) so they are cached by browsers and proxies.
 
-### For Angular users: Generating an optimized JavaScript application with Webpack
+### Generating an optimized JavaScript application with Webpack
 
 This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, please run:
 
@@ -132,22 +132,6 @@ During this process, Webpack will compile the TypeScript code into JavaScript co
 Those optimized assets will be generated in `target/www` for Maven or `build/www` for Gradle, and will be included in your final production WAR.
 
 This code will be served when you run the application with the `prod` profile.
-
-### For AngularJS 1.x users: Generating an optimized JavaScript application with Gulp
-
-This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, please run:
-
-`gulp build`
-
-This will process all your static resources (CSS, JavaScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
-
-Those optimized assets will be generated in `target/www` for Maven or `build/www` for Gradle, and will be included in your final production WAR.
-
-This code will be served when you run the application with the `prod` profile.
-
-**Please note** That you will still be able to debug your JavaScript application as JHipster generates [source maps](https://developers.google.com/web/tools/chrome-devtools/debug/readability/source-maps).
-
-**If you have some images missing** after the minification process, this is most likely because you are using some third-party Bower packages that do not correctly reference their images in their `bower.json` configuration. The easiest way to correct this is to add those images yourself in your `src/main/webapp/content/images` folder and change the references to those images to point there.
 
 ## <a name="security"></a> Security
 
@@ -180,6 +164,22 @@ Then, modify the `server.ssl` properties so your `application-prod.yml` configur
             key-store-password: <your-password>
             keyStoreType: PKCS12
             keyAlias: <your-application>
+            ciphers: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 ,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 ,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 ,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA,TLS_RSA_WITH_CAMELLIA_256_CBC_SHA,TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA,TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+            enabled-protocols: TLSv1.2
+
+The ciphers suite enforce the security by deactivating some old and deprecated SSL ciphers, this list was tested against [SSL Labs](https://www.ssllabs.com/ssltest/)
+
+Once `server.ssl.ciphers` property is enabled JHipster will force the order on Undertow with this property (true by default) : `jhipster.http.useUndertowUserCipherSuitesOrder`
+
+The `enabled-protocols` deactivate old SSL protocols.
+
+Then, the final touch for achieving the perfect forward secrecy. Add the following flag at the JVM startup :
+
+    -Djdk.tls.ephemeralDHKeySize=2048
+
+For testing your configuration you can go to [SSL Labs](https://www.ssllabs.com/ssltest/).
+
+If everything is OK, you will get A+
 
 #### HTTPS configuration with a front-end proxy
 

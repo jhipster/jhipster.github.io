@@ -109,4 +109,15 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
         </div>
     </div>
+	<div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="thumbnail no-margin-bottom">
+         <div class="video-container">
+            <img width="560" height="315" src="{{ site.url }}/images/showcase/coincoindrone.png" />
+         </div>
+         <div class="caption">
+            <h3 id="thumbnail-label"><a href="http://www.coincoindrone.fr" target="_blank">Coincoindrone</a></h3>
+            <p><b>Created by:</b> <a href="https://www.linkedin.com/in/damien-gaillard-31bb80a5" target="_blank">Damien Gaillard</a></p>
+         </div>
+      </div>
+   </div>
 </div>

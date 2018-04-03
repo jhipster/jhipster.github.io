@@ -17,8 +17,11 @@ Additionally, these filters should follow a sane, and concise pattern, and they 
 
 ## How to activate
 
-When generating an entity, select services or service implementation, to enable filtering in the generator. If you want to enable filtering for existing entities, you can modifiy the entity configuration in your projects ".jhipster" directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true`.
+When generating an entity with `jhipster entity` command, select services or service implementation to enable filtering on this entity. 
 
+If you want to enable filtering for existing entities, you can modify the entity configuration in your projects `.jhipster` directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true` and then re-generate with `jhipster entity <entity name>`.
+
+When using JDL, add a line `filter <entity name>` to your JDL file and re-import the definitions with `jhipster import-jdl` command.
 
 ## Public interface
 

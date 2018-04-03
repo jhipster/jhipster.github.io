@@ -244,6 +244,9 @@ input.gsc-search-button {
       .navbar .dropdown.profile .dropdown-menu .profile-info .username {
         font-size: 1.8em; }
 
+.container-fluid .container {
+  max-width: 100%; }
+
 .app-container {
   min-height: 100%;
   position: relative;
@@ -366,28 +369,28 @@ input.gsc-search-button {
     .app-container .content-container .side-body.padding-top {
       padding-top: 84px; }
 
-.app-container.expanded .app-footer {
-  left: 300px; }
-  .app-container.expanded .app-footer .wrapper {
-    padding-left: 25px; }
-
-.app-container.expanded .content-container .navbar-top {
-  padding-left: 300px; }
-
-.app-container.expanded .content-container .side-menu {
-  width: 300px;
-  overflow-y: auto; }
-  .app-container.expanded .content-container .side-menu .navbar-header .navbar-brand .title {
-    display: inline-block; }
-  .app-container.expanded .content-container .side-menu .navbar-nav li a .title {
-    display: inline-block; }
-  .app-container.expanded .content-container .side-menu .navbar-nav li .panel-collapse.in {
-    display: block; }
-  .app-container.expanded .content-container .side-menu .navbar-nav li.dropdown > a:after {
-    font-family: FontAwesome;
-    content: "\f107";
-    position: absolute;
-    right: 1em; }
+.app-container.expanded {
+  overflow: hidden; }
+  .app-container.expanded .app-footer {
+    left: 300px; }
+    .app-container.expanded .app-footer .wrapper {
+      padding-left: 25px; }
+  .app-container.expanded .content-container .navbar-top {
+    padding-left: 300px; }
+  .app-container.expanded .content-container .side-menu {
+    width: 300px;
+    overflow-y: auto; }
+    .app-container.expanded .content-container .side-menu .navbar-header .navbar-brand .title {
+      display: inline-block; }
+    .app-container.expanded .content-container .side-menu .navbar-nav li a .title {
+      display: inline-block; }
+    .app-container.expanded .content-container .side-menu .navbar-nav li .panel-collapse.in {
+      display: block; }
+    .app-container.expanded .content-container .side-menu .navbar-nav li.dropdown > a:after {
+      font-family: FontAwesome;
+      content: "\f107";
+      position: absolute;
+      right: 1em; }
 
 .container-fluid > .navbar-collapse,
 .container-fluid > .navbar-header,
@@ -1386,7 +1389,8 @@ body.login-page {
   display: none !important; }
 
 footer {
-  color: #fff; }
+  color: #fff;
+  background-color: #fff; }
   footer a {
     color: #fff; }
     footer a.link {
@@ -1395,8 +1399,19 @@ footer {
         color: #fff; }
   footer h3 {
     margin-bottom: 30px; }
+  footer .footer-logos {
+    color: #333; }
+    footer .footer-logos .thumbnail {
+      border: none; }
+    footer .footer-logos .logo-container {
+      overflow: hidden; }
+      footer .footer-logos .logo-container a {
+        display: inline-block;
+        width: 50%;
+        height: 50%;
+        padding: 10px; }
   footer .footer-above {
-    padding-top: 50px;
+    padding-top: 20px;
     background-color: #2c3e50; }
   footer .footer-col {
     margin-bottom: 50px; }
@@ -1527,3 +1542,11 @@ footer {
     left: 0;
     width: 100%;
     height: 100%; }
+
+.logo-container {
+  overflow: hidden; }
+  .logo-container a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 20px; }

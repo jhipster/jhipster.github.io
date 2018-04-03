@@ -17,14 +17,14 @@ This option has some limitations:
 
 *   It only works with SQL databases. MongoDB, Cassandra and Couchbase support will be added in the future (help is welcome!).
 *   There is no consistency between your database and Elasticsearch, so you might have out-of-sync data. This is normal, as Elasticsearch is not a real database. As a result, you will probably need to write some specific code to synchronize your data, for example using the Spring `@Scheduled` annotation, to run every evening.
-    *   This also means if your database is changed outside of your application, your search indexes will be out-of-sync.  The [Elasticsearch Reindexer](http://www.jhipster.tech/modules/marketplace/#/details/generator-jhipster-elasticsearch-reindexer) JHipster module can help in these situations.
+    *   This also means if your database is changed outside of your application, your search indexes will be out-of-sync.  The [Elasticsearch Reindexer](https://www.jhipster.tech/modules/marketplace/#/details/generator-jhipster-elasticsearch-reindexer) JHipster module can help in these situations.
 
 When the Elasticsearch option is selected:
 
 *   Spring Data Elasticsearch is being used, and is automatically configured by Spring Boot ([here is the documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-nosql.html#boot-features-elasticsearch)).
 *   The "repository" package has new subpackage, called "search", that holds all ElastiSearch repositories.
 *   The "User" entity gets indexed in Elasticsearch, and you can query is using the `/api/_search/users/:query` REST endpoint.
-*   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the AngularJS user interface, so you can search your entity in the main CRUD screen.
+*   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the Angular/React user interface, so you can search your entity in the main CRUD screen.
 
 ### Using in Development
 

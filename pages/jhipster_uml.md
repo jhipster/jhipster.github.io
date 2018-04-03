@@ -167,7 +167,7 @@ Now the cars know their owner, but not the opposite.
 Here, we have a many-to-many relationship between Car (the owner) and Driver.
 
 
-#### Declare the field you want to use to display a relationship in AngularJS
+#### Declare the field you want to use to display a relationship in Angular
 To do that you must add the field name between `(``)` after the injected field name.
 
 In a One-to-Many relationship you can add it in the 'Many' side of the relationship:
@@ -230,25 +230,25 @@ Note that you don't need to supply the database type (sql, mongodb, or cassandra
 If, however, you wish to execute JHipster-UML outside a JHipster app, you need to pass an extra argument: the database type name.
 Here is the command to execute:
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)]`
 
-The JHipster DTOs can be generated too, simply pass the `-dto` arg to enable this feature.
+The JHipster DTOs can be generated too, simply pass the `--dto` arg to enable this feature.
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-dto]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--dto]`
 
-You can choose the pagination for your entities using `-paginate`.
+You can choose the pagination for your entities using `--paginate`.
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-paginate]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--paginate]`
 
-Finally, you can choose the service for your entities using `-service`.
+Finally, you can choose the service for your entities using `--service`.
 
- `jhipster-uml <your_file.xmi> [-db (sql | mongodb | cassandra)] [-service]`
+ `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--service]`
 
 **Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
 
 Finally, if you need help, there's a command for that too:
 
- `jhipster-uml -help`
+ `jhipster-uml --help`
 
 
 * step 3 - that's it!
@@ -261,7 +261,7 @@ Finally, if you need help, there's a command for that too:
 JHipster-UML can be configured by the command line and / or by a JSON based configuration file, the `jumlfile`.
 The options described in the help can be used in the both but the commande line take precedence over the `jumlfile`.
 
-### A concrete example 
+### A concrete example
 
 jumlfile content:
 ```javascript
@@ -508,7 +508,7 @@ The convention `<ENTITY_NAME>\s*(<TABLE_NAME>)` is universal no matter the edito
 
 However, if you don't want to pick a special table name, you can just write the class name. JHipster UML will take care of converting it to an appropriate table name. For instance, if you class name is `MyClass`, then your table name would be `my_class`.
 
-Note that this feature is available for UML editors since v1.6.2. 
+Note that this feature is available for UML editors since v1.6.2.
 
 ## <a name="requiredrels"></a>Required relationships
 

@@ -4,7 +4,7 @@ title: Common application properties
 permalink: /common-application-properties/
 sitemap:
     priority: 0.7
-    lastmod: 2016-12-29T00:00:00-00:00
+    lastmod: 2018-03-18T18:20:00-00:00
 ---
 
 # <i class="fa fa-flask"></i> Common application properties
@@ -39,11 +39,23 @@ Here is a documentation for those properties:
             max-pool-size: 50 # Maximum pool size
             queue-capacity: 10000 # Queue capacity of the pool
 
+        # Specific configuration for JHipster gateways
+        # See https://www.jhipster.tech/api-gateway/ for more information on JHipster gateways
+        gateway:
+            rate-limiting:
+                enabled: false # Rate limiting is disabled by default
+                limit: 100_000L # By default we allow 100,000 API calls
+                duration-in-seconds: 3_600 # By default the rate limiting is reinitialized every hour
+            authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
+                app1: /api # recommended prod configuration, it allows the access to all API calls from the "app1" microservice
+
         # HTTP configuration
         http:
             # V_1_1 for HTTP/1.1 or V_2_0 for HTTP/2.
             # To use HTTP/2 you will need SSL support (see the Spring Boot "server.ssl" configuration)
             version: V_1_1
+            #Force the server cipher suite to follow the exact order specifying in server.ssl.ciphers (For perfect forward secrecy)
+            useUndertowUserCipherSuitesOrder: true
             cache: # Used by io.github.jhipster.web.filter.CachingHttpHeadersFilter
                 timeToLiveInDays: 1461 # Static assets are cached for 4 years by default
 
@@ -145,10 +157,6 @@ Here is a documentation for those properties:
                 queue-size: 512 # Queue for buffering logs
             spectator-metrics: # Reports Netflix Spectator metrics in the logs
                 enabled: false # Spectator is disabled by default
-
-        # Spring Social specific configuration, for Twitter/Facebook/Google authentication
-        social:
-            redirect-after-sign-in: "/#/home" # Redirect URL after successful authentication
 
         # By default cross-origin resource sharing (CORS) is enabled in "dev" mode for
         # monoliths and gateways.

@@ -39,7 +39,7 @@
     {"name": "Orange",
       "url": "http://www.orange.com/",
       "logo": "orange.png",
-      "category": "Telecom",
+      "category": "Telecommunications",
       "country": "France"
     },
     {"name": "Engie",
@@ -315,7 +315,7 @@
     {"name": "SFR",
       "url": "https://www.sfr.fr/",
       "logo": "sfr.png",
-      "category": "Telecom",
+      "category": "Telecommunications",
       "country": "France"
     },
     {"name": "Ministère de la Défense",
@@ -341,6 +341,12 @@
       "logo": "rolls-royce.png",
       "category": "Industry",
       "country": "United Kingdom"
+    },
+    {"name": "NTT Data Corporation",
+      "url": "https://www.nttdata.com/",
+      "logo": "ntt-data.png",
+      "category": "Telecommunications",
+      "country": "Japan"
     },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
@@ -765,9 +771,6 @@
     {"name": "Exus",
       "url": "http://www.exus.co.uk/"
     },
-    {"name": "Stylez corp.",
-      "url": "https://www.stylez.co.jp/case/case01/"
-    },
     {"name": "Nammanimmacycle Foundation",
       "url": "http://www.nammanimmacycle.org/"
     },
@@ -842,6 +845,39 @@
     },
     {"name": "RnD4U",
       "url": "https://software.rnd4u.com/"
+    },
+    {"name": "Fralog",
+      "url": "http://www.fralog.com/"
+    },
+    {"name": "Itarium Technologies",
+      "url": "http://itariumtech.com/"
+    },
+    {"name": "IPROSONIC",
+      "url": "http://iprosonic.com/"
+    },
+    {"name": "keybin",
+      "url": "https://keybin.io"
+    },
+    {"name": "M-Way Solutions GmbH",
+      "url": "https://www.mwaysolutions.com"
+    },
+    {"name": "Innocraft Oy",
+      "url": "http://www.innocraft.fi/"
+    },
+    {"name": "EagleIA",
+      "url": "http://www.eagleia.co.uk/"
+    },
+    {"name": "Cherrystay",
+      "url": "https://cherrystay.com/"
+    },
+    {"name": "Red Froggy",
+      "url": "https://www.redfroggy.fr/"
+    },
+    {"name": "iSteer Technologies",
+      "url": "http://isteer.com/"
+    },
+    {"name": "Matrics",
+      "url": "https://www.matrics.io/"
     }
   ]
 }

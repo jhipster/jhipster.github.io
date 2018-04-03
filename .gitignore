@@ -1,6 +1,7 @@
 _site
 /node_modules
 /bower_components
+/vendor
 debug.log
 npm-debug.log
 

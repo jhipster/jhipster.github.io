@@ -17,8 +17,7 @@ _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating
 
 1. [General configuration](#general-configuration)
 2. [Running the Java server](#running-java-server)
-3. [Working with AngularJS 1](#working-with-angularjs-1)
-4. [Working with Angular](#working-with-angular)
+4. [Working with Angular/React](#working-with-angular)
 5. [Using a database](#using-a-database)
 6. [Internationalization](#internationalization)
 
@@ -78,70 +77,7 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 If you want more information on using Gradle, please go to [https://gradle.org](https://gradle.org)
 
-## <a name="working-with-angularjs-1"></a> Working with AngularJS 1
-
-### Using the Java server and Gulp together
-
-_We highly recommend you use this feature, as it allows to have live reloading of your client-side code._
-
-You can use Gulp to work on the client-side JavaScript application:
-
-`gulp`
-
-(this will run our default Gulp task, `serve`)
-
-This should open up your Web browser, with live reload enabled, on [http://localhost:9000](http://localhost:9000). This works thanks to [BrowserSync](http://www.browsersync.io/), and you can access its administration screen on [http://localhost:3001](http://localhost:3001).
-
-This provides very impressive features:
-
-*   As soon as you modify one of your HTML/CSS/JavaScript file, your browser will refresh itself automatically
-*   As soon as you add/remove a javascript file it will be added to the `index.html`, your browser will refresh itself automatically
-*   When you test your application on several different browsers or devices, all your clicks/scrolls/inputs should be automatically synchronized on all screens
-
-This Gulp task has a proxy to the REST endpoints on the Java server which we just launched (on [http://localhost:8080/api](http://localhost:8080/api)), so it should be able to do live REST requests to the Java back-end.
-
-If you have generated your application with the Sass option, your templates should also be automatically compiled into CSS.
-
-_Tips'n tricks_
-
-*   In some browsers (like Chrome), your HTML/CSS/JS resources can be cached, and hence can have some trouble getting live-reloaded. To force them to be reloaded, open up the "developer console" and select "Disable cache (while DevTools is open)".
-*   As the Gulp server proxies request to the Java server, all REST requests will fail if the Java server is down. So if your Gulp server shows a blank screen, the first thing to check is if the Java server is running at `http://127.0.0.1:8080`.
-
-### Other Gulp tasks
-
-We use eslint for AngularJS javascript linting, you can run `gulp eslint` to lint your AngularJS files. You can also run `gulp eslint:fix` if you want eslint to fix some minor issues like formatting etc,.
-
-You can run `gulp install` to run all bootstrapping tasks in one go
-
-You can run `gulp build` to build an optimized version of your client side files under the target|build/www folder
-
-By default you will get onscreen notifications for any errors or failures during gulp tasks, pass an argument `--no-notification` to disable notifications.
-
-If you want more information on using Gulp, please go to [http://gulpjs.com](http://gulpjs.com).
-
-## Using Bower to install and update JavaScript, CSS and Sass dependencies
-
-You can use bower to update your JavaScript, CSS and Sass dependencies:
-
-`bower update`
-
-Or if you want to install a new JavaScript, CSS or Sass dependency:
-
-`bower install <package> --save`
-
-Your JavaScript, CSS or Sass dependencies will be stored in your `src/main/webapp/bower_components` folder, and we believe it is a good idea to store them in your Git repository (but JHipster does not force you to do so).
-
-If the installed dependency contains JavaScript files they will automatically be injected into your `index.html` and `karma.conf.js` files. Likewise the CSS files will be injected into the `index.html` file, and the SCSS files into the `main.scss`.
-
-However this will only work if the Gulp server is running. If it is not running they will be injected next time you run `gulp`.
-
-Or, if you want to trigger the injection manually, just run:
-
-`gulp inject:dep`
-
-If you want more information on using Bower, please go to [http://bower.io](http://bower.io). For more information on using Gulp Inject, please go to [https://github.com/klei/gulp-inject](https://github.com/klei/gulp-inject).
-
-## <a name="working-with-angular"></a> Working with Angular
+## <a name="working-with-angular"></a> Working with Angular/React
 
 ### Running Webpack
 
@@ -274,11 +210,11 @@ Internationalization (or i18n) is a first-class citizen in JHipster, as we belie
 
 Usage is really easy:
 
-- With AngularJS 1, thanks to [Angular Translate](https://github.com/PascalPrecht/angular-translate), which provides a simple AngularJS directive for i18n
-- With Angular 2+, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which works the same way as Angular Translate, and uses the same files
+- With Angular, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which uses simple JSON files for translation
+- With React, thanks to a specific JHipster component, which works the same way as the Angular component, and uses the same files
 
-For example, to add a translation to the "first name" field, just add a "translate" attribute with a key: `<label translate="settings.form.firstname">First Name</label>`
+For example, to add a translation to the "first name" field, just add a "translate" attribute with a key: `<label jhiTranslate="settings.form.firstname">First Name</label>`
 
-This key references a JSON document, which will return the translated String. Angular will then replace the "First Name" String with the translated version.
+This key references a JSON document, which will return the translated String. Angular/React will then replace the "First Name" String with the translated version.
 
 If you want more information on using languages, read our [Installing new languages documentation]({{ site.url }}/installing-new-languages/).

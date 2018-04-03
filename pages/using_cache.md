@@ -11,8 +11,13 @@ sitemap:
 
 A cache can be used at two levels in JHipster:
 
-- With the Spring cache abstraction, which is a specific question when your application is generated, and which uses the Spring Boot `@EnableCaching` annotation. This needs to be tuned according to your specific business needs, and works at a higher level than the Hibernate 2nd-level cache.
-- As an Hibernate 2nd-level cache, a caching solution can give a huge performance boost to your application. This is what people usually do with JHipster, and it is only available for SQL databases. We do not recommend to use both the Spring cache abstraction and the Hibernate 2nd-level cache for the same objects, as this will make cache invalidation issues even more complex.
+- With the Spring Cache abstraction, which is a specific question when your application is generated, and which uses the Spring Boot `@EnableCaching` annotation. This needs to be tuned according to your specific business needs, and works at a higher level than the Hibernate 2nd-level cache.
+- As an Hibernate 2nd-level cache, a caching solution can give a huge performance boost to your application, and this is what people usually do with JHipster. Please note that this option is only available for SQL databases, and if you have selected to use Spring Cache.
+
+Spring Cache and the Hibernate 2nd-level cache will use the same caching solution, but do not work at the same level: we do not recommend to use both for the same objects, as this will make cache invalidation issues even more complex. Instead, we recommend you use:
+
+- Spring Cache for higher-level or aggregate objects, like you typically have with DTOs
+- The Hibernate 2nd-level cache for entities mapped to the database, in order to reduce the number of SQL requests
 
 ## Common configuration
 
@@ -52,7 +57,7 @@ When a new node is added, it will register itself to the service discovery (for 
 
 To work better with Hazelcast, JHipster includes support for the Hazelcast Management Center:
 
-- Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing you application.
+- Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing your application.
 - It is configured using JHipster [common application properties]({{ site.url }}/common-application-properties/), using the key `jhipster.cache.hazelcast.management-center`, in your `application-dev.yml` and `application-prod.yml` files. Please note that it is disabled by default.
 - JHipster generates a Docker Compose configuration to run easily the Hazelcast Management Center. Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/), and run the application using `docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`.
 

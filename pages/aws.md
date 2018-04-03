@@ -17,8 +17,6 @@ There are two different sub-generators for deploying JHipster projects to AWS:
 * **aws-containers**: A Docker container based sub-generator for deploying applications via AWS Elastic Container Service.
 * **aws**: An instance based sub-generator for deploying appliations via Elastic Beanstalk.
 
-***
-
 ## *aws-containers* sub-generator
 This sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this:
 - [AWS Fargate](https://aws.amazon.com/fargate/): A new AWS service which allows containers to be run without needing to worry about the underlying VM instance infrastructure. The sub-generator currently uses Elastic Container Service to manage the containers.
@@ -83,10 +81,13 @@ For a complete cleanup of your environment, there are two additional configurati
 * Remove the stored password via `AWS Systems Manager > Parameter Store`.
 * Remove the CloudFormation template files from the generated `S3` bucket, which is in the format `[Stack Name]-[timestamp]`.
 
-***
-
 ## *aws* sub-generator
 This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/) using [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html).
+
+<div class="alert alert-warning"> This sub-generator is currently broken because of <a href="https://github.com/jhipster/generator-jhipster/issues/7086">#7086</a> - it does not look like a big issue, but nobody on the team is currently available to work on this, so any help is warmly welcome.
+</div>
+
+This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/).
 
 <div class="alert alert-info"> <i>Tip:</i> As an alternative to Elastic Beanstalk you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/boxfuse/">Boxfuse</a>.  
 Boxfuse comes with first-class support for JHipster as well as support for both MySQL and PostgreSQL databases.</div>

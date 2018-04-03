@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">{% if '/index.html' == page.url or '/' == page.url %}
-    <meta name="description" content="JHipster is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + Angular projects!">
+    <meta name="description" content="JHipster is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + Angular/React projects!">
     <meta name="author" content="JHipster Team">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@java_hipster" />
-    <meta name="twitter:title" content="Generate a full stack Java + Angular application in a few steps" />
-    <meta name="twitter:description" content="JHipster is a fully Open Source, widely used application generator. It leverages cool technologies like Spring Boot, Angular and Yeoman to give you a high level of productivity and quality." />
-    <meta name="twitter:image:src" content="http://www.jhipster.tech/images/twitter-card.png?20170202" />
-    <meta name="twitter:url" content="http://www.jhipster.tech/" />{% endif %}
+    <meta name="twitter:title" content="Generate a full stack Java + Angular/React application in a few steps" />
+    <meta name="twitter:description" content="JHipster is a fully Open Source, widely used application generator. It leverages cool technologies like Spring Boot, Angular and React to give you a high level of productivity and quality." />
+    <meta name="twitter:image:src" content="https://www.jhipster.tech/images/twitter-card.png?20170202" />
+    <meta name="twitter:url" content="https://www.jhipster.tech/" />{% endif %}
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#353d47">
     <!-- Windows Phone -->
@@ -28,16 +28,16 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
 
     <!-- CSS Libs -->
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/lib/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/lib/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/lib/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/lib/css/dataTables.bootstrap.css">
     <!-- CSS App -->
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/style.css">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/themes/flat-blue.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/themes/flat-blue.css">
     {% if page.home == true %}
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
     {% endif %}
     <!-- Bootstrap Docs CSS subset to get icon -->
     <!--<link href="/css/bootstrap-docs.css" rel="stylesheet">-->
@@ -50,8 +50,8 @@
     <![endif]-->
 
     <!-- Favicon with QHD -->
-    <link rel="icon" type="image/png" href="{{ site.url }}/images/logo/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="{{ site.url }}/images/logo/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/images/logo/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/logo/favicon-16x16.png" sizes="16x16" />
 </head>
 
 <body class="flat-blue">
@@ -244,9 +244,9 @@
                                             <li {% if '/profiles/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/profiles/"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
                                             <li {% if '/common-application-properties/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/common-application-properties/"><i class="fa fa-fw fa-flask"></i> Common application properties</a></li>
                                             <li {% if '/separating-front-end-and-api/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/separating-front-end-and-api/"><i class="fa fa-fw fa-unlink"></i> Separating front-end and API</a></li>
-                                            <li {% if '/using-angularjs/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angularjs/"><i class="fa fa-fw fa-html5"></i> Using AngularJS</a></li>
+                                            <li {% if '/managing-server-errors/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/managing-server-errors/"><i class="fa fa-fw fa-fire-extinguisher"></i> Managing server errors</a></li>
                                             <li {% if '/using-angular/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angular/"><i class="fa fa-fw fa-html5"></i> Using Angular</a></li>
-                                            <li {% if '/customizing-bootstrap-3/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap-3/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap 3</a></li>
+                                            <li {% if '/using-react/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-react/"><i class="fa fa-fw fa-html5"></i> Using React</a></li>
                                             <li {% if '/customizing-bootstrap-4/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap-4/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap 4</a></li>
                                         </ul>
                                     </div>
@@ -330,8 +330,6 @@
                 </nav>
             </div>
             <!-- Main Content -->
-
-
             <div id="page-wrapper" class="container-fluid">
                 <div class="side-body" id="page-top">
                     {% if page.layout_grid == true %} {{ content }} {% else %}
@@ -345,6 +343,43 @@
 
                     <!-- Footer -->
                     <footer class="text-center">
+                        {% if page.home != true %}
+                        <hr>
+                        <div class="footer-logos">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        JHipster is sponsored by:
+                                    </div>
+                                    <!-- change to below commented line when adding more logos -->
+                                    <!-- <div class="col-xs-12 col-sm-6 col-md-4"> -->
+                                    <div class="col-md-offset-4 col-sm-12 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://developer.okta.com/signup?utm_source=JHipster&utm_medium=logo&utm_campaign=Gold-Sponsor" target="_blank"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="108px"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://developer.okta.com/signup?utm_source=JHipster&utm_medium=logo&utm_campaign=Gold-Sponsor" target="_blank"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="108px"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://developer.okta.com/signup?utm_source=JHipster&utm_medium=logo&utm_campaign=Gold-Sponsor" target="_blank"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="108px"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
                         <div class="footer-above">
                             <div class="container">
                                 <div class="row">
