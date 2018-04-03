@@ -37,7 +37,7 @@ When your application is ready, you can prepare it for deployment by typing:
 
 Or when using gradle:
 
-`./gradlew -Pprod bootRepackage -x test`
+`./gradlew -Pprod bootWar -x test`
 
 ## Deploying to AWS
 

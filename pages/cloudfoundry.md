@@ -47,7 +47,7 @@ When your application is already deployed, you can re-deploy it by building it n
 `cf push -f ./deploy/cloudfoundry/manifest.yml -p target/*.war`
 
 **With Gradle:**
-`./gradlew -Pprod bootRepackage`
+`./gradlew -Pprod bootWar`
 `cf push -f ./deploy/cloudfoundry/manifest.yml -p build/libs/*.war`
 
 You can also run the sub-generator again, by typing another time:

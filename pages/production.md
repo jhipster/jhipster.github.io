@@ -45,7 +45,7 @@ To package the application as a "production" WAR, with Maven please type:
 
 Or when using Gradle, please type:
 
-`./gradlew -Pprod bootRepackage`
+`./gradlew -Pprod bootWar`
 
 This will generate two files (if your application is called "jhipster"):
 

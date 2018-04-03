@@ -82,7 +82,7 @@ When your application is already deployed, you can re-deploy it by building a ne
 
 Or when using gradle:
 
-`./gradlew -Pprod bootRepackage buildDocker -x test`
+`./gradlew -Pprod bootWar buildDocker -x test`
 
 ### Pushing to your Docker registry (Docker Hub)
 
