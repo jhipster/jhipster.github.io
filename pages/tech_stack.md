@@ -25,8 +25,8 @@ Single Web page application:
 
 With the great development workflow:
 
-*   Easy installation of new JavaScript libraries with [Yarn](https://yarnpkg.com/) or [Bower](http://bower.io/)
-*   Build, optimization and live reload with [Webpack](https://webpack.js.org/) or [Gulp.js](http://www.gulpjs.com)
+*   Easy installation of new JavaScript libraries with [Yarn](https://yarnpkg.com/)
+*   Build, optimization and live reload with [Webpack](https://webpack.js.org/)
 *   Testing with [Karma](http://karma-runner.github.io/), [Headless Chrome](https://github.com/GoogleChrome/puppeteer) and [Protractor](http://www.protractortest.org)
 
 And what if a single Web page application isn't enough for your needs?
