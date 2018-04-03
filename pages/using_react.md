@@ -3,9 +3,8 @@ layout: default
 title: Using React
 permalink: /using-react/
 sitemap:
-  - /using_react.html
     priority: 0.7
-    lastmod: 2015-01-29T23:41:00-00:00
+    lastmod: 2018-04-02T23:41:00-00:00
 ---
 
 # <i class="fa fa-html5"></i> Using React (with Redux)
