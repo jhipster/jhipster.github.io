@@ -1,4 +1,4 @@
-  ---
+---
 layout: default
 title: Using React
 permalink: /using-react/
@@ -35,7 +35,7 @@ webapp
 │   ├── app.tsx                     - The application main class
 │   ├── index.tsx                   - Index script
 │   ├── routes.tsx                  - Application main routes
-│   └── typings.d.ts                - 
+│   └── typings.d.ts                -
 ├── i18n                            - Translation files
 ├── static                          - Contains your static files such as images and fonts
 ├── swagger-ui                      - Swagger UI front-end
@@ -76,7 +76,7 @@ together with React to manage the state of your React components.
 
 Basically, Redux provide an object **store** used to store the whole state of your application.
 To access this store and therefore update your state components, the only way is to dispatch
-**actions** which describe the fact that an update is requested, then the **reducers** will 
+**actions** which describe the fact that an update is requested, then the **reducers** will
 define how the state is updated in response to these actions.
 
 Here is an example of a reducer:
@@ -123,7 +123,7 @@ export default (state = initialState, action) => {
 };
 ```
 In order to access your store and update the current application state, you need to dispatch
-actions to the store as mentioned previously. Actions are simple JavaScript objects and must have a **type**, which describe what 
+actions to the store as mentioned previously. Actions are simple JavaScript objects and must have a **type**, which describe what
 the action is going to perform and a usually they have also a **payload** which corresponds to
 data you want to pass to the store.
 
@@ -138,7 +138,7 @@ export const getFoos = () => ({
 });
 ```
 The action described above indicates that we want to retrieve all the Foo objects by
-sending a GET request. The action type will match 
+sending a GET request. The action type will match
 Notice that the **export** keyword is used to able the connected component to use that action
 when necessary (for instance, everytime the component is updated).
 
@@ -146,7 +146,7 @@ when necessary (for instance, everytime the component is updated).
 
 Jhipster uses the [React router](https://github.com/ReactTraining/react-router) to organize the differents parts of your application.
 
-When it comes to routes that require authentication, the [react-jhipster](https://github.com/jhipster/react-jhipster) lib provides [PrivateRoute](https://github.com/jhipster/react-jhipster/blob/master/src/component/private-route.tsx). This component will simply prevent any unauthenticated user from accessing a route. 
+When it comes to routes that require authentication, the [react-jhipster](https://github.com/jhipster/react-jhipster) lib provides [PrivateRoute](https://github.com/jhipster/react-jhipster/blob/master/src/component/private-route.tsx). This component will simply prevent any unauthenticated user from accessing a route.
 
 Here is an example of PrivateRoute usage:
 ``` typescript
@@ -166,10 +166,10 @@ As you can see, unauthenticated user can access `/` and `/login` but accessing `
 [comment]: <> (TODO: put private route and permissions stuff. This section will remain incomplete as long as the react permission system is not implemented.)
 
 ## Notification System
-JHipster uses [react-toastify](https://github.com/fkhadra/react-toastify) alerts for the notification system, and has an 
+JHipster uses [react-toastify](https://github.com/fkhadra/react-toastify) alerts for the notification system, and has an
 i18n-capable AlertService which can be used throughout the generated applications.
 
-By default JHipster will show success notifications whenever an entity is created/updated/deleted 
+By default JHipster will show success notifications whenever an entity is created/updated/deleted
 and error notifications when there is an error caught from the response.
 
 [comment]: <> (TODO: Explain how to use Toaster ?)
