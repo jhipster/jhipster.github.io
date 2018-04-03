@@ -41,7 +41,6 @@ What's new?
     - This also adds [Husky](https://github.com/typicode/husky) and list-staged to enable pre-commit hooks
     - Please use the `skip-commit-hook` flag to disable the pre-commit hooks when generating the application
 - JDL v2 with application generation support [#7339](https://github.com/jhipster/generator-jhipster/pull/7339)
-    - The [JHipster Domain Language]({{ site.url }}/jdl/) has been re-implemented from scratch to have a faster, more powerful parser
     - As a result, the language evolved dramatically, and you can now build full applications using the JDL, and not just entities. This is a huge news if you want to share and reuse your JHipster configuration.
 - New JHipster blueprints (still a work-in-progress)
     - The blueprints system allows to easily extends and/or replace JHipster templates. This is how the new [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) works. This isn’t well-documented yet, but JHipster Kotlin already gives a nice working example.
