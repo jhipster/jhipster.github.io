@@ -18,7 +18,6 @@ For React routes we follow a dash cased naming convention so that the URLs are c
 When you generate an entity the route names, route URLs and REST API endpoint URLs are generated according to this convention, also entity names are automatically pluralized where required.
 
 Here is the main project structure:
-[comment] <> (TODO: what is the purpose of typings.d.ts)
 ```
 webapp
 ├── app                             - Your application
@@ -160,10 +159,7 @@ const Routes = () => (
 ```
 As you can see, unauthenticated user can access `/` and `/login` but accessing `/account` requires to be logged in.
 
- Please note that PrivateRoute uses the `authentication.isAuthenticated` store value to know if the user is authenticated.
-
-
-[comment]: <> (TODO: put private route and permissions stuff. This section will remain incomplete as long as the react permission system is not implemented.)
+Please note that PrivateRoute uses the `authentication.isAuthenticated` store value to know if the user is authenticated.
 
 ## Notification System
 JHipster uses [react-toastify](https://github.com/fkhadra/react-toastify) alerts for the notification system, and has an
@@ -171,11 +167,3 @@ i18n-capable AlertService which can be used throughout the generated application
 
 By default JHipster will show success notifications whenever an entity is created/updated/deleted
 and error notifications when there is an error caught from the response.
-
-[comment]: <> (TODO: Explain how to use Toaster ?)
-
-
-Frameworks/Libraries used
-- react 16.2.0
-- redux 3.7.2
-- react-redux 5.0.7
