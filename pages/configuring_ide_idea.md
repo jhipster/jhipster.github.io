@@ -29,9 +29,8 @@ To exclude directories manually:
 
 ![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
-As the `node_modules/` directory is only used internally by JHipster, it can be safetly excluded.
+As the `node_modules/` directory is only used internally by JHipster, it can be safely excluded.
 
-_Note_ When using AngularJS 1, some people also like to exclude the `src/main/webapp/bower_components` folder, as there is a lot of JavaScript code in that folder. However, this folder contains the frameworks and tools used when developing the application, so excluding it will cause issues with the JavaScript code support that is configured below. Therefore, it is _not recommended_ to exclude this folder.
 
 ## Spring Support (not available in Community Edition)
 
@@ -87,6 +86,6 @@ which currently only includes applying the MapStruct annotation processor.
 
 Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` maven profile to activate it.
 
-## Gradle 
+## Gradle
 
 In order to get the best out-of-the-box experience with Gradle you should delegate all [IDE build/run actions to Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing is automatically configured and you won't have duplicated classes when mixing IDE and cli builds. If you are using an older version ( < 2016.3) you have to enable annotaion processing manually.

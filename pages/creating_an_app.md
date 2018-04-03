@@ -38,7 +38,7 @@ Once the application is generated, you can launch it using Maven (`./mvnw` on Li
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## <a name="2"></a> Questions asked when generating an application
 
@@ -154,8 +154,8 @@ The client-side framework to use.
 
 You can either use:
 
-*   Angular version 4+
-*   AngularJS version 1.x (which will be deprecated in the future)
+*   Angular version 5+
+*   React
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
 

@@ -34,7 +34,7 @@ In the future, we expect JHipster Online to provide more features, of course.
 
 ## Local installation with Yarn (recommended for normal users)
 
-### Quick setup when using Angular
+### Quick setup
 
 1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 2.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version)
@@ -44,19 +44,7 @@ In the future, we expect JHipster Online to provide more features, of course.
 
 Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
 
-### Quick setup when using AngularJS 1.x
-
-1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS version)
-3.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
-4.  Install Bower: `yarn global add bower`
-5.  Install Gulp: `yarn global add gulp-cli`
-4.  If you want to use the JHipster Marketplace, install Yeoman: `yarn global add yo`
-5.  Install JHipster: `yarn global add generator-jhipster`
-
-Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
-
-### Optional installations for Angular and AngularJS 1.x
+### Optional installations
 
 1. Install a Java build tool.
     *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.

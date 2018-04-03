@@ -63,7 +63,7 @@ We have added a very complete cookie theft protection mechanism: we store your s
 
 ### CSRF protection
 
-Spring Security and AngularJS both have CSRF protection out-of-the-box, but unfortunately they don't use the same cookies or HTTP headers! In practice, you have in fact no protection at all for CSRF attacks. Of course, we re-configure both tools so that they correctly work together.
+Spring Security and Angular both have CSRF protection out-of-the-box, but unfortunately they don't use the same cookies or HTTP headers! In practice, you have in fact no protection at all for CSRF attacks. Of course, we re-configure both tools so that they correctly work together.
 
 ## <a name="oauth2"></a> OAuth2 and OpenID Connect
 

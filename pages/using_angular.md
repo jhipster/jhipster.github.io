@@ -9,11 +9,9 @@ sitemap:
 
 # <i class="fa fa-html5"></i> Using Angular
 
-**Please note** that this section refers to Angular 2+. If you are using AngularJS 1.x, please go to the [using AngularJS documentation]({{ site.url }}/using-angularjs/).
-
 ## Tooling
 
-Angular 2+ is using TypeScript instead of JavaScript, and as a result some specific tooling is necessary to work efficiently with it. Our [development]({{ site.url }}/development/) workflow for an Angular 2+ application is as below, use `npm` instead of `yarn` if you prefer that.
+Angular is using TypeScript instead of JavaScript, and as a result some specific tooling is necessary to work efficiently with it. Our [development]({{ site.url }}/development/) workflow for an Angular 2+ application is as below, use `npm` instead of `yarn` if you prefer that.
 
 1. When you generate an application the files are created and at the end of generation `yarn install` task is triggered.
 2. Once `yarn install` is complete it calls the `postInstall` script in `package.json`, this step triggers the `webpack:build` task.

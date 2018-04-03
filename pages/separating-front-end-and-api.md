@@ -11,7 +11,7 @@ sitemap:
 
 ## Introduction
 
-JHipster is a "full-stack" development tool, and its goal is to make you work efficiently with your front-end code (AngularJS/Angular) and your back-end code (Spring Boot).
+JHipster is a "full-stack" development tool, and its goal is to make you work efficiently with your front-end code (Angular/React) and your back-end code (Spring Boot).
 
 However, it is a common requirement to separate the front-end and the back-end codes, typically because they are developed by different teams and have a different lifecycle.
 

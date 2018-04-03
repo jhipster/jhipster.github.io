@@ -13,7 +13,7 @@ sitemap:
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need to run `yarn start` (for TypeScript/Angular 2+) or `gulp` (for JavaScript/AngularJS 1). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need to run `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## Introduction
 
@@ -34,7 +34,7 @@ If you have several entities, you will likely want to have relationships between
 *   A database foreign key
 *   Specific JavaScript and HTML code for managing this relationship
 
-The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see [project structure]({{ site.url }}/using-angularjs/)). The sub generator can be invoked by running `jhipster entity <entityName> --[options]`. Reference for those options can be found by typing `jhipster entity --help`
+The "entity" sub-generator will create all the necessary files, and provide a CRUD front-end for each entity (see [Angular project structure]({{ site.url }}/using-angular/) and [React project structure]({{ site.url }}/using-react/)). The sub generator can be invoked by running `jhipster entity <entityName> --[options]`. Reference for those options can be found by typing `jhipster entity --help`
 
 Below are the supported options.
 
@@ -104,7 +104,7 @@ Validation can be set up for each field. Depending on the field type, different 
 
 Validation will be automatically generated on:
 
-*   the HTML views, using [the AngularJS validation mechanism](https://docs.angularjs.org/guide/forms)
+*   the HTML views, using the Angular or React validation mechanism
 *   the Java domain objects, using [Bean Validation](http://beanvalidation.org/)
 
 Bean validation will then be used to automatically validate domain objects when they are used in:
@@ -120,7 +120,7 @@ Validation information will also be used to generate more precise database colum
 
 Validation has a few limitations:
 
-*   We don't support all validation options from AngularJS and Bean Validation, as we only support those which are common to both APIs
+*   We don't support all validation options from Angular, React and Bean Validation, as we only support those which are common to both client and server APIs
 *   Regular Expression patterns don't work the same in JavaScript and in Java, so if you configure one, you might need to tweak one of the generated patterns
 *   JHipster generates unit tests that work for generic entities, without knowing your validation rules: it is possible that the generated tests do not pass the validation rules. In that case, you will need to update the sample values used in your unit tests, so that they pass the validation rules.
 
@@ -146,7 +146,7 @@ Optionally, entities stored in SQL databases can be filtered using JPA. Here is 
 
 Please note that pagination is not available if you created your application with [Cassandra]({{ site.url }}/using-cassandra/). Of course this will be added in a future release.
 
-Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the [GitHub API](https://developer.github.com/v3/#pagination). JHipster provides a custom implementation of this specification on both the server (Spring MVC REST) and client (AngularJS) sides.
+Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the [GitHub API](https://developer.github.com/v3/#pagination). JHipster provides a custom implementation of this specification on both the server (Spring MVC REST) and client (Angular/React) sides.
 
 When the entity is generated, JHipster provides 4 pagination options:
 
@@ -183,7 +183,7 @@ TIP: to regenerate all your entities at once, you can use the following commands
 
 This is a short tutorial on creating two entities (a Author and a Book) which have a one-to-many relationship.
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `gulp` (for JavaScript/AngularJS 1) or `yarn start` (for TypeScript/Angular 2+). You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ### Generate the "Author" entity
 
