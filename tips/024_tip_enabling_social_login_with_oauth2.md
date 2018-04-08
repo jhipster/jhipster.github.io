@@ -13,7 +13,7 @@ When using the OAuth2 authentication type, your app connects to an OpenID Connec
 
 Okta supports Facebook, Microsoft, Google, LinkedIn, and Custom SAML providers.
 
-Log into the Okta console and navigate via the menu to "Users" -> "Social & Identity Providers".  Choose "Add Identity Provider" and add the provider of your choice.  Make sure to completely follow Okta's setup instructions which guide you in obtaining the client ID and secret for each provider.
+Log into the Okta console and navigate via the menu to "Users" -> "Social & Identity Providers".  Choose "Add Identity Provider" and add the provider of your choice.  Make sure to completely follow the [Okta Social Login documentation](https://developer.okta.com/authentication-guide/social-login/) which guides you in obtaining the client ID and secret for each provider.
 
 ## Adding an Identity Provider with Keycloak
 
