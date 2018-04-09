@@ -13,6 +13,8 @@ sitemap:
 
 JHipster is developed by a team of people around the world. We have a lot of contributors ([top 100 list here](https://github.com/jhipster/generator-jhipster/graphs/contributors)), but members of the core team are listed here.
 
+If you want to join the team, or just see how we work, our community rules are at the end of this page.
+
 ## Project leads
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -38,7 +40,6 @@ JHipster is developed by a team of people around the world. We have a lot of con
 </div>
 
 ## Board of developers
-
 
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -69,28 +70,10 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/11872070?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Flavien Cathala</h3>
-                <p><a href="https://twitter.com/flaviencathala"><i>@flaviencathala</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/629760?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Serano Colameo</h3>
                 <p><a href="https://twitter.com/colameo"><i>@colameo</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/17815919?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Victor Da Silva</h3>
-                <p><a href="https://twitter.com/VicAntune"><i>@VicAntune</i></a></p>
             </div>
         </div>
     </div>
@@ -159,15 +142,6 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/50304?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Jérôme Mirc</h3>
-                <p><a href="https://twitter.com/jeromemirc"><i>@jeromemirc</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/17892?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Matt Raible</h3>
@@ -195,15 +169,6 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/571389?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Anders Steiner</h3>
-                <p><a href="https://twitter.com/andidevv"><i>@andidevv</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/20539215?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Srinivasa Vasu</h3>
@@ -213,6 +178,46 @@ JHipster is developed by a team of people around the world. We have a lot of con
     </div>
 </div>
 
+## Retried members of the board of developers
+
+<div class="row">
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/11872070?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Flavien Cathala</h3>
+                <p><a href="https://twitter.com/flaviencathala"><i>@flaviencathala</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/17815919?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Victor Da Silva</h3>
+                <p><a href="https://twitter.com/VicAntune"><i>@VicAntune</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/50304?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Jérôme Mirc</h3>
+                <p><a href="https://twitter.com/jeromemirc"><i>@jeromemirc</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/571389?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Anders Steiner</h3>
+                <p><a href="https://twitter.com/andidevv"><i>@andidevv</i></a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
 # Where does the development team work?
 
@@ -230,3 +235,21 @@ Those discussion channels are publicly viewable, as everything we do in JHipster
 - Ask someone from the current board, with some bio and background information, and he will submit a vote on the dev mailing list
 - Everybody on the dev mailing list can vote (+1 if they agree, -1 if they don’t)
     - Just one “-1” vote will reject the new member, but the person who votes “-1” will need to explain why
+
+# What do people in the board of developers gain?
+
+- Write access to the main repository, and to most of the projects under the [JHipster organization](https://github.com/jhipster).
+- Costs associated with the project (for example travel costs to come to a JHipster conference) can be paid by [our OpenCollective account](https://opencollective.com/generator-jhipster). This depends on the money available on the account,
+and this is decided and validated by the project leads.
+- Free licenses and free quotas that the project regularly gets from friendly companies.
+
+# Who are the "retired members of the board of developers"?
+
+JHipster is an Open Source project, we don't ask anything from our members: they can leave the project or stop contributing at any time. But as members of the board have more rights than other people (including write access to the project), we need them to be active.
+
+Board members will therefore become "retired" if:
+
+- They tell us they want to leave the project
+- They don't contribute to the project for more than 1 year
+
+"Retired" member can become active members again, if they contribute back to the project and get elected again. They will of course have an advantage over other contributors, as they already know the team.
