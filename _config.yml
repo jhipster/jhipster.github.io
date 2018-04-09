@@ -4,7 +4,7 @@ exclude: [node_modules, bower_components, vendor]
 url: https://www.jhipster.tech
 kramdown:
   input: GFM
-plugins:
+gems:
   - jekyll-redirect-from
 whitelist:
   - jekyll-redirect-from
