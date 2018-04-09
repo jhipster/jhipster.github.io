@@ -178,7 +178,7 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
 </div>
 
-## Retried members of the board of developers
+## Retired members of the board of developers
 
 <div class="row">
     <div class="col-xs-3 team-member">
