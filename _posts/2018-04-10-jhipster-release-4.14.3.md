@@ -11,7 +11,7 @@ What's new
 
 This is an emergency patch release because of Spring Boot 1.5.12.RELEASE, which fixes a major security issue when using Spring Websockets.
 
-You can find more information [the official Spring blog](https://spring.io/blog/2018/04/10/spring-boot-1-5-12-available-now).
+You can find more information on [the official Spring blog](https://spring.io/blog/2018/04/10/spring-boot-1-5-12-available-now).
 
 Closed tickets and merged pull requests
 ------------
