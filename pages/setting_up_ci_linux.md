@@ -49,7 +49,7 @@ Install Jenkins NodeJS plugin.
 
 Through Jenkins administration, add a NodeJS installation:
 
-- Automatic installer from nodejs.org, use the latest LTS (Long Term Support) version
+- Automatic installer from nodejs.org, use the latest LTS (Long Term Support) 64-bit version
 - Global npm packages to install: bower gulp
 
 #### Local NodeJS installation
