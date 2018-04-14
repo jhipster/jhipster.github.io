@@ -44,7 +44,7 @@ phantomjs --version
 
 Jenkins NodeJS plugin does not work on Windows, so we'll do a manual installation.
 
-Download latest LTS (Long Term Support) version from [http://nodejs.org/](http://nodejs.org/)
+Download latest LTS (Long Term Support) 64-bit version from [http://nodejs.org/](http://nodejs.org/)
 
 Don't install NodeJS to the default directory `C:\Program Files\nodejs` as it requires administration rights, prefer a simpler path like `c:\nodejs`.
 
