@@ -253,10 +253,10 @@ entity D {
 Regexes are a bit special as they are used like this (from v1.3.6):
 ```
 entity A {
-  myString String required minlength(1) maxlength(42) pattern(/[A-Z]+/)
+  myString String required minlength(1) maxlength(42) pattern('/[A-Z]+/')
 }
 ```
-If you're using the generator prior to v4.9.X, you'd need to use patterns like this `pattern('[A-Z]+'`).
+If you're using the generator prior to v4.9.X, you'd need to use patterns like this `pattern('[A-Z]+')`.
 
 Because the JDL was made to be simple to use and read, if your entity is empty (no field), you can just declare an entity with `entity A` or `entity A {}`.
 
