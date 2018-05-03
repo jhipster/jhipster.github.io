@@ -9,13 +9,13 @@ sitemap:
     lastmod: 2018-01-17T00:00:00-00:00
 ---
 
-# <i class="fa fa-cloud-upload"></i> [BETA] Deploying to AWS
+# <i class="fa fa-cloud-upload"></i> Deploying to AWS
 
 [![Powered by AWS Cloud Computing]({{ site.url }}/images/logo/logo-aws.png)](https://aws.amazon.com/what-is-cloud-computing)
 
 There are two different sub-generators for deploying JHipster projects to AWS:
-* **aws-containers**: A Docker container based sub-generator for deploying applications via AWS Elastic Container Service.
-* **aws**: An instance based sub-generator for deploying appliations via Elastic Beanstalk.
+* **aws-containers**: A Docker container based sub-generator for deploying applications via AWS Elastic Container Service. This is great for complex applications and/or microservice architectures.
+* **aws**: An instance based sub-generator for deploying applications via Elastic Beanstalk. This is great (and very cheap!) for simple applications.
 
 ## *aws-containers* sub-generator
 This sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this:
@@ -40,7 +40,7 @@ If you choose to deploy the application, the sub-generator will go through a num
 6. Set Database access password in AWS SSM. This has been excluded from the Cloudformation file because it currently does not support SecureStrings, and it is bad-practice to store passwords within Cloudformation.
 7. Update Stack to include ECS Service. Prints out Load Balancer URL.
 
-### Limitations 
+### Limitations
 - Currently only works with monolithic applications.
 - Only the following database types are supported (all via Aurora): Mysql, MariaDB and PostgreSQL.
 - Fargate is, at time of writing, only available in the `us-west-2` region. Check [this list](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) before attempting to run the sub-generator against a different region.
@@ -54,7 +54,7 @@ The services used by this generator are not covered by the [AWS Free Tier](https
 
 ### Running the sub-generator
 
-Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they are accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret. 
+Before running the sub-generator, you need to setup your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html) so they are accessible. Although you do not need the Amazon CLI installed for this generator to work, it's recommended for subsequent development purposes. Log in with your Amazon AWS account and create a user for your JHipster application.  After that create a credentials file at `~/.aws/credentials` on Mac/Linux or C:\Users\USERNAME\.aws\credentials` on Windows. An alternative to the credentials files is to use [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html) to set your Access Key ID + Secret.
 
 Within a **new folder** run:
 
@@ -83,11 +83,6 @@ For a complete cleanup of your environment, there are two additional configurati
 
 ## *aws* sub-generator
 This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/) using [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html).
-
-<div class="alert alert-warning"> This sub-generator is currently broken because of <a href="https://github.com/jhipster/generator-jhipster/issues/7086">#7086</a> - it does not look like a big issue, but nobody on the team is currently available to work on this, so any help is warmly welcome.
-</div>
-
-This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/).
 
 <div class="alert alert-info"> <i>Tip:</i> As an alternative to Elastic Beanstalk you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/boxfuse/">Boxfuse</a>.  
 Boxfuse comes with first-class support for JHipster as well as support for both MySQL and PostgreSQL databases.</div>
