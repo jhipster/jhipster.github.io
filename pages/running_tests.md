@@ -122,12 +122,12 @@ Those tests can be run using `yarn e2e`.
 
 Performance tests are done with [Gatling](http://gatling.io/), and are located in the `src/test/gatling` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
 
-Gatling tests can be run with Maven, by running `./mvnw gatling:execute`. If you have several tests, JHipster will ask which test should be run. When using Gradle you should run `./gradlew gatlingRun -x cleanResources`.
+To run Gatling tests, you must first install Gatling: please go to the [Gatling download page](https://gatling.io/download/) and follow the instructions there. Please note we do not allow to run Gatling from Maven, as it causes some classpath issues with other plugins (mainly because of the use of Scala).
 
 **Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. Also tests for creating entities that have a required relationship with another entity will fail out of the box. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
 *   On your running application, go to the `Administration > Logs` screen, and put `org.springframework` in `debug` mode. You will see the validation errors, for example.
-*   Use the application normaly and open the Chrome `console log`: you will be able to see the REST requests with all their parameters, including the HTTP headers.
+*   Use the application normally and open the Chrome `console log`: you will be able to see the REST requests with all their parameters, including the HTTP headers.
 
 For running Gatling tests on a microservice application, you have to:
 
