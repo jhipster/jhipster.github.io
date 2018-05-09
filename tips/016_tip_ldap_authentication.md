@@ -37,10 +37,10 @@ To add an LDAP authentification to your JHipster application, follow these steps
         contextSource.setUserDn("cn=aUserUid,dc=mycompany,dc=com");
         contextSource.setPassword("hisPassword");
         contextSource.afterPropertiesSet(); //needed otherwise you will have a NullPointerException in spring
-    	   
+
         return
     }
-    
+
 ```
   * Modify the SecurityUtils.java, method getCurrentUserLogin()
 
@@ -50,7 +50,7 @@ To add an LDAP authentification to your JHipster application, follow these steps
     	return ldapUser.getUsername();
     }
 ```
-  * Add a new CustomAuthenticationManager class which implements the AuthenticationManager interface and Override the authentication method in order to force the authentication process to authenticate the user through Ldap.
+  * Add a new CustomAuthenticationManager class which implements the AuthenticationManager interface and override the authentication method in order to force the authentication process to authenticate the user through LDAP.
 
 ```
 
@@ -58,27 +58,24 @@ To add an LDAP authentification to your JHipster application, follow these steps
 public class CustomAuthenticationManager implements AuthenticationManager {
 
     LdapAuthenticationProvider provider = null;
-    
 
     private static final Logger log = LoggerFactory.getLogger(CustomAuthenticationManager.class);
-    
+
     private final UserRepository userRepository;
-    
+
     @Autowired
     private final LdapContextSource ldapContextSource;
-    
+
     public CustomAuthenticationManager(UserRepository userRepository, LdapContextSource ldapContextSource) {
         this.userRepository = userRepository;
         this.ldapContextSource = ldapContextSource;
     }
-    
 
-    
     @Override
     public Authentication authenticate(Authentication authentication) {
         log.debug("AUTHENTICATION Login" + authentication.getName());
         log.debug("AUTHENTICATION Password" + authentication.getCredentials().toString());
-        
+
         BindAuthenticator bindAuth = new BindAuthenticator(ldapContextSource);
         FilterBasedLdapUserSearch userSearch = new FilterBasedLdapUserSearch(
                 "", "(uid={0})",
@@ -97,7 +94,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
                 final User user = isUser.get();
                 Set<Authority> userAuthorities = user.getAuthorities();
                 Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-                for(Authority a: userAuthorities){ 
+                for(Authority a: userAuthorities){
                     GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(
                             a.getName());
                     grantedAuthorities.add(grantedAuthority);
@@ -108,15 +105,10 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 
             @Override
             public void mapUserToContext(UserDetails ud, DirContextAdapter dca) {
-                
+
             }
         });
-         
         return provider.authenticate(authentication);
-
     }
 
 ```
-
-
-
