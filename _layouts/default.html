@@ -469,7 +469,11 @@
     {% if page.companies-using-jhipster == true %}
     <script type="text/javascript" src="{{ site.url }}/js/users.js"></script>
     {% endif %}
-    <!-- JavaScript -->
+    <script>
+    if (self !== top) {
+        window.top.location.href = "https://www.jhipster.tech";
+    }
+    </script>
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
