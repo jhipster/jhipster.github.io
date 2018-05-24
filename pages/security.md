@@ -93,13 +93,9 @@ security:
             user-authorization-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/auth
             client-id: web_app
             client-secret: web_app
-            client-authentication-scheme: form
             scope: openid profile email
         resource:
-            filter-order: 3
             user-info-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/userinfo
-            token-info-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token/introspect
-            prefer-token-info: false
 ```
 
 As by default Keycloak uses an embedded H2 database, you will lose the created users if you restart your Docker container. To keep your data, please read the [Keycloak Docker documentation](https://hub.docker.com/r/jboss/keycloak/). One solution, with keeping the H2 database, is to do the following:
@@ -111,7 +107,7 @@ As by default Keycloak uses an embedded H2 database, you will lose the created u
 
 If you'd like to use Okta instead of Keycloak, you'll need to change a few things. First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.oktapreview.com`.
 
-Modify `src/main/resources/application.yml` to use your Okta settings.
+Modify `src/main/resources/application.yml` to use your Okta settings. Hint: replace `{yourOktaDomain}` with your org's name (e.g., `dev-123456.oktapreview`).
 
 ```yaml
 security:
@@ -123,16 +119,10 @@ security:
             user-authorization-uri: https://{yourOktaDomain}.com/oauth2/default/v1/authorize
             client-id: {client-id}
             client-secret: {client-secret}
-            client-authentication-scheme: form
             scope: openid profile email
         resource:
-            filter-order: 3
             user-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
-            token-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
-            prefer-token-info: false
 ```
-
-**NOTE:** If you're using microservices with JHipster 4.14.0 (or previous), you'll need to replace `security.oauth2.resource.jwt.key-uri` with  `security.oauth2.resource.jwk.key-set-uri` and set the value to  `https://{yourOktaDomain}.com/oauth2/default/v1/keys`. See [jhipster/generator-jhipster#7116](https://github.com/jhipster/generator-jhipster/issues/7116) for more information.
 
 Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080` as a Base URI and `http://localhost:8080/login` as a Login Redirect URI. Click **Done** and copy the client ID and secret into your `application.yml` file.
 
@@ -148,8 +138,6 @@ You can also use environment variables to override the defaults. For example:
 export SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI="https://{yourOktaDomain}.com/oauth2/default/v1/token"
 export SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="https://{yourOktaDomain}.com/oauth2/default/v1/authorize"
 export SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="https://{yourOktaDomain}.com/oauth2/default/v1/userinfo"
-export SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="https://{yourOktaDomain}.com/oauth2/default/v1/introspect"
-export SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI="https://{yourOktaDomain}.com/oauth2/default/v1/keys"
 export SECURITY_OAUTH2_CLIENT_CLIENT_ID="{client-id}"
 export SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="{client-secret}"
 ```
@@ -164,8 +152,6 @@ heroku config:set \
   SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI="$SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI" \
   SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI" \
   SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI" \
-  SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI="$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI" \
-  SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI="$SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI" \
   SECURITY_OAUTH2_CLIENT_CLIENT_ID="$SECURITY_OAUTH2_CLIENT_CLIENT_ID" \
   SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
 ```
@@ -177,8 +163,6 @@ cf set-env $appName FORCE_HTTPS true
 cf set-env $appName SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI "$SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI "$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI"
 cf set-env $appName SECURITY_OAUTH2_RESOURCE_USER_INFO_URI "$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI"
-cf set-env $appName SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI "$SECURITY_OAUTH2_RESOURCE_TOKEN_INFO_URI"
-cf set-env $appName SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI "$SECURITY_OAUTH2_RESOURCE_JWK_KEY_SET_URI"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_CLIENT_ID "$SECURITY_OAUTH2_CLIENT_CLIENT_ID"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_CLIENT_SECRET "$SECURITY_OAUTH2_CLIENT_CLIENT_SECRET"
 ```
