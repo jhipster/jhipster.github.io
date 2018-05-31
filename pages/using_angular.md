@@ -48,8 +48,8 @@ Here is the main project structure:
     │   ├── layouts                       - Common page layouts like navigation bar and error pages
     │   ├── shared                        - Common services like authentication and internationalization
     │   ├── app.main.ts                   - Main application class
-    │   ├── app.module.js                 - Application modules configuration
-    │   ├── app.route.js                  - Main application router
+    │   ├── app.module.ts                 - Application modules configuration
+    │   ├── app.route.ts                  - Main application router
     ├── content                           - Static content
     │   ├── css                           - CSS stylesheets
     │   ├── images                        - Images
