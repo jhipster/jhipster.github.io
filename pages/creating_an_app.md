@@ -189,8 +189,8 @@ Here are the options you can pass:
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-git` - Do not add the generated project to Git automatically (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
-* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is same as running server sub-generator with `jhipster server`.
-* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is same as running client sub-generator with `jhipster client`.
+* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is the same as running the server sub-generator with `jhipster server`.
+* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is the same as running the client sub-generator with `jhipster client`.
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--auth` - Specify the authentication type when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
