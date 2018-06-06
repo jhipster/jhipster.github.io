@@ -57,7 +57,7 @@ Or when using gradle:
 
 ### Pushing to production
 
-_Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run_ `heroku plugins:install https://github.com/heroku/heroku-deploy`.
+_Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run_ `heroku plugins:install heroku-cli-deploy`.
 
 To push to production, type:
 
