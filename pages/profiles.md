@@ -18,7 +18,7 @@ JHipster comes with two [Spring profiles](http://docs.spring.io/spring-boot/docs
 
 Those profiles come in two different configurations:
 
-*   The Maven/Gradle profiles are used at build time. For example `./mvnw -Pprod package` or `./gradlew bootWar -Pprod` will package a production application.
+*   The Maven/Gradle profiles are used at build time. For example `./mvnw -Pprod package` or `./gradlew bootRepackage -Pprod` will package a production application.
 *   The Spring profiles work at run time. Some Spring beans will behave differently, depending on the profile.
 
 Spring profiles are set by Maven/Gradle, so we have a consistency between the two methods: you will have a `prod` profile on Maven/Gradle and Spring at the same time.
@@ -49,7 +49,7 @@ You can run JHipster in production directly using Maven or Gradle:
 If you want to package your application as an executable WAR file, you should provide Maven or Gradle with a profile. E.g.,:
 
 *   With Maven, run `./mvnw -Pprod package` (or `mvn -Pprod package`)
-*   With Gradle, run `./gradlew -Pprod bootWar` (or `gradle -Pprod bootWar`)
+*   With Gradle, run `./gradlew -Pprod bootRepackage` (or `gradle -Pprod bootRepackage`)
 
 When you run your production application from a WAR file, the default is to use the same profile(s) as used during packaging. If you want to override this, you can explicitly provide an alternative in VM argument:
 
