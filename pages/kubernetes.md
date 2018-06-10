@@ -6,11 +6,10 @@ redirect_from:
   - /kubernetes.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-08-12T00:00:00-00:00
+    lastmod: 2018-06-10T00:00:00-00:00
 ---
 
 # Deploying to Kubernetes
-
 
 This sub-generator allows deployment of your JHipster application to [Kubernetes](http://kubernetes.io/).
 
@@ -67,10 +66,14 @@ See the documentation on namespace [here](http://kubernetes.io/docs/user-guide/n
 
 If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be your Docker Hub login.
 
+If you choose [Google Container Registry](https://cloud.google.com/container-registry/), then it'll be `gcr.io/[PROJECT ID]`, or a regional registry, such as `eu.grc.io/[PROJECT ID]`, `us.gcr.io/[PROJECT ID]`, or `asia.gcr.io/[PROJECT ID]`. See [Pushing and Pulling Images](https://cloud.google.com/container-registry/docs/pushing-and-pulling) for more detial.
+[
+
 ### What command should we use for push Docker image to repository?
 
 The default command to push to Docker Hub is `docker image push`
-For example, if you use the Google Cloud to host your Docker images, it will be: `gcloud docker push`
+
+If you use Google Container Registry to host your Docker images, it will be: `gcloud docker push`
 
 ## Updating your deployed application
 
@@ -197,9 +200,44 @@ The Prometheus instance for your applications can be explored using
 
 `kubectl get svc prometheus-appname `
 
+## Taking Advantage of Kubernetes
+
+Kubernetes offers a number of facilities out-of-the-box to help with Microservices deployments, such as:
+* Service Registry - Kubernetes `Service` is a first-class citizen that provides service registry and lookup via DNS name.
+* Load Balancing - Kubernetes Service acts as a L4 load balancer
+* Health Check - Liveness probes and readiness probes help determine the health of the service.
+* Configuration - Kubernetes `ConfigMap` can be used to store and apply configuration outside of the application.
+
+There are a number of benefits of using Kubernetes facilities:
+* Simply deployment
+* No need for additional Eureka/Consul deployment
+* No need for Zuul to proxy/route requests
+* No need for Ribbon
+
+At the same time, there are some drawbacks:
+* No JHipster Admin support - JHipster Admin currently relies on Spring Cloud's `DiscoveryClient`. This can be updated in the future to add `spring-cloud-kubernetes`
+* No local Docker Compose support - You must use `minikube` for local development, and use Ingress to route traffic
+* No request-level load balancing - Kubernetes Service is a L4 load balancer that load balances per connection. Use Istio for request level load balancing (see below).
+
+### Using Kubernetes as Service Registry
+
+To avoid relying on Eureka or Consul, you'll need to disable service discovery altogether
+* When asked `Which service discovery server do you want to use?`, simply choose `No service discovery`
+
+A JHipster Gateway usually fronts the API calls and routing these calls using `Zuul`. Without a service registry, routing via `Zuul` won't work. You'll need to use Kubernetes `Ingress` to route the traffic to microservices.
+* When asked `Choose the kubernetes service type for your edge services`, choose `Ingress`.
+
+## Istio
+
+You can deploy microservices into [Istio](https://istio.io)-enabled Kubernetes cluster. While Kubernetes manages microservices deployment and configuration, Istio can manage service to service communication, such as request-level load balancing, retries, circuit breakers, traffic routing/splitting, and more.
+
+To enable Istio support:
+* When asked `Do you want to configure Istio?`, choose one of the Istio options
+* When asked `Do you want to generate Istio route files`, choose `Yes` to generate default configuration for circuit breaking, etc.
+
 ## Troubleshooting
 
-> My applications don't get pulled, because of 'imagePullBackof'
+> My applications don't get pulled, because of 'imagePullBackoff'
 
 Check the registry your Kubernetes cluster is accessing. If you are using a private registry, you should add it to your namespace by `kubectl create secret docker-registry` (check the [docs](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) for more information).
 
