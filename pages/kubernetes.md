@@ -67,7 +67,6 @@ See the documentation on namespace [here](http://kubernetes.io/docs/user-guide/n
 If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be your Docker Hub login.
 
 If you choose [Google Container Registry](https://cloud.google.com/container-registry/), then it'll be `gcr.io/[PROJECT ID]`, or a regional registry, such as `eu.grc.io/[PROJECT ID]`, `us.gcr.io/[PROJECT ID]`, or `asia.gcr.io/[PROJECT ID]`. See [Pushing and Pulling Images](https://cloud.google.com/container-registry/docs/pushing-and-pulling) for more detial.
-[
 
 ### What command should we use for push Docker image to repository?
 
@@ -209,7 +208,7 @@ Kubernetes offers a number of facilities out-of-the-box to help with Microservic
 * Configuration - Kubernetes `ConfigMap` can be used to store and apply configuration outside of the application.
 
 There are a number of benefits of using Kubernetes facilities:
-* Simply deployment
+* Simplified deployment
 * No need for additional Eureka/Consul deployment
 * No need for Zuul to proxy/route requests
 * No need for Ribbon
