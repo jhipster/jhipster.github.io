@@ -214,7 +214,7 @@ There are a number of benefits of using Kubernetes facilities:
 * No need for Ribbon
 
 At the same time, there are some drawbacks:
-* No JHipster Admin support - JHipster Admin currently relies on Spring Cloud's `DiscoveryClient`. This can be updated in the future to add `spring-cloud-kubernetes`
+* No Application Management through JHipster Registry - This function relies on Spring Cloud's `DiscoveryClient`. This can be updated in the future to add `spring-cloud-kubernetes`
 * No local Docker Compose support - You must use `minikube` for local development, and use Ingress to route traffic
 * No request-level load balancing - Kubernetes Service is a L4 load balancer that load balances per connection. Use Istio for request level load balancing (see below).
 
