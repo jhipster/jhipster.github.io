@@ -91,6 +91,14 @@ Here is a documentation for those properties:
                 replicated:
                     time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
                     max-entries: 100 # Number of objects in each cache entry
+            # Memcached configuration
+            # Uses the Xmemcached library, see https://github.com/killme2008/xmemcached
+            memcached:
+             # Disabled by default in dev mode, as it does not work with Spring Boot devtools
+                enabled: true
+                servers: localhost:11211 # Comma or whitespace separated list of servers' addresses
+                expiration: 300 # Expiration time (in seconds) for the cache
+                use-binary-protocol: true # Binary protocol is recommended for performance (and security)
 
         # E-mail properties
         mail:
