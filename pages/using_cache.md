@@ -19,6 +19,8 @@ Spring Cache and the Hibernate 2nd-level cache will use the same caching solutio
 - Spring Cache for higher-level or aggregate objects, like you typically have with DTOs
 - The Hibernate 2nd-level cache for entities mapped to the database, in order to reduce the number of SQL requests
 
+JHipster supports 4 caches implementations: Ehcache, Hazelcast, Infinispan and Memcached. They are all detailed below.
+
 ## Common configuration
 
 Caches are configured in the `CacheConfiguration` class, and can also be tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/).
@@ -87,3 +89,19 @@ Eviction, time-to-live and max-entries for each of the individual operation mode
 If the JHipster Registry is enabled, then the host list will be populated from the registry. If the JHipster Registry is not enabled, host discovery will be based on the default transport settings defined in the `config-file` packaged within the Infinispan Jar. Infinispan supports discovery natively for most of the platforms like Kubernets/OpenShift, AWS, Azure and Google.
 
 Though Infinispan 9.0.0.Final GA and later releases added support to run Infinispan embedded caching applications on Kubernetes and OpenShift by making use of native KUBE_PING discovery, Hibernate dependency is not yet updated to 9.x releases and hence native discovery is not supported on Kubernetes and OpenShift. However you can run the applications by making use of JHipster Registry for instances discovery.
+
+## Caching with Memcached
+
+[Memcached](https://memcached.org/) is an Open Source distributed cache. It is quite different from the other cache implementations supported by JHipster:
+
+- Memcached cannot work as an Hibernate 2nd level cache, it only supports the Spring Cache abstraction.
+- Memcached only works with a remote server, there is no local cache. As such, your objects are always serialized/deserialized and go through the network, which means it is probably less efficient if you have a small set of objects that could easily fit in memory.
+- It is very easy to scale, and cheap to host. Most big cloud providers like Heroku, GCP or AWS have support for Memcached. As such, it is a lot easier to have a distributed (and cheap) Memcached cluster, than with the other caching implementations.
+
+JHipster uses the popular [Xmemcached](https://github.com/killme2008/xmemcached) Java client for Memcached, and configures its most important properties using the usual JHipster [common application properties]({{ site.url }}/common-application-properties/).
+
+Please note that each cache must be configured as a specific Spring bean inside the `CacheConfiguration` configuration bean.
+
+As Memcached needs to serialize/deserialize objects in its classloader, it doesn't work when using the Spring Boot devtools (which uses a specific classloader to do hot reload of application classes). This is why Memcached is disabled by default in dev mode.
+
+As always with JHipster, a Docker Compose configuration is provided so you can easily start a Memcached server on your machine. In order to use it, please run `docker-compose -f src/main/docker/memcached.yml up -d`.
