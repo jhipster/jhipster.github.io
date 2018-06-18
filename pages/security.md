@@ -148,7 +148,6 @@ You can use then set these properties when you deploy to Heroku:
 
 ```bash
 heroku config:set \
-  FORCE_HTTPS="true" \
   SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI="$SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI" \
   SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI="$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI" \
   SECURITY_OAUTH2_RESOURCE_USER_INFO_URI="$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI" \
@@ -159,7 +158,6 @@ heroku config:set \
 For Cloud Foundry, you can use something like the following, where `$appName` is the name of your app.
 
 ```bash
-cf set-env $appName FORCE_HTTPS true
 cf set-env $appName SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI "$SECURITY_OAUTH2_CLIENT_ACCESS_TOKEN_URI"
 cf set-env $appName SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI "$SECURITY_OAUTH2_CLIENT_USER_AUTHORIZATION_URI"
 cf set-env $appName SECURITY_OAUTH2_RESOURCE_USER_INFO_URI "$SECURITY_OAUTH2_RESOURCE_USER_INFO_URI"
@@ -168,3 +166,22 @@ cf set-env $appName SECURITY_OAUTH2_CLIENT_CLIENT_SECRET "$SECURITY_OAUTH2_CLIEN
 ```
 
 See [Use OpenID Connect Support with JHipster](https://developer.okta.com/blog/2017/10/20/oidc-with-jhipster) to learn more about JHipster and OIDC with Okta.
+
+## <a name="https"></a> HTTPS
+
+You can enforce the use of HTTPS when your app is running on Heroku by adding the following configuration to your `SecurityConfiguration.java`.
+
+```java
+@Configuration
+public class WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.requiresChannel()
+      .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
+      .requiresSecure();
+  }
+}
+```
+
+This will work on both Heroku and Cloud Foundry. For more production tips on Heroku, see [Preparing a Spring Boot App for Production on Heroku](https://devcenter.heroku.com/articles/preparing-a-spring-boot-app-for-production-on-heroku).
