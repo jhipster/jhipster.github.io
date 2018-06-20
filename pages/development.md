@@ -15,11 +15,11 @@ _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating
 
 ## Summary
 
-1. [General configuration](#general-configuration)
-2. [Running the Java server](#running-java-server)
-4. [Working with Angular/React](#working-with-angular)
-5. [Using a database](#using-a-database)
-6. [Internationalization](#internationalization)
+1.  [General configuration](#general-configuration)
+2.  [Running the Java server](#running-java-server)
+3.  [Working with Angular/React](#working-with-angular)
+4.  [Using a database](#using-a-database)
+5.  [Internationalization](#internationalization)
 
 ## <a name="general-configuration"></a> General configuration
 
@@ -114,10 +114,9 @@ Those tasks are the same whether you use Yarn or NPM, we use the `yarn` command 
 - `yarn lint`: check for code style issues in the TypeScript code
 - `yarn lint:fix`: try to automatically correct TypeScript lint issues
 - `yarn tsc`: compile the TypeScript code
-- `yarn test`: run unit tests with Karma
-- `yarn test:watch`: keep the karma unit tests running, for live feedback when code is changed
+- `yarn test`: run unit tests with Jest
+- `yarn test:watch`: keep the Jest unit tests running, for live feedback when code is changed
 - `yarn e2e`: run "end to end" tests with Protractor (only works if the Protractor option has been selected when the project was generated)
-
 
 ## <a name="using-a-database"></a> Using a database
 
@@ -160,7 +159,6 @@ This option is bit more complex than using H2, but you have a some important ben
 The command is:
 
     mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8 --explicit_defaults_for_timestamp
-
 
 ## Database updates
 
