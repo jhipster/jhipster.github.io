@@ -27,7 +27,7 @@ With the great development workflow:
 
 *   Easy installation of new JavaScript libraries with [Yarn](https://yarnpkg.com/)
 *   Build, optimization and live reload with [Webpack](https://webpack.js.org/)
-*   Testing with [Karma](http://karma-runner.github.io/), [Headless Chrome](https://github.com/GoogleChrome/puppeteer) and [Protractor](http://www.protractortest.org)
+*   Testing with [Jest](https://facebook.github.io/jest/) and [Protractor](http://www.protractortest.org)
 
 And what if a single Web page application isn't enough for your needs?
 

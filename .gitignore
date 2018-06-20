@@ -12,3 +12,6 @@ npm-debug.log
 Gemfile.lock
 .jekyll-metadata
 .bundle/
+
+# VSCode
+.vscode/

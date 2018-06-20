@@ -13,10 +13,10 @@ sitemap:
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
-1. [Quick start](#1)
-2. [Questions asked when generating an application](#2)
-3. [Command-line options](#3)
-4. [Tips](#4)
+1.  [Quick start](#1)
+2.  [Questions asked when generating an application](#2)
+3.  [Command-line options](#3)
+4.  [Tips](#4)
 
 ## <a name="1"></a> Quick start
 
@@ -44,7 +44,7 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 _Some questions change depending on the previous choices you have made. For example, you won't need to configure an Hibernate cache if you didn't select an SQL database._
 
-### Which *type* of application would you like to create?
+### Which _type_ of application would you like to create?
 
 Your type of application depends on whether you wish to use a microservices architecture or not. A full explanation on microservices is [available here]({{ site.url }}/microservices-architecture/), if unsure use the default "Monolithic application".
 
@@ -69,7 +69,7 @@ The [JHipster Registry]({{ site.url }}/jhipster-registry/) is an Open Source too
 
 It is required when using a microservices architecture (this is why this question is only asked when generating a monolith).
 
-### Which *type* of authentication would you like to use?
+### Which _type_ of authentication would you like to use?
 
 Answers to this question depend on previous answers. For example, if you selected the [JHipster Registry]({{ site.url }}/jhipster-registry/) above, you can only use JWT authentication.
 
@@ -82,7 +82,7 @@ Here are all the possible options:
 
 You can find more information on our [securing your application]({{ site.url }}/security/) page.
 
-### Which *type* of database would you like to use?
+### Which _type_ of database would you like to use?
 
 You can choose between:
 
@@ -92,13 +92,13 @@ You can choose between:
 - [Cassandra]({{ site.url }}/using-cassandra/)
 - [Couchbase]({{ site.url }}/using-couchbase/)
 
-### Which *production* database would you like to use?
+### Which _production_ database would you like to use?
 
 This is the database you will use with your "production" profile. To configure it, please modify your `src/main/resources/config/application-prod.yml` file.
 
 If you want to use Oracle, you will need to [install the Oracle JDBC driver manually]({{ site.url }}/using-oracle/).
 
-### Which *development* database would you like to use?
+### Which _development_ database would you like to use?
 
 This is the database you will use with your "development" profile. You can either use:
 
@@ -148,7 +148,7 @@ Websockets can be enabled using Spring Websocket. We also provide a complete sam
 
 Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message broker.
 
-### Which *Framework* would you like to use for the client?
+### Which _Framework_ would you like to use for the client?
 
 The client-side framework to use.
 
@@ -167,7 +167,7 @@ By default JHipster provides excellent internationalization support, both on the
 
 ### Which testing frameworks would you like to use?
 
-By default JHipster provide Java unit/integration testing (using Spring's JUnit support) and JavaScript unit testing (using Karma.js). As an option, you can also add support for:
+By default JHipster provide Java unit/integration testing (using Spring's JUnit support) and JavaScript unit testing (using Jest). As an option, you can also add support for:
 
 *   Performance tests using Gatling
 *   Behaviour tests using Cucumber
