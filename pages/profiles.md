@@ -57,7 +57,7 @@ When you run your production application from a WAR file, the default is to use 
 
 ## Spring profiles switches
 
-JHipster comes with three additional profiles used as switches:
+JHipster comes with two additional profiles used as switches:
 
 *   `swagger` to enable swagger
 *   `no-liquibase` to disable liquibase
