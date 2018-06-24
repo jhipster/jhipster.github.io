@@ -32,7 +32,7 @@ Or, you can use the [JHipster module generator](https://github.com/jhipster/gene
 A JHipster module:
 
 - is an NPM package, and is a Yeoman generator.
-- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the "yo" command. Instead of being prefixed by "generator-", it is prefixed by "generator-jhipster-", and instead of having just the "yeoman-generator" keyword, it must have 2 keywords, "yeoman-generator" and "jhipster-module".
+- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the "yo" command. Instead of being prefixed by "generator-", it is prefixed by "generator-jhipster-", and instead of having just the "yeoman-generator" keyword, it must have two keywords, "yeoman-generator" and "jhipster-module".
 - A JHipster module registering as a hook should not call `process.exit` in its generators being hooked.
 
 ## Import the generator-jhipster
