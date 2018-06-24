@@ -27,7 +27,11 @@
                     <a type="button" class="btn btn-default" ng-href="{(module.package.links.homepage)}">Home page</a>
                     {(module.downloads)} downloads last month.
                     <div class="pull-right hidden-xs hidden-sm">
-                        <span class="label label-default keyword" ng-repeat="keyword in module.package.keywords">{( keyword )}</span>
+                        <span  ng-repeat="keyword in module.package.keywords">
+                            <span class="label label-success keyword" ng-if="keyword === 'jhipster-blueprint'">{( keyword )}</span>
+                            <span class="label label-danger keyword" ng-if="keyword === 'jhipster-module'">{( keyword )}</span>
+                            <span class="label label-default keyword" ng-if="keyword !== 'jhipster-blueprint' && keyword !== 'jhipster-module'">{( keyword )}</span>
+                        </span>
                     </div>
                 </div>
             </div>
