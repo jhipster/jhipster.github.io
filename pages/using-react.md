@@ -9,15 +9,18 @@ sitemap:
 
 # <i class="fa fa-html5"></i> Using React (with Redux)
 This section refers to the JavaScript library **React** used with **Redux**.
+
 ## Project Structure
 
 The JHipster client code can be found under `src/main/webapp`, and follows closely the [Piotr Witek React style guide](https://github.com/piotrwitek/react-redux-typescript-guide/blob/master/README.md).
+
  Please read this guide first if you have any question on our application structure, file names, TypeScript conventions...
 
 For React routes we follow a dash cased naming convention so that the URLs are clean and consistent.
 When you generate an entity the route names, route URLs and REST API endpoint URLs are generated according to this convention, also entity names are automatically pluralized where required.
 
 Here is the main project structure:
+
 ```
 webapp
 ├── app                             - Your application
@@ -79,6 +82,7 @@ To access this store and therefore update your state components, the only way is
 define how the state is updated in response to these actions.
 
 Here is an example of a reducer:
+
 ``` typescript
 export const ACTION_TYPES = {
   FETCH_FOOS: 'foo/FETCH_FOOS',
@@ -121,12 +125,14 @@ export default (state = initialState, action) => {
   }
 };
 ```
+
 In order to access your store and update the current application state, you need to dispatch
 actions to the store as mentioned previously. Actions are simple JavaScript objects and must have a **type**, which describe what
 the action is going to perform and a usually they have also a **payload** which corresponds to
 data you want to pass to the store.
 
 Here is an action to access the store:
+
 ``` typescript
 const apiUrl = SERVER_API_URL + '/api/foos';
 
@@ -136,6 +142,7 @@ export const getFoos = () => ({
   payload: axios.get(apiUrl)
 });
 ```
+
 The action described above indicates that we want to retrieve all the Foo objects by
 sending a GET request. The action type will match
 Notice that the **export** keyword is used to able the connected component to use that action
@@ -145,9 +152,10 @@ when necessary (for instance, everytime the component is updated).
 
 Jhipster uses the [React router](https://github.com/ReactTraining/react-router) to organize the differents parts of your application.
 
-When it comes to routes that require authentication, the [react-jhipster](https://github.com/jhipster/react-jhipster) lib provides [PrivateRoute](https://github.com/jhipster/react-jhipster/blob/master/src/component/private-route.tsx). This component will simply prevent any unauthenticated user from accessing a route.
+When it comes to routes that require authentication, the `PrivateRoute` component generated is used. This component will simply prevent any unauthenticated user from accessing a route.
 
 Here is an example of PrivateRoute usage:
+
 ``` typescript
 const Routes = () => (
   <div className="view-routes">
@@ -157,13 +165,18 @@ const Routes = () => (
   </div>
 );
 ```
+
 As you can see, unauthenticated user can access `/` and `/login` but accessing `/account` requires to be logged in.
 
 Please note that PrivateRoute uses the `authentication.isAuthenticated` store value to know if the user is authenticated.
 
 ## Notification System
-JHipster uses [react-toastify](https://github.com/fkhadra/react-toastify) alerts for the notification system, and has an
-i18n-capable AlertService which can be used throughout the generated applications.
+
+JHipster uses [react-toastify](https://github.com/fkhadra/react-toastify) alerts for the notification system.
 
 By default JHipster will show success notifications whenever an entity is created/updated/deleted
 and error notifications when there is an error caught from the response.
+
+## React JHipster library
+
+The [react-jhipster](https://github.com/jhipster/react-jhipster) lib provides utilities and generic services for a generated application. It handles i18n as well.
