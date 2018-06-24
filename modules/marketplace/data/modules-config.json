@@ -4,6 +4,7 @@
     },
     "blacklistedModules": {
         "generator-jhipster-webservice" : true,
+        "generator-jhipster-react" : true,
         "generator-jhipster-material" : true
     }
 }

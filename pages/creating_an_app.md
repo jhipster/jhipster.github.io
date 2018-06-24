@@ -13,10 +13,11 @@ sitemap:
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
-1.  [Quick start](#1)
-2.  [Questions asked when generating an application](#2)
-3.  [Command-line options](#3)
-4.  [Tips](#4)
+1. [Quick start](#1)
+2. [Questions asked when generating an application](#2)
+3. [Using a blueprint](#5)
+4. [Command-line options](#3)
+5. [Tips](#4)
 
 ## <a name="1"></a> Quick start
 
@@ -154,7 +155,7 @@ The client-side framework to use.
 
 You can either use:
 
-*   Angular version 5+
+*   Angular
 *   React
 
 ### Would you like to use the LibSass stylesheet preprocessor for your CSS?
@@ -179,6 +180,22 @@ You can find more information on our ["Running tests" guide]({{ site.url }}/runn
 
 The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
 
+## <a name="5"></a> Using a blueprint
+
+JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custome client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
+
+For example, to use the Kotlin blueprint pass the name of the blueprint like below while generating an app.
+
+```bash
+jhipster --blueprint kotlin
+```
+
+The name of the blueprint is saved in the `.yo-rc.json` and will be automatically used while executing sub-generators like `entity`, `spring-controller` and `spring-service`.
+
+If a blueprint doesn't implement a specific sub-generator, it will be skiped and the JHipster templates for the same sub-generator will be used.
+
+**Note:** An application can use only one blueprint, multiple blueprints are not supported yet.
+
 ## <a name="3"></a> Command-line options
 
 You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `jhipster app --help`.
@@ -186,6 +203,7 @@ You can also run JHipster with some optional command-line options. Reference for
 Here are the options you can pass:
 
 * `--help` - Print the generator's options and usage
+* `--blueprint` - Specify a blueprint to use. For example `jhipster --blueprint kotlin`
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-git` - Do not add the generated project to Git automatically (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
