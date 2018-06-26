@@ -15,7 +15,7 @@ Elasticsearch is an option that adds search capabilities on top of your database
 
 This option has some limitations:
 
-*   It only works with SQL databases. MongoDB, Cassandra and Couchbase support will be added in the future (help is welcome!).
+*   It only works with SQL databases and MongoDB. Cassandra and Couchbase support will be added in the future (help is welcome!).
 *   There is no consistency between your database and Elasticsearch, so you might have out-of-sync data. This is normal, as Elasticsearch is not a real database. As a result, you will probably need to write some specific code to synchronize your data, for example using the Spring `@Scheduled` annotation, to run every evening.
     *   This also means if your database is changed outside of your application, your search indexes will be out-of-sync.  The [Elasticsearch Reindexer](https://www.jhipster.tech/modules/marketplace/#/details/generator-jhipster-elasticsearch-reindexer) JHipster module can help in these situations.
 
@@ -28,16 +28,11 @@ When the Elasticsearch option is selected:
 
 ### Using in Development
 
-In development, JHipster uses an embedded Elasticsearch cluster.  The embedded instance is configured to store data files under the target folder, a simple `./mvn clean` will destroy the persisted indices.  You will need to re-index your data if this happens.
+In development, JHipster needs to use an external Elasticsearch instance (before JHipster 5, you could use an embedded Elasticsearch instance, but this feature has been removed in recent Elasticsearch releases).
 
-You can enable HTTP access by adding this configuration in `application-dev.yml` :
+The easiest way to run an Elasticsearch instance is to use the provided Docker Compose configuration:
 
-```
-elasticsearch:
-  properties:
-      http:
-          enabled: true
-```
+    docker-compose -f src/main/docker/elasticsearch.yml up -d
 
 ### Using in Production
 
