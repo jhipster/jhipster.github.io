@@ -176,14 +176,14 @@ You can use all functions in [generator-base](https://github.com/jhipster/genera
 
 During development of blueprint, please note the below steps. they are very important.
 
-1. If you want to link your blueprint globally (use npm since yeoman doesnt seem to fetch globally linked Yarn modules)
+1. Link your blueprint globally (use npm since yeoman doesn't seem to fetch globally linked Yarn modules)
 
 ```bash
 cd my-blueprint
 npm link
 ```
 
-2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non released JHipster version, like the master branch or your own custom fork)
+2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non-released JHipster version, like the master branch or your own custom fork)
 
 You could also use Yarn for this if you prefer
 
@@ -195,13 +195,13 @@ cd my-blueprint
 npm link generator-jhipster
 ```
 
-3. Create new folder for the app to be generated and link JHipster and your blueprint there
+3. Create a new folder for the app to be generated and link JHipster and your blueprint there
 
 ```bash
 mkdir my-app && cd my-app
 
 npm link generator-jhipster-myblueprint
-npm link generator-jhipster (Optional: Needed only if you are using a non released JHipster version)
+npm link generator-jhipster (Optional: Needed only if you are using a non-released JHipster version)
 
 jhipster -d --blueprint myblueprint
 
