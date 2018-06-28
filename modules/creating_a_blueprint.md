@@ -172,6 +172,41 @@ You can use all functions in [generator-base](https://github.com/jhipster/genera
 
 **Note**: The functions in `generator-base.js` and variables in `generator-constants.js` are part of public API and hence will follow semver versioning. But other files like `generator-base-private.js`, `utils.js` etc will not follow semver versioning and might break method signature across minor versions.
 
+## Running local Blueprint version for development
+
+During development of blueprint, please note the below steps. they are very important.
+
+1. If you want to link your blueprint globally (use npm since yeoman doesnt seem to fetch globally linked Yarn modules)
+
+```bash
+cd my-blueprint
+npm link
+```
+
+2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non released JHipster version, like the master branch or your own custom fork)
+
+You could also use Yarn for this if you prefer
+
+```bash
+cd generator-jhipster
+npm link
+
+cd my-blueprint
+npm link generator-jhipster
+```
+
+3. Create new folder for the app to be generated and link JHipster and your blueprint there
+
+```bash
+mkdir my-app && cd my-app
+
+npm link generator-jhipster-myblueprint
+npm link generator-jhipster (Optional: Needed only if you are using a non released JHipster version)
+
+jhipster -d --blueprint myblueprint
+
+```
+
 ## Registering a blueprint to the JHipster marketplace
 
 To have your blueprint available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to make sure you have the two keyword `yeoman-generator` and `jhipster-blueprint` in your published npm `package.json`.
