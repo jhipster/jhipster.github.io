@@ -21,6 +21,16 @@ If you want your application to be featured here just submit a PR to the [websit
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
+                <img width="560" height="315" src="{{ site.url }}/images/showcase/beta.devoxx.com.png" />
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label"><a href="https://beta.devoxx.com/#/" target="_blank">Devoxx</a></h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/great-big-sample-application.png" />
             </div>
             <div class="caption">
@@ -41,6 +51,8 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -51,8 +63,6 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -73,6 +83,8 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -84,8 +96,6 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -109,6 +119,8 @@ If you want your application to be featured here just submit a PR to the [websit
             </div>
         </div>
     </div>
+</div>
+<div class="row">
 	<div class="col-xs-12 col-sm-6 col-md-4">
       <div class="thumbnail no-margin-bottom">
          <div class="video-container">
