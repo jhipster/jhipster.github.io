@@ -15,15 +15,15 @@ sitemap:
     <div class="col-md-6 col-sm-12">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/XRREt1KB4Y8" frameborder="0" allowfullscreen></iframe>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/-VQ_SVkaXbs" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label">JHipster Blog Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>This 12-minutes tutorial shows how to create a JHipster 4 application, work with
-                the provided tools (Maven, Webpack), use the JDL Studio to
+                <p>This 16-minutes tutorial shows how to create a JHipster 5 application, work with
+                the provided tools, use the JDL Studio to
                 create several entities with their relationships, and deploy the end result to the cloud in production.</p>
                 <p>Presented by Matt Raible (<a href="https://twitter.com/mraible"><i>@mraible</i></a>)</p>
-                <p>Published on 18 Feb 2017</p>
+                <p>Published on 28 Jun 2018</p>
             </div>
         </div>
     </div>
@@ -32,6 +32,72 @@ sitemap:
 ## <i class="fa fa-film"></i> Other JHipster videos
 
 <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/D9XYYh6xAog" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">JHipster What's new in our Spring:Summer 2018 collection at Devoxx France 2018<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>What's new in JHipster by our leads <a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a> and <a href="https://twitter.com/deepu105"><i>@deepu105</i></a> at Devoxx France 2018.</p>
+                <p>Slides are available on <a href="https://www.slideshare.net/deepu105/devoxx-france-2018-jhipster-whats-new-in-our-springsummer-2018-collection" target="_blank">SlideShare</a>.</p>
+                <p>Published on 2 May 2018</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dl6LtO2yveA" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Interview with Julien Dubois &amp; Deepu K Sasidharan at Devoxx Belgium 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>An interview with our leads <a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a> and <a href="https://twitter.com/deepu105"><i>@deepu105</i></a> at Devoxx Belgium 2017.</p>
+                <p>Published on 8 Nov 2017</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qYEEuiI4l10" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Angular vs React Smackdown at Devoxx Belgium 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>JHipster Angular vs React Smackdown by <a href="https://twitter.com/mraible">Matt raible</a> and <a href="https://twitter.com/deepu105">Deepu K Sasidharan</a> at Devoxx Belgium 2017.</p>
+                <p>Slides are available on <a href="https://www.slideshare.net/deepu105/angular-vs-react-devoxx-be-2017" target="_blank">SlideShare</a>.</p>
+                <p>Published on 8 Nov 2017</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FuG5t_UW7pw" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Easy microservices with JHipster at Devoxx Belgium 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>3 hours of JHipster live presentation and demo by our leads <a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a> and <a href="https://twitter.com/deepu105"><i>@deepu105</i></a> at Devoxx Belgium 2017.</p>
+                <p>Slides are available <a href="https://www.slideshare.net/deepu105/easy-microservices-with-jhipster-devoxx-be-2017" target="_blank">here</a>.</p>
+                <p>Published on 8 Nov 2017</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cN2yyD6JYvc" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Building React applications with JHipster at Devoxx Belgium 2017<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/deepu105"><i>Deepu K Sasidharan</i></a> and <a href="https://twitter.com/sendilkumarn">Sendil Kumar N</a>  at Devoxx Belgium 2017.</p>
+                <p>Slides are available on <a href="https://www.slideshare.net/deepu105/jhipster-react-devoxx-be-2017" target="_blank">SlideShare</a>.</p>
+                <p>Published on 8 Nov 2017</p>
+            </div>
+        </div>
+    </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -45,6 +111,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -71,8 +139,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -86,6 +152,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -113,8 +181,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -128,6 +194,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -149,13 +217,11 @@ sitemap:
             <div class="caption">
                 <h3 id="thumbnail-label">JHipster 3.0<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
                 <p>This is the video of a JHipster 3.0 presentation for Spring user group, Singapore.</p>
-                <p>Presented by Deepu KS (<a href="https://twitter.com/deepu105"><i>@deepu105</i></a>)</p>
+                <p>Presented by Deepu K Sasidharan (<a href="https://twitter.com/deepu105"><i>@deepu105</i></a>)</p>
                 <p>Published on 16 Mar 2016</p>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -169,6 +235,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -197,8 +265,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">

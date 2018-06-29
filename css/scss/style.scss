@@ -980,7 +980,7 @@ input.gsc-search-button {
     border-radius: 1px;
     padding: 0;
     .caption {
-        padding: 0.5em 1.2em;
+        padding: 0.5em 1.2em !important;
         .h1,
         .h2,
         .h3,
@@ -2121,7 +2121,7 @@ footer {
 	padding-top:30px;
 	height:0;
 	overflow:hidden;
-    iframe, object,  embed {
+    iframe, object,  embed, img {
     	position:absolute;
     	top:0;
     	left:0;
@@ -2131,7 +2131,8 @@ footer {
 }
 
 .logo-container {
-	overflow:hidden;
+    overflow:hidden;
+    padding-top: 5px;
     a {
         display: inline-block;
     	width:100%;
