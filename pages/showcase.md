@@ -69,7 +69,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/www.21-points.com.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="http://www.21-points.com/#/" target="_blank">21 Points</a></h3>
+                <h3 id="thumbnail-label"><a href="http://www.21-points.com/#/" target="_blank">21-Points Health</a></h3>
             </div>
         </div>
     </div>
