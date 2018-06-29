@@ -37,7 +37,7 @@ In the future, we expect JHipster Online to provide more features, of course.
 ### Quick setup
 
 1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS 64-bit version)
+2.  Install Node.js from [the Node.js website](http://nodejs.org/) (LTS 64-bit version)
 3.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
 4.  If you want to use the JHipster Marketplace, install Yeoman: `yarn global add yo`
 5.  Install JHipster: `yarn global add generator-jhipster`
