@@ -19,6 +19,7 @@ This sub-generator allows deployment of your JHipster application to [Kubernetes
 ## Limitations
 
 - Cassandra is not supported yet
+- Kubernetes v1.9+ is required
 
 ## Pre-requisites
 
