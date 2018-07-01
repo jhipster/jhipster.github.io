@@ -793,7 +793,10 @@ Here are the application options supported in the JDL:
     <td>jhipsterVersion</td>
     <td></td>
     <td></td>
-    <td>This field will take the generator's version</td>
+    <td>
+        Deprecated, will be removed in the next major release.
+        This field will take the generator's version, must be between double-quotes.
+    </td>
   </tr>
   <tr>
     <td>languages</td>
@@ -871,7 +874,7 @@ Here are the application options supported in the JDL:
     <td>uaaBaseName</td>
     <td></td>
     <td></td>
-    <td>Mandatory for gateway and microservices if auth type is uaa</td>
+    <td>Mandatory for gateway and microservices if auth type is uaa, must be between double-quotes</td>
   </tr>
   <tr>
     <td>useSass</td>
