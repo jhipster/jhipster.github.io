@@ -62,6 +62,8 @@ On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/glob
 JHipster uses [Yeoman](http://yeoman.io/) for code generation.
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [Yarn documentation](https://yarnpkg.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
 
+The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommanded not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, simply delete the `.yo-rc.json` file.
+
 ## Local installation with NPM (alternative to Yarn)
 
 This is the same procedure as using Yarn, with two differences:
