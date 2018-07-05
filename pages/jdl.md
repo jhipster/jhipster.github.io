@@ -995,7 +995,7 @@ Here are the types supported in the JDL:
     <td>TextBlob</td>
     <td>TextBlob</td>
     <td></td>
-    <td><dfn>required, minbytes, maxbytes</dfn></td>
+    <td><dfn>required</dfn></td>
   </tr>
   <tr>
     <td>Instant</td>
