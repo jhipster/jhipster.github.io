@@ -100,6 +100,9 @@ You can do these things with it:
   - Declare entities with their attributes,
   - Declare the relationships between them,
   - And declare some JHipster specific options.
+  
+If you wish to view the JDL's grammar, there is an HTML file available
+[here](https://github.com/jhipster/jhipster-core/blob/master/lib/dsl/gen/grammar.html).
 
 
 ### <a name="applicationdeclaration"></a> Application declaration
