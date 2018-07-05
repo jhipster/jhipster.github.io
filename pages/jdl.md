@@ -39,6 +39,7 @@ Here is the JDL documentation:
    1. [Blobs](#blobdeclaration)
    1. [Option declaration](#optiondeclaration)
    1. [Microservice-related options](#microserviceoptions)
+   1. [Annotations](#annotations)
 1. [Commenting](#commentingjdl)
 1. [All the relationships](#jdlrelationships)
 1. [Constants](#constants)
@@ -497,6 +498,40 @@ search * with elasticsearch except C
 
 The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
 specifies how and if you want your entities searched.
+
+
+### <a name="annotations"></a> Annotations
+
+Annotations are available since JHipster v5. Similarly to what's possible in Java, annotations work the same way so that
+you annotate your entities with annotations options.
+
+Take this JDL code for instance:
+```
+entity A
+entity B
+entity C
+
+dto C with mapstruct
+paginate * with pager except C
+search A with elasticSearch
+```
+
+Here's its equivalent with annotations:
+
+```
+@paginate(pager)
+@search(elasticSearch)
+entity A
+
+@paginate(pager)
+entity B
+
+@dto(mapstruct)
+entity C
+```
+
+While this adds more code than it actually removes, it's actually useful when using multiple JDL files
+(with microservices for instance).
 
 
 ## <a name="commentingjdl"></a> Commenting & Javadoc
