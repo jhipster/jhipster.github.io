@@ -102,6 +102,7 @@ Here is a documentation for those properties:
 
         # E-mail properties
         mail:
+            enabled: false # If e-mail sending is enabled. The standard `spring.mail` keys will need to be configured
             from: jhipster@localhost # The default "from" address for e-mails
             base-url: http://127.0.0.1:8080 # URL to the application, used inside e-mails
 
