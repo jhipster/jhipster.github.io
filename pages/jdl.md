@@ -280,7 +280,7 @@ Latest version introduces exclusions (which is quite a powerful option when sett
     paginate C with pagination
 
 
-With JHipster, you can also tell whether you don't want any client code, or server code. Even if you want to add a suffix to Angular-related files, you can do that in JHipster. [Filtering](https://www.jhipster.tech/entities-filtering/) options can be activated on a per entity basis: filter `<entity name>` or for all entities: filter `*`.
+With JHipster, you can also tell whether you don't want any client code, or server code. Even if you want to add a suffix to Angular-related files, you can do that in JHipster. [Filtering](https://www.jhipster.tech/entities-filtering/) options can be activated on a per entity basis: filter <entity name> or for all entities: filter *.
 In your JDL file, simply add these lines to do the same:
 
 ```
