@@ -34,7 +34,7 @@ Write your specification using a tool such as [swagger-editor](http://editor.swa
 ```
 Or for gradle:
 ```bash
-./gradlew openapi
+./gradlew openApiGenerate
 ```
 Then implement the "Delegate" interfaces generated in `${buildDirectory}/generated-sources/openapi/src/main/java/${package}/web/api/` with `@Service` classes.
 
