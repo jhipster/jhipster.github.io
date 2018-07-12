@@ -22,9 +22,9 @@ Heroku is helping JHipster in two ways:
 
 ## Running the sub-generator
 
-Before running the sub-generator, you must install the [Heroku toolbelt](https://toolbelt.heroku.com/), and have a Heroku account created.
+Before running the sub-generator, you must install the [Heroku CLI](https://cli.heroku.com/), and have a Heroku account created.
 
-You must also [create a Heroku account](http://signup.heroku.com/) and log in with the toolbelt by running the following command:
+You must also [create a Heroku account](http://signup.heroku.com/) and log in with the CLI by running the following command:
 
 <pre>**$ heroku login**
 Enter your Heroku credentials.
