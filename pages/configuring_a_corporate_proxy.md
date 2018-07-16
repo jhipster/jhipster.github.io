@@ -74,17 +74,6 @@ Or you can edit directly your `~/.gitconfig` file:
         proxy = http://username:password@host:port
 ```
 
-## Bower configuration
-
-Edit your `~/.bowerrc` file:
-
-```
-{
-    "proxy":"http://username:password@host:port",
-    "https-proxy":"http://username:password@host:port"
-}
-```
-
 ## Maven configuration
 
 Edit the `proxies` session in your `~/.m2/settings.xml` file
