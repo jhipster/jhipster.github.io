@@ -15,7 +15,7 @@ JHipster is a "full-stack" development tool, and its goal is to make you work ef
 
 However, it is a common requirement to separate the front-end and the back-end codes, typically because they are developed by different teams and have a different lifecycle.
 
-**Pleae note** that this isn't the default JHipster way of working: this isn't complex to do, and works well, but this is an advanced topic. If you are just getting started with JHipster, we recommend that you begin by using our standard way of working.
+**Please note** that this isn't the default JHipster way of working: this isn't complex to do, and works well, but this is an advanced topic. If you are just getting started with JHipster, we recommend that you begin by using our standard way of working.
 
 ## Generating only a front-end or a back-end application
 
