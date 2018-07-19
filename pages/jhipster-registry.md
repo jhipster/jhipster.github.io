@@ -35,12 +35,12 @@ All those features are packaged into one convenient application with a modern An
 
 ### Spring profiles
 
-The JHipster Registry uses the usual JHipster `dev` and `prod` Spring profiles, as well as the standard `native` and `git`profiles from Spring Cloud Config.
+The JHipster Registry uses the usual JHipster `dev` and `prod` Spring profiles, as well as the standard `composite` from Spring Cloud Config (See [official documentation](https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_server.html#composite-environment-repositories)).
 
 As a result:
 
-- Using the `dev` profile will run the JHipster Registry with the `dev` and the `native` profiles. The `native` profile will load the Spring Cloud configuration from the filesystem, looking for the `central-config` directory, which is relative to the running directory.
-- Using the `prod` profile will run the JHipster Registry with the `prod` and the `git` profiles. The `git` profile will load the Spring Cloud configuration from a Git repository, which is by default [https://github.com/jhipster/jhipster-registry-sample-config](https://github.com/jhipster/jhipster-registry-sample-config). In a real-world usage, this repository should be changed, either by reconfiguring it in the `src/main/resources/config/bootstrap-prod.yml` file, or by reconfiguring the `spring.cloud.config.server.git.uri` Spring property.
+- Using the `dev` profile will run the JHipster Registry with the `dev` and the `composite` profiles. The `dev` profile will load the Spring Cloud configuration from the filesystem, looking for the `central-config` directory, which is relative to the running directory, defined in `src/main/resources/config/bootstrap.yml` file.
+- Using the `prod` profile will run the JHipster Registry with the `prod` and the `composite` profiles. The `prod` profile will load the Spring Cloud configuration from a Git repository, which is by default [https://github.com/jhipster/jhipster-registry-sample-config](https://github.com/jhipster/jhipster-registry-sample-config). In a real-world usage, this repository should be changed, either by reconfiguring it in the `src/main/resources/config/bootstrap-prod.yml` file, or by reconfiguring the `spring.cloud.config.server.composite` Spring property.
 
 Once the JHipster Registry is running, you can check its configuration in the `Configuration > Cloud Config` menu. Please note that if you can't log in, it might be because the JWT signature key is not correctly set up, which is a sign that your configuration isn't good.
 
@@ -50,13 +50,13 @@ The JHipster Registry is available as an executable WAR file on our [Releases pa
 
 Download the WAR file, and run it as a usual JHipster application, using the profile you want to use (see the previous section about profiles). For example, to run it using a Spring Cloud Config configuration stored in the `central-config` directory:
 
-    ./jhipster-registry-<version>.war --spring.security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.native.search-locations=file:./central-config
+    ./jhipster-registry-<version>.war --spring.security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.composite[0].type=native --spring.cloud.config.server.composite[0].search-locations=file:./central-config
 
 Note that it is important to provide a JWT secret key to the registry on startup, either via the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_SECRET` environment variable or with arguments as shown above. Another possible way is to set this value in the `application.yml` file of your centralized configuration source (which is loaded on startup by all your applications including the registry).
 
 Similarly, to run the registry with the `prod` profile, adapt the arguments to your setup, for example:
 
-    ./jhipster-registry-<version>.war --spring.profiles.active=prod --spring.security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.git.uri=https://github.com/jhipster/jhipster-registry-sample-config
+    ./jhipster-registry-<version>.war --spring.profiles.active=prod --spring.security.user.password=admin --jhipster.security.authentication.jwt.secret=secret-key --spring.cloud.config.server.composite=https://github.com/jhipster/jhipster-registry-sample-config --spring.cloud.config.server.composite[0].type=git --spring.cloud.config.server.composite[0].uri=https://github.com/jhipster/jhipster-registry-sample-config
 
 ### Building from source
 
@@ -65,7 +65,7 @@ The JHipster Registry can be cloned/forked/downloaded directly from [jhipster/jh
 - run it in development with `./mvnw` (for the Java server) and `yarn start` (for managing the front-end), it will use by default the `dev` profile and it will be available at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
 - use `./mvnw -Pprod package` to package it in production, and generate the usual JHipster executable WAR file. You can then run the WAR file using the `dev` or `prod` Spring profile, for example: `./jhipster-registry-<version>.war --spring.profiles.active=prod`
 
-Please note that to use the `native` profile, you need to have a `central-config` directory with your configuration, so if you run `./jhipster-registry-<version>.war --spring.profiles.active=dev`, you need to have that directory set up.
+Please note that to use the `dev` and `composite` profile, you need to have a `central-config` directory with your configuration, so if you run `./jhipster-registry-<version>.war --spring.profiles.active=dev`, you need to have that directory set up.
 
 ### Using Docker
 
@@ -100,7 +100,7 @@ This configuration is a Spring Boot configuration, like the one found in the JHi
 
 On startup, your gateways and microservices app will query the Registry's config server and overwrite their local properties with the ones defined there.
 
-Two kinds of configurations sources are available:
+Two kinds of configurations sources are available (defined by the `spring.cloud.config.server.composite` property):
 
 - A `native` configuration, which is used by default in development (using the JHipster `dev` profile), and which uses the local filesystem.
 - A `Git` configuration, which is used by default in production (using the JHipster `prod` profile), and which stores the configuration in a Git server. This allows to tag, branch or rollback configurations using the usual Git tools, which are very powerful in this use-case.
