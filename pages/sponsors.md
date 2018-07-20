@@ -33,14 +33,14 @@ Bronze sponsors donate $100 per month to the project, and get the following bene
 Silver sponsors donate $500 per month to the project, and get the following benefits:
 
 - Same benefits as bronze sponsors (visibility on main pages, and thank you tweet).
-- 1 "hipster ticket": you can raise one issue per year, which will be labelled with the ["$ sponsor" label](https://github.com/jhipster/generator-jhipster/issues?utf8=%E2%9C%93&q=label%3A%22%24+sponsor%22+). That issue will then be given the highest possible priority by the JHipster core dev team, within reason. If needed, we will also do a specific patch release for you.
+- The ability to create 1 "[bug bounty]({{ site.url }}/bug-bounties/)" every month, non transferable. If that bug bounty is not created by the end of the month, it is lost.
 
 ## Benefits of being a gold sponsor
 
 Gold sponsors donate $1000 per month to the project, and get the following benefits:
 
 - Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
-- 3 "hipster tickets" per year (instead of 1 for silver sponsors).
+- The ability to create 3 "[bug bounties]({{ site.url }}/bug-bounties/)" every month, non transferable. If all bug bounties are not created by the end of the month, the remaining ones are lost.
 - Company logos on all [https://www.jhipster.tech](https://www.jhipster.tech) page footers (about 550,000 views/month on January, 2018).
 
 ## What will the project do with the money?
@@ -51,13 +51,13 @@ Anyone can file an expense. If the expense makes sense for the development of th
 
 Money will first be used to cover direct project costs:
 
+- [Bug bounties]({{ site.url }}/bug-bounties/)
 - Website hosting
 - Developer tooling
+- Legal protection
 
 Then, money will be used to:
 
 - Pay for project goodies
 - Pay Meetup fees
 - Pay expenses for developer gatherings: travel & food expenses for core team meetings
-
-And if we have enough money, we might in the future give "bug bounties" to developers who correct major bugs, add impressive new features, or fix "hipster tickets" that were raised by silver and gold sponsors.
