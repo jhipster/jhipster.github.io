@@ -104,7 +104,7 @@ If you want to use Oracle, you will need to [install the Oracle JDBC driver manu
 This is the database you will use with your "development" profile. You can either use:
 
 *   H2, running in-memory. This is the easiest way to use JHipster, but your data will be lost when you restart your server.
-*   H2, with its data stored on disk. This is currently in BETA test (and not working on Windows), but this would eventually be a better option than running in-memory, as you won't lose your data upon application restart.
+*   H2, with its data stored on disk. This is a better option than running in-memory, as you won't lose your data upon application restart.
 *   The same database as the one you chose for production: it's a bit more complex to set up, but it should be better in the end to work on the same database as the one you will use in production. This is also the best way to use liquibase-hibernate as described in [the development guide]({{ site.url }}/development/).
 
 To configure it, please modify your `src/main/resources/config/application-dev.yml` file.
