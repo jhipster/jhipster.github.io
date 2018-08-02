@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contributing Companies
+title: Contributing Individuals
 permalink: /contributing-individuals/
 sitemap:
     priority: 0.1
