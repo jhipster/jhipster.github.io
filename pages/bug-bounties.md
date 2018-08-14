@@ -10,7 +10,7 @@ sitemap:
 
 ## Introduction
 
-Any ticket opened on the [JHipster bug tracker](https://github.com/jhipster/generator-jhipster/issues) can have a "$100" label: the person who solves that ticket will get the money!
+Any ticket opened on the [JHipster bug tracker](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aissue+is%3Aopen+label%3A%24100) can have a "$100" label: the person who solves that ticket will get the money!
 
 ## Who can create bug bounties?
 
