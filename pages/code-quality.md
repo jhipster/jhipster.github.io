@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Setting up Continuous Integration
+title: Code Quality
 permalink: /code-quality/
 sitemap:
     priority: 0.7
-    lastmod: 2016-05-26T12:40:00-00:00
+    lastmod: 2018-08-18T12:40:00-00:00
 ---
 
 # <i class="fa fa-diamond"></i> Code quality
