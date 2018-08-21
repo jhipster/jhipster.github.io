@@ -21,19 +21,27 @@ This option has some limitations:
 
 When the Elasticsearch option is selected:
 
-*   Spring Data Elasticsearch is being used, and is automatically configured by Spring Boot ([here is the documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-nosql.html#boot-features-elasticsearch)).
+*   Spring Data Elasticsearch is used, with the help of [Spring Data Jest](https://github.com/VanRoy/spring-data-jest). Spring Data Jest which allows communication with Elasticsearch's REST API. It disables Spring Boot's autoconfiguration and uses its own instead.
 *   The "repository" package has new subpackage, called "search", that holds all ElastiSearch repositories.
 *   The "User" entity gets indexed in Elasticsearch, and you can query is using the `/api/_search/users/:query` REST endpoint.
 *   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the Angular/React user interface, so you can search your entity in the main CRUD screen.
 
 ### Using in Development
 
-In development, JHipster needs to use an external Elasticsearch instance (before JHipster 5, you could use an embedded Elasticsearch instance, but this feature has been removed in recent Elasticsearch releases).
+In development, JHipster runs with an embedded Elasticsearch instance. You can also use an external Elasticsearch instance if you set a `SPRING_DATA_JEST_URI` environment variable (or add it to your `application-dev.yml`). 
 
-The easiest way to run an Elasticsearch instance is to use the provided Docker Compose configuration:
+The easiest way to run an external Elasticsearch instance is to use the provided Docker Compose configuration:
 
     docker-compose -f src/main/docker/elasticsearch.yml up -d
+    
+Then set an environment variable to point to it:
+
+    export SPRING_DATA_JEST_URI=http://localhost:9200
 
 ### Using in Production
 
 In production, JHipster expects an external Elasticsearch instance. By default, the application looks for an Elasticsearch instance running on localhost. This can be configured by using the standard Spring Boot properties, in the `application-prod.yml` file.
+
+### Using on Heroku
+
+On Heroku, the [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai) is configured as an add-on. JHipster is automatically configured to talk to it. 
