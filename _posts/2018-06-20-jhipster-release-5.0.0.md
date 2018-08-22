@@ -47,6 +47,7 @@ Here is a summary of the release notes from our 4 beta releases of JHipster 5.0.
 - Much improved OAuth2 support thanks to the great work of [Fabien Arrault](https://github.com/farrault) which was integrated by [Matt Raible](https://github.com/mraible). Most of this work can be seen in [#7666](https://github.com/jhipster/generator-jhipster/pull/7666).
 - Migration from swagger-codegen to openapi-generator (which is a community-driven fork of swagger-codegen) has been done by [Christophe Bornet](https://github.com/cbornet), who is both a member of the JHipster core team and the openapi-generator team. More information on [#7728](https://github.com/jhipster/generator-jhipster/pull/7728).
 - Memcached support, as an alternative Spring Cache implementation. This will be much easier to use than Ehcache/Hazelcast/Infinispan on main cloud providers like Heroku, GCP and AWS.
+- "Social Login" using Google/Twitter/Facebook has been removed as Spring Social is not actively maintained anymore. Currently you can use Keycloack to achieve the same result, and in the near future you should be able to use our new OAuth2 support.
 
 ## Sub-generators and tooling
 
