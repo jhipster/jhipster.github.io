@@ -44,13 +44,6 @@ In order to claim the money, you must:
 - Create a Pull Request that fixes a ticket with the "$100" label.
 - In order to close the ticket automatically, you must have one commit message with the `Fix` keyword. For example, `Fix #1234` to close ticket `#1234`.
 - That Pull Request must be merged by someone from the core team. If there are several Pull Requests, the core team member either selects the most recent one or the best one - that's up to him to decide what is best for the project.
-- You can then [add a $100 expense on the JHipster OpenCollective](https://opencollective.com/generator-jhipster/expenses/new). You must add a link to your Pull Request in the description. For example: `$100 bug bounty claim for https://github.com/jhipster/generator-jhipster/pull/1234`.
-
-<div class="alert alert-error"><i>Tip: </i>
-
-**Important: In this step you will need to provide an invoice. See the [Open Collective FAQ for expenses](https://opencollective.com/faq/expenses) for more details, and to get a Google Docs template that you can use.**
-
-</div>
-
+- You can then [add a $100 expense on the JHipster OpenCollective](https://opencollective.com/generator-jhipster/expenses/new). You must add a link to your Pull Request in the description (for example: `$100 bug bounty claim for https://github.com/jhipster/generator-jhipster/pull/1234`). You will also need to provide an invoice, see the [Open Collective FAQ for expenses](https://opencollective.com/faq/expenses) for more details, and to get a Google Docs template that you can use.
 - Then, you must add a comment on your Pull Request, telling that you claimed the money, with a link to your OpenCollective expense. This is to be sure it is the same person who fixed the issue and claimed the money.
 - That expense will then be validated by [@jdubois](https://github.com/jdubois) and [@deepu105](https://github.com/deepu105), and you will receive your money on your Paypal account.
