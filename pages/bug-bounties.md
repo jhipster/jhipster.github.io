@@ -48,7 +48,7 @@ In order to claim the money, you must:
 
 <div class="alert alert-error"><i>Tip: </i>
 
-**Important: In this step you have to provide an Invoice. You will be provided a Google Docs template to help you do it. See the [Open Collective FAQ for expenses](https://opencollective.com/faq/expenses) for more details.**
+**Important: In this step you will need to provide an invoice. See the [Open Collective FAQ for expenses](https://opencollective.com/faq/expenses) for more details, and to get a Google Docs template that you can use.**
 
 </div>
 
