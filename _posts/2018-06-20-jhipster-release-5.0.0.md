@@ -49,6 +49,29 @@ Here is a summary of the release notes from our 4 beta releases of JHipster 5.0.
 - Memcached support, as an alternative Spring Cache implementation. This will be much easier to use than Ehcache/Hazelcast/Infinispan on main cloud providers like Heroku, GCP and AWS.
 - "Social Login" using Google/Twitter/Facebook has been removed as Spring Social is not actively maintained anymore. Currently you can use Keycloack to achieve the same result, and in the near future you should be able to use our new OAuth2 support.
 
+As we also improved our database schema, our initial Liquibase changelog has been modified. To upgrade an existing schema (ie. JHipster 4.x), you can use the following changelog:
+
+```
+    <changeSet id="00000000000002" author="jhipster">
+        <modifyDataType columnName="email"
+                        newDataType="varchar(254)"
+                        tableName="jhi_user"/>
+    </changeSet>
+    <changeSet id="00000000000003" author="jhipster" >
+        <dropIndex  indexName="idx_user_login"
+                    tableName="jhi_user"/>
+    </changeSet>
+    <changeSet id="00000000000004" author="jhipster" >
+        <dropIndex  indexName="idx_user_email"
+                    tableName="jhi_user"/>
+    </changeSet>
+    <changeSet id="00000000000005" author="jhipster" >
+        <addNotNullConstraint   columnName="password_hash"
+                                columnDataType="varchar(60)"
+                                tableName="jhi_user"/>
+    </changeSet>
+```
+
 ## Sub-generators and tooling
 
 - JDL v2 with application generation support [#7339](https://github.com/jhipster/generator-jhipster/pull/7339)
