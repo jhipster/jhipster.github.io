@@ -35,7 +35,6 @@ JHipster applications configured to the following databases will find services t
   - You can create an instance with [Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/?WT.mc_id=online-jhipster-brborges)
 - Apache Cassandra / MongoDB
   - You can set compatible APIs for Cassandra or MongoDB on [Azure CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/?WT.mc_id=online-jhipster-brborges) instances
-  - 
 
 ## Before you start
 
