@@ -2,8 +2,6 @@
 layout: default
 title: Deploying to Microsoft Azure
 permalink: /azure/
-# redirect_from:
-#   - /azure.html
 sitemap:
     priority: 0.7
     lastmod: 2018-08-24T00:00:00-00:00
@@ -17,7 +15,7 @@ Deploying JHipster applications to Microsoft Azure are as easy as deploying Dock
 
 Developers can obtain an [Azure Trial subscription](http://azure.microsoft.com/free?WT.mc_id=online-jhipster-brborges) and perform all the deployment options below with the free credits provided to the trial account. Some of the services covered below also offer a free quota based on hours of compute and/or number of applications, that will not incur consumption of the granted free credits.
 
-For web applications, the best service to get started with is [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/?WT.mc_id=online-jhipster-brborges), and in general Azure comes with three key ways to deploy applications: (1) using the [Azure Dashboard](https://ms.portal.azure.com/); (2) using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?WT.mc_id=online-jhipster-brborges) or; (3) using the [Maven Plugin](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?WT.mc_id=online-jhipster-brborges). 
+For web applications, the best service to get started with is [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/?WT.mc_id=online-jhipster-brborges), and in general Azure comes with three key ways to deploy applications: (1) using the [Azure Dashboard](https://ms.portal.azure.com/); (2) using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?WT.mc_id=online-jhipster-brborges) or; (3) using the [Maven Plugin](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?WT.mc_id=online-jhipster-brborges).
 
 This documentation covers some of these methods, but not all of them and not all possible services either. For more details, check the [Azure Documentation](https://docs.microsoft.com/azure?WT.mc_id=online-jhipster-brborges) website.
 
@@ -69,11 +67,11 @@ To proceed with the deployment, follow these steps:
     ```
 1. Build your project with the following command, and adjust your profile accordingly:
     ```sh
-        mvn clean package -Pdev -Dspring-boot.repackage.skip=true
+        ./mvnw clean package -Pdev -Dspring-boot.repackage.skip=true
     ```
 1. Deploy your application:
     ```sh
-        mvn azure-webapp:deploy
+        ./mvnw azure-webapp:deploy
     ```
 
 For up-to-date information about the Maven Plugin for Azure App Service, check the [documentation](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?WT.mc_id=online-jhipster-brborges).
@@ -87,7 +85,7 @@ Once you have an ACR created, you can generate your JHipster Docker image and pu
 1. Imagine you have a JHipster application called `myjhipsterapp`.
 1. Build a Docker image for your monolithic JHipster project:
     ```sh
-        mvn package -Pdev dockerfile:build
+        ./mvnw package -Pdev dockerfile:build
     ```
 1. Tag and push your generated Docker image to your ACR instance. For example:
     ```sh
