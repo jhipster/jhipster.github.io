@@ -118,7 +118,11 @@ Here is a documentation for those properties:
                 client-secret: # OAuth client secret
             authentication:
                 jwt: # JHipster specific JWT implementation
-                    secret: # JWT secret key
+                    # The secret token should be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line).
+                    # If the "base64-secret" property is empty, then the application will try to use the "secret" property, which is 
+                    # less secure.
+                    secret: # JWT secret key in clear text (not recommended)
+                    base64-secret:  # JWT secret key encoded in Base64 (recommended)
                     token-validity-in-seconds: 86400 # Token is valid 24 hours
                     token-validity-in-seconds-for-remember-me: 2592000 # Remember me token is valid 30 days
 
