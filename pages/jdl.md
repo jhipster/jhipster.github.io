@@ -208,6 +208,7 @@ entity C
 entity D
 
 dto * with mapstruct
+service * with serviceClass
 paginate D with pager
 ```
 
@@ -516,14 +517,14 @@ entity C
 
 dto C with mapstruct
 paginate * with pager except C
-search A with elasticSearch
+search A with elasticsearch
 ```
 
 Here's its equivalent with annotations:
 
 ```
 @paginate(pager)
-@search(elasticSearch)
+@search(elasticsearch)
 entity A
 
 @paginate(pager)
