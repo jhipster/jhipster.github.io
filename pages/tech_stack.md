@@ -25,7 +25,7 @@ Single Web page application:
 
 With the great development workflow:
 
-*   Easy installation of new JavaScript libraries with [Yarn](https://yarnpkg.com/)
+*   Easy installation of new JavaScript libraries with [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/)
 *   Build, optimization and live reload with [Webpack](https://webpack.js.org/)
 *   Testing with [Jest](https://facebook.github.io/jest/) and [Protractor](http://www.protractortest.org)
 

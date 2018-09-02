@@ -60,7 +60,7 @@ UI unit tests are located in the `src/test/javascript/spec` folder. They use [Je
 
 Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
 
-*   Those tests can be run using `yarn test`.
+*   Those tests can be run using `npm test`.
 *   Tip: if you want to focus on a single test change the module description from `describe('...', function() {` to `fdescribe('...', function() {` and Jest will run this test only.
 
 ### Protractor
@@ -69,7 +69,7 @@ UI integration tests are done with [Protractor](https://angular.github.io/protra
 
 Those tests will launch a Web browser and use the application like a real user would do, so you need to have a real application running, with its database set-up.
 
-Those tests can be run using `yarn e2e`.
+Those tests can be run using `npm run e2e`.
 
 ## Performance tests
 

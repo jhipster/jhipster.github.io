@@ -30,15 +30,6 @@ The resulting configuration is: `http://username:password@host:port`
 
 If your use [Cntlm](http://cntlm.sourceforge.net/), then your configuration would be: `127.0.0.1:3128`. Otherwise, follow the next steps to configure each tool individually.
 
-## Yarn configuration
-
-Use these commands:
-
-```
-yarn config set proxy http://username:password@host:port
-yarn config set https-proxy http://username:password@host:port
-```
-
 ## NPM configuration
 
 Use these commands:
@@ -54,6 +45,15 @@ Or you can edit directly your `~/.npmrc` file:
 proxy=http://username:password@host:port
 https-proxy=http://username:password@host:port
 https_proxy=http://username:password@host:port
+```
+
+## Yarn configuration
+
+Use these commands:
+
+```
+yarn config set proxy http://username:password@host:port
+yarn config set https-proxy http://username:password@host:port
 ```
 
 ## Git configuration

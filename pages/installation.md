@@ -6,18 +6,18 @@ redirect_from:
   - /installation.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-12-21T00:00:00-00:00
+    lastmod: 2018-08-30T08:20:00-00:00
 ---
 
 # <i class="fa fa-cloud-download"></i> Installing JHipster
 
 ## Installation types
 
-We provide 6 ways of working with JHipster. If in doubt, choose our 2nd option, "Local installation with Yarn":
+We provide 6 ways of working with JHipster. If in doubt, choose our 2nd option, "Local installation with NPM":
 
 *   [JHipster Online](https://start.jhipster.tech/) is a simple way to generate an application without installing JHipster in the first place.
-*   "Local installation with Yarn" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
-*   "Local installation with NPM" is the same as classical "local installation with Yarn", but using NPM instead of [Yarn](https://yarnpkg.com/)
+*   "Local installation with NPM" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
+*   "Local installation with Yarn" is the same as classical "Local installation with NPM", but using [Yarn](https://yarnpkg.com/) instead of NPM
 *   "Installation with a package manager" is only available for Mac OS X and Windows. This is a very simple installation method, if you use a package manager, but it is still in BETA.
 *   The Vagrant-based "[development box](https://github.com/jhipster/jhipster-devbox)", with all tools already set up in a Ubuntu-based virtual machine.
 *   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight container with JHipster installed.
@@ -28,19 +28,19 @@ We provide 6 ways of working with JHipster. If in doubt, choose our 2nd option, 
 
 This is intended for people trying JHipster for the first time, or who just want to have a look at what JHipster provides.
 
-While it is easier to use, it is not the "full JHipster experience", and once your application is generated you will still need to follow most of the steps from the next section ("Local installation with Yarn"), as you will still need Java (to run your application) and Yarn (to manage your front-end code).
+While it is easier to use, it is not the "full JHipster experience", and once your application is generated you will still need to follow most of the steps from the next section ("Local installation with NPM"), as you will still need Java (to run your application) and NPM (to manage your front-end code).
 
 In the future, we expect JHipster Online to provide more features, of course.
 
-## Local installation with Yarn (recommended for normal users)
+## Local installation with NPM (recommended for normal users)
 
 ### Quick setup
 
 1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 2.  Install Node.js from [the Node.js website](http://nodejs.org/) (please use an LTS 64-bit version, non-LTS versions are not supported)
-3.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
-4.  If you want to use the JHipster Marketplace, install Yeoman: `yarn global add yo`
-5.  Install JHipster: `yarn global add generator-jhipster`
+3.  NPM is installed with Node.js but you need to upgrade it: `npm install -g npm`
+4.  If you want to use the JHipster Marketplace, install Yeoman: `npm install -g yo`
+5.  Install JHipster: `npm install -g generator-jhipster`
 
 Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
 
@@ -53,27 +53,29 @@ Now that JHipster is installed, your next step is to [create an application]({{ 
     * JHipster will try to commit your project to Git, if it is installed.
     * The [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) requires to have Git installed.
 
+### Additional information
+
+JHipster uses [Yeoman](http://yeoman.io/) for code generation.
+To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
+
+The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommended not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, simply delete the `.yo-rc.json` file.
+
+## Local installation with Yarn (alternative to NPM)
+
+### Quick setup
+
+This is the same procedure as using NPM, with two differences:
+
+1. Instead of upgrading NPM in step 3, install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
+2. Use `yarn global add` instead of `npm install -g`, for example:
+    * To install Yeoman, type: `yarn global add yo`
+    * To install JHipster, type: `yarn global add generator-jhipster`
+
 ### Troubleshooting
 
 If you have problems using Yarn globally, be sure to have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
 
 On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
-
-JHipster uses [Yeoman](http://yeoman.io/) for code generation.
-To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [Yarn documentation](https://yarnpkg.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
-
-The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommended not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, simply delete the `.yo-rc.json` file.
-
-## Local installation with NPM (alternative to Yarn)
-
-This is the same procedure as using Yarn, with two differences:
-
-1. Instead of installing Yarn in step 3, update NPM: `npm install -g npm`
-2. Use `npm install -g` instead of `yarn global add`, for example:
-    * To install Yeoman, type: `npm install -g yo`
-    * To install JHipster, type: `npm install -g generator-jhipster`
-
-You can find more information in the [NPM documentation](https://docs.npmjs.com/).
 
 ## Installation with a package manager
 
@@ -83,21 +85,21 @@ __Please note this is a BETA feature!__ If you selected this installation, don't
 
 JHipster provides a [Homebrew](https://brew.sh/) package, available on [http://formulae.brew.sh/formula/jhipster](http://formulae.brew.sh/formula/jhipster).
 
-To install JHipster (as well as Node and Yarn), just type:
+To install JHipster (as well as Node and NPM), just type:
 
     brew install jhipster
 
-New versions of this package are published each time a new JHipster release is created, but it might take time for the Homebrew team to validate this package - so if you have an older JHipster release, please be patient or use the Yarn installation above.
+New versions of this package are published each time a new JHipster release is created, but it might take time for the Homebrew team to validate this package - so if you have an older JHipster release, please be patient or use the NPM installation above.
 
 ### Installation with Chocolatey on Windows
 
 JHipster provides a [Chocolatey](https://chocolatey.org/) package, available on [https://chocolatey.org/packages/jhipster](https://chocolatey.org/packages/jhipster).
 
-To install JHipster (as well as Node, Yarn, Yeoman, Java and Git), just type:
+To install JHipster (as well as Node, NPM, Yeoman, Java and Git), just type:
 
     choco install jhipster
 
-New versions of this package are published each time a new JHipster release is created, but it might take time for the Chocolatey team to validate this package - so if you have an older JHipster release, please be patient or use the Yarn installation above.
+New versions of this package are published each time a new JHipster release is created, but it might take time for the Chocolatey team to validate this package - so if you have an older JHipster release, please be patient or use the NPM installation above.
 
 ## Vagrant box installation
 
@@ -208,7 +210,7 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-On Windows, you need to execute the Docker Quick Terminal as Administrator to be able to create symlinks during the `yarn install` step.
+On Windows, you need to execute the Docker Quick Terminal as Administrator to be able to create symlinks during the `npm install` step.
 
 </div>
 
@@ -236,7 +238,7 @@ You can then go to the /home/jhipster/app directory in your container, and start
 
 <div class="alert alert-info"><i>Tip: </i>
 
-If you are having issues with Yarn, you can use <code>jhipster --npm</code>, to use NPM instead of Yarn.
+If you prefer using Yarn, you can use <code>jhipster --yarn</code>, to use Yarn instead of NPM.
 
 </div>
 
