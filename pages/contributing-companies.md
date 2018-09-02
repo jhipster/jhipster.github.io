@@ -13,9 +13,9 @@ sitemap:
 
 ## Companies contributing to JHipster
 
-*   [Ippon Technologies](http://www.ippon.fr/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) so he can improve the project.
+*   [Ippon Technologies](http://www.ippon.fr/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) so he can improve the project. Ippon Technologies also provides 1 day per month to contribute for everyone who is in Julien's team, as well as 2 paid internships every year on the project.
 *   [XebiaLabs](https://xebialabs.com/), which provides time and hardware to [@deepu105](https://twitter.com/deepu105) so he can improve the project.
-*   [Okta](https://developer.okta.com/), which provides time and hardware to [@mraible](https://twitter.com/mraible) so he can improve the project. They also contributed the [OIDC support]({{ site.url }}/security/#oauth2) and [Ionic module]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic). 
+*   [Okta](https://developer.okta.com/), which provides time and hardware to [@mraible](https://twitter.com/mraible) so he can improve the project. They also contributed the [OIDC support]({{ site.url }}/security/#oauth2) and [Ionic module]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic).
 *   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/). It is maintained by [Ray Tsang](https://twitter.com/saturnism).
 *   [Heroku](https://www.heroku.com/) contributed the [Heroku sub-generator]({{ site.url }}/heroku/). It is maintained by [Joe Kutner](https://twitter.com/codefinger).
 *   [Boxfuse](https://boxfuse.com/) has added [specific support for JHipster]({{ site.url }}/boxfuse/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
@@ -28,9 +28,8 @@ sitemap:
 
 These companies help us to develop JHipster
 
-*   [Google](https://google.com), which gave the project $5000 worth of "Google cloud credits" in 2016.
+*   [Google](https://google.com), which has given the project $7,000 worth of "Google cloud credits" since 2016.
 *   JetBrains, which provides us free licenses for the incredible [IntelliJ IDEA, ultimate edition](http://www.jetbrains.com/idea). A true hipster would never code with Eclipse :-)
-*   [npms.io](https://npms.io/) which provides the search engine used for our marketplace.
 *   Pivotal, which gives us free credits on their [Pivotal Web Services](http://run.pivotal.io/) cloud
 *   [ElephantSQL](http://www.elephantsql.com/), which gives us several of their "Pretty Panda" Postgresql databases.
 *   YourKit, LLC, which gives us free licenses for the [YourKit Java profiler](http://www.yourkit.com/java/profiler/index.jsp).
@@ -40,10 +39,10 @@ These companies help us to develop JHipster
 
 JHipster works closely with other OSS communities, which often contributes code, advice and reviews to the project.  Important contributions have been made by:
 
-*   [UI Router](https://ui-router.github.io/), the Angular router used by JHipster.
-*   [Webpack](https://webpack.github.io/), the module bundler that JHipster uses for its Angular 2 support.
-*   [Gradle](https://gradle.org/), one of the build supported by JHipster.
-*   [Angular](https://angular.io/), one of the Client framework supported by JHipster.
+*   [Webpack](https://webpack.github.io/), the module bundler that JHipster uses for its Angular and React support.
+*   [Gradle](https://gradle.org/), one of the build tools supported by JHipster.
+*   [Angular](https://angular.io/).
+*   [UI Router](https://ui-router.github.io/), the Angular router used until JHipster 4.
 
 ## Special thanks
 

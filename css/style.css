@@ -689,7 +689,7 @@ input.gsc-search-button {
   border-radius: 1px;
   padding: 0; }
   .thumbnail .caption {
-    padding: 0.5em 1.2em; }
+    padding: 0.5em 1.2em !important; }
     .thumbnail .caption .h1,
     .thumbnail .caption .h2,
     .thumbnail .caption .h3,
@@ -1539,7 +1539,7 @@ footer {
   padding-top: 30px;
   height: 0;
   overflow: hidden; }
-  .video-container iframe, .video-container object, .video-container embed {
+  .video-container iframe, .video-container object, .video-container embed, .video-container img {
     position: absolute;
     top: 0;
     left: 0;
@@ -1547,7 +1547,8 @@ footer {
     height: 100%; }
 
 .logo-container {
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 5px; }
   .logo-container a {
     display: inline-block;
     width: 100%;

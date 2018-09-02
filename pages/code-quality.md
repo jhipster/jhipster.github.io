@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Setting up Continuous Integration
+title: Code Quality
 permalink: /code-quality/
 sitemap:
     priority: 0.7
-    lastmod: 2016-05-26T12:40:00-00:00
+    lastmod: 2018-08-18T12:40:00-00:00
 ---
 
 # <i class="fa fa-diamond"></i> Code quality
@@ -19,13 +19,13 @@ JHipster provides a specific Docker Compose configuration for Sonar ([here is th
 
 If you use Maven, it has been automatically configured:
 
-    ./mvnw clean test sonar:sonar
+    ./mvnw -Pprod clean test sonar:sonar
 
 If you use Gradle, it has also been automatically configured:
 
-    ./gradlew clean test sonarqube
+    ./gradlew -Pprod clean test sonarqube
 
-Once the analysis completes, it will be available on the Sonar dashboard, which by default is available on [http://127.0.0.1:9000/](http://127.0.0.1:9000/).
+Once the analysis completes, it will be available on the Sonar dashboard, which by default is available on [http://127.0.0.1:9001/](http://127.0.0.1:9001/).
 
 ## Automatic analysis of the default generated project
 

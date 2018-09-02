@@ -25,6 +25,7 @@ These are the currently supported languages
 
 *   Arabic (Libya)
 *   Armenian
+*   Belarusian
 *   Indonesian
 *   Catalan
 *   Chinese (Simplified)

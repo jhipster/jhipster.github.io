@@ -15,7 +15,7 @@ JHipster provides several options to monitor your applications at runtime.
 1. [Generated dashboards](#generated-dashboards)
 2. [JHipster Registry](#jhipster-registry)
 3. [JHipster Console](#jhipster-console)
-4. [Forwarding metrics to a supported third party monitoring system (JMX, Graphite, Prometheus)](#metrics-exporters)
+4. [Forwarding metrics to a supported third party monitoring system](#metrics-exporters)
 5. [Zipkin](#zipkin)
 6. [Alerting with Elastalert](#elastalert)
 
@@ -165,25 +165,17 @@ You can then put this data in a JSON file in one of the `jhipster-console/dashbo
 
 If you have created useful dashboards and visualizations for your JHipster applications please consider contributing those back to the community by submitting a Pull Request on the [JHipster Console's GitHub project](https://github.com/jhipster/jhipster-console).
 
-## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Graphite, Prometheus)
+## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX)
 
-JHipster also provides Metrics exporters for JMX, [Graphite](https://graphiteapp.org/) and [Prometheus](https://prometheus.io/).
+JHipster also provides a Metrics exporters for JMX.
 
 Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
 
     jhipster:
         metrics:
             jmx.enabled: true
-            graphite: # Send metrics to a Graphite server
-                enabled: true
-                host: localhost
-                port: 2003
-                prefix: jhipster
-            prometheus: # Expose Prometheus metrics on the /prometheusMetrics endpoint
-                enabled: true
-                endpoint: /prometheusMetrics
 
-Note that in order to enable Prometheus metrics reporting, you will need to build it with the `prometheus` Maven/Gradle profile so that the Prometheus client libraries are available on the classpath.
+Note: Unlike in previous JHipster versions, JHipster 5 metrics reporting only support JMX out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://metrics.dropwizard.io/4.0.0/manual/graphite.html#manual-graphite).
 
 ## <a name="zipkin"></a> Zipkin
 

@@ -103,6 +103,8 @@ As by default Keycloak uses an embedded H2 database, you will lose the created u
 - Add a volume that will be persisted: `./keycloak-db:/opt/jboss/keycloak/standalone/data`
 - Change the migration strategy from `OVERWRITE_EXISTING`, to `IGNORE_EXISTING` (in the command section)
 
+In production, it is required by Keycloak that you use HTTPS. There are several ways to achieve this, including using a reverse proxy or load balancer that will manage HTTPS. We recommend that you read the [Keycloak HTTPS documentation](https://www.keycloak.org/docs/latest/server_installation/index.html#setting-up-https-ssl) to learn more about this topic.
+
 ### Okta
 
 If you'd like to use Okta instead of Keycloak, you'll need to change a few things. First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.oktapreview.com`.

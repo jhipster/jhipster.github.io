@@ -79,6 +79,33 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/17642361?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Christopher Dionisio</h3>
+                <p><a href="https://twitter.com/chris_dns"><i>@chris_dns</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/3706415?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Daniel Franco</h3>
+                <p><a href="https://twitter.com/dandrfranco"><i>@dandrfranco</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/9017981?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Alexandre Gaspard-Cilia</h3>
+                <p><a href="https://twitter.com/Screach_FR"><i>@Screach_FR</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/66230?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Zsombor Gegesy</h3>
@@ -106,6 +133,15 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/3100637?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Erik Kemperman</h3>
+                <p><a href="https://twitter.com/erikkemperman"><i>@erikkemperman</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/12471122?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Sendil Kumar N</h3>
@@ -115,10 +151,10 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/3100637?v=3" class="img-responsive">
+            <img src="https://avatars.githubusercontent.com/u/1589?v=3" class="img-responsive">
             <div class="caption">
-                <h3>Erik Kemperman</h3>
-                <p><a href="https://twitter.com/erikkemperman"><i>@erikkemperman</i></a></p>
+                <h3>Joe Kutner</h3>
+                <p><a href="https://twitter.com/codefinger"><i>@codefinger</i></a></p>
             </div>
         </div>
     </div>

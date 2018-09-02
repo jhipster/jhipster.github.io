@@ -37,7 +37,7 @@ In the future, we expect JHipster Online to provide more features, of course.
 ### Quick setup
 
 1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2.  Install Node.js from [the Node.js website](http://nodejs.org/) (prefer an LTS 64-bit version)
+2.  Install Node.js from [the Node.js website](http://nodejs.org/) (please use an LTS 64-bit version, non-LTS versions are not supported)
 3.  Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
 4.  If you want to use the JHipster Marketplace, install Yeoman: `yarn global add yo`
 5.  Install JHipster: `yarn global add generator-jhipster`
@@ -61,6 +61,8 @@ On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/glob
 
 JHipster uses [Yeoman](http://yeoman.io/) for code generation.
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) and at the [Yarn documentation](https://yarnpkg.com/) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
+
+The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommended not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, simply delete the `.yo-rc.json` file.
 
 ## Local installation with NPM (alternative to Yarn)
 
