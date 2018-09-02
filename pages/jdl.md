@@ -791,14 +791,14 @@ Here are the application options supported in the JDL:
   </tr>
   <tr>
     <td>clientPackageManager</td>
-    <td>yarn</td>
-    <td>yarn, npm</td>
+    <td>npm</td>
+    <td>npm, yarn</td>
     <td></td>
   </tr>
   <tr>
     <td>databaseType</td>
     <td>sql</td>
-    <td>sql, mongodb, cassandra, couchbase</td>
+    <td>sql, mongodb, cassandra, couchbase, no</td>
     <td></td>
   </tr>
   <tr>
