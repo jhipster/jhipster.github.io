@@ -39,7 +39,7 @@ Once the application is generated, you can launch it using Maven (`./mvnw` on Li
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start` or `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## <a name="2"></a> Questions asked when generating an application
 
@@ -216,7 +216,7 @@ Here are the options you can pass:
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--skip-checks` - Skip the check of the required tools (Default: false)
 * `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
-* `--npm` - Use NPM instead of Yarn (Default: false)
+* `--yarn` - Use Yarn instead of NPM (Default: false)
 * `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
 
 ## <a name="4"></a> Tips

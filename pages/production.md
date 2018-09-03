@@ -123,7 +123,7 @@ With the `prod` profile, JHipster configures a Servlet filter that puts specific
 
 This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, please run:
 
-`yarn run webpack:build`
+`npm run webpack:build`
 
 This will use [Webpack](https://webpack.github.io/) to process all your static resources (CSS, TypeScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
 

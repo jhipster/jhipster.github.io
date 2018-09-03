@@ -85,9 +85,9 @@ _This step is required to see changes in your TypeScript code and have live relo
 
 Running Webpack is the default task in the `package.json` file, so you just need to run:
 
-`yarn start`
+`npm start`
 
-(or, if you use NPM, `npm start`).
+(or, if you use Yarn, `yarn start`).
 
 This provides very impressive features:
 
@@ -101,22 +101,22 @@ This will launch:
 - A BrowserSync task that will run on [http://localhost:9000/](http://localhost:9000/), which has a proxy to [http://localhost:9060/](http://localhost:9060/) (the Webpack "hot module reload" server), and which will synchronize the user's clicks/scrolls/inputs
 - The BrowserSync UI, which will be available on [http://localhost:3001/](http://localhost:3001/)
 
-### Running Yarn
+### Running NPM
 
-Direct project dependencies are configured into `package.json`, but transitive dependencies are defined into the `yarn.lock` file, that get generated when `yarn install` is run.
+Direct project dependencies are configured into `package.json`, but transitive dependencies are defined into the `package-lock.json` file, that get generated when `npm install` is run.
 
-It is advised to check `yarn.lock` [into source control](https://yarnpkg.com/en/docs/yarn-lock#toc-check-into-source-control), so that all team members of a project have the same versions of all dependencies. Running `yarn install` again will regenerate the `yarn.lock` with the latest versions of transitive dependencies.
+It is advised to check `package-lock.json`[https://docs.npmjs.com/files/package-lock.json] into source control, so that all team members of a project have the same versions of all dependencies. Running `npm install` again will regenerate the `package-lock.json` with the latest versions of transitive dependencies.
 
-### Other Yarn/NPM tasks
+### Other NPM/Yarn tasks
 
-Those tasks are the same whether you use Yarn or NPM, we use the `yarn` command as an example but you can replace it with `npm`.
+Those tasks are the same whether you use NPM or Yarn, we use the `npm` command as an example but you can replace it with `yarn`.
 
-- `yarn lint`: check for code style issues in the TypeScript code
-- `yarn lint:fix`: try to automatically correct TypeScript lint issues
-- `yarn tsc`: compile the TypeScript code
-- `yarn test`: run unit tests with Jest
-- `yarn test:watch`: keep the Jest unit tests running, for live feedback when code is changed
-- `yarn e2e`: run "end to end" tests with Protractor (only works if the Protractor option has been selected when the project was generated)
+- `npm run lint`: check for code style issues in the TypeScript code
+- `npm run lint:fix`: try to automatically correct TypeScript lint issues
+- `npm run tsc`: compile the TypeScript code
+- `npm run test`: run unit tests with Jest
+- `npm run test:watch`: keep the Jest unit tests running, for live feedback when code is changed
+- `npm run e2e`: run "end to end" tests with Protractor (only works if the Protractor option has been selected when the project was generated)
 
 ## <a name="using-a-database"></a> Using a database
 

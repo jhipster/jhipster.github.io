@@ -13,13 +13,13 @@ sitemap:
 
 Angular is using TypeScript instead of JavaScript, and as a result some specific tooling is necessary to work efficiently with it. Our [development]({{ site.url }}/development/) workflow for an Angular 2+ application is as below, use `npm` instead of `yarn` if you prefer that.
 
-1. When you generate an application the files are created and at the end of generation `yarn install` task is triggered.
-2. Once `yarn install` is complete it calls the `postInstall` script in `package.json`, this step triggers the `webpack:build` task.
+1. When you generate an application the files are created and at the end of generation `npm install` task is triggered.
+2. Once `npm install` is complete it calls the `postInstall` script in `package.json`, this step triggers the `webpack:build` task.
 3. Now you should have all files generated and compiled into the `www` folder inside the `target` or `build` folder based on the build tool (Maven or Gradle) selected.
 4. Now run `./mvnw` or `./gradlew` to launch the application server and it should be available at [localhost:8080](localhost:8080) this also serves the client side code compiled from the above steps.
-5. Now run `yarn start` in a new terminal to launch Webpack dev-server with BrowserSync. This will take care of compiling your TypeScript code, and automatically reloading your browser.
+5. Now run `npm start` or `yarn start` in a new terminal to launch Webpack dev-server with BrowserSync. This will take care of compiling your TypeScript code, and automatically reloading your browser.
 
-If you start making changes to the client side code without having `yarn start` running, nothing will be reflected as the changes are not compiled so you need to either run `yarn webpack:build` manually after changes or have `yarn start` running.
+If you start making changes to the client side code without having `npm start` or `yarn start` running, nothing will be reflected as the changes are not compiled so you need to either run `npm run webpack:build` manually after changes or have `npm start` or `yarn start` running.
 
 You can also force maven/gradle to run the `webpack:dev` task while starting by passing the `webpack` profile like `./mvnw -Pdev,webpack` or `./gradlew -Pdev -Pwebpack`. This is especially helpful after running a `clean` task.
 
@@ -216,10 +216,10 @@ Scaffold  | Usage
 
 ### Test
 
-For consistency purpose on JHipster application, tests execution are only available through the `yarn` command:
+For consistency purpose on JHipster application, tests execution are only available through the `npm` command:
 
 ```bash
-yarn test
+npm test
 ```
 
 ### i18n

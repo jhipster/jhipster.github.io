@@ -13,7 +13,7 @@ sitemap:
 
 _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need to run `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need to run `npm start` or `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ## Introduction
 
@@ -183,7 +183,7 @@ TIP: to regenerate all your entities at once, you can use the following commands
 
 This is a short tutorial on creating two entities (a Author and a Book) which have a one-to-many relationship.
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start` or `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 ### Generate the "Author" entity
 

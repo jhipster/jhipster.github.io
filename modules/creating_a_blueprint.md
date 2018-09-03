@@ -39,7 +39,7 @@ Or, you can use the [JHipster blueprint generator](https://github.com/jhipster/g
 To use the JHipster blueprint generator run the following commands
 
 ```bash
-yarn global add generator-jhipster-blueprint
+npm install -g generator-jhipster-blueprint
 
 mkdir my-blueprint && cd my-blueprint
 
@@ -186,8 +186,6 @@ npm link
 ```
 
 2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non-released JHipster version, like the master branch or your own custom fork)
-
-You could also use Yarn for this if you prefer
 
 ```bash
 cd generator-jhipster
