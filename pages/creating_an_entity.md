@@ -6,7 +6,7 @@ redirect_from:
   - /creating_an_entity.html
 sitemap:
     priority: 0.7
-    lastmod: 2014-10-10T00:00:00-00:00
+    lastmod: 2018-09-04T00:00:00-00:00
 ---
 
 # <i class="fa fa-bolt"></i> Creating an entity
@@ -40,6 +40,7 @@ Below are the supported options.
 
 *   `--table-name <table_name>` - By default JHipster will generate a table name based on your entity name, if you would like to have a different table name you can do so by passing this option.
 *   `--angular-suffix <suffix>` - If you want all your Angular routes to have a custom suffix you can pass that using this option.
+*   `--client-root-folder <folder-name>` - Use a root folder name for entities on the client side. By default it's empty for monoliths and the name of the microservice for gateways.
 *   `--regenerate` - This will regenerate an existing entity without asking any questions.
 *   `--skip-server` - This will skip the server-side code and will generate only the client-side code.
 *   `--skip-client` - This will skip the client-side code and will generate only the server-side code.
