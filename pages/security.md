@@ -41,7 +41,13 @@ This solution uses a secure token that holds the user's login name and authoriti
 
 ### Securing JWT
 
-- The secret key is configured in the `application.yml` file, as the `jhipster.security.authentication.jwt.secret` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry]({{ site.url }}/jhipster-registry/) (our recommended option), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
+- JHipster uses a secret key, which can be configured using two Spring Boot properties: `jhipster.security.authentication.jwt.secret` and `jhipster.security.authentication.jwt.base64-secret`.
+The second option uses a Base64-encoded string, so it is considered more secured and thus it is recommended. If both properties are configured, the `secret` property (less secured) will be used, for legacy reasons.
+A warning will be shown at application startup if you don't use the Base64 property.
+- Those keys should have a minimum length of 512 bits: if they are not long enough, you will not be able to use them to login. If that happens, there will be a clear warning at the console to explain that issue.
+- The secret keys are configured in the `application-*.yml` files. As those keys must be kept secret, you **should** store them in a secure way for your production profile.
+It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry]({{ site.url }}/jhipster-registry/) (our recommended option),
+using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
 ## <a name="session"></a> Session-based authentication
