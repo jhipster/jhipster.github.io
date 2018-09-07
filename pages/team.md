@@ -205,6 +205,15 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/1998883?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Ray Tsang</h3>
+                <p><a href="https://twitter.com/saturnism"><i>@saturnism</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/20539215?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Srinivasa Vasu</h3>
