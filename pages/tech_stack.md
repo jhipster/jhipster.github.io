@@ -15,17 +15,17 @@ sitemap:
 
 Single Web page application:
 
-*   [Angular 5](https://angular.io/) or [React](https://reactjs.org/)
+*   [Angular](https://angular.io/) or [React](https://reactjs.org/)
 *   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
-*   Compatible with IE11 and modern browsers
+*   Compatible with modern browsers (Chrome, FireFox, Microsoft Edge...)
 *   Full internationalization support
 *   Optional [Sass](https://www.npmjs.com/package/node-sass) support for CSS design
 *   Optional WebSocket support with Spring Websocket
 
 With the great development workflow:
 
-*   Easy installation of new JavaScript libraries with [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/)
+*   Easy installation of new JavaScript libraries with [NPM](https://www.npmjs.com/get-npm)
 *   Build, optimization and live reload with [Webpack](https://webpack.js.org/)
 *   Testing with [Jest](https://facebook.github.io/jest/) and [Protractor](http://www.protractortest.org)
 
@@ -66,4 +66,4 @@ Microservices are optional, and fully supported:
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance
 *   Builds a standard WAR file or an executable JAR file
 *   Full Docker and Docker Compose support
-*   Support for all major cloud providers: AWS, Cloud Foundry, Heroku, Kubernetes, OpenShift, Docker...
+*   Support for all major cloud providers: AWS, Cloud Foundry, Heroku, Kubernetes, OpenShift, Azure, Docker...
