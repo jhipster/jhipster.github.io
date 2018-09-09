@@ -277,7 +277,7 @@ Those discussion channels are publicly viewable, as everything we do in JHipster
 # How to join the board of developers?
 
 - Participate regularly in the project (commits, PRs, etc)
-- Ask someone from the current board, with some bio and background information, and he will submit a vote on the dev mailing list
+- Ask someone from the current board, with some bio and background information, and that person will submit a vote on the dev mailing list
 - Everybody on the dev mailing list can vote (+1 if they agree, -1 if they don’t)
     - Just one “-1” vote will reject the new member, but the person who votes “-1” will need to explain why
 
