@@ -95,4 +95,7 @@ You can easily update your CI builds with a depedendency check by running `./gra
 
 ## Client side
 
-*WIP*
+** Work In Progress**
+Regarding frontend dependencies, we didnt't find a reliable, mature enough and free tool to cover all the technologies JHipster provides (AngularJS, Angular, React and soon Vue.js).
+
+[Do no hesitate to contibute to this page](https://github.com/jhipster/jhipster.github.io) by providing your feedback and lesson learned on methods/tools to spot vulnerabilities for frontend dependencies.
