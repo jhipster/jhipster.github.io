@@ -69,7 +69,8 @@ You can now run `./mvnw verify` to generate a dependency check report under `tar
 
 ### Gradle
 [OWASP Gradle Dependency Check plugin documentation](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html)
-Create a file `gradle/security.groovy` with the following content
+
+Update your `build.gradle` to apply the [OWASP dependency-check-gradle plugin](https://plugins.gradle.org/plugin/org.owasp.dependencycheck)
 ```
 buildscript {
     repositories {
@@ -81,11 +82,11 @@ buildscript {
 }
 
 apply plugin: 'org.owasp.dependencycheck'
+
 if(project.hasProperty('strict-security')) {
   check.dependsOn dependencyCheckAnalyze
 }
-
-Add `apply from: 'gradle/security.gradle'` in your `build.groovy` script.
+```
 
 Now you can run `./gradlew dependencyCheckAnalyze` to generate a dependency check report under `build/report`.
 
