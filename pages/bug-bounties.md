@@ -23,7 +23,12 @@ At the moment, each bug bounty is $100 for the person solving that ticket.
 
 ## Where is the list of currently opened bug bounties?
 
-[Right here!](https://github.com/jhipster/generator-jhipster/labels/%24100) Happy bug hunting :-)
+Bug bounties are mostly available on the main project, but can also be opened on sub-projects under the JHipster organization on GitHub.
+
+- [Open bug bounties for the main project](https://github.com/jhipster/generator-jhipster/labels/%24100)
+- [Open bug bounties for the JHipster VueJS sub-project](https://github.com/jhipster/jhipster-vuejs/issues?q=is%3Aissue+is%3Aopen+label%3A%24100)
+
+Happy bug hunting :-)
 
 ## How bug bounties are created
 
