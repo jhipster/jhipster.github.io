@@ -52,20 +52,6 @@ Now click on the original `+` button which you used to add Spring in the first p
 
 You should now have Spring support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
 
-## JavaScript Code Support (not available in Community Edition)
-
-Go and open `IntelliJ IDEA → Preferences...`.
-
-![Settings]({{ site.url }}/images/configuring_ide_idea_5.png)
-
-Navigate to `Languages & Frameworks → Javascript → Bower` (or type "Bower" on the top search bar)
-
-![Navigate to Bower]({{ site.url }}/images/configuring_ide_idea_6.png)
-
-Point to your `bower.json`, which is located at the root of your project. The project's libraries, like Angular.js, should be automatically recognized.
-
-After configuring this you should have fairly extensive code support for the Javascript libraries in JHipster.
-
 ## Application "hot restart" with Spring Boot devtools
 
 [Spring Boot devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) is configured by JHipster, and will "hot restart" your application when classes from your project are compiled. This is a must-have feature, as it makes your application updated on the fly.
