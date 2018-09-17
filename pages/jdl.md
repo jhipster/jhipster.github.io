@@ -909,7 +909,7 @@ Here are the application options supported in the JDL:
   <tr>
     <td>testFrameworks</td>
     <td>[]</td>
-    <td>protactor, cucumber, gatling</td>
+    <td>protractor, cucumber, gatling</td>
     <td>Braces mandatory</td>
   </tr>
   <tr>
