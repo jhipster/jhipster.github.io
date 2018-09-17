@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Dependency Check
-permalink: /dependency-check/
+title: Dependency Vulnerabilities Check
+permalink: /dependency-vulnerabities-check/
 sitemap:
     priority: 0.7
     lastmod: 2018-09-15T19:00:00-00:00
