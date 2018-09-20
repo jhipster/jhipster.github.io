@@ -47,6 +47,7 @@ These are the currently supported languages
 *   Japanese
 *   Korean
 *   Marathi
+*   Myanmar
 *   Polish
 *   Portuguese
 *   Portuguese (Brazilian)
