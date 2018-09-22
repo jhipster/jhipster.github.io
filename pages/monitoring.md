@@ -15,7 +15,7 @@ JHipster provides several options to monitor your applications at runtime.
 1. [Generated dashboards](#generated-dashboards)
 2. [JHipster Registry](#jhipster-registry)
 3. [JHipster Console](#jhipster-console)
-4. [Forwarding metrics to a supported third party monitoring system](#metrics-exporters)
+4. [Forwarding metrics to a supported third party monitoring system](#configuring-metrics-forwarding)
 5. [Zipkin](#zipkin)
 6. [Alerting with Elastalert](#elastalert)
 
