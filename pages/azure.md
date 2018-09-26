@@ -85,7 +85,7 @@ Once you have an ACR created, you can generate your JHipster Docker image and pu
 1. Imagine you have a JHipster application called `myjhipsterapp`.
 1. Build a Docker image for your monolithic JHipster project:
     ```sh
-        ./mvnw package -Pdev dockerfile:build
+        ./mvnw package -Pprod jib:dockerBuild
     ```
 1. Tag and push your generated Docker image to your ACR instance. For example:
     ```sh
