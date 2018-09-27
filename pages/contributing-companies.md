@@ -29,7 +29,6 @@ sitemap:
 These companies help us to develop JHipster
 
 *   [Google](https://google.com), which has given the project $7,000 worth of "Google cloud credits" since 2016.
-*   JetBrains, which provides us free licenses for the incredible [IntelliJ IDEA, ultimate edition](http://www.jetbrains.com/idea). A true hipster would never code with Eclipse :-)
 *   Pivotal, which gives us free credits on their [Pivotal Web Services](http://run.pivotal.io/) cloud
 *   [ElephantSQL](http://www.elephantsql.com/), which gives us several of their "Pretty Panda" Postgresql databases.
 *   YourKit, LLC, which gives us free licenses for the [YourKit Java profiler](http://www.yourkit.com/java/profiler/index.jsp).
