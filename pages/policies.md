@@ -37,10 +37,9 @@ Adding an option only because it saves a couple of lines to code isn't a good us
 - It's easier to code those lines manually than to learn a new JHipster option
 - It will only make our generator more complex without adding any value
 
-## Policy 3: for the Java code, follow the default Eclipse formatting and coding guidelines
+## Policy 3: for the Java code, follow the default Intellij IDEA coding style
 
-There are many ways to format your code. We follow the default rules provided by Eclipse, are they
-are widely used and available through a free, Open Source IDE.
+There are many ways to format your code. We follow the default rules provided by Intellij IDEA.
 
 ## Policy 4: use strict versions for third-party libraries
 
