@@ -131,5 +131,15 @@ If you want your application to be featured here just submit a PR to the [websit
             <p><b>Created by:</b> <a href="https://www.linkedin.com/in/damien-gaillard-31bb80a5" target="_blank">Damien Gaillard</a></p>
          </div>
       </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="thumbnail no-margin-bottom">
+         <div class="video-container">
+            <img width="560" height="315" src="https://www.jhipster.tech/images/showcase/jhipsterpress.png" />
+         </div>
+         <div class="caption">
+            <h3 id="thumbnail-label"><a href="http://www.jhipsterpress.com" target="_blank">Open Source: JHipsterPress</a></h3>
+         </div>
+      </div>
    </div>
 </div>
