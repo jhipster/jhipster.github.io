@@ -145,7 +145,7 @@ command let us use `gcloud docker -- push` in order to push to the project conta
 
 Build your image
 
-    mvn package -Pprod dockerfile:build
+    mvn package -Pprod jibDockerBuild
 
 Tag the image (replace with your jhipster application name). We use v1 as a tag to be able to easily deploy new versions
 of the application or rollback if something goes horribly wrong.
