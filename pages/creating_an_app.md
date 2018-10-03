@@ -76,9 +76,9 @@ Answers to this question depend on previous answers. For example, if you selecte
 
 Here are all the possible options:
 
-*   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
-*   HTTP Session Authentication: the classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)).
-*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://www.okta.com), which handles authentication outside of the application.
+*   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice and what most people use.
+*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://www.okta.com), which handles authentication outside of the application. This is more secured than JWT, but it requires to set up an OpenID Connect server, so it's a bit more complex. Please note that by default JHipster will synchronize the user data from the OpenID Connect server, and for this it will need a database.
+*   HTTP Session Authentication: the classical session-based authentication mechanism, which is what people usually do with [Spring Security](http://docs.spring.io/spring-security/site/index.html).
 *   Authentication with JHipster UAA server: this uses a [JHipster UAA server]({{ site.url }}/using-uaa/) that must be generated separately, and which is an OAuth2 server that handles authentication outside of the application.
 
 You can find more information on our [securing your application]({{ site.url }}/security/) page.
@@ -87,11 +87,11 @@ You can find more information on our [securing your application]({{ site.url }}/
 
 You can choose between:
 
-- No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/))
 - An SQL database (H2, MySQL, MariaDB, PostgreSQL, MSSQL, Oracle), which you will access with Spring Data JPA
 - [MongoDB]({{ site.url }}/using-mongodb/)
 - [Cassandra]({{ site.url }}/using-cassandra/)
 - [Couchbase]({{ site.url }}/using-couchbase/)
+- No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/) with JWT authentication)
 
 ### Which _production_ database would you like to use?
 
