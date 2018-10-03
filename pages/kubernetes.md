@@ -81,11 +81,11 @@ If you use Google Container Registry to host your Docker images, it will be: `gc
 
 When your application is already deployed, you can re-deploy it by building a new Docker image:
 
-`./mvnw package -Pprod -DskipTests dockerfile:build`
+`./mvnw package -Pprod jib:dockerBuild`
 
 Or when using Gradle:
 
-`./gradlew -Pprod bootWar buildDocker -x test`
+`./gradlew bootWar -Pprod jibDockerBuild -x test`
 
 ### Pushing to Docker Hub
 
