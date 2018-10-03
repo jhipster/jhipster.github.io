@@ -7,9 +7,11 @@ sitemap:
     lastmod: 2018-10-04T00:00:00-00:00
 ---
 
-# <i class="fa fa-lock"></i> Using TLS and HTTP/2
+# <i class="fa fa-lock"></i> Using TLS and HTTP/2 in development
 
 ## Introduction
+
+This page is for using TLS and HTTP/2 in development (mainly for testing purposes). For production configuration, please read the [security section in the production documentation]({{ site.url }}/production/#security) .
 
 TLS is the protocol used when having an `https://` URL, and it is required in order to use HTTP/2 on modern browsers.
 
