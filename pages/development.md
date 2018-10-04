@@ -190,7 +190,7 @@ Here is the development workflow:
 *   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory
 *   Review this change log and add it to your `src/main/resources/config/liquibase/master.xml` file, so it is applied the next time you run your application
 
-If you use Gradle instead of Maven, you can use the same workflow by running `./gradlew liquibaseDiffChangelog`, and change the database configuration in `liquibase.gradle` if required.
+If you use Gradle instead of Maven, you can use the same workflow by running `./gradlew liquibaseDiffChangelog -PrunList=diffLog`, and change the database configuration in `build.gradle` in the liquibase configuration if required.
 
 ### Database updates by manually editing the change log
 
