@@ -25,6 +25,7 @@ JHipster should support the following CI systems out of the box:
     - [Setting up Jenkins 2]({{ site.url }}/setting-up-ci-jenkins2/) (recommended)
 - Travis: refer to the [Travis Documentation](https://docs.travis-ci.com/user/getting-started/)
 - GitLab CI: refer to the [GitLab CI Documentation](https://about.gitlab.com/gitlab-ci/)
+- Azure Pipelines: refer to the [Azure Pipelines Documentation](https://docs.microsoft.com/fr-fr/azure/devops/pipelines/?view=vsts)
 
 ## Running the sub-generator
 
@@ -40,6 +41,7 @@ Then answer all the questions.
 The CI/CD pipeline you want to generate:
 
 - Jenkins pipeline
+- Azure Pipelines
 - GitLab CI
 - Travis CI
 
