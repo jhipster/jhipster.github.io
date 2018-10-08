@@ -33,7 +33,6 @@
     <link rel="stylesheet" type="text/css" href="/lib/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/lib/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="/lib/css/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/lib/css/gh-fork-ribbon.min.css">
     <!-- CSS App -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/themes/flat-blue.css">
@@ -71,7 +70,7 @@
                             <i class="fa fa-th icon"></i>
                         </button>
                     </div>
-                    <ul class="nav navbar-nav navbar-center">
+                    <ul class="nav navbar-nav navbar-right">
                         {% if page.home == true %}
                         <li class="page-scroll">
                             <a href="#sponsors">Sponsors</a>
@@ -98,7 +97,7 @@
                             <a href="https://www.google.com/search?q=site:www.jhipster.tech" target="_blank">Search</a>
                         </li>
                         <li>
-                            <a href="https://github.com/jhipster/generator-jhipster" target="_blank" role="button">Github</a>
+                            <a href="https://github.com/jhipster/generator-jhipster" class="dropdown-toggle navlink" target="_blank" role="button"><i class="fa fa-github fa-2x"></i></a>
                         </li>
                         <li>
                             <button type="button" class="navbar-right-expand-toggle visible-xs pull-right light">
@@ -440,13 +439,6 @@
         </div>
         <!-- /#wrapper -->
     </div>
-    {% if page.home == false %}
-    <a class="github-fork-ribbon"
-    href="{{site.github.repository_url}}/edit/master/{{page.path}}"
-    data-ribbon="Edit me on GitHub"
-    title="Edit me on GitHub"
-    style="z-index:99999;position:fixed;">Edit me on GitHub</a>
-    {% endif %}
     <!-- Javascript Libs -->
     <script type="text/javascript" src="{{ site.url }}/lib/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}/lib/js/bootstrap.min.js"></script>
@@ -454,6 +446,7 @@
     <script type="text/javascript" src="{{ site.url }}/lib/js/mode-html.js"></script>
     <script type="text/javascript" src="{{ site.url }}/lib/js/theme-github.js"></script>
     <script type="text/javascript" src="{{ site.url }}/lib/js/jquery.easing.min.js"></script>
+
     {% if page.angularjs == true %}
     <script type="text/javascript" src="{{ site.url }}/lib/js/angular-1.4.8.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}/lib/js/angular-route-1.4.8.min.js"></script>
