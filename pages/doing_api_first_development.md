@@ -75,8 +75,8 @@ public class PetApiDelegateImpl implements PetApiDelegate {
 ```
 Then you can get the examples
 ```sh
-$ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/v2/pet/findByTags?tags=foo'
+$ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
 {  "photoUrls" : [ "photoUrls", "photoUrls" ],  "name" : "doggie",  "id" : 0,  "category" : {    "name" : "name",    "id" : 6  },  "tags" : [ {    "name" : "name",    "id" : 1  }, {    "name" : "name",    "id" : 1  } ],  "status" : "available"}%
-$ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/findByTags?tags=foo'
+$ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
 <Pet>  <id>123456789</id>  <name>doggie</name>  <photoUrls>    <photoUrls>aeiou</photoUrls>  </photoUrls>  <tags>  </tags>  <status>aeiou</status></Pet>%
 ```
