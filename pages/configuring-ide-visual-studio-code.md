@@ -62,6 +62,7 @@ For best performance, it's recommended to exclude some folders, in your project'
     // Configure glob patterns for excluding files and folders.
     "files.exclude": {
         "**/.git": true,
+        "**/.gradle": true,
         "**/.idea": true,
         "**/.mvn": true,
         "**/.svn": true,
@@ -73,6 +74,7 @@ For best performance, it's recommended to exclude some folders, in your project'
         "**/node": true,
         "**/node_modules": true,
         "**/bower_components": true,
+        "**/build": true,
         "**/target": true
     }
 }
