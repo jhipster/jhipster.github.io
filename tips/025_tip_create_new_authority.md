@@ -7,11 +7,11 @@ lastmod: 2018-10-05T18:20:00-00:00
 ---
 # How to create a new Authority
 
-Tip submitted by @Tonterias
+__Tip submitted by [@Tonterias](https://github.com/Tonterias)__
 
 Let's say that you need a new authority besides the given ones of ADMIN and USER.
 
-Modify /src/main/java/com/jhipsterpress/web/security/AuthoritiesConstants.java file to include your new authorities:
+Modify AuthoritiesConstants.java file to include your new authorities:
 
 	/**
 	 * Constants for Spring Security authorities.
@@ -28,7 +28,7 @@ Modify /src/main/java/com/jhipsterpress/web/security/AuthoritiesConstants.java f
 	    }
 	}
 
-Do not forget to include your new role in your /src/main/resources/config/liquibase/authorities.csv:
+Do not forget to include your new role in your authorities.csv:
 
 	name
 	ROLE_ADMIN
@@ -36,7 +36,7 @@ Do not forget to include your new role in your /src/main/resources/config/liquib
 	ROLE_ANONYMOUS
 
 
-With that, you will be able to use it in your /src/main/java/es3/config/SecurityConfiguration.java or in (src/main/java/com/jhipsterpress/web/web/rest/FrontpageconfigResource.java), for example:
+With that, you will be able to use it in your SecurityConfiguration.java or in (FrontpageconfigResource.java), for example:
 	
 	@DeleteMapping("/order-items/{id}")
 	@Timed
