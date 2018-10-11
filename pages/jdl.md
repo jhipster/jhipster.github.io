@@ -54,7 +54,7 @@ Here is the JDL documentation:
 
 # <a name="sample"></a> JDL Sample
 
-The Oracle "Human Resources" sample application has been translated into JDL, and is available [here](https://github.com/jhipster/jhipster-core/blob/master/lib/dsl/example.jh).
+The Oracle "Human Resources" sample application has been translated into JDL, and is available [here](https://github.com/jhipster/jdl-samples/blob/master/Oracle-Human-Resources-sample.jdl).
 The same application is loaded by default in [JDL-Studio](https://start.jhipster.tech/jdl-studio/) as well.
 
 If you're looking for more samples, there is a repo for that right [here](https://github.com/jhipster/jdl-samples).
