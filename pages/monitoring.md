@@ -172,8 +172,9 @@ JHipster also provides a Metrics exporters for JMX.
 Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
 
     jhipster:
-         jmx:
-            enabled: true
+        metrics:
+            jmx:
+                enabled: true
 
 Note: Unlike in previous JHipster versions, JHipster 5 metrics reporting only support JMX out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://metrics.dropwizard.io/4.0.0/manual/graphite.html#manual-graphite).
 
@@ -181,8 +182,9 @@ JHipster also supports [Prometheus](https://prometheus.io/) as a Metrics exporte
 in your YAML configuration file.
 
     jhipster:
-        prometheus:
-            enabled: true
+        metrics:
+            prometheus:
+                enabled: true
 
 This will export your metrics under `/prometheusMetrics`. As this endpoint is not secured, you can protect it with basic auth, such that 
 prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
