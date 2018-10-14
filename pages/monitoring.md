@@ -165,7 +165,7 @@ You can then put this data in a JSON file in one of the `jhipster-console/dashbo
 
 If you have created useful dashboards and visualizations for your JHipster applications please consider contributing those back to the community by submitting a Pull Request on the [JHipster Console's GitHub project](https://github.com/jhipster/jhipster-console).
 
-## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX)
+## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)
 
 JHipster also provides a Metrics exporters for JMX.
 
