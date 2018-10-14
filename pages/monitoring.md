@@ -172,10 +172,47 @@ JHipster also provides a Metrics exporters for JMX.
 Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
 
     jhipster:
-        metrics:
-            jmx.enabled: true
+         jmx:
+            enabled: true
 
 Note: Unlike in previous JHipster versions, JHipster 5 metrics reporting only support JMX out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://metrics.dropwizard.io/4.0.0/manual/graphite.html#manual-graphite).
+
+JHipster also supports [Prometheus](https://prometheus.io/) as a Metrics exporter. Prometheus is disabled by default and can be enabled 
+in your YAML configuration file.
+
+    jhipster:
+        prometheus:
+            enabled: true
+
+This will export your metrics under `/prometheusMetrics`. As this endpoint is not secured, you can protect it with basic auth, such that 
+prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
+
+    @Configuration
+    @Order(1)
+    @ConditionalOnProperty(prefix = "jhipster", name = "metrics.prometheus.enabled")
+    public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter {
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+                .antMatcher("/prometheusMetrics/**")
+                .authorizeRequests()
+                .anyRequest().hasAuthority(AuthoritiesConstants.ADMIN)
+                .and()
+                .httpBasic().realmName("jhipster")
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().csrf().disable();
+        }
+    }
+
+You can login with the default `admin/admin`. You must add following configuration to you prometheus configuration such that prometheus can still scrape your application.
+
+    basic_auth:
+        [ username: "admin" ]
+        [ password: "admin" ]
+
 
 ## <a name="zipkin"></a> Zipkin
 
