@@ -936,114 +936,106 @@ Here are the application options supported in the JDL:
 
 Here are the types supported in the JDL:
 
+Common DBs:
+  - SQL related
+  - PostgreSQL
+  - MySQL
+  - MariaDB
+  - Oracle
+  - MsSQL
+  - MongoDB
+  - Couchbase
+
 <table class="table table-striped table-responsive">
   <tr>
-    <th>SQL</th>
-    <th>MongoDB</th>
+    <th>Common DBs</th>
     <th>Cassandra</th>
     <th>Validations</th>
   </tr>
   <tr>
     <td>String</td>
     <td>String</td>
-    <td>String</td>
-    <td><dfn>required, minlength, maxlength, pattern</dfn></td>
+    <td><dfn>required, minlength, maxlength, pattern, unique</dfn></td>
   </tr>
   <tr>
     <td>Integer</td>
     <td>Integer</td>
-    <td>Integer</td>
-    <td><dfn>required, min, max</dfn></td>
+    <td><dfn>required, min, max, unique</dfn></td>
   </tr>
   <tr>
     <td>Long</td>
     <td>Long</td>
-    <td>Long</td>
-    <td><dfn>required, min, max</dfn></td>
+    <td><dfn>required, min, max, unique</dfn></td>
   </tr>
   <tr>
     <td>BigDecimal</td>
     <td>BigDecimal</td>
-    <td>BigDecimal</td>
-    <td><dfn>required, min, max</dfn></td>
+    <td><dfn>required, min, max, unique</dfn></td>
   </tr>
   <tr>
     <td>Float</td>
     <td>Float</td>
-    <td>Float</td>
-    <td><dfn>required, min, max</dfn></td>
+    <td><dfn>required, min, max, unique</dfn></td>
   </tr>
   <tr>
     <td>Double</td>
     <td>Double</td>
-    <td>Double</td>
-    <td><dfn>required, min, max</dfn></td>
+    <td><dfn>required, min, max, unique</dfn></td>
   </tr>
   <tr>
     <td>Enum</td>
-    <td>Enum</td>
     <td></td>
-    <td><dfn>required</dfn></td>
+    <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
     <td>Boolean</td>
     <td>Boolean</td>
-    <td>Boolean</td>
-    <td>required</td>
+    <td>required, unique</td>
   </tr>
   <tr>
     <td>LocalDate</td>
-    <td>LocalDate</td>
     <td></td>
-    <td><dfn>required</dfn></td>
+    <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
-    <td></td>
     <td></td>
     <td>Date</td>
-    <td><dfn>required</dfn></td>
+    <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
     <td>ZonedDateTime</td>
-    <td>ZonedDateTime</td>
     <td></td>
-    <td><dfn>required</dfn></td>
+    <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
-    <td></td>
     <td></td>
     <td>UUID</td>
-    <td><dfn>required</dfn></td>
+    <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
     <td>Blob</td>
-    <td>Blob</td>
     <td></td>
-    <td><dfn>required, minbytes, maxbytes</dfn></td>
+    <td><dfn>required, minbytes, maxbytes, unique</dfn></td>
   </tr>
   <tr>
     <td>AnyBlob</td>
-    <td>AnyBlob</td>
     <td></td>
-    <td><dfn>required, minbytes, maxbytes</dfn></td>
+    <td><dfn>required, minbytes, maxbytes, unique</dfn></td>
   </tr>
   <tr>
     <td>ImageBlob</td>
-    <td>ImageBlob</td>
     <td></td>
-    <td><dfn>required, minbytes, maxbytes</dfn></td>
+    <td><dfn>required, minbytes, maxbytes, unique</dfn></td>
   </tr>
   <tr>
     <td>TextBlob</td>
-    <td>TextBlob</td>
     <td></td>
-    <td><dfn>required</dfn></td>
+    <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
     <td>Instant</td>
     <td>Instant</td>
-    <td>Instant</td>
-    <td><dfn>required</dfn></td>
+    <td><dfn>required, unique</dfn></td>
   </tr>
 </table>
 
