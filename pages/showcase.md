@@ -139,6 +139,7 @@ If you want your application to be featured here just submit a PR to the [websit
          </div>
          <div class="caption">
             <h3 id="thumbnail-label"><a href="http://www.jhipsterpress.com" target="_blank">Open Source: JHipsterPress</a></h3>
+            <p><b>It takes 30+ secs to wake up JHipsterPress with Heroku free hosting.</a></p>
          </div>
       </div>
    </div>
