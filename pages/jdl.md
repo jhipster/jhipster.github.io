@@ -78,7 +78,7 @@ If you do not want to regenerate your entities while importing a JDL, you can us
 entity creation part and create only the json files in `.jhipster` folder.
 
     jhipster import-jdl ./my-jdl-file.jdl --json-only
-    
+
 By default `import-jdl` regenerates only entities that have changed, if you want all your entities to be regenerated
 then pass in the `--force`  flag.
 Please note that this will overwrite all your local changes to the entity files
@@ -88,7 +88,7 @@ Please note that this will overwrite all your local changes to the entity files
 If you want to use it in your project, you can add do so by doing:
   - NPM: `npm install jhipster-core --save`
   - Yarn: `yarn add jhipster-core`
-  
+
 to install it locally, and save it in your `package.json` file.
 
 ---
@@ -100,7 +100,7 @@ You can do these things with it:
   - Declare entities with their attributes,
   - Declare the relationships between them,
   - And declare some JHipster specific options.
-  
+
 If you wish to view the JDL's grammar, there is an HTML file available
 [here](https://github.com/jhipster/jhipster-core/blob/master/lib/dsl/gen/grammar.html).
 
@@ -229,7 +229,7 @@ Now, several things will happen when generating these applications and folders:
       - `D` in the second microservice
   - The `microservice` option is implicit for `C` and `D`
     - Because they get generated on the two microservices, this option will be set by default.
-  - Options work the same way as before 
+  - Options work the same way as before
 
 Note that the generator sets default values if they aren't present (like the `databaseType`).
 JHipster Core does the exact same things.
@@ -297,7 +297,7 @@ Here's a simple example:
 
     entity Book
     entity Author
-    
+
     relationship ManyToOne {
       Book to Author
     }
@@ -307,7 +307,7 @@ The previous example is equivalent to this one:
 
     entity Book
     entity Author
-    
+
     relationship ManyToOne {
       Book{author} to Author
     }
@@ -936,8 +936,7 @@ Here are the application options supported in the JDL:
 
 Here are the types supported in the JDL:
 
-Common DBs:
-  - SQL related
+Common databases:
   - PostgreSQL
   - MySQL
   - MariaDB
@@ -948,7 +947,7 @@ Common DBs:
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>Common DBs</th>
+    <th>Common databases</th>
     <th>Cassandra</th>
     <th>Validations</th>
   </tr>
