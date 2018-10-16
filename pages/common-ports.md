@@ -146,7 +146,11 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>18080</td>
-    <td>H2 (embedded database). Default port is normally 9092 but this would cause a conflict with Kafka, so it fixed as "1" + "Spring Boot port"</td>
+    <td>H2 (embedded database) running inside a monolith. Default port is normally 9092 but this would cause a conflict with Kafka, so it is fixed as "1" + "Spring Boot port"</td>
+  </tr>
+  <tr>
+    <td>18081</td>
+    <td>H2 (embedded database) running inside a microservice. See line above for more information</td>
   </tr>
   <tr>
     <td>27017</td>
