@@ -113,8 +113,16 @@ The ports here are listed in order, but the most common questions are for ports 
     <td>JHipster front-end development port with Webpack hot-reload</td>
   </tr>
   <tr>
+    <td>9090</td>
+    <td>Prometheus</td>
+  </tr>
+  <tr>
     <td>9092</td>
     <td>Kafka</td>
+  </tr>
+  <tr>
+    <td>9093</td>
+    <td>Prometheus alert manager</td>
   </tr>
   <tr>
     <td>9160</td>
@@ -127,14 +135,6 @@ The ports here are listed in order, but the most common questions are for ports 
   <tr>
     <td>9300</td>
     <td>Elasticsearch - transport connections (native API)</td>
-  </tr>
-  <tr>
-    <td>9090</td>
-    <td>Prometheus</td>
-  </tr>
-  <tr>
-    <td>9093</td>
-    <td>Prometheus alert manager</td>
   </tr>
   <tr>
     <td>9411</td>
