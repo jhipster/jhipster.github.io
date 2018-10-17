@@ -20,7 +20,7 @@ You can obtain [Google Cloud Platform free trial](https://cloud.google.com/free)
 
 ## Before you start
 
-Install and authenticate with the gcloud SDK on your local environment to access `gcloud` CLI. For more information, visit these links:
+Install and authenticate with the gcloud SDK on your local environment to access `gcloud` CLI. For more information, visit this link:
 
 - [Install gcloud SDK](https://cloud.google.com/sdk/install)
 
@@ -30,7 +30,7 @@ Google App Engine is a fully managed Platform as a Service that can automaticall
 
 You can use the Google App Engine generator to generate and deploy JHipster application.  Google App Engine generator is currently beta and supports monolith application, with Cloud DQL MySQL database.
 
-1. Generate a new monolith application: `jhipster app`
+1. Generate a new monolith application: `jhipster`
 1. Run Google App Engine generator: `jhipster gae`
 1. When prompted, create a new Cloud SQL instance if creating a brand new application
 
