@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Deploying to Google Cloud Platform
-permalink: /gcp
+permalink: /gcp/
 sitemap:
     priority: 0.5
     lastmod: 2018-10-02T00:00:00-00:00
