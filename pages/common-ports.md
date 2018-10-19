@@ -73,6 +73,10 @@ The ports here are listed in order, but the most common questions are for ports 
     <td>Couchbase - used by query services for REST/HTTP traffic</td>
   </tr>
   <tr>
+    <td>8180</td>
+    <td>Hazelcast management center</td>
+  </tr>
+  <tr>
     <td>8301</td>
     <td>Consul - serflan-tcp and serflan-udp</td>
   </tr>
