@@ -1,6 +1,7 @@
 {
     "verifiedModules": {
-        "generator-jhipster-fortune" : true
+        "generator-jhipster-fortune" : true,
+        "generator-jhipster-electron" : true
     },
     "blacklistedModules": {
         "generator-jhipster-webservice" : true,
