@@ -35,6 +35,6 @@ As the certificate is self-signed, your browser will issue a warning, and you wi
 
 ## Using TLS and HTTP/2 with Angular or React
 
-Instead of using `npm start` in order to run the front-end (with Webpack and BrowserSync), just run `npm start-tls`, and it will connect to the back-end running on `https://localhost:8080/`.
+Instead of using `npm start` in order to run the front-end (with Webpack and BrowserSync), just run `npm run start-tls`, and it will connect to the back-end running on `https://localhost:8080/`.
 
 Everything should then work the same as without TLS and HTTP/2.
