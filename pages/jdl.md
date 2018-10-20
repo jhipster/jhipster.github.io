@@ -682,7 +682,7 @@ DEFAULT_MAX = 41
 
 entity A {
   name String minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH)
-  content TextBlob minbytes(DEFAULT_MIN_BYTES) maxbytes(DEFAULT_MAX_BYTES)
+  content TextBlob required
   count Integer min(DEFAULT_MIN) max(DEFAULT_MAX)
 }
 ```
