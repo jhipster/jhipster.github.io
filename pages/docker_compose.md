@@ -51,7 +51,7 @@ You have to install Docker and Docker Compose:
 - [Docker](https://docs.docker.com/installation/#installation)
 - [Docker Compose](https://docs.docker.com/compose/install)
 
-Docker now requires creating an account to the docker store to download Docker for Mac and Docker for Windows. To bypass this 
+Docker now requires creating an account to the docker store to download Docker for Mac and Docker for Windows. To bypass this
 
 <div class="alert alert-info"><i>Tip: </i>
 
@@ -216,7 +216,7 @@ The Sonar reports will be available at: [http://localhost:9000](http://localhost
 
 If you chose OAuth 2.0 as your authentication, Keycloak is used as the default identity provider. Running `docker-compose -f src/main/docker/app.yml up` starts up Keycloak automatically.
 
-To make things work, you'll need to make sure to add the following to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
+To make Keycloak work, you need to add the following line to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
 
 ```
 127.0.0.1	keycloak
