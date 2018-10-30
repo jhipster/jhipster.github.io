@@ -808,6 +808,12 @@ Here are the application options supported in the JDL:
     <td>* + the prod database type</td>
   </tr>
   <tr>
+    <td>dtoSuffix</td>
+    <td>DTO</td>
+    <td></td>
+    <td>Suffix for DTOs</td>
+  </tr>
+  <tr>
     <td>enableHibernateCache</td>
     <td>true</td>
     <td></td>
@@ -824,6 +830,12 @@ Here are the application options supported in the JDL:
     <td>true</td>
     <td></td>
     <td></td>
+  </tr>
+  <tr>
+    <td>entitySuffix</td>
+    <td></td>
+    <td></td>
+    <td>Suffix for entities</td>
   </tr>
   <tr>
     <td>jhiPrefix</td>
