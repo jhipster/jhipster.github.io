@@ -472,8 +472,8 @@ entity A
 entity B
 entity C
 
-skipClient for A
-skipServer for B
+skipClient A
+skipServer B
 angularSuffix * with mySuperEntities
 filter C
 ```
