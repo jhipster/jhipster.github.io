@@ -54,7 +54,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>8080</td>
-    <td>JHipster application back-end development port (Spring Boot server) / Traefik admin UI</td>
+    <td>JHipster application back-end development port (Spring Boot server)</td>
   </tr>
   <tr>
     <td>8081</td>
@@ -159,5 +159,9 @@ The ports here are listed in order, but the most common questions are for ports 
   <tr>
     <td>27017</td>
     <td>MongoDB</td>
+  </tr>
+  <tr>
+    <td>28080</td>
+    <td>Traefik admin UI</td>
   </tr>
 </table>

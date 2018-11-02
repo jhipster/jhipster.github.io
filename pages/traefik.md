@@ -55,6 +55,6 @@ This will generate a `traefik.yml` configuration for running Traefik in Docker, 
 This configuration file is set up so that:
 
 - Traefik runs on port `80`, so if you have an application called `gateway`, you can reach it by going to [http://localhost/gateway/](http://localhost/gateway/).
-- The Traefik administration UI is available on port `8080`, so you can visit it at [http://localhost:8080](http://localhost:8080).
+- The Traefik administration UI is available on port `28080`, so you can visit it at [http://localhost:28080](http://localhost:28080).
 
 As Traefik is using Consul, it will also be useful to check the Consul administration UI, which is available on port `8500`: [http://localhost:8500](http://localhost:8500).
