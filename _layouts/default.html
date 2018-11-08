@@ -89,6 +89,9 @@
                         </li>
                         {% endif %}
                         {% if page.home != true %}
+                        <li class="page-scroll visible-md">
+                            <a href="{{site.github_repository_url}}/edit/master/{{page.path}}">Edit this page on GitHub</a>
+                        </li>
                         <li class="page-scroll">
                             <a href="{{ site.url }}/sponsors/">Sponsor</a>
                         </li>
