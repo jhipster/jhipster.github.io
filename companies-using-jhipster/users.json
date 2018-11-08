@@ -348,6 +348,12 @@
       "category": "Telecommunications",
       "country": "Japan"
     },
+    {"name": "Leroy Merlin",
+      "url": "https://www.leroymerlin.fr/",
+      "logo": "leroy-merlin.png",
+      "category": "Retail",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -849,9 +855,6 @@
     {"name": "Fralog",
       "url": "http://www.fralog.com/"
     },
-    {"name": "Itarium Technologies",
-      "url": "http://itariumtech.com/"
-    },
     {"name": "IPROSONIC",
       "url": "http://iprosonic.com/"
     },
@@ -932,6 +935,39 @@
     },
     {"name": "Apeiron Technologies",
       "url": "http://apeyron.tech/"
+    },
+    {"name": "Sun Technologies Inc",
+      "url": "http://www.suntechnologies.com/"
+    },
+    {"name": "Axess Lab",
+      "url": "http://axesslab.com/"
+    },
+    {"name": "Itemis Schweiz GmbH",
+      "url": "https://itemis.ch/"
+    },
+    {"name": "https://lavalabs.net/",
+      "url": "Lava Labs"
+    },
+    {"name": "Softdog",
+      "url": "https://softdog.pl/#/"
+    },
+    {"name": "QualityMinds GmbH",
+      "url": "https://qualityminds.de/"
+    },
+    {"name": "Armedia LLC",
+      "url": "https://www.armedia.com/"
+    },
+    {"name": "Ivert srl",
+      "url": "https://ivert.it"
+    },
+    {"name": "Ideationz",
+      "url": "http://www.ideationz.in/"
+    },
+    {"name": "Evolve Back",
+      "url": "https://www.evolveback.com/"
+    },
+    {"name": "Palo IT",
+      "url": "http://palo-it.com/"
     }
   ]
 }
