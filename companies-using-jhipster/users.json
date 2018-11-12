@@ -354,6 +354,12 @@
       "category": "Retail",
       "country": "France"
     },
+    {"name": "XebiaLabs",
+      "url": "https://xebialabs.com/",
+      "logo": "xebialabs.jpg",
+      "category": "Enterprise DevOps",
+      "country": "Netherlands"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
