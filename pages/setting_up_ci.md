@@ -119,3 +119,11 @@ It will create all files needed by your Continuous Integration Tool.
 - Jenkins pipeline: you should use the [Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
 - GitLab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
 - Travis CI: read the [environment variables](https://docs.travis-ci.com/user/environment-variables/)
+
+## Notice for React application:
+
+<div class="alert alert-warning"><i>Warning: </i>
+
+Before using this sub-generator, you need to run the front tests at least once locally and commit the generated snapshots.
+
+</div>
