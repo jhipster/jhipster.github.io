@@ -171,7 +171,7 @@ Angular CLI and JHipster can be used in parallel for development, and both have 
 
 [Angular CLI](https://cli.angular.io/) is a tool to develop, scaffold and maintain Angular applications. JHipster generates the Angular CLI configuration file, so the Angular CLI workflows work with JHipster.
 
-This integration is done by generating a `.angular-cli.json` file in the application root folder and adding its dependencies in the `package.json` file.
+This integration is done by generating a `angular.json` file in the application root folder and adding its dependencies in the `package.json` file.
 
 ### Usage
 

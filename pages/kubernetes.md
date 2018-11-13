@@ -194,7 +194,7 @@ If not already done, install the [Prometheus operator by CoreOS](https://github.
 
 `kubectl create -f https://raw.githubusercontent.com/coreos/prometheus-operator/master/bundle.yaml`
 
-**hint**: you must build your applications with the `prometheus` profile active!
+**hint**: More information on how to enable and protect prometheus metrics in your application you can find in our [monitoring documentation]({{ site.url }}/monitoring/#configuring-metrics-forwarding).
 
 The Prometheus instance for your applications can be explored using
 
