@@ -32,3 +32,16 @@ Yes! Just add Spring Security's `@Secured` annotation on your class or on your m
 ## Can we monitor Spring MVC REST Controllers?
 
 Yes! Just add Metrics' `@Timed` annotations on the methods you want to monitor.
+
+## Can we proxy it from our Microservice Gateway dev server?
+
+Yes! By adding the servicename to the context of the proxy in webpack/webpack.dev.js
+```module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
+    devtool: 'eval-source-map',
+    devServer: {
+        contentBase: './target/www',
+        proxy: [{
+            context: [
+                '/<servicename>',
+                /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
+                ....```
