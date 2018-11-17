@@ -48,4 +48,4 @@ See also <a href="https://www.youtube.com/embed/LERTahPqVjo">this</a> tutorial o
 
 ## Atom installation
 
-![Visual Studio Code installation]({{ site.url }}/images/jhipster_ide_atom.gif)
+![Atom]({{ site.url }}/images/jhipster_ide_atom.gif)
