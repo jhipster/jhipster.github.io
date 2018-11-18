@@ -24,7 +24,7 @@ This can be used as a replacement to using the [entity sub-generator]({{ site.ur
 
 The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-core/), it is an Open Source project like JHipster (Apache 2.0 License). It can also be used as a node library to do JDL parsing.
 
-_If you like the [JHipster Domain Language](https://github.com/jhipster/jhipster-core/), the [JDL Studio](https://github.com/jhipster/jdl-studio/) or the [JHipster IDE](https://github.com/jhipster/jhipster-ide/) don't forget to give them projects a star on - thanks_!
+_If you like the [JHipster Domain Language](https://github.com/jhipster/jhipster-core/), the [JDL Studio](https://github.com/jhipster/jdl-studio/) or the [JHipster IDE](https://github.com/jhipster/jhipster-ide/) don't forget to give them a star on [GitHub](https://github.com/jhipster/) - thanks_!
 
 ***
 
