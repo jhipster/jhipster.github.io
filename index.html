@@ -14,7 +14,7 @@ sitemap:
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="logo-big"><img class="img-responsive" src="images/logo/logo-jhipster-drink-coffee.svg" alt=""></div>
+                    <div class="logo-big"><img class="img-responsive" id="hipster" src="images/logo/jhipster_family_member_1.svg" alt=""></div>
                     <div class="intro-text">
                         <span class="brand">Greetings, Java Hipster!</span>
                         <hr class="star-light">
@@ -214,9 +214,6 @@ sitemap:
                         </ul>
                         <h3>Events</h3>
                           <ul>
-                              <li><b>November 12-16th, 2018:</b> at <a href="https://devoxx.be/">Devoxx Belgium in Antwerp, Belgium</a>, Julien Dubois and Deepu K Sasidharan will present a JHipster 5 session.</li>
-                              <li><b>November 14th, 2018:</b> at <a href="https://www.meetup.com/Java-User-Group-Bielefeld/">JUG Bielefeld</a>, Frederik Hahne will present on getting hip with JHipster.</li>                              
-                              <li><b>November 15th, 2018:</b> at <a href="https://www.meetup.com/ChicagoJUG/">Chicago JUG</a>, Matt Raible will present on microservices and JHipster.</li>
                               <li><b>November 27th, 2018:</b> at <a href="https://devoxx.ma/">Devoxx Morocco in Marrakesh</a>, Deepu K Sasidharan will present a JHipster 5 microservices workshop.</li>
                               <li><b>December 5th, 2018:</b> at <a href="https://therichwebexperience.com/conference/clearwater/2018/12/session?id=42403">The Rich Web Experience</a>, Matt Raible will present on microservices and JHipster.</li>
                               <li><b>Looking for a meetup near you?</b> <a href="{{ site.url }}/meetups/">Go to our new Meetup list</a> and join one of our local groups!</li>
@@ -245,7 +242,7 @@ sitemap:
                         <i class="fa fa-4x">/</i>
                         <a href="https://reactjs.org/" target="_blank"><img src="images/logo/svg/react.svg" class="project-icon img-responsive"></a><br class="visible-xs">
                         <i class="fa fa-4x">=</i>
-                        <a href="/"><img src="images/logo/logo-jhipster.svg" class="project-icon img-responsive"></a>
+                        <a href="/"><img id="hipster-head" src="images/logo/jhipster_family_member_0_head.svg" class="project-icon img-responsive"></a>
                     </div>
                     <p class="lead">
                       JHipster is a development platform to generate, develop and deploy
@@ -728,6 +725,12 @@ sitemap:
         </div>
     </section>
 </div>
+<script>
+    // dead simple random select of hipster family member
+    var random = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+    document.getElementById("hipster").src = "images/logo/jhipster_family_member_" + random + ".svg";
+    document.getElementById("hipster-head").src = "images/logo/jhipster_family_member_" + random + "_head.svg";
+</script>
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
