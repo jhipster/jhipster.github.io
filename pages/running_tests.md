@@ -95,4 +95,4 @@ For running Gatling tests on a microservice application, you have to:
 
 Behaviour-driven development (BDD) is available using [Cucumber](https://cucumber.io/), with its [JVM implementation](https://github.com/cucumber/cucumber-jvm).
 
-[Gherkin](https://cucumber.io/docs/reference) features will have to be written in your `src/test/features` directory.
+[Gherkin](https://docs.cucumber.io/gherkin/reference/) features will have to be written in your `src/test/features` directory.
