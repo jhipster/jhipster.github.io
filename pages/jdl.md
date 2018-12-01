@@ -918,18 +918,6 @@ Here are the application options supported in the JDL:
     <td></td>
   </tr>
   <tr>
-    <td>entitySuffix</td>
-    <td></td>
-    <td></td>
-    <td>Suffix for entities. false for empty string.</td>
-  </tr>
-  <tr>
-    <td>dtoSuffix</td>
-    <td>DTO</td>
-    <td></td>
-    <td>Suffix for DTOs. false for empty string.</td>
-  </tr>
-  <tr>
     <td>jhiPrefix</td>
     <td>jhi</td>
     <td></td>
