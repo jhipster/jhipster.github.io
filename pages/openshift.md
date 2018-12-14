@@ -113,6 +113,9 @@ Or when using gradle:
 
 `./gradlew -Pprod bootWar jibDockerBuild -x test`
 
+If you face any issue in running the image built by jib plugin (like `chmod +x entrypoint.sh not permitted`), then you might have to update scc. Do the following change,
+`oc edit scc restricted` and update `runAsUser.Type` strategy to `RunAsAny`
+
 ### Pushing to Docker Hub
 
 Tag locally your image:
