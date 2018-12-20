@@ -8,6 +8,10 @@ sitemap:
 ---
 # <i class="fa fa-usd"></i> Bug bounties
 
+## The BUG BOUNTY BOOSTER is currently running!
+
+From December 21st to December 31st 2018, we have a specific "bug bounty booster program": all bug bounties are paid double, so that's $200 per bug bounty! This applies to all pull requests submitted before December 31st at midnight CET (even if they are merged later, as code reviews can take some time). Don't hesitate to claim your bug bounty booster when you submit your Open Collective expense!
+
 ## Introduction
 
 Any ticket opened on the [JHipster bug tracker](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aissue+is%3Aopen+label%3A%24100) can have a "$100" label: the person who solves that ticket will get the money!
