@@ -285,7 +285,7 @@ Set the environment variable.
 
 ### Adding memory parameters to docker-compose.yml
 
-This solution is desired over Dockerfile. In this way, you have a single control point for your memory configuration on all containers that compose you application.
+This solution is desired over Dockerfile. In this way, you have a single control point for your memory configuration on all containers that compose your application.
 
 Add the `JAVA_OPTS` into `environment` section.
 
