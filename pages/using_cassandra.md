@@ -23,7 +23,7 @@ When Cassandra is selected:
 *   The [entity sub-generator]({{ site.url }}/creating-an-entity/) will not ask you for entity relationships, as you can't have relationships with a NoSQL database (at least not in the way you have relationships with JPA)
 *   The generated entities only support one partition key, which is the ID. Future versions will provide composite primary keys and clustering keys
 
-## **_[BETA]_** Migration tool
+## Migration tool
 
 Similar to [Liquibase](http://www.liquibase.org/), JHipster provide a tool to apply your CQL migration scripts, with some restrictions:
 
