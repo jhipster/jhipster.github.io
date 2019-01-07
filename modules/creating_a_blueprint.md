@@ -55,6 +55,7 @@ A JHipster blueprint:
 - is an NPM package, and is a Yeoman generator.
 - follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the `yo` command. Instead of being prefixed by `generator-`, it is prefixed by `generator-jhipster-`, and instead of having just the `yeoman-generator` keyword, it must have 2 keywords, `yeoman-generator` and `jhipster-blueprint`.
 - A blueprint can only extend the following sub-generators (under the generators folder)
+    - common
     - client
     - server
     - entity
