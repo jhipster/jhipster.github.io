@@ -23,6 +23,7 @@ sitemap:
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
 *   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
 *   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support. It is maintained by [Srinivasa Vasu](https://twitter.com/srinivasavasu) who is also a core JHipster team member.
+*   [JFrog](https://jfrog.com/) which provides us with a free Artifactory instance, which is used for our builds and our releases.
 
 ## Companies helping to develop JHipster
 
