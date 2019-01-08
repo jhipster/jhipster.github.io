@@ -1,0 +1,19 @@
+# How to upgrade after the first time
+
+__Tip submitted by [@tibistibi](https://github.com/tibistibi)__
+
+You want to keep on track with upgrades from jhipster but also want your changes to be taken into account.
+
+The first time you upgrade jhipster the upgrade process will create an upgrade branch, which is really great.
+But the second time you upgrade this branch will be reused and will be old. Changes you made will not be taken into account. 
+There are 2 files which should be upgraded before the process starts. This can be done with the following git commands:
+
+	git checkout jhipster_upgrade
+	git checkout --patch master .yo-rc.json
+	git checkout --patch master .jhipster
+	git commit -a
+	git push --set-upstream origin jhipster_upgrade
+	git checkout master
+  
+(or you just delete the jhipster_upgrade branch).
+
