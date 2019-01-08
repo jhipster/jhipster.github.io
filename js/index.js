@@ -23,7 +23,7 @@ $('.navbar-collapse ul li a').click(function () {
 (function () {
     'use-strict';
 
-    angular.module('jhipster.home', ['jhipster.service', 'marketplace.list'])
+    angular.module('jhipster.home', ['jhipster.service', 'marketplace.list', 'jhipster.users'])
         .config([
           '$interpolateProvider',
             function ($interpolateProvider) {
@@ -31,31 +31,34 @@ $('.navbar-collapse ul li a').click(function () {
           }
         ])
         .controller('HomeController', HomeController);
-    
+
     HomeController.$inject = ['$scope', 'GHService', 'NpmService'];
 
     function HomeController($scope, GHService, NpmService) {
         GHService.getGitHubConfig('jhipster', 'generator-jhipster').success(function (data) {
             $scope.gitConfig = data;
         });
+        $scope.gitContributors = '420+';
+        /*
+        // Commented out as this isn't efficient now we have 400+ contributors
         var page = 0;
-        $scope.gitConftributors = '...';
         var noOfContributors = 0;
         function getContributors(){
-            
+
             GHService.getGitHubContributors('jhipster', 'generator-jhipster', page).success(function (data) {
                 if(data.length != 0){
                     noOfContributors += data.length;
                     page ++;
                     getContributors();
                 } else {
-                    // some how there seems to be additional 30 added to actual number, so dirty hack
-                    $scope.gitConftributors = noOfContributors - 30;
+                    // some how there seems to be losing 39 to actual number, so dirty hack
+                    $scope.gitContributors = noOfContributors + 39;
                 }
             });
         }
 
         getContributors();
+        */
 
         NpmService.getNpmDownloadsLastMonth('generator-jhipster').success(function (data) {
             $scope.npmDownloads = data.downloads;

@@ -11,7 +11,7 @@ JHipster release 2.6.0
 Documentation
 ----------
 
-Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/v2-documentation)!
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
 What's new
 ----------
@@ -27,7 +27,7 @@ By validation, we mean we have new options when generating an entity, that allow
 
 Also noteworthy is that database columns are correctly generated, depending on the validation options (for a required field, its column is marked non-nullable, for example).
 
-More information is available in our [entity sub-generator documentation](http://jhipster.github.io/creating-an-entity/).
+More information is available in our [entity sub-generator documentation]({{ site.url }}/creating-an-entity/).
 
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.6.0+is%3Aclosed)__.
 

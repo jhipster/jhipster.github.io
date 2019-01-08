@@ -21,12 +21,12 @@ Each policy can be discussed or modified by the development team on the [mailing
 
 ## Policy 1: technologies used by JHipster have their default configuration used as much as possible
 
-For example, we use JPA, Spring or AngularJS the "usual way", without some heavy configuration options and with their usual naming and coding conventions. We do this as:
+For example, we use JPA, Spring, Angular and React the "usual way", without some heavy configuration options and with their usual naming and coding conventions. We do this as:
 
 - Each technology usually has a very good reason to have those defaults
 - It's much easier to understand how JHipster works if we don't re-configure everything
 
-We might only change a default configuration if it produces some issue with the other technologies used by JHipster. For example, to have Spring Security and AngularJS working together, we had to change Spring Security's default configuration.
+We might only change a default configuration if it produces some issue with the other technologies used by JHipster. For example, to have Spring Security and Angular working together, we had to change Spring Security's default configuration.
 
 ## Policy 2: only add options when there is sufficient added-value in the generated code
 
@@ -37,13 +37,9 @@ Adding an option only because it saves a couple of lines to code isn't a good us
 - It's easier to code those lines manually than to learn a new JHipster option
 - It will only make our generator more complex without adding any value
 
-## Policy 3: For the Java code, follow the default Intellij IDEA formatting and coding guidelines
+## Policy 3: for the Java code, follow the default Intellij IDEA coding style
 
-There are many ways to format your code. We follow the default rules provided by Intellij IDEA:
-
-- They are well-made and close to Sun old's coding conventions
-- They are easy to follow with Intellij IDEA (obviously)
-- Members of the team have a free Intellij IDEA license
+There are many ways to format your code. We follow the default rules provided by Intellij IDEA.
 
 ## Policy 4: use strict versions for third-party libraries
 

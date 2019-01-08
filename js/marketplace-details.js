@@ -15,7 +15,7 @@
         $scope.npmPackageName = $routeParams.npmPackageName;
         ga('send', 'event', 'Module details', $scope.npmPackageName);
         var module = ModuleService.getCurrent();
-        $scope.module = module || { name: [$scope.npmPackageName] };
+        $scope.module = module || { package: {name: $scope.npmPackageName} };
         NpmService.getNpmInfo($scope.npmPackageName).success(function (npminfo) {
             $scope.module.npminfo = npminfo;
             try {

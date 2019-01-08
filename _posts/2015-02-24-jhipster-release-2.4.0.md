@@ -11,7 +11,7 @@ JHipster release 2.4.0
 Documentation
 ----------
 
-Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/v2-documentation)!
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
 What's new
 ----------
@@ -20,7 +20,7 @@ We have [Apache Cassandra](http://cassandra.apache.org/) support!
 
 Along with our JPA and MongoDB support, JHipster is the only Yeoman generator which provides true [polyglot persistence](http://martinfowler.com/bliki/PolyglotPersistence.html).
 
-If you want more information on our Cassandra support, we have a [specific documentation available](http://jhipster.github.io/using-cassandra/).
+If you want more information on our Cassandra support, we have a [specific documentation available]({{ site.url }}/using-cassandra/).
 
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A2.4.0+is%3Aclosed)__.
 

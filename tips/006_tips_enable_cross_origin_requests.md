@@ -8,7 +8,7 @@ lastmod: 2015-07-30T18:40:00-00:00
 
 # Enable cross origin HTTP requests
 
-# /!\ This tip is deprecated since JHipster V3.0
+## /!\ This tip is deprecated since JHipster v3.0
 
 __Tip submitted by [@tomcgn](https://github.com/tomcgn)__
 

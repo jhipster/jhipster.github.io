@@ -11,7 +11,7 @@ JHipster release 2.27.1
 Documentation
 ----------
 
-Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/v2-documentation)!
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
 What's new
 ----------
@@ -21,7 +21,7 @@ This version is at the same time a bug-fix release and a first step towards migr
 - Recommended JavaScript build tool is now [Gulp](http://gulpjs.com/). Gulp will be the only option available with JHipster 3.0, as maintaining 2 tools in parallel is a waste of effort from the dev team. As AngularJS 2.0 is using Gulp, this is also a decision made to prepare our future move towards AngularJS 2.0 and TypeScript (but that will be for JHipster 4.0!).
 - Most important bug fixed is [#2932](https://github.com/jhipster/generator-jhipster/issues/2932) which made the production profile fail when using both Gulp and Gradle.
 
-And in case you missed it, we have released [the JDL Studio]({{ site.url }}/jdl-studio/) to help you generate your entities. Check it out and send us feedback!
+And in case you missed it, we have released [the JDL Studio](https://start.jhipster.tech/jdl-studio/) to help you generate your entities. Check it out and send us feedback!
 
 Closed tickets
 ------------

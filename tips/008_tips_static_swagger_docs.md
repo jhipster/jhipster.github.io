@@ -10,7 +10,7 @@ lastmod: 2015-07-31T18:40:00-00:00
 
 __Tip submitted by [@atomfrede](https://github.com/atomfrede)__
 
-> You should use the new [swagger2markup](https://github.com/atomfrede/generator-jhipster-swagger2markup) module instead of following this tip! See the [JHipster Marketplace](http://jhipster.github.io/modules/marketplace/) for details about the module system.
+> You should use the new [swagger2markup](https://github.com/atomfrede/generator-jhipster-swagger2markup) module instead of following this tip! See the [JHipster Marketplace](https://www.jhipster.tech/modules/marketplace/) for details about the module system.
 
 If you want to generate static API documentation (and combine it with hand-written documentation), [Swagger2Markup](https://swagger2markup.readme.io/) provides an easy way to combine auto-generated API documentation produced by
 Swagger with hand-written documentation into an up-to-date, easy-to-read, on- and offline user guide in HTML, PDF and EPUB.

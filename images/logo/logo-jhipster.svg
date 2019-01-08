@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="159.485"
+   height="64.184174"
+   viewBox="0 0 42.197075 16.982063"
+   version="1.1"
+   id="svg4627"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
+   sodipodi:docname="logo-jhipster.svg">
+  <defs
+     id="defs4621" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="6.5836818"
+     inkscape:cy="-81.58448"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1150"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata4624">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(101.22949,-33.753016)">
+    <g
+       id="g851">
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-76.576059,40.846435)"
+         id="g52">
+        <path
+           inkscape:connector-curvature="0"
+           id="path54"
+           style="fill:#4074b1;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="M 0,0 C 0,0 -59.354,34.438 -64.485,13.024 -69.615,-8.39 -75.38,-24.683 -59.574,-27.694 -43.768,-30.706 0,0 0,0" />
+      </g>
+      <g
+         transform="matrix(0.35277777,0,0,-0.35277777,-80.195806,39.02088)"
+         id="g56">
+        <path
+           inkscape:connector-curvature="0"
+           id="path58"
+           style="fill:#4e88cc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="M 0,0 C 17.038,8.808 50.672,23.885 54.522,7.918 59.704,-13.573 65.506,-29.921 49.737,-32.99 38.656,-35.147 13.744,-20.618 -0.087,-11.792 -0.102,-1.353 0.015,-10.286 0,0" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,8 +1,8 @@
-<h2 ng-hide="loaded"> Loading modules...</h2>
+<h2 ng-hide="loaded"> Loading modules and blueprints...</h2>
 <div ng-show="loaded">
-    <h2>Available modules ({((modules | filter:searchText).length)}/{(modules.length)})</h2>
+    <h2>Available modules and blueprints ({((modules | filter:searchText).length)}/{(modules.length)})</h2>
     <div class="form-group search-form ng-scope">
-        <input class="form-control search-field" ng-model="searchText" placeholder="Filter by module name or keyword" id="search-field">
+        <input class="form-control search-field" ng-model="searchText" placeholder="Filter by name or keyword" id="search-field">
         <label class="fa fa-search inline-search" for="search-field"></label>
     </div>
     <div class="row" ng-repeat="module in modules | filter:searchText | orderBy:'-downloads'">
@@ -10,9 +10,10 @@
             <div class="card profile">
                 <div class="card-header">
                     <div class="card-title">
-                        <div class="title"><a ng-click="details(module)" href="">{(module.name[0] | jhiModuleFilter)}</a><small> {(module.version[0])}</small></div>
-                        <div class="description">by <a ng-href="https://www.npmjs.com/~{(module.author.join(','))}" target="_blank">{(module.author.join(','))}</a> published on {(module.created[0] | date)}</div>
-                        <div class="description">{(module.description.join(','))}</div>
+                        <div class="title"><a ng-click="details(module)" href="">{(module.package.name | jhiModuleFilter)}</a><small> {(module.package.version)}</small></div>
+                        <div class="description">by <a ng-href="{(module.package.author.url)}" target="_blank">{(module.package.author.name)}</a></div>
+                        <div class="description">Maintained by {(module.package.maintainers | jhiAuthorFilter)}. Published on {(module.package.date | date)}</div>
+                        <div class="description">{(module.package.description)}</div>
                     </div>
                     <div class="pull-right card-action">
                         <div class="btn-group" role="group" aria-label="...">
@@ -23,10 +24,14 @@
                 </div>
                 <div class="card-footer">
                     <a type="button" class="btn btn-info" ng-click="details(module)">Details</a>
-                    <a type="button" class="btn btn-default" ng-href="{(module.homepage[0])}">Home page</a>
+                    <a type="button" class="btn btn-default" ng-href="{(module.package.links.homepage)}">Home page</a>
                     {(module.downloads)} downloads last month.
                     <div class="pull-right hidden-xs hidden-sm">
-                        <span class="label label-default keyword" ng-repeat="keyword in module.keywords">{( keyword )}</span>
+                        <span  ng-repeat="keyword in module.package.keywords">
+                            <span class="label label-success keyword" ng-if="keyword === 'jhipster-blueprint'">{( keyword )}</span>
+                            <span class="label label-danger keyword" ng-if="keyword === 'jhipster-module'">{( keyword )}</span>
+                            <span class="label label-default keyword" ng-if="keyword !== 'jhipster-blueprint' && keyword !== 'jhipster-module'">{( keyword )}</span>
+                        </span>
                     </div>
                 </div>
             </div>

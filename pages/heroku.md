@@ -13,7 +13,7 @@ sitemap:
 
 This sub-generator allows deployment of your JHipster application to the [Heroku cloud](https://www.heroku.com/).
 
-[![]({{ site.url }}/img/logo-heroku.png)](https://www.heroku.com/)
+[![]({{ site.url }}/images/logo/logo-heroku.png)](https://www.heroku.com/)
 
 Heroku is helping JHipster in two ways:
 
@@ -22,9 +22,9 @@ Heroku is helping JHipster in two ways:
 
 ## Running the sub-generator
 
-Before running the sub-generator, you must install the [Heroku toolbelt](https://toolbelt.heroku.com/), and have a Heroku account created.
+Before running the sub-generator, you must install the [Heroku CLI](https://cli.heroku.com/), and have a Heroku account created.
 
-You must also [create a Heroku account](http://signup.heroku.com/) and log in with the toolbelt by running the following command:
+You must also [create a Heroku account](http://signup.heroku.com/) and log in with the CLI by running the following command:
 
 <pre>**$ heroku login**
 Enter your Heroku credentials.
@@ -35,7 +35,7 @@ Authentication successful.
 
 To deploy your application to Heroku, run this command:
 
-`yo jhipster:heroku`
+`jhipster heroku`
 
 This should package your application in "production" mode, create an Heroku application with a database, upload your code, and start the application.
 
@@ -53,27 +53,27 @@ When your application is already deployed, you can prepare a new deployment by t
 
 Or when using gradle:
 
-`./gradlew -Pprod bootRepackage -x test`
+`./gradlew -Pprod bootWar -x test`
 
 ### Pushing to production
 
-_Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run_ `heroku plugins:install https://github.com/heroku/heroku-deploy`.
+_Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to follow the instructions for installing the [Heroku Java CLI](https://devcenter.heroku.com/articles/deploying-executable-jar-files).
 
 To push to production, type:
 
-`heroku deploy:jar --jar target/*.war`
+`heroku deploy:jar target/*.war`
 
 Or when using gradle:
 
-`heroku deploy:jar --jar build/libs/*war`
+`heroku deploy:jar build/libs/*war`
 
 ## Deploying Microservices
 
-JHipster microservices require a JHipster registry as described in the [Doing microservices with JHipster](/microservices-architecture/) documentation. You can deploy a registry to Heroku by clicking this button:
+JHipster microservices require a JHipster Registry as described in the [Doing microservices with JHipster](/microservices-architecture/) documentation. You can deploy a registry to Heroku by clicking this button:
 
-[![Deploy to Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard-preview.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
+[![Deploy to Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
 
-Once the registry is deployed, you can run the `yo jhipster:heroku` command against your microservice or gateway. The Heroku sub-generator will prompt you for the URL of your registry, which will be in the form `https://[appname].herokuapp.com`.
+Once the registry is deployed, you can run the `jhipster heroku` command against your microservice or gateway. The Heroku sub-generator will prompt you for the URL of your registry, which will be in the form `https://[appname].herokuapp.com`.
 
 A registry running on Heroku has a few limitations, including:
 
@@ -88,7 +88,7 @@ To get the automatically-generated admin password on the JHipster Registry, type
 
 To use this password, update all of your microservices and your gateway to use the credentials for the registry by running this command:
 
-`heroku config:set JHIPSTER_REGISTRY_URL="http://user:[password]@[appname].herokuapp.com"`
+`heroku config:set JHIPSTER_REGISTRY_URL="https://admin:[password]@[appname].herokuapp.com"`
 
 ## Troubleshooting
 

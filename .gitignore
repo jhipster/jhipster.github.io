@@ -1,9 +1,17 @@
 _site
 /node_modules
 /bower_components
+/vendor
+debug.log
+npm-debug.log
 
 # Intellij
 .idea/
 *.iml
 *.iws
 Gemfile.lock
+.jekyll-metadata
+.bundle/
+
+# VSCode
+.vscode/

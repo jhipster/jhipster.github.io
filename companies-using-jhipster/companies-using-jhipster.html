@@ -1,0 +1,58 @@
+---
+layout: default
+title: Companies using JHipster
+permalink: /companies-using-jhipster/
+redirect_from:
+  - /companies-using-jhipster/companies-using-jhipster.html
+angularjs: true
+companies-using-jhipster: true
+sitemap:
+    priority: 0.7
+    lastmod: 2015-12-10T00:00:00-00:00
+---
+
+<h1><i class="fa fa-thumbs-up"></i> Companies using JHipster</h1>
+
+<p>
+    JHipster has got a <a href="http://www.npm-stats.com/~packages/generator-jhipster" target="_blank">lot of downloads</a>, and as it's Open Source it's impossible to have a complete list of who uses it. We have made this list from what people tell us, and from resources available on the Internet (conferences, GitHub tickets, StackOverflow questions).
+</p>
+<p>
+    If you want to add a company to the list, please <a href="https://docs.google.com/forms/d/1-Ut-U2NtOAcT9yEZcETnxsxMAsyS-DkBK9zlXLGW1zs" target="_blank">Fill up this form</a>.
+</p>
+
+<div ng-app="jhipster.users">
+    <div ng-controller="UsersCtrl">
+        <div class="form-group search-form ng-scope">
+            <input class="form-control search-field" ng-model="searchText" placeholder="Filter by name or keyword" id="search-field">
+            <label class="fa fa-search inline-search" for="search-field"></label>
+        </div>
+        <div ng-cloak>
+            <div class="margin-bottom">
+                <ul class="nav nav-pills">
+                    <li role="userlist" ng-class="{active: showFeatured == true}"><a href="#" ng-click="showFeatured = true">Featured <span class="badge">{(filteredUsers.length)}</span></a></li>
+                    <li role="userlist" ng-class="{active: showFeatured == false}"><a href="#" ng-click="showFeatured = false">All <span class="badge">{(allUsers.length)}</span></a></li>
+                </ul>
+            </div>
+            <div class="container-fluid" ng-show="showFeatured">
+                <div class="row">
+                    <div class="col-xs-3 team-member" ng-repeat="user in users | filter:{logo:'!!'} | filter:searchText | orderBy:'name' as filteredUsers">
+                        <div class="thumbnail no-margin-bottom">
+                            <a ng-href="{(user.url)}" target="_blank"><img ng-src="images/{(user.logo)}" class="margin-top img-responsive"></a>
+                            <div class="caption">
+                                <h3><a ng-href="{(user.url)}" target="_blank">{(user.name)}</a></h3>
+                                <span class="label label-default"><span class="fa fa-tag"></span> {(user.category)}</span><br/>
+                                <span class="label label-default"><span class="fa fa-globe"></span> {(user.country)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-hide="showFeatured">
+                <br/>
+                <ul ng-repeat="user in users | filter:searchText | orderBy:'name' as allUsers">
+                    <li><a ng-href="{(user.url)}" target="_blank">{(user.name)}</a><br/></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

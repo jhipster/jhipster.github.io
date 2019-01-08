@@ -11,14 +11,14 @@ JHipster release 2.11.0
 Documentation
 ----------
 
-Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/v2-documentation)!
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
 What's new
 ----------
 
 This new release comes with many small bug fixes, and one big new feature: we now have official [Heroku](https://www.heroku.com/home) support, provided by [Joe Kutner](https://twitter.com/codefinger) from Heroku.
 
-Joe also did an [Heroku official sample application](https://github.com/kissaten/jhipster-example) and updated [our documentation](http://jhipster.github.io/heroku/) accordingly!
+Joe also did an [Heroku official sample application](https://github.com/kissaten/jhipster-example) and updated [our documentation]({{ site.url }}/heroku/) accordingly!
 
 We just keep the **beta** tag on this sub-generator for this release, the time for us to have some external feedback, and then we will remove it.
 

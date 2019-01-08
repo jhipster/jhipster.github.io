@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring your IDE
+title: Configuring Eclipse with Maven
 permalink: /configuring-ide-eclipse/
 redirect_from:
   - /configuring_ide_eclipse.html
@@ -14,8 +14,7 @@ sitemap:
 Importing your JHipster application in Eclipse will require a few manual steps. You will need to do some configuration:
 
 - on the Maven side (for Maven users)
-- on the Javascript side (so Eclipse can ignore a couple of folders for static files)
-
+- on the JavaScript side (so Eclipse can ignore a couple of folders for static files)
 
 ## 1. Import your project as a Maven project
 
@@ -56,19 +55,35 @@ At this stage you should not have any Java error but should still see some JavaS
 ![Exclude]({{ site.url }}/images/configuring_ide_eclipse_4.png)
 
 
-### Exclude 'scripts' and 'bower_components' from src/main/webapp
+### Exclude 'app' from src/main/webapp
 
 - Right click on Project -> Properties -> Javascript -> Include path
 - Click on the “source” tab and select your_project/src/main/webapp
 - Select “Excluded: (None) -> Edit -> Add multiple
-- Select `bower_components` and `scripts` and click “Ok”
-- You should also exclude
-    - `.tmp/`,
-    - `node_modules/` and
-    - `src/main/webapp/dist` (the `dist` folder will be created when you generate a production build)
+- Select  `app` and click “Ok”
+- The following folders should have been automatically excluded (if not, exclude them manually):
+    - `bower_components`
+    - `node_modules/`
 
 ![Right-click]({{ site.url }}/images/configuring_ide_eclipse_5.png)
 
 ![Exclude]({{ site.url }}/images/configuring_ide_eclipse_6.png)
 
 ![Multiple select]({{ site.url }}/images/configuring_ide_eclipse_7.png)
+
+### Maven IDE profile
+
+If you are using Maven, you need to activate the `IDE` profile in Eclipse. This is used for applying IDE-specific tweaks, which currently only includes applying the MapStruct annotation processor.
+
+- Right click on Project -> Properties -> Maven
+- In "Active Maven Profiles", type `dev,IDE`
+
+With this configuration, you will be using both the JHipster `dev` and `IDE` profiles.
+
+### Configuring MapStruct plugins
+
+In case for the IDE correctly recognize the mapstruct code generator some more things needs to be done.
+
+You should use the plugin m2e-apt (https://marketplace.eclipse.org/content/m2e-apt). Installing the m2e-apt plugin, enable Eclipse to work along with mapstruct.
+
+Also you can install the plugin MapStruct Eclipse Plugin (https://marketplace.eclipse.org/content/mapstruct-eclipse-plugin) for help and tips from the IDE. 

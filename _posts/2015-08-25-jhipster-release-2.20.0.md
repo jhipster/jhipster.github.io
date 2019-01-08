@@ -11,12 +11,12 @@ JHipster release 2.20.0
 Documentation
 ----------
 
-Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/v2-documentation)!
+Looking for the (old) JHipster v2.x documentation? It's [Here]({{ post.url }}/documentation-archive)!
 
 What's new
 ----------
 
-Like last month, this new release was largely done by [the new dev team](http://jhipster.github.io/team/), so kudos to all of you guys!
+Like last month, this new release was largely done by [the new dev team]({{ site.url }}/team/), so kudos to all of you guys!
 
 The new and noteworthy features are:
 

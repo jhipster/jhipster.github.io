@@ -17,7 +17,7 @@ It works with MySQL, PostgreSQL and MongoDB cloud providers.
 
 ## Supported clouds
 
-[![]({{ site.url }}/img/logo-pws.png)](http://run.pivotal.io/)
+[![]({{ site.url }}/images/logo/logo-pws.png)](http://run.pivotal.io/)
 
 As this sub-generator uses the Cloud Foundry command-line tool, it can deploy to all Cloud Foundry instances:
 
@@ -32,7 +32,9 @@ Before running the sub-generator, you need to install the [cf Command Line Inter
 
 To deploy your application to Cloud Foundry, type:
 
-`yo jhipster:cloudfoundry`
+`jhipster cloudfoundry`
+
+You will have a couple of questions to configure your database, asking you the name of your database service and the plan you want to use. The available databases depend on your current Cloud Foundry installation, type `cf marketplace` to know which services and plans are available on your Cloud Foundry marketplace. By default, the database and plan selected are the free PostgreSQL service from ElephantSQL on the public Pivotal Cloud Foundry instance, as they sponsor JHipster.
 
 This should package your application (in production or development mode), create a Cloud Foundry application (with a database), upload your code, and start the application.
 
@@ -41,18 +43,22 @@ This should package your application (in production or development mode), create
 When your application is already deployed, you can re-deploy it by building it normally by running:
 
 **With Maven:**
+
 `./mvnw -Pprod package`
+
 `cf push -f ./deploy/cloudfoundry/manifest.yml -p target/*.war`
 
 **With Gradle:**
-`./gradlew -Pprod bootRepackage`
+
+`./gradlew -Pprod bootWar`
+
 `cf push -f ./deploy/cloudfoundry/manifest.yml -p build/libs/*.war`
 
 You can also run the sub-generator again, by typing another time:
 
-`yo jhipster:cloudfoundry`
+`jhipster cloudfoundry`
 
 ## More information
 
-*   [Spring Boot Cloud Foundry documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment-cloud-foundry.html)
+*   [Spring Boot Cloud Foundry documentation](http://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html)
 *   [Spring Cloud Connectors](http://cloud.spring.io/spring-cloud-connectors/)

@@ -15,13 +15,13 @@ When JPA is used, the [entity sub-generator]({{ site.url }}/creating-an-entity/)
 
 ## Presentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) or [MongoDB]({{ site.url }}/using-mongodb/), they won't be available.
+Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/), [MongoDB]({{ site.url }}/using-mongodb/) of [Couchbase]({{ site.url }}/using-couchbase/), they won't be available.
 
 A relationship works between two entities, and JHipster will generate the code for:
 
 - Managing this relationship with JPA in the generated entities
 - Creating the correct Liquibase changelog, in order for the relationship to exist in the database
-- Generating the AngularJS front-end so you can manage this relationship graphically in the user interface
+- Generating the Angular/React front-end so you can manage this relationship graphically in the user interface
 
 ## JHipster UML and JDL Studio
 
@@ -30,7 +30,9 @@ This page describes how to create relationships with JHipster using the standard
 In that case, two options are available:
 
 - [JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor.
-- [JDL Studio]({{ site.url }}/jdl-studio/), our online tool to create entities and relationships using our domain-specific language.
+- [JDL Studio](https://start.jhipster.tech/jdl-studio/), our online tool to create entities and relationships using our domain-specific language.
+
+You can generate entities with relationships from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
 
 ## Available relationships
 
@@ -46,7 +48,11 @@ As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one r
 
 _Tip: the `User` entity_
 
-Please note that the `User` entity, which is handled by JHipster, is specific. You can do `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement. On the generated AngularJS client UI you will have a dropdown in `Car` to select a `User`.
+Please note that the `User` entity, which is handled by JHipster, is specific. You can do:
+
+- `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement. On the generated Angular/React client UI you will have a dropdown in `Car` to select a `User`.
+- `many-to-many` and `one-to-one` relationships to the `User` entity, but the other entity __must__ be the owner
+of the relationship (a `Team` can have a many-to-many relationship to `User`, but only the team can add/remove users, and a user cannot add/remove a team). On the Angular/React client UI, you will also be able to select a `User` in a multi-select box.
 
 ## <a name="1"></a> A bidirectional one-to-many relationship
 
@@ -58,7 +64,7 @@ So this is a simple one-to-many relationship (one owner has many cars) on one si
 
 We will create the `Owner` first. Here are the relevant JHipster questions for the `Owner`:
 
-    yo jhipster:entity Owner
+    jhipster entity Owner
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -71,14 +77,14 @@ Please note that we selected the default options concerning the names of the rel
 
 Now we can generate the `Car`:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Owner
     ? What is the name of the relationship? owner
     ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with AngularJS, which field from 'Owner' do you want to use? id
+    ? When you display this relationship with Angular, which field from 'Owner' do you want to use? id
 
 
 The same can be achieved using the below JDL as well
@@ -90,7 +96,7 @@ The same can be achieved using the below JDL as well
       Owner{car} to Car{owner}
     }
 
-That's it, you now have a one-to-many relationship between those two entities! On the generated AngularJS client UI you will have a dropdown in `Car` to select a `Owner`.
+That's it, you now have a one-to-many relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
 
 ## <a name="2"></a> A unidirectional many-to-one relationship
 
@@ -107,23 +113,23 @@ You would do that relationship for two reasons:
 
 In that case, you would still create the `Owner` first, this time with no relationship:
 
-    yo jhipster:entity Owner
+    jhipster entity Owner
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? No
 
 And then the `Car` entity, as in the previous example:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Owner
     ? What is the name of the relationship? owner
     ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with AngularJS, which field from 'Owner' do you want to use? id
+    ? When you display this relationship with Angular, which field from 'Owner' do you want to use? id
 
-This will work as in the previous example, but you won't be able to add or remove cars from the `Owner` entity. On the generated AngularJS client UI you will have a dropdown in `Car` to select a `Owner`.
+This will work as in the previous example, but you won't be able to add or remove cars from the `Owner` entity. On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
 This is the corresponding JDL:
 
     entity Owner
@@ -160,9 +166,9 @@ For this example, a `Person` can be the owner of many cars, and he can also be t
 
 For this we need to use the relationship names, which we have left with their default values in the previous examples.
 
-Generate the `Person` entity, which has tow one-to-many relationships to the `Car` entity:
+Generate the `Person` entity, which has two one-to-many relationships to the `Car` entity:
 
-    yo jhipster:entity Person
+    jhipster entity Person
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -180,21 +186,21 @@ Generate the `Person` entity, which has tow one-to-many relationships to the `Ca
 
 Generate the `Car` entity, which use the same relationship name has was configured in the `Person` entity:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Person
     ? What is the name of the relationship? owner
     ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with AngularJS, which field from 'Person' do you want to use? id
+    ? When you display this relationship with Angular, which field from 'Person' do you want to use? id
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Person
     ? What is the name of the relationship? driver
     ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with AngularJS, which field from 'Person' do you want to use? id
+    ? When you display this relationship with Angular, which field from 'Person' do you want to use? id
 
 The same can be achieved using the below JDL as well
 
@@ -209,7 +215,7 @@ The same can be achieved using the below JDL as well
       Person{drivedCar} to Car{driver}
     }
 
-A `Car` can now have a driver and a owner, which are both `Person` entities. On the generated AngularJS client UI you will dropdowns in `Car` to select a `Person` for `owner` field and `driver` field.
+A `Car` can now have a driver and a owner, which are both `Person` entities. On the generated Angular/React client UI you will dropdowns in `Car` to select a `Person` for `owner` field and `driver` field.
 
 ## <a name="5"></a> A many-to-many relationship
 
@@ -223,7 +229,7 @@ For JPA, one of those two entities will need to manage the relationship: in our 
 
 Let us generate the non-owning side of the relationship, the `Driver`, with a many-to-many relationship:
 
-    yo jhipster:entity Driver
+    jhipster entity Driver
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -235,7 +241,7 @@ Let us generate the non-owning side of the relationship, the `Driver`, with a ma
 
 Then generate the `Car`, with the owning side of the many-to-many relationship:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -243,7 +249,7 @@ Then generate the `Car`, with the owning side of the many-to-many relationship:
     ? What is the name of the relationship? driver
     ? What is the type of the relationship? many-to-many
     ? Is this entity the owner of the relationship? Yes
-    ? When you display this relationship with AngularJS, which field from 'Driver' do you want to use? id
+    ? When you display this relationship with Angular, which field from 'Driver' do you want to use? id
 
 The same can be achieved using the below JDL as well
 
@@ -254,7 +260,7 @@ The same can be achieved using the below JDL as well
       Car{driver} to Driver{car}
     }
 
-That's it, you now have a many-to-many relationship between those two entities! On the generated AngularJS client UI you will have a multi-select dropdown in `Car` to select multiple `Driver` since `Car` is the owning side.
+That's it, you now have a many-to-many relationship between those two entities! On the generated Angular/React client UI you will have a multi-select dropdown in `Car` to select multiple `Driver` since `Car` is the owning side.
 
 ## <a name="6"></a> A one-to-one relationship
 
@@ -264,7 +270,7 @@ Following our example, a one-to-one relationship would mean that a `Driver` can 
 
 Let us create the non-owning side of the relationship, in our case the `Driver`:
 
-    yo jhipster:entity Driver
+    jhipster entity Driver
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -276,7 +282,7 @@ Let us create the non-owning side of the relationship, in our case the `Driver`:
 
 Then generate the `Car`, which owns the relationship:
 
-    yo jhipster:entity Car
+    jhipster entity Car
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -285,18 +291,18 @@ Then generate the `Car`, which owns the relationship:
     ? What is the type of the relationship? one-to-one
     ? Is this entity the owner of the relationship? Yes
     ? What is the name of this relationship in the other entity? car
-    ? When you display this relationship with AngularJS, which field from 'Driver' do you want to use? id
+    ? When you display this relationship with Angular, which field from 'Driver' do you want to use? id
 
 The same can be achieved using the below JDL as well
 
     entity Driver
     entity Car
-    
+
     relationship OneToOne {
       Car{driver} to Driver{car}
     }
 
-That's it, you now have a one-to-one relationship between those two entities! On the generated AngularJS client UI you will have a dropdown in `Car` to select a `Driver` since `Car` is the owning side.
+That's it, you now have a one-to-one relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Driver` since `Car` is the owning side.
 
 ## <a name="7"></a> A unidirectional one-to-one relationship
 
@@ -306,14 +312,14 @@ A unidirectional one-to-one relationship means that the `citizen` instance can g
 
 Generate the `Passport` entity first, without any relationship to its owner:
 
-    yo jhipster:entity Passport
+    jhipster entity Passport
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? No
 
 Then, generate the `Citizen` entity:
 
-    yo jhipster:entity Citizen
+    jhipster entity Citizen
     ...
     Generating relationships with other entities
     ? Do you want to add a relationship to another entity? Yes
@@ -322,9 +328,9 @@ Then, generate the `Citizen` entity:
     ? What is the type of the relationship? one-to-one
     ? Is this entity the owner of the relationship? Yes
     ? What is the name of this relationship in the other entity? citizen
-    ? When you display this relationship with AngularJS, which field from 'Passport' do you want to use? id
+    ? When you display this relationship with Angular, which field from 'Passport' do you want to use? id
 
-After doing this, a `Citizen` possesses a passport, but no `Citizen` instance is defined in `Passport`. On the generated AngularJS client UI you will have a dropdown in `Citizen` to select a `Passport` since `Citizen` is the owning side.
+After doing this, a `Citizen` possesses a passport, but no `Citizen` instance is defined in `Passport`. On the generated Angular/React client UI you will have a dropdown in `Citizen` to select a `Passport` since `Citizen` is the owning side.
 This is the corresponding JDL:
 
 
@@ -334,4 +340,3 @@ This is the corresponding JDL:
     relationship OneToOne {
       Citizen{passport} to Passport
     }
-

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring your IDE
+title: Configuring Intellij IDEA
 permalink: /configuring-ide-idea/
 redirect_from:
   - /configuring_ide_idea.html
@@ -11,25 +11,30 @@ sitemap:
 
 # <i class="fa fa-keyboard-o"></i> Configuring Intellij IDEA
 
-## Import your project
+## Open your project
 
 - Simply open your project normally
 - Maven should be detected, and your project will build automatically
 
+If you want more control on your setup, you can also choose "Import project".
+
 ## Exclude directories
 
-- Right-click on the `src/main/webapp/bower_components` folder
+If you use Git, just initialize your project (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
+
+To exclude directories manually:
+
+- Right-click on the `node_modules/` folder
 - Select "Mark Directory As" and select "Excluded"
-- You should also exclude
-    - `.tmp/`,
-    - `node_modules/` and
-    - `src/main/webapp/dist` (the `dist` folder will be created when you generate a production build)
 
 ![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
-## Java Code Support
+As the `node_modules/` directory is only used internally by JHipster, it can be safely excluded.
 
-To add code support to many of the JHipster modules from a new project first go to `File → Project Structure`.
+
+## Spring Support (not available in Community Edition)
+
+To add Spring support to many of the JHipster modules from a new project first go to `File → Project Structure`.
 
 ![Project Structure]({{ site.url }}/images/configuring_ide_idea_2.png)
 
@@ -45,26 +50,28 @@ After that click `OK`, and Spring should be configured with proper code assistan
 
 Now click on the original `+` button which you used to add Spring in the first place, and add Hibernate. You do not need to add any files on this one, just adding it there will give you Hibernate based code assistance. Remember to click `OK` on the Project structure dialog.
 
-You should now have Java support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
-
-## Javascript Code Support
-
-Go and open `IntelliJ IDEA → Preferences...`.
-
-![Settings]({{ site.url }}/images/configuring_ide_idea_5.png)
-
-Navigate to `Languages & Frameworks → Javascript → Bower` (or type "Bower" on the top search bar)
-
-![Navigate to Bower]({{ site.url }}/images/configuring_ide_idea_6.png)
-
-Point to your `bower.json`, which is located at the root of your project. The project's libraries, like Angular.js, should be automatically recognized.
-
-After configuring this you should have fairly extensive code support for the Javascript libraries in JHipster.
+You should now have Spring support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
 
 ## Application "hot restart" with Spring Boot devtools
 
 [Spring Boot devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) is configured by JHipster, and will "hot restart" your application when classes from your project are compiled. This is a must-have feature, as it makes your application updated on the fly.
 
-Contrary to other IDEs such as Eclipse, IntelliJ IDEA does not automatically compile files after saving. While you could enable "Make project automatically" in the complier options, it does not work when your application is already running from the IDE.
+By default IntelliJ IDEA does not automatically compile files when the application is running. To enable the "Compile on save" feature:
 
-The best way to restart the application after you modify a class is to compile it with `Ctrl + Shift + F9` or to build the whole project with `Ctrl + F9`. Alternatively, you can build with a single class from the class file contextual menu by clicking on `Compile className.java` or build the whole project through the `Build → Make project` menu at the top.
+* Go to `File -> Settings -> Build, Execution, Deployment -> Compiler` and enable "Make project automatically"
+* Open the Action window :
+  * Linux : `CTRL+SHIFT+A`
+  * Mac OSX : `SHIFT+COMMAND+A`
+  * Windows : `CTRL+ALT+SHIFT+/`
+* Enter `Registry...` and enable `compiler.automake.allow.when.app.running`
+
+## Maven IDE profile
+
+If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
+which currently only includes applying the MapStruct annotation processor.
+
+Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` maven profile to activate it.
+
+## Gradle
+
+In order to get the best out-of-the-box experience with Gradle you should delegate all [IDE build/run actions to Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing is automatically configured and you won't have duplicated classes when mixing IDE and cli builds. If you are using an older version ( < 2016.3) you have to enable annotaion processing manually.

@@ -1,14 +1,13 @@
 {
   "name": "jhipster-public-wesite",
   "devDependencies": {
-    "browser-sync": "*",
+    "browser-sync": "^2.24.7",
     "gulp": "*",
-    "gulp-coffee": "*",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-sass": "*",
-    "main-bower-files": "^2.9.0",
-    "rimraf": "^2.4.4"
+    "gulp-imagemin": "2.4.0",
+    "gulp-sass": "^4.0.1"
   },
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "bundle exec jekyll serve"
+  }
 }
