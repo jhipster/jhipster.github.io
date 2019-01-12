@@ -62,6 +62,7 @@ A JHipster blueprint:
     - entity-client
     - entity-server
     - entity-i18n
+    - languages
     - spring-controller
     - spring-service
 
