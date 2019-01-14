@@ -85,9 +85,36 @@ To create a Docker image of your application, and push it into your Docker regis
 - With Maven, type: `./mvnw package -Pprod jib:dockerBuild`
 - With Gradle, type: `./gradlew -Pprod bootWar jibDockerBuild`
 
-This will package your application with the `prod` profile, and build a docker image using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local docker daemon.
+This will package your application with the `prod` profile, and build a Docker image using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon.
 
 On Windows, due to [lack of named pipes](https://github.com/spotify/docker-client/issues/875), you may have to tune settings for Docker and turn on “Expose daemon on tcp://localhost:2375 without TLS”.
+
+Refer to the Jib documentation for configurations details :
+
+- [Jib maven plugin documentation](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration)
+- [Jib gradle plugin documentation](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin#configuration)
+
+<div id="3-warning" class="alert alert-warning"><i>Warning: </i>
+<p>
+Due to the way Jib works, it will first try to pull the latest version of the base Docker image from the configured Docker registry. This is on purpose as in a CI environment you must ensure that you always build on top of the latest patched base image.
+</p>
+<p>
+However in a local environment, this might fail because of network issues (long timeouts, proxies) or because you are not logged in to a Docker registry.
+</p>
+<p>
+Jib currently has an <a href="https://github.com/GoogleContainerTools/jib/issues/718">opened issue for offline mode support</a>, however if the jib builds fails for you you can use the following workaround :
+</p>
+<p>
+For Maven :
+<pre>
+  ./mvnw clean package -Pprod jib:exportDockerContext && docker build -t myimage target/jib-docker-context
+</pre>
+For Gradle :
+<pre>
+  ./gradlew -Pprod bootWar jibExportDockerContext && docker build -t myimage build/jib-docker-context
+</pre>
+</p>
+</div>
 
 To run this image, use the Docker Compose configuration located in the `src/main/docker` folder of your application:
 
