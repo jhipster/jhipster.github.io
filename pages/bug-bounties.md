@@ -8,6 +8,10 @@ sitemap:
 ---
 # <i class="fa fa-usd"></i> Bug bounties
 
+## The BUG BOUNTY BOOSTER is currently running!
+
+From December 21st to December 31st 2018, we have a specific "bug bounty booster program": all bug bounties are paid double, so that's $200 per bug bounty! This applies to all pull requests submitted before December 31st at midnight CET (even if they are merged later, as code reviews can take some time). Don't hesitate to claim your bug bounty booster when you submit your Open Collective expense!
+
 ## Introduction
 
 Any ticket opened on the [JHipster bug tracker](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aissue+is%3Aopen+label%3A%24100) can have a "$100" label: the person who solves that ticket will get the money!
@@ -25,6 +29,7 @@ At the moment, each bug bounty is $100 for the person solving that ticket.
 
 Bug bounties are mostly available on the main project, but can also be opened on sub-projects under the JHipster organization on GitHub.
 
+- [Opened bug bounties on all projects](https://github.com/search?l=&p=2&q=is%3Aissue+is%3Aopen+label%3A%24100+user%3Ajhipster+label%3A%24100+state%3Aopen&ref=advsearch&type=Issues&utf8=%E2%9C%93)
 - [Opened bug bounties for the main project](https://github.com/jhipster/generator-jhipster/labels/%24100)
 - [Opened bug bounties for the JHipster VueJS sub-project](https://github.com/jhipster/jhipster-vuejs/issues?q=is%3Aissue+is%3Aopen+label%3A%24100)
 

@@ -152,7 +152,6 @@ Here is a documentation for those properties:
                 port: 2003
                 prefix: jhipster
             # Send metrics to a Prometheus server
-            # Use the "prometheus" Maven profile to have the Prometheus dependencies
             prometheus:
                 enabled: false # Prometheus is disabled by default
                 endpoint: /prometheusMetrics

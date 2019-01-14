@@ -23,13 +23,13 @@ sitemap:
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
 *   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
 *   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support. It is maintained by [Srinivasa Vasu](https://twitter.com/srinivasavasu) who is also a core JHipster team member.
+*   [JFrog](https://jfrog.com/) which provides us with a free Artifactory instance, which is used for our builds and our releases.
 
 ## Companies helping to develop JHipster
 
 These companies help us to develop JHipster
 
 *   [Google](https://google.com), which has given the project $7,000 worth of "Google cloud credits" since 2016.
-*   JetBrains, which provides us free licenses for the incredible [IntelliJ IDEA, ultimate edition](http://www.jetbrains.com/idea). A true hipster would never code with Eclipse :-)
 *   Pivotal, which gives us free credits on their [Pivotal Web Services](http://run.pivotal.io/) cloud
 *   [ElephantSQL](http://www.elephantsql.com/), which gives us several of their "Pretty Panda" Postgresql databases.
 *   YourKit, LLC, which gives us free licenses for the [YourKit Java profiler](http://www.yourkit.com/java/profiler/index.jsp).

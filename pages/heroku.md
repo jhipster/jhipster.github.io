@@ -57,15 +57,15 @@ Or when using gradle:
 
 ### Pushing to production
 
-_Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to first run_ `heroku plugins:install heroku-cli-deploy`.
+_Note: This assumes you have run the generator on the machine you are executing this command from. If you have not, you will need to follow the instructions for installing the [Heroku Java CLI](https://devcenter.heroku.com/articles/deploying-executable-jar-files).
 
 To push to production, type:
 
-`heroku deploy:jar --jar target/*.war`
+`heroku deploy:jar target/*.war`
 
 Or when using gradle:
 
-`heroku deploy:jar --jar build/libs/*war`
+`heroku deploy:jar build/libs/*war`
 
 ## Deploying Microservices
 

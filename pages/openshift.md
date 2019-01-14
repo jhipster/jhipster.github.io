@@ -107,11 +107,14 @@ For example, if you use the Google Cloud to host your Docker images, it will be:
 
 When your application is already deployed, you can re-deploy it by building a new Docker image:
 
-`./mvnw package -Pprod -DskipTests dockerfile:build`
+`./mvnw package -Pprod -DskipTests jib:dockerBuild`
 
 Or when using gradle:
 
-`./gradlew -Pprod bootWar buildDocker -x test`
+`./gradlew -Pprod bootWar jibDockerBuild -x test`
+
+If you face any issue in running the image built by jib plugin (like `chmod +x entrypoint.sh not permitted`), then you might have to update scc. Do the following change,
+`oc edit scc restricted` and update `runAsUser.Type` strategy to `RunAsAny`
 
 ### Pushing to Docker Hub
 

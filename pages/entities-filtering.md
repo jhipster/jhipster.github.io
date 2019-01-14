@@ -30,7 +30,7 @@ For each entity, you can enable filtering in the entity generator, and after, yo
 * For each *xyz* field
     * *xyz.equals=someValue*
         - To list all the entities, where xyz equals to 'someValue'
-    * *xyz.equals=someValue,otherValue*
+    * *xyz.in=someValue,otherValue*
         - To list all the entities, where xyz equals to 'someValue' or 'otherValue'
     * *xyz.specified=true*
         - To list all the entities, where xyz is not null, specified.

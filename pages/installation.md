@@ -259,6 +259,7 @@ On your host machine, you should be able to :
     So you won't be able to:
     <ul>
         <li>use the docker-compose files</li>
-        <li>build a Docker image (Maven goal: <code>dockerfile:build</code> or Gradle task: <code>buildDocker</code>)</li>
+        <li>build a Docker image with the docker daemon (Maven goal: <code>jib:dockerBuild</code> or Gradle task: <code>jibDockerBuild</code>)</li>
     </ul>
+    However, you will be able to use [jib](https://github.com/GoogleContainerTools/jib)'s daemonless mode which can build a docker image and push it to a registry without access to a docker daemon (Maven goal: <code>jib:build</code> or Gradle task: <code>jibBuild</code>). But you will need to setup credentials to the docker registry as a pre-requisite of building the app. See the [Jib plugin configuration documentations](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration) for more details.
 </div>

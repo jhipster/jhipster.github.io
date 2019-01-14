@@ -81,11 +81,11 @@ If you use Google Container Registry to host your Docker images, it will be: `gc
 
 When your application is already deployed, you can re-deploy it by building a new Docker image:
 
-`./mvnw package -Pprod -DskipTests dockerfile:build`
+`./mvnw package -Pprod -DskipTests jib:dockerBuild`
 
 Or when using Gradle:
 
-`./gradlew -Pprod bootWar buildDocker -x test`
+`./gradlew -Pprod bootWar jibDockerBuild -x test`
 
 ### Pushing to Docker Hub
 
@@ -194,7 +194,7 @@ If not already done, install the [Prometheus operator by CoreOS](https://github.
 
 `kubectl create -f https://raw.githubusercontent.com/coreos/prometheus-operator/master/bundle.yaml`
 
-**hint**: you must build your applications with the `prometheus` profile active!
+**hint**: More information on how to enable and protect prometheus metrics in your application you can find in our [monitoring documentation]({{ site.url }}/monitoring/#configuring-metrics-forwarding).
 
 The Prometheus instance for your applications can be explored using
 

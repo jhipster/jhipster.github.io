@@ -15,5 +15,5 @@ Shell plugins bring additional shortcuts for using JHipster, which makes it fast
 
 Currently there are two shell plugins:
 
-* [Oh-My-Zsh JHipster plugin]({{ site.url }}/oh-my-zsh/) for [Oh-My-Zsh](http://ohmyz.sh/)
-* [Fisherman JHipster plugin]({{ site.url }}/fisherman/) for [Fisherman](http://fisherman.sh/)
+* [Oh-My-Zsh JHipster plugin]({{ site.url }}/oh-my-zsh/) for [Oh-My-Zsh](https://ohmyz.sh/)
+* [Fisher JHipster plugin]({{ site.url }}/fisher/) for [Fisher](https://github.com/jorgebucaran/fisher)

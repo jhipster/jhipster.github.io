@@ -51,6 +51,8 @@ You have to install Docker and Docker Compose:
 - [Docker](https://docs.docker.com/installation/#installation)
 - [Docker Compose](https://docs.docker.com/compose/install)
 
+Docker now requires creating an account to the docker store to download Docker for Mac and Docker for Windows. To bypass this
+
 <div class="alert alert-info"><i>Tip: </i>
 
 On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes using Docker a lot easier.
@@ -80,10 +82,10 @@ __Solution 2__
 
 To create a Docker image of your application, and push it into your Docker registry:
 
-- With Maven, type: `./mvnw package -Pprod dockerfile:build`
-- With Gradle, type: `./gradlew bootWar -Pprod buildDocker`
+- With Maven, type: `./mvnw package -Pprod verify jib:dockerBuild`
+- With Gradle, type: `./gradlew -Pprod bootWar jibDockerBuild`
 
-This will package your application with the `prod` profile, and install the image.
+This will package your application with the `prod` profile, and build a docker image using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local docker daemon.
 
 On Windows, due to [lack of named pipes](https://github.com/spotify/docker-client/issues/875), you may have to tune settings for Docker and turn on “Expose daemon on tcp://localhost:2375 without TLS”.
 
@@ -141,7 +143,7 @@ Follow these steps to do so:
 - Scale the MongoDB node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=<X>`
 - Init the replica set (parameter X is the number of nodes you input in the previous step, folder is the folder where the YML file is located, it's `docker` by default): `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=<X>, folder="<yml_folder_name>"' init_replicaset.js`
 - Init the shard: `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb_1 mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
-- Build a Docker image of your application: `./mvnw package -Pprod dockerfile:build`
+- Build a Docker image of your application: `./mvnw package -Pprod verify jib:dockerBuild`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
@@ -154,7 +156,7 @@ Follow these steps to do so:
 - Build the image: `docker-compose -f src/main/docker/couchbase-cluster.yml build`
 - Run the database: `docker-compose -f src/main/docker/couchbase-cluster.yml up -d`
 - Scale the Couchbase node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/couchbase-cluster.yml scale <name_of_your_app>-couchbase-node=<X>`
-- Build a Docker image of your application: `./mvnw package -Pprod dockerfile:build`
+- Build a Docker image of your application: `./mvnw package -Pprod verify jib:dockerBuild`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 ### Cassandra
@@ -214,7 +216,7 @@ The Sonar reports will be available at: [http://localhost:9000](http://localhost
 
 If you chose OAuth 2.0 as your authentication, Keycloak is used as the default identity provider. Running `docker-compose -f src/main/docker/app.yml up` starts up Keycloak automatically.
 
-To make things work, you'll need to make sure to add the following to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
+To make Keycloak work, you need to add the following line to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
 
 ```
 127.0.0.1	keycloak
@@ -283,7 +285,7 @@ Set the environment variable.
 
 ### Adding memory parameters to docker-compose.yml
 
-This solution is desired over Dockerfile. In this way, you have a single control point for your memory configuration on all containers that compose you application.
+This solution is desired over Dockerfile. In this way, you have a single control point for your memory configuration on all containers that compose your application.
 
 Add the `JAVA_OPTS` into `environment` section.
 

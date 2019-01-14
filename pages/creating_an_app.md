@@ -76,9 +76,9 @@ Answers to this question depend on previous answers. For example, if you selecte
 
 Here are all the possible options:
 
-*   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice
-*   HTTP Session Authentication: the classical session-based authentication mechanism, like we are used to do in Java (this is how most people use [Spring Security](http://docs.spring.io/spring-security/site/index.html)).
-*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://www.okta.com), which handles authentication outside of the application.
+*   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice and what most people use.
+*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://www.okta.com), which handles authentication outside of the application. This is more secured than JWT, but it requires to set up an OpenID Connect server, so it's a bit more complex. Please note that by default JHipster will synchronize the user data from the OpenID Connect server, and for this it will need a database.
+*   HTTP Session Authentication: the classical session-based authentication mechanism, which is what people usually do with [Spring Security](http://docs.spring.io/spring-security/site/index.html).
 *   Authentication with JHipster UAA server: this uses a [JHipster UAA server]({{ site.url }}/using-uaa/) that must be generated separately, and which is an OAuth2 server that handles authentication outside of the application.
 
 You can find more information on our [securing your application]({{ site.url }}/security/) page.
@@ -87,11 +87,11 @@ You can find more information on our [securing your application]({{ site.url }}/
 
 You can choose between:
 
-- No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/))
 - An SQL database (H2, MySQL, MariaDB, PostgreSQL, MSSQL, Oracle), which you will access with Spring Data JPA
 - [MongoDB]({{ site.url }}/using-mongodb/)
 - [Cassandra]({{ site.url }}/using-cassandra/)
 - [Couchbase]({{ site.url }}/using-couchbase/)
+- No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/) with JWT authentication)
 
 ### Which _production_ database would you like to use?
 
@@ -207,8 +207,8 @@ Here are the options you can pass:
 * `--skip-cache` - Do not remember prompt answers (Default: false)
 * `--skip-git` - Do not add the generated project to Git automatically (Default: false)
 * `--skip-install` - Do not automatically install dependencies (Default: false)
-* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false). This is the same as running the server sub-generator with `jhipster server`.
-* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false). This is the same as running the client sub-generator with `jhipster client`.
+* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false).
+* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false).
 * `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--auth` - Specify the authentication type when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
@@ -216,12 +216,11 @@ Here are the options you can pass:
 * `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--skip-checks` - Skip the check of the required tools (Default: false)
 * `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
+* `--entity-suffix` - Add suffix after entities class names (Default: empty string)
+* `--dto-suffix` - Add suffix after DTOs class names (Default: DTO)
 * `--yarn` - Use Yarn instead of NPM (Default: false)
 * `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
 
 ## <a name="4"></a> Tips
-
-If you are an advanced user you can use our client and server sub-generators by running `jhipster client --[options]` and `jhipster server --[options]`.
-Run the above sub-generators with `--help` flag to view all the options that can be passed.
 
 You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force --with-entities`.
