@@ -349,7 +349,7 @@ relationship ManyToMany {
 }
 ```
 
-The join is always done using the `id` field which is also the default field shown when editing arelation in the
+The join is always done using the `id` field which is also the default field shown when editing a relation in the
 front-end. If another field should be shown instead, you can specify it like this:
 
 ```
