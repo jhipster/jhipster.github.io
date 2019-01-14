@@ -700,7 +700,11 @@ A Unidirectional example where a Citizen has a Passport, but the Passport has no
     relationship OneToOne {
       Citizen to Passport
     }
-
+    
+    // using @MapsId
+    relationship OneToOne {
+          Citizen to Passport with jpaDerivedIdentifier 
+    }
 
 ### One-to-Many
 
