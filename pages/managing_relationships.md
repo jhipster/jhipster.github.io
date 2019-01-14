@@ -290,6 +290,7 @@ Then generate the `Car`, which owns the relationship:
     ? What is the name of the relationship? driver
     ? What is the type of the relationship? one-to-one
     ? Is this entity the owner of the relationship? Yes
+    ? Do you want to use JPA Derived Identifier - @MapsId? No
     ? What is the name of this relationship in the other entity? car
     ? When you display this relationship with Angular, which field from 'Driver' do you want to use? id
 
@@ -303,6 +304,8 @@ The same can be achieved using the below JDL as well
     }
 
 That's it, you now have a one-to-one relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Driver` since `Car` is the owning side.
+
+[More information on using one-to-one with JPA Derived Identifiers](#8)
 
 ## <a name="7"></a> A unidirectional one-to-one relationship
 
@@ -327,6 +330,7 @@ Then, generate the `Citizen` entity:
     ? What is the name of the relationship? passport
     ? What is the type of the relationship? one-to-one
     ? Is this entity the owner of the relationship? Yes
+    ? Do you want to use JPA Derived Identifier - @MapsId? No
     ? What is the name of this relationship in the other entity? citizen
     ? When you display this relationship with Angular, which field from 'Passport' do you want to use? id
 
@@ -340,3 +344,57 @@ This is the corresponding JDL:
     relationship OneToOne {
       Citizen{passport} to Passport
     }
+
+### <a name="8">  Using JPA Derived Identifiers(@MapsId) for one-to-one relationship
+  
+[JPA Derived Identifiers](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/MapsId.html) can be used to have [the most efficient mapping](https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate/).
+
+This is the corresponding JDL for previous uni-directional one-to-one example:
+
+
+    entity Citizen
+    entity Passport
+
+    relationship OneToOne {
+      Citizen{passport} to Passport with jpaDerivedIdentifier 
+    }
+
+This is the corresponding JDL for previous bi-directional one-to-one example:
+
+    entity Driver
+    entity Car
+
+    relationship OneToOne {
+      Car{driver} to Driver{car} with jpaDerivedIdentifier 
+    }
+
+ However, based on business requirements, there might be cases where this should be avoided because it has following constraint: 
+**Once the id(primary key) is set at owning side, it is not changeable using JPA/Hibernate. You should not change it anyway.**.
+
+**Here are a few suggestions regarding usage:**
+
+Use `@MapsId` when:
+* Dependent - if the owning side (child entity) seems tightly dependent on the non-owning (parent entity).
+* Association value is never meant to be changed - if you are never going to change the id(primary key) of the child entity once it is set.
+
+    For eg,
+
+    ```
+    class User{}
+    class Profile{ @OneToOne @MapsId private User user; } // profile is only meant for that user
+    class Preferences{ @OneToOne @MapsId private User user; } // preference is only meant for that user
+    ```
+
+    Once a profile or a preference is created for a user, it will never change to refer to another user.
+
+Do not use  `@MapsId` when:
+* Not dependent - If the owning side (child entity) seems not dependent on the non-owning (parent entity)
+* Association value is meant to be changed - if you think that the child entity is going to refer to another parent entity in future.
+
+    For eg,
+
+    ```
+    class Car{ @OneToOne @JoinColumn(name="id") Driver currentDriver} // car can be drived by another driver in future
+    class Driver{@OneToOne @JoinColumn(name="id") Car drivingCar} // driver drives another car in future
+    ```
+    Both car and driver association value may change in future.
