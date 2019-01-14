@@ -296,6 +296,7 @@ The relationships declaration is done as follows:
   - `<relationship name>` is the name of the field having the other end as type,
   - `<display field>` is the name of the field that should show up in select boxes (default: `id`),
   - `required` whether the injected field is required.
+  - `with jpaDerivedIdentifier` whether `@MapsId` is used for the association (applicable only for one-to-one)
 
 Here's a simple example:
 
@@ -349,7 +350,7 @@ relationship ManyToMany {
 }
 ```
 
-The join is always done using the `id` field which is also the default field shown when editing arelation in the
+The join is always done using the `id` field which is also the default field shown when editing a relation in the
 front-end. If another field should be shown instead, you can specify it like this:
 
 ```
@@ -363,6 +364,21 @@ relationship OneToOne {
   A{b} to B{a(name)}
 }
 ```
+
+JPA Derived Identifier - @MapsId can be declared as following which is currently only supported for one-to-one:
+
+```
+entity A {
+  name String required
+}
+entity B
+
+
+relationship OneToOne {
+  A{b} to B{a(name)} with jpaDerivedIdentifier
+}
+```
+
 
 This makes JHipster generate a REST resource that returns both the `id` and `name` of the linked entity to the front-end,
 so the name can be shown to the user instead.
