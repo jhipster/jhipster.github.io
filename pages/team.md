@@ -241,6 +241,44 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
 </div>
 
+## JHipster streams
+
+JHipster supports a wide range of technology choices for your application and as it keeps growing we have come up with technology streams with specific leads to ensure smooth maintenance of the particular technology. Everything else will be lead by project leads.
+
+The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/1fac4Uxv3bKr0rNmgg1WXv67CE_6nfHEPIuCp-_iU-uA/edit?usp=sharing)
+
+| Stream                              | Leader             |
+|-------------------------------------|--------------------|
+| Angular                             | William Marques    |
+| React                               | Sendil Kumar N     |
+| VueJS                               | Sahbi KTIFA        |
+| JHipster Registry                   | Pierre Besson      |
+| JHipster Console                    | Pierre Besson      |
+| JHipster core/JDL                   | Mathieu Abou-Aichi |
+| JHipster Kotlin                     | Sendil Kumar N     |
+| JHipster IDE                        | Serano Colameo     |
+| UAA                                 | David Steiman      |
+| JDL studio                          | Deepu K Sasidharan |
+| JHipster online                     | Julien Dubois      |
+| Continuous Integration and Delivery | Pascal Grimaud     |
+| Gradle                              | Frederik Hahne     |
+| Maven                               | Daniel Franco      |
+| JHipster server-side libraries      | Julien Dubois      |
+| Spring boot                         | Daniel Franco      |
+| OIDC/OAuth                          | Matt Raible        |
+| Blueprints & modules system         | AurĂŠlien Mino     |
+| Heroku                              | Joe Kutner         |
+| GCP/GAE                             | Ray Tsang          |
+| Kubernetes                          | Pierre Besson      |
+| Istio                               | Ray Tsang          |
+| Infinispan                          | Srinivasa Vasu     |
+| Reactive                            | Christophe Bornet  |
+| Java                                | Julien Dubois      |
+| Docker                              | Pascal Grimaud     |
+| Cassandra                           | Cedrick Lunven     |
+
+
+
 ## Retired members of the board of developers
 
 <div class="row">
