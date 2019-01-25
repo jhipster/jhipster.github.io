@@ -2140,3 +2140,15 @@ footer {
         padding: 20px;
     }
 }
+
+table {
+    tr {
+        border: 1px solid lightgray
+        td, th {
+            padding: 10px;
+        }
+        &:nth-child(even) {
+            background: #f0f0f0;
+        }
+    }
+}

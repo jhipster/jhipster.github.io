@@ -1553,3 +1553,13 @@ footer {
     width: 100%;
     height: 100%;
     padding: 20px; }
+
+table tr {
+    border: 1px solid lightgray
+}
+table tr > td, th {
+    padding: 10px;
+}
+table tr:nth-child(even) {
+    background: #f0f0f0;
+}
