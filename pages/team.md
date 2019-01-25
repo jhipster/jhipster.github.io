@@ -264,9 +264,9 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | Gradle                              | Frederik Hahne     |
 | Maven                               | Daniel Franco      |
 | JHipster server-side libraries      | Julien Dubois      |
-| Spring boot                         | Daniel Franco      |
+| Spring Boot                         | Daniel Franco      |
 | OIDC/OAuth                          | Matt Raible        |
-| Blueprints & modules system         | AurĂŠlien Mino     |
+| Blueprints & modules system         | Aurélien Mino      |
 | Heroku                              | Joe Kutner         |
 | GCP/GAE                             | Ray Tsang          |
 | Kubernetes                          | Pierre Besson      |
