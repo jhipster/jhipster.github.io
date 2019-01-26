@@ -158,9 +158,9 @@ You can either use:
 *   Angular
 *   React
 
-### Would you like to use the LibSass stylesheet preprocessor for your CSS?
+### Would you like to use the Sass stylesheet preprocessor for your CSS?
 
-[Node-sass](https://www.npmjs.com/package/node-sass) a great solution to simplify designing CSS. To be used efficiently, you will need to run a [Gulp](http://www.gulpjs.com) server, which will be configured automatically.
+[Sass](https://sass-lang.com/) a great solution to simplify designing CSS. To be used efficiently, you will need to run a [Webpack](https://webpack.js.org) dev server, which will be configured automatically.
 
 ### Would you like to enable internationalization support?
 
