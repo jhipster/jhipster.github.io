@@ -108,6 +108,10 @@ Considering `jhuser` a non-root OS account that will run the application, then t
 
 There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
 
+### Running the application under a Context Path
+
+When deploying a JHipster app to an Application Server or customizing your context-path, it is required to set the `baseHref` value in `webpack.prod.js` equal to the expected context-path.
+
 ## <a name="performance"></a> Performance optimizations
 
 ### Cache tuning
