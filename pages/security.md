@@ -20,6 +20,8 @@ By default, JHipster comes with 4 different users:
 *   "user", who is a normal user with "ROLE_USER" authorization. His default password is "user"
 *   "admin", who is an admin user with "ROLE_USER" and "ROLE_ADMIN" authorizations. His default password is "admin"
 
+The two authorizations "ROLE_USER" and "ROLE_ADMIN" provide the same access to the entities which means that a "user" is authorized to perform the same CRUD operations as an "admin". This behavior can be an issue when the application will go to production because a "user" can for example delete any entities. More details on how to improve the access-control can be found on this [blog post](https://blog.ippon.tech/improving-the-access-control-of-a-jhipster-application/).
+
 For security reasons, you should change those default passwords in production.
 
 JHipster provides 4 main security mechanisms:
