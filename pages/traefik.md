@@ -4,7 +4,7 @@ title: Traefik
 permalink: /traefik/
 sitemap:
     priority: 0.7
-    lastmod: 2017-09-27T00:00:00-00:00
+    lastmod: 2019-01-29T00:00:00-00:00
 ---
 
 # <i class="fa fa-exchange"></i> Traefik

@@ -6,7 +6,7 @@ redirect_from:
   - /production.html
 sitemap:
     priority: 0.7
-    lastmod: 2019-02-01T00:00:00-00:00
+    lastmod: 2019-02-04T00:00:00-00:00
 ---
 
 # <i class="fa fa-play-circle"></i> Using JHipster in production

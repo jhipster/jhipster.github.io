@@ -4,7 +4,7 @@ title: Separating the front-end and the API server
 permalink: /separating-front-end-and-api/
 sitemap:
     priority: 0.7
-    lastmod: 2017-12-28T00:00:00-00:00
+    lastmod: 2019-01-29T00:00:00-00:00
 ---
 
 # <i class="fa fa-unlink"></i> Separating the front-end and the API server

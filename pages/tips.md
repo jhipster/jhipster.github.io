@@ -6,7 +6,7 @@ redirect_from:
   - /tips.html
 sitemap:
     priority: 0.7
-    lastmod: 2018-03-19T08:40:00-00:00
+    lastmod: 2019-01-29T08:40:00-00:00
 ---
 
 # <i class="fa fa-cogs"></i> Tips'n tricks
@@ -17,7 +17,6 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 
 1. [Create a static Swagger API documentation]({{ site.url }}/tips/008_tips_static_swagger_docs.html)
 1. [Using Bootswatch themes]({{ site.url }}/tips/009_tips_using_bootswatch_themes.html)
-1. [Configuring HTML 5 Mode]({{ site.url }}/tips/010_tip_configuring_html_5_mode.html)
 1. [Configuring Email with - Gmail and more]({{ site.url }}/tips/011_tip_configuring_email_in_jhipster.html)
 1. [Speed up the generator-jhipster]({{ site.url }}/tips/013_tip_speed_up_generator.html)
 1. [Local SMTP Server]({{ site.url }}/tips/015_tip_local_smtp_server.html)
