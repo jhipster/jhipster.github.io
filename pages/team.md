@@ -142,6 +142,15 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/7074827?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Sahbi Ktifa</h3>
+                <p><a href="https://twitter.com/SahbiKtifa"><i>@SahbiKtifa</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/12471122?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Sendil Kumar N</h3>
