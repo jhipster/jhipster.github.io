@@ -1,27 +1,22 @@
 ---
 layout: default
-title: Release 5.8.0
+title: Release 5.8.1
 ---
 
-JHipster release v5.8.0
+JHipster release v5.8.1
 ==================
 
-This new minor release has [133 closed tickets and merged pull requests](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.8.0+is%3Aclosed).
+This patch release has [33 closed tickets and merged pull requests](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.8.1+is%3Aclosed).
 
 Here are the most significant ones:
 
-- Switch to Micrometer - [#8812](https://github.com/jhipster/generator-jhipster/pull/8812)
-- Angular: Lazy load entities - [#8925](https://github.com/jhipster/generator-jhipster/pull/8925)
-- Support JPA derived identifiers for one-to-one - [#8685](https://github.com/jhipster/generator-jhipster/pull/8685)
-- Add global logout for OIDC authentication - [#8757](https://github.com/jhipster/generator-jhipster/pull/8757)
-- Many libraries upgrades, including an upgrade to Spring Boot 2.0.8.RELEASE
-
-After this release, we will focus on JHipster 6, so JHipster 5 will go into maintenance mode. We should announce beta releases of JHipster 6 shortly.
-
+- Migrate JHipster Registry to micrometer - [#9122](https://github.com/jhipster/generator-jhipster/issues/9122)
+- JHipster 5.8.0 and Angular: language switch broken, only updates page title - [#9121](https://github.com/jhipster/generator-jhipster/issues/9121)
+- Improve JHipster generator-base API - [#9083](https://github.com/jhipster/generator-jhipster/issues/9083)
 
 Closed tickets and merged pull requests
 ------------
-As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.8.0+is%3Aclosed)__.
+As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.8.1+is%3Aclosed)__.
 
 How to upgrade
 ------------
