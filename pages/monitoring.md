@@ -27,16 +27,16 @@ For monoliths and gateways, JHipster generates several dashboards to monitor eac
 
 ### The metrics dashboard
 
-The metrics dashboard uses Dropwizard metrics to give a detailed view of the application performance.
+The metrics dashboard uses Micrometer to give a detailed view of the application performance.
 
 It gives metrics on:
 
 - the JVM
 - HTTP requests
-- methods used in Spring Beans (using the `@Timed` annotation)
+- cache usage
 - database connection pool
 
-By clicking on the eye next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
+By clicking on the Expand button next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
 
 ### The health dashboard
 
