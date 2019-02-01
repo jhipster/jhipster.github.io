@@ -4,7 +4,7 @@ title: Creating a controller
 permalink: /creating-a-spring-controller/
 sitemap:
     priority: 0.7
-    lastmod: 2017-12-28T00:00:00-00:00
+    lastmod: 2019-02-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-bolt"></i> Creating a Spring controller

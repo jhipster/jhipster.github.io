@@ -4,7 +4,7 @@ title: Monitoring your JHipster Applications
 permalink: /monitoring/
 sitemap:
     priority: 0.7
-    lastmod: 2016-03-17T00:00:00-00:00
+    lastmod: 2019-02-01T00:00:00-00:00
 ---
 # <i class="fa fa-line-chart"></i> Monitoring your JHipster Applications
 
@@ -59,6 +59,10 @@ The dashboards described in the previous sections only show the current value of
 Therefore JHipster applications can be configured to forward their metrics to an external monitoring system where they can be graphed over time and analyzed.
 
 To achieve this, JHipster provide the JHipster Console, a custom monitoring solution based on the ELK stack and fully integrated with JHipster.
+
+<div class="alert alert-warning"><i> Note: </i>
+As we switched from Dropwizard Metrics to Micrometer recently, the dashboards are currently broken for applications generated with v5.8.0 and newer.
+</div>
 
 ### Forwarding logs to the JHipster Console
 
@@ -165,7 +169,7 @@ You can then put this data in a JSON file in one of the `jhipster-console/dashbo
 
 If you have created useful dashboards and visualizations for your JHipster applications please consider contributing those back to the community by submitting a Pull Request on the [JHipster Console's GitHub project](https://github.com/jhipster/jhipster-console).
 
-## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)
+## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (Prometheus, Graphite)
 
 JHipster also provides a Metrics exporters for JMX.
 
@@ -173,18 +177,10 @@ Forwarding metrics to alternative systems is also supported and can also simply 
 
     jhipster:
         metrics:
-            jmx:
-                enabled: true
-
-Note: Unlike in previous JHipster versions, JHipster 5 metrics reporting only support JMX out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://metrics.dropwizard.io/4.0.0/manual/graphite.html#manual-graphite).
-
-JHipster also supports [Prometheus](https://prometheus.io/) as a Metrics exporter. Prometheus is disabled by default and can be enabled 
-in your YAML configuration file.
-
-    jhipster:
-        metrics:
             prometheus:
                 enabled: true
+
+Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://micrometer.io/docs/registry/graphite).
 
 This will export your metrics under `/prometheusMetrics`. As this endpoint is not secured, you can protect it with basic auth, such that 
 prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
