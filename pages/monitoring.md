@@ -169,9 +169,9 @@ You can then put this data in a JSON file in one of the `jhipster-console/dashbo
 
 If you have created useful dashboards and visualizations for your JHipster applications please consider contributing those back to the community by submitting a Pull Request on the [JHipster Console's GitHub project](https://github.com/jhipster/jhipster-console).
 
-## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (Prometheus, Graphite)
+## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)
 
-JHipster also provides a Metrics exporters for JMX.
+JHipster also provides a Metrics exporters for JMX and Prometheus.
 
 Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
 
@@ -180,7 +180,7 @@ Forwarding metrics to alternative systems is also supported and can also simply 
             prometheus:
                 enabled: true
 
-Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://micrometer.io/docs/registry/graphite).
+Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://micrometer.io/docs/registry/graphite).
 
 This will export your metrics under `/prometheusMetrics`. As this endpoint is not secured, you can protect it with basic auth, such that 
 prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
