@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2018-06-29T12:00:00-00:00
+    lastmod: 2019-02-02T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -32,6 +32,8 @@ Here is the JDL documentation:
 
 1. [JDL Sample](#sample)
 1. [How to use it](#howtojdl)
+   1. [Importing a JDL file](#importingjdl)
+   1. [Exporting to a JDL file](#exportingjdl)
 1. [The language](#jdllanguage)
    1. [Application Declaration](#applicationdeclaration)
    1. [Entity Declaration](#entitydeclaration)
@@ -64,9 +66,10 @@ If you're looking for more samples, there is a repository for that right [here](
 
 ## <a name="howtojdl"></a> How to use it
 
+###  <a name="importingjdl"></a> Importing a JDL file
 You can then use JDL files to generate entities:
-  - simply create a file with the extension '.jh' or '.jdl',
-  - declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
+  - Simply create a file with the extension '.jh' or '.jdl',
+  - Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
   - If you are creating only entities in then run `jhipster import-jdl my_file.jdl` in your JHipster application's root folder.
   - If you are creating applications then just run `jhipster import-jdl my_file.jdl` in a folder.
 
@@ -94,6 +97,15 @@ If you want to use it in your project, you can add do so by doing:
   - Yarn: `yarn add jhipster-core`
 
 to install it locally, and save it in your `package.json` file.
+
+###  <a name="exportingjdl"></a> Exporting to a JDL file
+
+If you already have entities in your application and wish to have a JDL file, fear not! You don't have
+to write it from scratch as there's a sub-generator that does that for you.
+
+Simply do `jhipster export-jdl <FILE_NAME>` in your app's root folder and you'll have all your entities,
+relationships and options exporting in a single JDL file.
+Note: you can also not provide a file name to the sub-generation, a default one will be chosen.
 
 ---
 
