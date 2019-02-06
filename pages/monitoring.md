@@ -36,7 +36,7 @@ It gives metrics on:
 - cache usage
 - database connection pool
 
-By clicking on the Expand button next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
+By clicking on the Expand button next to the JVM thread metrics, you will get a thread dump of the running application, which is very useful to find out blocked threads.
 
 ### The health dashboard
 
@@ -61,7 +61,7 @@ Therefore JHipster applications can be configured to forward their metrics to an
 To achieve this, JHipster provide the JHipster Console, a custom monitoring solution based on the ELK stack and fully integrated with JHipster.
 
 <div class="alert alert-warning"><i> Note: </i>
-As we switched from Dropwizard Metrics to Micrometer recently, the dashboards are currently broken for applications generated with v5.8.0 and newer.
+As we switched from Dropwizard Metrics to Micrometer recently, the metrics dashboards are currently broken for applications generated with v5.8.0 and newer.
 </div>
 
 ### Forwarding logs to the JHipster Console
@@ -182,8 +182,7 @@ Forwarding metrics to alternative systems is also supported and can also simply 
 
 Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://micrometer.io/docs/registry/graphite).
 
-This will export your metrics under `/prometheusMetrics`. As this endpoint is not secured, you can protect it with basic auth, such that 
-prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
+This will export your metrics under `/management/prometheus`. As this endpoint is not secured, you can protect it with basic auth, such that prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
 
     @Configuration
     @Order(1)
@@ -193,7 +192,7 @@ prometheus can still scrape the endpoint by creating a new configuration file (e
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                .antMatcher("/prometheusMetrics/**")
+                .antMatcher("/management/prometheus/**")
                 .authorizeRequests()
                 .anyRequest().hasAuthority(AuthoritiesConstants.ADMIN)
                 .and()

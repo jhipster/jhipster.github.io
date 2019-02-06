@@ -198,8 +198,8 @@ If you'd rather use the Apache HTTP server, you can set it up with Let's Encrypt
 
 ## <a name="monitoring"></a> Monitoring
 
-JHipster comes with full monitoring support from [Metrics](https://micrometer.io/).
+JHipster comes with full monitoring support from [Micrometer](https://micrometer.io/).
 
 In development, Metrics data will be available through JMX: launch your JConsole and you will be able to access it
 
-In production, your application will try to send this data to an [ELK or JHipster Console server]({{ site.url }}/monitoring/) or to a [Prometheus server](https://prometheus.io/docs/introduction/overview/), depending on what you have configured in your configuration files.
+In production, your application expose its metrics data on an endpoint that a [Prometheus server](https://prometheus.io/docs/introduction/overview/) can scrape at regular intervals, depending on what you have configured.
