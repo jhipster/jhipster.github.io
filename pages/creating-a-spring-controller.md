@@ -4,7 +4,7 @@ title: Creating a controller
 permalink: /creating-a-spring-controller/
 sitemap:
     priority: 0.7
-    lastmod: 2017-12-28T00:00:00-00:00
+    lastmod: 2019-02-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-bolt"></i> Creating a Spring controller
@@ -28,10 +28,6 @@ Yes! In fact it's already done! In `dev` mode, just use the `Administration > AP
 ## Can we add security to Spring MVC REST Controllers?
 
 Yes! Just add Spring Security's `@Secured` annotation on your class or on your methods, and use the provided `AuthoritiesConstants` class to restrict access to specific user authorities.
-
-## Can we monitor Spring MVC REST Controllers?
-
-Yes! Just add Metrics' `@Timed` annotations on the methods you want to monitor.
 
 ## Can we proxy it from our Microservice Gateway dev server?
 

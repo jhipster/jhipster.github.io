@@ -6,7 +6,7 @@ redirect_from:
   - /production.html
 sitemap:
     priority: 0.7
-    lastmod: 2014-02-17T00:00:00-00:00
+    lastmod: 2019-02-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-play-circle"></i> Using JHipster in production
@@ -198,8 +198,8 @@ If you'd rather use the Apache HTTP server, you can set it up with Let's Encrypt
 
 ## <a name="monitoring"></a> Monitoring
 
-JHipster comes with full monitoring support from [Metrics](http://metrics.codahale.com/).
+JHipster comes with full monitoring support from [Micrometer](https://micrometer.io/).
 
 In development, Metrics data will be available through JMX: launch your JConsole and you will be able to access it
 
-In production, your application will try to send this data to an [ELK or JHipster Console server]({{ site.url }}/monitoring/) or to a [Graphite server](http://graphite.wikidot.com/), depending on what you have configured in your `application-prod.yml` configuration file.
+In production, your application expose its metrics data on an endpoint that a [Prometheus server](https://prometheus.io/docs/introduction/overview/) can scrape at regular intervals, depending on what you have configured.

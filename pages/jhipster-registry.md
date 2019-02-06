@@ -4,7 +4,7 @@ title: JHipster Registry
 permalink: /jhipster-registry/
 sitemap:
     priority: 0.7
-    lastmod: 2017-05-03T00:00:00-00:00
+    lastmod: 2019-02-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-dashboard"></i> The JHipster Registry
@@ -142,16 +142,20 @@ In order to access sensitive information from the applications, the JHipster Reg
 
 ![]({{ site.url }}/images/jhipster-registry-metrics.png)
 
-The metrics dashboard uses Dropwizard metrics to give a detailed view of the application performance.
+The metrics dashboard uses Micrometer to give a detailed view of the application performance.
 
 It gives metrics on:
 
 - the JVM
 - HTTP requests
-- methods used in Spring Beans (using the `@Timed` annotation)
+- cache usage
 - database connection pool
 
-By clicking on the eye next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
+By clicking on the Expand button next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
+
+Note: As we switched the JHipster Registry to monitor metrics coming from Micrometer instead of Dropwizard metrics, it implies that all JHipster application generated with version 5.7.2 or older should be migrated to Micrometer to be monitored with the JHipster Registry. If you don't want to migrate your applications, please use JHipster Registry v4.0.6 or older.
+
+To migrate your applications, you can use the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/).
 
 ### The health dashboard
 

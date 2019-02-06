@@ -7,7 +7,7 @@ redirect_from:
   - /creating-a-service/
 sitemap:
     priority: 0.7
-    lastmod: 2017-10-17T00:00:00-00:00
+    lastmod: 2019-02-01T00:00:00-00:00
 ---
 
 # <i class="fa fa-bolt"></i> Creating a Spring service
@@ -59,7 +59,3 @@ _Tip:_ use `@Transactional(readOnly = true)` on a method if you are not modifyin
 ## Can we add security to Service Beans?
 
 Yes! Just add Spring Security's `@Secured` annotation on your class or on your methods, and use the provided `AuthoritiesConstants` class to restrict access to specific user authorities.
-
-## Can we monitor Service Beans?
-
-Yes! Just add Metrics' `@Timed` annotations on the methods you want to monitor.
