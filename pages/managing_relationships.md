@@ -6,7 +6,7 @@ redirect_from:
   - /managing_relationships.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-03-26T18:40:00-00:00
+    lastmod: 2019-02-07T18:40:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships
@@ -53,6 +53,8 @@ Please note that the `User` entity, which is handled by JHipster, is specific. Y
 - `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement. On the generated Angular/React client UI you will have a dropdown in `Car` to select a `User`.
 - `many-to-many` and `one-to-one` relationships to the `User` entity, but the other entity __must__ be the owner
 of the relationship (a `Team` can have a many-to-many relationship to `User`, but only the team can add/remove users, and a user cannot add/remove a team). On the Angular/React client UI, you will also be able to select a `User` in a multi-select box.
+
+When using the UAA authentication type, you can only create relationships to the User entity if the related entity is also within the UAA microservice.
 
 ## <a name="1"></a> A bidirectional one-to-many relationship
 
