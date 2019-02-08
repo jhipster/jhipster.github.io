@@ -27,7 +27,7 @@ Optionally, JHipster can also generate:
 We have two goals in generating those tests:
 
 *   Help every JHipster user to follow best practices, as we believe tests are a very useful part of every application
-*   Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing just a `./mvnw clean test` and `gulp test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
+*   Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing just a `./mvnw clean test` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
 
 All those tests will be generated in the standard Maven `src/test` folder.
 
