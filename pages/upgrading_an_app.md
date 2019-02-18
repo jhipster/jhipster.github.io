@@ -40,6 +40,17 @@ Here are the options you can pass:
 * `--target-version=4.2.0` - Upgrade to the target version instead of the latest release, useful if a project is several versions behind
 * `--force` - Run the upgrade sub-generator even if no new JHipster version is available
 
+If you are doing the upgrade more than once you could consider to first upgrade the JHipster tree like this:
+	
+    git checkout jhipster_upgrade
+	git checkout --patch master .yo-rc.json
+	git checkout --patch master .jhipster
+	git commit -a
+	git push --set-upstream origin jhipster_upgrade
+	git checkout master
+
+With doing the above you upgrade the jhipster_upgrade tree with your latest changes so JHipster can make use of that during the upgrade. For example when you changed your model.
+
 ## Graphical view of the upgrade process
 
 Here is how the upgrade process works graphically (read the sections below to have a textual explanation):
@@ -78,4 +89,4 @@ On the first execution of the JHipster upgrade sub-generator, in order to avoid 
 
 ### Advice
 
-Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.
+Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created. This offcourse does not account for the above tip for upgrading more than once.
