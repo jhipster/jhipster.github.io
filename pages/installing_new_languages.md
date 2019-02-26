@@ -63,7 +63,8 @@ These are the currently supported languages
 *   Thai
 *   Turkish
 *   Ukrainian
-*   Uzbek
+*   Uzbek (Cyrillic)
+*   Uzbek (Latin)
 *   Vietnamese
 
 _Your language is missing in JHipster? Help us improve the project with a PR!_
@@ -129,7 +130,7 @@ If you would like to contribute a new language to the generator follow steps 1, 
 ## How to remove an existing language?
 
 Here are the steps to remove a language called `old_lang`:
- 
+
 1.  Remove the language folder from `src/main/webapp/i18/old_lang`
 2.  Remove the constant entry in `src/main/webapp/app/components/language/language.constants.js` or `src/main/webapp/app/shared/language/language.constants.ts` and `webpack.common.js`
 3.  Remove the `src/main/resources/i18n/messages_old_lang.properties` file
