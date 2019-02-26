@@ -28,7 +28,7 @@ Install and authenticate with the gcloud SDK on your local environment to access
 
 Google App Engine is a fully managed Platform as a Service that can automatically scale up application instances under load, and scale down to zero when not used.
 
-You can use the Google App Engine generator to generate and deploy JHipster application.  Google App Engine generator is currently beta and supports monolith application, with Cloud DQL MySQL database.
+You can use the Google App Engine generator to generate and deploy JHipster application.  Google App Engine generator is currently beta and supports monolith application, with Cloud SQL MySQL/PostgreSQL database.
 
 1. Generate a new monolith application: `jhipster`
 1. Run Google App Engine generator: `jhipster gae`
