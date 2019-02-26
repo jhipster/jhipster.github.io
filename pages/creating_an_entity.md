@@ -48,7 +48,7 @@ Below are the supported options.
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-don't choose a short name for your entity (see <a href="https://github.com/jhipster/generator-jhipster/issues/8446" target="_blank">this ticket</a>).
+Don't choose a short name for your entity (see <a href="https://github.com/jhipster/generator-jhipster/issues/8446" target="_blank">this ticket</a>).
 
 </div>
 
