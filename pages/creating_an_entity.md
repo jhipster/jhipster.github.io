@@ -46,6 +46,12 @@ Below are the supported options.
 *   `--skip-client` - This will skip the client-side code and will generate only the server-side code.
 *   `--db` - Specify the database when skipping server side generation, has no effect otherwise.
 
+<div class="alert alert-warning"><i>Warning: </i>
+
+don't choose a short name for your entity (see <a href="https://github.com/jhipster/generator-jhipster/issues/8446" target="_blank">this ticket</a>).
+
+</div>
+
 ## JHipster UML and JDL Studio
 
 This page describes how to create entities with JHipster using the standard command-line interface. If you want to create many entities, you might prefer to use a graphical tool.
