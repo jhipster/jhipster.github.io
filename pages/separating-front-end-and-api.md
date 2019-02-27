@@ -24,6 +24,8 @@ You can choose to generate only a JHipster back-end or JHipster front-end applic
 - `jhipster --skip-client` will only generate a back-end application (this is typically what JHipster microservices are)
 - `jhipster --skip-server` will only generate a front-end application
 
+This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are basically a monolith with the Zuul gateway service enabled).
+
 ## Directory layout
 
 JHipster uses the standard Maven directory layout. When working on the back-end, you can just read the [Maven standard directory layout documentation](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
