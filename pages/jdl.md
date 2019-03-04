@@ -1061,7 +1061,7 @@ Here are the application options supported in the JDL:
   <tr>
     <td>deploymentType</td>
     <td>docker-compose</td>
-    <td>docker-compose, kubernetes, openshift, rancher-compose</td>
+    <td>docker-compose, kubernetes, openshift</td>
     <td></td>
   </tr>
   <tr>
@@ -1147,12 +1147,6 @@ Here are the application options supported in the JDL:
     <td>false</td>
     <td></td>
     <td>Applicable only when deploymentType is kubernetes</td>
-  </tr>
-  <tr>
-    <td>enableRancherLoadBalancing</td>
-    <td>false</td>
-    <td></td>
-    <td>Applicable only when deploymentType is rancher-compose</td>
   </tr>
   <tr>
     <td>openshiftNamespace</td>
