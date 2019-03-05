@@ -371,7 +371,7 @@ This is the corresponding JDL for previous bi-directional one-to-one example:
     }
 
  However, based on business requirements, there might be cases where this should be avoided because it has following constraint: 
-**Once the id(primary key) is set at owning side, it is not changeable using JPA/Hibernate. You should not change it anyway.**.
+**Once the id(primary key) is set at owning side, it is not changeable using JPA/Hibernate. You should not change it anyway.**
 
 **Here are a few suggestions regarding usage:**
 
@@ -400,3 +400,5 @@ Do not use  `@MapsId` when:
     class Driver{@OneToOne @JoinColumn(name="id") Car drivingCar} // driver drives another car in future
     ```
     Both car and driver association value may change in future.
+
+**Note: There is [a known issue regarding using `@OneToOne` with `@MapsId` and how to avoid it](https://www.jhipster.tech/tips/026_tip_issue_of_onetoone_with_mapsid_how_to_avoid_it)**.
