@@ -1237,6 +1237,11 @@ Common databases:
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
+    <td>Duration</td>
+    <td></td>
+    <td><dfn>required, unique</dfn></td>
+  </tr>
+  <tr>
     <td></td>
     <td>UUID</td>
     <td><dfn>required, unique</dfn></td>
