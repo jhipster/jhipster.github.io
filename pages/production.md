@@ -97,11 +97,16 @@ Next, setup your init.d with:
 
 `ln -s jhipster-0.0.1-SNAPSHOT.war /etc/init.d/jhipster`
 
-and you will be able to run 
+Secure your application with:
+
+`chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.war
+sudo chattr +i your-app.jar`
+
+being jhuser the non root os account that will run the application, and you will be able to run like that:
 
 `service jhipster start|stop|restart`
 
-There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including Windows service.
+There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
 
 ## <a name="performance"></a> Performance optimizations
 
