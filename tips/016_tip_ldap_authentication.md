@@ -38,7 +38,7 @@ To add an LDAP authentification to your JHipster application, follow these steps
         contextSource.setPassword("hisPassword");
         contextSource.afterPropertiesSet(); //needed otherwise you will have a NullPointerException in spring
 
-        return
+        return contextSource;
     }
 
 ```
