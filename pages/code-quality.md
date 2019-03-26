@@ -21,7 +21,7 @@ If you use Maven, it has been automatically configured:
 
     ./mvnw -Pprod clean test sonar:sonar
 
-If you need to re-run the sonar phase, please be sure to specify at least the `initialize` phase since sonar properties are loaded from the sonar-project.properties file.
+If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
 
     ./mvnw initialize sonar:sonar
 
