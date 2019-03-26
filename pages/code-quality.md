@@ -21,9 +21,19 @@ If you use Maven, it has been automatically configured:
 
     ./mvnw -Pprod clean test sonar:sonar
 
+If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
+
+    ./mvnw initialize sonar:sonar
+
 If you use Gradle, it has also been automatically configured:
 
     ./gradlew -Pprod clean test sonarqube
+
+In every cases you can, now, run analysis with [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) if you already have installed it.
+
+    sonar-scanner
+
+
 
 Once the analysis completes, it will be available on the Sonar dashboard, which by default is available on [http://127.0.0.1:9001/](http://127.0.0.1:9001/).
 
