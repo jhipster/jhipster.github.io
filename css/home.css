@@ -343,3 +343,45 @@ form .row:first-child .floating-label-form-group {
 
 .project-icon {
   width: 65px; }
+
+@media (max-width: 1080px) { 
+  #content-search-form {
+    display: none;
+  }  
+}
+#content-search-form input[type=text] {
+  float: right;
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 10px 40px 10px 15px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+#content-search-form input[type=text]:focus {
+  width: 100%;
+}
+#content-search-form i {
+  position: relative;
+  font-size: 20px;
+  top: 18px;
+  right: 25px;
+  color: #ccc;
+  z-index: 1;
+  float: right;
+}
+#content-search-form > span.algolia-autocomplete,
+#content-search-form > input {
+  margin-top: 7px;
+}
+#content-search-form .algolia-autocomplete .algolia-docsearch-suggestion--wrapper {
+  padding: 0;
+}
+#content-search-form .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  color: #3d8acc;
+}
