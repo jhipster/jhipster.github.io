@@ -360,6 +360,18 @@
       "category": "Enterprise DevOps",
       "country": "Netherlands"
     },
+    {"name": "Carrefour",
+      "url": "https://www.carrefour.fr/",
+      "logo": "carrefour.png",
+      "category": "Retail",
+      "country": "France"
+    },
+    {"name": "Bank of the West",
+      "url": "https://www.bankofthewest.com/",
+      "logo": "bank-of-the-west.png",
+      "category": "Finance",
+      "country": "USA"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -951,8 +963,8 @@
     {"name": "Itemis Schweiz GmbH",
       "url": "https://itemis.ch/"
     },
-    {"name": "https://lavalabs.net/",
-      "url": "Lava Labs"
+    {"name": "Lava Labs",
+      "url": "https://lavalabs.net/"
     },
     {"name": "Softdog",
       "url": "https://softdog.pl/#/"
@@ -974,6 +986,51 @@
     },
     {"name": "Palo IT",
       "url": "http://palo-it.com/"
+    },
+    {"name": "Taiger",
+      "url": "https://taiger.com/"
+    },
+    {"name": "HIVEO",
+      "url": "https://www.hiveo.fr/"
+    },
+    {"name": "Jobware",
+      "url": "https://www.jobware.de/"
+    },
+    {"name": "Humanbee AB",
+      "url": "http://humanbee.se/"
+    },
+    {"name": "Wolters Kluwer",
+      "url": "https://www.wkelmsolutions.com/"
+    },
+    {"name": "Continuum+",
+      "url": "http://www.continuumplus.net/"
+    },
+    {"name": "Raster Images Private Limited",
+      "url": "http://www.raster.in/"
+    },
+    {"name": "AiHello",
+      "url": "https://www.aihello.com/"
+    },
+    {"name": "Sonatel",
+      "url": "http://www.sonatel.sn/"
+    },
+    {"name": "Add Value Spa",
+      "url": "https://www.addvalue.it/"
+    },
+    {"name": "Aparna Systems",
+      "url": "http://aparnasystems.com/"
+    },
+    {"name": "neoSearch UG",
+      "url": "https://urteile-gesetze.de/"
+    },
+    {"name": "PureThink",
+      "url": "https://purethink.com/"
+    },
+    {"name": "Rohrer Revolution GmbH",
+      "url": "https://www.rohrer-revolution.ch/"
+    },
+    {"name": "Teachoo",
+      "url": "https://www.teachoo.com/"
     }
   ]
 }
