@@ -85,6 +85,29 @@ JHipster has first-class support for Docker: it is very easy to bundle your exec
 
 To learn how to package your application with Docker, please read our [Docker Compose documentation]({{ site.url }}/docker-compose/).
 
+### Run as a service
+
+It is also possible to run the war as a Linux service, and you may want to force in your `pom.xml` file before packaging. To do it, add the following property inside `<configuration>` of `spring-boot-maven-plugin` plugin. 
+
+                            <embeddedLaunchScriptProperties>
+                                <mode>service</mode>
+                            </embeddedLaunchScriptProperties>
+
+Next, setup your init.d with: 
+
+`ln -s jhipster-0.0.1-SNAPSHOT.war /etc/init.d/jhipster`
+
+Secure your application with:
+
+`chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.war
+sudo chattr +i your-app.jar`
+
+Considering `jhuser` a non-root OS account that will run the application, then the application can be run this way:
+
+`service jhipster start|stop|restart`
+
+There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
+
 ## <a name="performance"></a> Performance optimizations
 
 ### Cache tuning
