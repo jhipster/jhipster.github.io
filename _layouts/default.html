@@ -39,6 +39,7 @@
     {% if page.home == true %}
     <link rel="stylesheet" type="text/css" href="/css/home.css">
     {% endif %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
     <!-- Bootstrap Docs CSS subset to get icon -->
     <!--<link href="/css/bootstrap-docs.css" rel="stylesheet">-->
 
@@ -103,8 +104,11 @@
                             <a href="{{ site.url }}/sponsors/">Sponsor</a>
                         </li>
                         {% endif %}
-                        <li class="">
-                            <a href="https://www.google.com/search?q=site:www.jhipster.tech" target="_blank">Search</a>
+                        <li class="search-box">
+                            <form id="content-search-form">
+                                <i class="fa fa-search"></i>
+                                <input type="text" name="search" class="doc-search-algolia" placeholder="Search..." />
+                            </form>
                         </li>
                         <li>
                             <a href="https://github.com/jhipster/generator-jhipster" class="dropdown-toggle navlink" target="_blank" role="button"><i class="fa fa-github fa-2x"></i></a>
@@ -507,6 +511,15 @@
         ga('create', 'UA-46075199-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+    <script type="text/javascript"> 
+        docsearch({ 
+            apiKey: '9bd47d3de4af6f3662fd11a7f0e38819', 
+            indexName: 'jhipster', 
+            inputSelector: '.doc-search-algolia', 
+            debug: false // Set debug to true if you want to inspect the dropdown 
+        });
+    </script> 
 </body>
 
 </html>
