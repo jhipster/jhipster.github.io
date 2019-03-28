@@ -111,7 +111,7 @@ Validation can be set up for each field. Depending on the field type, different 
 
 Validation will be automatically generated on:
 
-*   the HTML views, using the Angular or React validation mechanism
+*   the HTML views, using the Angular or React or Vue validation mechanism
 *   the Java domain objects, using [Bean Validation](http://beanvalidation.org/)
 
 Bean validation will then be used to automatically validate domain objects when they are used in:

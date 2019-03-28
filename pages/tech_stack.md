@@ -15,7 +15,7 @@ sitemap:
 
 Single Web page application:
 
-*   [Angular](https://angular.io/) or [React](https://reactjs.org/)
+*   [Angular](https://angular.io/) or [React](https://reactjs.org/) or [Vue](https://vuejs.org/)
 *   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
 *   Compatible with modern browsers (Chrome, FireFox, Microsoft Edge...)
