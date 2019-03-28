@@ -102,7 +102,7 @@ Secure your application with:
 `chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.war
 sudo chattr +i your-app.jar`
 
-being jhuser the non root os account that will run the application, and you will be able to run like that:
+Considering `jhuser` a non-root OS account that will run the application, then the application can be run this way:
 
 `service jhipster start|stop|restart`
 
