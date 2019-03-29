@@ -158,6 +158,12 @@ You can either use:
 *   Angular
 *   React
 
+### Would you like to use a Bootswatch theme ?
+
+The client theme to use.
+
+You can use any themes from [Bootswatch](https://bootswatch.com/) or keep the default one.
+
 ### Would you like to use the Sass stylesheet preprocessor for your CSS?
 
 [Sass](https://sass-lang.com/) a great solution to simplify designing CSS. To be used efficiently, you will need to run a [Webpack](https://webpack.js.org) dev server, which will be configured automatically.
