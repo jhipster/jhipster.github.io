@@ -9,6 +9,14 @@ sitemap:
     lastmod: 2016-05-25T00:00:00-00:00
 ---
 <div ng-app="jhipster.home" ng-controller="HomeController" class="home-container">
+    <div class="mobile-search-container container">
+        <div class="row">
+            <form id="mobile-content-search-form">
+                <i class="fa fa-search"></i>
+                <input type="text" name="search" class="form-control mobile-doc-search-algolia" placeholder="Search..." />
+            </form>
+        </div>
+    </div>
     <!-- Header -->
     <header id="header" class="home-section">
         <div class="container">
@@ -752,3 +760,12 @@ sitemap:
     "https://github.com/jhipster/generator-jhipster"]
 }
 </script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
+<script type="text/javascript"> 
+    docsearch({ 
+        apiKey: '9bd47d3de4af6f3662fd11a7f0e38819', 
+        indexName: 'jhipster', 
+        inputSelector: '.mobile-doc-search-algolia', 
+        debug: false // Set debug to true if you want to inspect the dropdown 
+    });
+</script> 

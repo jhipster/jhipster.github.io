@@ -1566,7 +1566,28 @@ table tr:nth-child(even) {
 @media (max-width: 1080px) { 
   #content-search-form {
     display: none;
-  }  
+  }
+  #mobile-content-search-form {
+    padding: 5px 0 5px 10px;
+  }
+  #mobile-content-search-form > span.algolia-autocomplete {
+    width: 90%;
+    margin-left: 5px;
+  }
+  #mobile-content-search-form input.mobile-doc-search-algolia {
+    width: 100%;
+  }
+  #mobile-content-search-form .algolia-autocomplete .ds-dropdown-menu {
+    min-width: auto;
+  }
+  #mobile-content-search-form .algolia-autocomplete .ds-dropdown-menu:before {
+    right: 90%;
+  }
+}
+@media (min-width: 1080px) { 
+  #mobile-content-search-form {
+    display: none;
+  }
 }
 #content-search-form input[type=text] {
   float: right;
