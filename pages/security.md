@@ -170,7 +170,7 @@ cf set-env $appName SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID "$
 cf set-env $appName SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET "$SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET"
 ```
 
-See [Use OpenID Connect Support with JHipster](https://developer.okta.com/blog/2017/10/20/oidc-with-jhipster) to learn more about JHipster and OIDC with Okta.
+See [Use OpenID Connect Support with JHipster](https://developer.okta.com/blog/2017/10/20/oidc-with-jhipster) to learn more about JHipster and OIDC with Okta. If you're using JHipster 6, see [Better, Faster, Lighter Java with Java 12 and JHipster 6](https://developer.okta.com/blog/2019/04/04/java-11-java-12-jhipster-oidc).
 
 ## <a name="https"></a> HTTPS
 
