@@ -268,6 +268,15 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/37835668?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Anthony Viard</h3>
+                <p><a href="https://twitter.com/avdev4j"><i>@avdev4j</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/2188969?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Panayiotis Vlissidis</h3>
