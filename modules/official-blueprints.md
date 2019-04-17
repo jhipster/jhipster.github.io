@@ -15,7 +15,7 @@ sitemap:
 JHipster supports several official blueprints. These blueprints have two main goals:
 
 * Enhance JHipster with new features using different languages and/or support
-* Demonstrate how the main generator behavior can be modified to fit anyone needs
+* Demonstrate how the main generator behavior can be modified to fit anyone's needs
 
 ## Kotlin
 
