@@ -37,57 +37,69 @@ This profile will compile, test and package your application with all production
 
 If you want more information on the available profiles, please go the section titled "[Development and Production profiles]({{ site.url }}/profiles/)".
 
-### Building an executable WAR file
+### Building an executable JAR / WAR file
+
+To package the application as a "production" JAR, with Maven please type:
+
+`./mvnw -Pprod verify`
+
+Or when using Gradle, please type:
+
+`./gradlew -Pprod bootJar`
+
+This will generate this file (if your application is called "jhipster"):
+
+When using Maven:
+*   `target/jhipster-0.0.1-SNAPSHOT.jar`
+
+When using Gradle:
+*   `build/libs/jhipster-0.0.1-SNAPSHOT.jar`
+
 
 To package the application as a "production" WAR, with Maven please type:
 
-`./mvnw -Pprod package`
+`./mvnw -Pprod,war verify`
 
 Or when using Gradle, please type:
 
 `./gradlew -Pprod bootWar`
 
-This will generate two files (if your application is called "jhipster"):
+
+This will generate these files (if your application is called "jhipster"):
 
 When using Maven:
 *   `target/jhipster-0.0.1-SNAPSHOT.war`
-*   `target/jhipster-0.0.1-SNAPSHOT.war.original`
 
 When using Gradle:
 *   `build/libs/jhipster-0.0.1-SNAPSHOT.war`
-*   `build/libs/jhipster-0.0.1-SNAPSHOT.war.original`
 
-The first one is an executable WAR file (see next section to run it). It can also be deployed on an application server, but as it includes runtime libraries, we recommend you use the second, `.original` file if you want to deploy JHipster on an application server like Tomcat, Weblogic or Websphere.
-
-When running JHipster in an application server, some of the tuning described in this documentation (like GZipping, HTTP/2 or HTTPS support) will not work anymore, as they will need to be configured at the application server level. This is why we do not recommend using an application server with JHipster.
-
-**Please note** that when building a WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
+**Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
 ## <a name="run"></a> Running in production
 
-### Executing the WAR file without an application server
+### Executing the JAR file without an application server
 
-Instead of deploying to an application server, many people find it easier to just have an executable WAR file.
+Instead of deploying to an application server, many people find it easier to just have an executable JAR file.
 
-The first WAR file generated in the previous step is such a WAR, so you can run it in "production" mode by typing (on Mac OS X or Linux):
+With the JAR file generated in the previous step, you can run it in "production" mode by typing (on Mac OS X or Linux):
 
-`./jhipster-0.0.1-SNAPSHOT.war`
+`./jhipster-0.0.1-SNAPSHOT.jar`
 
 If you are on Windows, use:
 
-`java -jar jhipster-0.0.1-SNAPSHOT.war`
+`java -jar jhipster-0.0.1-SNAPSHOT.jar`
 
-**Please note** that this WAR file uses the profile we selected when building it. As it was built using the `prod` file in the previous section, it will therefore run with the `prod` profile.
+**Please note** that this JAR file uses the profile we selected when building it. As it was built using the `prod` file in the previous section, it will therefore run with the `prod` profile.
 
 ### Running the application in a Docker container
 
-JHipster has first-class support for Docker: it is very easy to bundle your executable WAR file in a Docker image, and run it inside Docker.
+JHipster has first-class support for Docker: it is very easy to bundle your executable JAR file in a Docker image, and run it inside Docker.
 
 To learn how to package your application with Docker, please read our [Docker Compose documentation]({{ site.url }}/docker-compose/).
 
 ### Run as a service
 
-It is also possible to run the war as a Linux service, and you may want to force in your `pom.xml` file before packaging. To do it, add the following property inside `<configuration>` of `spring-boot-maven-plugin` plugin. 
+It is also possible to run the Jar as a Linux service, and you may want to force in your `pom.xml` file before packaging. To do it, add the following property inside `<configuration>` of `spring-boot-maven-plugin` plugin.
 
                             <embeddedLaunchScriptProperties>
                                 <mode>service</mode>
@@ -95,11 +107,11 @@ It is also possible to run the war as a Linux service, and you may want to force
 
 Next, setup your init.d with: 
 
-`ln -s jhipster-0.0.1-SNAPSHOT.war /etc/init.d/jhipster`
+`ln -s jhipster-0.0.1-SNAPSHOT.jar /etc/init.d/jhipster`
 
 Secure your application with:
 
-`chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.war
+`chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.jar
 sudo chattr +i your-app.jar`
 
 Considering `jhuser` a non-root OS account that will run the application, then the application can be run this way:
@@ -132,11 +144,11 @@ To enable HTTP/2, you need to:
 
 ### GZipping
 
-Within an executable WAR file, which uses the `prod` profile, JHipster configures GZip compression on your Web resources.
+Within an executable JAR file, which uses the `prod` profile, JHipster configures GZip compression on your Web resources.
 
 By default, compression will work on all static resources (HTML, CSS, JavaScript) and on all REST requests. You can have more information on this configuration by looking at the `server.compression.*` keys in the Spring Boot application properties, configured in the `application-prod.yml` file.
 
-**Please note** that GZipping is done by the application server, so this section only applies if you use the "executable WAR" option described above. If you run your application in an external application server, you will need to configure it separately.
+**Please note** that GZipping is done by the application server, so this section only applies if you use the "executable JAR" option described above. If you run your application in an external application server, you will need to configure it separately.
 
 ### Cache headers
 
@@ -152,7 +164,7 @@ This will use [Webpack](https://webpack.github.io/) to process all your static r
 
 During this process, Webpack will compile the TypeScript code into JavaScript code, and will also generate source maps, so the client-side application can still be debugged.
 
-Those optimized assets will be generated in `target/www` for Maven or `build/www` for Gradle, and will be included in your final production WAR.
+Those optimized assets will be generated in `target/classes/static` for Maven or `build/resources/main/static` for Gradle, and will be included in your final production JAR.
 
 This code will be served when you run the application with the `prod` profile.
 
