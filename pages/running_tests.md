@@ -27,7 +27,7 @@ Optionally, JHipster can also generate:
 We have two goals in generating those tests:
 
 *   Help every JHipster user to follow best practices, as we believe tests are a very useful part of every application
-*   Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing just a `./mvnw clean test integration-test` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
+*   Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing just a `./mvnw clean verify` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
 
 All those tests will be generated in the standard Maven `src/test` folder.
 
@@ -46,7 +46,7 @@ This Spring test context will use a specific test database to execute its tests:
 *   If you use Elasticsearch, JHipster will launch an in-memory Elasticsearch instance using Spring Data Elasticsearch.
 *   If you use Couchbase, JHipster will launch a containerized version of Couchbase with Docker using [Couchbase TestContainers](https://github.com/differentway/testcontainers-java-module-couchbase).
 
-Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `./mvnw clean test integration-test` (or `./gradlew test integrationTest` if you run Gradle).
+Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `./mvnw clean verify` (or `./gradlew test integrationTest` if you run Gradle).
 
 **Limitations:** if the generated entities have validation enabled, JHipster is not enable to generate the correct values depending on the validation rules. Those rules can be so complex, for example if a Regex pattern is used, that this just not possible. In this case, the tests will fail validation, and the default values used in the test will need to changed manually, so they can pass the validation rules.
 
