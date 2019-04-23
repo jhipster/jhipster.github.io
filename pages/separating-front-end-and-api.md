@@ -4,7 +4,7 @@ title: Separating the front-end and the API server
 permalink: /separating-front-end-and-api/
 sitemap:
     priority: 0.7
-    lastmod: 2017-12-28T00:00:00-00:00
+    lastmod: 2019-01-29T00:00:00-00:00
 ---
 
 # <i class="fa fa-unlink"></i> Separating the front-end and the API server
@@ -47,6 +47,7 @@ Once the front-end and back-end have been separated, the issue will be how to ha
 - All API calls will use a `/api` prefix. If you are using Angular, there is also a specific `SERVER_API_URL` constant, defined in the `webpack.common.js` configuration, that can enrich this prefix. For example, you can use `"http://api.jhipster.tech:8081/"` as a back-end API server (If you do this, please read our documentation on CORS below).
 - Calls to `/` serve static assets (from the front-end), which should not be cached by the browser.
 - Calls to `/app` (which contains the client-side application) and to `/content` (which contains the static content, like images and CSS) should be cached in production, as those assets are hashed.
+- Calls to a non-existant route should forward the request to `index.html`. This is normally handled in the backend through `ClientForwardController`. When deploying the client separately, this needs to be configured.  See the [Angular](https://angular.io/guide/deployment#server-configuration) or [React](https://facebook.github.io/create-react-app/docs/deployment) documentation for several examples.
 
 # Using BrowserSync
 
@@ -77,7 +78,7 @@ Create a `src/main/docker/nginx.yml` Docker Compose file:
     version: '2'
     services:
       nginx:
-        image: nginx:1.13-alpine
+        image: nginx:1.15-alpine
         volumes:
         - ./../../../target/www:/usr/share/nginx/html
         - ./nginx/site.conf:/etc/nginx/conf.d/default.conf
@@ -94,9 +95,8 @@ It also reads a `./nginx/site.conf` file: this is a NGinx-specific configuration
         server_name localhost;
         error_log  /var/log/nginx/error.log;
 
-        location / {
-            root /usr/share/nginx/html;
-        }
+        root /usr/share/nginx/html;
+
         location /api {
             proxy_pass http://api.jhipster.tech:8081/api;
         }
@@ -112,6 +112,9 @@ It also reads a `./nginx/site.conf` file: this is a NGinx-specific configuration
         location /swagger-resources {
             proxy_pass http://api.jhipster.tech:8081/swagger-resources;
         }
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
     }
 
 This configuration means that:
@@ -119,5 +122,6 @@ This configuration means that:
 - NGinx will run on port `80`
 - It will read the static assets in folder `/usr/share/nginx/html`, and
 - It will act as a proxy from `/api` to `http://api.jhipster.tech:8081/api`
+- Any unhandled requests will forward to `index.html`
 
 This configuration will require some tuning depending on your specific needs, but should be a good enough starting point for most applications.

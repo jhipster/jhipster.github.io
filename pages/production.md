@@ -6,7 +6,7 @@ redirect_from:
   - /production.html
 sitemap:
     priority: 0.7
-    lastmod: 2019-02-01T00:00:00-00:00
+    lastmod: 2019-02-04T00:00:00-00:00
 ---
 
 # <i class="fa fa-play-circle"></i> Using JHipster in production
@@ -119,6 +119,10 @@ Considering `jhuser` a non-root OS account that will run the application, then t
 `service jhipster start|stop|restart`
 
 There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
+
+### Running the application under a Context Path
+
+When deploying a JHipster app to an Application Server or customizing your context-path, it is required to set the `baseHref` value in `webpack.common.js` equal to the expected context-path.
 
 ## <a name="performance"></a> Performance optimizations
 

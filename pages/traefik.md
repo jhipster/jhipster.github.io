@@ -4,7 +4,7 @@ title: Traefik
 permalink: /traefik/
 sitemap:
     priority: 0.7
-    lastmod: 2017-09-27T00:00:00-00:00
+    lastmod: 2019-01-29T00:00:00-00:00
 ---
 
 # <i class="fa fa-exchange"></i> Traefik
@@ -58,3 +58,7 @@ This configuration file is set up so that:
 - The Traefik administration UI is available on port `28080`, so you can visit it at [http://localhost:28080](http://localhost:28080).
 
 As Traefik is using Consul, it will also be useful to check the Consul administration UI, which is available on port `8500`: [http://localhost:8500](http://localhost:8500).
+
+#### Configure your Base HREF
+
+Before building the gateway's Docker image, you will need to configure the `baseHref` value in `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `baseHref` should be `/gateway/`.
