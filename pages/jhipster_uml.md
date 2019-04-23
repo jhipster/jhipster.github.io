@@ -264,7 +264,7 @@ The options described in the help can be used in the both but the commande line 
 ### A concrete example
 
 jumlfile content:
-```javascript
+```json
 {
   "db": "sql",
   "force": "true"
