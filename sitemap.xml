@@ -2,7 +2,7 @@
 layout:
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {% for post in site.posts %}
     <url>
       <loc>https://www.jhipster.tech{{ post.url }}</loc>{% if post.lastmod != null %}
@@ -27,6 +27,6 @@ layout:
   {% endfor %}
   <url>
     <loc>https://www.jhipster.tech/cn/</loc>
-    <link rel="alternate" hreflang="zh-cn" href="https://www.jhipster.tech/cn/" />
+    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://www.jhipster.tech/cn/" />
   </url>
 </urlset>
