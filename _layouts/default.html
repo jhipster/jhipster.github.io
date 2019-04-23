@@ -40,7 +40,7 @@
     {% if page.home == true %}
     <link rel="stylesheet" type="text/css" href="/css/home.css">
     {% endif %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
     <!-- Bootstrap Docs CSS subset to get icon -->
     <!--<link href="/css/bootstrap-docs.css" rel="stylesheet">-->
 
@@ -434,6 +434,15 @@
                                             </li>
                                         </ul>
                                     </div>
+                                    <div class="footer-col col-md-4">
+                                        <div class="col-md-4 col-sm-12">
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <a href="{{ site.url }}/cn/"><i class="fa fa-fw fa-globe"></i> Chinese</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -515,15 +524,15 @@
         ga('create', 'UA-46075199-1', 'auto');
         ga('send', 'pageview');
     </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script> 
-    <script type="text/javascript"> 
-        docsearch({ 
-            apiKey: '9bd47d3de4af6f3662fd11a7f0e38819', 
-            indexName: 'jhipster', 
-            inputSelector: '.doc-search-algolia', 
-            debug: false // Set debug to true if you want to inspect the dropdown 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript">
+        docsearch({
+            apiKey: '9bd47d3de4af6f3662fd11a7f0e38819',
+            indexName: 'jhipster',
+            inputSelector: '.doc-search-algolia',
+            debug: false // Set debug to true if you want to inspect the dropdown
         });
-    </script> 
+    </script>
 </body>
 
 </html>
