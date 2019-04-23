@@ -27,6 +27,6 @@ layout:
   {% endfor %}
   <url>
     <loc>https://www.jhipster.tech/cn/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-cn" href="https://www.jhipster.tech/cn/" />
+    <link rel="alternate" hreflang="zh-cn" href="https://www.jhipster.tech/cn/" />
   </url>
 </urlset>
