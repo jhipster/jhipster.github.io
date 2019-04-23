@@ -33,7 +33,7 @@ The application will be available on `https://localhost:8080/`.
 
 As the certificate is self-signed, your browser will issue a warning, and you will need to ignore it (or import it) in order to access the application.
 
-## Using TLS and HTTP/2 with Angular or React
+## Using TLS and HTTP/2 with Angular or React or Vue.js
 
 Instead of using `npm start` in order to run the front-end (with Webpack and BrowserSync), just run `npm run start-tls`, and it will connect to the back-end running on `https://localhost:8080/`.
 
