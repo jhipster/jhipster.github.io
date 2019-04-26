@@ -39,7 +39,7 @@ Once a ticket is created, it can get the bug bounty label by two actions:
 - [@jdubois](https://github.com/jdubois) or [@deepu105](https://github.com/deepu105) directly add the bug bounty label, as they believe it is an important new feature, a critical bug, a long-standing issue, or a time-consuming task.
 
 To be valid, the bug bounty should then have the [$100 label](https://github.com/jhipster/generator-jhipster/labels/%24100) added by either
-[@jdubois](https://github.com/jdubois) or [@deepu105](https://github.com/deepu105).
+[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) or [@pascalgrimaud](https://github.com/pascalgrimaud).
 
 ## How to get the money
 

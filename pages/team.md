@@ -37,6 +37,16 @@ If you want to join the team, or just see how we work, our community rules are a
             </div>
         </div>
     </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/9156882?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Pascal Grimaud</h3>
+                <p>Project co-lead</p>
+                <p><a href="https://twitter.com/pascalgrimaud"><i>@pascalgrimaud</i></a></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 ## Board of developers
@@ -119,15 +129,6 @@ If you want to join the team, or just see how we work, our community rules are a
             <div class="caption">
                 <h3>Zsombor Gegesy</h3>
                 <p><a href="https://twitter.com/gzsombor"><i>@gzsombor</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/9156882?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Pascal Grimaud</h3>
-                <p><a href="https://twitter.com/pascalgrimaud"><i>@pascalgrimaud</i></a></p>
             </div>
         </div>
     </div>
