@@ -53,6 +53,7 @@ Here is the JDL documentation:
    1. [Available deployment options](#deployment_options)
    1. [Available field types and constraints](#types_and_constraints)
    1. [Available options](#all_options)
+1. [Troubleshooting](#troubleshooting)
 1. [Issues and bugs](#issues)
 
 ***
@@ -1298,6 +1299,17 @@ These options take values:
   - `microservice` (custom value)
   - `angularSuffix` (custom value)
   - `clientRootFolder` (custom value)
+
+---
+
+## <a name="troubleshooting"></a>Troubleshooting
+
+### The JDL import only finds one entity when matching MS baseName
+
+This is a known issue regarding the parsing system and fixing it is tricky.
+The obvious workaround is to use different names for the microservice and the entities inside.
+
+See [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/308) for more information.
 
 ---
 
