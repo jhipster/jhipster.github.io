@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2019-02-02T12:00:00-00:00
+    lastmod: 2019-04-27T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -851,7 +851,6 @@ You can also create entire microservice stack using JDL, [see this blog post](ht
 
 ---
 
-
 # <a name="annexes"></a>Annexes
 
 ## <a name="application_options">Available application options
@@ -1046,6 +1045,8 @@ Here are the application options supported in the JDL:
     <td></td>
   </tr>
 </table>
+
+---
 
 ## <a name="deployment_options">Available deployment options
 
@@ -1273,6 +1274,8 @@ Common databases:
   </tr>
 </table>
 
+---
+
 ## <a name="all_options"></a> Available options
 
 ### Unary options
@@ -1295,6 +1298,8 @@ These options take values:
   - `microservice` (custom value)
   - `angularSuffix` (custom value)
   - `clientRootFolder` (custom value)
+
+---
 
 # <a name="issues"></a>Issues and bugs
 
