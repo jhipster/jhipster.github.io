@@ -57,7 +57,7 @@ Here is the JDL documentation:
 
 ***
 
-# <a name="sample"></a> JDL Sample
+## <a name="sample"></a> JDL Sample
 
 The Oracle "Human Resources" sample application has been translated into JDL, and is available [here](https://github.com/jhipster/jdl-samples/blob/master/Oracle-Human-Resources-sample.jdl).
 The same application is loaded by default in [JDL-Studio](https://start.jhipster.tech/jdl-studio/) and [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) as well.
@@ -777,7 +777,7 @@ Finally, in this example we have the Car that knows of its drivers, and the Driv
 
 Please note that the owning side of the relationship has to be on the left side
 
-# <a name="constants"></a>Constants
+## <a name="constants"></a>Constants
 
 As of JHipster Core v1.2.7, the JDL supports numerical constants.
 Here is an example:
@@ -797,7 +797,7 @@ entity A {
 }
 ```
 
-# <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Workflows
 
 ## <a name="workflow_monolith"></a>Monolith workflow
 
@@ -851,7 +851,7 @@ You can also create entire microservice stack using JDL, [see this blog post](ht
 
 ---
 
-# <a name="annexes"></a>Annexes
+## <a name="annexes"></a>Annexes
 
 ## <a name="application_options">Available application options
 
@@ -1301,7 +1301,7 @@ These options take values:
 
 ---
 
-# <a name="issues"></a>Issues and bugs
+## <a name="issues"></a>Issues and bugs
 
 JDL is [available on GitHub](https://github.com/jhipster/jhipster-core), and follows the same
 [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
