@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2019-02-02T12:00:00-00:00
+    lastmod: 2019-04-27T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -53,11 +53,12 @@ Here is the JDL documentation:
    1. [Available deployment options](#deployment_options)
    1. [Available field types and constraints](#types_and_constraints)
    1. [Available options](#all_options)
+1. [Troubleshooting](#troubleshooting)
 1. [Issues and bugs](#issues)
 
 ***
 
-# <a name="sample"></a> JDL Sample
+## <a name="sample"></a> JDL Sample
 
 The Oracle "Human Resources" sample application has been translated into JDL, and is available [here](https://github.com/jhipster/jdl-samples/blob/master/Oracle-Human-Resources-sample.jdl).
 The same application is loaded by default in [JDL-Studio](https://start.jhipster.tech/jdl-studio/) and [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) as well.
@@ -777,7 +778,7 @@ Finally, in this example we have the Car that knows of its drivers, and the Driv
 
 Please note that the owning side of the relationship has to be on the left side
 
-# <a name="constants"></a>Constants
+## <a name="constants"></a>Constants
 
 As of JHipster Core v1.2.7, the JDL supports numerical constants.
 Here is an example:
@@ -797,7 +798,7 @@ entity A {
 }
 ```
 
-# <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Workflows
 
 ## <a name="workflow_monolith"></a>Monolith workflow
 
@@ -851,8 +852,7 @@ You can also create entire microservice stack using JDL, [see this blog post](ht
 
 ---
 
-
-# <a name="annexes"></a>Annexes
+## <a name="annexes"></a>Annexes
 
 ## <a name="application_options">Available application options
 
@@ -1046,6 +1046,8 @@ Here are the application options supported in the JDL:
     <td></td>
   </tr>
 </table>
+
+---
 
 ## <a name="deployment_options">Available deployment options
 
@@ -1273,6 +1275,8 @@ Common databases:
   </tr>
 </table>
 
+---
+
 ## <a name="all_options"></a> Available options
 
 ### Unary options
@@ -1296,7 +1300,20 @@ These options take values:
   - `angularSuffix` (custom value)
   - `clientRootFolder` (custom value)
 
-# <a name="issues"></a>Issues and bugs
+---
+
+## <a name="troubleshooting"></a>Troubleshooting
+
+### The JDL import only finds one entity when matching MS baseName
+
+This is a known issue regarding the parsing system and fixing it is tricky.
+The obvious workaround is to use different names for the microservice and the entities inside.
+
+See [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/308) for more information.
+
+---
+
+## <a name="issues"></a>Issues and bugs
 
 JDL is [available on GitHub](https://github.com/jhipster/jhipster-core), and follows the same
 [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
