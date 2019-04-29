@@ -14,7 +14,7 @@ The JDL is a JHipster specific domain language where you can describe all your a
 
 You can use our online [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or one of the [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) plugins/extensions, wich are available for [Eclipse](https://marketplace.eclipse.org/content/jhipster-ide), [VS Code](https://marketplace.visualstudio.com/items?itemName=jhipster-ide.jdl) and [Atom](https://atom.io/packages/ide-jhipster), to create a JDL file and its UML visualization. You can create and export or share the URL of your JDL model as well.
 
-You can generate applications, deployments and entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jdl`. 
+You can generate applications, deployments and entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jdl`.
 
 If you have an existing project (either created with `jhipster import-jdl` or generated with `jhipster` command line), you can generate entities for the project by running running `jhipster import-jdl your-jdl-file.jdl`. Make sure to execute this command under your JHipster project.
 
@@ -456,7 +456,7 @@ Service with serviceClass (see B) will make the resource call the service class 
 Service with serviceImpl (see C) will make a service interface which will be used by the resource class.
 The interface is implemented by an concrete class which will call the repository interface.
 
-Using no service uless sure is the simplest option and good for CRUD. Use service with a Class if you will have a lot
+Using no service unless sure is the simplest option and good for CRUD. Use service with a Class if you will have a lot
 of business logic which will use multiple repositories making it ideal for a service class. Jhipsters are not fan of
 unnecessary Interfaces but if you like them go for service with impl.
 
@@ -728,10 +728,10 @@ A Unidirectional example where a Citizen has a Passport, but the Passport has no
     relationship OneToOne {
       Citizen to Passport
     }
-    
+
     // using @MapsId
     relationship OneToOne {
-          Citizen to Passport with jpaDerivedIdentifier 
+          Citizen to Passport with jpaDerivedIdentifier
     }
 
 ### One-to-Many
