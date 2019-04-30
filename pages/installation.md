@@ -13,13 +13,11 @@ sitemap:
 
 ## Installation types
 
-We provide 6 ways of working with JHipster. If in doubt, choose our 2nd option, "Local installation with NPM":
+We provide 4 ways of working with JHipster. If in doubt, choose our 2nd option, "Local installation with NPM":
 
 *   [JHipster Online](https://start.jhipster.tech/) is a simple way to generate an application without installing JHipster in the first place.
 *   "Local installation with NPM" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
-*   "Local installation with Yarn" is the same as classical "Local installation with NPM", but using [Yarn](https://yarnpkg.com/) instead of NPM
-*   "Installation with a package manager" is only available for Mac OS X and Windows. This is a very simple installation method, if you use a package manager, but it is still in BETA.
-*   The Vagrant-based "[development box](https://github.com/jhipster/jhipster-devbox)", with all tools already set up in a Ubuntu-based virtual machine.
+*   "Local installation with Yarn" is the same as classical "Local installation with NPM", but using [Yarn](https://yarnpkg.com/) instead of NPM. Please note that Yarn is a lot less popular than NPM in our community, so this isn't a recommended option for newcomers.
 *   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight container with JHipster installed.
 
 ## JHipster Online (for users wanting a simplified way to run JHipster)
@@ -36,11 +34,10 @@ In the future, we expect JHipster Online to provide more features, of course.
 
 ### Quick setup
 
-1.  Install Java 8 from [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+1.  Install Java 11. We recommend you use [AdoptOpenJDK builds](https://adoptopenjdk.net/), as they are open source and free.
 2.  Install Node.js from [the Node.js website](http://nodejs.org/) (please use an LTS 64-bit version, non-LTS versions are not supported)
-3.  NPM is installed with Node.js but you need to upgrade it: `npm install -g npm`
-4.  If you want to use the JHipster Marketplace, install Yeoman: `npm install -g yo`
-5.  Install JHipster: `npm install -g generator-jhipster`
+3.  (optional) If you want to use the JHipster Marketplace, install Yeoman: `npm install -g yo`
+4.  Install JHipster: `npm install -g generator-jhipster`
 
 Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
 
@@ -76,40 +73,6 @@ This is the same procedure as using NPM, with two differences:
 If you have problems using Yarn globally, be sure to have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
 
 On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
-
-## Installation with a package manager
-
-__Please note this is a BETA feature!__ If you selected this installation, don't hesitate to send us a [bug report](https://github.com/jhipster/generator-jhipster/issues) or feedback on [@java_hipster](https://twitter.com/java_hipster).
-
-### Installation with Homebrew on Mac OS X
-
-JHipster provides a [Homebrew](https://brew.sh/) package, available on [http://formulae.brew.sh/formula/jhipster](http://formulae.brew.sh/formula/jhipster).
-
-To install JHipster (as well as Node and NPM), just type:
-
-    brew install jhipster
-
-New versions of this package are published each time a new JHipster release is created, but it might take time for the Homebrew team to validate this package - so if you have an older JHipster release, please be patient or use the NPM installation above.
-
-### Installation with Chocolatey on Windows
-
-JHipster provides a [Chocolatey](https://chocolatey.org/) package, available on [https://chocolatey.org/packages/jhipster](https://chocolatey.org/packages/jhipster).
-
-To install JHipster (as well as Node, NPM, Yeoman, Java and Git), just type:
-
-    choco install jhipster
-
-New versions of this package are published each time a new JHipster release is created, but it might take time for the Chocolatey team to validate this package - so if you have an older JHipster release, please be patient or use the NPM installation above.
-
-## Vagrant box installation
-
-The [JHipster development box](https://github.com/jhipster/jhipster-devbox) project gives you a virtual machine with all the necessary tools to develop your JHipster project.
-
-It's an easy way to get up and running very quickly with JHipster.
-
-Besides JHipster, this virtual machine includes many development tools, as well as Docker, so you should have everything ready for working.
-
-Please go to the [JHipster development box page](https://github.com/jhipster/jhipster-devbox) for installation and configuration information.
 
 ## Docker installation (for advanced users only)
 
