@@ -3,6 +3,8 @@
         "generator-jhipster-fortune" : true
     },
     "blacklistedModules": {
+        "generator-jhipster-blueprint" : true,
+        "generator-jhipster-module" : true,
         "generator-jhipster-webservice" : true,
         "generator-jhipster-react" : true,
         "generator-jhipster-material" : true
