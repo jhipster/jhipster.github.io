@@ -87,7 +87,7 @@ You have to use this function:
 You can access to configuration in `.yo-rc.json`:
 
 ```
-    this.jhipsterAppConfig = this.getJhipsterAppConfig();
+    this.jhipsterAppConfig = this.getAllJhipsterConfig();
     this.baseName = this.jhipsterAppConfig.baseName;
     this.packageName = this.jhipsterAppConfig.packageName;
     this.clientFramework = this.jhipsterAppConfig.clientFramework;
