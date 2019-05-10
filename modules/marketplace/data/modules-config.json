@@ -7,6 +7,9 @@
         "generator-jhipster-module" : true,
         "generator-jhipster-webservice" : true,
         "generator-jhipster-react" : true,
-        "generator-jhipster-material" : true
+        "generator-jhipster-material" : true,
+        "jhipster-vuejs" : true,
+        "generator-jhipster-vuejs2" : true,
+        "generator-jhipster-vuejsx" : true
     }
 }
