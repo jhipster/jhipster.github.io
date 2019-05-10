@@ -53,7 +53,7 @@ When your application is already deployed, you can prepare a new deployment by t
 
 Or when using gradle:
 
-`./gradlew -Pprod bootWar -x test`
+`./gradlew -Pprod bootJar -x test`
 
 ### Pushing to production
 
@@ -61,11 +61,11 @@ _Note: This assumes you have run the generator on the machine you are executing 
 
 To push to production, type:
 
-`heroku deploy:jar target/*.war`
+`heroku deploy:jar target/*.jar`
 
 Or when using gradle:
 
-`heroku deploy:jar build/libs/*war`
+`heroku deploy:jar build/libs/*jar`
 
 ## Deploying Microservices
 

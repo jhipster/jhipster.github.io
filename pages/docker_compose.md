@@ -83,7 +83,7 @@ __Solution 2__
 To create a Docker image of your application, and push it into your Docker registry:
 
 - With Maven, type: `./mvnw package -Pprod verify jib:dockerBuild`
-- With Gradle, type: `./gradlew -Pprod bootWar jibDockerBuild`
+- With Gradle, type: `./gradlew -Pprod bootJar jibDockerBuild`
 
 This will package your application with the `prod` profile, and build a Docker image using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon.
 
@@ -111,7 +111,7 @@ For Maven :
 </pre>
 For Gradle :
 <pre>
-  ./gradlew -Pprod bootWar jibExportDockerContext && docker build -t myimage build/jib-docker-context
+  ./gradlew -Pprod bootJar jibExportDockerContext && docker build -t myimage build/jib-docker-context
 </pre>
 </p>
 </div>

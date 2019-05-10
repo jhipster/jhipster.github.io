@@ -85,7 +85,7 @@ When your application is already deployed, you can re-deploy it by building a ne
 
 Or when using Gradle:
 
-`./gradlew -Pprod bootWar jibDockerBuild -x test`
+`./gradlew -Pprod bootJar jibDockerBuild -x test`
 
 ### Pushing to Docker Hub
 
