@@ -35,6 +35,33 @@ In every cases you can, now, run analysis with [sonar-scanner](https://docs.sona
 
 Once the analysis completes, it will be available on the Sonar dashboard, which by default is available on [http://127.0.0.1:9001/](http://127.0.0.1:9001/).
 
+## Excluding Files from Jacoco Analysis
+
+In case you would like to exclude certain classes from coverage analysis (e.g. generated classes or the application class) and would like to have the correct
+coverage in the default jacoco html report you have to exclude the classes from analysis and from reporting.
+
+### Gradle
+
+You can add the following to `sonar.gradle` file:
+
+```gradle
+test {
+    jacoco {
+        excludes += ['build/generated/**']
+    }
+}
+
+jacocoTestReport {
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/*_.class'
+            ])
+        })
+    }
+}
+```
+
 ## Automatic analysis of the default generated project
 
 The JHipster generator project publishes a sample project which is analyzed every time a new commit is merged in the "master" branch:
