@@ -41,8 +41,8 @@ As a result, Traefik can be used as an edge service, which allows to scale JHips
 
 This configuration works out-of-the-box with JHipster: the only issue is that client-side applications use an absolute URL, so for example, for "microservice1":
 
-- The default URL is "/microservice1", which goes only through Traefik (this is the "default configuration" above).
-- The "/gateway/microservice1" URL would use the "gateway" application configured in Traefik, which would then use Zuul to reach the "microservice1" application.
+- The default URL is "/services/microservice1", which goes only through Traefik (this is the "default configuration" above).
+- The "/services/gateway/microservice1" URL would use the "gateway" application configured in Traefik, which would then use Zuul to reach the "microservice1" application.
 
 ## Getting started
 
@@ -54,11 +54,11 @@ This will generate a `traefik.yml` configuration for running Traefik in Docker, 
 
 This configuration file is set up so that:
 
-- Traefik runs on port `80`, so if you have an application called `gateway`, you can reach it by going to [http://localhost/gateway/](http://localhost/gateway/).
+- Traefik runs on port `80`, so if you have an application called `gateway`, you can reach it by going to [http://localhost/services/gateway/](http://localhost/gateway/).
 - The Traefik administration UI is available on port `28080`, so you can visit it at [http://localhost:28080](http://localhost:28080).
 
 As Traefik is using Consul, it will also be useful to check the Consul administration UI, which is available on port `8500`: [http://localhost:8500](http://localhost:8500).
 
 #### Configure your Base HREF
 
-Before building the gateway's Docker image, you will need to configure the `baseHref` value in `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `baseHref` should be `/gateway/`.
+Before building the gateway's Docker image, you will need to configure the `baseHref` value in `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `baseHref` should be `/services/gateway/`.
