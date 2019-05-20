@@ -80,16 +80,17 @@ __Solution 2__
 
 ## <a name="3"></a> Building and running a Docker image of your application
 
-To create a Docker image of your application, and push it into your Docker registry:
+To build a Docker image of your application using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon:
 
 - With Maven, type: `./mvnw package -Pprod verify jib:dockerBuild`
-- With Gradle, type: `./gradlew -Pprod bootWar jibDockerBuild`
+- With Gradle, type: `./gradlew -Pprod bootJar jibDockerBuild`
 
-This will package your application with the `prod` profile, and build a Docker image using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon.
+To build a Docker image of your application without Docker and push it directly into your Docker registry, run:
 
-On Windows, due to [lack of named pipes](https://github.com/spotify/docker-client/issues/875), you may have to tune settings for Docker and turn on “Expose daemon on tcp://localhost:2375 without TLS”.
+- With Maven, type: `./mvnw package -Pprod verify jib:build`
+- With Gradle, type: `./gradlew -Pprod bootJar jib`
 
-Refer to the Jib documentation for configurations details :
+If this doesn't work out of the box for you, refer to the Jib documentation for configurations details, specifically regarding how to set up authentication to a Docker registry:
 
 - [Jib maven plugin documentation](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration)
 - [Jib gradle plugin documentation](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin#configuration)
@@ -99,21 +100,13 @@ Refer to the Jib documentation for configurations details :
 Due to the way Jib works, it will first try to pull the latest version of the base Docker image from the configured Docker registry. This is on purpose as in a CI environment you must ensure that you always build on top of the latest patched base image.
 </p>
 <p>
-However in a local environment, this might fail because of network issues (long timeouts, proxies) or because you are not logged in to a Docker registry.
+However in a local environment, this might fail your build if jib cannot access the Docker registry. A workaround for this is to use the `--offline` flag and will fix the issue as long as jib has already pulled the base Docker image in its cache.
 </p>
 <p>
-Jib currently has an <a href="https://github.com/GoogleContainerTools/jib/issues/718">opened issue for offline mode support</a>, however if the jib builds fails for you you can use the following workaround :
-</p>
-<p>
-For Maven :
-<pre>
-  ./mvnw clean package -Pprod jib:exportDockerContext && docker build -t myimage target/jib-docker-context
-</pre>
-For Gradle :
-<pre>
-  ./gradlew -Pprod bootWar jibExportDockerContext && docker build -t myimage build/jib-docker-context
-</pre>
-</p>
+With Maven, type: <pre>./mvnw -Pprod package verify jib:dockerBuild --offline</pre>
+With Gradle, type: <pre>./gradlew -Pprod bootJar jibDockerBuild --offline</pre>
+
+Note that jib is currently unable to pull a local Docker image from the Docker daemon. Progress on this issue is tracked at [GoogleContainerTools/jib/issues/1468](https://github.com/GoogleContainerTools/jib/issues/1468).
 </div>
 
 To run this image, use the Docker Compose configuration located in the `src/main/docker` folder of your application:
@@ -170,7 +163,7 @@ Follow these steps to do so:
 - Scale the MongoDB node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=<X>`
 - Init the replica set (parameter X is the number of nodes you input in the previous step, folder is the folder where the YML file is located, it's `docker` by default): `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=<X>, folder="<yml_folder_name>"' init_replicaset.js`
 - Init the shard: `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb_1 mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
-- Build a Docker image of your application: `./mvnw package -Pprod verify jib:dockerBuild`
+- Build a Docker image of your application: `./mvnw -Pprod verify jib:dockerBuild` or `./gradlew -Pprod bootJar jibDockerBuild`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
@@ -183,7 +176,7 @@ Follow these steps to do so:
 - Build the image: `docker-compose -f src/main/docker/couchbase-cluster.yml build`
 - Run the database: `docker-compose -f src/main/docker/couchbase-cluster.yml up -d`
 - Scale the Couchbase node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/couchbase-cluster.yml scale <name_of_your_app>-couchbase-node=<X>`
-- Build a Docker image of your application: `./mvnw package -Pprod verify jib:dockerBuild`
+- Build a Docker image of your application: `./mvnw -Pprod verify jib:dockerBuild` or `./gradlew -Pprod bootJar jibDockerBuild`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 ### Cassandra

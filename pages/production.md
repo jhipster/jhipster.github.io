@@ -62,7 +62,7 @@ To package the application as a "production" WAR, with Maven please type:
 
 Or when using Gradle, please type:
 
-`./gradlew -Pprod bootWar`
+`./gradlew -Pprod -Pwar bootWar`
 
 
 This will generate these files (if your application is called "jhipster"):
