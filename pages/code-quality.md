@@ -40,6 +40,68 @@ Once the analysis completes, it will be available on the Sonar dashboard, which 
 In case you would like to exclude certain classes from coverage analysis (e.g. generated classes or the application class) and would like to have the correct
 coverage in the default jacoco html report you have to exclude the classes from analysis and from reporting.
 
+### Maven
+
+You need to add exclusions to the `prepare-agent` and `report` goal of both unit and integration tests:
+
+```xml
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>${jacoco-maven-plugin.version}</version>
+    <executions>
+        <execution>
+            <id>pre-unit-tests</id>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+            <configuration>
+                <!-- Exclude any class named Application from instrumentation -->
+                <excludes>**/Application.*</excludes>
+                <destFile>${jacoco.utReportFile}</destFile>
+            </configuration>
+        </execution>
+        <execution>
+            <id>post-unit-test</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+            <configuration>
+                <!-- Exclude any class named Application from reporting-->
+                <excludes>**/Application.*</excludes>
+                <dataFile>${jacoco.utReportFile}</dataFile>
+                <outputDirectory>${jacoco.reportFolder}</outputDirectory>
+            </configuration>
+        </execution>
+        <execution>
+            <id>pre-integration-tests</id>
+            <goals>
+                <goal>prepare-agent-integration</goal>
+            </goals>
+            <configuration>
+                <!-- Exclude any class named Application from instrumentation -->
+                <excludes>**/Application.*</excludes>
+                <destFile>${jacoco.itReportFile}</destFile>
+            </configuration>
+        </execution>
+        <execution>
+            <id>post-integration-tests</id>
+            <phase>post-integration-test</phase>
+            <goals>
+                <goal>report-integration</goal>
+            </goals>
+            <configuration>
+                <!-- Exclude any class named Application from reporting-->
+                <excludes>**/Application.*</excludes>
+                <dataFile>${jacoco.itReportFile}</dataFile>
+                <outputDirectory>${jacoco.reportFolder}</outputDirectory>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```
+
 ### Gradle
 
 You can add the following to `sonar.gradle` file:
