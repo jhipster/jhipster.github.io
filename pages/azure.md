@@ -73,7 +73,7 @@ To proceed with the deployment, follow these steps:
                             <resource>
                                 <directory>${project.basedir}/target</directory>
                                 <includes>
-                                    <include>*.jar</include>
+                                    <include>${project.build.finalName}.jar</include>
                                 </includes>
                             </resource>
                         </resources>
