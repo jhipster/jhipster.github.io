@@ -609,7 +609,6 @@ deployment {
   dockerRepositoryName "yourDockerLoginName"
   serviceDiscoveryType no
   istio autoInjection
-  istioRoute true
   kubernetesServiceType Ingress
   kubernetesNamespace jhipster
   ingressDomain "jhipster.192.168.99.100.nip.io"
@@ -1142,12 +1141,6 @@ Here are the application options supported in the JDL:
     <td>istio</td>
     <td>no</td>
     <td>no, manualInjection, autoInjection</td>
-    <td>Applicable only when deploymentType is kubernetes</td>
-  </tr>
-  <tr>
-    <td>istioRoute</td>
-    <td>false</td>
-    <td></td>
     <td>Applicable only when deploymentType is kubernetes</td>
   </tr>
   <tr>
