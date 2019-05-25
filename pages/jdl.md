@@ -1237,7 +1237,7 @@ Common databases:
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
-    <td></td>
+    <td>UUID</td>
     <td>UUID</td>
     <td><dfn>required, unique</dfn></td>
   </tr>
