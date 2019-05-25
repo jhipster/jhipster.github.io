@@ -76,7 +76,7 @@ Or you can edit directly your `~/.gitconfig` file:
 
 ## Maven configuration
 
-Edit the `proxies` session in your `~/.m2/settings.xml` file
+Edit the `proxies` session in your `~/.m2/settings.xml` file:
 
 ```
 <proxies>

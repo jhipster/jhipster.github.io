@@ -211,7 +211,7 @@ Once your application is created, you can run all the normal gulp/bower/maven co
 
 **Congratulations! You've launched your JHipster app inside Docker!**
 
-On your host machine, you should be able to :
+On your host machine, you should be able to:
 
 *   Access the running application at `http://DOCKER_HOST:8080`
 *   Get all the generated files inside your shared folder
