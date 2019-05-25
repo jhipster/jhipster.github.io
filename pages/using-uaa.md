@@ -136,7 +136,7 @@ For the machine calls, the machine has to authenticate as a UAA using client cre
 The general flow for refreshing access tokens happens on the gateway and is as follows:
 
 - Authentication is done via `AuthResource` calling `OAuth2AuthenticationService`'s authenticate which will set Cookies.
-- For each request, the `RefreshTokenFilter` (installed by `RefreshTokenFilterConfigurer`) checks whether the access token is expired and whether it has a valid refresh token
+- For each request, the `RefreshTokenFilter` (installed by `RefreshTokenFilterConfigurer`) checks whether the access token is expired and whether it has a valid refresh token.
 - If so, then it triggers the refresh process via `OAuth2AuthenticationService` refreshToken.
 - This uses the `OAuth2TokenEndpointClient` interface to send a refresh token grant to the OAuth2 server of choice, in our case UAA (via `UaaTokenEndpointClient`).
 - The result of the refresh grant is then used downstream as new cookies and set upstream (to the browser) as new cookies.
@@ -175,7 +175,7 @@ This chapter covers how to easily get started with this.
 
 When one service wants to request data from another, finally all these four players come into play. So it is important, to briefly know what each of them is responsible for:
 
-* Eureka: this is where services (un-)register, so you can ask "foo-service" and get a set of IPs of instances of the foo-service, registered in Eureka
+* Eureka: this is where services (un-)register, so you can ask "foo-service" and get a set of IPs of instances of the foo-service, registered in Eureka.
 * Ribbon: when someone asked for "foo-service" and already retrieved a set of IPs, Ribbon does the load balancing over these IPs.
 
 So to sum up, when we got a URL like "http://uaa/oauth/token/" with 2 instances of JHipster UAA server running on 10.10.10.1:9999 and 10.10.10.2:9999, we may use Eureka and Ribbon to quickly transform that URL either to "http://10.10.10.1:9999/oauth/token" or "http://10.10.10.2:9999/oauth/token" using a Round Robin algorithm.
@@ -232,14 +232,12 @@ interface OtherServiceClient {
 notation for the service name, as
 
 ``` java
-
 @AuthorizedFeignClient("other-service")
 ```
 
 or
 
 ``` java
-
 @AuthorizedFeignClient(value = "other-service")
 ```
 
@@ -258,7 +256,6 @@ To test components, which are using feign clients inside is possible using `@Moc
 Here is an example, testing `SomeService` works as expected, with mocked values for the client:
 
 ``` java
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(App.class)
 public class SomeServiceTest {
@@ -295,18 +292,16 @@ To use this feature, two things have to be done:
 #### 1. Enabling security in the mock Spring MVC context and inject the mock util
 
 ``` java
+@Inject
+private OAuth2TokenMockUtil tokenUtil;
 
-    @Inject
-    private OAuth2TokenMockUtil tokenUtil;
-
-    @PostConstruct
-    public void setup() {
-        this.restMockMvc = MockMvcBuilders
-            .webAppContextSetup(context)
-            .apply(springSecurity())
-            .build();
-
-    }
+@PostConstruct
+public void setup() {
+    this.restMockMvc = MockMvcBuilders
+        .webAppContextSetup(context)
+        .apply(springSecurity())
+        .build();
+}
 ```
 
 ***In this test no single instance of the controller has to be mocked, but the
@@ -323,7 +318,6 @@ The util offers a method "oaut2authentication", which is usable to MockMvc "with
 Here is an example:
 
 ``` java
-
 @Test
 public void testInsufficientRoles() {
     restMockMvc.peform(

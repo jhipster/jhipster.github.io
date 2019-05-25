@@ -83,7 +83,7 @@ Congratulations, your application is now upgraded with the latest version of JHi
 
 On the first execution of the JHipster upgrade sub-generator, in order to avoid erasing all your changes, some additional steps are run:
 
-1. A `jhipster_upgrade` branch is created orphan (it has no parent)
+1. A `jhipster_upgrade` branch is created orphan (it has no parent).
 2. The whole application is generated (using your current JHipster version).
 3. A block-merge commit is made on the `master` branch: no alteration is made on your codebase on the `master` branch; this is just a practical way to record in Git that the HEAD of `master` is up-to-date with the current JHipster version.
 
