@@ -27,7 +27,7 @@ You have to install:
 - [Docker](https://docs.docker.com/installation/#installation)
 - [kubectl](http://kubernetes.io/docs/user-guide/prereqs/)
 
-You must have a Docker registry. If you don’t have one, you can use the official [Docker Hub](https://hub.docker.com/)
+You must have a Docker registry. If you don’t have one, you can use the official [Docker Hub](https://hub.docker.com/).
 
 ## Minikube
 
@@ -204,7 +204,7 @@ The Prometheus instance for your applications can be explored using
 
 Kubernetes offers a number of facilities out-of-the-box to help with Microservices deployments, such as:
 * Service Registry - Kubernetes `Service` is a first-class citizen that provides service registry and lookup via DNS name.
-* Load Balancing - Kubernetes Service acts as a L4 load balancer
+* Load Balancing - Kubernetes Service acts as a L4 load balancer.
 * Health Check - Liveness probes and readiness probes help determine the health of the service.
 * Configuration - Kubernetes `ConfigMap` can be used to store and apply configuration outside of the application.
 

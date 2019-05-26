@@ -177,11 +177,11 @@ data:
 
 ## Troubleshooting Tips
 
-- If you are running All-in-one VM, make sure to run the following command before pushing docker images,
-  ` eval $(docker-machine env <machine_name>) `
-- If you face issues running StatefulSets or Services with persistent storage, make sure persistent volumes are properly initialized  
-- If you face issues running StatefulSets, check the persistent volume claims. If PVCs' take longer time than usual while initializing, try creating it manually
-- After running the generators, make sure you are in the chosen namespace **oc project <namespace>** before applying the oc commands
+- If you are running All-in-one VM, make sure to run the following command before pushing docker images, 
+`eval $(docker-machine env <machine_name>)`
+- If you face issues running StatefulSets or Services with persistent storage, make sure persistent volumes are properly initialized.
+- If you face issues running StatefulSets, check the persistent volume claims. If PVCs' take longer time than usual while initializing, try creating it manually.
+- After running the generators, make sure you are in the chosen namespace **oc project &lt;namespace&gt;** before applying the oc commands.
 - Image pulling for services like elasticsearch, registry, console etc,. for the first time will take some time as it needs to be pulled from public registry to the container registry. If any of the dependent services fail because of this, try deploying it once the services with which it is dependent on are up and running.
 - Please make sure you have the necessary privilege (may require admin) to run scc service that is required to run some of the pods.
 

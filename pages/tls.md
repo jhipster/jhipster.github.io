@@ -11,7 +11,7 @@ sitemap:
 
 ## Introduction
 
-This page is for using TLS and HTTP/2 in development (mainly for testing purposes). For production configuration, please read the [security section in the production documentation]({{ site.url }}/production/#security) .
+This page is for using TLS and HTTP/2 in development (mainly for testing purposes). For production configuration, please read the [security section in the production documentation]({{ site.url }}/production/#security).
 
 TLS is the protocol used when having an `https://` URL, and it is required in order to use HTTP/2 on modern browsers.
 

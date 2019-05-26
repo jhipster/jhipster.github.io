@@ -16,7 +16,7 @@ _Pro tip: don't forget to run `npm start` or `yarn start` to get immediate feedb
 The simplest way to customize how your JHipster application looks like is by
 overriding CSS styles in `src/main/webapp/content/css/global.css`, or if you selected the Sass option, the `src/main/webapp/content/scss/global.scss` file.
 
-Using Sass is both easier, more concise and more powerful than plain CSS because Bootstrap is also written in Sass, please refer to Bootstrap's [official documentation about theming](https://getbootstrap.com/docs/4.0/getting-started/theming/) .
+Using Sass is both easier, more concise and more powerful than plain CSS because Bootstrap is also written in Sass, please refer to Bootstrap's [official documentation about theming](https://getbootstrap.com/docs/4.0/getting-started/theming/).
 
 If you want to use Bootstrap [partials](http://sass-lang.com/guide) in your own `scss` files then import it like below at the beginning of your `scss` file.
 For example to use the border-radius mixin:

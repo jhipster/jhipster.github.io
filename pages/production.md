@@ -101,9 +101,11 @@ To learn how to package your application with Docker, please read our [Docker Co
 
 It is also possible to run the Jar as a Linux service, and you may want to force in your `pom.xml` file before packaging. To do it, add the following property inside `<configuration>` of `spring-boot-maven-plugin` plugin.
 
-                            <embeddedLaunchScriptProperties>
-                                <mode>service</mode>
-                            </embeddedLaunchScriptProperties>
+```
+<embeddedLaunchScriptProperties>
+    <mode>service</mode>
+</embeddedLaunchScriptProperties>
+```
 
 Next, setup your init.d with: 
 

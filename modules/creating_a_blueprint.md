@@ -113,7 +113,7 @@ There are multiple ways to customize a phase from JHipster.
     }
 ```
 
-2) Override the entire phase, this is when the blueprint takes control of a phase
+2) Override the entire phase, this is when the blueprint takes control of a phase.
 
 ```javascript
     get initializing() {
@@ -206,7 +206,6 @@ npm link generator-jhipster-myblueprint
 npm link generator-jhipster (Optional: Needed only if you are using a non-released JHipster version)
 
 jhipster -d --blueprint myblueprint
-
 ```
 
 ## Registering a blueprint to the JHipster marketplace
