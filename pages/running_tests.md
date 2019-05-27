@@ -20,8 +20,8 @@ JHipster comes with an extensive set of tests, and each generated application ha
 
 Optionally, JHipster can also generate:
 
-*   Performance tests with [Gatling.](http://gatling.io/)
-*   Behaviour-driven tests with [Cucumber](https://cucumber.io/)
+*   Performance tests with [Gatling](http://gatling.io/).
+*   Behaviour-driven tests with [Cucumber](https://cucumber.io/).
 *   Angular/React/Vue integration tests with [Protractor](https://angular.github.io/protractor/#/).
 
 We have two goals in generating those tests:

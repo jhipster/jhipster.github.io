@@ -370,7 +370,7 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 
 We do most of our work on [the project's GitHub page](https://github.com/jhipster/generator-jhipster).
 
-Internal team discussions happen in the following channels :
+Internal team discussions happen in the following channels:
 - The [jhipster-dev mailing list](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)
 - The [jhipster-dev-team Gitter chat](https://gitter.im/jhipster/jhipster-dev-team)
 

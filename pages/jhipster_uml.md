@@ -202,7 +202,7 @@ As you can see, there are 3 types of reflexivity. JHipster-UML only supports the
 
   - It can lead to over-complexified and wrong models (the same effect can be achieved more easily);
 
-  - JHipster doesn't support it (this is a good thing);
+  - JHipster doesn't support it (this is a good thing).
 
 
 ### A complete example
@@ -293,7 +293,7 @@ Next, it's pretty straightforward: just run your app!
 JHipster is a great scaffolding tool with many conventions, some of them are worth mentioning when generating entities with JHipster-UML:
 
   - You don't have to use an `id` field in your entities because JHipster generates one by default, and JHipster-UML removes any field if it is detected as an ID;
-  - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you;
+  - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you.
 
 
 ## <a name="reservedwords"></a>Reserved words
@@ -445,7 +445,7 @@ The parser will notice a few things:
 
   - Two classes, 'Author' and 'Book'.
 
-  - Two DataTypes, 'LocalDate' and 'BigDecimal'
+  - Two DataTypes, 'LocalDate' and 'BigDecimal'.
 
   - Attributes, you can set the type with the default ones, or with the declared DataTypes.
 

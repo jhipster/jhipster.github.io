@@ -158,7 +158,7 @@ You can either use:
 *   Angular
 *   React
 
-### Would you like to use a Bootswatch theme ?
+### Would you like to use a Bootswatch theme?
 
 The client theme to use.
 

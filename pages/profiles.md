@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-group"></i> Profiles
 
-JHipster comes with two [Spring profiles](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html) :
+JHipster comes with two [Spring profiles](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html):
 
 *   `dev` for development: it focuses on ease of development and productivity
 *   `prod` for production: it focuses on performance and scalability
