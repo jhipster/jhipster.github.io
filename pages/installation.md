@@ -36,8 +36,8 @@ In the future, we expect JHipster Online to provide more features, of course.
 
 1.  Install Java 11. We recommend you use [AdoptOpenJDK builds](https://adoptopenjdk.net/), as they are open source and free.
 2.  Install Node.js from [the Node.js website](http://nodejs.org/) (please use an LTS 64-bit version, non-LTS versions are not supported)
-3.  (optional) If you want to use the JHipster Marketplace, install Yeoman: `npm install -g yo`
-4.  Install JHipster: `npm install -g generator-jhipster`
+3.  Install JHipster: `npm install -g generator-jhipster`
+4.  (optional) If you want to use a module or a blueprint (for instance from the [JHipster Marketplace]({{ site.url }}/modules/marketplace/#/list)), install [Yeoman](https://yeoman.io/): `npm install -g yo`
 
 Now that JHipster is installed, your next step is to [create an application]({{ site.url }}/creating-an-app/)
 
