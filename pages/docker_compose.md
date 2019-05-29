@@ -105,8 +105,10 @@ However in a local environment, this might fail your build if jib cannot access 
 <p>
 With Maven, type: <pre>./mvnw -Pprod package verify jib:dockerBuild --offline</pre>
 With Gradle, type: <pre>./gradlew -Pprod bootJar jibDockerBuild --offline</pre>
-
+</p>
+<p>
 Note that jib is currently unable to pull a local Docker image from the Docker daemon. Progress on this issue is tracked at [GoogleContainerTools/jib/issues/1468](https://github.com/GoogleContainerTools/jib/issues/1468).
+</p>
 </div>
 
 To run this image, use the Docker Compose configuration located in the `src/main/docker` folder of your application:
