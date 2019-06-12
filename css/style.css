@@ -1391,14 +1391,14 @@ body.login-page {
   display: none !important; }
 
 footer {
-  color: #fff;
+  color: #000000;
   background-color: #fff; }
   footer a {
-    color: #fff; }
+    color: #000000; }
     footer a.link {
       color: #91d5fb; }
       footer a.link:hover {
-        color: #fff; }
+        color: #000000; }
   footer h3 {
     margin-bottom: 30px; }
   footer .footer-logos {
@@ -1421,7 +1421,7 @@ footer {
     padding: 25px 0;
     background-color: #233140; }
     footer .footer-below a {
-      color: white; }
+      color: 000000; }
 
 .btn-social {
   display: inline-block;

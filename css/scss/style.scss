@@ -1934,14 +1934,14 @@ body.login-page {
 }
 
 footer {
-    color: #fff;
+    color: #000000;
     background-color: #fff;
     a {
-        color: #fff;
+        color: #000000;
         &.link {
             color: $color-clear-blue;
             &:hover {
-                color: #fff;
+                color: #000000;
             }
         }
     }
@@ -1956,7 +1956,6 @@ footer {
         .logo-container {
             overflow:hidden;
             a {
-                display: inline-block;
                 width:50%;
                 height:50%;
                 padding: 10px;
@@ -1974,7 +1973,7 @@ footer {
         padding: 25px 0;
         background-color: #233140;
         a {
-            color: white;
+            color: 000000;
         }
     }
 }
