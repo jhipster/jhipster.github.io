@@ -38,7 +38,7 @@ $('.navbar-collapse ul li a').click(function () {
         GHService.getGitHubConfig('jhipster', 'generator-jhipster').success(function (data) {
             $scope.gitConfig = data;
         });
-        $scope.gitContributors = '480+';
+        $scope.gitContributors = '500+';
         /*
         // Commented out as this isn't efficient now we have 400+ contributors
         var page = 0;
