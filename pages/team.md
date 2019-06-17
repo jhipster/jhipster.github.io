@@ -179,6 +179,14 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/15997681?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Vishal Mahajan</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/1577727?v=3" class="img-responsive">
             <div class="caption">
                 <h3>William Marques</h3>
