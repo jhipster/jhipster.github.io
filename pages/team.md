@@ -182,6 +182,7 @@ If you want to join the team, or just see how we work, our community rules are a
             <img src="https://avatars.githubusercontent.com/u/15997681?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Vishal Mahajan</h3>
+                <p><a href="https://twitter.com/vishal423"><i>@vishal423</i></a></p>
             </div>
         </div>
     </div>
