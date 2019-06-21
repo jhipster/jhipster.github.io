@@ -62,3 +62,27 @@ As Traefik is using Consul, it will also be useful to check the Consul administr
 #### Configure your Base HREF
 
 Before building the gateway's Docker image, you will need to configure the `baseHref` value in `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `baseHref` should be `/services/gateway/`.
+
+#### Configure for Oauth2
+Before building the gateway's Docker image, it is necessary to [Configure your Base HREF](#configure-your-base-href) and update various files.
+
+##### Client
+In `webapp/app/core/login/login.service.ts`, you need to update the `redirectUri` variable to match the gateway base name.
+For example, if the gateway base name is `gateway`, replace `const redirectUri = window.location.origin;` by `const redirectUri = window.location.origin + '/services/gateway/';`
+
+##### Server
+In `src/main/resources/config/boostrap.yml`, you have to add some tags in consul that will be interpreted as rule in traefik.
+under `- git-branch=${git.branch:}` add
+```
+- traefik.enable=true
+- traefik.frontend.login.rule=PathPrefix:/login
+- traefik.frontend.login.priority=1001
+- traefik.frontend.oauth.rule=PathPrefix:/oauth2
+- traefik.frontend.oauth.priority=1001
+```
+It is important that the priorities are the same between the `login` rules and `oauth2`. The value may vary according to your needs.
+
+In `src/main/java/.../config/SecurityConfiguration.java`, you have to change the `defaultSuccessUrl` in spring.
+For example, if the gateway base name is `gateway`, under `.oauth2Login()` you have to add `.defaultSuccessUrl("/services/gateway/")`.
+
+You can now launch all your infrastructure by running `docker-compose up -d`.
