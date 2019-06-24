@@ -63,17 +63,17 @@ As Traefik is using Consul, it will also be useful to check the Consul administr
 
 Before building the gateway's Docker image, you will need to configure the `baseHref` value in `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `baseHref` should be `/services/gateway/`.
 
-#### Configure for Oauth2
+#### Configure for OAuth 2.0
 Before building the gateway's Docker image, it is necessary to [Configure your Base HREF](#configure-your-base-href) and update various files.
 
 ##### Client
 In `webapp/app/core/login/login.service.ts`, you need to update the `redirectUri` variable to match the gateway base name.
-For example, if the gateway base name is `gateway`, replace `const redirectUri = window.location.origin;` by `const redirectUri = window.location.origin + '/services/gateway/';`
+For example, if the gateway base name is `gateway`, replace `const redirectUri = window.location.origin;` with `const redirectUri = window.location.origin + '/services/gateway/';`
 
 ##### Server
 In `src/main/resources/config/boostrap.yml`, you have to add some tags in consul that will be interpreted as rule in traefik.
 under `- git-branch=${git.branch:}` add
-```
+```yaml
 - traefik.enable=true
 - traefik.frontend.login.rule=PathPrefix:/login
 - traefik.frontend.login.priority=1001
