@@ -71,17 +71,6 @@ In `webapp/app/core/login/login.service.ts`, you need to update the `redirectUri
 For example, if the gateway base name is `gateway`, replace `const redirectUri = window.location.origin;` with `const redirectUri = window.location.origin + '/services/gateway/';`
 
 ##### Server
-In `src/main/resources/config/boostrap.yml`, you have to add some tags in consul that will be interpreted as rule in traefik.
-under `- git-branch=${git.branch:}` add
-```yaml
-- traefik.enable=true
-- traefik.frontend.login.rule=PathPrefix:/login
-- traefik.frontend.login.priority=1001
-- traefik.frontend.oauth.rule=PathPrefix:/oauth2
-- traefik.frontend.oauth.priority=1001
-```
-It is important that the priorities are the same between the `login` rules and `oauth2`. The value may vary according to your needs.
-
 In `src/main/java/.../config/SecurityConfiguration.java`, you have to change the `defaultSuccessUrl` in spring.
 For example, if the gateway base name is `gateway`, under `.oauth2Login()` you have to add `.defaultSuccessUrl("/services/gateway/")`.
 
