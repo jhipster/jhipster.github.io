@@ -75,7 +75,7 @@ Those tests can be run using `npm run e2e`.
 
 Performance tests are done with [Gatling](http://gatling.io/), and are located in the `src/test/gatling` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
 
-To run Gatling tests, you must first install Gatling: please go to the [Gatling download page](https://gatling.io/download/) and follow the instructions there. Please note we do not allow to run Gatling from Maven or Gradle, as it causes some classpath issues with other plugins (mainly because of the use of Scala).
+To run Gatling tests, you must first install Gatling: please go to the [Gatling download page](https://gatling.io/open-source/) and follow the instructions there. Please note we do not allow to run Gatling from Maven or Gradle, as it causes some classpath issues with other plugins (mainly because of the use of Scala).
 
 **Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. Also tests for creating entities that have a required relationship with another entity will fail out of the box. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
