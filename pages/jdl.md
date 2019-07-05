@@ -16,7 +16,7 @@ You can use our online [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or 
 
 You can generate applications, deployments and entities from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jdl`.
 
-If you have an existing project (either created with `jhipster import-jdl` or generated with `jhipster` command line), you can generate entities for the project by running running `jhipster import-jdl your-jdl-file.jdl`. Make sure to execute this command under your JHipster project.
+If you have an existing project (either created with `jhipster import-jdl` or generated with `jhipster` command line), you can generate entities for the project by running `jhipster import-jdl your-jdl-file.jdl`. Make sure to execute this command under your JHipster project.
 
 You can also generate applications, entities and export them as a JDL file using [JHipster UML]({{ site.url }}/jhipster-uml/), by running `jhipster-uml your-xmi-file.xmi --to-jdl` from the root of the generated JHipster application. To learn more about JHipster UML, and install it, go to the [JHipster UML documentation]({{ site.url }}/jhipster-uml/).
 
