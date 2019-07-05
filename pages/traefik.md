@@ -69,10 +69,6 @@ just use `npm start` and go to `http://localhost:9000`
 
 Before building the gateway's Docker image, it is necessary to [Configure your Base HREF](#configure-your-base-href) and update various files.
 
-##### Client
-In `webapp/app/core/login/login.service.ts`, you need to update the `redirectUri` variable to match the gateway base name.
-For example, if the gateway base name is `gateway`, replace `const redirectUri = window.location.origin;` with `const redirectUri = window.location.origin + '/services/gateway/';`
-
 ##### Server
 In `src/main/java/.../config/SecurityConfiguration.java`, you have to change the `defaultSuccessUrl` in spring.
 For example, if the gateway base name is `gateway`, under `.oauth2Login()` you have to add `.defaultSuccessUrl("/services/gateway/")`.
