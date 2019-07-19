@@ -165,7 +165,7 @@ Follow these steps to do so:
 - Scale the MongoDB node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=<X>`
 - Init the replica set (parameter X is the number of nodes you input in the previous step, folder is the folder where the YML file is located, it's `docker` by default): `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --eval 'var param=<X>, folder="<yml_folder_name>"' init_replicaset.js`
 - Init the shard: `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb_1 mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27017")'`
-- Build a Docker image of your application: `./mvnw -Pprod verify jib:dockerBuild` or `./gradlew -Pprod bootJar jibDockerBuild`
+- Build a Docker image of your application: `./mvnw -Pprod clean verify jib:dockerBuild` or `./gradlew -Pprod clean bootJar jibDockerBuild`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
@@ -178,7 +178,7 @@ Follow these steps to do so:
 - Build the image: `docker-compose -f src/main/docker/couchbase-cluster.yml build`
 - Run the database: `docker-compose -f src/main/docker/couchbase-cluster.yml up -d`
 - Scale the Couchbase node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/couchbase-cluster.yml scale <name_of_your_app>-couchbase-node=<X>`
-- Build a Docker image of your application: `./mvnw -Pprod verify jib:dockerBuild` or `./gradlew -Pprod bootJar jibDockerBuild`
+- Build a Docker image of your application: `./mvnw -Pprod clean verify jib:dockerBuild` or `./gradlew -Pprod clean bootJar jibDockerBuild`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
 ### Cassandra

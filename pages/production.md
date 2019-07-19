@@ -41,11 +41,11 @@ If you want more information on the available profiles, please go the section ti
 
 To package the application as a "production" JAR, with Maven please type:
 
-`./mvnw -Pprod verify`
+`./mvnw -Pprod clean verify`
 
 Or when using Gradle, please type:
 
-`./gradlew -Pprod bootJar`
+`./gradlew -Pprod clean bootJar`
 
 This will generate this file (if your application is called "jhipster"):
 
@@ -58,11 +58,11 @@ When using Gradle:
 
 To package the application as a "production" WAR, with Maven please type:
 
-`./mvnw -Pprod,war verify`
+`./mvnw -Pprod,war clean verify`
 
 Or when using Gradle, please type:
 
-`./gradlew -Pprod -Pwar bootWar`
+`./gradlew -Pprod -Pwar clean bootWar`
 
 **Please note** that when building a JAR or WAR file with a context path, you will need to update webpack.prod.js with the proper baseHref.
 
