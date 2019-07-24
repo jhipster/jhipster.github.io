@@ -45,7 +45,7 @@ Gold sponsors donate $1000 per month to the project, and get the following benef
 
 ## What will the project do with the money?
 
-As you can read in [the OpenCollective documentation](https://opencollective.com/learn-more), the way your money will be used will be public and totally transparent.
+As you can read in [the OpenCollective documentation](https://docs.opencollective.com), the way your money will be used will be public and totally transparent.
 
 Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
 
