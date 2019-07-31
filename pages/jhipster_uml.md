@@ -11,6 +11,13 @@ sitemap:
 
 # <i class="fa fa-magic"></i> JHipster-UML
 
+Please note that this project is deprecated and shouldn't be used anymore.
+
+Instead, we suggest you use the JDL export feature of this project to export your XMI files to a JDL file that you can use and make models of your entities with JDL Studio.
+
+To learn more about the JDL, head [here]({{ site.url }}/profiles/).
+
+***
 
 JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
 
