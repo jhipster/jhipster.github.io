@@ -4,7 +4,7 @@ title: JHipster Domain Language
 permalink: /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2019-04-27T12:00:00-00:00
+    lastmod: 2019-08-15T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -935,6 +935,18 @@ Here are the application options supported in the JDL:
     <td>angularX</td>
     <td>angularX, react</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>clientTheme</td>
+    <td>none</td>
+    <td>Something or none</td>
+    <td>You can put whatever value you want, provided you know it will work (like yeti).</td>
+  </tr>
+  <tr>
+    <td>clientThemeVariant</td>
+    <td></td>
+    <td>Something or primary</td>
+    <td>You can put whatever value you want, provided you know it will work (like dark, or light), can also be empty</td>
   </tr>
   <tr>
     <td>useSass</td>
