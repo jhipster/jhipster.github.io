@@ -77,6 +77,13 @@ When using Gradle:
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
+**Please note** if you want the WAR original file with Maven, you need to edit the `pom.xml` file to use `war` packaging instead of `jar` packaging :
+
+```diff
+-    <packaging>jar</packaging>
++    <packaging>war</packaging>
+```
+
 ## <a name="run"></a> Running in production
 
 ### Executing the JAR file without an application server
