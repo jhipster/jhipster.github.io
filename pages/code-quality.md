@@ -27,7 +27,7 @@ If you need to re-run the Sonar phase, please be sure to specify at least the `i
 
 If you use Gradle, it has also been automatically configured:
 
-    ./gradlew -Pprod clean check sonarqube -Dsonar.host.url=http://localhost:9001
+    ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.host.url=http://localhost:9001
 
 In every cases you can, now, run analysis with [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) if you already have installed it.
 
