@@ -19,7 +19,7 @@ Spring Cache and the Hibernate 2nd-level cache will use the same caching solutio
 - Spring Cache for higher-level or aggregate objects, like you typically have with DTOs
 - The Hibernate 2nd-level cache for entities mapped to the database, in order to reduce the number of SQL requests
 
-JHipster supports 4 caches implementations: Ehcache, Hazelcast, Infinispan and Memcached. They are all detailed below.
+JHipster supports 5 caches implementations: Ehcache, Caffeine, Hazelcast, Infinispan and Memcached. They are all detailed below.
 
 ## Common configuration
 
@@ -36,6 +36,18 @@ Ehcache is configured in the `CacheConfiguration` Spring configuration bean, whi
 By default, `time-to-live-seconds` has a default value of 3600 seconds (1 hour) both in `dev` and in `prod` mode, and `max-entries` has a default value of 100 entries in `dev` mode and 1,000 entries in `prod` mode.
 
 Those values should be tuned depending on your specific business needs, and the JHipster monitoring screen can help you better understand cache usage in your application. Please also refer to the Ehcache documentation to fine-tune those values.
+
+## Caching with Caffeine
+
+[Caffeine](https://github.com/ben-manes/caffeine) is an alternative to Ehcache for use with monoliths in JHipster. 
+
+Similar to Ehcache, Caffeine cannot work as a distributed cache.
+
+Jhipster generates a default configuration for Caffeine which is identical to Ehcache. However you may wish to add additional options to fine tune it to your needs. Caffeine cache configuration is done in `CacheConfiguration` Spring configuration bean whereas your application specific properties can be added to `ApplicationProperties` bean. You might find the following three files useful in defining your own Caffeine configuration.
+
+- We use the [`CaffeineConfiguration`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/CaffeineConfiguration.java) class within the `CacheConfiguration` bean to add Caffeine properties.
+
+- You might find [`TypesafeConfigurator`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/TypesafeConfigurator.java) along with [`reference.conf`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/resources/reference.conf) as a reference to all supported Caffeine properties.
 
 ## Caching with Hazelcast
 

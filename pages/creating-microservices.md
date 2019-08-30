@@ -27,7 +27,7 @@ Then, on the gateway(s), run the entity sub-generator again. A new question will
 If your application uses an SQL database, JHipster proposes a different 2nd-level caching solution with microservices:
 
 - JHipster's default caching solution with microservices is Hazelcast
-- You can still choose Ehcache (the default solution with monolith applications) or choose not to use a cache at all
+- You can still choose Ehcache (the default solution with monolith applications) or Caffeine or choose not to use a cache at all
 
 This solution is the default with microservices, as in this architecture the idea is that you will scale your services:
 
