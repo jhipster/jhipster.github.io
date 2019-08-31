@@ -39,7 +39,7 @@ Those values should be tuned depending on your specific business needs, and the 
 
 ## Caching with Caffeine
 
-[Caffeine](https://github.com/ben-manes/caffeine) is an alternative to Ehcache for use with monoliths in JHipster. 
+[Caffeine](https://github.com/ben-manes/caffeine) is a [high performance](https://github.com/ben-manes/caffeine/wiki/Benchmarks), [near optimal](https://github.com/ben-manes/caffeine/wiki/Efficiency) caching library and is an alternative to Ehcache for use with monoliths in JHipster. 
 
 Similar to Ehcache, Caffeine cannot work as a distributed cache.
 
