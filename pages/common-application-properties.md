@@ -76,6 +76,9 @@ Here is a documentation for those properties:
             ehcache: # Ehcache configuration
                 time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
                 max-entries: 100 # Number of objects in each cache entry
+            caffeine: # Caffeine configuration
+                time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+                max-entries: 100 # Number of objects in each cache entry    
             infinispan: #Infinispan configuration
                 config-file: default-configs/default-jgroups-tcp.xml
                 # local app cache
