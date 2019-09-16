@@ -22,7 +22,7 @@ Here are the most significant ones:
 
 - Upgrade to Spring Boot 2.1.8 and Spring Cloud Greenwich SR3
 - All Docker images have been upgraded to their latest versions
-- Migratation from Tslint to Eslint ([#10187](https://github.com/jhipster/generator-jhipster/pull/10187) and [#10213](https://github.com/jhipster/generator-jhipster/pull/10213)). The JHipster ESlint configuration is now externalized in a new repository at https://github.com/jhipster/eslint-config-jhipster [#10358](https://github.com/jhipster/generator-jhipster/pull/10358)
+- Migration from Tslint to Eslint ([#10187](https://github.com/jhipster/generator-jhipster/pull/10187) and [#10213](https://github.com/jhipster/generator-jhipster/pull/10213)). The JHipster ESlint configuration is now externalized in a new repository at https://github.com/jhipster/eslint-config-jhipster [#10358](https://github.com/jhipster/generator-jhipster/pull/10358)
 - Created Jar is now non executable by default [#10282](https://github.com/jhipster/generator-jhipster/pull/10282)
 - Enforce architecture constraints with ArchUnit [#10274](https://github.com/jhipster/generator-jhipster/pull/10274)
 - Add a new Feign Client sub-generator based on OpenAPIGenerator [#9548](https://github.com/jhipster/generator-jhipster/issues/9548)
