@@ -19,11 +19,13 @@ According to [OWASP Top 10 Most Critical Web Application Security Risks](https:/
 
 Proposing a dependency check by default in JHipster build has been discussed a couple of times ([#6329](https://github.com/jhipster/generator-jhipster/issues/6329), [#8191](https://github.com/jhipster/generator-jhipster/issues/8191)). To summarise, it is complicated to have a realistic report (removing false-positive) and context dependant (security is always a trade off between the actual risk/criticity and the effort to prevent it).
 
+However we highly recommend using a dependency analysis tool such as [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) if you are using JHipster in production.  
+
 ## What to do do if you detect a vulnerability in one of JHipster's dependencies
 
 If you found a vulnerability in one of JHipster's dependencies, please check if there is not an existing  [issue](https://github.com/jhipster/generator-jhipster/issues) already opened on that vulnerability.
 
-If nothing is mentioned, please create an [issue](https://github.com/jhipster/generator-jhipster/issues/new/choose) and follow the template (including steps to reproduce the exploit, security report, blog post, etc.).
+If nothing is mentioned, please send us a security vulnerability report privately. Please read our [security policy](https://github.com/jhipster/generator-jhipster/security/policy) on how to send one. Include steps to reproduce the exploit, security report, blog post, etc.
 
 Be sure that the JHipster team is committed to provide a high-quality, enterprise-ready and secure development stack and that this issue will be a top priority for us.
 
