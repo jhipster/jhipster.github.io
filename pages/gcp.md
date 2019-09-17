@@ -41,7 +41,7 @@ This generator will:
 To deploy:
 Please note that currently the Google App Engine generator only supports deployments to [App Engine Standard (Java 11)](https://cloud.google.com/appengine/docs/standard/java11/) environment. 
 
-1. Use the App Engine plugin to deploy: `./mvnw appengine:deploy -DskipTests -Pprod,prod-gae`
+1. Use the App Engine plugin to deploy: `./mvnw appengine:deploy -DskipTests -Pgae,prod-gae,war`
 
 In addition to simply run your application, Google App Engine provides full suite of features to manage and operate:
 - Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
