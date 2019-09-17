@@ -41,7 +41,7 @@ This generator will:
 To deploy:
 Please note that on v6 we have migrated to jar packaging. However GAE needs a war so you will need to package your app with the war profile.
 
-1. Use the App Engine plugin to deploy: `./mvnw appengine:deploy -DskipTests -Pprod,prod-gae,war`
+1. Use the App Engine plugin to deploy: `./mvnw appengine:deploy -DskipTests -Pgae,prod-gae,war`
 
 In addition to simply run your application, Google App Engine provides full suite of features to manage and operate:
 - Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
