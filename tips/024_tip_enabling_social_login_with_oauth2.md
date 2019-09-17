@@ -19,4 +19,4 @@ Log into the Okta console and navigate via the menu to "Users" -> "Social & Iden
 
 Keycloak supports GitHub, Twitter, Facebook, Openshift, Google, Gitlab, LinkedIn, Microsoft, BitBucket, StackOverflow, and Custom SAML providers.
 
-Log into the Keycloak administration console and choose "Identity Providers" from the left menu.  Follow the instructions found in the [Keycloak Social Login documenation](http://www.keycloak.org/docs/3.0/server_admin/topics/identity-broker/social-login.html) to configure the provider and obtain the client ID and secret.
+Log into the Keycloak administration console and choose "Identity Providers" from the left menu.  Follow the instructions found in the [Keycloak Social Login documenation](https://www.keycloak.org/docs/latest/server_admin/index.html#social-identity-providers) to configure the provider and obtain the client ID and secret.
