@@ -60,10 +60,10 @@ Microservices are optional, and fully supported:
 ## Ready to go into production:
 
 *   Monitoring with [Metrics](http://metrics.dropwizard.io/) and [the ELK Stack](https://www.elastic.co/products)
-*   Caching with [ehcache](http://ehcache.org/) (local cache), [hazelcast](http://www.hazelcast.com/) or [Infinispan](http://infinispan.org/)
+*   Caching with [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [hazelcast](http://www.hazelcast.com/) or [Infinispan](http://infinispan.org/)
 *   Optimized static resources (gzip filter, HTTP cache headers)
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance
 *   Builds a standard WAR file or an executable JAR file
 *   Full Docker and Docker Compose support
-*   Support for all major cloud providers: AWS, Cloud Foundry, Heroku, Kubernetes, OpenShift, Azure, Docker...
+*   Support for all major cloud providers: AWS, Cloud Foundry, GCP, Heroku, Kubernetes, OpenShift, Azure, Docker...
