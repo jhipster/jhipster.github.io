@@ -19,7 +19,7 @@ This generator has one limitation:
 
 When Cassandra is selected:
 
-*   The Cassandra CQL driver is used to access the database. We don't use Spring Data Cassandra, as we prefer to use the driver directly. As a result, the repositories contain quite a lot of code
+*   Spring Data Reactive for Apache Cassandra is used
 *   The [entity sub-generator]({{ site.url }}/creating-an-entity/) will not ask you for entity relationships, as you can't have relationships with a NoSQL database (at least not in the way you have relationships with JPA)
 *   The generated entities only support one partition key, which is the ID. Future versions will provide composite primary keys and clustering keys
 

@@ -15,14 +15,16 @@ sitemap:
 
 JHipster comes with an extensive set of tests, and each generated application has:
 
+*   Unit tests using [JUnit 5](https://junit.org/junit5/){:target="_blank"}.
 *   Integration tests using the Spring Test Context framework.
-*   UI tests with [Jest](https://facebook.github.io/jest/).
+*   UI tests with [Jest](https://facebook.github.io/jest/){:target="_blank"}.
+*   Architecture tests with [ArchUnit](https://www.archunit.org/){:target="_blank"}.
 
 Optionally, JHipster can also generate:
 
-*   Performance tests with [Gatling](http://gatling.io/).
-*   Behaviour-driven tests with [Cucumber](https://cucumber.io/).
-*   Angular/React/Vue integration tests with [Protractor](https://angular.github.io/protractor/#/).
+*   Performance tests with [Gatling](http://gatling.io/){:target="_blank"}.
+*   Behaviour-driven tests with [Cucumber](https://cucumber.io/){:target="_blank"}.
+*   Angular/React/Vue integration tests with [Protractor](https://angular.github.io/protractor/#/){:target="_blank"}.
 
 We have two goals in generating those tests:
 
@@ -41,12 +43,12 @@ Integration tests are done with the Spring Test Context framework, and are locat
 This Spring test context will use a specific test database to execute its tests:
 
 *   If you use an SQL database, JHipster will launch an in-memory H2 instance in order to use a temporary database for its integration tests. Liquibase will be run automatically, and will generate the database schema.
-*   If you use Cassandra, JHipster will launch a containerized version of Cassandra with Docker using [Testcontainers](https://www.testcontainers.org)
-*   If you use MongoDB, JHipster will launch an in-memory MongoDB instance using [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo).
+*   If you use Cassandra, JHipster will launch a containerized version of Cassandra with Docker using [Testcontainers](https://www.testcontainers.org){:target="_blank"}.
+*   If you use MongoDB, JHipster will launch an in-memory MongoDB instance using [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo){:target="_blank"}.
 *   If you use Elasticsearch, JHipster will launch an in-memory Elasticsearch instance using Spring Data Elasticsearch.
-*   If you use Couchbase, JHipster will launch a containerized version of Couchbase with Docker using [Couchbase TestContainers](https://github.com/differentway/testcontainers-java-module-couchbase).
+*   If you use Couchbase, JHipster will launch a containerized version of Couchbase with Docker using [Couchbase TestContainers](https://github.com/differentway/testcontainers-java-module-couchbase){:target="_blank"}.
 
-Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `./mvnw clean verify` (or `./gradlew test integrationTest` if you run Gradle).
+Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `./mvnw clean verify` (or `./gradlew test integrationTest` if you use Gradle).
 
 **Limitations:** if the generated entities have validation enabled, JHipster is not enable to generate the correct values depending on the validation rules. Those rules can be so complex, for example if a Regex pattern is used, that this just not possible. In this case, the tests will fail validation, and the default values used in the test will need to changed manually, so they can pass the validation rules.
 
@@ -56,7 +58,7 @@ UI tests come in two flavors with JHipster: unit tests with Jest, and integratio
 
 ### Jest
 
-UI unit tests are located in the `src/test/javascript/spec` folder. They use [Jest](https://facebook.github.io/jest/).
+UI unit tests are located in the `src/test/javascript/spec` folder. They use [Jest](https://facebook.github.io/jest/){:target="_blank"}.
 
 Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
 
@@ -65,17 +67,22 @@ Those tests will mock up the access to the application's REST endpoints, so you 
 
 ### Protractor
 
-UI integration tests are done with [Protractor](https://angular.github.io/protractor/#/), and are located in the `src/test/javascript/e2e` folder.
+UI integration tests are done with [Protractor](https://angular.github.io/protractor/#/){:target="_blank"}, and are located in the `src/test/javascript/e2e` folder.
 
 Those tests will launch a Web browser and use the application like a real user would do, so you need to have a real application running, with its database set-up.
 
 Those tests can be run using `npm run e2e`.
 
+## Architecture tests
+
+Architecture tests, which enforce certain constrainsts and best practices are done with [ArchUnit](https://www.archunit.org/){:target="_blank"}.
+You can easily write your own rules to check custom constraints for your architecture at build time following the [official documentation](https://www.archunit.org/userguide/html/000_Index.html){:target="_blank"}.
+
 ## Performance tests
 
-Performance tests are done with [Gatling](http://gatling.io/), and are located in the `src/test/gatling` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
+Performance tests are done with [Gatling](http://gatling.io/){:target="_blank"}, and are located in the `src/test/gatling` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
 
-To run Gatling tests, you must first install Gatling: please go to the [Gatling download page](https://gatling.io/open-source/) and follow the instructions there. Please note we do not allow to run Gatling from Maven or Gradle, as it causes some classpath issues with other plugins (mainly because of the use of Scala).
+To run Gatling tests, you must first install Gatling: please go to the [Gatling download page](https://gatling.io/open-source/){:target="_blank"} and follow the instructions there. Please note we do not allow to run Gatling from Maven or Gradle, as it causes some classpath issues with other plugins (mainly because of the use of Scala).
 
 **Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. Also tests for creating entities that have a required relationship with another entity will fail out of the box. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
@@ -91,6 +98,6 @@ For running Gatling tests on a microservice application, you have to:
 
 ## Behaviour-driven development (BDD)
 
-Behaviour-driven development (BDD) is available using [Cucumber](https://cucumber.io/), with its [JVM implementation](https://github.com/cucumber/cucumber-jvm).
+Behaviour-driven development (BDD) is available using [Cucumber](https://cucumber.io/){:target="_blank"}, with its [JVM implementation](https://github.com/cucumber/cucumber-jvm){:target="_blank"}.
 
-[Gherkin](https://docs.cucumber.io/gherkin/reference/) features will have to be written in your `src/test/features` directory.
+[Gherkin](https://docs.cucumber.io/gherkin/reference/){:target="_blank"} features will have to be written in your `src/test/features` directory.
