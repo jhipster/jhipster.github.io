@@ -372,6 +372,24 @@
       "category": "Finance",
       "country": "USA"
     },
+    {"name": "Octo Consulting Group",
+      "url": "https://www.octoconsulting.com/",
+      "logo": "octoconsulting.png",
+      "category": "System Integrator",
+      "country": "USA"
+    },
+    {"name": "Software AG",
+      "url": "https://www.softwareag.com",
+      "logo": "softwareag.png",
+      "category": "Software Editor",
+      "country": "Germany"
+    },
+    {"name": "SII",
+      "url": "http://www.sii.fr",
+      "logo": "sii.png",
+      "category": "System Integrator",
+      "country": "France"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
@@ -1031,6 +1049,45 @@
     },
     {"name": "Teachoo",
       "url": "https://www.teachoo.com/"
+    },
+    {"name": "Meta Functions Pvt. Ltd.",
+      "url": "http://metafns.com/"
+    },
+    {"name": "HBT",
+      "url": "http://hbt.de"
+    },
+    {"name": "Softworld VietNam Ltd",
+      "url": "https://softworldvietnam.com/"
+    },
+    {"name": "FNC IT",
+      "url": "http://fncit.com.br/"
+    },
+    {"name": "Guanaco Software",
+      "url": "http://guanacosoftware.com.ar/"
+    },
+    {"name": "Flowinn",
+      "url": "https://www.flowinn.biz/"
+    },
+    {"name": "We Are One",
+      "url": "https://weareone.ch/"
+    },
+    {"name": "DBlandIT",
+      "url": "https://www.dblandit.com/"
+    },
+    {"name": "Factly Media & Research",
+      "url": "https://factly.in/"
+    },
+    {"name": "Softech Data Solutions",
+      "url": "http://softechdatasolutions.com/"
+    },
+    {"name": "Bil Yazılım San. Tic. Ltd. Şti.",
+      "url": "https://www.bilyazilim.com/"
+    },
+    {"name": "Afnetic",
+      "url": "http://www.afnetic.com"
+    },
+    {"name": "Norsys",
+      "url": "https://www.norsys.fr"
     }
   ]
 }

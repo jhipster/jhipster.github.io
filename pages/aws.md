@@ -89,12 +89,12 @@ Boxfuse comes with first-class support for JHipster as well as support for both 
 
 ### Limitations
 
-*   You can only use it with a MySQL database (PostgreSQL and Oracle will be added later).
+*   You can only use it with a SQL database (Oracle and Microsoft SQL Server aren't supported).
 *   Websockets doesn't work behind the load balancer by default.
 
-### Running the sub-generator
+### Prerequisites
 
-Before running the sub-generator, you need to setup your AWS SDK credentials.  Log in with your Amazon AWS account and create a user for your JHipster application. To grant this user the required permissions attach the `AWSElasticBeanstalkFullAccess` policy.
+Before running the sub-generator, you need to setup your AWS SDK credentials. Log in with your Amazon AWS account and create a user for your JHipster application. To grant this user the required permissions attach the `AWSElasticBeanstalkFullAccess` policy.
 
 After that create a credentials file at `~/.aws/credentials` on Mac/Linux or `C:\Users\USERNAME\.aws\credentials` on Windows.
 
@@ -104,11 +104,15 @@ aws_access_key_id = your_access_key
 aws_secret_access_key = your_secret_key
 ```
 
+If you use a named profile different than `default`, you just have to set the environment variable `AWS_PROFILE` with the correct profile.
+
+### Deploying your application
+
 To deploy your application to Amazon AWS, type:
 
 `jhipster aws`
 
-This should package your application in "production" mode, create an Bean Stalk application (with a MySQL database), upload your code, and start the application.
+This should package your application in "production" mode, create a Beanstalk application (with a SQL database), upload your code on S3, and start the application.
 
 ### Updating your deployed application
 

@@ -43,4 +43,4 @@ There are many ways to format your code. We follow the default rules provided by
 
 ## Policy 4: use strict versions for third-party libraries
 
-We've had many issues with library versions making conflicts. This is mostly a JavaScript issue, so to be clear: use fixed libraries versions in your `bower.json` and `package.json` files.
+We've had many issues with library versions making conflicts. This is mostly a JavaScript issue, so to be clear: we use fixed libraries versions in `package.json` files.
