@@ -44,7 +44,7 @@ authentication with Gmail.
 Therefore we highly recommend you use an app password instead of the Gmail password. Please refer to the following Gmail
 configuration document for more information on how to set this up. 
 
-https://support.google.com/accounts/answer/185833
+[https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833)
 
 This way you will be able to use two factor authentication as well as keep the "allow less secure apps" option off.   
 
