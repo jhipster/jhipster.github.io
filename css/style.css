@@ -1390,6 +1390,11 @@ body.login-page {
 .x-ng-cloak {
   display: none !important; }
 
+#about a {
+  color: white;
+  text-decoration: underline;
+}
+
 footer {
   color: #000000;
   background-color: #fff; }
@@ -1419,9 +1424,12 @@ footer {
     margin-bottom: 50px; }
   footer .footer-below {
     padding: 25px 0;
+    color: #ccc;
     background-color: #233140; }
     footer .footer-below a {
-      color: 000000; }
+      color: #ccc;
+      text-decoration: underline;
+    }
 
 .btn-social {
   display: inline-block;
@@ -1563,7 +1571,7 @@ table tr > td, th {
 table tr:nth-child(even) {
     background: #f0f0f0;
 }
-@media (max-width: 1080px) { 
+@media (max-width: 1080px) {
   #content-search-form {
     display: none;
   }
@@ -1584,7 +1592,7 @@ table tr:nth-child(even) {
     right: 90%;
   }
 }
-@media (min-width: 1080px) { 
+@media (min-width: 1080px) {
   #mobile-content-search-form {
     display: none;
   }
@@ -1597,7 +1605,7 @@ table tr:nth-child(even) {
   border-radius: 4px;
   font-size: 14px;
   background-color: white;
-  background-position: 10px 10px; 
+  background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 10px 40px 10px 15px;
   -webkit-transition: width 0.4s ease-in-out;
