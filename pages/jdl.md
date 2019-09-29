@@ -891,8 +891,8 @@ Here are the application options supported in the JDL:
   <tr>
     <td>cacheProvider</td>
     <td>ehcache or hazelcast</td>
-    <td>ehcache, hazelcast, infinispan, no</td>
-    <td>ehcache for monoliths and gateways, hazelcast otherwise</td>
+    <td>ehcache, caffeine, hazelcast, infinispan, no</td>
+    <td>ehcache or caffeine for monoliths and gateways, hazelcast otherwise</td>
   </tr>
   <tr>
     <td>clientFramework</td>
