@@ -80,3 +80,11 @@ $ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/v2/pet/
 $ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
 <Pet>  <id>123456789</id>  <name>doggie</name>  <photoUrls>    <photoUrls>aeiou</photoUrls>  </photoUrls>  <tags>  </tags>  <status>aeiou</status></Pet>%
 ```
+### Using the `openapi-client` Sub-Generator
+
+JHipster also provides support for generation of client code using [Spring-Cloud FeignClients](https://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign) using an OpenAPI/Swagger specification.
+The generated FeignClient can be used in both Monolithic and Micro-service applications and supports Swagger v2 and OpenAPI v3 definitions. To invoke this sub-generator run `jhipster openapi-client`.
+
+
+
+
