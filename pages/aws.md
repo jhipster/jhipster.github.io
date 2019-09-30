@@ -18,7 +18,7 @@ There are two different sub-generators for deploying JHipster projects to AWS:
 * **aws**: An instance based sub-generator for deploying applications via Elastic Beanstalk. This is great (and very cheap!) for simple applications.
 
 ## *aws-containers* sub-generator
-This sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this:
+When using the monolith flow, this sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this:
 - [AWS Fargate](https://aws.amazon.com/fargate/): A new AWS service which allows containers to be run without needing to worry about the underlying VM instance infrastructure. The sub-generator currently uses Elastic Container Service to manage the containers.
 - [Elastic Container Registry](https://aws.amazon.com/ecr/): A Docker Image repository, where the application images are stored.
 - [Elastic Load Balanacer - Network Load Balancer](https://aws.amazon.com/elasticloadbalancing): The Network Load balanacer is used to direct traffic to containers.
@@ -28,6 +28,10 @@ This sub-generator will automatically deploy your docker-based JHipster applicat
 - [AWS Cloudformation](https://aws.amazon.com/cloudformation):  All required services (besides AWS System Manager Parameters) are defined in a set of CloudFormation files. The base file contains high level services, and then each application is defined in its own file, which is called a nested stack.
 - [AWS System Manager - Parameter Store](https://aws.amazon.com/systems-manager/features/): A Secure password storage mechanism, which is used to store the database password. Running the sub-generator will introduce a new Spring Cloud component which will read in the password on application startup.
 - [AWS - IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html): The generator creates a new role which the ECS tasks will execute under, with an associated policy.
+
+When using the microservice flow, this will guide you through the creation of an [Elastic Kubernetes Cluster (EKS)](https://aws.amazon.com/eks/) 
+and [Elastic Container Registries (ECR)](https://aws.amazon.com/ecr/) for all your microservices and gateway. Afterwards you have to use the [Kubernetes Subgenerator](/kubernetes) to generate the Kubernetes configuration files and 
+push them via docker to ECR. A sample deployment can be found at https://github.com/jhipster/generator-jhipster/issues/8366#issuecomment-535329759
 
 ![AWS Component Diagram]({{ site.url }}/images/aws_component_diagram.svg?sanitize=true)
 
@@ -41,7 +45,6 @@ If you choose to deploy the application, the sub-generator will go through a num
 7. Update Stack to include ECS Service. Prints out Load Balancer URL.
 
 ### Limitations
-- Currently only works with monolithic applications.
 - Only the following database types are supported (all via Aurora): Mysql, MariaDB and PostgreSQL.
 - Fargate is, at time of writing, only available in the `us-west-2` region. Check [this list](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) before attempting to run the sub-generator against a different region.
 - Instance to instance communication is currently not supported. The biggest consequence of this is that cache synchronisation is not supported between nodes. It is recommended to look at AWS' [ElasticCache](https://aws.amazon.com/elasticache/) service for distributed caching requirements.
@@ -49,7 +52,7 @@ If you choose to deploy the application, the sub-generator will go through a num
 
 ### Costs
 <div class="alert alert-warning"><i>Warning: </i>
-This generator will start incuring costs as soon as the deployment starts. Do not leave it running for extended lengths without understanding the costing implications of the components used. </div>
+This generator will start incurring costs as soon as the deployment starts. Do not leave it running for extended lengths without understanding the costing implications of the components used. </div>
 The services used by this generator are not covered by the [AWS Free Tier](https://aws.amazon.com/free/). This generator is designed to allow applications to be run in a production-grade manner, and at this time is not recommended for small or cost sensitive workloads.
 
 ### Running the sub-generator
@@ -61,7 +64,7 @@ Within a **new folder** run:
 `jhipster aws-containers`
 
 The sub-generator will ask a number of questions regarding how you would like your application deployed, using information it will determine from your AWS environment. There are a couple of things to consider:
-- The application can be deployed in either a single tier (using a default VPC configuration), or a two-tier model (example CloudFormation file [here](https://github.com/satterly/AWSCloudFormation-samples/blob/master/multi-tier-web-app-in-vpc.template)). When determining your deployment subnets, you should ensure that the application is being deployed across at least two Availability Zones, otherwise Amazon Aurora will not deploy correctly.
+- A monolith application can be deployed in either a single tier (using a default VPC configuration), or a two-tier model (example CloudFormation file [here](https://github.com/satterly/AWSCloudFormation-samples/blob/master/multi-tier-web-app-in-vpc.template)). When determining your deployment subnets, you should ensure that the application is being deployed across at least two Availability Zones, otherwise Amazon Aurora will not deploy correctly.
 - If you need to remove the generated CloudFormation stack, you must remove all created ECR images before attempting to delete the stack. CloudFormation cannot delete the registry if it is still holding images.
 
 ### Updating your deployed application
