@@ -97,7 +97,7 @@ You can choose between:
 
 This is the database you will use with your "production" profile. To configure it, please modify your `src/main/resources/config/application-prod.yml` file.
 
-If you want to use Oracle, you will need to [install the Oracle JDBC driver manually]({{ site.url }}/using-oracle/).
+If you want to use Oracle, you might need to be aware of current limitations when [using Oracle database]({{ site.url }}/using-oracle/).
 
 ### Which _development_ database would you like to use?
 
