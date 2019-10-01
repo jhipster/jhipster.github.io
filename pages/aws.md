@@ -122,6 +122,14 @@ When your application is already deployed, you can re-deploy it by run the sub-g
 
 The sub generator ask your database credentials again but they will be ignored during the update.
 
+### Deleting your application
+
+- Delete the Elastic Beanstalk.
+- Delete S3 buckets relevant to the application.
+- Delete the [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) instance.
+- Delete the EC2 security groups relevant to the application. You can easily find this by looking at the description of the 
+security group which should say `Enable database access to Beanstalk application`.
+
 ### More information
 
 *   [AWS SDK for JavaScript](http://aws.amazon.com/sdk-for-node-js)
