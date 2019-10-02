@@ -94,7 +94,7 @@ Boxfuse comes with first-class support for JHipster as well as support for both 
 
 ### Prerequisites
 
-Before running the sub-generator, you need to setup your AWS SDK credentials. Log in with your Amazon AWS account and create a user for your JHipster application. To grant this user the required permissions attach the `AWSElasticBeanstalkFullAccess` policy.
+Before running the sub-generator, you need to setup your AWS SDK credentials. Log in with your Amazon AWS account and create a user for your JHipster application. To grant this user the required permissions attach the `AWSElasticBeanstalkFullAccess`, `AmazonRDSFullAccess` and `IAMFullAccess` policies.
 
 After that create a credentials file at `~/.aws/credentials` on Mac/Linux or `C:\Users\USERNAME\.aws\credentials` on Windows.
 
@@ -121,6 +121,14 @@ When your application is already deployed, you can re-deploy it by run the sub-g
 `jhipster aws`
 
 The sub generator ask your database credentials again but they will be ignored during the update.
+
+### Deleting your application
+
+- Delete the Elastic Beanstalk.
+- Delete S3 buckets relevant to the application.
+- Delete the [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) instance.
+- Delete the EC2 security groups relevant to the application. You can easily find this by looking at the description of the 
+security group which should say `Enable database access to Beanstalk application`.
 
 ### More information
 
