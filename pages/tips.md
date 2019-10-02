@@ -31,3 +31,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 1. [How to create a new Authority]({{ site.url }}/tips/025_tip_create_new_authority.html)
 1. [Issue of @OneToOne with @MapsId and how to avoid it]({{ site.url }}/tips/026_tip_issue_of_onetoone_with_mapsid_how_to_avoid_it.html)
 1. [Increase integration test performance by lazy bean initialization]({{ site.url }}/tips/027_tip_lazy_init_test_beans.html)
+1. [How to connect PGAdmin (PostgreSQL) to Heroku]({{ site.url }}/tips/028_tip_pgadmin_heroku.html)
