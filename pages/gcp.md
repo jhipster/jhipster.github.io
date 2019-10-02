@@ -45,6 +45,8 @@ Please note that currently the Google App Engine generator only supports deploym
 
 2. Currently your application needs to run on [F2 instance](https://cloud.google.com/appengine/docs/standard/#instance_classes) or higher in order to work due to a [problem with the App Engine](https://github.com/jhipster/generator-jhipster/issues/10331#issuecomment-528563349). 
 
+3. If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up
+
 In addition, Google App Engine provides a full suite of features to manage your application:
 - Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
 - Stackdriver Logging - Automatically capture and store application logs in centralized logging that can be searched, monitored, and exported.
