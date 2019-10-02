@@ -41,7 +41,7 @@ This generator will:
 To deploy:
 Please note that currently the Google App Engine generator only supports deployments to [App Engine Standard (Java 11)](https://cloud.google.com/appengine/docs/standard/java11/) environment. 
 
-1. Use the App Engine plugin to deploy: `./mvnw appengine:deploy -DskipTests -Pgae,prod-gae`
+1. Use the App Engine plugin to deploy: `./mvnw package appengine:deploy -DskipTests -Pgae,prod-gae`
 
 2. Currently your application needs to run on [F2 instance](https://cloud.google.com/appengine/docs/standard/#instance_classes) or higher in order to work due to a [problem with the App Engine](https://github.com/jhipster/generator-jhipster/issues/10331#issuecomment-528563349). 
 
