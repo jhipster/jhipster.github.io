@@ -52,7 +52,7 @@ Here is the JDL documentation:
    1. [Available application options](#application_options)
    1. [Available deployment options](#deployment_options)
    1. [Available field types and constraints](#types_and_constraints)
-   1. [Available options](#all_options)
+   1. [Available entity options](#entity_options)
 1. [Troubleshooting](#troubleshooting)
 1. [Issues and bugs](#issues)
 
@@ -459,6 +459,7 @@ You can do the same with the JDL, either with [annotations](#annotations) on the
 The keywords `dto`, `paginate`, `service` and `with` were added to the grammar to support these changes.
 If a wrong option is specified, JDL will inform you of that with a nice, red message and will just ignore it so as not
 to corrupt JHipster's JSON files.
+The complete list of available options is [here](#entity_options).
 
 #### Service option
 
@@ -1299,28 +1300,111 @@ Common databases:
 
 ---
 
-## <a name="all_options"></a> Available options
+## <a name="entity_options"></a> Available entity options
 
-### Unary options
+Unary options can be used like this: 
+  - `<OPTION> <ENTITIES | * | all> except? <ENTITIES>`
+  - `@<OPTION> entity <ENTITY>`
 
-These options don't have any value:
-  - `skipClient`
-  - `skipServer`
-  - `noFluentMethod`
-  - `filter`
+Binary options can be used like this: 
+  - `<OPTION> <ENTITIES | * | all> with <VALUE> except? <ENTITIES>`
+  - `@<OPTION>(<VALUE>) entity <ENTITY>`
 
-They can be used like this: `<OPTION> <ENTITIES | * | all> except? <ENTITIES>`
+Here are the entity options supported in the JDL:
 
-### Binary options
-
-These options take values:
-  - `dto` (`mapstruct`)
-  - `service` (`serviceClass`, `serviceImpl`)
-  - `paginate` (`pager`, `pagination`, `infinite-scroll`)
-  - `search` (`elasticsearch`)
-  - `microservice` (custom value)
-  - `angularSuffix` (custom value)
-  - `clientRootFolder` (custom value)
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>JDL option name</th>
+    <th>Option type</th>
+    <th>Default value</th>
+    <th>Possible values</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>skipClient</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>skipServer</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>noFluentMethod</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>filter</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>readOnly</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>dto</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>mapstruct, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>service</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>serviceClass, serviceImpl, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>paginate</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>pagination, infinite-scroll, pager, no</td>
+    <td>pager is only available in AngularJS</td>
+  </tr>
+  <tr>
+    <td>search</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>elasticsearch, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>microservice</td>
+    <td>binary</td>
+    <td></td>
+    <td>custom value</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>angularSuffix</td>
+    <td>binary</td>
+    <td></td>
+    <td>custom value</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>clientRootFolder</td>
+    <td>binary</td>
+    <td></td>
+    <td>custom value</td>
+    <td></td>
+  </tr>
+</table>
 
 ---
 
