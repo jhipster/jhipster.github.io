@@ -255,17 +255,25 @@ JHipster Core does the exact same things.
 
 The entity declaration is done as follows:
 
-    entity <entity name> {
-      <field name> <type> [<validation>*]
+    [<entity javadoc>]
+    [<entity annotation>*]
+    entity <entity name> [(<table name>)] {
+      [<field javadoc>]
+      <field name> <field type> [<validation>*]
     }
 
-  - `<entity name>` is the name of the entity,
+  - `<entity name>` the name of the entity,
   - `<field name>` the name of one field of the entity,
-  - `<type>` the JHipster supported type of the field,
-  - and as an option `<validation>` the validations for the field.
+  - `<field type>` the JHipster supported type of the field,
+  - and as an option:
+    - `<entity javadoc>` the documentation of the entity,
+    - `<entity annotation>` the options for the entity,
+    - `<table name>` the database table name (if you want to specify something different that the name automatically computed from the entity name),
+    - `<field javadoc>` the documentation of the field,
+    - `<validation>` the validations for the field.
 
-The possible types and validations are those described [here](#annexes), if the validation requires a value, simply
-add `(<value>)` right after the name of the validation.
+
+The possible options, field types and validations are those described [here](#annexes).
 
 
 Here's an example of a JDL code:
@@ -274,7 +282,10 @@ Here's an example of a JDL code:
 entity A
 entity B
 entity C
+/** Documentation of entity D */
+@noFluentMethod
 entity D {
+  /** Full name */
   name String required
   address String required maxlength(100)
   age Integer required min(18)
