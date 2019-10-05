@@ -35,6 +35,10 @@ We are currently creating JHipster meetups all around the world!
 
 - [Melbourne, Australia - JHipster meetup](https://www.meetup.com/fr-FR/jHipster-Melbourne/)
 
+**Middle East**
+
+- [Dubai, United Arab Emirates - JHipster meetup](https://www.meetup.com/JHipster-Dubai/)
+
 ## Meetups being created
 
 *Contact the team if you want to help creating one of those meetups*
