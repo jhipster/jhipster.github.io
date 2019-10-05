@@ -40,9 +40,9 @@ Here is the JDL documentation:
    1. [Relationship Declaration](#relationshipdeclaration)
    1. [Enumerations](#enumerationdeclaration)
    1. [Blobs](#blobdeclaration)
-   1. [Option declaration](#optiondeclaration)
+   1. [Entity options declaration](#entityoptiondeclaration)
+   1. [Entity annotations](#annotations)
    1. [Microservice-related options](#microserviceoptions)
-   1. [Annotations](#annotations)
    1. [Deployment declaration](#deploymentdeclaration)
 1. [Commenting](#commentingjdl)
 1. [All the relationships](#jdlrelationships)
@@ -436,10 +436,10 @@ Just create a custom type (see DataType) with the editor, name it according to t
 And you can create as many DataTypes as you like.
 
 
-### <a name="optiondeclaration"></a> Option declaration
+### <a name="entityoptiondeclaration"></a> Entity option declaration
 
 In JHipster, you can specify options for your entities such as pagination or DTO.
-You can do the same with the JDL:
+You can do the same with the JDL, either with [annotations](#annotations) on the entity, or with the following syntax:
 
     entity A {
       name String required
@@ -529,28 +529,6 @@ entity A // A is the table's name here
 entity B (the_best_entity) // the_best_entity is the table's name
 ```
 
-
-### <a name="microserviceoptions"></a> Microservice-related options
-
-As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL:
-the microservice's name and the search engine.
-
-Here is how you can specify your microservice's name (the JHipster app's name):
-
-```
-entity A
-entity B
-entity C
-
-microservice * with mysuperjhipsterapp except C
-microservice C with myotherjhipsterapp
-search * with elasticsearch except C
-```
-
-The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
-specifies how and if you want your entities searched.
-
-
 ### <a name="annotations"></a> Annotations
 
 Annotations are available since JHipster v5. Similarly to what's possible in Java, annotations work the same way so that
@@ -583,6 +561,28 @@ entity C
 
 While this adds more code than it actually removes, it's actually useful when using multiple JDL files
 (with microservices for instance).
+
+
+### <a name="microserviceoptions"></a> Microservice-related options
+
+As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL:
+the microservice's name and the search engine.
+
+Here is how you can specify your microservice's name (the JHipster app's name):
+
+```
+entity A
+entity B
+entity C
+
+microservice * with mysuperjhipsterapp except C
+microservice C with myotherjhipsterapp
+search * with elasticsearch except C
+```
+
+The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
+specifies how and if you want your entities searched.
+
 
 ### <a name="deploymentdeclaration"></a> Deployment declaration
 
