@@ -21,7 +21,7 @@ If you want your application to be featured here just submit a PR to the [websit
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <img width="560" height="315" src="http://localhost:4000/images/showcase/coverb-page.png" />
+                <img width="560" height="315" src="{{ site.url }}/images/showcase/coverb-page.png" />
             </div>
             <div class="caption text-center">
                 <h3 id="thumbnail-label"><a href="https://coverb-page.herokuapp.com/" target="_blank">Coverb</a></h3>
