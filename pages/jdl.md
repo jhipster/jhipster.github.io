@@ -903,7 +903,7 @@ Here are the application options supported in the JDL:
   <tr>
     <td>cacheProvider</td>
     <td>ehcache or hazelcast</td>
-    <td>ehcache, hazelcast, infinispan, memcached, redis, no</td>
+    <td>caffeine, ehcache, hazelcast, infinispan, memcached, redis, no</td>
     <td>ehcache for monoliths and gateways, hazelcast otherwise</td>
   </tr>
   <tr>
