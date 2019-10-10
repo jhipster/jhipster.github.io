@@ -6,7 +6,7 @@ title: Release 6.4.0
 JHipster release v6.4.0
 ==================
 
-This is a new minor release of JHipster v6 with [126 closed tickets and merged pull requests](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A6.4.0+is%3Aclosed).
+This is a new minor release of JHipster v6 with [135 closed tickets and merged pull requests](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A6.4.0+is%3Aclosed).
 
 Here are the most significant ones:
 
