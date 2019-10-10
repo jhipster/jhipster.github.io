@@ -89,4 +89,8 @@ On the first execution of the JHipster upgrade sub-generator, in order to avoid 
 
 ### Advice
 
-Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created. This offcourse does not account for the above tip for upgrading more than once.
+- Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created. This offcourse does not account for the above tip for upgrading more than once.
+
+- If you are updating from a very old version (example from 5.0.0 to latest) we suggest updating gradually between each minor/patch version and performing tests to make sure the application works as expected. 
+
+- There are some helpful approaches from the JHipster community around designing the application in such a way that makes the update process easier, and reduces the amount of merge conflicts. We recommend using [JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo).  

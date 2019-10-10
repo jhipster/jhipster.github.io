@@ -117,3 +117,13 @@ Please note that each cache must be configured as a specific Spring bean inside 
 As Memcached needs to serialize/deserialize objects in its classloader, it doesn't work when using the Spring Boot devtools (which uses a specific classloader to do hot reload of application classes). This is why Memcached is disabled by default in dev mode.
 
 As always with JHipster, a Docker Compose configuration is provided so you can easily start a Memcached server on your machine. In order to use it, please run `docker-compose -f src/main/docker/memcached.yml up -d`.
+
+## Caching with Redis
+
+[Redis](https://redis.io/) is an Open Source, in-memory data struture store that can be used as a performant caching solution. It is currently implemented in the generator JHipster as a single server node but can also work as a distributed cache.
+
+JHipster uses [Redisson](https://redisson.org/) as the redis Java client mainly for 2 reasons:
+- It is highly recommended by Redis
+- It offers a JCache (JSR-107) implementation
+
+It allows both to stay consistent with the other caches since we are using JCache implementation when available and to share the same redis connection between Spring cache and the Hibernate 2nd level cache.

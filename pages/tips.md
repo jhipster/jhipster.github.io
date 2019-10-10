@@ -5,13 +5,13 @@ permalink: /tips/
 redirect_from:
   - /tips.html
 sitemap:
-    priority: 0.7
-    lastmod: 2019-01-29T08:40:00-00:00
+  priority: 0.7
+  lastmod: 2019-01-29T08:40:00-00:00
 ---
 
 # <i class="fa fa-cogs"></i> Tips'n tricks
 
-This section contains __user-submitted tips'n tricks__ on using JHipster.
+This section contains **user-submitted tips'n tricks** on using JHipster.
 
 _If you want to contribute, don't hesitate to send us a Pull Request with your tips on our [GitHub repository](https://github.com/jhipster/jhipster.github.io)._
 
@@ -30,3 +30,5 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 1. [Enabling Social Login with OAuth2]({{ site.url }}/tips/024_tip_enabling_social_login_with_oauth2.html)
 1. [How to create a new Authority]({{ site.url }}/tips/025_tip_create_new_authority.html)
 1. [Issue of @OneToOne with @MapsId and how to avoid it]({{ site.url }}/tips/026_tip_issue_of_onetoone_with_mapsid_how_to_avoid_it.html)
+1. [Increase integration test performance by lazy bean initialization]({{ site.url }}/tips/027_tip_lazy_init_test_beans.html)
+1. [Provide Internet Explorer support]({{ site.url }}/tips/028_tip_ie_support.html)

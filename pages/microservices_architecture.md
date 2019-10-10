@@ -13,7 +13,7 @@ sitemap:
 
 The first question JHipster will ask you is the kind of application you want to generate. You have the choice between two architecture styles:
 
-- A "monolithic" architecture uses a single, one-size-fits-all application, which contains both the front-end Angular code, and the back-end Spring Boot code.
+- A "monolithic" architecture uses a single, one-size-fits-all application, which contains both the front-end code, and the back-end Spring Boot code.
 - A "microservices" architecture splits the front-end and the back-end, so that it's easier for your application to scale and survive infrastructure issues.
 
 A "monolithic" application is much easier to work on, so if you don't have any specific requirements, this is the option we recommend, and our default option.
@@ -22,7 +22,7 @@ A "monolithic" application is much easier to work on, so if you don't have any s
 
 The JHipster microservices architecture works in the following way:
 
- * A [gateway]({{ site.url }}/api-gateway/) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an Angular application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
+ * A [gateway]({{ site.url }}/api-gateway/) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an Angular/React application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
  * [Traefik]({{ site.url }}/traefik/) is a modern HTTP reverse proxy and load balancer that can work with a gateway.
  * The [JHipster Registry]({{ site.url }}/jhipster-registry/) is a runtime application on which all applications registers and get their configuration from. It also provides runtime monitoring dashboards.
  * [Consul]({{ site.url }}/consul/) is a service discovery service, as well as a key/value store. It can be used as an alternative to the JHipster Registry.

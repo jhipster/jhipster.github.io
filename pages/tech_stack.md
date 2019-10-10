@@ -60,7 +60,7 @@ Microservices are optional, and fully supported:
 ## Ready to go into production:
 
 *   Monitoring with [Metrics](http://metrics.dropwizard.io/) and [the ELK Stack](https://www.elastic.co/products)
-*   Caching with [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [hazelcast](http://www.hazelcast.com/) or [Infinispan](http://infinispan.org/)
+*   Caching with [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [Hazelcast](http://www.hazelcast.com/), [Infinispan](http://infinispan.org/), [Memcached](https://memcached.org/) or [Redis](https://redis.io/)
 *   Optimized static resources (gzip filter, HTTP cache headers)
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance

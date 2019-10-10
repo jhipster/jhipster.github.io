@@ -41,9 +41,13 @@ This generator will:
 To deploy:
 Please note that currently the Google App Engine generator only supports deployments to [App Engine Standard (Java 11)](https://cloud.google.com/appengine/docs/standard/java11/) environment. 
 
-1. Use the App Engine plugin to deploy: `./mvnw appengine:deploy -DskipTests -Pgae,prod-gae,war`
+1. Use the App Engine plugin to deploy: `./mvnw package appengine:deploy -DskipTests -Pgae,prod-gae` or using Gradle `./gradlew appengineDeploy -Pgae -Pprod-gae`
 
-In addition to simply run your application, Google App Engine provides full suite of features to manage and operate:
+2. Currently your application needs to run on [F2 instance](https://cloud.google.com/appengine/docs/standard/#instance_classes) or higher in order to work due to a [problem with the App Engine](https://github.com/jhipster/generator-jhipster/issues/10331#issuecomment-528563349). 
+
+3. If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up
+
+In addition, Google App Engine provides a full suite of features to manage your application:
 - Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
 - Stackdriver Logging - Automatically capture and store application logs in centralized logging that can be searched, monitored, and exported.
 - Error Reporting - Automatically extract errors and exceptions for the log and notify you of new errors.

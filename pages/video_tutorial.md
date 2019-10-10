@@ -15,15 +15,15 @@ sitemap:
     <div class="col-md-6 col-sm-12">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/-VQ_SVkaXbs" frameborder="0" allowfullscreen></iframe>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/uQqlO3IGpTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label">JHipster Blog Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>This 16-minutes tutorial shows how to create a JHipster 5 application, work with
-                the provided tools, use the JDL Studio to
-                create several entities with their relationships, and deploy the end result to the cloud in production.</p>
+                <p>This 17-minute tutorial shows how to create a JHipster 6 application, work with
+                the provided tools, use the JDL Studio to create several entities with their relationships, 
+                and deploy the end result to the cloud.</p>
                 <p>Presented by Matt Raible (<a href="https://twitter.com/mraible"><i>@mraible</i></a>)</p>
-                <p>Published on 28 Jun 2018</p>
+                <p>Published on 25 Jun 2019</p>
             </div>
         </div>
     </div>
@@ -31,6 +31,44 @@ sitemap:
 
 ## <i class="fa fa-film"></i> Other JHipster videos
 
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YIRjgd_3sMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Convert JHipster from JWT Authentication to OAuth 2.0 / OIDC Authentication in 10 Minutes<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>This screencast shows you how to convert a JHipster app from using JWT for authentication to using OAuth 2.0 / OIDC. By <a href="https://twitter.com/mraible"><i>@mraible</i></a></p>
+                <p>Published on 20 Sep 2019</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ez7HMO60kE8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Java Microservices in 12 Minutes with Spring Cloud Config and JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>This screencast shows you how to build a Java-based microservices architecture with Spring Boot and Spring Cloud Config using JHipster. By <a href="https://twitter.com/mraible"><i>@mraible</i></a></p>
+                <p>Published on 13 Sep 2019</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Ktnvqoouulg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Better, Faster, Lighter Java with Java 12 and JHipster 6<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>Stay hip with the latest Java and Spring Boot releases by using JHipster 6! This screencast shows you how to get started. By <a href="https://twitter.com/mraible"><i>@mraible</i></a></p>
+                <p>Published on 10 May 2019</p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">

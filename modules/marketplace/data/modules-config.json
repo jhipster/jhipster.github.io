@@ -10,6 +10,10 @@
         "generator-jhipster-material" : true,
         "jhipster-vuejs" : true,
         "generator-jhipster-vuejs2" : true,
-        "generator-jhipster-vuejsx" : true
+        "generator-jhipster-vuejsx" : true,
+        "generator-jhipster-botw-theme" : true,
+        "generator-jhipster-elasticsearch-rest-client" : true,
+        "jhipster-omnivue" : true,
+        "generator-jhipster-omnivue" : true
     }
 }

@@ -138,7 +138,7 @@ If you want your application to be featured here just submit a PR to the [websit
             <img width="560" height="315" src="https://www.jhipster.tech/images/showcase/jhipsterpress.png" />
          </div>
          <div class="caption">
-            <h3 id="thumbnail-label"><a href="http://www.jhipsterpress.com" target="_blank">Open Source: JHipsterPress</a></h3>
+            <h3 id="thumbnail-label"><a href="http://www.spingular.com" target="_blank">Collaborative Open Source CMS: Spingular</a></h3>
          </div>
       </div>
    </div>

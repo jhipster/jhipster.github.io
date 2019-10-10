@@ -40,9 +40,9 @@ Here is the JDL documentation:
    1. [Relationship Declaration](#relationshipdeclaration)
    1. [Enumerations](#enumerationdeclaration)
    1. [Blobs](#blobdeclaration)
-   1. [Option declaration](#optiondeclaration)
+   1. [Entity options declaration](#entityoptiondeclaration)
+   1. [Entity annotations](#annotations)
    1. [Microservice-related options](#microserviceoptions)
-   1. [Annotations](#annotations)
    1. [Deployment declaration](#deploymentdeclaration)
 1. [Commenting](#commentingjdl)
 1. [All the relationships](#jdlrelationships)
@@ -52,7 +52,7 @@ Here is the JDL documentation:
    1. [Available application options](#application_options)
    1. [Available deployment options](#deployment_options)
    1. [Available field types and constraints](#types_and_constraints)
-   1. [Available options](#all_options)
+   1. [Available entity options](#entity_options)
 1. [Troubleshooting](#troubleshooting)
 1. [Issues and bugs](#issues)
 
@@ -255,17 +255,25 @@ JHipster Core does the exact same things.
 
 The entity declaration is done as follows:
 
-    entity <entity name> {
-      <field name> <type> [<validation>*]
+    [<entity javadoc>]
+    [<entity annotation>*]
+    entity <entity name> [(<table name>)] {
+      [<field javadoc>]
+      <field name> <field type> [<validation>*]
     }
 
-  - `<entity name>` is the name of the entity,
+  - `<entity name>` the name of the entity,
   - `<field name>` the name of one field of the entity,
-  - `<type>` the JHipster supported type of the field,
-  - and as an option `<validation>` the validations for the field.
+  - `<field type>` the JHipster supported type of the field,
+  - and as an option:
+    - `<entity javadoc>` the documentation of the entity,
+    - `<entity annotation>` the options for the entity,
+    - `<table name>` the database table name (if you want to specify something different that the name automatically computed from the entity name),
+    - `<field javadoc>` the documentation of the field,
+    - `<validation>` the validations for the field.
 
-The possible types and validations are those described [here](#annexes), if the validation requires a value, simply
-add `(<value>)` right after the name of the validation.
+
+The possible options, field types and validations are those described [here](#annexes).
 
 
 Here's an example of a JDL code:
@@ -274,7 +282,10 @@ Here's an example of a JDL code:
 entity A
 entity B
 entity C
+/** Documentation of entity D */
+@noFluentMethod
 entity D {
+  /** Full name */
   name String required
   address String required maxlength(100)
   age Integer required min(18)
@@ -425,10 +436,10 @@ Just create a custom type (see DataType) with the editor, name it according to t
 And you can create as many DataTypes as you like.
 
 
-### <a name="optiondeclaration"></a> Option declaration
+### <a name="entityoptiondeclaration"></a> Entity option declaration
 
 In JHipster, you can specify options for your entities such as pagination or DTO.
-You can do the same with the JDL:
+You can do the same with the JDL, either with [annotations](#annotations) on the entity, or with the following syntax:
 
     entity A {
       name String required
@@ -448,6 +459,7 @@ You can do the same with the JDL:
 The keywords `dto`, `paginate`, `service` and `with` were added to the grammar to support these changes.
 If a wrong option is specified, JDL will inform you of that with a nice, red message and will just ignore it so as not
 to corrupt JHipster's JSON files.
+The complete list of available options is [here](#entity_options).
 
 #### Service option
 
@@ -518,28 +530,6 @@ entity A // A is the table's name here
 entity B (the_best_entity) // the_best_entity is the table's name
 ```
 
-
-### <a name="microserviceoptions"></a> Microservice-related options
-
-As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL:
-the microservice's name and the search engine.
-
-Here is how you can specify your microservice's name (the JHipster app's name):
-
-```
-entity A
-entity B
-entity C
-
-microservice * with mysuperjhipsterapp except C
-microservice C with myotherjhipsterapp
-search * with elasticsearch except C
-```
-
-The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
-specifies how and if you want your entities searched.
-
-
 ### <a name="annotations"></a> Annotations
 
 Annotations are available since JHipster v5. Similarly to what's possible in Java, annotations work the same way so that
@@ -572,6 +562,28 @@ entity C
 
 While this adds more code than it actually removes, it's actually useful when using multiple JDL files
 (with microservices for instance).
+
+
+### <a name="microserviceoptions"></a> Microservice-related options
+
+As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL:
+the microservice's name and the search engine.
+
+Here is how you can specify your microservice's name (the JHipster app's name):
+
+```
+entity A
+entity B
+entity C
+
+microservice * with mysuperjhipsterapp except C
+microservice C with myotherjhipsterapp
+search * with elasticsearch except C
+```
+
+The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
+specifies how and if you want your entities searched.
+
 
 ### <a name="deploymentdeclaration"></a> Deployment declaration
 
@@ -891,7 +903,7 @@ Here are the application options supported in the JDL:
   <tr>
     <td>cacheProvider</td>
     <td>ehcache or hazelcast</td>
-    <td>caffeine, ehcache, hazelcast, infinispan, no</td>
+    <td>caffeine, ehcache, hazelcast, infinispan, memcached, redis, no</td>
     <td>ehcache for monoliths and gateways, hazelcast otherwise</td>
   </tr>
   <tr>
@@ -1288,28 +1300,111 @@ Common databases:
 
 ---
 
-## <a name="all_options"></a> Available options
+## <a name="entity_options"></a> Available entity options
 
-### Unary options
+Unary options can be used like this: 
+  - `<OPTION> <ENTITIES | * | all> except? <ENTITIES>`
+  - `@<OPTION> entity <ENTITY>`
 
-These options don't have any value:
-  - `skipClient`
-  - `skipServer`
-  - `noFluentMethod`
-  - `filter`
+Binary options can be used like this: 
+  - `<OPTION> <ENTITIES | * | all> with <VALUE> except? <ENTITIES>`
+  - `@<OPTION>(<VALUE>) entity <ENTITY>`
 
-They can be used like this: `<OPTION> <ENTITIES | * | all> except? <ENTITIES>`
+Here are the entity options supported in the JDL:
 
-### Binary options
-
-These options take values:
-  - `dto` (`mapstruct`)
-  - `service` (`serviceClass`, `serviceImpl`)
-  - `paginate` (`pager`, `pagination`, `infinite-scroll`)
-  - `search` (`elasticsearch`)
-  - `microservice` (custom value)
-  - `angularSuffix` (custom value)
-  - `clientRootFolder` (custom value)
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>JDL option name</th>
+    <th>Option type</th>
+    <th>Default value</th>
+    <th>Possible values</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>skipClient</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>skipServer</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>noFluentMethod</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>filter</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>readOnly</td>
+    <td>unary</td>
+    <td>false</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>dto</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>mapstruct, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>service</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>serviceClass, serviceImpl, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>paginate</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>pagination, infinite-scroll, pager, no</td>
+    <td>pager is only available in AngularJS</td>
+  </tr>
+  <tr>
+    <td>search</td>
+    <td>binary</td>
+    <td>no</td>
+    <td>elasticsearch, no</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>microservice</td>
+    <td>binary</td>
+    <td></td>
+    <td>custom value</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>angularSuffix</td>
+    <td>binary</td>
+    <td></td>
+    <td>custom value</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>clientRootFolder</td>
+    <td>binary</td>
+    <td></td>
+    <td>custom value</td>
+    <td></td>
+  </tr>
+</table>
 
 ---
 
