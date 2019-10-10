@@ -44,6 +44,7 @@ Below are the supported options.
 *   `--regenerate` - This will regenerate an existing entity without asking any questions.
 *   `--skip-server` - This will skip the server-side code and will generate only the client-side code.
 *   `--skip-client` - This will skip the client-side code and will generate only the server-side code.
+*   `--skip-db-changelog` - This will skip generation of database changelog (using Liquibase for SQL databases).
 *   `--db` - Specify the database when skipping server side generation, has no effect otherwise.
 
 <div class="alert alert-warning"><i>Warning: </i>
