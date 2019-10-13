@@ -310,9 +310,8 @@ entity A {
   myString String required minlength(1) maxlength(42) pattern(/[A-Z]+/)
 }
 ```
-If you're using the generator prior to v4.9.X, you'd need to use patterns like this `pattern('[A-Z]+'`).
 
-Also note that you needn't escape anti-slash characters.
+Note that you needn't escape anti-slash characters.
 ```
 entity A {
   myString String pattern(/\S+/)
