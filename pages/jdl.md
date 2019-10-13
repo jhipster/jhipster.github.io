@@ -276,6 +276,8 @@ The entity declaration is done as follows:
 
 The possible options, field types and validations are those described [here](#annexes).
 
+**An important note**: as of v6.4.0 of JHipster (v5.0.0 of JHipster-core), comments **must always** be defined before annotations.
+An issue was filled about this [here](https://github.com/jhipster/jhipster-core/issues/369).
 
 Here's an example of a JDL code:
 
