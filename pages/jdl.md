@@ -259,6 +259,7 @@ The entity declaration is done as follows:
     [<entity annotation>*]
     entity <entity name> [(<table name>)] {
       [<field javadoc>]
+      [<field annotation>*]
       <field name> <field type> [<validation>*]
     }
 
@@ -282,6 +283,7 @@ Here's an example of a JDL code:
 entity A
 entity B
 entity C
+
 /** Documentation of entity D */
 @noFluentMethod
 entity D {
@@ -292,6 +294,14 @@ entity D {
 }
 ```
 
+Because the JDL was made to be simple to use and read, if your entity is empty (no field), you can just declare an
+entity with `entity A` or `entity A {}`.
+
+Note that JHipster adds a default `id` field so that you needn't worry about it.
+
+
+#### Regular expressions
+
 Regexes are a bit special as they are used like this (from v1.3.6):
 ```
 entity A {
@@ -300,11 +310,13 @@ entity A {
 ```
 If you're using the generator prior to v4.9.X, you'd need to use patterns like this `pattern('[A-Z]+'`).
 
-Because the JDL was made to be simple to use and read, if your entity is empty (no field), you can just declare an
-entity with `entity A` or `entity A {}`.
-
-Note that JHipster adds a default `id` field so that you needn't worry about it.
-
+Also note that you needn't escape anti-slash characters.
+```
+entity A {
+  myString String pattern(/\S+/)
+}
+```
+A single `\` char is enough.
 
 ### <a name="relationshipdeclaration"></a> Relationship declaration
 
