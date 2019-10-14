@@ -37,9 +37,13 @@ Answer the questions asked by the generator to create an application tailored to
 
 Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd).
 
+**Note** if you are using Maven and changed front end files after first run of the `./mvnw` command then you must run `./mvnw -Pwebpack` to see the latest front end version (Gradle detects front end changes automatically and recompiles front end if needed).
+
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
 **Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start` or `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+
+If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webpack` or `./gradlew -x webpack`. It speeds up especially Gradle.
 
 ## <a name="2"></a> Questions asked when generating an application
 

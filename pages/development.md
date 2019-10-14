@@ -55,6 +55,10 @@ You can launch the Java server with Maven. JHipster provides a Maven wrapper, so
 
 The application will be available on [http://localhost:8080](http://localhost:8080).
 
+If you will use live reload with `npm start` or `yarn start` then you can speed up server start up by excluding webpack tasks by:
+
+`./mvnw -P-webpack`
+
 Alternatively, if you have installed Maven, you can launch the Java server with Maven:
 
 `mvn`
@@ -69,11 +73,15 @@ If you selected the Gradle option, JHipster provides a Gradle wrapper, so you do
 
 (this will run our default Gradle task, `bootRun`)
 
+The application will be available on [http://localhost:8080](http://localhost:8080).
+
+If you will use live reload with `npm start` or `yarn start` then you can speed up server start up by excluding webpack tasks by:
+
+`./gradlew -x webpack`
+
 Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
 
 `gradle`
-
-The application will be available on [http://localhost:8080](http://localhost:8080).
 
 If you want more information on using Gradle, please go to [https://gradle.org](https://gradle.org)
 
