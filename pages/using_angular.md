@@ -21,7 +21,9 @@ Angular is using TypeScript instead of JavaScript, and as a result some specific
 
 If you start making changes to the client side code without having `npm start` or `yarn start` running, nothing will be reflected as the changes are not compiled so you need to either run `npm run webpack:build` manually after changes or have `npm start` or `yarn start` running.
 
-You can also force maven/gradle to run the `webpack:dev` task while starting by passing the `webpack` profile like `./mvnw -Pdev,webpack` or `./gradlew -Pdev -Pwebpack`. This is especially helpful after running a `clean` task.
+You can also force Maven to run the `webpack:dev` task while starting by passing the `webpack` profile like `./mvnw -Pdev,webpack`.
+
+**Note** Gradle automatically executes webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start` or `yarn start`).
 
 Other available yarn/npm commands can be found in the `scripts` section of your project's `package.json` file.
 
