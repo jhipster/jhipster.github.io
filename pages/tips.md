@@ -32,3 +32,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 1. [Issue of @OneToOne with @MapsId and how to avoid it]({{ site.url }}/tips/026_tip_issue_of_onetoone_with_mapsid_how_to_avoid_it.html)
 1. [Increase integration test performance by lazy bean initialization]({{ site.url }}/tips/027_tip_lazy_init_test_beans.html)
 1. [Provide Internet Explorer support]({{ site.url }}/tips/028_tip_ie_support.html)
+1. [Improve developer experience if opening only front end in the IDE]({{ site.url }}/tips/029_tip_frontend_only.html)
