@@ -5,7 +5,7 @@
 
 <h2>{(module.package.name | jhiModuleFilter)}</h2>
 
-<i><p>by <a href="{(module.npminfo.author.url)}" target="_blank">{(module.npminfo.author.name)}</a>(<a href="https://www.npmjs.com/~{(module.npminfo._npmUser.name)}" target="_blank">{(module.npminfo._npmUser.name)}</a>)</i>
+<i><p>by <a href="{(module.npminfo.author.url)}" target="_blank" rel="noopener">{(module.npminfo.author.name)}</a>(<a href="https://www.npmjs.com/~{(module.npminfo._npmUser.name)}" target="_blank" rel="noopener">{(module.npminfo._npmUser.name)}</a>)</i>
 <i><p>Maintained by {(module.npminfo.maintainers | jhiAuthorFilter)}</i>
 <p>
     Latest version: {(module.npminfo.version)}
@@ -21,8 +21,8 @@
 
 <h3>Links</h3>
 <ul>
-    <li><a href="{(module.npminfo.homepage)}" target="_blank">Project URL</a></li>
-    <li><a href="https://www.npmjs.com/package/{(npmPackageName)}" target="_blank">NPM package page</a></li>
+    <li><a href="{(module.npminfo.homepage)}" target="_blank" rel="noopener">Project URL</a></li>
+    <li><a href="https://www.npmjs.com/package/{(npmPackageName)}" target="_blank" rel="noopener">NPM package page</a></li>
 </ul>
 <div ng-if="!readmeFile">
 	<h3>How to install</h3>
