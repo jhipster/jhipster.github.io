@@ -13,7 +13,7 @@ This is a bug-fix release for our recently-released v4.5.0 version, which had a 
 
 Unfortunately, the only way for us to validate that everything is fine is to do a release, so if you have any issue when running `jhipster`, please:
 
-- Check our [Twitter account @java_hipster](https://twitter.com/java_hipster) and notify us if necessary
+- Check our [Twitter account @jhipster](https://twitter.com/jhipster) and notify us if necessary
 - Use our [GitHub issue tracker](https://github.com/jhipster/generator-jhipster/issues) to track the problem
 
 Closed tickets and merged pull requests
@@ -74,4 +74,4 @@ If you find any issue with this release, don't hesitate to:
 
 If the issue you have is an urgent bug or security issue, please:
 
-- Contact [@java_hipster](https://twitter.com/java_hipster) on Twitter
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
