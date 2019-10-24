@@ -24,7 +24,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/beta.devoxx.com.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="https://beta.devoxx.com/#/" target="_blank">Devoxx</a></h3>
+                <h3 id="thumbnail-label"><a href="https://beta.devoxx.com/#/" target="_blank" rel="noopener">Devoxx</a></h3>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/great-big-sample-application.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="https://github.com/dancancro/great-big-example-application" target="_blank">Dan Cancro's Great Big Example Application</a></h3>
+                <h3 id="thumbnail-label"><a href="https://github.com/dancancro/great-big-example-application" target="_blank" rel="noopener">Dan Cancro's Great Big Example Application</a></h3>
             </div>
         </div>
     </div>
@@ -44,10 +44,10 @@ If you want your application to be featured here just submit a PR to the [websit
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/4K5hP7sgJPA" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="https://github.com/xavierpandis/soundxtreamRS" target="_blank">SoundXtream Audio Platform</a></h3>
-                <p><b>Created by:</b> <a href="http://www.linkedin.com/in/xavierpandisgarcia" target="_blank">Xavier Pandis Garcia</a>
+                <h3 id="thumbnail-label"><a href="https://github.com/xavierpandis/soundxtreamRS" target="_blank" rel="noopener">SoundXtream Audio Platform</a></h3>
+                <p><b>Created by:</b> <a href="http://www.linkedin.com/in/xavierpandisgarcia" target="_blank" rel="noopener">Xavier Pandis Garcia</a>
                 <br/>
-                <b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank">Alfredo Rueda Unsain</a></p>
+                <b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank" rel="noopener">Alfredo Rueda Unsain</a></p>
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/app.klask.io.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="http://app.klask.io/#/" target="_blank">Klask.io</a></h3>
+                <h3 id="thumbnail-label"><a href="http://app.klask.io/#/" target="_blank" rel="noopener">Klask.io</a></h3>
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/www.21-points.com.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="http://www.21-points.com/#/" target="_blank">21-Points Health</a></h3>
+                <h3 id="thumbnail-label"><a href="http://www.21-points.com/#/" target="_blank" rel="noopener">21-Points Health</a></h3>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/bluemagiccat.com.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="http://bluemagiccat.com/" target="_blank">Blue Magic Cat</a></h3>
+                <h3 id="thumbnail-label"><a href="http://bluemagiccat.com/" target="_blank" rel="noopener">Blue Magic Cat</a></h3>
             </div>
         </div>
     </div>
@@ -91,8 +91,8 @@ If you want your application to be featured here just submit a PR to the [websit
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/KqcRdAhlTfc" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="https://github.com/jotabono/rockallum" target="_blank">The Rock Bible</a></h3>
-                <p><b>Created by:</b> <a href="http://www.javierbono.com" target="_blank">Javier Bono</a></p>
+                <h3 id="thumbnail-label"><a href="https://github.com/jotabono/rockallum" target="_blank" rel="noopener">The Rock Bible</a></h3>
+                <p><b>Created by:</b> <a href="http://www.javierbono.com" target="_blank" rel="noopener">Javier Bono</a></p>
             </div>
         </div>
     </div>
@@ -102,10 +102,10 @@ If you want your application to be featured here just submit a PR to the [websit
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/NxtQF0E4T0A" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="https://github.com/arnaugarcia/assessoriatorrelles" target="_blank">Real State Camp</a></h3>
-                        <p><b>Created by:</b> <a href="http://arnaugarcia.com" target="_blank">Arnau García Gallego</a> and <a href="https://alfdocimo.github.io/" target="_blank">Alfredo Narvaez Docimo</a>
+                <h3 id="thumbnail-label"><a href="https://github.com/arnaugarcia/assessoriatorrelles" target="_blank" rel="noopener">Real State Camp</a></h3>
+                        <p><b>Created by:</b> <a href="http://arnaugarcia.com" target="_blank" rel="noopener">Arnau García Gallego</a> and <a href="https://alfdocimo.github.io/" target="_blank" rel="noopener">Alfredo Narvaez Docimo</a>
                         <br/>
-                        <b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank">Alfredo Rueda Unsain</a></p>
+                        <b>Project Director:</b> <a href="http://www.linkedin.com/in/alfredorueda" target="_blank" rel="noopener">Alfredo Rueda Unsain</a></p>
             </div>
         </div>
     </div>
@@ -115,7 +115,7 @@ If you want your application to be featured here just submit a PR to the [websit
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/motorsports-database.racing.png" />
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label"><a href="https://www.motorsports-database.racing" target="_blank">Motorsports Database</a></h3>
+                <h3 id="thumbnail-label"><a href="https://www.motorsports-database.racing" target="_blank" rel="noopener">Motorsports Database</a></h3>
             </div>
         </div>
     </div>
@@ -127,8 +127,8 @@ If you want your application to be featured here just submit a PR to the [websit
             <img width="560" height="315" src="{{ site.url }}/images/showcase/coincoindrone.png" />
          </div>
          <div class="caption">
-            <h3 id="thumbnail-label"><a href="http://www.coincoindrone.fr" target="_blank">Coincoindrone</a></h3>
-            <p><b>Created by:</b> <a href="https://www.linkedin.com/in/damien-gaillard-31bb80a5" target="_blank">Damien Gaillard</a></p>
+            <h3 id="thumbnail-label"><a href="http://www.coincoindrone.fr" target="_blank" rel="noopener">Coincoindrone</a></h3>
+            <p><b>Created by:</b> <a href="https://www.linkedin.com/in/damien-gaillard-31bb80a5" target="_blank" rel="noopener">Damien Gaillard</a></p>
          </div>
       </div>
     </div>
@@ -138,7 +138,7 @@ If you want your application to be featured here just submit a PR to the [websit
             <img width="560" height="315" src="https://www.jhipster.tech/images/showcase/jhipsterpress.png" />
          </div>
          <div class="caption">
-            <h3 id="thumbnail-label"><a href="http://www.spingular.com" target="_blank">Collaborative Open Source CMS: Spingular</a></h3>
+            <h3 id="thumbnail-label"><a href="http://www.spingular.com" target="_blank" rel="noopener">Collaborative Open Source CMS: Spingular</a></h3>
          </div>
       </div>
    </div>
