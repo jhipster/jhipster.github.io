@@ -171,22 +171,27 @@ If you have created useful dashboards and visualizations for your JHipster appli
 
 ## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)
 
-JHipster also provides a Metrics exporters for JMX and Prometheus.
+JHipster exposes application metrics in the [Prometheus](https://prometheus.io/) format by default.
+It is exposed under `management/prometheus`.
+Forwarding metrics to alternative systems is also supported via [spring boot actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics).
 
-Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
+If you would like to disable exposing the metrics endpoint you can disable it in `src/main/resources/application.yml`.
 
-    jhipster:
+    management:
         metrics:
-            prometheus:
-                enabled: true
+            export:
+                prometheus:
+                    enabled: false
 
-Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://micrometer.io/docs/registry/graphite).
 
-This will export your metrics under `/management/prometheus`. As this endpoint is not secured, you can protect it with basic auth, such that prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
+The prometheus endpoint is unprotected by default. If you want to protect it via spring security you can do so by adding basic auth to the prometheus endpoint
+as prometheus can work with scraping endpoint protected by basic auth.
+
+Create a new configuration file (e.g. `BasicAuthConfiguration.java`).
 
     @Configuration
     @Order(1)
-    @ConditionalOnProperty(prefix = "jhipster", name = "metrics.prometheus.enabled")
+    @ConditionalOnProperty(prefix = "management", name = "metrics.export.prometheus.enabled")
     public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter {
 
         @Override
@@ -204,12 +209,20 @@ This will export your metrics under `/management/prometheus`. As this endpoint i
         }
     }
 
+
 You can login with the default `admin/admin`. You must add following configuration to you prometheus configuration such that prometheus can still scrape your application.
 
     basic_auth:
-        [ username: "admin" ]
-        [ password: "admin" ]
+        username: "admin"
+        password: "admin"
 
+
+You can start a preconfigured Grafana and Prometheus instance on our local machine via `docker-compose -f src/main/docker/monitoring.yml up -d` to have a look at the
+provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/4701).
+
+![Grafana Micrometer Dashboard][grafana-micrometer-dashboard]
+
+Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
 ## <a name="zipkin"></a> Zipkin
 
@@ -255,3 +268,4 @@ Note that those Yaml files should have a `.yaml` file extension. Read more on ho
 [jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "JHipster Metrics page"
 [monitoring-dashboard]: {{ site.url }}/images/jhipster-console-monitoring.png "Monitoring Dashboard"
 [jvm-dashboard]: {{ site.url }}/images/jhipster-console-jvm.png "JVM Dashboard"
+[grafana-micrometer-dashboard]: {{ site.url }}/images/monitoring_grafana_micrometer.png "Grafana Micrometer Dashboard" 
