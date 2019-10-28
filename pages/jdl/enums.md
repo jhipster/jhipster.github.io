@@ -14,6 +14,7 @@ sitemap:
 1. [Examples](#examples)
    1. [Basic example](#basic-example)
    1. [With values](#with-values)
+   1. [Commenting](#commenting)
 
 ---
 
@@ -50,5 +51,26 @@ enum Country {
   BELGIUM (Belgium),
   FRANCE (France),
   ITALY (Italy)
+}
+```
+
+---
+
+#### Commenting
+
+Just like relationships, entities and fields, commenting is possible for enums, with the same rules.
+
+Comments will later be added as Javadoc comments by JHipster. The JDL possesses its own kind of comment:
+  - // an ignored comment
+  - /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
+Please note that the JDL Studio directives that start with `#` will be ignored during parsing.
+
+```jdl
+/** This comment will be taken into account */
+enum Country {
+  // But not this one!
+  FRANCE
 }
 ```

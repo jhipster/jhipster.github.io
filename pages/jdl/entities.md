@@ -17,6 +17,7 @@ sitemap:
    1. [With fields](#with-fields)
    1. [With field validations](#with-field-validations)
    1. [Regular expressions](#regular-expressions)
+   1. [Commenting](#commenting)
 1. [Field types and validations](#field-types-and-validations)
 
 ---
@@ -26,18 +27,12 @@ sitemap:
 #### Basic example
 
 ```jdl
-/**
- * This will be used as documentation.
- */
 entity A
 ```
 
 This is equivalent to:
 
 ```jdl
-/**
- * This will be used as documentation.
- */
 entity A(a) {}
 ```
 
@@ -92,6 +87,55 @@ Let's break it down:
   - `/.../` the pattern is declared inside two slashes
   - `\` anti-slashes needn't be escaped
 
+---
+
+#### Commenting
+
+Commenting is possible in the JDL for entities and fields, and will generate documentation (Javadoc or JSDoc, depending
+on the backend).
+
+```jdl
+/**
+ * This is a comment
+ * about a class
+ * @author Someone
+ */
+entity A {
+  /**
+   * This comment will also be used!
+   * @type...
+   */
+   name String
+   age Integer // this is yet another comment
+}
+```
+
+These comments will later be added as Javadoc comments by JHipster. The JDL possesses its own kind of comment:
+  - // an ignored comment
+  - /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
+Please note that the JDL Studio directives that start with `#` will be ignored during parsing.
+
+Another form of comments are the following comments:
+```
+entity A {
+  name String /** My super field */
+  count Integer /** My other super field */
+}
+```
+
+Here A's name will be commented with `My super field`, B with `My other super field`.
+
+Yes, commas are not mandatory but it's wiser to have them so as not to make mistakes in the code.
+**If you want to mix commas and following comments, beware!**
+```
+entity A {
+  name String, /** My comment */
+  count Integer
+}
+```
+A's name won't have the comment, because the count will.
 
 ---
 

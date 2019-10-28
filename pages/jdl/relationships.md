@@ -20,6 +20,7 @@ sitemap:
    1. [With methods](#with-methods)
    1. [With required sides](#with-required-sides)
    1. [Reflexive relationships](#reflexive-relationships)
+   1. [Commenting](#commenting)
 
 ---
 
@@ -140,3 +141,27 @@ relationship ManyToMany {
   A{parent required} to A{child}
 }
 ```
+
+----
+
+#### Commenting
+
+Adding comments for relationships is possible, just like so:
+
+```jdl
+relationship OneToOne {
+  /** This comment will be put before b in entity A*/
+  A{b}
+  to
+  /** This comment will be put before a in entity B*/
+  B{a}
+}
+```
+
+The same commenting rules are applied here.
+These comments will later be added as Javadoc comments by JHipster. The JDL possesses its own kind of comment:
+  - // an ignored comment
+  - /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
+Please note that the JDL Studio directives that start with `#` will be ignored during parsing.
