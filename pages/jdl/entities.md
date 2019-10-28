@@ -16,6 +16,7 @@ sitemap:
    1. [With a custom table name](#with-a-custom-table-name)
    1. [With fields](#with-fields)
    1. [With field validations](#with-field-validations)
+   1. [Blob declaration](#blob-declaration)
    1. [Regular expressions](#regular-expressions)
    1. [Commenting](#commenting)
 1. [Field types and validations](#field-types-and-validations)
@@ -69,6 +70,18 @@ entity A {
   age Integer min(42) max(42)
 }
 ```
+
+---
+
+#### Blob declaration
+
+JHipster gives a great choice as one can choose between an image type or any binary type. JDL lets you do the same.
+Just create a custom type (see DataType) with the editor, name it according to these conventions:
+  - `AnyBlob` or just `Blob` to create a field of the "any" binary type;
+  - `ImageBlob` to create a field meant to be an image.
+  - `TextBlob` to create a field for a CLOB (long text).
+
+And you can create as many DataTypes as you like.
 
 ---
 
