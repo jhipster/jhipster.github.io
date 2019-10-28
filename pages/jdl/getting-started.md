@@ -83,7 +83,7 @@ To see more application options, head to [this page](/jdl/applications).
 ## Generating entities
 
 Generating entities is a bit less straightforward but can be pretty simple.
-You can also go to the dedicated [entity page](/jdl/entities) to know more about what you can do with entities.
+You can also go to the dedicated [entity page](/jdl/entities-fields) to know more about what you can do with entities.
 
 ### Generating a basic entity
 
@@ -153,7 +153,7 @@ entity MyEntity {
 }
 ```
 
-There are more than these two types, check them out in the [field page](/jdl/fields).
+There are more than these two types, check them out in the [entities & fields page](/jdl/entities-fields).
 
 ### Adding comments and validations
 
@@ -166,7 +166,7 @@ entity MyEntity {
 }
 ```
 
-Validations depend on the field type, and are also detailed in the [field page](/jdl/fields).
+Validations depend on the field type, and are also detailed in the [entities & fields page](/jdl/entities-fields).
 
 ---
 

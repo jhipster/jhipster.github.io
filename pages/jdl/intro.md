@@ -40,8 +40,7 @@ If you don't know the JDL yet, it is recommended to go through the [Getting Star
 However, if you're already familiar with the JDL and what you can do with it, you can also browse the detailed
 documentation:
   1. [Applications](/jdl/applications)
-  1. [Entities](/jdl/entities)
-  1. [Fields](/jdl/fields)
+  1. [Entities & fields](/jdl/entities-fields)
   1. [Enums](/jdl/enums)
   1. [Relationships](/jdl/relationships)
   1. [Options](/jdl/options)
