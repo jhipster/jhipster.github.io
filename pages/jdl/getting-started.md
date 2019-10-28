@@ -24,6 +24,8 @@ In this page, you'll learn about the JDL and how to create create applications a
 1. [Relationships](#adding-relationships)
 1. [Options](#options)
 1. [Deployments](#deployments)
+1. [Constants](#constants)
+1. [Exporting to a JDL file](#exporting-to-a-jdl-file)
 
 ---
 
@@ -390,3 +392,37 @@ deployment {
 
 Those options are only a sample of what's available in the JDL.
 The complete list of options is available in the deployment page, [here](/jdl/deployments).
+
+---
+
+## Constants
+
+The JDL supports numerical constants.
+Here is an example:
+
+```jdl
+DEFAULT_MIN_LENGTH = 1
+DEFAULT_MAX_LENGTH = 42
+DEFAULT_MIN_BYTES = 20
+DEFAULT_MAX_BYTES = 40
+DEFAULT_MIN = 0
+DEFAULT_MAX = 41
+
+entity A {
+  name String minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH)
+  content TextBlob required
+  count Integer min(DEFAULT_MIN) max(DEFAULT_MAX)
+}
+```
+
+---
+
+## Exporting to a JDL file
+
+If you already have entities in your application and wish to have a JDL file, fear not! You don't have to write it from
+scratch as there's a sub-generator that does that for you.
+
+Simply do `jhipster export-jdl <FILE_NAME>` in your app's root folder and you'll have all your applications, entities,
+relationships and options exporting in a single JDL file.
+
+Note: you can also not provide a file name to the sub-generator, a default one will be chosen.
