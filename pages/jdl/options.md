@@ -20,6 +20,7 @@ sitemap:
    1. [all, * example with exclusions (binary)](#all--example-with-exclusions-binary)
    1. [Option with custom values](#option-with-custom-values)
    1. [Mixed example](#mixed-example)
+1. [Custom annotations](#custom-annotations)
 1. [Available options](#options)
 
 ---
@@ -183,6 +184,21 @@ entity B
 @readOnly
 entity C
 ```
+
+---
+
+## Custom annotations
+
+Custom annotations are possible in the JDL, for instance:
+
+```jdl
+@customAnnotation(customValue)
+entity A
+```
+
+The main use case for this is for blueprints: sometimes, you need have custom options for entities, or even fields.
+For regular options (`dto`, `pagination`, etc.), these options will be generated in the JSON just like in the CLI.
+However, for custom options, they will be generated under and `options` key in the dumped JSON.
 
 ---
 
