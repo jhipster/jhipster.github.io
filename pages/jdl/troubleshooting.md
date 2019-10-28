@@ -11,6 +11,16 @@ sitemap:
 
 ## Troubleshooting
 
+We tried to keep the syntax as friendly as we can for developers.
+You can do these things with it:
+  - Declare applications with their options and entities,
+  - Declare entities with their attributes,
+  - Declare the relationships between them,
+  - And declare some JHipster specific options.
+
+If you wish to view the JDL's grammar, there is an HTML file available
+[here](https://github.com/jhipster/jhipster-core/blob/master/lib/dsl/gen/grammar.html).
+
 ---
 
 ### The JDL import only finds one entity when matching MS baseName

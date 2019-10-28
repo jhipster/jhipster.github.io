@@ -92,6 +92,72 @@ entity C
 
 ---
 
+### Complete example breakdown
+
+```jdl
+application {
+  config {
+    baseName myMonolith
+    applicationType monolith
+  }
+  entities * except C, D
+}
+application {
+  config {
+    baseName myGateway
+    applicationType gateway
+    serverPort 9042
+  }
+  entities * except A, B
+}
+application {
+  config {
+    baseName microserviceA
+    applicationType microservice
+  }
+  entities C
+}
+application {
+  config {
+    baseName microserviceB
+    applicationType microservice
+    serverPort 8082
+  }
+  entities D
+}
+entity A
+entity B
+entity C
+entity D
+dto * with mapstruct
+service * with serviceClass
+paginate D with pager
+```
+
+Now, several things will happen when generating these applications and folders:
+  - Four applications will be created:
+    - myMonolith in `./myMonolith`, with the server port `8080`
+    - myGateway in `./myGateway`, with the server port `9042`
+    - microserviceA in `./microserviceA`, with the server port `8081`
+      - Even though we didn't specify a server port, JHipster sets one by default.
+      - For microservices, the default one is `8081`
+      - For gateways and monoliths, it's `8080`
+      - For UAA apps, it's `9999`
+    - microserviceB in `./microserviceB` with the server port `8082`
+  - Four entities will be generated
+    - `A` and `B` in the monolith
+    - `C` and `D` both in the gateway
+      - `C` in the first microservice
+      - `D` in the second microservice
+  - The `microservice` option is implicit for `C` and `D`
+    - Because they get generated on the two microservices, this option will be set by default.
+  - Options work the same way as before
+
+Note that the generator sets default values if they aren't present (like the `databaseType`).
+JHipster Core does the exact same things for you.
+
+---
+
 ### Available application options
 
 Here are the application options supported in the JDL:
