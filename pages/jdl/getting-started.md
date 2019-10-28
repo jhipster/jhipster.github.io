@@ -76,7 +76,7 @@ Let's break it down:
   - `baseName`, `applicationType`, etc. are keywords to tweak the application
 
 This is how you create an application using the JDL.
-To see more application options, head to [this page](/jdl/applications).
+To see all supported application options, head to [this page](/jdl/applications).
 
 ---
 
