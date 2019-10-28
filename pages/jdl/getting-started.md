@@ -14,6 +14,9 @@ sitemap:
 
 In this page, you'll learn about the JDL and how to create create applications and everything around them.
 
+1. [Generating content](#generating-content)
+   1. [Using files](#using-files)
+   1. [Using an inline JDL](#using-an-inline-jdl)
 1. [Applications](#generating-applications)
 1. [Entities](#generating-entities)
 1. [Fields](#generating-fields)
@@ -24,9 +27,53 @@ In this page, you'll learn about the JDL and how to create create applications a
 
 ---
 
-### Using a JDL file
+## Generating content
+
+### Using files
+
+You can use JDL files to generate entities:
+  - Simply create a file with the extension '.jh' or '.jdl',
+  - Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
+  - If you are creating only entities then run `jhipster import-jdl my_file.jdl` in your JHipster application's root folder.
+  - If you are creating applications then run `jhipster import-jdl my_file.jdl` in a folder.
+
+and *Voilà*, you are done!
+
+If you work in a team, perhaps you would like to have multiple files instead of one.
+We added this option so that you don't manually concatenate all the files into one, you just have to run:
+
+    jhipster import-jdl my_file1.jdl my_file2.jdl
+
+If you do not want to regenerate your entities while importing a JDL, you can use the `--json-only` flag to skip the
+entity creation part and create only the json files in `.jhipster` folder.
+
+    jhipster import-jdl ./my-jdl-file.jdl --json-only
+
+By default `import-jdl` regenerates only entities that have changed, if you want all your entities to be regenerated
+then pass in the `--force`  flag.
+Please note that this will overwrite all your local changes to the entity files:
+
+    jhipster import-jdl ./my-jdl-file.jdl --force
+
+If you want to use it in your project, you can add do so by doing:
+  - NPM: `npm install jhipster-core --save`
+  - Yarn: `yarn add jhipster-core`
+
+to install it locally, and save it in your `package.json` file.
+
+---
+
+### Using an inline JDL
+
+The other way to generate content is to pass a JDL code in your CLI, this way:
+`jhipster import-jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
+
+This way of generating content is especially useful when generating entities.
+
+---
 
 For now, we'll start with a simple JDL content to get to know the various ways to generate content.
+Explanations will be made in other sections about the syntax but focus is gonna be made on the generation here.
 
 Here's the basic content we'll use:
 ```jdl
@@ -38,20 +85,10 @@ application {
 }
 ```
 
-This is a very basic microservice application named "jhipster", and we'll now see the various ways to generate a 
+This is a very basic microservice application named "jhipster", and we'll see the various ways to generate a 
 application from this simple sample.
 
-The common way to generate code from a JDL file is to use the CLI with `jhipster import-jdl YOUR_FILE.jdl`.
-Copy/paste this sample in a newly created folder and execute the command above.
-
 You'll see that, with this little and very simple sample, you've managed to create an application from scratch.
-
-### Using an inline JDL
-
-The other way to generate content is to pass a JDL code in your CLI, this way:
-`jhipster import-jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
-
-This way of generating content is especially useful when generating entities.
 
 ---
 
