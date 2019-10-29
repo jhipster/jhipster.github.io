@@ -11,6 +11,26 @@ sitemap:
 
 ## Options
 
+In JHipster, you can specify options for your entities such as pagination or DTO.
+You can do the same with the JDL, either with annotations on the entity, or with the following syntax:
+
+    entity A {
+      name String required
+    }
+    entity B
+    entity C
+
+    dto A, B with mapstruct
+
+    paginate A with infinite-scroll
+    paginate B with pagination
+    paginate C with pager  // pager is only available in AngularJS
+
+    service A with serviceClass
+    service C with serviceImpl
+
+The complete list of available options is [here](#options).
+
 1. [How to](#how-to)
 1. [Examples](#examples)
    1. [Basic unary example](#basic-unary-example)
@@ -20,8 +40,9 @@ sitemap:
    1. [all, * example with exclusions (binary)](#all--example-with-exclusions-binary)
    1. [Option with custom values](#option-with-custom-values)
    1. [Mixed example](#mixed-example)
+1. [About services](#about-services)
 1. [Custom annotations](#custom-annotations)
-1. [Available options](#options)
+1. [Available options](#available-options)
 
 ---
 
@@ -187,6 +208,30 @@ entity C
 
 ---
 
+## About services
+
+No services specified will create a resource class which will call the repository interface directly. This is the
+default and simplest option, see A.
+
+`service with serviceClass` (see B) will make the resource call the service class which will call the repository interface.
+`service with serviceImpl` (see C) will make a service interface which will be used by the resource class.
+
+The interface is implemented by a concrete class which will call the repository interface.
+
+Using no service unless sure is the simplest option and good for CRUD. Use service with a Class if you will have a lot
+of business logic which will use multiple repositories making it ideal for a service class. JHipsters are not fan of
+unnecessary Interfaces but if you like them go for service with impl.
+
+    entity A
+    entity B
+    entity C
+
+    // no service for A
+    service B with serviceClass
+    service C with serviceImpl
+
+---
+
 ## Custom annotations
 
 Custom annotations are possible in the JDL, for instance:
@@ -219,42 +264,52 @@ Here are the entity options supported in the JDL:
     <td>unary</td>
     <td>false</td>
     <td></td>
-    <td></td>
+    <td>This will make the client code generation to be skipped</td>
   </tr>
   <tr>
     <td>skipServer</td>
     <td>unary</td>
     <td>false</td>
     <td></td>
-    <td></td>
+    <td>This will make the server code generation to be skipped</td>
   </tr>
   <tr>
     <td>noFluentMethod</td>
     <td>unary</td>
     <td>false</td>
     <td></td>
-    <td></td>
+    <td>
+      See <a href="https://www.jhipster.tech/2016/08/17/jhipster-release-3.6.0.html#important-change-fluent-setters">this note</a>
+      for more information
+    </td>
   </tr>
   <tr>
     <td>filter</td>
     <td>unary</td>
     <td>false</td>
     <td></td>
-    <td></td>
+    <td>
+      See <a href="https://www.jhipster.tech/entities-filtering/">filtering</a> for more details; if an entity is filtered
+      but doesn't have a service then 'serviceClass' will be used
+    </td>
   </tr>
   <tr>
     <td>readOnly</td>
     <td>unary</td>
     <td>false</td>
     <td></td>
-    <td></td>
+    <td>
+      Adding this option will make an entity readOnly, see
+      <a href="https://www.jhipster.tech/2019/10/10/jhipster-release-6.4.0.html#jhipster-release-v640">this release note</a>
+      for more details
+     </td>
   </tr>
   <tr>
     <td>dto</td>
     <td>binary</td>
     <td>no</td>
     <td>mapstruct, no</td>
-    <td></td>
+    <td>Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'</td>
   </tr>
   <tr>
     <td>service</td>
@@ -268,21 +323,21 @@ Here are the entity options supported in the JDL:
     <td>binary</td>
     <td>no</td>
     <td>pagination, infinite-scroll, pager, no</td>
-    <td>pager is only available in AngularJS</td>
+    <td>'pager' is only available in AngularJS, and pagination is forbidden when the application uses Cassandra</td>
   </tr>
   <tr>
     <td>search</td>
     <td>binary</td>
     <td>no</td>
     <td>elasticsearch, no</td>
-    <td></td>
+    <td>Requires the application to have the searchEngine option enabled</td>
   </tr>
   <tr>
     <td>microservice</td>
     <td>binary</td>
     <td></td>
     <td>custom value</td>
-    <td></td>
+    <td>Will be automatically added for every entity declared inside a microservice application</td>
   </tr>
   <tr>
     <td>angularSuffix</td>
