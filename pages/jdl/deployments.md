@@ -11,12 +11,27 @@ sitemap:
 
 ## Deployments
 
+1. [Syntax](#syntax)
 1. [Examples](#examples)
-1. [Available deployment options](#options)
+1. [Available deployment options](#available-deployment-options)
 
 ---
 
-### <a name="examples"></a> Examples
+### Syntax
+
+The deployment declaration is done as follows:
+
+```
+deployment {
+  <deployment option name> <deployment option value>
+}
+```
+
+  - Similar to applications, deployment declaration works by specifying option keys & values
+
+---
+
+### Examples
 
 #### Basic example
 
@@ -66,7 +81,7 @@ For example, above you need to have a folder structure like this:
 
 ---
 
-### <a name="options"></a> Available deployment options
+### Available deployment options
 
 Here are the deployment options supported in the JDL:
 

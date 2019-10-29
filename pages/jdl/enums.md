@@ -11,10 +11,27 @@ sitemap:
 
 ## Enums
 
+1. [Syntax](#syntax)
 1. [Examples](#examples)
    1. [Basic example](#basic-example)
    1. [With values](#with-values)
    1. [Commenting](#commenting)
+
+---
+
+### Syntax
+
+Enumeration declaration is done as follows:
+
+```
+enum [<enum name>] {
+  <ENUM KEY> ([<enum value>])
+}
+```
+
+  - Enumeration entry values are mandatory
+    - And uppercase keys must be used
+  - Enumeration entry values are optional, and must be wrapped inside parenthesises
 
 ---
 

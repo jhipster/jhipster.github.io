@@ -13,6 +13,7 @@ sitemap:
 
 1. [Relationship types](#relationship-types)
 1. [Relationship methods](#relationship-methods)
+1. [Syntax](#syntax)
 1. [Examples](#examples)
    1. [Basic example](#basic-example)
    1. [With injected fields](#with-injected-fields)
@@ -47,6 +48,25 @@ Mentioned after the source and destination entity, used with the `with` keyword.
 
 Supported methods:
   - `jpaDerivedIdentifier`: `@MapsId` is used for the association (**applicable only for OneToOne**)
+
+---
+
+### Syntax
+
+Relationship declaration is done as follows:
+```
+relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
+  <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]
+}
+```
+
+  - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
+  - `<from entity>` is the name of the entity owner of the relationship: the source,
+  - `<to entity>` is the name of the entity where the relationship goes to: the destination,
+  - `<relationship name>` is the name of the field having the other end as type,
+  - `<display field>` is the name of the field that should show up in select boxes (default: `id`),
+  - `required` whether the injected field is required.
+  - `with jpaDerivedIdentifier` whether `@MapsId` is used for the association (applicable only for one-to-one)
 
 ---
 

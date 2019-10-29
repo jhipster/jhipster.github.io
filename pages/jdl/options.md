@@ -32,6 +32,7 @@ You can do the same with the JDL, either with annotations on the entity, or with
 The complete list of available options is [here](#options).
 
 1. [How to](#how-to)
+1. [Syntax](#syntax)
 1. [Examples](#examples)
    1. [Basic unary example](#basic-unary-example)
    1. [Basic binary example](#basic-binary-example)
@@ -57,6 +58,47 @@ And two way of applying options to entities:
   - using annotations
 
 Mixing them is not recommended as it reduces readability.
+
+---
+
+### Syntax
+
+For the regular form:
+```
+<option name> <option entity list>
+
+or
+
+<option name> <option entity list> with <option value>
+
+or
+
+<option name> <option entity list> with <option value> except <option excluded entity list>
+
+or 
+
+<option name> <option entity list> except <option excluded entity list>
+```
+
+  - For unary options:
+    - the option name and the list is needed
+    - the excluded entities are optional with the `except` keyword (see below fore more details)
+  - For binary options:
+    - the entity list precedes the `with` keyword and the option value
+    - again, the excluded entities are in the end with the `except` keyword
+
+For annotations:
+```
+@<option name>
+entity <entity name>
+
+or
+
+@<option name>(<option value>)
+```
+
+  - Similar to Java, annotations may take values in parenthesises
+    - depending on the option, values may or may not be optional
 
 ---
 

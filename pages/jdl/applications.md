@@ -11,6 +11,7 @@ sitemap:
 
 ## Applications
 
+1. [Syntax](#syntax)
 1. [Examples](#examples)
    1. [Basic Example](#basic-example)
    1. [More than one application](#more-than-one-application)
@@ -18,6 +19,31 @@ sitemap:
 1. [Available application options](#available-application-options)
 
 ***
+
+### Syntax
+
+The application declaration is done as follows:
+
+```
+application {
+  config {
+    <application option name> <application option value>
+  }
+  [entities <application entity list>]
+}
+```
+
+  - Application configuration keys/values are specified under `config` (which must be inside `application`)
+  - There can be 0, 1 or any application option as you want (provided they are valid of course ;)
+  - Entities that will be generated inside the application are listed via `entities`, this is the recommended way to
+    generate entities in applications.
+    - This can be omitted but generating entities inside the app would require doing it:
+      - from another JDL file inside the app
+      - or with the CLI
+  - The `entities` keyword is optional: you can omit it, but every entity in the JDL file will be generated inside the
+    application
+
+---
 
 ### Examples
 

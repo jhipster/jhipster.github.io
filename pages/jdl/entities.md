@@ -11,6 +11,7 @@ sitemap:
 
 ## Entities
 
+1. [Syntax](#syntax)
 1. [Examples](#examples)
    1. [Basic example](#basic-example)
    1. [With a custom table name](#with-a-custom-table-name)
@@ -20,6 +21,32 @@ sitemap:
    1. [Regular expressions](#regular-expressions)
    1. [Commenting](#commenting)
 1. [Field types and validations](#field-types-and-validations)
+
+---
+
+### Syntax
+
+The entity declaration is done as follows:
+```
+[<entity javadoc>]
+[<entity annotation>*]
+entity <entity name> [(<table name>)] {
+  [<field javadoc>]
+  [<field annotation>*]
+  <field name> <field type> [<validation>*]
+}
+```
+
+  - `<entity name>` the name of the entity,
+  - `<field name>` the name of one field of the entity,
+  - `<field type>` the JHipster supported type of the field,
+  - and as an option:
+    - `<entity javadoc>` the documentation of the entity,
+    - `<entity annotation>` the options for the entity,
+    - `<table name>` the database table name (if you want to specify something different that the name automatically computed from the entity name),
+    - `<field javadoc>` the documentation of the field,
+    - `<field annotation>` the options for the field,
+    - `<validation>` the validations for the field.
 
 ---
 
