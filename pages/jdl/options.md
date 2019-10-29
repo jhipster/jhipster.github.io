@@ -208,7 +208,7 @@ entity C
 
 ---
 
-## About services
+### About services
 
 No services specified will create a resource class which will call the repository interface directly. This is the
 default and simplest option, see A.
@@ -232,7 +232,7 @@ unnecessary Interfaces but if you like them go for service with impl.
 
 ---
 
-## Custom annotations
+### Custom annotations
 
 Custom annotations are possible in the JDL, for instance:
 
