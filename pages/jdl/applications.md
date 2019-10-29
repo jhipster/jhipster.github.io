@@ -16,6 +16,7 @@ sitemap:
    1. [Basic Example](#basic-example)
    1. [More than one application](#more-than-one-application)
    1. [With entities](#with-entities)
+1. [Microservice workflow](#microservice-workflow)
 1. [Available application options](#available-application-options)
 
 ***
@@ -181,6 +182,52 @@ Now, several things will happen when generating these applications and folders:
 
 Note that the generator sets default values if they aren't present (like the `databaseType`).
 JHipster Core does the exact same things for you.
+
+---
+
+### Microservice workflow
+
+Dealing with microservices is a almost tricky, but the JDL gives you some options to handle your entities as you see fit.
+With the `microservice <ENTITIES> with <MICROSERVICE_APP_NAME>` you can specify which entity gets generated in which microservice.
+
+Take this setup for instance:
+```
+entity A
+entity B
+entity C
+microservice A with firstMS
+microservice B with secondMS
+```
+
+Given two JHipster applications ('firstMS' and 'secondMS'), here's what you're going to get if you import the JDL file
+in the two applications:
+  - In 'firstMS', entities `A` and `C` will be generated.
+  - In 'secondMS', entities `B` and `C` will be generated.
+
+`C` gets generated in both because if there's no microservice option specifying where this entity gets generated, it
+will be generated everywhere.
+
+If you decide to import this JDL in a monolith app, every entity will be generated (monoliths don't have restriction
+options in the JDL).
+
+_Note: if you want to make the same entity be generated in two different microservices, you can write two JDL files
+instead of updating the JDL file. Everytime._
+
+The previous example couldn't have been written like this:
+```
+entity A
+entity B
+entity C
+microservice * except B with firstMS
+microservice * except A with secondMS
+```
+
+Here's the result:
+  - In 'firstMS', only the entity `C` will be generated
+  - In 'secondMS', entities `B` and `C` will be generated.
+
+It's because, at parsing-time, if an option overlaps with another, the latter takes precedence.
+You can also create an entire microservice stack using JDL, [see this blog post](https://medium.com/@deepu105/create-full-microservice-stack-using-jhipster-domain-language-under-30-minutes-ecc6e7fc3f77) for example
 
 ---
 
