@@ -12,7 +12,7 @@ sitemap:
 
 ## Getting Started
 
-In this page, you'll learn about the JDL and how to create create applications and everything around them.
+In this page, you'll learn about the JDL and how to create applications and everything around them.
 
 1. [Generating content](#generating-content)
    1. [Using files](#using-files)
