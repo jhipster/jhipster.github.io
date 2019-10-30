@@ -42,6 +42,7 @@ The complete list of available options is [here](#options).
    1. [Option with custom values](#option-with-custom-values)
    1. [Mixed example](#mixed-example)
 1. [About services](#about-services)
+1. [Microservice-related options](#microservice-related-options)
 1. [Custom annotations](#custom-annotations)
 1. [Available options](#available-options)
 
@@ -271,6 +272,27 @@ unnecessary Interfaces but if you like them go for service with impl.
     // no service for A
     service B with serviceClass
     service C with serviceImpl
+
+---
+
+### Microservice-related options
+
+As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL:
+the microservice's name and the search engine.
+
+Here is how you can specify your microservice's name (the JHipster app's name):
+
+```
+entity A
+entity B
+entity C
+microservice * with mysuperjhipsterapp except C
+microservice C with myotherjhipsterapp
+search * with elasticsearch except C
+```
+
+The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
+specifies how and if you want your entities searched.
 
 ---
 
