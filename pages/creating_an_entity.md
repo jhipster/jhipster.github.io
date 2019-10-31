@@ -161,8 +161,7 @@ Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the
 When the entity is generated, JHipster provides 4 pagination options:
 
 *   No pagination (in that case, the back-end won't be paginated)
-*   A simple pager, based on [the Bootstrap pager](http://getbootstrap.com/components/#pagination-pager)
-*   A complete pagination system, based on [the Bootstrap pagination component](http://getbootstrap.com/components/#pagination)
+*   A complete pagination system, based on [the Bootstrap pagination component](https://getbootstrap.com/docs/4.3/components/pagination/)
 *   An infinite scroll system, based on [the infinite scroll directive](http://sroze.github.io/ngInfiniteScroll/)
 
 ## Updating an existing entity
