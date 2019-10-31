@@ -62,7 +62,7 @@ Mixing them is not recommended as it reduces readability.
 
 ---
 
-### Syntax
+### Syntax
 
 For the regular form:
 ```
