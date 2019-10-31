@@ -425,4 +425,5 @@ scratch as there's a sub-generator that does that for you.
 Simply do `jhipster export-jdl <FILE_NAME>` in your app's root folder and you'll have all your applications, entities,
 relationships and options exporting in a single JDL file.
 
-Note: you can also not provide a file name to the sub-generator, a default one will be chosen.
+Note: you can also not provide a file name to the sub-generator, the exported JDL file will be named after the app's
+base name. For instance, if your application's named 'mySuperApp' then your JDL file will be `mySuperApp.jdl`.
