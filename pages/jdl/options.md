@@ -83,7 +83,7 @@ or
 
   - For unary options:
     - the option name and the list is needed
-    - the excluded entities are optional with the `except` keyword (see below fore more details)
+    - the excluded entities are optional with the `except` keyword (see below for more details)
   - For binary options:
     - the entity list precedes the `with` keyword and the option value
     - again, the excluded entities are in the end with the `except` keyword
@@ -251,7 +251,7 @@ entity C
 
 ---
 
-### About services
+### About services
 
 No services specified will create a resource class which will call the repository interface directly. This is the
 default and simplest option, see A.
@@ -296,7 +296,7 @@ specifies how and if you want your entities searched.
 
 ---
 
-### Custom annotations
+### Custom annotations
 
 Custom annotations are possible in the JDL, for instance:
 
