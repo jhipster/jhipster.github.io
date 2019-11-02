@@ -4,7 +4,7 @@ title: JHipster Domain Language - Options
 permalink: /jdl/options
 sitemap:
     priority: 0.5
-    lastmod: 2019-10-27T12:00:00-00:00
+    lastmod: 2019-11-02T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -29,7 +29,7 @@ You can do the same with the JDL, either with annotations on the entity, or with
     service A with serviceClass
     service C with serviceImpl
 
-The complete list of available options is [here](#options).
+The complete list of available options is [here](#available-options).
 
 1. [How to](#how-to)
 1. [Syntax](#syntax)
