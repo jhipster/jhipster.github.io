@@ -4,7 +4,7 @@ title: JHipster Domain Language - Relationships
 permalink: /jdl/relationships
 sitemap:
     priority: 0.5
-    lastmod: 2019-10-27T12:00:00-00:00
+    lastmod: 2019-11-03T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -13,6 +13,7 @@ sitemap:
 
 1. [Relationship types](#relationship-types)
 1. [Relationship methods](#relationship-methods)
+1. [Multiple relationship bodies](#multiple-relationship-bodies)
 1. [Syntax](#syntax)
 1. [Examples](#examples)
    1. [Basic example](#basic-example)
@@ -51,12 +52,49 @@ Supported methods:
 
 ---
 
+### Multiple relationship bodies
+
+If you're tired of having _n_ relationships of the same type in your JDL file, fear not! There's a solution.
+
+Take this JDL sample for instance:
+```jdl
+relationship OneToOne {
+  A to B
+}
+relationship OneToOne {
+  B to C
+}
+relationship OneToOne {
+  C to D
+}
+relationship OneToOne {
+  D to A
+}
+```
+
+The solution consists in having every relationship body inside on relationship declaration, like this:
+```jdl
+relationship OneToOne {
+  A to B,
+  B to C,
+  C to D,
+  D to A
+}
+```
+
+This syntax is really useful when:
+  - You have lots of relationships of the same type,
+  - You want to know what the relationships are,
+  - You don't want to waste time looking for them in your JDL file(s)
+
+---
+
 ### Syntax
 
 Relationship declaration is done as follows:
 ```
 relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
-  <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]
+  <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]+
 }
 ```
 
@@ -67,6 +105,8 @@ relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
   - `<display field>` is the name of the field that should show up in select boxes (default: `id`),
   - `required` whether the injected field is required.
   - `with jpaDerivedIdentifier` whether `@MapsId` is used for the association (applicable only for one-to-one)
+  - And you can have more than one relationship body
+    - See the [Multiple relationship bodies](#multiple-relationship-bodies) section for more info!
 
 ---
 
