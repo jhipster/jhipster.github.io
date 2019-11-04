@@ -152,6 +152,15 @@ If you want to join the team, or just see how we work, our community rules are a
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/23017435?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Kaido Hallik</h3>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/3100637?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Erik Kemperman</h3>
