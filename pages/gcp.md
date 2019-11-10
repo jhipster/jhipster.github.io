@@ -43,7 +43,7 @@ Please note that currently the Google App Engine generator only supports deploym
 
 1. Use the App Engine plugin to deploy: `./mvnw package appengine:deploy -DskipTests -Pgae,prod-gae` or using Gradle `./gradlew appengineDeploy -Pgae -Pprod-gae`
 
-2. If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up
+2. If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, [https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up](https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up)
 
 In addition, Google App Engine provides a full suite of features to manage your application:
 - Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
