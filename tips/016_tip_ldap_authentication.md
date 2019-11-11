@@ -125,7 +125,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
             Context.PROVIDER_URL, this.ProviderUrl,
             Context.SECURITY_AUTHENTICATION, this.SecurityAuthentication,
             Context.SECURITY_PRINCIPAL, this.UserDomain + authentication.getPrincipal(),
-            Context.SECURITY_CREDENTIALS, authentication.getCredentials(),
+            Context.SECURITY_CREDENTIALS, authentication.getCredentials().toString(),
             Context.SECURITY_PROTOCOL, "ssl"
         ));
 
