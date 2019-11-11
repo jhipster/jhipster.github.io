@@ -3,14 +3,14 @@ layout: default
 title: LDAP Authentication
 sitemap:
 priority: 0.5
-lastmod: 2018-05-9T22:22:00-00:00
+lastmod: 2019-11-11T22:22:00-00:00
 ---
 
 # LDAP Authentication
 
-__Tip submitted by [@mleneveut](https://github.com/mleneveut)__ updated by [@iliasnaamane](https://github.com/iliasnaamane)__
+__Tip submitted by [@mleneveut](https://github.com/mleneveut)__ updated by [@patrickjp93](https://github.com/patrickjp93)__
 
-To add an LDAP authentification to your JHipster application, follow these steps :
+To add an LDAP authentication to your JHipster application, follow these steps :
 
   * Add the dependencies spring-ldap-core and spring-security-ldap. Example for gradle in build.gradle :
 
@@ -18,6 +18,7 @@ To add an LDAP authentification to your JHipster application, follow these steps
     compile group: 'org.springframework.security', name: 'spring-security-ldap', version: spring_security_version
 ```
   * Modify the SecurityConfiguration.java, add method configureGlobal(AuthenticationManagerBuilder auth) and getContextSource()
+  * The following query strings should ideally be [encapsulated in environment variables](https://github.com/eugenp/tutorials/blob/master/spring-ldap/src/main/java/com/baeldung/ldap/javaconfig/AppConfig.java), or at the very least properties/yml files 
 
 ```
     @Inject
@@ -111,4 +112,31 @@ public class CustomAuthenticationManager implements AuthenticationManager {
         return provider.authenticate(authentication);
     }
 
+```
+
+  * For some LDAP servers, the below authenticate implementation has been more successful, but requires more effort to map user authenticated users into the Users table and set authorities based on AD Groups
+  * Credit to [@eugenp](https://github.com/eugenp/tutorials/tree/master/spring-ldap) and [Michael Kostewicz](http://code-addict.pl/active-directory-spring-security/) for their stable reference implementations
+```  
+  public Authentication authenticate(Authentication authentication) {
+        log.info("Authorizing active directory ldap ....");
+        
+        Hashtable<String, String> ldapEnv = new Hashtable<>(Map.of(
+            Context.INITIAL_CONTEXT_FACTORY, this.InitialContextFactory,
+            Context.PROVIDER_URL, this.ProviderUrl,
+            Context.SECURITY_AUTHENTICATION, this.SecurityAuthentication,
+            Context.SECURITY_PRINCIPAL, this.UserDomain + authentication.getPrincipal(),
+            Context.SECURITY_CREDENTIALS, authentication.getCredentials(),
+            Context.SECURITY_PROTOCOL, "ssl"
+        ));
+
+        try {
+            ldapContext = new InitialDirContext(ldapEnv);
+            authentication.setAuthenticated(true);
+            log.info("Connected and authenticated.");
+            ldapContext.close();
+        } catch (Exception e) { 
+            log.error(e.getMessage()); 
+        }
+        return authentication;
+    }
 ```
