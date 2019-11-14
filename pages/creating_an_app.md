@@ -232,6 +232,7 @@ Here are the options you can pass:
 * `--dto-suffix` - Add suffix after DTOs class names (Default: DTO)
 * `--yarn` - Use Yarn instead of NPM (Default: false)
 * `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
+* `--skip-fake-data` - Skip generation of fake data for development
 
 ## <a name="4"></a> Tips
 
