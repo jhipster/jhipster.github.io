@@ -41,7 +41,7 @@ This generator will:
 To deploy:
 Please note that currently the Google App Engine generator only supports deployments to [App Engine Standard (Java 11)](https://cloud.google.com/appengine/docs/standard/java11/) environment. 
 
-1. Use the App Engine plugin to deploy: `./mvnw package appengine:deploy -DskipTests -Pgae,prod-gae` or using Gradle `./gradlew appengineDeploy -Pgae -Pprod-gae`
+1. Use the App Engine plugin to deploy: `./mvnw clean && ./mvnw package appengine:deploy -DskipTests -Pgae,prod-gae` or using Gradle `./gradlew thinResolve -Pgae -Pprod-gae && ./gradlew appengineDeploy -Pgae -Pprod-gae`
 
 2. If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, [https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up](https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up)
 
