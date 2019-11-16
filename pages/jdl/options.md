@@ -386,8 +386,8 @@ Here are the entity options supported in the JDL:
     <td>paginate</td>
     <td>binary</td>
     <td>no</td>
-    <td>pagination, infinite-scroll, pager, no</td>
-    <td>'pager' is only available in AngularJS, and pagination is forbidden when the application uses Cassandra</td>
+    <td>pagination, infinite-scroll, no</td>
+    <td>Pagination is forbidden when the application uses Cassandra</td>
   </tr>
   <tr>
     <td>search</td>
