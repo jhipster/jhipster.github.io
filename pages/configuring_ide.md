@@ -11,7 +11,8 @@ sitemap:
 
 # <i class="fa fa-keyboard-o"></i> Configuring your IDE
 
-JHipster projects can be developed without any IDE, all you need are a text editor and the command line. Of course, in order to be productive, people either use full-fledged IDEs or advanced text editors. Here is how you can configure them:
+JHipster projects can be developed without any IDE, all you need are a text editor and the command line. 
+In order to be productive, people either use full-fledged IDEs or advanced text editors. Here is how you can configure them:
 
 - [Configuring Eclipse with Maven]({{ site.url }}/configuring-ide-eclipse/)
 - [Configuring Eclipse with Gradle]({{ site.url }}/configuring-ide-eclipse-gradle/)
