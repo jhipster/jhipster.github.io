@@ -13,11 +13,11 @@ sitemap:
 
 If you are using Linux or Mac OS X, [fisher](https://github.com/jorgebucaran/fisher) is a great tool to manage your [fish shell](http://fishshell.com/) configuration.
 
-Some of the JHipster development team use fish shell with Fisherman, and if you see people using shortcuts in their terminal, the magic comes from here!
+Some of the JHipster development team use fish shell with Fisher, and if you see people using shortcuts in their terminal, the magic comes from here!
 
-## Fisherman JHipster plugin
+## Fisher JHipster plugin
 
-The JHipster Fisherman plugin is available on GitHub at [https://github.com/jhipster/jhipster-fisher-plugin](https://github.com/jhipster/jhipster-fisher-plugin).
+The JHipster Fisher plugin is available on GitHub at [https://github.com/jhipster/jhipster-fisher-plugin](https://github.com/jhipster/jhipster-fisher-plugin).
 
 Currently it only adds shortcuts (full list [here](https://github.com/jhipster/jhipster-fisher-plugin/blob/master/conf.d/jhipster.aliases.fish)), but we welcome contributions to have better auto-completion!
 

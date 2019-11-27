@@ -70,7 +70,7 @@ To run the tool use this command: `src/main/docker/cassandra/scripts/autoMigrate
 By default, the `src/main/resources/config/create-keyspace.cql` script is used to create the keyspace if necessary.
 You can override it with a second argument: `src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/ create-keyspace-prod.cql`
 
-If you only want to execute a specific script against your cluster use: `src/main/docker/cassandra/scripts/execute-cql.sh src/main/resources/config/cql/changelog/<your script>.cql`
+If you only want to run a specific script against your cluster use: `src/main/docker/cassandra/scripts/execute-cql.sh src/main/resources/config/cql/changelog/<your script>.cql`
 
 ## Cassandra and Docker on non-linux OSs
 

@@ -15,20 +15,20 @@ sitemap:
 
 We provide 4 ways of working with JHipster. If in doubt, choose our 2nd option, "Local installation with NPM":
 
-*   [JHipster Online](https://start.jhipster.tech/) is a simple way to generate an application without installing JHipster in the first place.
+*   [JHipster Online](https://start.jhipster.tech/) is a way to generate an application without installing JHipster in the first place.
 *   "Local installation with NPM" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
 *   "Local installation with Yarn" is the same as classical "Local installation with NPM", but using [Yarn](https://yarnpkg.com/) instead of NPM. Please note that Yarn is a lot less popular than NPM in our community, so this isn't a recommended option for newcomers.
 *   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight container with JHipster installed.
 
 ## JHipster Online (for users wanting a simplified way to run JHipster)
 
-[JHipster Online](https://start.jhipster.tech/) allows you to easily generate JHipster applications, without having to install JHipster.
+[JHipster Online](https://start.jhipster.tech/) allows you to generate JHipster applications, without having to install JHipster.
 
-This is intended for people trying JHipster for the first time, or who just want to have a look at what JHipster provides.
+This is intended for people trying JHipster for the first time, or who want to have a look at what JHipster provides.
 
 While it is easier to use, it is not the "full JHipster experience", and once your application is generated you will still need to follow most of the steps from the next section ("Local installation with NPM"), as you will still need Java (to run your application) and NPM (to manage your front-end code).
 
-In the future, we expect JHipster Online to provide more features, of course.
+In the future, we expect JHipster Online to provide more features.
 
 ## Local installation with NPM (recommended for normal users)
 
@@ -55,7 +55,7 @@ Now that JHipster is installed, your next step is to [create an application]({{ 
 JHipster uses [Yeoman](http://yeoman.io/) for code generation.
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
 
-The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommended not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, simply delete the `.yo-rc.json` file.
+The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommended not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, delete the `.yo-rc.json` file.
 
 ## Local installation with Yarn (alternative to NPM)
 
@@ -90,14 +90,14 @@ This image will allow you to run JHipster inside Docker.
 
 This depends on your operating system.
 
-1.  **Linux:** Linux supports Docker out-of-box. You just need to follow the tutorial on the [Docker](https://docs.docker.com/installation/#installation) website.
-2.  **Mac & Windows:** install the [Docker Toolbox](https://www.docker.com/docker-toolbox) to get Docker installed easily.
+1.  **Linux:** Linux supports Docker out-of-box. You should follow the tutorial on the [Docker](https://docs.docker.com/installation/#installation) website.
+2.  **Mac & Windows:** install the [Docker Toolbox](https://www.docker.com/docker-toolbox) to get Docker installed.
 
 As the generated files are in your shared folder, they will not be deleted if you stop your Docker container. However, if you don't want Docker to keep downloading all the Maven and NPM dependencies every time you start the container, you should commit its state or mount a volume.
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-Based on your OS, your <code>DOCKER_HOST</code> will differ. On Linux, it will be simply your localhost.
+Based on your OS, your <code>DOCKER_HOST</code> will differ. On Linux, it will be your localhost.
 For Mac/Windows, you will have to obtain the IP using following command: <code>docker-machine ip default</code>
 
 </div>
@@ -146,7 +146,7 @@ Run the Docker image, with the following options:
 
 <div class="alert alert-info"><i>Tip: </i>
 
-If you have already started the container once before, you do not need to run the above command, you can simply start/stop the existing container.
+If you have already started the container once before, you do not need to run the above command, you can start/stop the existing container.
 
 </div>
 
@@ -159,8 +159,8 @@ To check that your container is running, use the command `docker container ps`:
 
 #### Common operations
 
-*   To stop the container execute: `docker container stop jhipster`
-*   And to start again, execute: `docker container start jhipster`
+*   To stop the container run: `docker container stop jhipster`
+*   And to start again, run: `docker container start jhipster`
 
 In case you update the Docker image (rebuild or pull from the Docker hub), it's better to remove the existing container, and run the container all over again. To do so, first stop the container, remove it and then run it again:
 
@@ -173,7 +173,7 @@ In case you update the Docker image (rebuild or pull from the Docker hub), it's 
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-On Windows, you need to execute the Docker Quick Terminal as Administrator to be able to create symlinks during the `npm install` step.
+On Windows, you need to run the Docker Quick Terminal as Administrator to be able to create symlinks during the `npm install` step.
 
 </div>
 
@@ -211,7 +211,7 @@ Once your application is created, you can run all the normal gulp/bower/maven co
 
 **Congratulations! You've launched your JHipster app inside Docker!**
 
-On your host machine, you should be able to:
+On your machine, you should be able to:
 
 *   Access the running application at `http://DOCKER_HOST:8080`
 *   Get all the generated files inside your shared folder

@@ -17,7 +17,7 @@ sitemap:
 
 - Configure [Kafka clients](https://docs.confluent.io/5.3.1/clients/consumer.html#java-client) with JHipster.
 - Add the necessary configuration in the `application-*.yml`
-- Generate a Docker Compose configuration file, so Kafka is usable by simply typing `docker-compose -f src/main/docker/kafka.yml up -d`.
+- Generate a Docker Compose configuration file, so Kafka is usable by typing `docker-compose -f src/main/docker/kafka.yml up -d`.
 
 ## Prerequisite
 

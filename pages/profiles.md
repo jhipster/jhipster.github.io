@@ -27,7 +27,7 @@ _Note:_ Spring profiles are used to configure the JHipster application propertie
 
 ## By default, JHipster will use the `dev` profile
 
-If you run the application without Maven/Gradle, launch the "Application" class (you can probably run it easily from your IDE by right-clicking on it).
+If you run the application without Maven/Gradle, launch the "Application" class (you can probably run it directly from your IDE by right-clicking on it).
 
 If you run the application with Maven, run `./mvnw` to use our Maven Wrapper, or `mvn` to use your own Maven installation.
 
@@ -37,7 +37,7 @@ When using Angular 2+ and Maven if you need to do a clean run with webpack compi
 
   `./mvnw -Pdev,webpack`
 
-**Note** Gradle automatically executes webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start` or `yarn start`).
+**Note** Gradle automatically runs webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start` or `yarn start`).
 
 ## In production, JHipster has to run with the `prod` profile
 
@@ -63,7 +63,7 @@ JHipster comes with three additional profiles used as switches:
 *   `no-liquibase` to disable liquibase
 *   `tls` to enable TLS security and use the HTTP/2 protocol (see [the TLS and HTTP/2 documentation]({{ site.url }}/tls/))
 
-These can be used along with both the `dev` and `prod` profiles. Please note that by default, the `swagger` profile is disabled in `prod` and enabled in `dev` by setting the `spring.profiles.include` property in `application.yml`.
+These can be used along with both the `dev` and `prod` profiles. Please note that by default, the `swagger` profile is not enabled in `prod` and enabled in `dev` by setting the `spring.profiles.include` property in `application.yml`.
 
 `swagger`, `no-liquibase`, `tls` are only used at runtime:
 

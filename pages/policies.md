@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-gavel"></i> Policies
 
-The JHipster development team follows some coding policies. You can see them as "best practices" or "guidelines". They are enforced on the project itself, not on the generated code: if you just use JHipster to generate your project, you absolutely do not have to follow them!
+The JHipster development team follows some coding policies. You can see them as "best practices" or "guidelines". They are enforced on the project itself, not on the generated code: if you use JHipster to generate your project, you absolutely do not have to follow them!
 
 Those policies are followed by the [development team]({{ site.url }}/team/), and you should follow them if you submit a Pull Request.
 

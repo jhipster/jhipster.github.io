@@ -78,7 +78,7 @@ To do this you can run the languages sub-generator with:
 
 ![]({{ site.url }}/images/install_new_languages.png)
 
-Note that you will need to regenerate your entities if you would like to have them translated in the language you just added.
+Note that you will need to regenerate your entities if you would like to have them translated in the language you added right now.
 
 ## How to add a new language that is not supported?
 

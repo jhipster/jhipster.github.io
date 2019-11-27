@@ -23,11 +23,11 @@ If you start making changes to the client side code without having `npm start` o
 
 You can also force Maven to run the `webpack:dev` task while starting by passing the `webpack` profile like `./mvnw -Pdev,webpack`.
 
-**Note** Gradle automatically executes webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start` or `yarn start`).
+**Note** Gradle automatically runs webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start` or `yarn start`).
 
 Other available yarn/npm commands can be found in the `scripts` section of your project's `package.json` file.
 
-- To work on your code in your browser, we recommend using [Angular Augury](https://augury.angular.io/), so you can visualize your routes and debug your code easily
+- To work on your code in your browser, we recommend using [Angular Augury](https://augury.angular.io/), so you can visualize your routes and debug your code
 
 ## Project Structure
 
@@ -187,7 +187,7 @@ You should not use `ng build` to build your front-end, as JHipster has its own s
 
 ### Generating Components, Directives, Pipes and Services
 
-You can use the `ng generate` (or just `ng g`) command to generate Angular components:
+You can use the `ng generate` (or `ng g`) command to generate Angular components:
 
 ```bash
 ng generate component my-new-component
@@ -218,7 +218,7 @@ Scaffold  | Usage
 
 ### Test
 
-For consistency purpose on JHipster application, tests execution are only available through the `npm` command:
+For consistency purpose on JHipster application, tests are available through the `npm` command:
 
 ```bash
 npm test

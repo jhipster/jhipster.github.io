@@ -21,7 +21,8 @@ JHipster provides several options to monitor your applications at runtime.
 
 ## <a name="generated-dashboards"></a> Generated dashboards
 
-For monoliths and gateways, JHipster generates several dashboards to monitor each application. Those dashboards are available at runtime, and are the easiest way to do some simple monitoring.
+For monoliths and gateways, JHipster generates several dashboards to monitor each application. 
+Those dashboards are available at runtime, and are the easiest way to do some monitoring.
 
 ![JHipster Metrics page][jhipster-metrics-page]
 
@@ -40,17 +41,18 @@ By clicking on the Expand button next to the JVM thread metrics, you will get a 
 
 ### The health dashboard
 
-The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. Many health checks are provided out-of-the-box by Spring Boot Actuator, and it's also very easy to add application-specific health checks.
+The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. Many health checks are provided out-of-the-box by Spring Boot Actuator, and you can add application-specific health checks.
 
 ### The logs dashboard
 
-The logs dashboard allows to manage at runtime the Logback configuration of the running application. Changing the log level of a Java package is as simple as clicking on a button, which is very convenient both in development and in production.
+The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
+You can change the log level of a Java package by clicking on a button, which is very convenient both in development and in production.
 
 ## <a name="jhipster-registry"></a> JHipster Registry
 
 The JHipster Registry has [its own documentation page here]({{ site.url }}/jhipster-registry/).
 
-It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application failure.
+It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application error.
 
 ## <a name="jhipster-console"></a> JHipster Console
 
@@ -234,7 +236,7 @@ The Zipkin instance should be available on [http://127.0.0.1:9411/](http://127.0
 
 ## <a name="alerting"></a> Alerting with Elastalert
 
-JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. Elastalert is simple to use and able to define complex alerting rules to detect failures, spikes or any pattern based on an Elasticsearch Query.
+JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. With Elastalert you can define complex alerting rules to detect errors, spikes or any pattern based on an Elasticsearch Query.
 
 ### Enable alerting
 
@@ -248,7 +250,8 @@ To enable alerting, setup the `jhipster-alerter` container by adding the followi
 
 ### Configure alerting
 
-Elastalert configuration can be modified in `alerts/config.yaml`. For example, you can configure the alerting frequency and the buffer period, by changing the following properties:
+Elastalert configuration can be modified in `alerts/config.yaml`. 
+For example, you can configure the alerting frequency and the buffer time, by changing the following properties:
 
     run_every:
         minutes: 1
