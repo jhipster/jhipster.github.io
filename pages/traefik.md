@@ -65,7 +65,7 @@ Before building the gateway's Docker image, you will need to configure the `base
 
 #### Configure for OAuth 2.0
 If you have separated the frontend and the api, you don't need to perform additional configuration locally.
-just use `npm start` and go to `http://localhost:9000`
+Use `npm start` and go to `http://localhost:9000`
 
 Before building the gateway's Docker image, it is necessary to [Configure your Base HREF](#configure-your-base-href) and update various files.
 

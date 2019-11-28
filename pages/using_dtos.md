@@ -13,7 +13,8 @@ sitemap:
 
 ## Introduction
 
-By default, JHipster uses its domain objects (typically JPA entities) directly in its REST endpoints. This has a lot of benefits, the main one being that it makes the code easy to use, understand and extend.
+By default, JHipster uses its domain objects (typically JPA entities) directly in its REST endpoints. 
+This has a lot of benefits, the main one being that the code is easier to understand as it contains fewer layers.
 
 For complex use cases, however, you might want to use Data Transfer Objects (or DTOs) that will be exposed by the REST endpoints. Those objects add an extra layer on top of the domain objects, and are specifically tuned for the REST layer: their main benefit is that they can aggregate several domain objects.
 

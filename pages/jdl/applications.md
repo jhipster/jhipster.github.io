@@ -35,7 +35,7 @@ application {
 ```
 
   - Application configuration keys/values are specified under `config` (which must be inside `application`)
-  - There can be 0, 1 or any application option as you want (provided they are valid of course ;)
+  - There can be 0, 1 or any application option as you want (provided they are valid)
   - Entities that will be generated inside the application are listed via `entities`, this is the recommended way to
     generate entities in applications.
     - This can be omitted but generating entities inside the app would require doing it:

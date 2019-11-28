@@ -93,7 +93,7 @@ The application will use the store to maintain:
 
 JHipster uses the [Vue router](https://router.vuejs.org/) to organize the differents parts of your application.
 
-When it comes to routes that require authentication, the meta `authorities` is used on desired route. This component will simply prevent any unauthenticated or unauthorized user from accessing a route.
+When it comes to routes that require authentication, the meta `authorities` is used on desired route. This component will prevent any unauthenticated or unauthorized user from accessing a route.
 
 Here is an example of PrivateRoute usage:
 
@@ -117,7 +117,7 @@ Please note that the interceptor uses the `$store.getters.authenticated` store v
 
 ## Validation system
 
-In order to perform form validation, we use [Vuelidate](https://vuelidate.netlify.com/) library. Besides adding validation constraints, several filters are already furnished and enable a full validation on form. Custom validation can obviously be added as such:
+In order to perform form validation, we use [Vuelidate](https://vuelidate.netlify.com/) library. Besides adding validation constraints, several filters are already furnished and enable a full validation on form. Custom validation can be added as such:
 
 ```typescript
 import { required } from 'vuelidate/lib/validators';

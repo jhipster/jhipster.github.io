@@ -13,7 +13,7 @@ sitemap:
 
 A showcase of awesome applications built with JHipster.
 
-If you want your application to be featured here just submit a PR to the [website](https://github.com/jhipster/jhipster.github.io) or let us know via Twitter by mentioning the [@jhipster](https://twitter.com/jhipster) handle.
+If you want your application to be featured here submit a PR to the [website](https://github.com/jhipster/jhipster.github.io) or let us know via Twitter by mentioning the [@jhipster](https://twitter.com/jhipster) handle.
 
 <br/><br/><br/>
 

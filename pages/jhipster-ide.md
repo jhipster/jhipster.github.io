@@ -36,7 +36,7 @@ Another nice feature is Xdocker (only for Eclipse available) which allows to edi
 
 ## Eclipse installation
 
-JHipster IDE is available in the [Eclipse Marketplace](https://marketplace.eclipse.org/content/jhipster-ide). The easiest way to install it is to drag the following icon <a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=3184658" class="drag" title="Drag to your running Eclipse workspace to install JHipster IDE"><img class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse workspace to install JHipster IDE" /></a> on the start page into your Eclipse or just open the marketplace dialog in Eclipse (Help > Eclipse Marketplace...) and search for <b>JHipster</b>.
+JHipster IDE is available in the [Eclipse Marketplace](https://marketplace.eclipse.org/content/jhipster-ide). The easiest way to install it is to drag the following icon <a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=3184658" class="drag" title="Drag to your running Eclipse workspace to install JHipster IDE"><img class="img-responsive" src="https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png" alt="Drag to your running Eclipse workspace to install JHipster IDE" /></a> on the start page into your Eclipse or open the marketplace dialog in Eclipse (Help > Eclipse Marketplace...) and search for <b>JHipster</b>.
 
 ![Eclipse installation]({{ site.url }}/images/jhipster_ide_eclipse.gif)
 
