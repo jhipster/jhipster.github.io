@@ -15,7 +15,7 @@ JHipster is a "full-stack" development tool, and its goal is to make you work ef
 
 However, it is a common requirement to separate the front-end and the back-end codes, typically because they are developed by different teams and have a different lifecycle.
 
-**Please note** that this isn't the default JHipster way of working: this isn't complex to do, and works well, but this is an advanced topic. If you are just getting started with JHipster, we recommend that you begin by using our standard way of working.
+**Please note** that this isn't the default JHipster way of working: this isn't complex to do, and works well, but this is an advanced topic. If you are getting started with JHipster, we recommend that you begin by using our standard way of working.
 
 ## Generating only a front-end or a back-end application
 
@@ -24,11 +24,11 @@ You can choose to generate only a JHipster back-end or JHipster front-end applic
 - `jhipster --skip-client` will only generate a back-end application (this is typically what JHipster microservices are)
 - `jhipster --skip-server` will only generate a front-end application
 
-This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are basically a monolith with the Zuul gateway service enabled).
+This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are monoliths with the Zuul gateway service enabled).
 
 ## Directory layout
 
-JHipster uses the standard Maven directory layout. When working on the back-end, you can just read the [Maven standard directory layout documentation](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
+JHipster uses the standard Maven directory layout. When working on the back-end, you can read the [Maven standard directory layout documentation](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
 
 When working on the front-end, there are 2 directories you need to know:
 
@@ -38,7 +38,7 @@ When working on the front-end, there are 2 directories you need to know:
 If you have separate teams working on the front-end and back-end, you have two solutions:
 
 - Both teams can work on the same project. As the directories are separated, there won't have much conflicts between teams. To make things even cleaner, both teams could work on separate branches.
-- The front-end code can be stored in a specific Git project, and then imported into the main back-end project as a Git sub-module. This would require to move the client-side build scripts, but this is a simple refactoring.
+- The front-end code can be stored in a specific Git project, and then imported into the main back-end project as a Git sub-module. This would require to move the client-side build scripts.
 
 ## HTTP requests routing and caching
 
@@ -64,8 +64,8 @@ This is an easy-to-use solution, but it can be less secure in production.
 JHipster provides out-of-the-box a CORS configuration:
 
 - CORS can be configured using the `jhipster.cors` property, as defined in [the JHipster common application properties]({{ site.url }}/common-application-properties/)
-- It is enabled by default in `dev` mode for monoliths and gateways. It is disabled by default for microservices as you are supposed to access them through a gateway.
-- It is disabled by default in `prod` mode, for security reasons.
+- It is enabled by default in `dev` mode for monoliths and gateways. It is turned off by default for microservices as you are supposed to access them through a gateway.
+- It is turned off by default in `prod` mode, for security reasons.
 
 ## Using NGinx
 
@@ -132,7 +132,7 @@ This configuration will require some tuning depending on your specific needs, bu
 ### Configuration with Oauth 2.0 and traefik
 Here is a sample `site.conf` for Oauth 2.0:
 if the server base name is `back`, and the name of the server hosting traefik is `api.jhipster.tech`.
-If this configuration is for a docker image, don't use `localhost` instead of `api.jhipster.tech` as it's resolv in container, not your host.
+If this configuration is for a docker image, don't use `localhost` instead of `api.jhipster.tech` as it is resolved in a container, not your host.
 
     server {
         listen 80;

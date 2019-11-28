@@ -32,10 +32,10 @@ _Please note: this Docker configuration is used to run your generated applicatio
 
 JHipster provides a complete Docker support, in order to:
 
-- Facilitate development, as you can start a full infrastructure very easily, even when using a complex microservices architecture
+- Facilitate development, as you can start a full infrastructure with a single command, even when using a complex microservices architecture
 - For people using Docker Swarm, deploying to production directly, as it uses the same Docker Compose configuration
 
-One great feature of using Docker Compose is that you can easily scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
+One great feature of using Docker Compose is that you can scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
 
 When generating your application, JHipster generates for you:
 
@@ -145,7 +145,7 @@ In the case of a microservice architecture, this configuration will also pre-con
 
 Running `docker-compose -f src/main/docker/app.yml up` already starts up your database automatically.
 
-If you just want to start your database, and not the other services, use the Docker Compose configuration of your database:
+If you only want to start your database, and not the other services, use the Docker Compose configuration of your database:
 
 - With MySQL: `docker-compose -f src/main/docker/mysql.yml up`
 - With MariaDB: `docker-compose -f src/main/docker/mariadb.yml up`
@@ -168,7 +168,7 @@ Follow these steps to do so:
 - Build a Docker image of your application: `./mvnw -Pprod clean verify jib:dockerBuild` or `./gradlew -Pprod clean bootJar jibDockerBuild`
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
-If you want to add or remove some MongoDB nodes, just repeat step 3 and 4.
+If you want to add or remove some MongoDB nodes, repeat step 3 and 4.
 
 ### Couchbase Cluster Mode
 
@@ -183,7 +183,7 @@ Follow these steps to do so:
 
 ### Cassandra
 
-Unlike the other databases, where the schema migrations are executed by the application itself, Cassandra schema migrations are executed by a dedicated Docker container.
+Unlike the other databases, where the schema migrations are applied by the application itself, Cassandra schema migrations are applied by a dedicated Docker container.
 
 #### <a name="cassandra-in-development"></a>Cassandra in development
 To start a Cassandra cluster to run your application locally, you can use the docker_compose file for development use:
@@ -198,7 +198,7 @@ See the [Cassandra page]({{ site.url }}/using-cassandra/) for more information o
 
 #### Cassandra in production:
 The `app.yml` docker-compose file uses `cassandra-cluster.yml` to configure the cluster.
-The application starts after few seconds (see _JHIPSTER_SLEEP_ variable) to gives the time to the cluster to start and the migrations to be executed.
+The application starts after few seconds (see _JHIPSTER_SLEEP_ variable) to gives the time to the cluster to start and the migrations to be applied.
 
 One big difference between Cassandra and the other databases, is that you can scale your cluster with Docker Compose. To have X+1 nodes in your cluster, run:
 
@@ -217,7 +217,7 @@ If you want to use the MSSQL Docker image with JHipster, there are a few steps t
 
 Running `docker-compose -f src/main/docker/app.yml up` already starts up your search engine automatically.
 
-If you just want to start your Elasticsearch node, and not the other services, use its specific Docker Compose configuration:
+If you only want to start your Elasticsearch node, and not the other services, use its specific Docker Compose configuration:
 
 - `docker-compose -f src/main/docker/elasticsearch.yml up`
 
@@ -246,7 +246,7 @@ To make Keycloak work, you need to add the following line to your hosts file (`/
 
 This is because you will access your application with a browser on your machine (which name is localhost, or `127.0.0.1`), but inside Docker it will run in its own container, which name is `keycloak`.
 
-If you just want to start Keycloak, and not the other services, use its specific Docker Compose configuration:
+If you only want to start Keycloak, and not the other services, use its specific Docker Compose configuration:
 
 - `docker-compose -f src/main/docker/keycloak.yml up`
 

@@ -77,12 +77,12 @@ Waiting 15s for AWS to complete Elastic IP Zero Downtime transition ...
 Deployment completed successfully. myuser/jhipster:1.0 is up and running at http://jhipster-myuser.boxfuse.io:8080/</pre>
 
 Note that you didn't need to explicitly specify things like ports, healthcheck urls or database types. By default Boxfuse auto-discovers those
-from your JHipster war based on your `application-prod.yml` file and the included jars. You can of course
-override those auto-discovered settings if you want to, but in most cases you won't need to.
+from your JHipster war based on your `application-prod.yml` file and the included jars. 
+You can override those auto-discovered settings if you want to, but in most cases you won't need to.
 
 ## Deploying updates
 
-To deploy an update to an existing application simply follow the preparation and deploy steps outlined above. All updates
+To deploy an update to an existing application follow the preparation and deploy steps outlined above. All updates
 are performed as zero downtime-blue deployments.
 
 ## More information
