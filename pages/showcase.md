@@ -21,6 +21,16 @@ If you want your application to be featured here submit a PR to the [website](ht
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
+                <img width="560" height="315" src="{{ site.url }}/images/showcase/hatequeue.png" />
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label"><a href="https://www.hatequeue.com" target="_blank" rel="noopener">Hatequeue</a></h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/beta.devoxx.com.png" />
             </div>
             <div class="caption">
