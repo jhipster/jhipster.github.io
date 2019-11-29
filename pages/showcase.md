@@ -25,6 +25,7 @@ If you want your application to be featured here submit a PR to the [website](ht
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label"><a href="https://www.hatequeue.com" target="_blank" rel="noopener">Hatequeue</a></h3>
+                <p><b>Created by:</b> <a href="http://www.djavafactory.com" target="_blank" rel="noopener">DJava Factory</a></p>
             </div>
         </div>
     </div>
