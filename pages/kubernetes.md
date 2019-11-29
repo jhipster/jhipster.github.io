@@ -137,7 +137,7 @@ Consequently, for microservices applications, the JHipster Kubernetes sub-genera
 
 ### Managing the JHipster Registry or Consul in Kubernetes
 
-For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a certain kinds of Kubernetes resources which can handle stateful applications and will let you scale your service registries for high availability. For more information on high-availability for Eureka and Consul refer to their respective documentation.
+For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a certain kind of Kubernetes resources which can handle stateful applications and will let you scale your service registries for high availability. For more information on high-availability for Eureka and Consul refer to their respective documentation.
 
 ### Centralized configuration in Kubernetes
 
