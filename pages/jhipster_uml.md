@@ -551,7 +551,7 @@ We follow the same guidelines as JHipster, with a few additions:
 
 ## <a name="parsermodifications"></a>Parser modifications
 
-The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) hazzle-free, provided the XMI can be parsed.
+The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) hassle-free, provided the XMI can be parsed.
 
 
 ### Adding a parser
