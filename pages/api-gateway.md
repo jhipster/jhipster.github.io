@@ -84,7 +84,7 @@ JHipster provides the option to generate a "UAA" (User Account and Authenticatio
 
 You will find all UAA-related information on our specific [JHipster UAA documentation]({{ site.url }}/using-uaa/).
 
-Then, the gateway uses Spring Security's JWT implementation to send JWT tokens to the microservices, so this works similar as with the JWT configuration detailed above.
+Then, the gateway uses Spring Security's JWT implementation to send JWT tokens to the microservices, so this works similarly as with the JWT configuration detailed above.
 
 ## <a name="documentation"></a> Automatic documentation
 
