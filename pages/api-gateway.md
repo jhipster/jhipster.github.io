@@ -75,7 +75,7 @@ Unlike JWT, those tokens are not self-sufficient, and should be stateful, which 
   - If you have selected a caching option ([here is the "Using a cache" documentation]({{ site.url }}/using-cache/)) when generating your JHipster microservice, a specific `CachedUserInfoTokenServices` Spring Bean will be generated, which will cache those calls. When properly tuned, this will remove the performance issue.
   - If you want more information on this "user info" request, it is configured using the standard Spring Boot configuration key `security.oauth2.resource.userInfoUri` in your `src/main/resources/application.yml` configuration file.
 - Authentication is not automatically synchronized between the application and Keycloak. Please note that this the standard OpenID Connect workflow, and that we expect to do some specific improvements in JHipster on this matter. As a result:
-  - When users log out of the application, they will be automatically logged in again if they refreshes the browser: this is because the user is still logged in Keycloak, which provides automatic authentication.
+  - When users log out of the application, they will be automatically logged in again if they refresh the browser: this is because the user is still logged in Keycloak, which provides automatic authentication.
   - When a user's session is invalidated in Keycloak, if the user is already logged into the application, they will still be able to use the application for a while. This is because OpenID Connect is a stateful mechanism, and the application doesn't know immediately that the session has been invalidated.
 
 ### JHipster UAA
