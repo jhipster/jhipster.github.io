@@ -16,7 +16,7 @@ This is helpful to:
 
 - Have the latest JHipster features in an existing application
 - Get the changes when there is an important bug fix or security update
-- Retain your changes in your codebase, and easily merge them with newly generated code
+- Retain your changes in your codebase, and merge them with newly generated code
 
 _Please read this page carefully before doing an upgrade, to understand how the upgrade process works_
 
@@ -68,24 +68,24 @@ Below are the steps processed by the JHipster upgrade sub-generator:
 1. Check if there is a new version of JHipster available (not applicable if you are using `--force`).
 2. Check if the application is already initialized as a `git` repository, or else JHipster will initialize one for you and commit the current codebase to the master branch.
 3. Check to ensure that there are no un-committed local changes in the repository. The process will exit if there are un-committed changes found.
-4. Check if a `jhipster_upgrade` branch exists. If not, a branch is created: details about this step is provided in the "Specific steps executed on first upgrade" section.
+4. Check if a `jhipster_upgrade` branch exists. If not, a branch is created: details about this step is provided in the "Specific steps on first upgrade" section.
 5. Checkout the `jhipster_upgrade` branch.
 6. Upgrade JHipster to the latest available version globally.
 7. Clean the current project directory.
 8. Re-generate the application using the `jhipster --force --with-entities` command.
 9. Commit the generated code to the `jhipster_upgrade` branch.
 10. Merge the `jhipster_upgrade` branch back to the original branch from where the `jhipster upgrade` command was launched.
-11. Now you just need to proceed with resolving merge conflicts if there are any.
+11. Now you need to proceed with resolving merge conflicts if there are any.
 
 Congratulations, your application is now upgraded with the latest version of JHipster!
 
-## Specific steps executed on first upgrade
+## Specific steps on first upgrade
 
-On the first execution of the JHipster upgrade sub-generator, in order to avoid erasing all your changes, some additional steps are run:
+On the first run of the JHipster upgrade sub-generator, in order to avoid erasing all your changes, some additional steps are run:
 
 1. A `jhipster_upgrade` branch is created orphan (it has no parent).
 2. The whole application is generated (using your current JHipster version).
-3. A block-merge commit is made on the `master` branch: no alteration is made on your codebase on the `master` branch; this is just a practical way to record in Git that the HEAD of `master` is up-to-date with the current JHipster version.
+3. A block-merge commit is made on the `master` branch: no alteration is made on your codebase on the `master` branch; this is a practical way to record in Git that the HEAD of `master` is up-to-date with the current JHipster version.
 
 ### Advice
 

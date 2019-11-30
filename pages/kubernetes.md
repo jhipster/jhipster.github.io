@@ -107,7 +107,7 @@ It will create a Kubernetes deployment for your application and its associated d
 
 ## Deploying a microservice application
 
-Before deploying your microservices, first deploy the service discovery service (JHipster Registry or Consul). If you selected JHipster Console or Prometheus, it is recommended to deploy them before the microservices. The sub-generator placed a README file with the correct order of execution.
+Before deploying your microservices, first deploy the service discovery service (JHipster Registry or Consul). If you selected JHipster Console or Prometheus, it is recommended to deploy them before the microservices. The sub-generator placed a README file with the correct order of deployments.
 
 ### Custom namespaces
 

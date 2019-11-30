@@ -54,7 +54,7 @@ Supported methods:
 
 ### Multiple relationship bodies
 
-If you're tired of having _n_ relationships of the same type in your JDL file, fear not! There's a solution.
+If you're tired of having _n_ relationships of the same type in your JDL file, don't worry! There's a solution.
 
 Take this JDL sample for instance:
 ```jdl
@@ -127,7 +127,7 @@ relationship OneToOne {
 }
 ```
 
-Not specifying an injected field is just the simple form of using having an unidirectional relationship.
+Not specifying an injected field is the short form of using having an unidirectional relationship.
 
 ---
 
@@ -206,7 +206,7 @@ relationship ManyToMany {
 
 #### Commenting
 
-Adding comments for relationships is possible, just like so:
+Adding comments for relationships is possible:
 
 ```jdl
 relationship OneToOne {
