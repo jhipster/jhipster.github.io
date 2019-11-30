@@ -78,6 +78,9 @@ We will create the `Owner` first. Here are the relevant JHipster questions for t
 
 Please note that we selected the default options concerning the names of the relationships.
 
+Also note that, after generating the entity, the generator will inform you that some errors occurred while generating
+the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
+
 Now we can generate the `Car`:
 
     jhipster entity Car
@@ -252,7 +255,8 @@ Then generate the `Car`, with the owning side of the many-to-many relationship:
     ? What is the name of the relationship? driver
     ? What is the type of the relationship? many-to-many
     ? Is this entity the owner of the relationship? Yes
-    ? When you display this relationship with Angular, which field from 'Driver' do you want to use? id
+    ? What is the name of this relationship in the other entity? car
+    ? When you display this relationship on client-side, which field from 'Drivy' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
 
 The same can be achieved using the below JDL as well
 
