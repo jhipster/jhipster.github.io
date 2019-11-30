@@ -6,7 +6,7 @@ redirect_from:
   - /managing_relationships.html
 sitemap:
     priority: 0.7
-    lastmod: 2019-02-07T18:40:00-00:00
+    lastmod: 2019-11-30T18:40:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships
@@ -27,10 +27,11 @@ A relationship works between two entities, and JHipster will generate the code f
 
 This page describes how to create relationships with JHipster using the standard command-line interface.  If you want to create many entities and relationships, you might prefer to use a graphical tool.
 
-In that case, two options are available:
+In that case, three options are available:
 
-- [JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor.
 - [JDL Studio](https://start.jhipster.tech/jdl-studio/), our online tool to create entities and relationships using our domain-specific language.
+- [JHipster IDE]({{ site.url }}/jhipster-ide/), a plugin that provides textual editing support of JDL files for popular IDEs.
+- Deprecated: _[JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor._
 
 You can generate entities with relationships from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
 
