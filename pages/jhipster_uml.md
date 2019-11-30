@@ -500,7 +500,7 @@ Here is the [repo](https://github.com/guillaumefinance/MDG-Sparx-EA-UML-JHipster
 JHipster and JHipster UML support both support enumerations.
 Here's how you define them:
   - For Modelio, drag and drop the `Enumeration` object and place it somewhere. Finally, add the `Enumeration Literal` object to the enum to add it;
-  - For UML Designer, there is the `Enumeration` object that can be placed and used. However, the literal is not called `Enumeration Literal` but on;y `Literal`;
+  - For UML Designer, there is the `Enumeration` object that can be placed and used. However, the literal is not called `Enumeration Literal` but only `Literal`;
   - GenMyModel possess the objects needed: `Enum` and `Enum Literal` in the main object panel (on the left hand side of the screen).
 
 ## <a name="tablenames"></a>Table names
