@@ -58,6 +58,14 @@ of the relationship (a `Team` can have a many-to-many relationship to `User`, bu
 
 When using the UAA authentication type, you can only create relationships to the User entity if the related entity is also within the UAA microservice.
 
+**A small warning about entity & relationship generation**: in the following examples, you'll notice that compilation
+_may_ fail in some cases because destination entities aren't generated and that's normal (this warning can be ignored).
+There are two ways to avoid that:
+  - Generate the entities first, then the relationships
+  - Use the JDL
+
+---
+
 ## A bidirectional one-to-many relationship
 
 Let's start with two entities, a `Owner` and a `Car`. A owner can have many cars, and a car can have only one owner.
