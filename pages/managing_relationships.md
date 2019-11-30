@@ -69,7 +69,7 @@ We will create the `Owner` first. Here are the relevant JHipster questions for t
 
     jhipster entity Owner
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Car
     ? What is the name of the relationship? car
@@ -82,7 +82,7 @@ Now we can generate the `Car`:
 
     jhipster entity Car
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Owner
     ? What is the name of the relationship? owner
@@ -118,14 +118,14 @@ In that case, you would still create the `Owner` first, this time with no relati
 
     jhipster entity Owner
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? No
 
 And then the `Car` entity, as in the previous example:
 
     jhipster entity Car
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Owner
     ? What is the name of the relationship? owner
@@ -173,14 +173,14 @@ Generate the `Person` entity, which has two one-to-many relationships to the `Ca
 
     jhipster entity Person
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Car
     ? What is the name of the relationship? ownedCar
     ? What is the type of the relationship? one-to-many
     ? What is the name of this relationship in the other entity? owner
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Car
     ? What is the name of the relationship? drivedCar
@@ -191,14 +191,14 @@ Generate the `Car` entity, which use the same relationship name has was configur
 
     jhipster entity Car
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Person
     ? What is the name of the relationship? owner
     ? What is the type of the relationship? many-to-one
     ? When you display this relationship with Angular, which field from 'Person' do you want to use? id
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Person
     ? What is the name of the relationship? driver
@@ -234,7 +234,7 @@ Let us generate the non-owning side of the relationship, the `Driver`, with a ma
 
     jhipster entity Driver
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Car
     ? What is the name of the relationship? car
@@ -246,7 +246,7 @@ Then generate the `Car`, with the owning side of the many-to-many relationship:
 
     jhipster entity Car
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Driver
     ? What is the name of the relationship? driver
@@ -275,7 +275,7 @@ Let us create the non-owning side of the relationship, in our case the `Driver`:
 
     jhipster entity Driver
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Car
     ? What is the name of the relationship? car
@@ -287,7 +287,7 @@ Then generate the `Car`, which owns the relationship:
 
     jhipster entity Car
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Driver
     ? What is the name of the relationship? driver
@@ -320,14 +320,14 @@ Generate the `Passport` entity first, without any relationship to its owner:
 
     jhipster entity Passport
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? No
 
 Then, generate the `Citizen` entity:
 
     jhipster entity Citizen
     ...
-    Generating relationships with other entities
+    Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Passport
     ? What is the name of the relationship? passport
