@@ -112,7 +112,8 @@ JHipster UML is a tool that _can_ be used with the JHipster's generator. If you'
 ***
 
 # <a name="howtouse"></a>How to use it
-JHipster-UML is not hard to use, you only need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
+
+To use JHipster-UML, you need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
 
 
 ## <a name="umlfile"></a>The UML file
