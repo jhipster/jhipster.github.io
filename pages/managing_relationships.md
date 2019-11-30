@@ -259,7 +259,7 @@ Then generate the `Car`, with the owning side of the many-to-many relationship:
     ? What is the type of the relationship? many-to-many
     ? Is this entity the owner of the relationship? Yes
     ? What is the name of this relationship in the other entity? car
-    ? When you display this relationship on client-side, which field from 'Drivy' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
+    ? When you display this relationship on client-side, which field from 'Driver' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
 
 The same can be achieved using the below JDL as well
 
@@ -302,7 +302,7 @@ Then generate the `Car`, which owns the relationship:
     ? Is this entity the owner of the relationship? Yes
     ? Do you want to use JPA Derived Identifier - @MapsId? No
     ? What is the name of this relationship in the other entity? car
-    ? When you display this relationship with Angular, which field from 'Driver' do you want to use? id
+    ? When you display this relationship on client-side, which field from 'Driver' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
 
 The same can be achieved using the below JDL as well
 
