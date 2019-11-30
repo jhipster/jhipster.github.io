@@ -39,13 +39,14 @@ You can generate entities with relationships from a JDL file using the `import-j
 
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
 
-1. [A bidirectional one-to-many relationship](#1)
-2. [A unidirectional many-to-one relationship](#2)
-3. [A unidirectional one-to-many relationship](#3)
-4. [Two one-to-many relationships on the same two entities](#4)
-5. [A many-to-many relationship](#5)
-6. [A one-to-one relationship](#6)
-7. [A unidirectional one-to-one relationship](#7)
+1. [A bidirectional one-to-many relationship](#a-bidirectional-one-to-many-relationship)
+1. [A unidirectional many-to-one relationship](#a-unidirectional-many-to-one-relationship)
+1. [A unidirectional one-to-many relationship](#a-unidirectional-one-to-many-relationship)
+1. [Two one-to-many relationships on the same two entities](#two-one-to-many-relationships-on-the-same-two-entities)
+1. [A many-to-many relationship](#a-many-to-many-relationship)
+1. [A one-to-one relationship](#a-one-to-one-relationship)
+1. [A unidirectional one-to-one relationship](#a-unidirectional-one-to-one-relationship)
+ - [Using JPA Derived Identifiers(@MapsId) for one-to-one relationship](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
 
 _Tip: the `User` entity_
 
@@ -57,7 +58,7 @@ of the relationship (a `Team` can have a many-to-many relationship to `User`, bu
 
 When using the UAA authentication type, you can only create relationships to the User entity if the related entity is also within the UAA microservice.
 
-## <a name="1"></a> A bidirectional one-to-many relationship
+## A bidirectional one-to-many relationship
 
 Let's start with two entities, a `Owner` and a `Car`. A owner can have many cars, and a car can have only one owner.
 
@@ -104,7 +105,7 @@ The same can be achieved using the below JDL as well
 
 That's it, you now have a one-to-many relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
 
-## <a name="2"></a> A unidirectional many-to-one relationship
+## A unidirectional many-to-one relationship
 
 In the previous example we had a bidirectional relationship: from a `Car` instance you could find its owner, and from a `Owner` instance you could get all of its cars.
 
@@ -146,7 +147,7 @@ This is the corresponding JDL:
     }
 
 
-## <a name="3"></a> A unidirectional one-to-many relationship
+## A unidirectional one-to-many relationship
 
 A one-to-many unidirectional relationship means that the `Owner` instance can get its collection of cars, but not the opposite. It is the opposite from the previous example.
 
@@ -163,7 +164,7 @@ You have two solutions for this:
 
 This is not supported with JDL as it isn't in JHipster.
 
-## <a name="4"></a> Two one-to-many relationships on the same two entities
+## Two one-to-many relationships on the same two entities
 
 For this example, a `Person` can be the owner of many cars, and he can also be the driver of many cars:
 
@@ -223,7 +224,7 @@ The same can be achieved using the below JDL as well
 
 A `Car` can now have a driver and a owner, which are both `Person` entities. On the generated Angular/React client UI you will dropdowns in `Car` to select a `Person` for `owner` field and `driver` field.
 
-## <a name="5"></a> A many-to-many relationship
+## A many-to-many relationship
 
 A `Driver` can drive many cars, but a `Car` can also have many drivers.
 
@@ -272,7 +273,7 @@ The same can be achieved using the below JDL as well
 
 That's it, you now have a many-to-many relationship between those two entities! On the generated Angular/React client UI you will have a multi-select dropdown in `Car` to select multiple `Driver` since `Car` is the owning side.
 
-## <a name="6"></a> A one-to-one relationship
+## A one-to-one relationship
 
 Following our example, a one-to-one relationship would mean that a `Driver` can drive only one `Car`, and a `Car` can only have one `Driver`.
 
@@ -317,7 +318,7 @@ That's it, you now have a one-to-one relationship between those two entities! On
 
 [More information on using one-to-one with JPA Derived Identifiers](#8)
 
-## <a name="7"></a> A unidirectional one-to-one relationship
+## A unidirectional one-to-one relationship
 
 A unidirectional one-to-one relationship means that the `citizen` instance can get its passport, but the `passport` instance can't get to its owner.
 
@@ -355,7 +356,7 @@ This is the corresponding JDL:
       Citizen{passport} to Passport
     }
 
-### <a name="8">  Using JPA Derived Identifiers(@MapsId) for one-to-one relationship
+### Using JPA Derived Identifiers(@MapsId) for one-to-one relationship
   
 [JPA Derived Identifiers](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/MapsId.html) can be used to have [the most efficient mapping](https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate/).
 
