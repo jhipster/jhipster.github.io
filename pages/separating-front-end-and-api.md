@@ -132,7 +132,7 @@ This configuration will require some tuning depending on your specific needs, bu
 ### Configuration with Oauth 2.0 and traefik
 Here is a sample `site.conf` for Oauth 2.0:
 if the server base name is `back`, and the name of the server hosting traefik is `api.jhipster.tech`.
-If this configuration is for a docker image, don't use `localhost` instead of `api.jhipster.tech` as it is resolved in a container, not your host.
+If this configuration is for a docker image, don't use `localhost` instead of `api.jhipster.tech` as it is resolved in a container, not your local machine.
 
     server {
         listen 80;
