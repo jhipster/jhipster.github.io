@@ -65,6 +65,9 @@ So this is a simple one-to-many relationship (one owner has many cars) on one si
 
     Owner (1) <-----> (*) Car
 
+Note that after generating the entity, the generator will inform you that some errors occurred while generating
+the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
+
 We will create the `Owner` first. Here are the relevant JHipster questions for the `Owner`:
 
     jhipster entity Owner
@@ -77,9 +80,6 @@ We will create the `Owner` first. Here are the relevant JHipster questions for t
     ? What is the name of this relationship in the other entity? owner
 
 Please note that we selected the default options concerning the names of the relationships.
-
-Also note that, after generating the entity, the generator will inform you that some errors occurred while generating
-the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
 
 Now we can generate the `Car`:
 
@@ -232,6 +232,9 @@ A `Driver` can drive many cars, but a `Car` can also have many drivers.
 At the database level, this means we will have a join table between the `Driver` and the `Car` tables.
 
 For JPA, one of those two entities will need to manage the relationship: in our case, that would be the `Car` entity, which will be responsible to add or remove drivers.
+
+Please note that, after generating the entity, the generator will inform you that some errors occurred while generating
+the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
 
 Let us generate the non-owning side of the relationship, the `Driver`, with a many-to-many relationship:
 
