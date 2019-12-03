@@ -18,20 +18,6 @@ sitemap:
 
 If you want more control on your setup, you can also choose "Import project".
 
-## Exclude directories
-
-If you use Git, just initialize your project (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
-
-To exclude directories manually:
-
-- Right-click on the `node_modules/` folder
-- Select "Mark Directory As" and select "Excluded"
-
-![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
-
-As the `node_modules/` directory is only used internally by JHipster, it can be safely excluded.
-
-
 ## Spring Support (not available in Community Edition)
 
 To add Spring support to many of the JHipster modules from a new project first go to `File → Project Structure`.
