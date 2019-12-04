@@ -13,7 +13,7 @@ sitemap:
 
 JHipster is developed by a team of people around the world. We have a lot of contributors ([top 100 list here](https://github.com/jhipster/generator-jhipster/graphs/contributors)), but members of the core team are listed here.
 
-If you want to join the team, or just see how we work, our community rules are at the end of this page.
+If you want to join the team, or see how we work, our community rules are at the end of this page.
 
 ## Project leads
 <div class="row">
@@ -147,6 +147,15 @@ If you want to join the team, or just see how we work, our community rules are a
             <div class="caption">
                 <h3>Frederik Hahne</h3>
                 <p><a href="https://twitter.com/atomfrede"><i>@atomfrede</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/23017435?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Kaido Hallik</h3>
+                <p></p>
             </div>
         </div>
     </div>
@@ -408,7 +417,7 @@ Those discussion channels are publicly viewable, as everything we do in JHipster
 - Participate regularly in the project (commits, PRs, etc)
 - Ask someone from the current board, with some bio and background information, and that person will submit a vote on the dev mailing list
 - Everybody on the dev mailing list can vote (+1 if they agree, -1 if they don’t)
-    - Just one “-1” vote will reject the new member, but the person who votes “-1” will need to explain why
+    - One “-1” vote will decline adding the new member, but the person who votes “-1” will need to explain why
 
 # What do people in the board of developers gain?
 
@@ -426,4 +435,4 @@ Board members will therefore become "retired" if:
 - They tell us they want to leave the project
 - They don't contribute to the project for more than 1 year
 
-"Retired" member can become active members again, if they contribute back to the project and get elected again. They will of course have an advantage over other contributors, as they already know the team.
+"Retired" member can become active members again, if they contribute back to the project and get elected again. They will have an advantage over other contributors, as they already know the team.

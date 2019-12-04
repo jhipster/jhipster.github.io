@@ -76,7 +76,7 @@ Please note that the default language translations would be based on what you ha
 [Redux](https://redux.js.org/) is a predictable state container for JavaScript. It is used
 together with React to manage the state of your React components.
 
-Basically, Redux provide an object **store** used to store the whole state of your application.
+Redux provides an object **store** used to store the whole state of your application.
 To access this store and therefore update your state components, the only way is to dispatch
 **actions** which describe the fact that an update is requested, then the **reducers** will
 define how the state is updated in response to these actions.
@@ -127,7 +127,7 @@ export default (state = initialState, action) => {
 ```
 
 In order to access your store and update the current application state, you need to dispatch
-actions to the store as mentioned previously. Actions are simple JavaScript objects and must have a **type**, which describe what
+actions to the store as mentioned previously. Actions are JavaScript objects and must have a **type**, which describe what
 the action is going to perform and a usually they have also a **payload** which corresponds to
 data you want to pass to the store.
 
@@ -152,7 +152,7 @@ when necessary (for instance, everytime the component is updated).
 
 Jhipster uses the [React router](https://github.com/ReactTraining/react-router) to organize the differents parts of your application.
 
-When it comes to routes that require authentication, the `PrivateRoute` component generated is used. This component will simply prevent any unauthenticated user from accessing a route.
+When it comes to routes that require authentication, the `PrivateRoute` component generated is used. This component will prevent any unauthenticated user from accessing a route.
 
 Here is an example of PrivateRoute usage:
 

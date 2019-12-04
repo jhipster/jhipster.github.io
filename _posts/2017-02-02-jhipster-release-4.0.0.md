@@ -75,7 +75,7 @@ This means that a JHipster-generated project is of much higher quality than most
 What's next?
 ------------
 
-As this is a 4.0.0 release, with a lot of changes, we expect to release regularly patch versions. Be sure to follow [@java_hipster](https://twitter.com/java_hipster) to be notified of those new versions!
+As this is a 4.0.0 release, with a lot of changes, we expect to release regularly patch versions. Be sure to follow [@jhipster](https://twitter.com/jhipster) to be notified of those new versions!
 
 Our documentation is not totally updated, as it is very big. If you see any issue, don't hesitate to create a ticket, and maybe even send a pull request, on our [documentation repository](https://github.com/jhipster/jhipster.github.io).
 
@@ -131,4 +131,4 @@ If you find any issue with this release, don't hesitate to:
 
 If the issue you have is an urgent bug or security issue, please:
 
-- Contact [@java_hipster](https://twitter.com/java_hipster) on Twitter
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter

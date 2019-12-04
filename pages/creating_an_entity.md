@@ -44,11 +44,12 @@ Below are the supported options.
 *   `--regenerate` - This will regenerate an existing entity without asking any questions.
 *   `--skip-server` - This will skip the server-side code and will generate only the client-side code.
 *   `--skip-client` - This will skip the client-side code and will generate only the server-side code.
+*   `--skip-db-changelog` - This will skip generation of database changelog (using Liquibase for SQL databases).
 *   `--db` - Specify the database when skipping server side generation, has no effect otherwise.
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-Don't choose a short name for your entity (see <a href="https://github.com/jhipster/generator-jhipster/issues/8446" target="_blank">this ticket</a>).
+Don't choose a short name for your entity (see <a href="https://github.com/jhipster/generator-jhipster/issues/8446" target="_blank" rel="noopener">this ticket</a>).
 
 </div>
 
@@ -160,8 +161,7 @@ Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the
 When the entity is generated, JHipster provides 4 pagination options:
 
 *   No pagination (in that case, the back-end won't be paginated)
-*   A simple pager, based on [the Bootstrap pager](http://getbootstrap.com/components/#pagination-pager)
-*   A complete pagination system, based on [the Bootstrap pagination component](http://getbootstrap.com/components/#pagination)
+*   A complete pagination system, based on [the Bootstrap pagination component](https://getbootstrap.com/docs/4.3/components/pagination/){: target="_blank"}
 *   An infinite scroll system, based on [the infinite scroll directive](http://sroze.github.io/ngInfiniteScroll/)
 
 ## Updating an existing entity

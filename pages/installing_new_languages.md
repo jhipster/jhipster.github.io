@@ -28,44 +28,45 @@ These are the currently supported languages
 *   Armenian
 *   Belarusian
 *   Bengali
-*   Indonesian
 *   Catalan
 *   Chinese (Simplified)
 *   Chinese (Traditional)
-*   Czech
-*   Danish
-*   Dutch
-*   English
-*   Estonian
+*   Czech 
+*   Danish 
+*   Dutch 
+*   English 
+*   Estonian 
 *   Farsi
-*   French
-*   Galician
-*   German
-*   Greek
-*   Hindi
-*   Hungarian
-*   Italian
-*   Japanese
-*   Korean
-*   Marathi
-*   Myanmar
-*   Polish
-*   Portuguese
+*   Finnish 
+*   French 
+*   Galician 
+*   German 
+*   Greek 
+*   Hindi 
+*   Hungarian 
+*   Indonesian
+*   Italian 
+*   Japanese 
+*   Korean 
+*   Marathi 
+*   Myanmar 
+*   Polish 
 *   Portuguese (Brazilian)
-*   Romanian
-*   Russian
-*   Slovak
-*   Serbian
-*   Spanish
-*   Swedish
-*   Turkish
-*   Tamil
-*   Thai
-*   Turkish
+*   Portuguese 
+*   Romanian 
+*   Russian 
+*   Slovak 
+*   Serbian 
+*   Spanish 
+*   Swedish 
+*   Turkish 
+*   Tamil 
+*   Telugu 
+*   Thai 
 *   Ukrainian
 *   Uzbek (Cyrillic)
 *   Uzbek (Latin)
-*   Vietnamese
+*   Vietnamese 
 
 _Your language is missing in JHipster? Help us improve the project with a PR!_
 
@@ -77,7 +78,7 @@ To do this you can run the languages sub-generator with:
 
 ![]({{ site.url }}/images/install_new_languages.png)
 
-Note that you will need to regenerate your entities if you would like to have them translated in the language you just added.
+Note that you will need to regenerate your entities if you would like to have them translated in the language you added right now.
 
 ## How to add a new language that is not supported?
 

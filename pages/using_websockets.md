@@ -17,12 +17,12 @@ JHipster currently uses Spring WebSockets as its implementation, so you will fin
 
 This option has a few limitations:
 
-- By default, we use the dispatcher provided by Spring Websockets, which is an in-memory implementation. Obviously, it will not scale if you want to use several servers. If you want to do so, have a look at the Spring WebSockets documentation which explains how to configure an external broker.
+- By default, we use the dispatcher provided by Spring Websockets, which is an in-memory implementation. It will not scale if you want to use several servers. If you want to do so, have a look at the [Spring WebSockets documentation]((http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html)) which explains how to configure an external broker.
 
 ## The "Tracker" example
 
-JHipster provides a simple "tracker" example out-of-the-box. Located in the `admin` menu, it will track the other users' behavior: you will see their login and IP, and which page they are currently viewing.
+JHipster provides a "tracker" example out-of-the-box. Located in the `admin` menu, it will track the other users' behavior: you will see their login and IP, and which page they are currently viewing.
 
-- This is provided as an example so you can easily get started using WebSockets, not as a "production-ready" user tracker, but it works quite well.
+- This is provided as an example so you can get started using WebSockets, not as a "production-ready" user tracker, but it works quite well.
 - It will show you how to integrate WebSockets with Spring Security, which is quite a complex topic
 - This works because JHipster is a Single-Page Web Application, so the WebSockets connections are not reinitialized between each page: this is where you get one of the big benefits of JHipster's architecture

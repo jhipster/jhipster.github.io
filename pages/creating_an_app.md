@@ -37,9 +37,13 @@ Answer the questions asked by the generator to create an application tailored to
 
 Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd).
 
+**Note** if you are using Maven and changed front end files after first run of the `./mvnw` command then you must run `./mvnw -Pwebpack` to see the latest front end version (Gradle detects front end changes automatically and recompiles front end if needed).
+
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
 **Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start` or `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+
+If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webpack` or `./gradlew -x webpack`. It speeds up especially Gradle.
 
 ## <a name="2"></a> Questions asked when generating an application
 
@@ -97,7 +101,7 @@ You can choose between:
 
 This is the database you will use with your "production" profile. To configure it, please modify your `src/main/resources/config/application-prod.yml` file.
 
-If you want to use Oracle, you will need to [install the Oracle JDBC driver manually]({{ site.url }}/using-oracle/).
+If you want to use Oracle, you might need to be aware of current limitations when [using Oracle database]({{ site.url }}/using-oracle/).
 
 ### Which _development_ database would you like to use?
 
@@ -111,7 +115,7 @@ To configure it, please modify your `src/main/resources/config/application-dev.y
 
 ### Do you want to use the Spring cache abstraction?
 
-The Spring cache abstraction allows to use different cache implementations: you can use [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [Hazelcast](http://www.hazelcast.com/) (distributed cache), or [Infinispan](http://infinispan.org/) (another distributed cache). This can have a very positive impact on your application's performance, and hence it is a recommended option.
+The Spring cache abstraction allows to use different cache implementations: you can use [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [Hazelcast](http://www.hazelcast.com/) (distributed cache), [Infinispan](http://infinispan.org/) (distributed cache), [Memcached](https://memcached.org/) (another distributed cache) or [Redis](https://redis.io/) (configured as a single server cache). This can have a very positive impact on your application's performance, and hence it is a recommended option.
 
 ### Do you want to use Hibernate 2nd level cache?
 
@@ -228,6 +232,7 @@ Here are the options you can pass:
 * `--dto-suffix` - Add suffix after DTOs class names (Default: DTO)
 * `--yarn` - Use Yarn instead of NPM (Default: false)
 * `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
+* `--skip-fake-data` - Skip generation of fake data for development
 
 ## <a name="4"></a> Tips
 

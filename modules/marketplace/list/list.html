@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <div class="card-title">
                         <div class="title"><a ng-click="details(module)" href="">{(module.package.name | jhiModuleFilter)}</a><small> {(module.package.version)}</small></div>
-                        <div class="description">by <a ng-href="{(module.package.author.url)}" target="_blank">{(module.package.author.name)}</a></div>
+                        <div class="description">by <a ng-href="{(module.package.author.url)}" target="_blank" rel="noopener">{(module.package.author.name)}</a></div>
                         <div class="description">Maintained by {(module.package.maintainers | jhiAuthorFilter)}. Published on {(module.package.date | date)}</div>
                         <div class="description">{(module.package.description)}</div>
                     </div>

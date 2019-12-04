@@ -21,7 +21,8 @@ JHipster provides several options to monitor your applications at runtime.
 
 ## <a name="generated-dashboards"></a> Generated dashboards
 
-For monoliths and gateways, JHipster generates several dashboards to monitor each application. Those dashboards are available at runtime, and are the easiest way to do some simple monitoring.
+For monoliths and gateways, JHipster generates several dashboards to monitor each application. 
+Those dashboards are available at runtime, and are the easiest way to do some monitoring.
 
 ![JHipster Metrics page][jhipster-metrics-page]
 
@@ -40,17 +41,18 @@ By clicking on the Expand button next to the JVM thread metrics, you will get a 
 
 ### The health dashboard
 
-The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. Many health checks are provided out-of-the-box by Spring Boot Actuator, and it's also very easy to add application-specific health checks.
+The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. Many health checks are provided out-of-the-box by Spring Boot Actuator, and you can add application-specific health checks.
 
 ### The logs dashboard
 
-The logs dashboard allows to manage at runtime the Logback configuration of the running application. Changing the log level of a Java package is as simple as clicking on a button, which is very convenient both in development and in production.
+The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
+You can change the log level of a Java package by clicking on a button, which is very convenient both in development and in production.
 
 ## <a name="jhipster-registry"></a> JHipster Registry
 
 The JHipster Registry has [its own documentation page here]({{ site.url }}/jhipster-registry/).
 
-It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application failure.
+It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application error.
 
 ## <a name="jhipster-console"></a> JHipster Console
 
@@ -171,22 +173,27 @@ If you have created useful dashboards and visualizations for your JHipster appli
 
 ## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)
 
-JHipster also provides a Metrics exporters for JMX and Prometheus.
+JHipster exposes application metrics in the [Prometheus](https://prometheus.io/) format by default.
+It is exposed under `management/prometheus`.
+Forwarding metrics to alternative systems is also supported via [spring boot actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics).
 
-Forwarding metrics to alternative systems is also supported and can also simply be enabled in your YAML configuration files.
+If you would like to disable exposing the metrics endpoint you can disable it in `src/main/resources/application.yml`.
 
-    jhipster:
+    management:
         metrics:
-            prometheus:
-                enabled: true
+            export:
+                prometheus:
+                    enabled: false
 
-Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporter like [Graphite](https://micrometer.io/docs/registry/graphite).
 
-This will export your metrics under `/management/prometheus`. As this endpoint is not secured, you can protect it with basic auth, such that prometheus can still scrape the endpoint by creating a new configuration file (e.g. `BasicAuthConfiguration.java`).
+The prometheus endpoint is unprotected by default. If you want to protect it via spring security you can do so by adding basic auth to the prometheus endpoint
+as prometheus can work with scraping endpoint protected by basic auth.
+
+Create a new configuration file (e.g. `BasicAuthConfiguration.java`).
 
     @Configuration
     @Order(1)
-    @ConditionalOnProperty(prefix = "jhipster", name = "metrics.prometheus.enabled")
+    @ConditionalOnProperty(prefix = "management", name = "metrics.export.prometheus.enabled")
     public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter {
 
         @Override
@@ -204,12 +211,20 @@ This will export your metrics under `/management/prometheus`. As this endpoint i
         }
     }
 
+
 You can login with the default `admin/admin`. You must add following configuration to you prometheus configuration such that prometheus can still scrape your application.
 
     basic_auth:
-        [ username: "admin" ]
-        [ password: "admin" ]
+        username: "admin"
+        password: "admin"
 
+
+You can start a preconfigured Grafana and Prometheus instance on our local machine via `docker-compose -f src/main/docker/monitoring.yml up -d` to have a look at the
+provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/4701).
+
+![Grafana Micrometer Dashboard][grafana-micrometer-dashboard]
+
+Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
 ## <a name="zipkin"></a> Zipkin
 
@@ -221,7 +236,7 @@ The Zipkin instance should be available on [http://127.0.0.1:9411/](http://127.0
 
 ## <a name="alerting"></a> Alerting with Elastalert
 
-JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. Elastalert is simple to use and able to define complex alerting rules to detect failures, spikes or any pattern based on an Elasticsearch Query.
+JHipster Console comes with built-in alerting by integrating [Elastalert](https://github.com/Yelp/elastalert), an alerting system that can generate alerts from data in Elasticsearch. With Elastalert you can define complex alerting rules to detect errors, spikes or any pattern based on an Elasticsearch Query.
 
 ### Enable alerting
 
@@ -235,7 +250,8 @@ To enable alerting, setup the `jhipster-alerter` container by adding the followi
 
 ### Configure alerting
 
-Elastalert configuration can be modified in `alerts/config.yaml`. For example, you can configure the alerting frequency and the buffer period, by changing the following properties:
+Elastalert configuration can be modified in `alerts/config.yaml`. 
+For example, you can configure the alerting frequency and the buffer time, by changing the following properties:
 
     run_every:
         minutes: 1
@@ -255,3 +271,4 @@ Note that those Yaml files should have a `.yaml` file extension. Read more on ho
 [jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "JHipster Metrics page"
 [monitoring-dashboard]: {{ site.url }}/images/jhipster-console-monitoring.png "Monitoring Dashboard"
 [jvm-dashboard]: {{ site.url }}/images/jhipster-console-jvm.png "JVM Dashboard"
+[grafana-micrometer-dashboard]: {{ site.url }}/images/monitoring_grafana_micrometer.png "Grafana Micrometer Dashboard" 

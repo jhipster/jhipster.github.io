@@ -41,7 +41,7 @@ This should package your application in "production" mode, create an Heroku appl
 
 Note that if your application is a microservice, you will be prompted to provide a registry URL. Scroll down to learn how to do this.
 
-_Please be aware that your application must start under 90 seconds, or it will be killed. Depending on the platform load, starting under 60 seconds is of course not guaranteed!_
+_Please be aware that your application must start under 90 seconds, or it will be shutdown. Depending on the platform load, starting under 90 seconds is not guaranteed!_
 
 ## Updating your deployed application
 
@@ -92,11 +92,11 @@ To use this password, update all of your microservices and your gateway to use t
 
 ## Troubleshooting
 
-If your application is killed by Heroku when your Liquibase changelog is being applied, your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table. On Postgres, you make sure you have a [local Postgres client installed](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup) and run the following command:
+If your application is stopped by Heroku when your Liquibase changelog is being applied, your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table. On Postgres, you make sure you have a [local Postgres client installed](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup) and run the following command:
 
 `heroku pg:psql -c "update databasechangeloglock set locked=false;"`
 
-Heroku has a default boot-timeout limit of 90 seconds. If your app takes longer than this, Heroku will kill the process, which may leave the database in a locked state. If the problem is persistent, try contacting [Heroku Support](http://help.heroku.com) to request a longer boot limit for your app.
+Heroku has a default boot-timeout limit of 90 seconds. If your app takes longer than this, Heroku will stop the process, which may leave the database in a locked state. If the problem is persistent, try contacting [Heroku Support](http://help.heroku.com) to request a longer boot limit for your app.
 
 ## More information
 

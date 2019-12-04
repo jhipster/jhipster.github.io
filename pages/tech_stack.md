@@ -25,7 +25,7 @@ Single Web page application:
 
 With the great development workflow:
 
-*   Easy installation of new JavaScript libraries with [NPM](https://www.npmjs.com/get-npm)
+*   Installation of new JavaScript libraries with [NPM](https://www.npmjs.com/get-npm)
 *   Build, optimization and live reload with [Webpack](https://webpack.js.org/)
 *   Testing with [Jest](https://facebook.github.io/jest/) and [Protractor](http://www.protractortest.org)
 
@@ -37,7 +37,7 @@ And what if a single Web page application isn't enough for your needs?
 
 A complete [Spring application](http://spring.io/):
 
-*   [Spring Boot](http://projects.spring.io/spring-boot/) for easy application configuration
+*   [Spring Boot](http://projects.spring.io/spring-boot/) for application configuration
 *   [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/) configuration for building, testing and running the application
 *   ["development" and "production" profiles]({{ site.url }}/profiles/) (both for Maven and Gradle)
 *   [Spring Security](http://docs.spring.io/spring-security/site/index.html)
@@ -60,7 +60,7 @@ Microservices are optional, and fully supported:
 ## Ready to go into production:
 
 *   Monitoring with [Metrics](http://metrics.dropwizard.io/) and [the ELK Stack](https://www.elastic.co/products)
-*   Caching with [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [hazelcast](http://www.hazelcast.com/) or [Infinispan](http://infinispan.org/)
+*   Caching with [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [Hazelcast](http://www.hazelcast.com/), [Infinispan](http://infinispan.org/), [Memcached](https://memcached.org/) or [Redis](https://redis.io/)
 *   Optimized static resources (gzip filter, HTTP cache headers)
 *   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
 *   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance

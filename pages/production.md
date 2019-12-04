@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-play-circle"></i> Using JHipster in production
 
-JHipster generates a fully production-ready, optimized and secured application. This section describes the more important options - if you are in hurry, just run a normal production build, but don't forget to read the security section!
+JHipster generates a fully production-ready, optimized and secured application. This section describes the more important options - if you are in hurry, run a normal production build, but don't forget to read the security section!
 
 1. [Building a production package](#build)
 2. [Running in production](#run)
@@ -88,7 +88,7 @@ When using Gradle:
 
 ### Executing the JAR file without an application server
 
-Instead of deploying to an application server, many people find it easier to just have an executable JAR file.
+Instead of deploying to an application server, many people find it easier to have a single executable JAR file.
 
 With the JAR file generated in the previous step, you can run it in "production" mode by typing (on Mac OS X or Linux):
 
@@ -102,7 +102,7 @@ If you are on Windows, use:
 
 ### Running the application in a Docker container
 
-JHipster has first-class support for Docker: it is very easy to bundle your executable JAR file in a Docker image, and run it inside Docker.
+JHipster has first-class support for Docker: it bundles your executable JAR file in a Docker image, and run it inside Docker.
 
 To learn how to package your application with Docker, please read our [Docker Compose documentation]({{ site.url }}/docker-compose/).
 

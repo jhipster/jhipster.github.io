@@ -39,6 +39,6 @@ At the current rate, the project should gain about $10 per month using this tech
 More information
 ----------
 
-For up-to-date information on our mining operations, please follow [@java_hipster](https://twitter.com/java_hipster) on Twitter
+For up-to-date information on our mining operations, please follow [@jhipster](https://twitter.com/jhipster) on Twitter
 
 Thank you so much for your help and contributions to the project!

@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-stethoscope"></i> Setting up Continuous Integration
 
-Setting up Continuous Integration (CI) for a JHipster application is harder than for a classic typical Spring MVC application because of the complexity associated with maintaining a build composed of 2 software stacks:
+Setting up Continuous Integration (CI) for a JHipster application is more complex than for a classic typical Spring MVC application because of the complexity associated with maintaining a build composed of 2 software stacks:
 
 - the Java back-end code with Maven or Gradle
 - the JavaScript front-end with NodeJS, NPM or Yarn
@@ -26,6 +26,7 @@ JHipster should support the following CI systems out of the box:
 - Travis: refer to the [Travis Documentation](https://docs.travis-ci.com/user/getting-started/)
 - GitLab CI: refer to the [GitLab CI Documentation](https://about.gitlab.com/gitlab-ci/)
 - Azure Pipelines: refer to the [Azure Pipelines Documentation](https://docs.microsoft.com/fr-fr/azure/devops/pipelines/?view=vsts)
+- GitHub Actions: refer to [GitHub Actions Documentation](https://github.com/features/actions)
 
 ## Running the sub-generator
 
@@ -43,6 +44,7 @@ The CI/CD pipeline you want to generate:
 - Jenkins pipeline
 - Azure Pipelines
 - GitLab CI
+- GitHub Actions
 - Travis CI
 
 **Note**: when you select Jenkins pipeline, a new `src/main/docker/jenkins.yml` file will be generated.

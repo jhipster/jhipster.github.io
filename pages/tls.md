@@ -24,7 +24,7 @@ JHipster has a specific configuration for configuring both TLS and HTTP/2 (see t
 - JHipster generates a self-signed certificate at application generation
 - A specific `tls` profile is provided (see the [profiles documentation]({{ site.url }}/profiles/))
 
-In order to run JHipster with the provided self-signed certificate, with TLS and HTTP/2 enabled, you just need to use this `tls` profile:
+In order to run JHipster with the provided self-signed certificate, with TLS and HTTP/2 enabled, you need to use the `tls` profile:
 
 *   with Maven: `./mvnw -Pdev,tls`
 *   with Gradle: `./gradlew -Ptls`
@@ -35,6 +35,6 @@ As the certificate is self-signed, your browser will issue a warning, and you wi
 
 ## Using TLS and HTTP/2 with Angular or React or Vue.js
 
-Instead of using `npm start` in order to run the front-end (with Webpack and BrowserSync), just run `npm run start-tls`, and it will connect to the back-end running on `https://localhost:8080/`.
+Instead of using `npm start` in order to run the front-end (with Webpack and BrowserSync), run `npm run start-tls`, and it will connect to the back-end running on `https://localhost:8080/`.
 
 Everything should then work the same as without TLS and HTTP/2.
