@@ -18,7 +18,6 @@ Backers donate $2 per month to the project, and get the following benefits:
 
 - Visibility on the front page of [https://www.jhipster.tech](https://www.jhipster.tech) in the "backers" section (about 110,000 views/month on January, 2018).
 - Visibility on the GitHub main project page in the "backers" section (about 15,000 views/month on January, 2018).
-- "Thank you" tweet from [@jhipster](https://twitter.com/jhipster).
 
 ## Benefits of being a bronze sponsor
 
