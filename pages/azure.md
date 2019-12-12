@@ -11,31 +11,38 @@ sitemap:
 
 [Microsoft Azure](https://azure.microsoft.com/overview/?WT.mc_id=online-jhipster-judubois) is a great solution to run JHipster applications in the cloud.
 
+- The easiest way is to use [Azure App Service](https://azure.microsoft.com/services/app-service/?WT.mc_id=online-jhipster-judubois): there is a JHipster sub-generator
+  to automatically deploy a monolithic application to this service.
+- If you are using Spring Boot microservices, there is a JHispter sub-generator to deploy your applications to
+ [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois).
+- As with any Docker and Kubernetes cloud provider, you can use the JHipster Docker and Kubernetes support to deploy your Docker images to Microsoft Azure. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) and our [Kubernetes documentation]({{ site.url }}/kubernetes/) for more information on these options.
+
 [![Microsoft Azure]({{ site.url }}/images/logo/logo-azure.png)](https://azure.microsoft.com/overview/?WT.mc_id=online-jhipster-judubois)
 
-- The easiest way is to use [Azure App Service](https://azure.microsoft.com/services/app-service/?WT.mc_id=online-jhipster-judubois): you will use a JHipster sub-generator
-  to deploy a monolithic application which will be managed by Microsoft Azure.
-- If you are using Spring Boot microservices, you can use another JHispter sub-generator to deploy your applications to
- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois).
-- As with any Docker and Kubernetes cloud provider, you can use the JHipster Docker and Kubernetes support to deploy your Docker images to Microsoft Azure.
+1. [Installing the "az CLI"](#1)
+2. [Current limitations](#2)
+3. [Supported databases](#3)
+4. [Storing secrets](#4)
+5. [Deploying a Spring Boot executable Jar file to Azure App Service](#5)
+6. [Deploying Spring Boot microservices to Azure Spring Cloud](#6)
 
-## Installing the "az CLI"
+## <a name="1"></a> Installing the "az CLI"
 
-You can manage your Azure resources using the [Web-based Azure portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois) or using the Azure
-command-line inteface, also known as the "az CLI".
+You can manage your Azure resources using the [Web-based Azure portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois) or using [the Azure
+command-line inteface](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli/?WT.mc_id=online-jhipster-judubois), also known as the "az CLI".
 
 As with JHipster we always automate everything, installing this "az CLI" is mandatory in order to work with any of the below options.
 
 To install the az CLI on your machine, [follow the "Install the Azure CLI" official documentation](https://docs.microsoft.com/cli/azure/install-azure-cli/?WT.mc_id=online-jhipster-judubois).
 
-## Current limitations
+## <a name="2"></a> Current limitations
 
 Those limitations can be solved in the future, if you are interested to help do not hesitate to contribute to the project:
 
 - The sub-generators do not automatically configure external services like databases (see next section for supported databases), Elasticsearch, Kafka or Redis. So you will need to create and configure them manually.
 - Azure only provides Maven plugins, and as a result the JHipster sub-generators can only work with Maven.
 
-## Supported databases
+## <a name="3"></a> Supported databases
 
 ### SQL databases
 
@@ -65,17 +72,19 @@ You can install a NoSQL database like Cassandra or MongoDB using [the Azure Mark
 
 CosmosDB is a globally distributed, managed database from Microsoft. It is compatible at the API level with Cassandra and MongoDB, so it can be used with a JHipster application that is generated using those technologies.
 
-## Storing secrets
+## <a name="4"></a> Storing secrets
 
 There are several "secrets" that you should store securely in JHipster, at least your database password (see previous section), and your security tokens (have a look at our [security documentation]({{ site.url }}/security/) for more information).
 
-There are many options in Azure, where you can store this data in a better place than your `application-prod.yml` file, here are the most common ones:
+There are many options in Azure, which you can use to store this data in a better place than your `application-prod.yml` file. Here are the most common ones:
 
 - A Spring Cloud Config server, like the [JHipster Registry]({{ site.url }}/jhipster-registry/) or the configuration server managed by [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois). This is the best option, as you can tag and rollback configurations, but it needs a dedicated server.
 - Environment variables. This is the easiest option, but it's bit annoying to setup and it is the less secure one.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/?WT.mc_id=online-jhipster-judubois): this is the most secured option, and it also works with all technologies (not just Java and Spring). There is a dedicated [Azure Spring Boot Starter for Key Vault](https://docs.microsoft.com/en-us/azure/java/spring-framework/spring-boot-starters-for-azure/?WT.mc_id=online-jhipster-judubois) which is our recommended way to configure JHipster with Azure Key Vault.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/?WT.mc_id=online-jhipster-judubois): this is the most secured option, but it is specific to Azure. There is a dedicated [Azure Spring Boot Starter for Key Vault](https://docs.microsoft.com/en-us/azure/java/spring-framework/spring-boot-starters-for-azure/?WT.mc_id=online-jhipster-judubois) which is our recommended way to configure JHipster with Azure Key Vault.
 
-## Deploying a Spring Boot executable Jar file to Azure App Service
+## <a name="5"></a> Deploying a Spring Boot executable Jar file to Azure App Service
+
+### Generating configuration for Azure App Service
 
 [Azure App Service](https://azure.microsoft.com/fr-fr/services/app-service/?WT.mc_id=online-jhipster-judubois) is a managed plaform-as-a-service: on Azure, if you want to deploy a monolith, this is our recommended option.
 
@@ -86,6 +95,127 @@ There are two ways to deploy a Spring Boot application to Azure App Service:
 
 We recommend using an executable Jar file, but if you'd rather use a Docker image, follow the last section of this page, "Deploying to Docker and Kubernetes".
 
-## Deploying Spring Boot microservices to Azure Spring Cloud
+To deploy a JHipster application as an executable Jar file to Azure App Service, there is a specific `azure-app-service` sub-generator:
 
-## Deploying to Docker and Kubernetes
+```sh
+az azure-app-service
+```
+
+This sub-generator can be used with the following flags:
+
+- `--skip-build` Skips building the application
+- `--skip-deploy` Skips deployment to Azure App Service
+- `--skip-insights` Skips configuration of Azure Application Insights
+
+The following questions will then need be answered. You will probably need to access the [Azure Portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois) to answer them and check the configured resources.
+
+- __Azure resource group name:__ This is the name of your Azure resource group, in which your application will be deployed. We recommend setting up a default Azure resource group using the command `az configure --defaults group=<resource group name>`.
+- __Azure App Service plan name:__ Your Azure App Service will run in an [Azure Service Plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans/?WT.mc_id=online-jhipster-judubois). If the service plan already exists, JHipster will use it, and otherwise it will create a new one. By default, JHipster creates a Linux-based service plan, in the "B1" tier (the "Basic" plan, free for 30 days). If you want more information on the service plan tiers, [here is the documentation](https://azure.microsoft.com/pricing/details/app-service/linux/?WT.mc_id=online-jhipster-judubois).
+- __Azure Application Insights instance name:__ JHipster can automatically configure an [Azure Application Insights instance](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview/?WT.mc_id=online-jhipster-judubois), so the deployed application will be monitored. This uses the [Azure Spring Boot Starter for Application Insights](https://docs.microsoft.com/en-us/azure/java/spring-framework/spring-boot-starters-for-azure/?WT.mc_id=online-jhipster-judubois) and configures it in the `application-azure.yml` configuration file.
+- __Azure App Service application name:__ The name of your Azure App Service instance.
+- __Which type of deployment do you want ?__ You can either build and deploy your application locally using Maven, or use GitHub Actions to build and deploy it automatically for you.
+
+### The "azure" Spring Boot profile
+
+This sub-generator creates an `azure` Spring Boot profile and configures it.
+
+- In your Azure App Service instance, both the `prod` and `azure` Spring profiles are automatically enabled, using the `SPRING_PROFILES_ACTIVE` environment variable.
+- A new Spring Boot configuration is created for that profile, `src/main/resources/config/application-azure.yml`. For more information on profiles in JHipster, [here is the documentation]({{ site.url }}/profiles/).
+
+### Deploying using GitHub Actions
+
+Deploying with GitHub Actions is recommended, as it is easier and probably faster than on your local machine.
+
+- The configuration is stored in the `.github/workflows/azure-app-service.yml`.
+- By default, the application is deployed each time there is new `push` event on the `master` branch.
+- This deployment mechanism uses the `azure-webapp` Maven plugin, in order to be consistent with the local deployment. There is an alternative way to deploy to Azure App Service, which doesn't require Maven. If you are interested in it, look for the `azure/webapps-deploy` GitHub Action, and follow the example in [this blog post](https://dev.to/azure/the-easy-way-to-deploy-a-spring-boot-application-to-production-on-azure-2joi).
+
+In order to be authorized to deploy an application to your Azure App Service instance, GitHub needs to have access to a secured token called `AZURE_CREDENTIALS`.
+At the end of the sub-generator execution, it has displayed a command-line in the form:
+
+```sh
+az ad sp create-for-rbac --name http://<your-security-role> --role contributor --scopes /subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name> --sdk-auth
+```
+
+- `<your-security-role>` is the name of the security role you want to create (by default we use the application name).
+- `<your-subscription-id>` is the ID of the Azure subscription you are using. It can be found at the top of the subscription screen in the [Azure Portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois).
+- `<your-resource-group-name>` is the name of your resource group.
+
+Execute that command to get the secured token. Then, in the GitHub project where your application is located, go to `Settings > Secrets`, and create a new secret named `AZURE_CREDENTIALS` in which you need to paste the secured token.
+
+## <a name="6"></a> Deploying Spring Boot microservices to Azure Spring Cloud
+
+[Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois) is a managed service for Spring Boot applications. It can host any kind of JHipster applications, including monoliths, but it is particularly suited for hosting JHispter microservices and JHipster gateways, which follow the standard JHipster [microservice architecture]({{ site.url }}/microservices-architecture/).
+
+### Limitations of the Azure Spring Cloud sub-generator
+
+Azure Spring Cloud provides a managed discovery server based on Netflix Eureka, so this can only works with JHipster applications using the "no" or "JHispter Registry" service discovery:
+
+- JHipster Registry is in fact a Netflix Eureka server, so this is fully compatible with Azure Spring Cloud
+- If no service discovery is configured in the application, the below configuration will add Netflix Eureka automatically
+
+As a result, only applications using Hashicorp Consul as a service discovery mechanism will not work, as this is not supported by Azure Spring Cloud.
+
+### Generating configuration for Azure Spring Cloud
+
+Azure Spring Cloud is currently in preview, so you will need to install manually its specific "az CLI" extension, by typing the following command:
+
+```sh
+az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+```
+
+To deploy a JHipster application on Azure Spring Cloud, there is a specific `azure-spring-cloud` sub-generator:
+
+```sh
+az azure-spring-cloud
+```
+
+This sub-generator can be used with the following flags:
+
+- `--skip-build` Skips building the application
+- `--skip-deploy` Skips deployment to Azure Spring Cloud
+
+The following questions will then need be answered. You will probably need to access the [Azure Portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois) to answer them and check the configured resources.
+
+- __Azure resource group name:__ This is the name of your Azure resource group, in which your application will be deployed. We recommend setting up a default Azure resource group using the command `az configure --defaults group=<resource group name>`.
+- __Azure Spring Cloud service name (the name of your cluster):__ This is the name of your Azure Spring Cloud cluster instance. We recommend setting up a default Azure Spring Cloud service name using the command `az configure --defaults spring-cloud=<resource group name>`.
+- __Azure Spring Cloud application name:__ The name of the Spring Boot application you are deploying on Azure Spring Cloud.
+- __Which type of deployment do you want ?__ You can either build and deploy your application locally using Maven, or use GitHub Actions to build and deploy it automatically for you.
+
+### The "azure" Maven and Spring Boot profile
+
+If you have followed documentation above on the `azure-app-service` sub-generator, the `azure-spring-cloud` sub-generator works a bit differently, as it configures:
+
+- A new Spring Boot profile called `azure`, configured at `src/main/resources/config/application-azure.yml`.
+- A new Maven profile, also called `azure`. This Maven profile will automatically force the usage of the `prod` and `azure` Spring Boot profiles at runtime, so there is no need to configure them at the Azure Spring Cloud level (this is the main difference with Azure App Service, where those are configured as environment variables).
+
+For more information on profiles in JHipster, [here is the documentation]({{ site.url }}/profiles/).
+
+### Azure Spring Cloud specific features
+
+As documented in the section above, the `azure-spring-cloud` sub-generator adds a specific `azure` Maven profile. This profile adds some libraries at build time, so that the running application can benefit from Azure Spring Cloud's specific features:
+
+- It connects the application to the managed Spring Cloud Service Discovery server (as detailed in the section above, "Limitations of the Azure Spring Cloud sub-generator").
+- It configures the application using the managed Spring Cloud Config Server.
+- It sends distributed tracing data to Azure Monitor.
+
+### Deploying using GitHub Actions
+
+Deploying with GitHub Actions is recommended, as it is easier and probably faster than on your local machine.
+
+- The configuration is stored in the `.github/workflows/azure-spring-cloud.yml`.
+- By default, the application is deployed each time there is new `push` event on the `master` branch.
+- This deployment mechanism uses directly the "az CLI" to deploy to the Azure Spring Cloud cluster.
+
+In order to be authorized to deploy an application to your Azure Spring Cloud cluster, GitHub needs to have access to a secured token called `AZURE_CREDENTIALS`.
+This token can generated by using the following command line:
+
+```sh
+az ad sp create-for-rbac --name http://<your-security-role> --role contributor --scopes /subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name> --sdk-auth
+```
+
+- `<your-security-role>` is the name of the security role you want to create (by default we use the application name).
+- `<your-subscription-id>` is the ID of the Azure subscription you are using. It can be found at the top of the subscription screen in the [Azure Portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois).
+- `<your-resource-group-name>` is the name of your resource group.
+
+Execute that command to get the secured token. Then, in the GitHub project where your application is located, go to `Settings > Secrets`, and create a new secret named `AZURE_CREDENTIALS` in which you need to paste the secured token.
