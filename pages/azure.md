@@ -162,11 +162,13 @@ As a result, only applications using Hashicorp Consul as a service discovery mec
 
 ### Generating configuration for Azure Spring Cloud
 
-Azure Spring Cloud is currently in preview, so you will need to install manually its specific "az CLI" extension, by typing the following command:
+A specific Azure Spring Cloud extension must be added to the "az CLI":
 
 ```sh
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
+
+Once this extension is installed, you will be able to run `az spring-cloud` commands, and automate the Azure Spring Cloud configuration with JHipster.
 
 To deploy a JHipster application on Azure Spring Cloud, there is a specific `azure-spring-cloud` sub-generator:
 
