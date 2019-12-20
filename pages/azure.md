@@ -84,6 +84,10 @@ There are many options in Azure, which you can use to store this data in a bette
 
 ## <a name="5"></a> Deploying a Spring Boot executable Jar file to Azure App Service
 
+[![Deploying to Azure App Service](https://img.youtube.com/vi/kciGvVrfwpw/0.jpg)](https://www.youtube.com/watch?v=kciGvVrfwpw)
+
+_5-minutes video on deploying a JHipster application to Azure App Service_
+
 ### Generating configuration for Azure App Service
 
 [Azure App Service](https://azure.microsoft.com/fr-fr/services/app-service/?WT.mc_id=online-jhipster-judubois) is a managed plaform-as-a-service: on Azure, if you want to deploy a monolith, this is our recommended option.
