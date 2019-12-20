@@ -98,7 +98,7 @@ We recommend using an executable Jar file, but if you'd rather use a Docker imag
 To deploy a JHipster application as an executable Jar file to Azure App Service, there is a specific `azure-app-service` sub-generator:
 
 ```sh
-az azure-app-service
+jhipster azure-app-service
 ```
 
 This sub-generator can be used with the following flags:
@@ -167,7 +167,7 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 To deploy a JHipster application on Azure Spring Cloud, there is a specific `azure-spring-cloud` sub-generator:
 
 ```sh
-az azure-spring-cloud
+jhipster azure-spring-cloud
 ```
 
 This sub-generator can be used with the following flags:
