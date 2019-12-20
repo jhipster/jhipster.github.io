@@ -29,8 +29,8 @@ To exclude directories manually:
 
 ![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
-As the `node_modules/` directory is only used internally by JHipster, it can be safely excluded.
-
+**Note:** If you are using Intellij IDEA Ultimate and would like to use IDEA to code the frontend you should **not** exclude `node_modules` folder. Otherwise
+you will any code assistance for the frontend code!
 
 ## Spring Support (not available in Community Edition)
 
