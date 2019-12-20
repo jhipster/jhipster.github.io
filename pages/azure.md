@@ -11,7 +11,7 @@ sitemap:
 
 [![Microsoft Azure]({{ site.url }}/images/logo/logo-azure.png)](https://azure.microsoft.com/overview/?WT.mc_id=online-jhipster-brborges)
 
-Deploying JHipster applications to Microsoft Azure are as easy as deploying Docker containers. Azure supports the deployment of Uber JARs, WAR files, and Docker images, either as standalone or orchestrated on top of Kubernetes. Sub-generators are not needed for the deployment choices documented below.
+Deploying JHipster applications to Microsoft Azure is not very different from deploying a docker container. Azure supports the deployment of Uber JARs, WAR files, and Docker images, either as standalone or orchestrated on top of Kubernetes. Sub-generators are not needed for the deployment choices documented below.
 
 Developers can obtain an [Azure Trial subscription](http://azure.microsoft.com/free?WT.mc_id=online-jhipster-brborges) and perform all the deployment options below with the free credits provided to the trial account. Some of the services covered below also offer a free quota based on hours of compute and/or number of applications, that will not incur consumption of the granted free credits.
 

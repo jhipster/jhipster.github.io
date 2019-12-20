@@ -30,7 +30,7 @@ OpenShift offers two options,
 
 ## Minishift
 
-[Minishift](https://github.com/minishift/minishift) is a toolkit that makes it easy to run the all in one OpenShift VM locally. Minishift runs a single-node OpenShift cluster inside a VM on a laptop for users to try it out locally.
+[Minishift](https://github.com/minishift/minishift) is a toolkit that helps to run the all in one OpenShift VM locally. Minishift runs a single-node OpenShift cluster inside a VM on a laptop for users to try it out locally.
 
 Minishift requires a hypervisor to start the virtual machine on which the OpenShift cluster is provisioned. Make sure that the hypervisor of your choice is installed and enabled on your system before you start Minishift.
 
@@ -39,7 +39,7 @@ Minishift requires a hypervisor to start the virtual machine on which the OpenSh
 You have to install:
 
 - [Docker](https://docs.docker.com/installation/#installation)
-- Hypervisor - Depending on your host OS, you have the choice of different options
+- Hypervisor - Depending on your OS, you have the choice of different options
 
 You must have a Docker registry. If you don’t have one, you can use the official [Docker Hub](https://hub.docker.com/)
 
@@ -86,8 +86,8 @@ This is the OpenShift project space where all the services get deployed and the 
 
 ### Which *type* of database storage would you like to use?
 
-This question is only displayed if any of the chosen apps has database type selected. This prompts for ephemeral or persistent storage options. Containers by very nature are ephemeral (data will not be retained between restarts/crashes). Persistent storage option allows
-to mount external storage like NFS, EBS etc,. so that data survives between restarts and crashes.
+This question is only displayed if any of the chosen apps has database type selected. This prompts for ephemeral or persistent storage options. Containers by very nature are ephemeral (data will not be retained between restarts/faults). Persistent storage option allows
+to mount external storage like NFS, EBS etc,. so that data survives between restarts and faults.
 
 
 ### What should we use for the base Docker repository name?
@@ -98,7 +98,7 @@ If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be
 ### What command should we use for push Docker image to repository?
 
 The default command to push to Docker Hub is `docker image push`
-For example, if you use the Google Cloud to host your Docker images, it will be: `gcloud docker push`
+For example, if you use the Google Cloud to publish your Docker images, it will be: `gcloud docker push`
 
 
 ## Updating your deployed application
@@ -151,7 +151,7 @@ Consequently, for microservices applications, the JHipster OpenShift sub-generat
 
 ### Managing the JHipster Registry or Consul
 
-For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a special kind of deployment artifact that can handle stateful applications and will let you scale your service registries for high-availability. Kindly note **StatefulSets** are not yet production ready feature in OpenShift. It is in technology preview (BETA) and you need **OpenShift version >=3.5** to use this feature.
+For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a certain kind of deployment artifact that can handle stateful applications and will let you scale your service registries for high-availability. Kindly note **StatefulSets** are not yet production ready feature in OpenShift. It is in technology preview (BETA) and you need **OpenShift version >=3.5** to use this feature.
 
 ### Centralized configuration
 

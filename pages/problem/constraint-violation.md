@@ -19,7 +19,7 @@ Please find below some information on the error that happened.
 
 ### Error description
 
-This is a generic JHipster error, that is displayed when there is a validation error, typically using [Bean Validation](http://beanvalidation.org/). The error message should tell you which constraint failed, and for which reason.
+This is a generic JHipster error, that is displayed when there is a validation error, typically using [Bean Validation](http://beanvalidation.org/). The error message should tell you which constraint has been violated, and for which reason.
 
 ### How can this page be customized?
 

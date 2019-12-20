@@ -11,12 +11,12 @@ sitemap:
 
 [![Google Cloud Platform]({{ site.url }}/images/logo/logo-gcp.png)](https://cloud.google.com)
 
-You can deploy JHipster applications to Google Cloud Platform easily and run on:
+You can deploy JHipster applications to Google Cloud Platform and run on:
 - Virtual machines with [Google Compute Engine](https://cloud.google.com/compute/)
 - Containers in Kubernetes with [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/)
 - Platform as a Service with [Google App Engine](https://cloud.google.com/appengine/)
 
-You can obtain [Google Cloud Platform free trial](https://cloud.google.com/free) to deploy your applications. Please check the [Always Free](https://cloud.google.com/free/) tiers for free usages up to the specified usage limits during and past the free trial period.
+You can obtain [Google Cloud Platform free trial](https://cloud.google.com/free) to deploy your applications. Please check the [Always Free](https://cloud.google.com/free/) tiers for free usages up to the specified usage limits during and past the free trial.
 
 ## Before you start
 
@@ -49,7 +49,7 @@ In addition, Google App Engine provides a full suite of features to manage your 
 - Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
 - Stackdriver Logging - Automatically capture and store application logs in centralized logging that can be searched, monitored, and exported.
 - Error Reporting - Automatically extract errors and exceptions for the log and notify you of new errors.
-- Cloud Debugger - Allow you to debug your production application without stopping the world. If you needed more log messages to diagnose the issue, simply add new log messages without redeploying/restarting your application.
+- Cloud Debugger - Allow you to debug your production application without stopping the world. If you needed more log messages to diagnose the issue, add new log messages without redeploying/restarting your application.
 
 You can watch a walk through of features in [2018 JHipster Conf video on the Google App Engine generator](https://www.youtube.com/watch?v=J9_MW3HOj5w) with [Ray Tsang](https://twitter.com/saturnism) and [Ludovic Champenois](https://twitter.com/ludoch).
 
@@ -64,7 +64,7 @@ Google Kubernetes Engine is a fully managed Kubernetes cluster as a service. Onc
 Once the cluster is created, you can use JHipster Kubernetes generator to generate the deployment descriptors.
 
 1. Generate Kubernetes deployment files: `jhipster kubernetes`
-1. If you want to use Google Container Registry to host container images in a private registry:
+1. If you want to use Google Container Registry to publish container images in a private registry:
   1. **What should we use for the base Docker repository name** set to `gcr.io/YOUR_PROJECT_ID`
 
 Build the container image.

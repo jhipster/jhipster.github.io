@@ -64,7 +64,7 @@ This is equivalent to:
 entity A(a) {}
 ```
 
-The former is just the simpler form, without specifying a "body" (braces for fields) and a table name.
+The former the simpler form, without specifying a "body" (braces for fields) and a table name.
 
 ---
 
@@ -103,8 +103,8 @@ entity A {
 #### Blob declaration
 
 JHipster gives a great choice as one can choose between an image type or any binary type. JDL lets you do the same.
-Just create a custom type (see DataType) with the editor, name it according to these conventions:
-  - `AnyBlob` or just `Blob` to create a field of the "any" binary type;
+Create a custom type (see DataType) with the editor, name it according to these conventions:
+  - `AnyBlob` or `Blob` to create a field of the "any" binary type;
   - `ImageBlob` to create a field meant to be an image.
   - `TextBlob` to create a field for a CLOB (long text).
 
@@ -114,7 +114,7 @@ And you can create as many DataTypes as you like.
 
 #### Regular expressions
 
-This is a special validation (only available to String types), and its syntax is special:
+This is a certain validation (only available to String types), and its syntax is:
 
 ```jdl
 entity A {

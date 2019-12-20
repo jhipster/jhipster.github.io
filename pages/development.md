@@ -39,7 +39,7 @@ If you want to configure some specific JHipster properties, have a look at the [
 
 ### As a "main" Java class
 
-From your IDE, right-click on the "Application" class at the root of your Java package hierarchy, and run it directly. You should also be able to debug it as easily.
+From your IDE, right-click on the "Application" class at the root of your Java package hierarchy, and run it directly. You should also be able to debug it from your IDE.
 
 The application will be available on [http://localhost:8080](http://localhost:8080).
 
@@ -91,7 +91,7 @@ If you want more information on using Gradle, please go to [https://gradle.org](
 
 _This step is required to see changes in your TypeScript code and have live reloading of your client-side code._
 
-Running Webpack is the default task in the `package.json` file, so you just need to run:
+Running Webpack is the default task in the `package.json` file, so it is enough to run:
 
 `npm start`
 
@@ -214,12 +214,12 @@ If you want more information on using Liquibase, please go to [http://www.liquib
 
 Internationalization (or i18n) is a first-class citizen in JHipster, as we believe it should be set up at the beginning of your project (and not as an afterthought).
 
-Usage is really easy:
+Usage is as follows:
 
-- With Angular, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which uses simple JSON files for translation
+- With Angular, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which uses JSON files for translation
 - With React, thanks to a specific JHipster component, which works the same way as the Angular component, and uses the same files
 
-For example, to add a translation to the "first name" field, just add a "translate" attribute with a key: `<label jhiTranslate="settings.form.firstname">First Name</label>`
+For example, to add a translation to the "first name" field, add a "translate" attribute with a key: `<label jhiTranslate="settings.form.firstname">First Name</label>`
 
 This key references a JSON document, which will return the translated String. Angular/React will then replace the "First Name" String with the translated version.
 

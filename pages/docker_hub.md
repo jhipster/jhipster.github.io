@@ -15,10 +15,10 @@ sitemap:
 
 [![]({{ site.url }}/images/logo/docker-hub.png)](https://hub.docker.com/u/jhipster/)
 
-JHipster has his own [organization] at Docker Hub and provides different Docker images.
+JHipster has its own [organization] at Docker Hub and provides different Docker images.
 
 
-The [jhipster-docker-hub] project provides all docker-compose files to launch these images easily.
+The [jhipster-docker-hub] project provides all docker-compose files to launch these images.
 To use the docker-compose commands, you have to:
 
 - clone the project: `git clone https://github.com/jhipster/jhipster-docker-hub`
@@ -27,7 +27,7 @@ To use the docker-compose commands, you have to:
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-Based on your OS, your <code>DOCKER_HOST</code> will differ. On Linux, it will be simply your <code>localhost</code>.
+Based on your OS, your <code>DOCKER_HOST</code> will differ. On Linux, it will be <code>localhost</code>.
 For Mac/Windows, you will have to obtain the IP using following command: <code>docker-machine ip default</code>
 
 </div>
@@ -72,7 +72,7 @@ It is a sample application with H2 or MySQL.
 
 ### Quick launch
 
-Run a simple jhipster application directly with Docker, in development profile
+Run a jhipster application directly with Docker, in development profile
 
 ```
 docker container run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=dev jhipster/jhipster-sample-app

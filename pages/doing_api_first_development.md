@@ -21,7 +21,7 @@ In API first development, instead of generating the documentation from the code,
 This has the following advantages:
 
 - You can design your API for the consumers and not as a consequence of your implementation.
-- You can use the specification file to mock your new server endpoints before they are released so you can more easily decouple frontend and backend development.
+- You can use the specification file to mock your new server endpoints before they are released so you can more decouple frontend and backend development.
 - You don't need a live server to use your OpenAPI documentation.
 
 ### Using the OpenAPI-generator plugins

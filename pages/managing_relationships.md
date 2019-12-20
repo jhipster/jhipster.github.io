@@ -70,7 +70,7 @@ There are two ways to avoid that:
 
 Let's start with two entities, a `Owner` and a `Car`. A owner can have many cars, and a car can have only one owner.
 
-So this is a simple one-to-many relationship (one owner has many cars) on one side, and a many-to-one relationship (many cars have one owner) on the other side:
+So this is a one-to-many relationship (one owner has many cars) on one side, and a many-to-one relationship (many cars have one owner) on the other side:
 
     Owner (1) <-----> (*) Car
 
@@ -174,7 +174,7 @@ This is not supported with JDL as it isn't in JHipster.
 
 ## Two one-to-many relationships on the same two entities
 
-For this example, a `Person` can be the owner of many cars, and he can also be the driver of many cars:
+For this example, a `Person` can be the owner of many cars and can also be the driver of many cars:
 
     Person (1) <---owns-----> (*) Car
     Person (1) <---drives---> (*) Car

@@ -20,6 +20,6 @@ Importing your JHipster application in Netbeans is straightforward.
 
 ![Open]({{ site.url }}/images/configuring_ide_netbeans_1.png)
 
-**That's All** : To run your project, just do a right-click on the Application class (at the root of the package hierarchy) and select "Run File".
+**That's All** : To run your project, do a right-click on the Application class (at the root of the package hierarchy) and select "Run File".
 
 ![Open]({{ site.url }}/images/configuring_ide_netbeans_2.png)
