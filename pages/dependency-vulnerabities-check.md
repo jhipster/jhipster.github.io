@@ -52,7 +52,7 @@ Add the owasp dependency-check plugin:
   <plugin>
       <groupId>org.owasp</groupId>
       <artifactId>dependency-check-maven</artifactId>
-      <version>3.3.1</version>
+      <version>5.2.4</version>
       <executions>
         <execution>
           <goals>
@@ -74,16 +74,11 @@ See the [OWASP Gradle Dependency Check plugin documentation](https://jeremylong.
 Update the `build.gradle` file to apply the [OWASP dependency-check-gradle plugin](https://plugins.gradle.org/plugin/org.owasp.dependencycheck).
 
 ```
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.owasp:dependency-check-gradle:3.3.1'
-    }
-}
+plugins {
+  // Add the plugin in the existing plugins block
+  id "org.owasp.dependencycheck" version "5.2.4"
 
-apply plugin: 'org.owasp.dependencycheck'
+}
 
 if(project.hasProperty('strict-security')) {
   check.dependsOn dependencyCheckAnalyze
