@@ -30,7 +30,7 @@ To exclude directories manually:
 ![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
 **Note:** If you are using Intellij IDEA Ultimate and would like to use IDEA to code the frontend you should **not** exclude `node_modules` folder. Otherwise
-you will any code assistance for the frontend code!
+you will not have any code assistance for the frontend code!
 
 ## Spring Support (not available in Community Edition)
 
