@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-diamond"></i> Code quality
 
-Code quality can be easily analyzed using [SonarCloud](https://sonarcloud.io), which is automatically configured by JHipster.
+Code quality can be analyzed using [SonarCloud](https://sonarcloud.io), which is automatically configured by JHipster.
 
 ## Using Sonar with JHipster
 

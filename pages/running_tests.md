@@ -29,7 +29,7 @@ Optionally, JHipster can also generate:
 We have two goals in generating those tests:
 
 *   Help every JHipster user to follow best practices, as we believe tests are a very useful part of every application
-*   Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing just a `./mvnw clean verify` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
+*   Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing `./mvnw clean verify` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
 
 All those tests will be generated in the standard Maven `src/test` folder.
 
@@ -38,9 +38,9 @@ All those tests will be generated in the standard Maven `src/test` folder.
 Integration tests are done with the Spring Test Context framework, and are located in the `src/test/java` folder. JHipster will launch a specific Spring test context, which will be re-used along all tests, as:
 
 *   Your Spring beans should be stateless and thread-safe, and thus can be re-used across your different tests suites.
-*   Launching just one Spring context for all tests if a lot faster than launching a new Spring context for each test.
+*   Launching only one Spring context for all tests if a lot faster than launching a new Spring context for each test.
 
-This Spring test context will use a specific test database to execute its tests:
+This Spring test context will use a specific test database to run its tests:
 
 *   If you use an SQL database, JHipster will launch an in-memory H2 instance in order to use a temporary database for its integration tests. Liquibase will be run automatically, and will generate the database schema.
 *   If you use Cassandra, JHipster will launch a containerized version of Cassandra with Docker using [Testcontainers](https://www.testcontainers.org){:target="_blank" rel="noopener"}.
@@ -50,7 +50,7 @@ This Spring test context will use a specific test database to execute its tests:
 
 Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `./mvnw clean verify` (or `./gradlew test integrationTest` if you use Gradle).
 
-**Limitations:** if the generated entities have validation enabled, JHipster is not enable to generate the correct values depending on the validation rules. Those rules can be so complex, for example if a Regex pattern is used, that this just not possible. In this case, the tests will fail validation, and the default values used in the test will need to changed manually, so they can pass the validation rules.
+**Limitations:** if the generated entities have validation enabled, JHipster is not enable to generate the correct values depending on the validation rules. Those rules can be so complex, for example if a Regex pattern is used, that this not possible. In this case, the tests will fail validation, and the default values used in the test will need to changed manually, so they can pass the validation rules.
 
 ## UI tests
 
@@ -76,7 +76,7 @@ Those tests can be run using `npm run e2e`.
 ## Architecture tests
 
 Architecture tests, which enforce certain constrainsts and best practices are done with [ArchUnit](https://www.archunit.org/){:target="_blank" rel="noopener"}.
-You can easily write your own rules to check custom constraints for your architecture at build time following the [official documentation](https://www.archunit.org/userguide/html/000_Index.html){:target="_blank" rel="noopener"}.
+You can write your own rules to check custom constraints for your architecture at build time following the [official documentation](https://www.archunit.org/userguide/html/000_Index.html){:target="_blank" rel="noopener"}.
 
 ## Performance tests
 

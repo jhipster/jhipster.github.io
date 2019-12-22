@@ -24,7 +24,7 @@ As this sub-generator uses the Cloud Foundry command-line tool, it can deploy to
 *   [Pivotal Web Services](http://run.pivotal.io/), which officially sponsors JHipster, so it is the only one we can test and provide support on
 *   [Atos Canopy](https://canopy-cloud.com/)
 *   [IBM Bluemix](https://console.ng.bluemix.net/)
-*   And of course your own private Cloud Foundry instance if you have decided to install Cloud Foundry yourself!
+*   And your own private Cloud Foundry instance if you have decided to install Cloud Foundry yourself!
 
 ## Running the sub-generator
 

@@ -140,7 +140,7 @@ Entity relationships are only available for SQL databases. It is a fairly comple
 
 ## Generating a separate service class for your business logic
 
-Having a separate service class allows to have more complex logic that just using a Spring REST Controller directly. Having a service layer (with or without an interface) will allow you to use DTOs (see next section).
+Having a separate service class allows to have more complex logic compared to using a Spring REST Controller directly. Having a service layer (with or without an interface) will allow you to use DTOs (see next section).
 
 This is the same logic as using the [Spring service sub-generator]({{ site.url }}/creating-a-spring-service/), so we recommend to read its documentation to have more information.
 
@@ -154,7 +154,7 @@ Optionally, entities stored in SQL databases can be filtered using JPA. Here is 
 
 ## Pagination
 
-Please note that pagination is not available if you created your application with [Cassandra]({{ site.url }}/using-cassandra/). Of course this will be added in a future release.
+Please note that pagination is not available if you created your application with [Cassandra]({{ site.url }}/using-cassandra/). This will be added in a future release.
 
 Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the [GitHub API](https://developer.github.com/v3/#pagination). JHipster provides a custom implementation of this specification on both the server (Spring MVC REST) and client (Angular/React) sides.
 
@@ -170,7 +170,7 @@ The entity configuration is saved in a specific `.json` file, in the `.jhipster`
 
 When you run the entity sub-generator for an existing entity, you will be asked a question 'Do you want to update the entity? This will replace the existing files for this entity, all your custom code will be overwritten' with following options:
 
-*   `Yes, re generate the entity` - This will just regenerate your entity. Tip: This can be forced by passing a `--regenerate` flag when running the sub-generator
+*   `Yes, re generate the entity` - This will regenerate your entity. Tip: This can be forced by passing a `--regenerate` flag when running the sub-generator
 *   `Yes, add more fields and relationships` - This will give you questions to add more fields and relationships
 *   `Yes, remove fields and relationships` - This will give you questions to remove existing fields and relationships from the entity
 *   `No, exit` - This will exist the sub-generator without changing anything
@@ -235,7 +235,7 @@ Check the database tables, to see if your data is correctly inserted.
 
 ### Improve the generated code
 
-The generated files contain all the basic CRUD operations, and don't need to be modified if your needs are simple.
+The generated files contain all the basic CRUD operations, and don't need to be modified if you don't need more than CRUD operations.
 
 If you want to modify the generated code or the database schema, you should follow our [development guide]({{ site.url }}/development/)
 

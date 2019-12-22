@@ -306,7 +306,7 @@ entity A
 ```
 
 The main use case for this is for blueprints: sometimes, you need have custom options for entities, or even fields.
-For regular options (`dto`, `pagination`, etc.), these options will be generated in the JSON just like in the CLI.
+For regular options (`dto`, `pagination`, etc.), these options will be generated in the JSON like in the CLI.
 However, for custom options, they will be generated under and `options` key in the dumped JSON.
 
 ---

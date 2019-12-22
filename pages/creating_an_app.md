@@ -66,7 +66,8 @@ This is the name of your application.
 
 ### What is your default Java package name?
 
-Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. Of course you can override it by providing a new value.
+Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. 
+You can override it by providing a new value.
 
 ### Do you want to use the JHipster Registry to configure, monitor and scale your application?
 
@@ -141,7 +142,7 @@ This option lets you do [API-first development]({{ site.url }}/doing-api-first-d
 
 #### Clustered HTTP sessions using Hazelcast
 
-By default, JHipster uses a HTTP session only for storing [Spring Security](http://docs.spring.io/spring-security/site/index.html)'s authentication and authorisation information. Of course, you can choose to put more data in your HTTP sessions.
+By default, JHipster uses a HTTP session only for storing [Spring Security](http://docs.spring.io/spring-security/site/index.html)'s authentication and authorisation information. You can choose to put more data in your HTTP sessions.
 Using HTTP sessions will cause issues if you are running in a cluster, especially if you don't use a load balancer with "sticky sessions".
 If you want to replicate your sessions inside your cluster, choose this option to have [Hazelcast](http://www.hazelcast.com/) configured.
 

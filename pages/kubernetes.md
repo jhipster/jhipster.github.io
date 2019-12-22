@@ -31,7 +31,7 @@ You must have a Docker registry. If you don’t have one, you can use the offici
 
 ## Minikube
 
-[Minikube](https://github.com/kubernetes/minikube) is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop for users looking to try out Kubernetes or develop with it day-to-day.
+[Minikube](https://github.com/kubernetes/minikube) is a tool that helps to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop for users looking to try out Kubernetes or develop with it day-to-day.
 
 You can use it to test your application before pushing it to [Kubernetes](http://kubernetes.io/).
 
@@ -73,7 +73,7 @@ If you choose [Google Container Registry](https://cloud.google.com/container-reg
 
 The default command to push to Docker Hub is `docker image push`
 
-If you use Google Container Registry to host your Docker images, it will be: `gcloud docker push`
+If you use Google Container Registry to publish your Docker images, it will be: `gcloud docker push`
 
 ## Updating your deployed application
 
@@ -107,7 +107,7 @@ It will create a Kubernetes deployment for your application and its associated d
 
 ## Deploying a microservice application
 
-Before deploying your microservices, first deploy the service discovery service (JHipster Registry or Consul). If you selected JHipster Console or Prometheus, it is recommended to deploy them before the microservices. The sub-generator placed a README file with the correct order of execution.
+Before deploying your microservices, first deploy the service discovery service (JHipster Registry or Consul). If you selected JHipster Console or Prometheus, it is recommended to deploy them before the microservices. The sub-generator placed a README file with the correct order of deployments.
 
 ### Custom namespaces
 
@@ -127,7 +127,7 @@ The default way to update a running application in Kubernetes is to deploy a new
 
 `kubectl set image deployment/<app-name>-app <app-name>=<new-image>`
 
-Using livenessProbes and readinessProbe allows you to tell Kubernetes about the state of your applications, in order to ensure availability of your services. You will need a minimum of 2 replicas for every application if you want to have zero downtime deployment. This is because the rolling upgrade strategy first kills a running replica in order to place a new one. Running only one replica will cause a short downtime during upgrades.
+Using livenessProbes and readinessProbe allows you to tell Kubernetes about the state of your applications, in order to ensure availability of your services. You will need a minimum of 2 replicas for every application if you want to have zero downtime deployment. This is because the rolling upgrade strategy first stops a running replica in order to place a new one. Running only one replica will cause a short downtime during upgrades.
 
 ### Deploying a Service Registry in Kubernetes
 
@@ -137,7 +137,7 @@ Consequently, for microservices applications, the JHipster Kubernetes sub-genera
 
 ### Managing the JHipster Registry or Consul in Kubernetes
 
-For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a special kind of Kubernetes resources that can handle stateful applications and will let you scale your service registries for high availability. For more information on high-availability for Eureka and Consul refer to their respective documentation.
+For the JHipster Registry and Consul, [StatefulSets](https://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/) configurations are provided. Those are a certain kind of Kubernetes resources which can handle stateful applications and will let you scale your service registries for high availability. For more information on high-availability for Eureka and Consul refer to their respective documentation.
 
 ### Centralized configuration in Kubernetes
 
@@ -222,7 +222,7 @@ At the same time, there are some drawbacks:
 ### Using Kubernetes as Service Registry
 
 To avoid relying on Eureka or Consul, you'll need to disable service discovery altogether
-* When asked `Which service discovery server do you want to use?`, simply choose `No service discovery`
+* When asked `Which service discovery server do you want to use?`, choose `No service discovery`
 
 A JHipster Gateway usually fronts the API calls and routing these calls using `Zuul`. Without a service registry, routing via `Zuul` won't work. You'll need to use Kubernetes `Ingress` to route the traffic to microservices.
 * When asked `Choose the kubernetes service type for your edge services`, choose `Ingress`.
@@ -241,7 +241,7 @@ To enable Istio support:
 
 Check the registry your Kubernetes cluster is accessing. If you are using a private registry, you should add it to your namespace by `kubectl create secret docker-registry` (check the [docs](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) for more information).
 
-> My applications get killed, before they can boot up
+> My applications get stopped, before they can boot up
 
 This can occur, if your cluster has low resources (e.g. Minikube). Increase the `initialDelySeconds` value of livenessProbe of your deployments.
 

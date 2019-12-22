@@ -15,7 +15,7 @@ sitemap:
 
 There are two different sub-generators for deploying JHipster projects to AWS:
 * **aws-containers**: A Docker container based sub-generator for deploying applications via AWS Elastic Container Service. This is great for complex applications and/or microservice architectures.
-* **aws**: An instance based sub-generator for deploying applications via Elastic Beanstalk. This is great (and very cheap!) for simple applications.
+* **aws**: An instance based sub-generator for deploying applications via Elastic Beanstalk. This is great (and very cheap!) for small applications.
 
 ## *aws-containers* sub-generator
 When using the monolith flow, this sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this:
@@ -27,7 +27,7 @@ When using the monolith flow, this sub-generator will automatically deploy your 
 - [CloudWatch](https://aws.amazon.com/cloudwatch): Distributed log collection tool used to view the status of containers.
 - [AWS Cloudformation](https://aws.amazon.com/cloudformation):  All required services (besides AWS System Manager Parameters) are defined in a set of CloudFormation files. The base file contains high level services, and then each application is defined in its own file, which is called a nested stack.
 - [AWS System Manager - Parameter Store](https://aws.amazon.com/systems-manager/features/): A Secure password storage mechanism, which is used to store the database password. Running the sub-generator will introduce a new Spring Cloud component which will read in the password on application startup.
-- [AWS - IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html): The generator creates a new role which the ECS tasks will execute under, with an associated policy.
+- [AWS - IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html): The generator creates a new role which the ECS tasks will run with and an associated policy.
 
 When using the microservice flow, this will guide you through the creation of an [Elastic Kubernetes Cluster (EKS)](https://aws.amazon.com/eks/) 
 and [Elastic Container Registries (ECR)](https://aws.amazon.com/ecr/) for all your microservices and gateway. Afterwards you have to use the [Kubernetes Subgenerator](/kubernetes) to generate the Kubernetes configuration files and 
@@ -107,7 +107,7 @@ aws_access_key_id = your_access_key
 aws_secret_access_key = your_secret_key
 ```
 
-If you use a named profile different than `default`, you just have to set the environment variable `AWS_PROFILE` with the correct profile.
+If you use a named profile different than `default`, you have to set the environment variable `AWS_PROFILE` with the correct profile.
 
 ### Deploying your application
 
@@ -130,7 +130,7 @@ The sub generator ask your database credentials again but they will be ignored d
 - Delete the Elastic Beanstalk.
 - Delete S3 buckets relevant to the application.
 - Delete the [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) instance.
-- Delete the EC2 security groups relevant to the application. You can easily find this by looking at the description of the 
+- Delete the EC2 security groups relevant to the application. You can find this by looking at the description of the 
 security group which should say `Enable database access to Beanstalk application`.
 
 ### More information

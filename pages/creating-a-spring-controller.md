@@ -13,21 +13,21 @@ sitemap:
 
 _Note: this sub-generator is much simpler than the [entity sub-generator]({{ site.url }}/creating-an-entity/) that creates full CRUD entities_
 
-This sub-generator generates a Spring MVC REST Controller. It is also able to create simple REST methods.
+This sub-generator generates a Spring MVC REST Controller. It is also able to create REST methods.
 
-In order to generate a "Foo" Spring MVC REST controller, just type:
+In order to generate a "Foo" Spring MVC REST controller, type:
 
 `jhipster spring-controller Foo`
 
-The sub-generator will ask you which method you want to generate: just answer the method name and the HTTP verb you want to use, and a simple method will be generated.
+The sub-generator will ask you which method you want to generate: answer the method name and the HTTP verb you want to use, and a method will be generated.
 
 ## Can we document this Spring MVC REST Controller with Swagger?
 
-Yes! In fact it's already done! In `dev` mode, just use the `Administration > API` menu to access Swagger UI and start using the generated controller.
+Yes! In fact it's already done! In `dev` mode, use the `Administration > API` menu to access Swagger UI and start using the generated controller.
 
 ## Can we add security to Spring MVC REST Controllers?
 
-Yes! Just add Spring Security's `@Secured` annotation on your class or on your methods, and use the provided `AuthoritiesConstants` class to restrict access to specific user authorities.
+Yes! Add Spring Security's `@Secured` annotation on your class or on your methods, and use the provided `AuthoritiesConstants` class to restrict access to specific user authorities.
 
 ## Can we proxy it from our Microservice Gateway dev server?
 
