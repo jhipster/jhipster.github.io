@@ -29,8 +29,8 @@ To exclude directories manually:
 
 ![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
-As the `node_modules/` directory is only used internally by JHipster, it can be safely excluded.
-
+**Note:** If you are using Intellij IDEA Ultimate and would like to use IDEA to code the frontend you should **not** exclude `node_modules` folder. Otherwise
+you will not have any code assistance for the frontend code!
 
 ## Spring Support (not available in Community Edition)
 
@@ -75,4 +75,4 @@ Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` ma
 
 ## Gradle
 
-In order to get the best out-of-the-box experience with Gradle you should delegate all [IDE build/run actions to Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing is automatically configured and you won't have duplicated classes when mixing IDE and cli builds. If you are using an older version ( < 2016.3) you have to enable annotaion processing manually.
+In order to get the best out-of-the-box experience with Gradle you should delegate all [IDE build/run actions to Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing is automatically configured and you won't have duplicated classes when mixing IDE and cli builds. If you are using an older version ( < 2016.3) you have to enable annotation processing manually.
