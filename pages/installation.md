@@ -104,7 +104,7 @@ For Mac/Windows, you will have to obtain the IP using following command: <code>d
 
 <div class="alert alert-info"><i>Tip: </i>
 
-Kitematic is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes this installation a lot easier.
+[Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/)/[Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/) is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes this installation a lot easier.
 
 </div>
 
