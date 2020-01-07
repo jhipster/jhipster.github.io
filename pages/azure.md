@@ -155,8 +155,8 @@ Execute that command to get the secured token. Then, in the GitHub project where
 
 Azure Spring Cloud provides a managed discovery server based on Netflix Eureka, so this can only works with JHipster applications using the "no" or "JHispter Registry" service discovery:
 
-- JHipster Registry is in fact a Netflix Eureka server, so this is fully compatible with Azure Spring Cloud
-- If no service discovery is configured in the application, the below configuration will add Netflix Eureka automatically
+- If no service discovery is configured in the application, the sub-generator described below will add Netflix Eureka automatically. This is the easiest way to get your microservice running on Azure Spring Cloud.
+- JHipster Registry is in fact a Netflix Eureka server, so this is fully compatible with Azure Spring Cloud. JHipster provides many custom configuration for Eureka: it is required that you remove the `eureka.instance.instanceId` Spring Boot property in your `application.yml` file, as this should be managed by Azure Spring Cloud. Other `eureka` properties work fine with Azure Spring Cloud, but they can be removed to use instead Azure's default values. When using this configuration, you will benefit from some advanced features from JHipster, like distributed caching configuration, that normally rely on the JHipster Registry.
 
 As a result, only applications using Hashicorp Consul as a service discovery mechanism will not work, as this is not supported by Azure Spring Cloud.
 
