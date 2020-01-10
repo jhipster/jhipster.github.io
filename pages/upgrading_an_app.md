@@ -138,6 +138,8 @@ If you would like to see changes you have done after generating project you can 
 
 Clone your project into the new folder with `git clone`.
 
+Delete all files and folders from cloned project except `.git`, `.jhipster` and `.yo-rc.json`.
+
 Find out what JHipster version you used last time to generate your project: look at the `.yo-rc.json` in the project root folder, find out the value of the `jhipsterVersion`.
 
 Install JHipster version you used last time you generated your project:
