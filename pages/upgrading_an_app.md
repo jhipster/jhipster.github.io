@@ -154,7 +154,7 @@ Regenerate your project:
 jhipster --force --with-entities --skip-install
 ```
 
-See your own changes with `git diff`.
+With `git diff` you can now see all your changes as reverted. If you would like to see all your changes as added then you can commit all to Git and then revert the last commit.
 
 ### See JHipster changes
 
