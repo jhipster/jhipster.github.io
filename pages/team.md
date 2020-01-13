@@ -89,6 +89,15 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/3602612?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Enrico Costanzi</h3>
+                <p><a href="https://twitter.com/enricocostanzi"><i>@enricocostanzi</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/25530077?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Clément Dessoude</h3>
@@ -242,6 +251,15 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/12435965?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Sudharaka Palamakumbura</h3>
+                <p><a href="https://twitter.com/PSudharaka"><i>@PSudharaka</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/593564?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Daniel Petisme</h3>
@@ -264,6 +282,14 @@ If you want to join the team, or see how we work, our community rules are at the
             <div class="caption">
                 <h3>Jon Ruddell</h3>
                 <p><a href="https://twitter.com/jonruddell"><i>@jonruddell</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/1417183?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Marcelo Shima</h3>
             </div>
         </div>
     </div>
