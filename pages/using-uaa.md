@@ -2,8 +2,6 @@
 layout: default
 title: Using JHipster UAA for Microservice Security
 permalink: /using-uaa/
-redirect_from:
-  - /security.html
 sitemap:
     priority: 0.7
     lastmod: 2016-08-25T00:00:00-00:00
