@@ -22,7 +22,7 @@ However, it is a common requirement to separate the front-end and the back-end c
 You can choose to generate only a JHipster back-end or JHipster front-end application. At generation time, this is only a matter of choosing flags which are described in our [application generation documentation]({{ site.url }}/creating-an-app/):
 
 - `jhipster --skip-client` will only generate a back-end application (this is typically what JHipster microservices are)
-- `jhipster --skip-server` will only generate a front-end application
+- `jhipster --skip-server [options]` will only generate a front-end application (e.g. `jhipster --skip-server --db=sql --auth=jwt`)
 
 This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are monoliths with the Zuul gateway service enabled).
 
