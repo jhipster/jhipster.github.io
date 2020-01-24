@@ -89,7 +89,7 @@ docker-compose -f src/main/docker/keycloak.yml up
 
 If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation]({{ site.url }}/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
-The security settings in `src/main/resources/application.yml` are configured for this image.
+The security settings in `src/main/resources/config/application.yml` are configured for this image.
 
 ```yaml
 spring:
@@ -117,7 +117,7 @@ In production, it is required by Keycloak that you use HTTPS. There are several 
 
 If you'd like to use Okta instead of Keycloak, you'll need to change a few things. First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.okta.com`.
 
-Modify `src/main/resources/application.yml` to use your Okta settings. Hint: replace `{yourOktaDomain}` with your org's name (e.g., `dev-123456.okta.com`).
+Modify `src/main/resources/config/application.yml` to use your Okta settings. Hint: replace `{yourOktaDomain}` with your org's name (e.g., `dev-123456.okta.com`).
 
 ```yaml
 security:
