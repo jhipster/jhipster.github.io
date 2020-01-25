@@ -31,6 +31,7 @@ Those properties are configured using the `io.github.jhipster.config.JHipsterPro
 
 Here is a documentation for those properties:
 
+```YAML
     jhipster:
 
         # Thread pool that will be used for asynchronous method calls in JHipster
@@ -189,6 +190,7 @@ Here is a documentation for those properties:
         ribbon:
             # Comma-separated list of profiles that display a ribbon
             display-on-active-profiles: dev
+```
 
 ## <a name="3"></a> Application-specific properties
 
