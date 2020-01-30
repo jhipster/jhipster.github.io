@@ -11,7 +11,7 @@ sitemap:
 
 The "JHipster Developers Association" is a French non-profit association ("Association loi 1901"), and serves as a legal entity for JHipster events and services.
 
-_the rest of this document is in French, as this is a French legal entity_
+_The rest of this document is in French, as this is a French legal entity_
 
 ## L'assocation
 
