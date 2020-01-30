@@ -24,7 +24,9 @@ Publication au journal officiel: [https://www.journal-officiel.gouv.fr/associati
 ## Le bureau
 
 Président: Julien DUBOIS
+
 Secrétaire: Pierre BESSON
+
 Trésorier: Anthony VIARD
 
 ## Statuts de l'association
