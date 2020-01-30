@@ -29,9 +29,7 @@ Secrétaire: Pierre BESSON
 
 Trésorier: Anthony VIARD
 
-## Statuts de l'association
-
-STATUTS DE L’ASSOCIATION « JHipster Developers Association»
+## STATUTS DE L’ASSOCIATION « JHipster Developers Association»
 
 ### ARTICLE PREMIER - NOM
 
