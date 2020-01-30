@@ -18,6 +18,7 @@ _the rest of this document is in French, as this is a French legal entity_
 La "JHipster Developers Association" est une association loi 1901 à but non lucratif. Elle sert d'entité légale pour organiser les événements ou les services autour de JHipster.
 
 N° RNA: W922017270
+
 Publication au journal officiel: [https://www.journal-officiel.gouv.fr/associations/detail-annonce/associations_b/20200002/1411](https://www.journal-officiel.gouv.fr/associations/detail-annonce/associations_b/20200002/1411)
 
 ## Le bureau
