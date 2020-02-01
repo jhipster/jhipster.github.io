@@ -96,6 +96,7 @@ You can choose between:
 - [MongoDB]({{ site.url }}/using-mongodb/)
 - [Cassandra]({{ site.url }}/using-cassandra/)
 - [Couchbase]({{ site.url }}/using-couchbase/)
+- [Neo4j]({{ site.url }}/using-neo4j/)
 - No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/) with JWT authentication)
 
 ### Which _production_ database would you like to use?
