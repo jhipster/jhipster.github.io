@@ -16,7 +16,7 @@ A JHipster module is a Yeoman generator that is [composed](http://yeoman.io/auth
 
 JHipster modules are listed on the [JHipster marketplace]({{ site.url }}/modules/marketplace/).
 
-This allows to create third-party generators that have access to the JHipster variables and functions, and act like standard JHipster sub-generators.
+This allows developers to create third-party generators that have access to the JHipster variables and functions, and act like standard JHipster sub-generators.
 The hook mechanism invokes third-party generators before and after app generation and entity generation.
 
 ## Example
