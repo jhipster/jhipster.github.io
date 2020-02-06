@@ -17,7 +17,7 @@ JHipster currently uses Spring WebSockets as its implementation, so you will fin
 
 This option has a few limitations:
 
-- By default, we use the dispatcher provided by Spring Websockets, which is an in-memory implementation. It will not scale if you want to use several servers. If you want to do so, have a look at the [Spring WebSockets documentation]((http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html)) which explains how to configure an external broker.
+- By default, we use the dispatcher provided by Spring Websockets, which is an in-memory implementation. It will not scale if you want to use several servers. If you want to do so, have a look at the [Spring WebSockets documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html) which explains how to configure an external broker.
 
 ## The "Tracker" example
 
