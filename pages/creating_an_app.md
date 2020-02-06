@@ -234,6 +234,7 @@ Here are the options you can pass:
 * `--yarn` - Use Yarn instead of NPM (Default: false)
 * `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
 * `--skip-fake-data` - Skip generation of fake data for development
+* `--creation-timestamp` - Set a timestamp for reproducible build. Timestamp should be a parsable js date ex: 2019-01-01. Must be used with --with-entities or import-jdl (generator-jhipster > 6.5.1)
 
 ## <a name="4"></a> Tips
 
