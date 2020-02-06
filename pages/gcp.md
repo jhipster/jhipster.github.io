@@ -53,6 +53,23 @@ In addition, Google App Engine provides a full suite of features to manage your 
 
 You can watch a walk through of features in [2018 JHipster Conf video on the Google App Engine generator](https://www.youtube.com/watch?v=J9_MW3HOj5w) with [Ray Tsang](https://twitter.com/saturnism) and [Ludovic Champenois](https://twitter.com/ludoch).
 
+#### Deploying Microservices to Google App Engine
+
+In order to deploy microservices to GAE you will need to deploy the jhipster-registry, gateway and each microservice as separate services.
+
+The deployment of jhipster-registry, gateway and microservice apps could be done easily by running the GAE generator on each of these components. The deployment files for the jhiptser-registry
+is already included in the [jhipster-registry repository](https://github.com/jhipster/jhipster-registry). Following are the steps that needs to be carried out.
+
+1. Clone the [jhipster-registry](https://github.com/jhipster/jhipster-registry) and run the GAE generator on it (using `jhipster gae`). 
+This enables you to customize the default parameters according to your liking. Note that this deploys the project with a project id
+of `jhipsterproject`. 
+
+2. After successful deployment of the jhipster-registry run the GAE generator on the gateway and each micro-service application. 
+
+3. In the gateway application and the microservice applications change the following properties to point to the jhipster-register url. 
+    1. `eureka.client.service-url.defaultZone` in the `application-prod.yml` file.
+    2. `spring.cloud.config.uri` in `bootstrap.yml` and `bootstrap-prod.yml` files.
+    
 ## Deploy to Google Kubernetes Engine
 
 Google Kubernetes Engine is a fully managed Kubernetes cluster as a service. Once provisioned, you can deploy your containers and JHipster applications using standard Kubernetes commands.
