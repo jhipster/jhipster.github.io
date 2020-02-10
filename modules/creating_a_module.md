@@ -62,7 +62,7 @@ JHipster will call certain hooks before and after some of its tasks, currently a
 
 - Post Entity creation hook
 - Pre Entity creation hook [planned]
-- Post App creation hook [planned]
+- Post App creation hook
 - Pre App creation hook [planned]
 
 [JHipster module generator](https://github.com/jhipster/generator-jhipster-module) now has option to generate this.
