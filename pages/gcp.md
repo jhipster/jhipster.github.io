@@ -70,6 +70,10 @@ of `jhipsterproject`.
     1. `eureka.client.service-url.defaultZone` in the `application-prod.yml` file.
     2. `spring.cloud.config.uri` in `bootstrap.yml` and `bootstrap-prod.yml` files.
     
+**Note:** If you are using Windows, we recommend using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 
+or [jhipster-devbox](https://github.com/jhipster/jhipster-devbox) to avoid Windows spedific issues such as, [https://github.com/jhipster/generator-jhipster/issues/11249 
+](https://github.com/jhipster/generator-jhipster/issues/11249) 
+    
 ## Deploy to Google Kubernetes Engine
 
 Google Kubernetes Engine is a fully managed Kubernetes cluster as a service. Once provisioned, you can deploy your containers and JHipster applications using standard Kubernetes commands.
