@@ -341,14 +341,14 @@ bash kubectl-knative-apply.sh (or) ./kubectl-knative-apply.sh
 
 If you have chosen to deploy using Helm generator, run the below command:
 ```
-bash helm-apply.sh (or) ./helm-apply.sh
+bash helm-knative-apply.sh (or) ./helm-knative-apply.sh
 ```
-`helm-apply.sh` will always do a clean install. Any of the existing charts with the same identity gets removed first and then it does a clean install.
+`helm-knative-apply.sh` will always do a clean install. Any of the existing charts with the same identity gets removed first and then it does a clean install.
 
 You can upgrade all your apps (if you have made any changes to the generated manifests) by running the following bash command:
 
 ```
-bash helm-upgrade.sh (or) ./helm-upgrade.sh
+bash helm-knative-upgrade.sh (or) ./helm-knative-upgrade.sh
 ```
 
 ## More information
