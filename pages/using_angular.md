@@ -51,7 +51,7 @@ Here is the main project structure:
     │   ├── shared                        - Common services like authentication and internationalization
     │   ├── app.main.ts                   - Main application class
     │   ├── app.module.ts                 - Application modules configuration
-    │   ├── app.route.ts                  - Main application router
+    │   ├── app-routing.module.ts         - Main application router
     ├── content                           - Static content
     │   ├── css                           - CSS stylesheets
     │   ├── images                        - Images
