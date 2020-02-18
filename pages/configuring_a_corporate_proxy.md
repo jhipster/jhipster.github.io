@@ -28,7 +28,7 @@ Supposing your proxy is defined with:
 
 The resulting configuration is: `http://username:password@host:port`
 
-If your use [Cntlm](http://cntlm.sourceforge.net/), then your configuration would be: `127.0.0.1:3128`. Otherwise, follow the next steps to configure each tool individually.
+If you use [Cntlm](http://cntlm.sourceforge.net/), then your configuration would be: `127.0.0.1:3128`. Otherwise, follow the next steps to configure each tool individually.
 
 ## NPM configuration
 
