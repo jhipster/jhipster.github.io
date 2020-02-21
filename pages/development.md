@@ -109,6 +109,10 @@ This will launch:
 - A BrowserSync task that will run on [http://localhost:9000/](http://localhost:9000/), which has a proxy to [http://localhost:9060/](http://localhost:9060/) (the Webpack "hot module reload" server), and which will synchronize the user's clicks/scrolls/inputs
 - The BrowserSync UI, which will be available on [http://localhost:3001/](http://localhost:3001/)
 
+**NOTE:** BrowserSync by default enables [ghostMode](https://browsersync.io/docs/options#option-ghostMode) which can create some confusion
+especially [when using multiple browser tabs](https://github.com/jhipster/generator-jhipster/issues/11116#issuecomment-589362814). To avoid
+this you can always turn off ghostMode. Some commented code is provided in `webpack.dev.js` for easy disabling of ghostMode. 
+
 ### Running NPM
 
 Direct project dependencies are configured into `package.json`, but transitive dependencies are defined into the `package-lock.json` file, that get generated when `npm install` is run.
