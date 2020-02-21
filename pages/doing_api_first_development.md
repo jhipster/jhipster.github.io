@@ -80,6 +80,22 @@ $ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/v2/pet/
 $ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
 <Pet>  <id>123456789</id>  <name>doggie</name>  <photoUrls>    <photoUrls>aeiou</photoUrls>  </photoUrls>  <tags>  </tags>  <status>aeiou</status></Pet>%
 ```
+
+Your IDE, probably, exclude from sources the output folder. Be sure to reload the configuration to detect the generated classes.
+It can be done through your IDE UI or through command.
+
+When using Eclipse or VSCode
+
+* With maven
+```bash
+./mvnw eclipse:clean eclipse:eclipse
+```
+When using IntelliJ
+* With maven
+```bash
+./mvnw idea:idea
+```
+
 ### Using the `openapi-client` Sub-Generator
 
 JHipster also provides support for generation of client code using [Spring-Cloud FeignClients](https://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign) using an OpenAPI/Swagger specification.
