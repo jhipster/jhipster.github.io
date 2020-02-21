@@ -13,7 +13,8 @@ sitemap:
 
 ## Companies contributing to JHipster
 
-*   [Ippon Technologies](http://www.ippon.fr/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) to improve the project. Ippon Technologies also provides 1 day per month to contribute for everyone who is in Julien's team, as well as 2 paid internships every year on the project.
+*   [Ippon Technologies](http://www.ippon.fr/), which provides 1 day per month to contribute for everyone who is the Ippon JHipster team, as well as 2 paid internships every year on the project.
+*   [Microsoft](https://www.microsoft.com/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) to improve the project.
 *   [XebiaLabs](https://xebialabs.com/), which provides time and hardware to [@deepu105](https://twitter.com/deepu105) to improve the project.
 *   [Okta](https://developer.okta.com/), which provides time and hardware to [@mraible](https://twitter.com/mraible) to improve the project. They also contributed the [OIDC support]({{ site.url }}/security/#oauth2) and [Ionic module]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic).
 *   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/). It is maintained by [Ray Tsang](https://twitter.com/saturnism).
@@ -22,7 +23,7 @@ sitemap:
 *   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
 *   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
-*   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support. It is maintained by [Srinivasa Vasu](https://twitter.com/srinivasavasu) who is also a core JHipster team member.
+*   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support.
 *   [JFrog](https://jfrog.com/) which provides us with a free Artifactory instance, which is used for our builds and our releases.
 
 ## Companies helping to develop JHipster

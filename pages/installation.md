@@ -104,7 +104,7 @@ For Mac/Windows, you will have to obtain the IP using following command: <code>d
 
 <div class="alert alert-info"><i>Tip: </i>
 
-Kitematic is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes this installation a lot easier.
+<a href="https://docs.docker.com/docker-for-windows/">Docker Desktop for Windows</a>/<a href="https://docs.docker.com/docker-for-mac/">Docker Desktop for Mac</a> is an easy-to-use graphical interface provided with the Docker Toolbox, which will make this installation a lot easier.
 
 </div>
 
@@ -224,5 +224,5 @@ On your machine, you should be able to:
         <li>use the docker-compose files</li>
         <li>build a Docker image with the docker daemon (Maven goal: <code>jib:dockerBuild</code> or Gradle task: <code>jibDockerBuild</code>)</li>
     </ul>
-    However, you will be able to use [jib](https://github.com/GoogleContainerTools/jib)'s daemonless mode which can build a docker image and push it to a registry without access to a docker daemon (Maven goal: <code>jib:build</code> or Gradle task: <code>jibBuild</code>). But you will need to setup credentials to the docker registry as a pre-requisite of building the app. See the [Jib plugin configuration documentations](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration) for more details.
+    However, you will be able to use <a href="https://github.com/GoogleContainerTools/jib">jib</a>'s daemonless mode which can build a docker image and push it to a registry without access to a docker daemon (Maven goal: <code>jib:build</code> or Gradle task: <code>jibBuild</code>). But you will need to setup credentials to the docker registry as a pre-requisite of building the app. See the <a href="https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration">Jib plugin configuration documentations</a> for more details.
 </div>

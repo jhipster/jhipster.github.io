@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-diamond"></i> Code quality
 
-Code quality can be easily analyzed using [SonarCloud](https://sonarcloud.io), which is automatically configured by JHipster.
+Code quality can be analyzed using [SonarCloud](https://sonarcloud.io), which is automatically configured by JHipster.
 
 ## Using Sonar with JHipster
 
@@ -128,7 +128,7 @@ jacocoTestReport {
 
 The JHipster generator project publishes a sample project which is analyzed every time a new commit is merged in the "master" branch:
 
-[Analysis of the sample JHipster project](https://sonarcloud.io/dashboard?id=io.github.jhipster.sample%3Ajhipster-sample-application)
+[Analysis of the JHipster Sample Application](https://sonarcloud.io/dashboard?id=jhipster-sample-application) under the [JHipster Organization](https://sonarcloud.io/organizations/jhipster)
 
 This allows the JHipster team to make sure that you will start developing your project on the cleanest code possible.
 

@@ -10,7 +10,7 @@ sitemap:
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
 
 The JDL is a JHipster-specific domain language where you can describe all your applications, deployments, entities and
-their relationships in a single file (or more than one) with a simple and user-friendly syntax.
+their relationships in a single file (or more than one) with a user-friendly syntax.
 
 You can use our online [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or one of the 
 [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) plugins/extensions, which are available for:

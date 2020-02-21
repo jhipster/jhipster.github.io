@@ -26,7 +26,7 @@ If you wish to view the JDL's grammar, there is an HTML file available
 ### The JDL import only finds one entity when matching MS baseName
 
 This is a known issue regarding the parsing system and fixing it is tricky.
-The obvious workaround is to use different names for the microservice and the entities inside.
+A workaround is to use different names for the microservice and the entities inside.
 
 See [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/308) for more information.
 

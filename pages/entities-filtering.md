@@ -12,8 +12,8 @@ sitemap:
 ## Introduction
 
 After the basic CRUD functionalities are implemented for an entity, there is a very common request to create various filters for the attributes of the entity,
-so the server could be used more effectively. These filters should be sent as the request parameters, so any client - and any browser - could use it easily.
-Additionally, these filters should follow a sane, and concise pattern, and they must be allowed combining them freely.
+so the server could be used more effectively. These filters should be sent as the request parameters, so any client - and any browser - could use it.
+Additionally, these filters should follow a resonable, and concise pattern, and they must be allowed combining them freely.
 
 ## How to activate
 
@@ -49,7 +49,7 @@ For each entity, you can enable filtering in the entity generator, and after, yo
     * *xyz.lessOrEqualThan=someValue*
         - To list all the entities, where xyz is less than or equal to 'someValue'.
 
-Of course, they can be combined freely.
+They can be combined freely.
 
 A good way to experience the expressiveness of this filter API is to use it from swagger-ui in the API docs page of your JHipster application.
 

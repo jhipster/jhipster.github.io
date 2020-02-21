@@ -13,8 +13,8 @@ sitemap:
 
 We are currently creating JHipster meetups all around the world!
 
-- If you want to create your own meetup, it's very easy! Do a Pull Request on [this Web page](https://github.com/jhipster/jhipster.github.io/blob/master/pages/meetups.md) to add your meetup directly.
-- There is no rule for meetups: you can schedule them when you want, host it where you want, and invite who you want.
+- If you want to create your own meetup do a Pull Request on [this Web page](https://github.com/jhipster/jhipster.github.io/blob/master/pages/meetups.md) to add your meetup directly.
+- There is no rule for meetups: you can schedule them when you want, let it happen where you want, and invite who you want.
 - The JHipster team will do its best to support you: we'll RT you on Twitter, put your event on our main page, etc.
 
 ## Existing meetups

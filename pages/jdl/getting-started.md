@@ -34,7 +34,7 @@ In this page, you'll learn about the JDL and how to create applications and ever
 ### Using files
 
 You can use JDL files to generate entities:
-  - Simply create a file with the extension '.jh' or '.jdl',
+  - Create a file with the extension '.jh' or '.jdl',
   - Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
   - If you are creating only entities then run `jhipster import-jdl my_file.jdl` in your JHipster application's root folder.
   - If you are creating applications then run `jhipster import-jdl my_file.jdl` in a folder.
@@ -42,7 +42,7 @@ You can use JDL files to generate entities:
 and *Voilà*, you are done!
 
 If you work in a team, perhaps you would like to have multiple files instead of one.
-We added this option so that you don't manually concatenate all the files into one, you just have to run:
+We added this option so that you don't manually concatenate all the files into one, you have to run:
 
     jhipster import-jdl my_file1.jdl my_file2.jdl
 
@@ -74,7 +74,7 @@ This way of generating content is especially useful when generating entities.
 
 ---
 
-For now, we'll start with a simple JDL content to get to know the various ways to generate content.
+For now, we'll start with small JDL content to get to know the various ways to generate content.
 Explanations will be made in other sections about the syntax but focus is gonna be made on the generation here.
 
 Here's the basic content we'll use:
@@ -88,9 +88,9 @@ application {
 ```
 
 This is a very basic microservice application named "jhipster", and we'll see the various ways to generate a 
-application from this simple sample.
+application from this sample.
 
-You'll see that, with this little and very simple sample, you've managed to create an application from scratch.
+You'll see that, with this little sample, you've managed to create an application from scratch.
 
 ---
 
@@ -121,7 +121,7 @@ To see all supported application options, head to [this page](/jdl/applications)
 
 ## Generating entities
 
-Generating entities is a bit less straightforward but can be pretty simple.
+Generating entities is a bit less straightforward.
 You can also go to the dedicated [entity page](/jdl/entities-fields) to know more about what you can do with entities.
 
 ### Generating a basic entity
@@ -211,7 +211,7 @@ Validations depend on the field type, and are also detailed in the [entities & f
 
 ## Enumerations
 
-Enumerations are simply types with fixed values:
+Enumerations are types with fixed values:
 
 ```jdl
 enum Type {
@@ -338,7 +338,7 @@ entity B
 entity C
 ```
 
-Similar to Java, or Typescript, annotations are simply "decorators", options to entities.
+Similar to Java, or Typescript, annotations are "decorators", options to entities.
 
 This example and the previous are equivalent as they can be used to generate the same code.
 
@@ -419,10 +419,10 @@ entity A {
 
 ## Exporting to a JDL file
 
-If you already have entities in your application and wish to have a JDL file, fear not! You don't have to write it from
+If you already have entities in your application and wish to have a JDL file, don't worry! You don't have to write it from
 scratch as there's a sub-generator that does that for you.
 
-Simply do `jhipster export-jdl <FILE_NAME>` in your app's root folder and you'll have all your applications, entities,
+Run `jhipster export-jdl <FILE_NAME>` in your app's root folder and you'll have all your applications, entities,
 relationships and options exporting in a single JDL file.
 
 Note: you can also not provide a file name to the sub-generator, the exported JDL file will be named after the app's

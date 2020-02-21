@@ -21,7 +21,7 @@ In API first development, instead of generating the documentation from the code,
 This has the following advantages:
 
 - You can design your API for the consumers and not as a consequence of your implementation.
-- You can use the specification file to mock your new server endpoints before they are released so you can more easily decouple frontend and backend development.
+- You can use the specification file to mock your new server endpoints before they are released so you can more decouple frontend and backend development.
 - You don't need a live server to use your OpenAPI documentation.
 
 ### Using the OpenAPI-generator plugins
@@ -81,7 +81,7 @@ $ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/f
 <Pet>  <id>123456789</id>  <name>doggie</name>  <photoUrls>    <photoUrls>aeiou</photoUrls>  </photoUrls>  <tags>  </tags>  <status>aeiou</status></Pet>%
 ```
 
-Probably that Your IDE exclude, from sources, the output folder. Be sure to reload the configuration to detect the generated classes.
+Probably that your IDE exclude, from sources, the output folder. Be sure to reload the configuration to detect the generated classes.
 It can be done through your IDE UI or through command.
 
 When using Eclipse or VSCode

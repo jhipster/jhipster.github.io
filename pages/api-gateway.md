@@ -36,7 +36,7 @@ get the `foos` resource served by microservice `app1`. If you're trying to do th
 If there are several instances of the same service running, the gateway will get those instances from the JHipster Registry, and will:
 
 - Load balance HTTP requests using [Netflix Ribbon](https://github.com/Netflix/ribbon).
-- Provide a circuit breaker using [Netflix Hystrix](https://github.com/Netflix/hystrix), so that failed instances are quickly and safely removed.
+- Provide a circuit breaker using [Netflix Hystrix](https://github.com/Netflix/hystrix), so that not available instances are quickly and safely removed.
 
 Each gateway has a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.
 
@@ -69,14 +69,11 @@ When selecting this option, you will use Keycloak by default, and you will proba
 
 When using OpenID Connect, the JHipster gateway will send OAuth2 tokens to microservices, which will accept those tokens as they are also connected to Keycloak.
 
-Unlike JWT, those tokens are not self-sufficient, and should be stateful, which causes 2 main issues:
+Unlike JWT, those tokens are not self-sufficient, and should be stateful, which causes following issues:
 
 - A performance issue in microservices: as it is very common to look for the current user's security information (otherwise we wouldn't be using any security option from the beginning), each microservice will call the OpenID Connect server to get that data. So in a normal setup, those calls will be made by each microservice, each time they get a request, and this will quickly cause a performance issue.
   - If you have selected a caching option ([here is the "Using a cache" documentation]({{ site.url }}/using-cache/)) when generating your JHipster microservice, a specific `CachedUserInfoTokenServices` Spring Bean will be generated, which will cache those calls. When properly tuned, this will remove the performance issue.
   - If you want more information on this "user info" request, it is configured using the standard Spring Boot configuration key `security.oauth2.resource.userInfoUri` in your `src/main/resources/application.yml` configuration file.
-- Authentication is not automatically synchronized between the application and Keycloak. Please note that this the standard OpenID Connect workflow, and that we expect to do some specific improvements in JHipster on this matter. As a result:
-  - When a user logs out of the application, he will be automatically logged in again if he refreshes his browser: this is because he is still logged in Keycloak, which provides automatic authentication.
-  - When a user's session is invalidated in Keycloak, if the user is already logged into the application, he will still be able to use the application for a while. This is because OpenID Connect is a stateful mechanism, and the application doesn't know immediately that the session has been invalidated.
 
 ### JHipster UAA
 
@@ -84,7 +81,7 @@ JHipster provides the option to generate a "UAA" (User Account and Authenticatio
 
 You will find all UAA-related information on our specific [JHipster UAA documentation]({{ site.url }}/using-uaa/).
 
-Then, the gateway uses Spring Security's JWT implementation to send JWT tokens to the microservices, so this works basically the same as with the JWT configuration detailed above.
+Then, the gateway uses Spring Security's JWT implementation to send JWT tokens to the microservices, so this works similarly as with the JWT configuration detailed above.
 
 ## <a name="documentation"></a> Automatic documentation
 
@@ -109,7 +106,7 @@ JHipster will then use [Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket
 
 This is an important feature, to protect a microservice architecture from being flooded by a specific user's requests.
 
-As the gateway secures the REST endpoints, it has full access to the user's security information, so it can be easily extended to provide specific rate limits depending on the user's security roles.
+As the gateway secures the REST endpoints, it has full access to the user's security information, so it can be extended to provide specific rate limits depending on the user's security roles.
 
 To enable rate limiting, open up the `application-dev.yml` or `application-prod.yml` file and set `enabled` to `true`:
 

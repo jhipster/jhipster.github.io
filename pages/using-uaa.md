@@ -2,8 +2,6 @@
 layout: default
 title: Using JHipster UAA for Microservice Security
 permalink: /using-uaa/
-redirect_from:
-  - /security.html
 sitemap:
     priority: 0.7
     lastmod: 2016-08-25T00:00:00-00:00
@@ -12,7 +10,7 @@ sitemap:
 
 JHipster UAA is a user accounting and authorizing service for securing JHipster microservices using the OAuth2 authorization protocol.
 
-To clearly distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](https://github.com/cloudfoundry/uaa), JHipster UAA is a fully configured OAuth2 authorization server with the users and roles endpoints inside, wrapped into a usual JHipster application. This allows the developer to deeply configure every aspect of his user domain, without restricting on policies by other ready-to-use UAAs.
+To distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](https://github.com/cloudfoundry/uaa), JHipster UAA is a fully configured OAuth2 authorization server with the users and roles endpoints inside, wrapped into a usual JHipster application. This allows the developer to deeply configure every aspect of the user domain, without restricting on policies by other ready-to-use UAAs.
 
 ## Summary
 
@@ -41,7 +39,7 @@ Before digging into OAuth2 and its application on JHipster microservices, it's i
 
 ### 1. Central authentication
 
-Since microservices is about building mostly independent and autonomous applications, we want to have a consistent authentication experience, so the user won't notice his requests are served by different applications with possibly individual security configuration.
+Since microservices is about building mostly independent and autonomous applications, we want to have a consistent authentication experience, so the users won't notice their requests are served by different applications with possibly individual security configuration.
 
 ### 2. Statelessness
 
@@ -49,11 +47,11 @@ The core benefit of building microservices is scalability. So the chosen securit
 
 ### 3. User/machine access distinction
 
-There is a need of having a clear distinction of different users, and also different machines. Using microservice architecture leads to building a large multi-purpose data-center of different domains and resources, so there is a need to restrict different clients, such as native apps, multiple SPAs etc. in their access.
+There is a need of having a clear distinction of different users, and also different machines. Using microservice architecture leads to building a large multi-purpose data-center of different domains and resources, so there is a need to restrict different clients, such as native apps, multiple single page applications etc. in their access.
 
 ### 4. Fine-grained access control
 
-While maintaining centralized roles, there is a need of configuring detailed access control policies in each microservice. A microservice should be unaware of the responsibility of recognizing users, and must just authorize incoming requests.
+While maintaining centralized roles, there is a need of configuring detailed access control policies in each microservice. A microservice should be unaware of the responsibility of recognizing users, and must authorize incoming requests.
 
 ### 5. Safe from attacks
 
@@ -151,7 +149,7 @@ It is strictly recommended to use different signing keys as much as possible. On
 
 #### ***Not using TLS***
 
-If an attacker manages to intercept an access token, he will gain all the rights authorized to this token, until the token expires. There are a lot of ways to achieve that, in particular when there is no TLS encryption. This was not a problem in the days of version 1 of OAuth, because protocol level encryption was forced.
+If attackers manage to intercept an access token, they will gain all the rights authorized to this token, until the token expires. There are a lot of ways to achieve that, in particular when there is no TLS encryption. This was not a problem in the days of version 1 of OAuth, because protocol level encryption was forced.
 
 #### ***Using access tokens in URL***
 
@@ -159,7 +157,7 @@ As of standard, access tokens can be either passed by URL, in headers, or in a c
 
 #### ***Switching to symmetric signing keys***
 
-RSA is not required for JWT signing, and Spring Security does provide symmetric token signing as well. This also solves some problems, which make development harder. But this is insecure, since an attacker just needs to get into one single microservice to be able to generate its own JWT tokens.
+RSA is not required for JWT signing, and Spring Security does provide symmetric token signing as well. This also solves some problems, which make development harder. But this is insecure, since an attacker needs to get into one single microservice to be able to generate its own JWT tokens.
 
 ## <a name="inter-service-communication"></a> 4. Secure inter-service-communication using Feign clients
 
@@ -169,7 +167,7 @@ Using JWT authentication without manually forwarding JWTs from request to intern
 
 Since JHipster UAA is based on OAuth2, all these problems are solved on protocol definition.
 
-This chapter covers how to easily get started with this.
+This chapter covers how to get started with this.
 
 ### Using Eureka, Ribbon, Hystrix and Feign
 
@@ -213,7 +211,7 @@ class SomeService {
 
 Similar to Spring Data JPA, there is no need to implement that interface. But you may do so, if using Hystrix. Implemented classes of Feign client interfaces act as fallback implementations.
 
-One open issue is, to make this communication secure using UAA. To accomplish this, there should be some request interceptor for Feign, which implements the client credentials flow from OAuth, to authorize the current service for requesting the other service. In JHipster, you just use `@AuthorizedFeignClients` instead. This is a special annotation provided by JHipster, which does exactly that.
+One open issue is, to make this communication secure using UAA. To accomplish this, there should be some request interceptor for Feign, which implements the client credentials flow from OAuth, to authorize the current service for requesting the other service. In JHipster, you use `@AuthorizedFeignClients` instead. This is an annotation provided by JHipster, which does exactly that.
 
 ### Using `@AuthorizedFeignClients`
 
