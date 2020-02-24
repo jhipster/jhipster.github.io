@@ -172,8 +172,8 @@ Here are the deployment options supported in the JDL:
   </tr>
   <tr>
     <td>istio</td>
-    <td>no</td>
-    <td>no, manualInjection, autoInjection</td>
+    <td>false</td>
+    <td>true, false</td>
     <td>Applicable only when deploymentType is kubernetes</td>
   </tr>
   <tr>
