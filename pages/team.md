@@ -287,6 +287,15 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/428639?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Julien Sadaoui</h3>
+                <p><a href="https://twitter.com/juliensadaoui"><i>@juliensadaoui</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/1417183?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Marcelo Shima</h3>
