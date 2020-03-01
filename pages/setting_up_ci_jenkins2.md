@@ -23,7 +23,8 @@ Download the `jenkins.war`
 
 ### With Docker
 
-Launch the [Docker image](https://hub.docker.com/r/jenkins/jenkins) (the default port has been changed to 18080):
+Launch the [Docker image](https://hub.docker.com/r/jenkins/jenkins) 
+(_the default port has been changed to 18080 since the JHipster app is configured to run on 8080_)
 
 `docker container run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkins/jenkins`
 
