@@ -15,7 +15,7 @@ sitemap:
 
 When Neo4j is selected:
 
-* [Spring Data Neo4j/RX](https://neo4j.github.io/sdn-rx/current/) will be used to access the database. This is very close to Spring Data JPA, and this is why Neo4j support is very close to the (default) JPA support.
+* [Spring Data Neo4j/RX](https://neo4j.github.io/sdn-rx) will be used to access the database. This is very close to Spring Data JPA, and this is why Neo4j support is very close to the (default) JPA support.
 * [Neo4j Migrations](https://github.com/michael-simons/neo4j-migrations) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes.
 * [Neo4j Testcontainers](https://www.testcontainers.org/modules/databases/neo4j/) is used to launch a containerized version of the database for running unit tests.
 
