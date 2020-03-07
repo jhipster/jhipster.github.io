@@ -23,9 +23,35 @@ Download the `jenkins.war`
 
 ### With Docker
 
-Launch the [Docker image](https://hub.docker.com/r/jenkinsci/jenkins/) (the default port has been changed to 18080):
+Launch the [Docker image](https://hub.docker.com/r/jenkins/jenkins) 
+(_the default port has been changed to 18080 since the JHipster app is configured to run on 8080_)
 
-`docker container run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkinsci/jenkins`
+`docker container run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkins/jenkins`
+
+You can then access the Jenkins dashboard on 
+- http://localhost:18080 (on MacOS & Linux)
+- http://192.168.99.100:18080 (on Windows)
+  - If this doesn't work replace `192.168.99.100` with your docker's default ip address: `docker-machine ip default`
+
+Note: You'll be asked for an `initialAdminPassword` which you'll find in the logs during your container startup.
+You can also access it via `docker logs jenkins2`
+e.g.
+```
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+6707db8735be4ee29xy056f65af6ea13
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+```
 
 ## Create a new Job
 
