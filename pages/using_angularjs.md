@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-html5"></i> Using AngularJS
 
-As of JHispter 5, AngularJS is not supported anymore with JHipster.
+As of JHipster 5, AngularJS is not supported anymore with JHipster.
 
 We have great support for Angular and React, which are both more modern tools, we hope you will enjoy them!
 

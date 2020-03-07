@@ -12,7 +12,7 @@ sitemap:
 
 # <i class="fa fa-css3"></i> Customizing Bootstrap 3
 
-As of JHispter 5, AngularJS and Bootstrap 3 are not supported anymore with JHipster.
+As of JHipster 5, AngularJS and Bootstrap 3 are not supported anymore with JHipster.
 
 We have great support for Angular and React, which are both more modern tools, we hope you will enjoy them!
 

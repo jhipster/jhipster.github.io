@@ -13,7 +13,7 @@ sitemap:
 
 - The easiest way is to use [Azure App Service](https://azure.microsoft.com/services/app-service/?WT.mc_id=online-jhipster-judubois): there is a JHipster sub-generator
   to automatically deploy a monolithic application to this service.
-- If you are using Spring Boot microservices, there is a JHispter sub-generator to deploy your applications to
+- If you are using Spring Boot microservices, there is a JHipster sub-generator to deploy your applications to
  [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois).
 - As with any Docker and Kubernetes cloud provider, you can use the JHipster Docker and Kubernetes support to deploy your Docker images to Microsoft Azure. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) and our [Kubernetes documentation]({{ site.url }}/kubernetes/) for more information on these options.
 
@@ -149,11 +149,11 @@ Execute that command to get the secured token. Then, in the GitHub project where
 
 ## <a name="6"></a> Deploying Spring Boot microservices to Azure Spring Cloud
 
-[Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois) is a managed service for Spring Boot applications. It can host any kind of JHipster applications, including monoliths, but it is particularly suited for hosting JHispter microservices and JHipster gateways, which follow the standard JHipster [microservice architecture]({{ site.url }}/microservices-architecture/).
+[Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois) is a managed service for Spring Boot applications. It can host any kind of JHipster applications, including monoliths, but it is particularly suited for hosting JHipster microservices and JHipster gateways, which follow the standard JHipster [microservice architecture]({{ site.url }}/microservices-architecture/).
 
 ### Limitations of the Azure Spring Cloud sub-generator
 
-Azure Spring Cloud provides a managed discovery server based on Netflix Eureka, so this can only works with JHipster applications using the "no" or "JHispter Registry" service discovery:
+Azure Spring Cloud provides a managed discovery server based on Netflix Eureka, so this can only works with JHipster applications using the "no" or "JHipster Registry" service discovery:
 
 - If no service discovery is configured in the application, the sub-generator described below will add Netflix Eureka automatically. This is the easiest way to get your microservice running on Azure Spring Cloud.
 - JHipster Registry is in fact a Netflix Eureka server, so this is fully compatible with Azure Spring Cloud. JHipster provides many custom configuration for Eureka: it is required that you remove the `eureka.instance.instanceId` Spring Boot property in your `application.yml` file, as this should be managed by Azure Spring Cloud. Other `eureka` properties work fine with Azure Spring Cloud, but they can be removed to use instead Azure's default values. When using this configuration, you will benefit from some advanced features from JHipster, like distributed caching configuration, that normally rely on the JHipster Registry.
