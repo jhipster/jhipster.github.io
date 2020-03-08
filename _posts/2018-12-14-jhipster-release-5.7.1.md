@@ -10,7 +10,7 @@ This is a patch release on JHipster 5.7.0, which was released last month, and wh
 
 Most of those changes are minor bug fixes, typos and formatting errors, and also some libraries upgrades.
 
-The biggest new feature here is our new artwork, which includes our new inclusive images and logos! For more information on this artwork, have a look at our specific [JHipster artwork repository](https://github.com/jhipster/jhipster-artwork). For your information, the image used on each generated project is now selected from a hash of your project name: as a result, you will get a random image from our "JHispter family", and that image will stay the same when you re-generate your project, unless you modify the project name.
+The biggest new feature here is our new artwork, which includes our new inclusive images and logos! For more information on this artwork, have a look at our specific [JHipster artwork repository](https://github.com/jhipster/jhipster-artwork). For your information, the image used on each generated project is now selected from a hash of your project name: as a result, you will get a random image from our "JHipster family", and that image will stay the same when you re-generate your project, unless you modify the project name.
 
 Closed tickets and merged pull requests
 ------------

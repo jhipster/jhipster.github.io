@@ -6,7 +6,7 @@ title: Release 5.8.2
 JHipster release v5.8.2
 ==================
 
-This is a patch release for JHipster 5, which is currently in maintenance mode as we are preparing JHispter 6.
+This is a patch release for JHipster 5, which is currently in maintenance mode as we are preparing JHipster 6.
 
 This fixes a [several issues](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.8.2+is%3Aclosed), the most important one being a bug making JHipster modules crash.
 

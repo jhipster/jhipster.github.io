@@ -11,7 +11,7 @@ JHipster v5.3.0 is a huge release, with 114 closed tickets and pull requests, an
 Important changes
 -----------------
 
-Those are very important changes that you should be aware of when upgrading from an older JHispter release. Nothing should break, and this is why this isn't a major release, but you need to be aware of them.
+Those are very important changes that you should be aware of when upgrading from an older JHipster release. Nothing should break, and this is why this isn't a major release, but you need to be aware of them.
 
 - Upgrade to JJWT [#8145](https://github.com/jhipster/generator-jhipster/pull/8145). This will probably affect many JWT users, as the JWT key should now have a minimal length of 512 bits. If your key is smaller, JJWT won't accept it, and your users won't be able to log in. Please note that is for your own good: if your key is too short, this is a high security risk. Also, we now have a new "base64-secret" property, where you can store your token in Base64 encoding. This is also much better for security, and we expect this new property to be the only one supported in our next major release. More information on [#8165](https://github.com/jhipster/generator-jhipster/issues/8165).
 - NPM is now the default package manager, instead of Yarn. If you use Yarn, you shouldn't have any issue at the moment (it's just a change in the default option), but we expect to remove the option in our next major release. More information on [#8162](https://github.com/jhipster/generator-jhipster/issues/8162).
