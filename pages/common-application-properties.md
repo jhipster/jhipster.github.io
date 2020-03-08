@@ -101,6 +101,7 @@ Here is a documentation for those properties:
             redis: # Redis configuration
                 expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
                 server: redis://localhost:6379 # Server address
+                cluster: false
 
         # E-mail properties
         mail:
