@@ -46,7 +46,8 @@ This Spring test context will use a specific test database to run its tests:
 *   If you use Cassandra, JHipster will launch a containerized version of Cassandra with Docker using [Testcontainers](https://www.testcontainers.org){:target="_blank" rel="noopener"}.
 *   If you use MongoDB, JHipster will launch an in-memory MongoDB instance using [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo){:target="_blank" rel="noopener"}.
 *   If you use Elasticsearch, JHipster will launch an in-memory Elasticsearch instance using Spring Data Elasticsearch.
-*   If you use Couchbase, JHipster will launch a containerized version of Couchbase with Docker using [Couchbase TestContainers](https://github.com/differentway/testcontainers-java-module-couchbase){:target="_blank" rel="noopener"}.
+*   If you use Couchbase, JHipster will launch a containerized version of Couchbase with Docker using [Couchbase Testcontainers](https://github.com/differentway/testcontainers-java-module-couchbase){:target="_blank" rel="noopener"}.
+*   If you use Neo4j, JHipster will launch a containerized version of Neo4j with Docker using [Neo4j Testcontainers](https://www.testcontainers.org/modules/databases/neo4j/){:target="_blank" rel="noopener"}.
 
 Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `./mvnw clean verify` (or `./gradlew test integrationTest` if you use Gradle).
 

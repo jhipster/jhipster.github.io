@@ -141,7 +141,7 @@ In the case of a microservice architecture, this configuration will also pre-con
 
 ## <a name="4"></a> Working with databases
 
-### MySQL, MariaDB, PostgreSQL, Oracle, MongoDB or Cassandra
+### MySQL, MariaDB, PostgreSQL, Oracle, MongoDB, Couchbase, Neo4j or Cassandra
 
 Running `docker-compose -f src/main/docker/app.yml up` already starts up your database automatically.
 
@@ -154,6 +154,7 @@ If you only want to start your database, and not the other services, use the Doc
 - With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
 - With Cassandra: `docker-compose -f src/main/docker/cassandra.yml up`
 - With Couchbase: `docker-compose -f src/main/docker/couchbase.yml up`
+- With Neo4j: `docker-compose -f src/main/docker/neo4j.yml up`
 
 ### MongoDB Cluster Mode
 
