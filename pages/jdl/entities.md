@@ -251,8 +251,13 @@ Common databases:
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
+      <td></td>
+      <td>ByteBuffer</td>
+      <td><dfn>required, minbytes, maxbytes, unique</dfn></td>
+    </tr>
+  <tr>
     <td>ZonedDateTime</td>
-    <td></td>
+    <td>ZonedDateTime</td>
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
