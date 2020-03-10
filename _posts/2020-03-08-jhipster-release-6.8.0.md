@@ -13,7 +13,7 @@ Here are the most significant ones:
 - Angular 9 - [#11262](https://github.com/jhipster/generator-jhipster/pull/11262)
 - Replace Zuul with Spring Cloud Gateway for Reactive Microservices - [#11223](https://github.com/jhipster/generator-jhipster/pull/11223) [#11417](https://github.com/jhipster/generator-jhipster/pull/11417)
 - Embedded entities for document databases (Couchbase, MongoDB) - [#11239](https://github.com/jhipster/generator-jhipster/pull/11239)
-- Prettier Java preformatting - [#11392](https://github.com/jhipster/generator-jhipster/pull/11392)
+- Prettier Java preformatting - [#11371](https://github.com/jhipster/generator-jhipster/pull/11371)
 - Improvement for Blueprints - [#11337](https://github.com/jhipster/generator-jhipster/pull/11337) [#11313](https://github.com/jhipster/generator-jhipster/pull/11313) [#11150](https://github.com/jhipster/generator-jhipster/pull/11150)
 - Upgrade to Spring Boot 2.2.5.RELEASE - [#11411](https://github.com/jhipster/generator-jhipster/pull/11411)
 - Redis cluster - [#11264](https://github.com/jhipster/generator-jhipster/pull/11264)
