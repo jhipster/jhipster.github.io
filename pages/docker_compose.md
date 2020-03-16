@@ -230,7 +230,7 @@ A Docker Compose configuration is generated for running Sonar:
 
 To analyze your code, run Sonar on your project:
 
-- With Maven: `./mvnw sonar:sonar`
+- With Maven: `./mvnw initialize sonar:sonar`
 - With Gradle: `./gradlew sonar`
 
 The Sonar reports will be available at: [http://localhost:9000](http://localhost:9000)
