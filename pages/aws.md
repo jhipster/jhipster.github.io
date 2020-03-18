@@ -31,7 +31,7 @@ When using the monolith flow, this sub-generator will automatically deploy your 
 
 When using the microservice flow, this will guide you through the creation of an [Elastic Kubernetes Cluster (EKS)](https://aws.amazon.com/eks/) 
 and [Elastic Container Registries (ECR)](https://aws.amazon.com/ecr/) for all your microservices and gateway. Afterwards you have to use the [Kubernetes Subgenerator](/kubernetes) to generate the Kubernetes configuration files and 
-push them via docker to ECR. A sample deployment can be found at https://github.com/jhipster/generator-jhipster/issues/8366#issuecomment-535329759
+push them via docker to ECR. A sample deployment can be found at [https://github.com/jhipster/generator-jhipster/issues/8366#issuecomment-535329759](https://github.com/jhipster/generator-jhipster/issues/8366#issuecomment-535329759)
 
 ![AWS Component Diagram]({{ site.url }}/images/aws_component_diagram.svg?sanitize=true)
 
