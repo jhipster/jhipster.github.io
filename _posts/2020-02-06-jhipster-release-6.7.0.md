@@ -21,6 +21,22 @@ Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A6.7.0+is%3Aclosed)__.
 
+Backward Compatibility Issues
+------------
+
+- **v6.5.x and beyond** 
+
+    - **MongoDB**: PersistentAuditEvent Documents not found after upgrading ([#11290](https://github.com/jhipster/generator-jhipster/issues/11290)). 
+    
+        - `jhipster upgrade` will remove `@Field("event_id")` annotation on `PersistentAuditEvent#id` domain class.
+        
+        - The goal is identifying Documents properly by    `_id` field instead, using Spring Data `@Id` annotation. But: when querying pre-upgrade stored documents, the query won't look for `event_id`, thus those won't be found.
+        
+        - Such specific case should not impact regular applications behaviour.
+        
+        - Domain backwards compatibility can be restored by adding `@Field(value = "event_id", targetType = FieldType.OBJECT_ID)` annotation to `PersistentAuditEvent#id` in combination with `@Id`.
+
+
 How to upgrade
 ------------
 
