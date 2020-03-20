@@ -21,7 +21,7 @@ Closed tickets and merged pull requests
 ------------
 As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A6.7.0+is%3Aclosed)__.
 
-Bacward Compatibility Issues
+Backward Compatibility Issues
 ------------
 
 - **v6.5.x and beyond** 
