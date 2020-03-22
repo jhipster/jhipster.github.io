@@ -116,6 +116,21 @@ Note: before using the deployment to Heroku, you need to use the [Heroku sub-gen
 It will create all files needed by your Continuous Integration Tool.
 
 
+## Additional information
+
+Depending on your OS and where you pushed your project, you will probably need to make the wrapper executable before using a CI/CD.
+
+If you use Maven:
+
+- `chmod +x mvnw`
+- `git update-index --chmod=+x mvnw`
+
+If you use Gradle:
+
+- `chmod +x gradlew`
+- `git update-index --chmod=+x gradlew`
+
+
 ## Documentation about environment variables:
 
 - Jenkins pipeline: you should use the [Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
