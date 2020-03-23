@@ -39,6 +39,10 @@ To deploy your application to Heroku, run this command:
 
 This should package your application in "production" mode, create an Heroku application with a database, upload your code, and start the application.
 
+Depending on your database the sub-generator might install add-ons such as [JawsDB MySQL](https://elements.heroku.com/addons/jawsdb) 
+for MySQL databases. For these addons to be installed properly your [Heroku account needs to be verified](https://devcenter.heroku.com/articles/account-verification).
+Therefore to avoid any unexpected build failures, we would recommend verifying your Heroku account before starting this sub-generator.
+
 Note that if your application is a microservice, you will be prompted to provide a registry URL. Scroll down to learn how to do this.
 
 _Please be aware that your application must start under 90 seconds, or it will be shutdown. Depending on the platform load, starting under 90 seconds is not guaranteed!_
