@@ -39,50 +39,72 @@ If you want more information on the available profiles, please go the section ti
 
 ### Building an executable JAR / WAR file
 
-To package the application as a "production" JAR, with Maven please type:
+#### With Maven
+
+- To package the application as a "production" JAR, please type:
 
 `./mvnw -Pprod clean verify`
 
-Or when using Gradle, please type:
+This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
+
+- To package the application as a "production" WAR:
+
+    - Modify the `pom.xml` to change the application packaging to `war` like:
+    ```diff
+    -    <packaging>jar</packaging>
+    +    <packaging>war</packaging>
+    ``` 
+    - Modify the `pom.xml` to change the scope of `spring-boot-starter-undertow` dependency to `provided` like:
+    ```diff
+        <id>prod</id>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-undertow</artifactId>
+    +           <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    ``` 
+    - To generate an executable `war` along the original `war`, type command: 
+    ```bash
+    ./mvnw -Pprod clean verify
+    ```
+  - This will generate these files (if your application is called "jhipster"): 
+   
+    * `target/jhipster-0.0.1-SNAPSHOT.war`
+    * `target/jhipster-0.0.1-SNAPSHOT.war.original` 
+
+**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper baseHref.
+Considering `jhipster` as the context path, it should looks like:
+```
+new BaseHrefWebpackPlugin({ baseHref: '/jhipster/' }),
+```
+
+**Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
+
+#### With Gradle
+To package the application as a "production" JAR, please type:
 
 `./gradlew -Pprod clean bootJar`
 
-This will generate this file (if your application is called "jhipster"):
-
-When using Maven:
-*   `target/jhipster-0.0.1-SNAPSHOT.jar`
-
-When using Gradle:
-*   `build/libs/jhipster-0.0.1-SNAPSHOT.jar`
+This will generate a file `build/libs/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
 
 
-To package the application as a "production" WAR, with Maven please type:
-
-`./mvnw -Pprod,war clean verify`
-
-Or when using Gradle, please type:
+To package the application as a "production" WAR, please type:
 
 `./gradlew -Pprod -Pwar clean bootWar`
 
-**Please note** that when building a JAR or WAR file with a context path, you will need to update webpack.prod.js with the proper baseHref.
-
+**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper baseHref.
+Considering `jhipster` as context path, it should looks like:
+```
+new BaseHrefWebpackPlugin({ baseHref: '/jhipster/' }),
+```
 
 This will generate these files (if your application is called "jhipster"):
-
-When using Maven:
-*   `target/jhipster-0.0.1-SNAPSHOT.war`
-
-When using Gradle:
 *   `build/libs/jhipster-0.0.1-SNAPSHOT.war`
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
-**Please note** if you want the WAR original file with Maven, you need to edit the `pom.xml` file to use `war` packaging instead of `jar` packaging :
-
-```diff
--    <packaging>jar</packaging>
-+    <packaging>war</packaging>
-```
 
 ## <a name="run"></a> Running in production
 
@@ -99,6 +121,11 @@ If you are on Windows, use:
 `java -jar jhipster-0.0.1-SNAPSHOT.jar`
 
 **Please note** that this JAR file uses the profile we selected when building it. As it was built using the `prod` file in the previous section, it will therefore run with the `prod` profile.
+
+You can specify the context path as an environment variable or as a command line parameter like:
+```bash 
+java -jar jhipster.jar --server.servlet.context-path=/jhipster
+```
 
 ### Running the application in a Docker container
 
