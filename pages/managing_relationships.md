@@ -423,6 +423,7 @@ Do not use  `@MapsId` when:
 
 
 ### Setting fetching data strategy to eager (FetchType.EAGER)
+
 All the relationships use the default JPA FetchType:
 - OneToMany: LAZY
 - ManyToOne: EAGER
@@ -439,5 +440,5 @@ There is [a known issue of NPE during JSON deserialization](https://github.com/j
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Set<Child> child = new HashSet<>();
     ```
-- Return null if the collection is empty when fecthing the resource in the backend
+- Return null if the collection is empty when fetching the resource in the backend
 - Using DTO and handle the edge case of empty collection
