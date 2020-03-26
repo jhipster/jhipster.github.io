@@ -420,3 +420,25 @@ Do not use  `@MapsId` when:
     Both car and driver association value may change in future.
 
 **Note: There is [a known issue regarding using `@OneToOne` with `@MapsId` and how to avoid it](https://www.jhipster.tech/tips/026_tip_issue_of_onetoone_with_mapsid_how_to_avoid_it.html)**.
+
+
+### Setting fetching data strategy to eager (FetchType.EAGER)
+
+All the relationships use the default JPA FetchType:
+- OneToMany: LAZY
+- ManyToOne: EAGER
+- ManyToMany: LAZY
+- OneToOne: EAGER
+
+There is [a known issue of NPE during JSON deserialization](https://github.com/jhipster/generator-jhipster/issues/10981) due to eager fetch type. If you would like to set either `OneToMany` or `ManyToMany` relationship to `FetchType.EAGER`, you can use one of the following solutions:
+- Use ```@JsonInclude(JsonInclude.Include.NON_EMPTY)``` on the relationship
+    
+    For eg,
+
+    ```
+    @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Set<Child> child = new HashSet<>();
+    ```
+- Return null if the collection is empty when fetching the resource in the backend
+- Using DTO and handle the edge case of empty collection
