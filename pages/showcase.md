@@ -156,7 +156,7 @@ If you want your application to be featured here submit a PR to the [website](ht
    </div>
 </div>
 <div class="row">
-<div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
                 <img width="560" height="315" src="{{ site.url }}/images/showcase/GUCvoile.png" />
