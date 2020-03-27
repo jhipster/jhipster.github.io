@@ -43,18 +43,22 @@ If you want more information on the available profiles, please go the section ti
 
 - To package the application as a "production" JAR, please type:
 
-`./mvnw -Pprod clean verify`
+    `./mvnw -Pprod clean verify`
 
-This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
+    This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
+
 
 - To package the application as a "production" WAR:
 
     - Modify the `pom.xml` to change the application packaging to `war` like:
+
     ```diff
     -    <packaging>jar</packaging>
     +    <packaging>war</packaging>
     ``` 
+    
     - Modify the `pom.xml` to change the scope of `spring-boot-starter-undertow` dependency to `provided` like:
+
     ```diff
         <id>prod</id>
         <dependencies>
@@ -66,6 +70,7 @@ This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your applicat
         </dependencies>
     ``` 
     - To generate an executable `war` along the original `war`, type command: 
+    
     ```bash
     ./mvnw -Pprod clean verify
     ```
@@ -76,11 +81,13 @@ This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your applicat
 
 **Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper baseHref.
 Considering `jhipster` as the context path, it should looks like:
+
 ```
 new BaseHrefWebpackPlugin({ baseHref: '/jhipster/' }),
 ```
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
+
 
 #### With Gradle
 To package the application as a "production" JAR, please type:
