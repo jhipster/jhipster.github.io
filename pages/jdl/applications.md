@@ -12,12 +12,15 @@ sitemap:
 ## Applications
 
 1. [Syntax](#syntax)
+1. [Options in applications](#options-in-applications)
 1. [Examples](#examples)
    1. [Basic Example](#basic-example)
    1. [More than one application](#more-than-one-application)
    1. [With entities](#with-entities)
+   1. [With options](#with-options)
 1. [Microservice workflow](#microservice-workflow)
-1. [Available application options](#available-application-options)
+1. [Complete example breakdowns](#complete-example-breakdowns)
+1. [Available application configuration options](#available-application-configuration-options)
 
 ***
 
@@ -31,6 +34,7 @@ application {
     <application option name> <application option value>
   }
   [entities <application entity list>]
+  [<options>]
 }
 ```
 
@@ -43,6 +47,89 @@ application {
       - or with the CLI
   - The `entities` keyword is optional: you can omit it, but every entity in the JDL file will be generated inside the
     application
+  - Applications can have regular options (like `dto` or `service`), more information in the [next](#options-in-applications) section.
+
+---
+
+### Options in applications
+
+Option declarations (`dto`, `service`, `skipServer`, etc.) are supported in JDL applications, but with some rules.
+
+Say we have this JDL file:
+```jdl
+application {
+  config {
+    baseName app1
+  }
+  entities A, B, C
+  dto * with mapstruct
+}
+
+application {
+  config {
+    baseName app2
+  }
+  entities C, D
+  paginate * with pagination except D 
+}
+
+application {
+  config {
+    baseName app3
+  }
+  entities * except A, B, C, D, F
+  service * with serviceClass
+}
+
+entity A
+entity B
+entity C
+entity D
+entity E
+entity F
+
+paginate * with infinite-scroll
+```
+
+In this sample, we can see a few things:
+  - There are 6 declared entities in the JDL file: `A, B, C, D, E and F`.
+  - We have 3 applications: `app1, app2 and app3`
+    - `app1` uses `A, B and C`
+    - `app2` uses `C and D`
+    - `app3` uses `E` (`* except A, B, C, D, F`)
+  - Each of these applications declare options and a **global** option in also declared.
+    - `app1` uses `dto` for `A, B and C`
+    - `app2` uses `paginate` for `C` (because there's an exception)
+    - `app3` uses `service` for `E`
+    - The global one also uses `pagination` (for every entity)
+
+Here's how files are generated:
+  - `app1`
+    - `A`: will use `paginate with infinite-scroll` (the global option isn't overridden by a local one) and
+      `dto with mapstruct`
+    - `B`: will use the same options
+    - `C`: will also use the same options
+  - `app2`:
+    - `C`: will use `paginate with pagination` (and not `infinite-scroll`, because the local one takes precedence)
+    - `D`: will use `paginate with infinite-scroll` as the previous option doesn't include `D`
+  - `app3`:
+    - `E`: will `paginate with infinite-scroll` and `service E with serviceClass`
+
+This example illustrates the **shadowing** principle. Global options are supported and will be used by every declared
+application **unless** options are also declared in applications.
+
+Also note this snippet taken from the previous sample in `app3`:
+```jdl
+entities * except A, B, C, D, F
+service * with serviceClass
+```
+
+This basically means that `app3` will only use `E` and that the application's entities will use the `service` option,
+that means `E` and not `A to F`.
+
+Finally, there the `F` entity which isn't in any application and this entity will not be generated because of that.
+
+_Note: all regular options are supported at the moment._
 
 ---
 
@@ -119,7 +206,39 @@ entity C
 
 ---
 
-### Complete example breakdown
+#### With options
+
+```jdl
+application {
+  config {
+    baseName exampleApp1
+    applicationType microservice
+    serverPort 9001
+  }
+  entities A
+  dto A with mapstruct 
+}
+
+application {
+  config {
+    baseName exampleApp2
+    applicationType microservice
+    serverPort 9002
+  }
+  entities * except A
+  paginate C with pagination
+}
+
+entity A
+entity B
+entity C
+```
+
+---
+
+### Complete example breakdowns
+
+Example 1:
 
 ```jdl
 application {
@@ -185,6 +304,11 @@ JHipster Core does the exact same things for you.
 
 ---
 
+Example 2: with options
+See the [option section](#options-in-applications).
+
+---
+
 ### Microservice workflow
 
 Dealing with microservices is a almost tricky, but the JDL gives you some options to handle your entities as you see fit.
@@ -231,7 +355,7 @@ You can also create an entire microservice stack using JDL, [see this blog post]
 
 ---
 
-### Available application options
+### Available application configuration options
 
 Here are the application options supported in the JDL:
 
