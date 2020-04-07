@@ -81,7 +81,7 @@ If you choose [Docker Hub](https://hub.docker.com/) as main registry, it will be
 
 If you choose [Google Container Registry](https://cloud.google.com/container-registry/), then it'll be `gcr.io/[PROJECT ID]`, or a regional registry, such as `eu.gcr.io/[PROJECT ID]`, `us.gcr.io/[PROJECT ID]`, or `asia.gcr.io/[PROJECT ID]`. See [Pushing and Pulling Images](https://cloud.google.com/container-registry/docs/pushing-and-pulling) for more detial.
 
-If you choose other registries like Harbor|Quay or something similar, then the login would be like `<registry_server>/<repo>/[PROJECT ID]`
+If you choose other registries like [Harbor](https://goharbor.io/), [Quay](https://www.openshift.com/products/quay) or something similar, then the login would be like `<registry_server>/<repo>/[PROJECT ID]`
 
 ### What command should we use for push Docker image to repository?
 
