@@ -390,6 +390,12 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "SwissDev Java Jobs",
+      "url": "https://swissdevjobs.ch/jobs/Java/All",
+      "logo": "swiss-java-jobs.png",
+      "category": "Information Technology",
+      "country": "Switzerland"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
