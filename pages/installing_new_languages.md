@@ -56,7 +56,8 @@ These are the currently supported languages
 *   Romanian 
 *   Russian 
 *   Slovak 
-*   Serbian 
+*   Serbian
+*   Sinhala 
 *   Spanish 
 *   Swedish 
 *   Turkish 
