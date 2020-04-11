@@ -88,28 +88,17 @@ Here are the steps to install a new language called `new_lang`:
 
 1.  Duplicate the `src/main/webapp/i18/en` folder to `src/main/webapp/i18/new_lang` (this is where all the front-end translations are stored)
 2.  Translate all files under the folder `src/main/webapp/i18/new_lang`
-3.  For AngularJS 1 add the language code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/components/language/language.constants.js`
+3.  Add the language code `new_lang` to the `languages` variable defined in `src/main/webapp/app/shared/language/find-language-from-key-pipe.ts`
 
-        .constant('LANGUAGES', [
-            'en',
-            'fr',
-            'new_lang'
-            // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
-        ]
-
-    For Angular 2+ add the language code `new_lang` to the `LANGUAGES` constant defined in `src/main/webapp/app/shared/language/language.constants.ts`
-
-        export const LANGUAGES: string[] = [
-            'en',
-            'fr',
-            'new_lang'
-            // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
-        ];
+        private languages: { [key: string]: { name: string; rtl?: boolean } } = {
+            en: { name: 'English' },
+            new_lang: { name: 'New Language' }
+            // jhipster-needle-i18n-language-key-pipe - JHipster will add/remove languages in this object
+        };
 
 4.  In the `src/main/resources/i18n` folder, copy the `messages_en.properties` file to `messages_new_lang.properties` (this is where the server-side translations are stored)
 5.  Translate all keys in the `messages_new_lang.properties` file
-6.  For AngularJS 1 add the new language's name in the function of `filter('findLanguageFromKey')` in the `src/main/webapp/app/components/language/language.filter.js` file. For Angular 2+ add the new language's name in the `languages` variable of `FindLanguageFromKeyPipe` in the `src/main/webapp/app/shared/language/find-language-from-key.pipe.ts`
-7.  For Angular 2+ add the new language bundling to `webpack.common.js`
+6.  Add the new language bundling to `webpack/webpack.common.js`
 
         new MergeJsonWebpackPlugin({
             output: {
@@ -126,12 +115,28 @@ The new language `new_lang` is now available in the language menu, and it is ava
 
 ### Contributing the language to generator-jhipster
 
-If you would like to contribute a new language to the generator follow steps 1, 2, 4 and 5 from above. Add an entry for the new language to the `LANGUAGES` constant in `generators/generator-constants.js` and add the language to `test/templates/all-languages/.yo-rc.json` in the `generator-jhipster` project. Submit a PR with all these changes.
+If you would like to contribute a new language to the generator follow steps below;
+
+- Add the language to the `LANGUAGES` constant in [`generators/gnerator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-constants.js)
+
+        { name: 'New Language', dispName: 'New Language', value: 'nl' }
+
+- Duplicate the file [`generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/master/generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/main/resources/i18n/messages_nl.properties.ejs` and translate all the values to the new language.   
+
+- Duplicate the folder [`generators/languages/templates/src/main/webapp/i18n/en`](https://github.com/jhipster/generator-jhipster/tree/master/generators/languages/templates/src/main/webapp/i18n/en) to `generators/languages/templates/src/main/webapp/i18n/nl` and translate all the files inside it. 
+
+- Duplicate the file [`generators/entity-i18n/templates/i18n/entity_en.json.ejs`](https://github.com/jhipster/generator-jhipster/blob/master/generators/entity-i18n/templates/i18n/entity_en.json.ejs) to `generators/entity-i18n/templates/i18n/entity_nl.json.ejs` and translate all the values within it.
+
+- Duplicate the file [`generators/languages/templates/src/test/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/master/generators/server/templates/src/test/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/test/resources/i18n/messages_nl.properties.ejs` and translate all the values within it.
+
+- Add the language value `nl` to the `language` array in [`test/templates/all-languages/.yo-rc.json`](https://github.com/jhipster/generator-jhipster/blob/master/test/templates/all-languages/.yo-rc.json).
+
+Submit a PR with all these changes.
 
 ## How to remove an existing language?
 
 Here are the steps to remove a language called `old_lang`:
 
 1.  Remove the language folder from `src/main/webapp/i18/old_lang`
-2.  Remove the constant entry in `src/main/webapp/app/components/language/language.constants.js` or `src/main/webapp/app/shared/language/language.constants.ts` and `webpack.common.js`
+2.  Remove the constant entry in `src/main/webapp/app/shared/language/language.constants.ts` and `webpack/webpack.common.js`
 3.  Remove the `src/main/resources/i18n/messages_old_lang.properties` file
