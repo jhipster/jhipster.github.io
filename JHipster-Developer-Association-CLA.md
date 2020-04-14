@@ -58,7 +58,7 @@ employer(s) has authorized you to make your Contributions on behalf of such empl
 (s) has waived all of their right, title or interest in or to your Contributions.
 
 
-**Disclaimer.** To the fullest extent permitted under applicable law, your Contributions are provided on an "asis"
+**Disclaimer.** To the fullest extent permitted under applicable law, your Contributions are provided on an "as is"
 basis, without any warranties or conditions, express or implied, including, without limitation, any implied
 warranties or conditions of non-infringement, merchantability or fitness for a particular purpose. You are not
 required to provide support for your Contributions, except to the extent you desire to provide support.
