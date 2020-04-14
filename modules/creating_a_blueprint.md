@@ -145,7 +145,7 @@ There are multiple ways to customize a phase from JHipster.
     }
 ```
 
-1) Re-order the phase steps, this is when the blueprint gets the phase from JHipster and generates a new step sequence.
+4) Re-order the phase steps, this is when the blueprint gets the phase from JHipster and generates a new step sequence.
 
 ```javascript
     // Run the blueprint steps before any parent steps
