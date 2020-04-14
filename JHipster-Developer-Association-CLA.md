@@ -7,7 +7,7 @@ terms governing any source code, object code, bug fixes, configuration changes, 
 documentation, data, materials, feedback, information or other works of authorship that you submit or 
 have submitted, in any form and in any manner, to the Association in respect of any of the Projects 
 (collectively **“Contributions”**). If you have any questions respecting this Agreement, 
-please contact **info@jhipster.tech**
+please contact **jhipster-developers-association@googlegroups.com**
 
 
 This license is for your protection as a Contributor as well as the protection of the Association 
