@@ -54,8 +54,7 @@ do not apply to any portion of a Project that is incorporated into your Contribu
 you in accordance with this Agreement, you are the sole author of your Contributions and are legally entitled
 to grant the foregoing licenses and waivers in respect of your Contributions. If your Contributions were
 created in the course of your employment with your past or present employer(s), you represent that such
-employer(s) has authorized you to make your Contributions on behalf of such employer(s) or such employer
-(s) has waived all of their right, title or interest in or to your Contributions.
+employer(s) has authorized you to make your Contributions on behalf of such employer(s) or such employer(s) has waived all of their right, title or interest in or to your Contributions.
 
 
 **Disclaimer.** To the fullest extent permitted under applicable law, your Contributions are provided on an "as is"
