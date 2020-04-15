@@ -145,7 +145,7 @@ There are multiple ways to customize a phase from JHipster.
     }
 ```
 
-4) Re-order the phase steps, this is when the blueprint gets the phase from JHipster and generates a new step sequence.
+4) Decorate a phase, this is when the blueprint runs custom steps before or after the phase coming from JHipster.
 
 ```javascript
     // Run the blueprint steps before and/or after any parent steps
