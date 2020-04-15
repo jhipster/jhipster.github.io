@@ -150,7 +150,6 @@ There are multiple ways to customize a phase from JHipster.
 ```javascript
     // Run the blueprint steps before any parent steps
     get initializing() {
-        const phaseFromJHipster = 
         return {
             myCustomInitPhaseStep() {
                 // Do all your stuff here
