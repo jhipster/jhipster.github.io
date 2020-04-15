@@ -148,25 +148,22 @@ There are multiple ways to customize a phase from JHipster.
 4) Re-order the phase steps, this is when the blueprint gets the phase from JHipster and generates a new step sequence.
 
 ```javascript
-    // Run the blueprint steps before any parent steps
+    // Run the blueprint steps before and/or after any parent steps
     get initializing() {
+        const customPrePhaseSteps = {
+            myCustomPreInitStep() {
+                // Stuff to do BEFORE the JHipster steps
+            }
+        };
+        const customPostPhaseSteps = {
+            myCustomPostInitStep() {
+                // Stuff to do AFTER the JHipster steps
+            }
+        };
         return {
-            myCustomInitPhaseStep() {
-                // Do all your stuff here
-            },
-            ...super._initializing();
-        }
-    }
-    // Fine control of the steps order
-    get configuring() {
-        const phaseFromJHipster = super._configuring();
-        return {
-            insight: phaseFromJHipster.insight,
-            configureGlobal: phaseFromJHipster.configureGlobal,
-            myCustomConfigPhaseStep() {
-                // Do all your stuff here
-            },
-            saveConfig: phaseFromJHipster.saveConfig
+            ...customPrePhaseSteps,
+            ...super._initializing(),
+            ...customPostPhaseSteps,
         }
     }
 ```
