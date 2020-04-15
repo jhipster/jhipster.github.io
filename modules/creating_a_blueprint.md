@@ -167,7 +167,6 @@ There are multiple ways to customize a phase from JHipster.
                 // Do all your stuff here
             },
             saveConfig: phaseFromJHipster.saveConfig
-
         }
     }
 ```
