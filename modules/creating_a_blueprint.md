@@ -145,6 +145,29 @@ There are multiple ways to customize a phase from JHipster.
     }
 ```
 
+4) Decorate a phase, this is when the blueprint runs custom steps before or after the phase coming from JHipster.
+
+```javascript
+    // Run the blueprint steps before and/or after any parent steps
+    get initializing() {
+        const customPrePhaseSteps = {
+            myCustomPreInitStep() {
+                // Stuff to do BEFORE the JHipster steps
+            }
+        };
+        const customPostPhaseSteps = {
+            myCustomPostInitStep() {
+                // Stuff to do AFTER the JHipster steps
+            }
+        };
+        return {
+            ...customPrePhaseSteps,
+            ...super._initializing(),
+            ...customPostPhaseSteps
+        };
+    }
+```
+
 You can also access to JHipster's variables and functions directly from a Blueprint.
 
 ## Available variables and functions
