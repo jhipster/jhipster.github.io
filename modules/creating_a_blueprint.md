@@ -164,7 +164,7 @@ There are multiple ways to customize a phase from JHipster.
             ...customPrePhaseSteps,
             ...super._initializing(),
             ...customPostPhaseSteps,
-        }
+        };
     }
 ```
 
