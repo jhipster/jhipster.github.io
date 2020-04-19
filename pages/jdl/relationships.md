@@ -7,9 +7,9 @@ sitemap:
     lastmod: 2019-11-03T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Relationships
 
-## Relationships
+## Summary
 
 1. [Relationship types](#relationship-types)
 1. [Relationship methods](#relationship-methods)

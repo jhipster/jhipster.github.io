@@ -7,9 +7,9 @@ sitemap:
     lastmod: 2019-11-02T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Options
 
-## Options
+## Summary
 
 In JHipster, you can specify options for your entities such as pagination or DTO.
 You can do the same with the JDL, either with annotations on the entity, or with the following syntax:

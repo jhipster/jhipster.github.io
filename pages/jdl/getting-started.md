@@ -7,10 +7,10 @@ sitemap:
     lastmod: 2019-10-27T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Getting Started
 
 
-## Getting Started
+## Summary
 
 In this page, you'll learn about the JDL and how to create applications and everything around them.
 

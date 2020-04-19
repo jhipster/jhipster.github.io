@@ -7,9 +7,9 @@ sitemap:
     lastmod: 2019-10-27T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Deployments
 
-## Deployments
+## Summary
 
 1. [Syntax](#syntax)
 1. [Examples](#examples)
