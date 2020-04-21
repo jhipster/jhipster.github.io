@@ -80,6 +80,10 @@ this.bookService.query({'birthday.lessOrEqualThan':value}).subscribe(...);
 ```javascript
 this.bookService.query({'id.in':[value1, value2]}).subscribe(...);
 ```
+* notIn
+```javascript
+this.bookService.query({'id.notIn':[value1, value2]}).subscribe(...);
+```
 * Specified
 ```javascript
 this.bookService.query({'author.specified':true}).subscribe(...);
