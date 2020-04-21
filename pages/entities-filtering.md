@@ -67,7 +67,7 @@ To prove that the generated criteria is working, and Spring is well configured, 
 
 When using Angular, the propper way to take advantage of this useful feature would look like this:
 
-* Equals (same applies for `contains`)
+* Equals (same applies for `contains` and `notEquals`)
 ```javascript
 this.bookService.query({'title.equals':someValue}).subscribe(...);
 ```
@@ -76,13 +76,9 @@ this.bookService.query({'title.equals':someValue}).subscribe(...);
 this.bookService.query({'id.greaterThan':value}).subscribe(...);
 this.bookService.query({'birthday.lessOrEqualThan':value}).subscribe(...);
 ```
-* In
+* In (same applies for `notIn`)
 ```javascript
 this.bookService.query({'id.in':[value1, value2]}).subscribe(...);
-```
-* notIn
-```javascript
-this.bookService.query({'id.notIn':[value1, value2]}).subscribe(...);
 ```
 * Specified
 ```javascript
