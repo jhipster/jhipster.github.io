@@ -15,7 +15,7 @@ When JPA is used, the [entity sub-generator]({{ site.url }}/creating-an-entity/)
 
 ## Presentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/), [MongoDB]({{ site.url }}/using-mongodb/) of [Couchbase]({{ site.url }}/using-couchbase/), they won't be available. In case you use [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but
+Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) or [Couchbase]({{ site.url }}/using-couchbase/), they won't be available. In case you use [MongoDB]({{ site.url }}/using-mongodb/) or [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but
 they are all available to be used.
 
 A relationship works between two entities, and JHipster will generate the code for:
