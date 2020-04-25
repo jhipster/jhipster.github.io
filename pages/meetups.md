@@ -22,7 +22,6 @@ We are currently creating JHipster meetups all around the world!
 **North America**
 
 - [New York, USA - JHipster meetup](https://www.meetup.com/JHipster-NYC/)
-- [Washington, USA - JHipster meetup](https://www.meetup.com/JHipster-DC/)
 
 **Europe**
 
