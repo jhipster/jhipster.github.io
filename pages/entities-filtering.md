@@ -63,6 +63,28 @@ In the `EntityQueryService`, we convert the criteria object into a static, and t
 
 To prove that the generated criteria is working, and Spring is well configured, the `EntityResourceIntTest` is extended with lots of test cases, one for each individual filter.
 
+### Angular
+
+When using Angular, the propper way to take advantage of this useful feature would look like this:
+
+* Equals (same applies for `contains` and `notEquals`)
+```javascript
+this.bookService.query({'title.equals':someValue}).subscribe(...);
+```
+* greaterThan (same applies for `lessThan`, `greaterOrEqualThan` and `lessOrEqualThan` when using `date` and `number` data types)
+```javascript
+this.bookService.query({'id.greaterThan':value}).subscribe(...);
+this.bookService.query({'birthday.lessOrEqualThan':value}).subscribe(...);
+```
+* In (same applies for `notIn`)
+```javascript
+this.bookService.query({'id.in':[value1, value2]}).subscribe(...);
+```
+* Specified
+```javascript
+this.bookService.query({'author.specified':true}).subscribe(...);
+```
+
 ## Limitations
 
 Currently only SQL databases (with JPA) is supported, with the separate service or separate service implementation/interface combination.
