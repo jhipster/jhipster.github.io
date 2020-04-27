@@ -11,19 +11,23 @@ __Tip submitted by [@Tonterias](https://github.com/Tonterias)__
 
 Let's say that you need a new authority besides the given ones of ADMIN and USER.
 
-Modify AuthoritiesConstants.java file to include your new authorities:
+First, modify AuthoritiesConstants.java file to include your new authority:
+
+package es.yourdomain.web.security;
 
 	/**
 	 * Constants for Spring Security authorities.
 	 */
 	public final class AuthoritiesConstants {
-	
+
 	    public static final String ADMIN = "ROLE_ADMIN";
-	
+
 	    public static final String USER = "ROLE_USER";
-	
+
+	    public static final String LOCAL = "ROLE_LOCAL";
+
 	    public static final String ANONYMOUS = "ROLE_ANONYMOUS";
-	
+
 	    private AuthoritiesConstants() {
 	    }
 	}
@@ -34,29 +38,36 @@ Do not forget to include your new role in your authorities.csv:
 	ROLE_ADMIN
 	ROLE_USER
 	ROLE_ANONYMOUS
+	ROLE_LOCAL
 
 
-With that, you will be able to use it in your SecurityConfiguration.java or in (FrontpageconfigResource.java), for example:
+With that, you will be able to use it in your SecurityConfiguration.java or in (UserResource.java), for example:
 	
-	@DeleteMapping("/order-items/{id}")
-	@Timed
-	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
-	public ResponseEntity<Void> deleteOrderItem(@PathVariable Long id) {
-	    ...
-	}
+    /**
+     * Gets a list of all roles.
+     * @return a string list of all roles.
+     */
+    @GetMapping("/users/authorities")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
+    public List<String> getAuthorities() {
+        return userService.getAuthorities();
+    }
 
-and/or Angular files: jhiHasAnyAuthority=[‘ROLE_ADMIN’. ‘ROLE_X’ ……] or even consider to use it in the routes:
+and/or in your Angular files: jhiHasAnyAuthority=[‘ROLE_ADMIN’. ‘ROLE_X’ ……] or even consider to use it in the routes:
 
-	export const messageRoute: Routes = [
-	    {
-	        path: 'message',
-	        component: MessageComponent,
-	        data: {
-	            authorities: ['ROLE_USER'],
-	            pageTitle: 'Messages'
-	        },
-	        canActivate: [UserRouteAccessService]
-	    }
-	];
+export const appuserRoute: Routes = [
+  {
+    path: '',
+    component: AppuserComponent,
+    resolve: {
+      pagingParams: JhiResolvePagingParams
+    },
+    data: {
+      authorities: [Authority.USER, Authority.LOCAL],
+      defaultSort: 'id,asc',
+      pageTitle: 'mibarApp.appuser.home.title'
+    },
+    canActivate: [UserRouteAccessService]
+  },
 	
-The open-source example is at JhipsterPress: https://github.com/Tonterias/JhipsterPress
+
