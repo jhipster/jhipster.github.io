@@ -412,7 +412,7 @@ Here are the application options supported in the JDL:
   </tr>
   <tr>
     <td>skipUserManagement</td>
-    <td>true</td>
+    <td>false</td>
     <td></td>
     <td></td>
   </tr>
