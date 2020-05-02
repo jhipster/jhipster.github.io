@@ -251,13 +251,13 @@ Common databases:
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
-      <td></td>
-      <td>ByteBuffer</td>
-      <td><dfn>required, minbytes, maxbytes, unique</dfn></td>
-    </tr>
+    <td>ZonedDateTime</td>
+    <td>ZonedDateTime</td>
+    <td><dfn>required, unique</dfn></td>
+  </tr>
   <tr>
-    <td>ZonedDateTime</td>
-    <td>ZonedDateTime</td>
+    <td>Instant</td>
+    <td>Instant</td>
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
@@ -291,8 +291,8 @@ Common databases:
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
-    <td>Instant</td>
-    <td>Instant</td>
-    <td><dfn>required, unique</dfn></td>
+    <td></td>
+    <td>ByteBuffer</td>
+    <td><dfn>required, minbytes, maxbytes, unique</dfn></td>
   </tr>
 </table>
