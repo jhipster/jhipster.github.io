@@ -28,6 +28,7 @@ These are the currently supported languages
 *   Armenian
 *   Belarusian
 *   Bengali
+*   Bulgarian
 *   Catalan
 *   Chinese (Simplified)
 *   Chinese (Traditional)
