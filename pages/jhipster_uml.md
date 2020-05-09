@@ -15,7 +15,7 @@ Please note that this project is deprecated and shouldn't be used anymore.
 
 Instead, we suggest you use the JDL export feature of this project to export your XMI files to a JDL file that you can use and make models of your entities with JDL Studio.
 
-To learn more about the JDL, head [here]({{ site.url }}/profiles/).
+To learn more about the JDL, head [here]({{ site.url }}/jdl/).
 
 ***
 
