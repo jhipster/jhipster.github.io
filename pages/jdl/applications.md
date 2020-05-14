@@ -261,6 +261,12 @@ Here are the application options supported in the JDL:
     <td></td>
   </tr>
   <tr>
+    <td>blueprint</td>
+    <td></td>
+    <td></td>
+    <td>name of an additional blueprint (see [Marketplace](https://www.jhipster.tech/modules/marketplace/#/list))</td>
+  </tr>
+  <tr>
     <td>buildTool</td>
     <td>maven</td>
     <td>maven, gradle</td>
