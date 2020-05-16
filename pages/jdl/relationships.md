@@ -202,6 +202,14 @@ relationship ManyToMany {
 }
 ```
 
+---
+
+#### A note on required reflexive relationships
+
+As noted [here](https://github.com/jhipster/generator-jhipster/issues/11495), required relationships to the same entity
+are not supported. The issue is that a child must **always** have a parent, which in turn must have one too, etc.
+A possible workaround is to have explicit root and children entities.
+
 ----
 
 #### Commenting
