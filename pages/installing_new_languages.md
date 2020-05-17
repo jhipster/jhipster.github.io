@@ -28,6 +28,7 @@ These are the currently supported languages
 *   Armenian
 *   Belarusian
 *   Bengali
+*   Bulgarian
 *   Catalan
 *   Chinese (Simplified)
 *   Chinese (Traditional)
@@ -56,7 +57,8 @@ These are the currently supported languages
 *   Romanian 
 *   Russian 
 *   Slovak 
-*   Serbian 
+*   Serbian
+*   Sinhala 
 *   Spanish 
 *   Swedish 
 *   Turkish 
