@@ -270,7 +270,7 @@ Here are the application options supported in the JDL:
     <td>blueprints</td>
     <td></td>
     <td>Names of additional blueprints (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
-    <td>Braces are mandatory</td>
+    <td>Example: [vuejs,nodejs]</td>
   </tr>
   <tr>
     <td>buildTool</td>
