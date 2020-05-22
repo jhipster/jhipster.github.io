@@ -263,13 +263,13 @@ Here are the application options supported in the JDL:
   <tr>
     <td>blueprint</td>
     <td></td>
-    <td>name of an additional blueprint (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
+    <td>Name of an additional blueprint (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
     <td>DEPRECATED. String</td>
   </tr>
   <tr>
     <td>blueprints</td>
     <td></td>
-    <td>names of additional blueprints (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
+    <td>Names of additional blueprints (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
     <td>Braces are mandatory</td>
   </tr>
   <tr>
