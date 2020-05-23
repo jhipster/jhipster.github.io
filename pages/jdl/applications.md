@@ -385,6 +385,18 @@ Here are the application options supported in the JDL:
     <td></td>
   </tr>
   <tr>
+    <td>blueprint</td>
+    <td></td>
+    <td>Name of an additional blueprint (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
+    <td>DEPRECATED. String</td>
+  </tr>
+  <tr>
+    <td>blueprints</td>
+    <td></td>
+    <td>Names of additional blueprints (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
+    <td></td>
+  </tr>
+  <tr>
     <td>buildTool</td>
     <td>maven</td>
     <td>maven, gradle</td>
