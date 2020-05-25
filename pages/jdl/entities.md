@@ -42,7 +42,7 @@ entity <entity name> [(<table name>)] {
   - `<field type>` the JHipster supported type of the field,
   - and as an option:
     - `<entity javadoc>` the documentation of the entity,
-    - `<entity annotation>` the options for the entity,
+    - `<entity annotation>` the options for the entity (see [Options][] for a complete list of available options),
     - `<table name>` the database table name (if you want to specify something different that the name automatically computed from the entity name),
     - `<field javadoc>` the documentation of the field,
     - `<field annotation>` the options for the field,
@@ -296,3 +296,5 @@ Common databases:
     <td><dfn>required, minbytes, maxbytes, unique</dfn></td>
   </tr>
 </table>
+
+[Options]: options#available-options "Options"
