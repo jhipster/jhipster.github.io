@@ -297,4 +297,4 @@ Common databases:
   </tr>
 </table>
 
-[Options]: ./options.html "Options"
+[Options]: options#available-options "Options"
