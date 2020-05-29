@@ -66,7 +66,7 @@
             },
             getAllModules: function (start, size) {
                 /* Get all Jhipster modules */
-                return $http.get('http://registry.npmjs.org/-/v1/search?text=keywords:jhipster-blueprint,jhipster-module&from=' + start + '&size=' + size).success(function (resp) {
+                return $http.get('https://registry.npmjs.org/-/v1/search?text=keywords:jhipster-blueprint,jhipster-module&from=' + start + '&size=' + size).success(function (resp) {
                     return resp;
                 });
             },
