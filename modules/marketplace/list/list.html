@@ -5,7 +5,7 @@
         <input class="form-control search-field" ng-model="searchText" placeholder="Filter by name or keyword" id="search-field">
         <label class="fa fa-search inline-search" for="search-field"></label>
     </div>
-    <div class="row" ng-repeat="module in modules | filter:searchText | orderBy:'-score.detail.popularity'">
+    <div class="row" ng-repeat="module in modules | filter:searchText | orderBy:'-searchScore'">
         <div class="col-xs-12">
             <div class="card profile">
                 <div class="card-header">
