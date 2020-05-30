@@ -29,7 +29,7 @@
                         $scope.moduleConfig = moduleConfig;
 
                         $scope.modules = []
-                        angular.forEach(res.results, function(module, key) {
+                        angular.forEach(res.objects, function(module, key) {
                             if(!($scope.moduleConfig.blacklistedModules && $scope.moduleConfig.blacklistedModules[module.package.name])){
                                 $scope.modules.push(module);
                                 modulesList.push(module.package.name);
