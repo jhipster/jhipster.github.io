@@ -206,7 +206,7 @@ jhipster --blueprint kotlin
 
 The name of the blueprint is saved in the `.yo-rc.json` and will be automatically used while executing sub-generators like `entity`, `spring-controller` and `spring-service`.
 
-If a blueprint doesn't implement a specific sub-generator, it will be skiped and the JHipster templates for the same sub-generator will be used.
+If a blueprint doesn't implement a specific sub-generator, it will be skipped and the JHipster templates for the same sub-generator will be used.
 
 **Note:** An application can use only one blueprint, multiple blueprints are not supported yet.
 

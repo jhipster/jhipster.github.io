@@ -25,7 +25,7 @@ You can install it by using the Visual Studio Code marketplace:
 
 ## Java Code Support
 
-Visual Studio Code has a Java extension developped by Red Hat. It has a good Java support, using Maven or Gradle.
+Visual Studio Code has a Java extension developed by Red Hat. It has a good Java support, using Maven or Gradle.
 
 You can install it by using the Visual Studio Code marketplace:
 
