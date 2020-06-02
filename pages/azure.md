@@ -29,7 +29,7 @@ sitemap:
 ## <a name="1"></a> Installing the "az CLI"
 
 You can manage your Azure resources using the [Web-based Azure portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois) or using [the Azure
-command-line inteface](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli/?WT.mc_id=online-jhipster-judubois), also known as the "az CLI".
+command-line interface](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli/?WT.mc_id=online-jhipster-judubois), also known as the "az CLI".
 
 As with JHipster we always automate everything, installing this "az CLI" is mandatory in order to work with any of the below options.
 

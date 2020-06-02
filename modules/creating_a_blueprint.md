@@ -32,7 +32,7 @@ The [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) blueprint rep
 
 It is our official blueprint that showcases how you can create your own blueprint.
 
-The [JHipster Sample Blueprint](https://github.com/hipster-labs/generator-jhipster-sample-blueprint) shows how a client sub-generator can be overriden.
+The [JHipster Sample Blueprint](https://github.com/hipster-labs/generator-jhipster-sample-blueprint) shows how a client sub-generator can be overridden.
 
 Or, you can use the [JHipster blueprint generator](https://github.com/jhipster/generator-jhipster-blueprint) to help you to initialize your blueprint. 
 

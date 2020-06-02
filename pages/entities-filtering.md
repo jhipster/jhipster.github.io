@@ -65,7 +65,7 @@ To prove that the generated criteria is working, and Spring is well configured, 
 
 ### Angular
 
-When using Angular, the propper way to take advantage of this useful feature would look like this:
+When using Angular, the proper way to take advantage of this useful feature would look like this:
 
 * Equals (same applies for `contains` and `notEquals`)
 ```javascript

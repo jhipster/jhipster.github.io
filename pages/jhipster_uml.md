@@ -594,7 +594,7 @@ However, a few guidelines must be respected:
 
 - The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
 
-Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentionned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L23). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
+Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentioned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L23). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
 
 
 #### Testing
