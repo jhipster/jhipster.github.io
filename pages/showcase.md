@@ -6,7 +6,7 @@ redirect_from:
   - /showcase.html
 sitemap:
   priority: 0.8
-  lastmod: 2020-03-26T00:00:00-00:00
+  lastmod: 2020-06-12T00:00:00-00:00
 ---
 
 # <i class="fa fa-file-image-o"></i> Showcase
@@ -167,6 +167,17 @@ If you want your application to be featured here submit a PR to the [website](ht
                 <a href="https://fr.linkedin.com/in/antoine-thomas-90b252173" target="_blank" rel="noopener">Antoine Thomas, </a>
                 <a href="https://fr.linkedin.com/in/gr%C3%A9gory-trestour-83ab55176" target="_blank" rel="noopener">Grégory Trestour et </a>
                 <a href="https://www.linkedin.com/in/jade-vandal/" target="_blank" rel="noopener">Jade Vandal</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <img width="560" height="315" src="{{ site.url }}/images/showcase/oncokb.org.png" />
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label"><a href="https://www.oncokb.org" target="_blank" rel="noopener">OncoKB</a></h3>
+                <h4>Precision Oncology Knowledge Base</h4>
             </div>
         </div>
     </div>
