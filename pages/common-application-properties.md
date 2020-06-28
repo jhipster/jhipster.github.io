@@ -98,10 +98,18 @@ Here is a documentation for those properties:
                 servers: localhost:11211 # Comma or whitespace separated list of servers' addresses
                 expiration: 300 # Expiration time (in seconds) for the cache
                 use-binary-protocol: true # Binary protocol is recommended for performance (and security)
+                authentication: # if authentication is required you can set it with these parameters. Disabled by default
+                    enabled: false,
+                    # username: unset by default
+                    # password: unset by default
             redis: # Redis configuration
                 expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
                 server: redis://localhost:6379 # Server address
                 cluster: false
+                connectionPoolSize: 64,
+                connectionMinimumIdleSize: 24,
+                subscriptionConnectionPoolSize: 50,
+                subscriptionConnectionMinimumIdleSize: 1
 
         # E-mail properties
         mail:
