@@ -28,7 +28,9 @@ Install and authenticate with the gcloud SDK on your local environment to access
 
 Google App Engine is a fully managed Platform as a Service that can automatically scale up application instances under load, and scale down to zero when not used.
 
-You can use the Google App Engine generator to generate and deploy JHipster application. Google App Engine generator supports monolith application, with Cloud SQL MySQL/PostgreSQL database.
+You can use the Google App Engine generator to generate and deploy JHipster application. Google App Engine generator supports monolith and micro-service applications, with Cloud SQL MySQL/PostgreSQL database.
+
+#### Deploying Monoliths to Google App Engine
 
 1. Generate a new monolith application: `jhipster`
 1. Run Google App Engine generator: `jhipster gae`
@@ -41,9 +43,31 @@ This generator will:
 To deploy:
 Please note that currently the Google App Engine generator only supports deployments to [App Engine Standard (Java 11)](https://cloud.google.com/appengine/docs/standard/java11/) environment. 
 
-1. Use the App Engine plugin to deploy: `./mvnw package appengine:deploy -DskipTests -Pgae,prod,prod-gae` or using Gradle `./gradlew appengineDeploy -Pgae -Pprod-gae`
+- Use the App Engine plugin to deploy: `./mvnw package appengine:deploy -DskipTests -Pgae,prod,prod-gae` or using Gradle `./gradlew appengineDeploy -Pgae -Pprod-gae`
 
-2. If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, [https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up](https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up)
+#### Deploying Microservices to Google App Engine
+
+[Google Cloud supports micro-service architecture on GAE](https://cloud.google.com/appengine/docs/standard/java/microservices-on-app-engine) 
+by isolating each micro-service as a separate service. We use a [`dispatch.yaml` file](https://cloud.google.com/appengine/docs/standard/java11/reference/dispatch-yaml) 
+to route the requests from the gateway to each micro-service. Therefore, in order to deploy microservices to GAE you will 
+need to deploy the gateway and each microservice as separate services.
+ 
+Following are the steps that needs to be carried out.
+
+1. Run the GAE sub-generator on each micro-service. It is important to run this as the first step as the gateway application setup
+will depend on this. 
+
+2. Run the GAE sub-generator on the gateway application. This will prompt for some additional questions in order to 
+create the `dispatch.yaml` file. 
+
+3. Deploy each microservice and the gateway application using `./mvnw package appengine:deploy -DskipTests -Pgae,prod,prod-gae` 
+for Maven or `./gradlew appengineDeploy -Pgae -Pprod-gae` for gradle.
+    
+**Note 1:** If you are using Windows, we recommend using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 
+or [jhipster-devbox](https://github.com/jhipster/jhipster-devbox) to avoid Windows spedific issues such as, [https://github.com/jhipster/generator-jhipster/issues/11249 
+](https://github.com/jhipster/generator-jhipster/issues/11249) 
+
+**Note 2:** If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, [https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up](https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up)
 
 In addition, Google App Engine provides a full suite of features to manage your application:
 - Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
@@ -52,28 +76,7 @@ In addition, Google App Engine provides a full suite of features to manage your 
 - Cloud Debugger - Allow you to debug your production application without stopping the world. If you needed more log messages to diagnose the issue, add new log messages without redeploying/restarting your application.
 
 You can watch a walk through of features in [2018 JHipster Conf video on the Google App Engine generator](https://www.youtube.com/watch?v=J9_MW3HOj5w) with [Ray Tsang](https://twitter.com/saturnism) and [Ludovic Champenois](https://twitter.com/ludoch).
-
-#### Deploying Microservices to Google App Engine
-
-In order to deploy microservices to GAE you will need to deploy the jhipster-registry, gateway and each microservice as separate services.
-
-The deployment of jhipster-registry, gateway and microservice apps could be done easily by running the GAE generator on each of these components. The deployment files for the jhiptser-registry
-is already included in the [jhipster-registry repository](https://github.com/jhipster/jhipster-registry). Following are the steps that needs to be carried out.
-
-1. Clone the [jhipster-registry](https://github.com/jhipster/jhipster-registry) and run the GAE generator on it (using `jhipster gae`). 
-This enables you to customize the default parameters according to your liking. Note that this deploys the project with a project id
-of `jhipsterproject`. 
-
-2. After successful deployment of the jhipster-registry run the GAE generator on the gateway and each micro-service application. 
-
-3. In the gateway application and the microservice applications change the following properties to point to the jhipster-register url. 
-    1. `eureka.client.service-url.defaultZone` in the `application-prod.yml` file.
-    2. `spring.cloud.config.uri` in `bootstrap.yml` and `bootstrap-prod.yml` files.
-    
-**Note:** If you are using Windows, we recommend using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 
-or [jhipster-devbox](https://github.com/jhipster/jhipster-devbox) to avoid Windows spedific issues such as, [https://github.com/jhipster/generator-jhipster/issues/11249 
-](https://github.com/jhipster/generator-jhipster/issues/11249) 
-    
+   
 ## Deploy to Google Kubernetes Engine
 
 Google Kubernetes Engine is a fully managed Kubernetes cluster as a service. Once provisioned, you can deploy your containers and JHipster applications using standard Kubernetes commands.
