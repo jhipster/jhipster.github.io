@@ -23,7 +23,7 @@ window.__env.myDynamicVariable = 'http://127.0.0.1:8090';
 The code below creates a global `__env` variable if not already declared.
 
 it can be accessed in your angular files but we recommend exposing it through constants.ts like this:
-```typescipt
+```typescript
 @ts-ignore
 export const MY_DYNAMIC_VARIABLE = window.__env.myDynamicVariable;
 ```
@@ -36,7 +36,7 @@ Now we need to make sure that `index.html` loads it by adding the script tag in 
     <script src="env.js"></script>
 ```
 and we tell webpack to copy it, as is, with the packaged code:
-```javascipt
+```javascript
 // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
 { from: './<%= MAIN_SRC_DIR %>env.js', to: 'env.js' },
 ```
