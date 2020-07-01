@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Dynamic environement variables in the front end
+title: Dynamic environment variables in the front end
 sitemap:
 priority: 0.1
 lastmod: 2020-07-01T10:50:00-00:00
 ---
-# Dynamic environement variables in the front end
+# Dynamic environment variables in the front end
 
 __Tip submitted by [@yelhouti](https://github.com/yelhouti)__
 
@@ -29,7 +29,7 @@ it can be accessed in your angular files but we recommend exposing it through co
 ```
 When using kubernetes, a file with this format can be mounted as a configMap, this is why we keep such a simple key value syntax.
 
-Now we need to make sur that `index.html` loads it by adding the script tag in the `<head>` like this:
+Now we need to make sure that `index.html` loads it by adding the script tag in the `<head>` like this:
 ```
     ...
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
@@ -41,7 +41,7 @@ and we tell webpack to copy it, as is, with the packaged code:
 { from: './<%= MAIN_SRC_DIR %>env.js', to: 'env.js' },
 ```
 
-We recommand adding the file to the `.eslintignore.ejs` for the clean syntax:
+We recommend adding the file to the `.eslintignore.ejs` for the clean syntax:
 ```
 src/main/webapp/env.js
 ```
