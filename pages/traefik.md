@@ -61,7 +61,7 @@ As Traefik is using Consul, it will also be useful to check the Consul administr
 
 #### Configure your Base HREF
 
-Before building the gateway's Docker image, you will need to configure the `baseHref` value in `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `baseHref` should be `/services/gateway/`.
+Before building the gateway's Docker image, you will need to configure the `base` attribute value in the `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `base` attribute value should be `/services/gateway/`.
 
 #### Configure for OAuth 2.0
 If you have separated the frontend and the api, you don't need to perform additional configuration locally.

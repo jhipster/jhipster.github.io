@@ -79,11 +79,14 @@ If you want more information on the available profiles, please go the section ti
     * `target/jhipster-0.0.1-SNAPSHOT.war`
     * `target/jhipster-0.0.1-SNAPSHOT.war.original` 
 
-**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper baseHref.
-Considering `jhipster` as the context path, it should looks like:
+**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper `base` attribute value.
+Considering `jhipster` as the context path, `base` attribute value should looks like:
 
 ```
-new BaseHrefWebpackPlugin({ baseHref: '/jhipster/' }),
+new HtmlWebpackPlugin({
+    ...
+    base: '/jhipster/'
+})
 ```
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
@@ -101,10 +104,13 @@ To package the application as a "production" WAR, please type:
 
 `./gradlew -Pprod -Pwar clean bootWar`
 
-**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper baseHref.
-Considering `jhipster` as context path, it should looks like:
+**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper `base` attribute value.
+Considering `jhipster` as context path, `base` attribute value should looks like:
 ```
-new BaseHrefWebpackPlugin({ baseHref: '/jhipster/' }),
+new HtmlWebpackPlugin({
+    ...
+    base: '/jhipster/'
+})
 ```
 
 This will generate these files (if your application is called "jhipster"):
@@ -167,7 +173,7 @@ There are many other options that you can find in [Spring Boot documentation](ht
 
 ### Running the application under a Context Path
 
-When deploying a JHipster app to an Application Server or customizing your context-path, it is required to set the `baseHref` value in `webpack.common.js`or webpack.prod.js equal to the expected context-path.
+When deploying a JHipster app to an Application Server or customizing your context-path, it is required to set the `base` value in `webpack.common.js`or `webpack.prod.js` equal to the expected context-path.
 
 ## <a name="performance"></a> Performance optimizations
 
