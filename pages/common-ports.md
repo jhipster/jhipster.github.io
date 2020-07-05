@@ -109,6 +109,10 @@ The ports here are listed in order, but the most common questions are for ports 
     <td>JHipster front-end development port with BrowserSync</td>
   </tr>
   <tr>
+    <td>9001</td>
+    <td>SonarQube</td>
+  </tr>
+  <tr>
     <td>9042</td>
     <td>Cassandra - CQL</td>
   </tr>
