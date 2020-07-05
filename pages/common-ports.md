@@ -53,6 +53,10 @@ The ports here are listed in order, but the most common questions are for ports 
     <td>Hazelcast</td>
   </tr>
   <tr>
+    <td>7742</td>
+    <td>Swagger Editor</td>
+  </tr>
+  <tr>
     <td>8080</td>
     <td>JHipster application back-end development port (Spring Boot server)</td>
   </tr>
