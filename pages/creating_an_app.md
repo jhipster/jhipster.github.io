@@ -163,6 +163,7 @@ You can either use:
 
 *   Angular
 *   React
+*   Vue
 
 ### Would you like to use a Bootswatch theme?
 
