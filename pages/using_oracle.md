@@ -23,3 +23,5 @@ When using Oracle with JHipster, the following limitations will be applicable
 - When doing many-to-many relationships, the join table name will follow the JPA specification (in the form "firstTable_secondTable"): if it is more than 30 characters long, it will be truncated.
 - Oracle reserved keywords cannot be used as Entity names or Field names.
 - We do not provide an Oracle database Docker image, like we do for other databases, as Oracle does not allow to have public Docker images.
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
