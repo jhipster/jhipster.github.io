@@ -38,6 +38,10 @@ We are currently creating JHipster meetups all around the world!
 
 - [Dubai, United Arab Emirates - JHipster meetup](https://www.meetup.com/JHipster-Dubai/)
 
+**Africa**
+
+- [Lagos, Nigeria - JHipster meetup](https://www.meetup.com/JHipster-Nigeria/)
+
 ## Meetups being created
 
 *Contact the team if you want to help creating one of those meetups*
