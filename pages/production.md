@@ -175,6 +175,17 @@ There are many other options that you can find in [Spring Boot documentation](ht
 
 When deploying a JHipster app to an Application Server or customizing your context-path, it is required to set the `base` value in `webpack.common.js`or `webpack.prod.js` equal to the expected context-path.
 
+In order to use the swagger api documentation site you need to adapt the swagger index file under `src/main/webapp/swagger-ui/index.html`. 
+Assuming your context path is `myContextPath` you need to modify `index.html` like
+
+```
+response.data.forEach(function (resource) {
+    urls.push({"name": resource.name, "url": "/myContextPath" + resource.location});
+});
+```
+
+See [this issue for details](https://github.com/jhipster/generator-jhipster/issues/12073).
+
 ## <a name="performance"></a> Performance optimizations
 
 ### Cache tuning
