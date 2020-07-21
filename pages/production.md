@@ -89,6 +89,20 @@ new HtmlWebpackPlugin({
 })
 ```
 
+Furthermore, in case you would like to use the swagger ui, you will need to update `src/main/webapp/swagger-ui/index.html`
+with the proper base path.
+Considering `jhipster` as context path it should look like this:
+
+```
+...
+var urls = [];
+axios.get("/swagger-resources").then(function (response) {
+    response.data.forEach(function (resource) {
+        urls.push({"name": resource.name, "url": "/jhipster" + resource.location});
+    });
+...    
+```    
+
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
 
@@ -113,8 +127,19 @@ new HtmlWebpackPlugin({
 })
 ```
 
-This will generate these files (if your application is called "jhipster"):
-*   `build/libs/jhipster-0.0.1-SNAPSHOT.war`
+Furthermore, in case you would like to use the swagger ui, you will need to update `src/main/webapp/swagger-ui/index.html`
+with the proper base path.
+Considering `jhipster` as context path it should look like this:
+
+```
+...
+var urls = [];
+axios.get("/swagger-resources").then(function (response) {
+    response.data.forEach(function (resource) {
+        urls.push({"name": resource.name, "url": "/jhipster" + resource.location});
+    });
+...    
+```  
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
@@ -170,21 +195,6 @@ Considering `jhuser` a non-root OS account that will run the application, then t
 `service jhipster start|stop|restart`
 
 There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
-
-### Running the application under a Context Path
-
-When deploying a JHipster app to an Application Server or customizing your context-path, it is required to set the `base` value in `webpack.common.js`or `webpack.prod.js` equal to the expected context-path.
-
-In order to use the swagger api documentation site you need to adapt the swagger index file under `src/main/webapp/swagger-ui/index.html`. 
-Assuming your context path is `myContextPath` you need to modify `index.html` like
-
-```
-response.data.forEach(function (resource) {
-    urls.push({"name": resource.name, "url": "/myContextPath" + resource.location});
-});
-```
-
-See [this issue for details](https://github.com/jhipster/generator-jhipster/issues/12073).
 
 ## <a name="performance"></a> Performance optimizations
 
