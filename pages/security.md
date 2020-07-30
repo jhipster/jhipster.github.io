@@ -192,3 +192,41 @@ public class WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 ```
 
 This will work on both Heroku and Cloud Foundry. For more production tips on Heroku, see [Preparing a Spring Boot App for Production on Heroku](https://devcenter.heroku.com/articles/preparing-a-spring-boot-app-for-production-on-heroku).
+
+## <a name="implementation-details"></a> Leakage of implementation details
+
+Every failure/exception is mapped to a [problem datastructure](https://github.com/zalando/problem) and returned to the client.
+
+```json
+{  
+  "type": "https://www.jhipster.tech/problem/problem-with-message",
+  "title": "Service Unavailable",
+  "status": 503,
+  "detail": "Database not reachable"
+}
+```
+
+While JHipster does not include any stacktraces by default the `detail` contains the `message` of an exception which might [reveal 
+technical details](https://github.com/jhipster/generator-jhipster/issues/12051) you do not want to be exposed via the API.
+
+```json
+{  
+  "type": "https://www.jhipster.tech/problem/problem-with-message",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "JSON parse error: Cannot deserialize instance of 
+       `java.util.LinkedHashMap<java.lang.Object,java.lang.Object>` out of VALUE_NUMBER_INT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.LinkedHashMap<java.lang.Object,java.lang.Object>` 
+       out of VALUE_NUMBER_INT token\n at [Source: (PushbackInputStream); line: 1, column: 1]"
+}
+```
+
+To prevent this JHipster provides a dedicated mechanism to mitigate leakage of implementation details by 
+
+* checking well known exception and replacing the message with a generic message (e.g. `Unable to convert http message`)
+* checking if the message contain potential package names (e.g. `java.` or `.org`) and replacing the message with a generic one (e.g. `Unexpected runtime exception`)
+
+The logs still contain the detailed exception so you can still identify the real issue while an attacker from the outside is not able to 
+gain valuable technical details by miusing your api.
+
+In case you need to modify the logic (e.g. the message still contains technical details but was not detected) you can do so by 
+adding the required logic to the `prepare` method in `ExceptionTranslator.java`  
