@@ -35,7 +35,7 @@ JHipster provides a complete Docker support, in order to:
 - Facilitate development, as you can start a full infrastructure with a single command, even when using a complex microservices architecture
 - For people using Docker Swarm, deploying to production directly, as it uses the same Docker Compose configuration
 
-One great feature of using Docker Compose is that you can scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
+One great feature of using Docker Compose is that you can scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with [a microservices architecture](#3).
 
 When generating your application, JHipster generates for you:
 
