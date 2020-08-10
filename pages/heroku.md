@@ -315,4 +315,4 @@ If you realize e.g. a database plan is too small for you can select a new plan f
 *   [Example Application](https://github.com/kissaten/jhipster-example){:target="_blank" rel="noopener"}
 *   [Spring Boot Heroku documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#cloud-deployment-heroku){:target="_blank" rel="noopener"}
 *   [Heroku free dyno documentation](https://devcenter.heroku.com/articles/free-dyno-hours){:target="_blank" rel="noopener"}
-*   [Heroku java support documentation](https://devcenter.heroku.com/articles/java-support#supported-java-versions){:target="_blank" rel="noopener"}
+*   [Heroku Java support documentation](https://devcenter.heroku.com/articles/java-support#supported-java-versions){:target="_blank" rel="noopener"}
