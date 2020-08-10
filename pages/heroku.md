@@ -67,7 +67,7 @@ Please be aware that your application must start under 90 seconds, or it will be
 Depending on the platform load, starting under 90 seconds is not guaranteed!
 </div>
 
-## Changing the java version
+## Changing the Java version
 
 You can select the Java version when executing the Heroku sub-generator.
 By default this will be Java 11.
@@ -130,6 +130,115 @@ To push to production, type:
 Or when using gradle:
 
 `heroku deploy:jar build/libs/*jar`
+
+## Deploying Docker to Heroku
+
+You can deploy your app as a Docker container to Heroku too. While this works, there's no Heroku setup and configuration that happens, so you have to do that manually. This documentation assumes you've already run `jhipster heroku` to deploy your app and therefore leverages the integration and add-on provisioning that this process performs.
+
+Build your Docker image:
+
+```
+./mvnw package -Pprod verify jib:dockerBuild
+```
+
+If you're using Gradle:
+
+```
+./gradlew -Pprod bootJar jibDockerBuild
+```
+
+You can test it out locally using Docker Compose.
+
+```shell
+docker-compose -f src/main/docker/app.yml up
+```
+
+Once you've confirmed everything works, create a new app on Heroku, and add it as a remote.
+
+```shell
+heroku apps:create
+git remote add docker https://git.heroku.com/<your-new-app>.git
+```
+
+Then run the commands below to deploy your JHipster app as a Docker image. Be sure to replace the `<...>` placeholders with your Heroku app name. If you don't know your app name, run `heroku apps`.
+
+```shell
+heroku container:login
+docker tag space registry.heroku.com/<heroku-app>/web
+docker push registry.heroku.com/<heroku-app>/web
+```
+
+For example:
+
+```shell
+heroku container:login
+docker tag space registry.heroku.com/fast-peak-70014/web
+docker push registry.heroku.com/fast-peak-70014/web
+```
+
+At this point, you can use the PostgreSQL and Okta add-ons you've already configured. Run the following command to get the identifiers of the add-ons from the `heroku` remote that you first deployed to.
+
+```shell
+heroku addons --remote heroku
+```
+
+Then you can attach these instances to your new application.
+
+```shell
+heroku addons:attach <postgresql-addon-name> --remote docker
+heroku addons:attach <okta-addon-name> --remote docker
+```
+
+When you use `jhipster heroku` to deploy your application, it properly configures the database for you. However, when deploying it as a Docker container, none of that happens. Therefore, you need to set a few configuration variables so your Docker container can talk to PostgreSQL. First, run the following command to get the PostgreSQL URL.
+
+```
+heroku config:get DATABASE_URL --remote docker
+```
+
+Then, set the database environment variables to match the keys that are in `application-heroku.yml`:
+
+```shell
+heroku config:set JDBC_DATABASE_URL=<value-after-@-from-last-command> --remote docker
+heroku config:set JDBC_DATABASE_USERNAME=<username-value-from-last-command> --remote docker
+heroku config:set JDBC_DATABASE_PASSWORD=<password-value-from-last-command> --remote docker
+```
+
+Set the max amount of Java memory to use and specify the Spring profiles.
+
+```shell
+heroku config:set JAVA_OPTS=-Xmx256m
+heroku config:set SPRING_PROFILES_ACTIVE=prod,heroku,no-liquibase
+```
+
+Run the command below to open your browser and navigate to your app.
+
+```
+heroku open --remote docker
+```
+
+Copy the URL of your app and log in to your Okta developer account. Go to **Applications** > **Web** > **General** and add the URL to Login and Logout redirect URIs. Make sure the login redirect URI ends with `/login/oauth2/code/oidc`.
+
+NOTE: You will **NOT** be able to login to your JHipster app using the admin account the Okta add-on provisions. If you receive a stack trace when logging in, log out and try again with the account you created when you first deployed to Heroku.
+
+Now you should be able to release your container and start the app.
+
+```
+heroku container:release web --remote docker
+```
+
+You can watch the logs to see if your container started successfully.
+
+```
+heroku logs --tail --remote docker
+```
+
+Now you should be able to open your app, click the **sign in** link, and authenticate!
+
+```
+heroku open --remote docker
+```
+
+If you test your Dockerfied JHipster app on [securityheaders.com](https://securityheaders.com), you'll see it scores an **A**!
 
 ## Deploying Microservices
 
@@ -200,7 +309,6 @@ Free dynos are limited and should not be used for production deployment, because
 
 You can upgrade your dyno configuration directly from the Heroku admin ui.
 If you realize e.g. a database plan is too small for you can select a new plan from the admin ui.
-
 
 ## More information
 
