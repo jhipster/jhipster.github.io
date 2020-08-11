@@ -202,12 +202,18 @@ When you use `jhipster heroku` to deploy your application, it properly configure
 heroku config:get DATABASE_URL --remote docker
 ```
 
+This command will retrieve a value with the following syntax:
+
+```
+postgres://username:password@address
+```
+
 Then, set the database environment variables to match the keys that are in `application-heroku.yml`:
 
 ```shell
-heroku config:set JDBC_DATABASE_URL=<value-after-@-from-last-command> --remote docker
-heroku config:set JDBC_DATABASE_USERNAME=<username-value-from-last-command> --remote docker
-heroku config:set JDBC_DATABASE_PASSWORD=<password-value-from-last-command> --remote docker
+heroku config:set JDBC_DATABASE_URL=jdbc:postgresql://<address> --remote docker
+heroku config:set JDBC_DATABASE_USERNAME=<username> --remote docker
+heroku config:set JDBC_DATABASE_PASSWORD=<password> --remote docker
 ```
 
 Set the max amount of Java memory to use and specify the Spring profiles.
