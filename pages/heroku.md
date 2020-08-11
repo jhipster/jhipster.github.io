@@ -207,7 +207,7 @@ Set the max amount of Java memory to use and specify the Spring profiles.
 
 ```shell
 heroku config:set JAVA_OPTS=-Xmx256m
-heroku config:set SPRING_PROFILES_ACTIVE=prod,heroku,no-liquibase
+heroku config:set SPRING_PROFILES_ACTIVE=prod,heroku
 ```
 
 Run the command below to open your browser and navigate to your app.
@@ -217,8 +217,6 @@ heroku open --remote docker
 ```
 
 Copy the URL of your app and log in to your Okta developer account. Go to **Applications** > **Web** > **General** and add the URL to Login and Logout redirect URIs. Make sure the login redirect URI ends with `/login/oauth2/code/oidc`.
-
-NOTE: You will **NOT** be able to login to your JHipster app using the admin account the Okta add-on provisions. If you receive a stack trace when logging in, log out and try again with the account you created when you first deployed to Heroku.
 
 Now you should be able to release your container and start the app.
 
@@ -237,6 +235,8 @@ Now you should be able to open your app, click the **sign in** link, and authent
 ```
 heroku open --remote docker
 ```
+
+**NOTE**: You will **NOT** be able to login to your JHipster app using the admin account the Okta add-on provisions. To make sure you're not logged in with that account, we suggest you use a new private window to log in.
 
 If you test your Dockerized JHipster app on [securityheaders.com](https://securityheaders.com), you'll see it scores an **A**!
 
