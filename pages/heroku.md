@@ -135,6 +135,13 @@ Or when using gradle:
 
 You can deploy your app as a Docker container to Heroku too. While this works, there's no Heroku setup and configuration that happens, so you have to do that manually. This documentation assumes you've already run `jhipster heroku` to deploy your app and therefore leverages the integration and add-on provisioning that this process performs.
 
+**NOTE**: If you're using a version of JHipster that's prior to v6.10.2, you'll need to add the following to `src/main/resources/config/application-heroku.yml`:
+
+```yaml
+server:
+  port: ${PORT:8080}
+```
+
 Build your Docker image:
 
 ```
