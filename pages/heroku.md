@@ -238,7 +238,7 @@ Now you should be able to open your app, click the **sign in** link, and authent
 heroku open --remote docker
 ```
 
-If you test your Dockerfied JHipster app on [securityheaders.com](https://securityheaders.com), you'll see it scores an **A**!
+If you test your Dockerized JHipster app on [securityheaders.com](https://securityheaders.com), you'll see it scores an **A**!
 
 ## Deploying Microservices
 
