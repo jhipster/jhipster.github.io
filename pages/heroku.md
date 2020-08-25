@@ -295,7 +295,7 @@ The Bonsai used addon with the free sandbox plan does [only support the latest E
 This might lead to some [incompatibilities](https://github.com/jhipster/generator-jhipster/issues/10003){:target="_blank" rel="noopener"} depending in the Spring Data and JHipster versions you are using.
 
 <div class="alert alert-warning"><i class="fa fa-money" aria-hidden="true"></i>
-If you are willing to use a <b>paid plan</b> you can of course select the used Elasticsearch version. <a href="https://github.com/jhipster/generator-jhipster/issues/10003#issuecomment-587770177" target="_blank" rel="noopener">Setting it to e.g. <code class="highlighter-rouge">6.5.4</code> or <code class="highlighter-rouge">`6.6.2</code></a>will work with all JHipster 6.x versions.
+If you are willing to use a <b>paid plan</b> you can of course select the used Elasticsearch version. <a href="https://github.com/jhipster/generator-jhipster/issues/10003#issuecomment-587770177" target="_blank" rel="noopener">Setting it to e.g. <code class="highlighter-rouge">6.5.4</code> or <code class="highlighter-rouge">6.6.2</code></a> will work with all JHipster 6.x versions.
 </div>
 
 ### Using Okta
