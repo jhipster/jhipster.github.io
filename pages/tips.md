@@ -37,3 +37,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 1. [Configure Redis leader follower(master-slave) replication]({{ site.url }}/tips/030_tip_redis_replication.html)
 1. [Running Protractor e2e tests within Intellij IDEA]({{ site.url }}/tips/031_tip_e2e_intellij.html)
 1. [Time Drift in Docker]({{ site.url }}/tips/032_tip_time_drift_docker.html)
+1. [User entity management]({{ site.url }}/user-entity/)
