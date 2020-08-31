@@ -12,7 +12,7 @@ Breaking changes
 ------------
 - Remove getAllJhipsterConfig - [#12023](https://github.com/jhipster/generator-jhipster/issues/12023). Use getJhipsterConfig instead of getAllJhipsterConfig.
 - Create jhipsterConfig for synchronised config and move configOptions to generator-base - [#12026](https://github.com/jhipster/generator-jhipster/pull/12026). generators-base-blueprint's jhipsterConfig field is now a proxy instead of a Storage object look at the PR description for migration.
-- Updates to `getXXXAppName()` methods on `base-generator` [#12325]:
+- Updates to `getXXXAppName()` methods on `base-generator` [#12325](https://github.com/jhipster/generator-jhipster/issues/12325):
   - added `getFrontendAppName()`
   - removed `getAngularAppName()` and `angularAppName` attribute
   - removed `getAngularXName()` and `angularXAppName` attribute
