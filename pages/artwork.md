@@ -33,6 +33,7 @@ Below are some examples of the JHipster family members.
   <img src="/jhipster-artwork/family/jhipster_family_member_1.svg" width="200">
   <img src="/jhipster-artwork/family/jhipster_family_member_2.svg" width="200">
   <img src="/jhipster-artwork/family/jhipster_family_member_3.svg" width="200">
+  <img src="/jhipster-artwork/family/jhipster_family_member_4.svg" width="200">
 </div>
 
 ## Inclusiveness
