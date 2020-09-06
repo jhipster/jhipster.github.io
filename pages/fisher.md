@@ -21,14 +21,8 @@ The JHipster Fisher plugin is available on GitHub at [https://github.com/jhipste
 
 Currently it only adds shortcuts (full list [here](https://github.com/jhipster/jhipster-fisher-plugin/blob/master/conf.d/jhipster.aliases.fish)), but we welcome contributions to have better auto-completion!
 
-It is not part (yet) of the official plugin list, so you need to install it manually:
+1. Install it via ``fisher`` command:
 
-1. Clone the plugin repository:
-
-    `git clone git@github.com:jhipster/jhipster-fisher-plugin.git`
-
-2. Install it via ``fisher`` command from local directory:
-
-    `fisher add ~/path/to/cloned/repository`
+    `fisher add jhipster/jhipster-fisher-plugin`
 
 For more details about [Fisher](https://github.com/jorgebucaran/fisher) have a look at their [usage](https://github.com/jorgebucaran/fisher#usage) section.
