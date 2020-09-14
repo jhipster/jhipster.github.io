@@ -418,3 +418,55 @@ Here are the entity options supported in the JDL:
     <td></td>
   </tr>
 </table>
+
+---
+
+### The use-option form
+
+With the use-option form, you can specify some options on your entities.
+
+```jdl
+entity A
+entity B
+entity C
+
+use serviceClass for * except C
+use mapstruct, serviceImpl, infinite-scroll for A, B
+use pagination for C
+```
+
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>Use option value</th>
+    <th>Comment</th>
+  </tr>
+  
+  <tr>
+    <td>mapstruct</td>
+    <td>Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'</td>
+  </>
+  <tr>
+    <td>serviceClass</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>serviceImpl</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>pagination</td>
+    <td>Pagination is forbidden when the application uses Cassandra</td>
+  </tr>
+  <tr>
+    <td>infinite-scroll</td>
+    <td>Infinite scroll is forbidden when the application uses Cassandra</td>
+  </tr>
+  <tr>
+    <td>elasticsearch</td>
+    <td>Requires the application to have the searchEngine option enabled</td>
+  </tr>
+  <tr>
+    <td>couchbase</td>
+    <td></td>
+  </tr>
+</table>
