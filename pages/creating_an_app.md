@@ -196,7 +196,7 @@ The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can
 
 ## <a name="5"></a> Using a blueprint
 
-JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custome client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
+JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custom client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
 
 For example, to use the Kotlin blueprint pass the name of the blueprint like below while generating an app.
 
