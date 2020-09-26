@@ -73,4 +73,15 @@ Before building the gateway's Docker image, it is necessary to [Configure your B
 In `src/main/java/.../config/SecurityConfiguration.java`, you have to change the `defaultSuccessUrl` in spring.
 For example, if the gateway base name is `gateway`, under `.oauth2Login()` you have to add `.defaultSuccessUrl("/services/gateway/")`.
 
+To handle oauth2 redirection, you need to change default `spring.security.oauth2.client.registration.oidc.redirect-uri` in spring `application.yml` configuration file.
+For example, if the gateway base name is `gateway`, you have to add `redirect-uri` as below :
+```yaml
+oauth2:
+    client:
+    registration:
+        oidc:
+        # replace 'gateway' by the gateway base name
+        redirect-uri: "{baseUrl}/services/gateway/login/oauth2/code/{registrationId}"
+```
+
 You can now launch all your infrastructure by running `docker-compose up -d`.
