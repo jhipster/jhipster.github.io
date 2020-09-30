@@ -13,7 +13,7 @@ To run this locally
 * Run `bundle exec jekyll serve` in the cloned repo folder
 * You will be able to access the site at http://localhost:4000
 
-Or with Docker and Docker-Compose (recommended way on Windows)
+Or with Docker and Docker-Compose (recommended way on Windows).
 
 * [Fork this](https://github.com/jhipster/jhipster.github.io/fork) repo and clone to your file system
 * Run `docker-compose up`
