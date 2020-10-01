@@ -1,4 +1,5 @@
 This is the source of JHipster's public [Web site](https://www.jhipster.tech/).
+JHipster an amazing place to generate, develop and deploy modern web applications and microservice architectures!
 =======
 
 This Web site is rendered with GitHub pages.
