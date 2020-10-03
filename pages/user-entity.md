@@ -56,7 +56,7 @@ entity ApplicationUser {
 }
 
 relationship OneToOne {
-  ApplicationUser(internalUser} to User
+  ApplicationUser{internalUser} to User
 }
 ```
 
