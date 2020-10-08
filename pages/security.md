@@ -28,7 +28,7 @@ JHipster provides 4 main security mechanisms:
 
 1. [JSON Web Tokens (JWT)](#jwt)
 2. [Session-based authentication](#session)
-3. [OAuth2 and OpenID Connect](#oauth2)
+3. [OAuth 2.0 and OpenID Connect](#oauth2)
 4. [JHipster User Account and Authentication (UAA)]({{ site.url }}/using-uaa/) (which has a separate documentation page as this is more complex)
 
 ## <a name="jwt"></a> JSON Web Tokens (JWT)
@@ -115,7 +115,21 @@ In production, it is required by Keycloak that you use HTTPS. There are several 
 
 ### Okta
 
-If you'd like to use Okta instead of Keycloak, you'll need to change a few things. First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.okta.com`.
+If you'd like to use Okta instead of Keycloak, it's pretty quick using the [Okta CLI](https://cli.okta.com/). After you've installed it, run:
+
+```shell
+okta register
+```
+
+Then, in your JHipster app's directory, run `okta apps create` and select **JHipster**. This will set up an Okta app for you, create `ROLE_ADMIN` and `ROLE_USER` groups, create a `.okta.env` file with your Okta settings, and configure a `groups` claim in your ID token.
+
+Run `source .okta.env` and start your app with Maven or Gradle. You should be able to sign in with the credentials you registered with.
+
+If you're on Windows, you should install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) so the `source` command will work.
+
+If you'd like to configure things manually through the Okta developer console, see the instructions below.
+
+First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.okta.com`.
 
 Modify `src/main/resources/config/application.yml` to use your Okta settings. Hint: replace `{yourOktaDomain}` with your org's name (e.g., `dev-123456.okta.com`).
 
