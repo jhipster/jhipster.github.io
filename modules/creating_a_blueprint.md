@@ -220,7 +220,7 @@ cd generator-jhipster-my-blueprint
 npm link generator-jhipster
 ```
 
-3. Create a new folder for the app to be generated, and run JHipster ignoring JHipster dependencies (otherwise a released version with be installed each time npm install/ci is called)
+3. Create a new folder for the app to be generated, and run JHipster ignoring JHipster dependencies (otherwise a released version will be installed each time npm install/ci is called)
 
 ```bash
 mkdir my-app && cd my-app
