@@ -12,7 +12,7 @@ JHipster has a lot of [contributors](https://github.com/jhipster/generator-jhips
 
 ## Code of conduct
 
-Before you contribute, please read our [Code of Conduct](https://github.com/jhipster/generator-jhipster/blob/master/CODE_OF_CONDUCT.md).
+Before you contribute, please read our [Code of Conduct](https://github.com/jhipster/generator-jhipster/blob/main/CODE_OF_CONDUCT.md).
 
 ## Reaching for help
 
@@ -25,4 +25,4 @@ Whatever you do, the team will do its best to help you by:
 
 ## How to contribute
 
-Our [Contributing guide](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md) should give you all the pointers to get started and do your first Pull Request.
+Our [Contributing guide](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md) should give you all the pointers to get started and do your first Pull Request.

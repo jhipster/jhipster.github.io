@@ -19,7 +19,7 @@ Some of the JHipster development team use fish shell with Fisher, and if you see
 
 The JHipster Fisher plugin is available on GitHub at [https://github.com/jhipster/jhipster-fisher-plugin](https://github.com/jhipster/jhipster-fisher-plugin).
 
-Currently it only adds shortcuts (full list [here](https://github.com/jhipster/jhipster-fisher-plugin/blob/master/conf.d/jhipster.aliases.fish)), but we welcome contributions to have better auto-completion!
+Currently it only adds shortcuts (full list [here](https://github.com/jhipster/jhipster-fisher-plugin/blob/main/conf.d/jhipster.aliases.fish)), but we welcome contributions to have better auto-completion!
 
 1. Install it via ``fisher`` command:
 

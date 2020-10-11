@@ -178,7 +178,7 @@ You can access to configuration in `.yo-rc.json` which will consist of both the 
 
 ### Global variables:
 
-You can use constants in [generator-constants](https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-constants.js):
+You can use constants in [generator-constants](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
 
 ```javascript
     const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
@@ -188,7 +188,7 @@ You can use constants in [generator-constants](https://github.com/jhipster/gener
 
 ### Functions:
 
-You can use all functions in [generator-base](https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-base.js):
+You can use all functions in [generator-base](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-base.js):
 
 ```javascript
     this.angularAppName = this.getAngularAppName(); // get the Angular application name.
@@ -210,7 +210,7 @@ cd my-blueprint
 npm link
 ```
 
-2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non-released JHipster version, like the master branch or your own custom fork)
+2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non-released JHipster version, like the main branch or your own custom fork)
 
 ```bash
 cd generator-jhipster
@@ -234,7 +234,7 @@ jhipster -d --blueprint myblueprint
 ## Registering a blueprint to the JHipster marketplace
 
 To have your blueprint available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to make sure you have the two keyword `yeoman-generator` and `jhipster-blueprint` in your published npm `package.json`.
-If you find any entry in the marketplace which is not a JHipster module or blueprint, you can help to blacklist it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/master/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
+If you find any entry in the marketplace which is not a JHipster module or blueprint, you can help to blacklist it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/main/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
 
 
 Once you publish your blueprint to NPM, your blueprint will become available in our marketplace.
