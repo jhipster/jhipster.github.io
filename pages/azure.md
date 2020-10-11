@@ -131,7 +131,7 @@ This sub-generator creates an `azure` Spring Boot profile and configures it.
 Deploying with GitHub Actions is recommended, as it is easier and probably faster than on your local machine.
 
 - The configuration is stored in the `.github/workflows/azure-app-service.yml`.
-- By default, the application is deployed each time there is new `push` event on the `master` branch.
+- By default, the application is deployed each time there is new `push` event on the `main` branch.
 - This deployment mechanism uses the `azure-webapp` Maven plugin, in order to be consistent with the local deployment. There is an alternative way to deploy to Azure App Service, which doesn't require Maven. If you are interested in it, look for the `azure/webapps-deploy` GitHub Action, and follow the example in [this blog post](https://dev.to/azure/the-easy-way-to-deploy-a-spring-boot-application-to-production-on-azure-2joi).
 
 In order to be authorized to deploy an application to your Azure App Service instance, GitHub needs to have access to a secured token called `AZURE_CREDENTIALS`.
@@ -210,7 +210,7 @@ As documented in the section above, the `azure-spring-cloud` sub-generator adds 
 Deploying with GitHub Actions is recommended, as it is easier and probably faster than on your local machine.
 
 - The configuration is stored in the `.github/workflows/azure-spring-cloud.yml`.
-- By default, the application is deployed each time there is new `push` event on the `master` branch.
+- By default, the application is deployed each time there is new `push` event on the `main` branch.
 - This deployment mechanism uses directly the "az CLI" to deploy to the Azure Spring Cloud cluster.
 
 In order to be authorized to deploy an application to your Azure Spring Cloud cluster, GitHub needs to have access to a secured token called `AZURE_CREDENTIALS`.

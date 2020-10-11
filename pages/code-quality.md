@@ -126,7 +126,7 @@ jacocoTestReport {
 
 ## Automatic analysis of the default generated project
 
-The JHipster generator project publishes a sample project which is analyzed every time a new commit is merged in the "master" branch:
+The JHipster generator project publishes a sample project which is analyzed every time a new commit is merged in the "main" branch:
 
 [Analysis of the JHipster Sample Application](https://sonarcloud.io/dashboard?id=jhipster-sample-application) under the [JHipster Organization](https://sonarcloud.io/organizations/jhipster)
 

@@ -35,7 +35,7 @@ See [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/
 ## <a name="issues"></a>Issues and bugs
 
 The JDL is [available on GitHub](https://github.com/jhipster/jhipster-core), and follows the same
-[contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+[contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
 Please use our project for submitting issues and Pull Requests concerning the library itself.
 

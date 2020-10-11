@@ -24,7 +24,7 @@ To setup a JHipster project in Jenkins, use the following configuration:
 * Project name: `yourApplicationName`
 * Source Code Management
     * Git Repository: `git@github.com:xxxx/yourApplicationName.git`
-    * Branches to build: `*/master`
+    * Branches to build: `*/main`
     * Additional Behaviours: `Wipe out repository & force clone`
 * Build Triggers
     * Poll SCM / Schedule: `H/5 * * * *`
@@ -47,7 +47,7 @@ To setup a JHipster project in Jenkins, use the following configuration:
 * Project name: `yourApplicationName`
 * Source Code Management
     * Git Repository: `git@github.com:xxxx/yourApplicationName.git`
-    * Branches to build: `*/master`
+    * Branches to build: `*/main`
     * Additional Behaviours: `Wipe out repository & force clone`
 * Build Triggers
     * Poll SCM / Schedule: `H/5 * * * *`
