@@ -139,6 +139,10 @@ Submit a PR with all these changes.
 
 Here are the steps to remove a language called `old_lang`:
 
-1.  Remove the language folder from `src/main/webapp/i18/old_lang`
-2.  Remove the constant entry in `src/main/webapp/app/shared/language/language.constants.ts` and `webpack/webpack.common.js`
-3.  Remove the `src/main/resources/i18n/messages_old_lang.properties` file
+1.  Delete the entire language folder from `src/main/webapp/i18/old_lang`
+2.  Remove the constant entry for `LANGUAGES` in `src/main/webapp/app/core/language/language.constants.ts`
+3.  Remove the constant entry for `languages` in `src/main/webapp/app/shared/language/find-language-from-key.pipe.ts`
+4.  Remove the constant entry for `localesToKeep` in `webpack/webpack.prod.js` 
+5.  Remove the pattern for `MergeJsonWebpackPlugin` in `webpack/webpack.common.js` 
+6.  Delete the `src/main/resources/i18n/messages_old_lang.properties` file
+7.  Delete the `src/test/resources/i18n/messages_old_lang.properties` file
