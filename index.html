@@ -826,14 +826,7 @@ sitemap:
 <script>
 function ocCallback(data, divId, txAmount) {
     const activeBackers = data.filter(it => it.isActive && it.lastTransactionAmount === txAmount);
-    // temp hack due to an OC issue 
-    if (divId === 'bronze-sponsor') {
-        activeBackers.push({
-            website: 'https://www.realtimecommunicationsworld.com/',
-            image: 'https://logo.clearbit.com/realtimecommunicationsworld.com',
-            name: 'Real Time Communications World'
-        });
-    }
+    
     if (activeBackers.length > 0) {
         document.getElementById(divId).style.display = "block";
         const cols = activeBackers.map(it => `
