@@ -69,10 +69,6 @@ We have modified the Spring Security remember-me mechanism so that you have a un
 
 We have added a very complete cookie theft protection mechanism: we store your security information in a cookie, as well as in the database, and each time a user logs in we modify those values and check if they have been altered. That way, if a someone ever steals your cookie, they will be able to use it only once, at most.
 
-### CSRF protection
-
-Spring Security and Angular both have CSRF protection out-of-the-box, but unfortunately they don't use the same cookies or HTTP headers! In practice, you have in fact no protection at all for CSRF attacks. We re-configure both tools so that they correctly work together.
-
 ## <a name="oauth2"></a> OAuth2 and OpenID Connect
 
 OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides excellent OAuth 2.0 and OIDC support, and this is leveraged by JHipster. If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
