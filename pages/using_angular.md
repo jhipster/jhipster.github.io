@@ -31,7 +31,7 @@ Other available yarn/npm commands can be found in the `scripts` section of your 
 
 ## Project Structure
 
-The JHipster client code can be found under `src/main/webapp`, and follows closely the  [John Papa Angular 2 style guide](https://github.com/johnpapa/angular-styleguide/blob/master/a2/README.md). Please read this guide first if you have any question on our application structure, file names, TypeScript conventions...
+The JHipster client code can be found under `src/main/webapp`, and follows closely the  [Angular style guide](https://angular.io/guide/styleguide). Please read this guide first if you have any question on our application structure, file names, TypeScript conventions...
 
 This style guide is endorsed by the Angular team, and provides best practices that every Angular project should follow.
 
@@ -163,11 +163,8 @@ The shorthand methods `success`, `info`, `warning` and `error` will have a defau
 
 ## Using Angular CLI
 
-<div class="alert alert-info"><i>Info: </i>
-
-Angular CLI and JHipster can be used in parallel for development, and both have their own configuration files. By default, JHipster is using its own configuration when deploying applications or when using the CI-CD sub-generator.
-
-</div>
+Angular CLI is used to build and test JHipster applications. 
+However, we added a custom webpack configuration file in order to improve the developer experience by adding BrowserSync, ESLint (Angular CLI is still on TSLint for now), merging JSON translation files and add notifications when build has completed or failed.
 
 ### Overview
 
@@ -183,7 +180,7 @@ ng help
 
 ### Building
 
-You should not use `ng build` to build your front-end, as JHipster has its own scripts. Check our ["using in development" documentation]({{ site.url }}/development/) and our ["using in production" documentation]({{ site.url }}/production/).
+You can use `ng build` to build your front-end, but we still recommend to use the provided NPM scripts such as `npm start`, `npm run build`, etc. Check our ["using in development" documentation]({{ site.url }}/development/) and our ["using in production" documentation]({{ site.url }}/production/).
 
 ### Generating Components, Directives, Pipes and Services
 
@@ -226,7 +223,7 @@ npm test
 
 ### i18n
 
-JHipster is using the `ng2-translate` dependency for translation purpose. Angular CLI i18n is based on the default Angular i18n support, which is incompatible with JHipster.
+JHipster is using the `ngx-translate` dependency for translation purpose. Angular CLI i18n is based on the default Angular i18n support, which is incompatible with JHipster.
 
 ### Running the server
 
@@ -235,16 +232,6 @@ If you prefer to use Angular CLI to develop you application, you can run your se
 ```bash
 ng serve
 ```
-
-By using it, it will compile your Angular application and allow you to access it on `http://localhost:4200`. However your backend will not be available from it by default.
-
-To use your local backend server, use:
-
-```bash
-ng serve --proxy-conf proxy.conf.json
-```
-
-You will then be able to access your API.
 
 ### Conclusion
 
