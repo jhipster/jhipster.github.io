@@ -176,7 +176,12 @@ The command is:
 
 If you add or modify a JPA entity, you will need to update your database schema.
 
-JHipster uses [Liquibase](http://www.liquibase.org) to manage the database updates, and stores its configuration in the `/src/main/resources/config/liquibase/` directory. There are 3 ways to work with Liquibase: use the entity sub-generator, use the liquibase:diff Maven goal, or update the configuration files manually.
+JHipster uses [Liquibase](http://www.liquibase.org) to manage the database updates, and stores its configuration in the `/src/main/resources/config/liquibase/` directory. 
+
+There are 3 ways to work with Liquibase: 
+*   use the entity sub-generator
+*   use the Maven `liquibase:diff` goal or 
+*   update the configuration files manually
 
 ### Database updates with the entity sub-generator
 
