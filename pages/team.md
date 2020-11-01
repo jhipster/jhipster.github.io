@@ -393,6 +393,7 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | Java                                | Julien Dubois      |
 | Docker                              | Pascal Grimaud     |
 | Cassandra                           | Cedrick Lunven     |
+| OpenAPI                             | Christophe Bornet  |
 
 
 
