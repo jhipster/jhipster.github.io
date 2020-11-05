@@ -198,7 +198,7 @@ A reflexive relationship is a relationship whose source & destination entities a
 
 ```jdl
 relationship ManyToMany {
-  A{parent required} to A{child}
+  A{parent} to A{child}
 }
 ```
 
