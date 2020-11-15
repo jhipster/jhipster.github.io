@@ -75,9 +75,9 @@ OAuth is a stateful security mechanism, like HTTP Session. Spring Security provi
 
 ### Keycloak
 
-[Keycloak](https://keycloak.org) is the default OpenID Connect server configured with JHipster.
+[Keycloak](https://www.keycloak.org) is the default OpenID Connect server configured with JHipster.
 
-To log into your application, you'll need to have [Keycloak](https://keycloak.org) up and running. The JHipster Team has created a Docker container for you that has the default users and roles. Start Keycloak using the following command.
+To log into your application, you'll need to have [Keycloak](https://www.keycloak.org) up and running. The JHipster Team has created a Docker container for you that has the default users and roles. Start Keycloak using the following command.
 
 ```
 docker-compose -f src/main/docker/keycloak.yml up
