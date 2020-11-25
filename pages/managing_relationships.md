@@ -6,7 +6,7 @@ redirect_from:
   - /managing_relationships.html
 sitemap:
     priority: 0.7
-    lastmod: 2019-11-30T18:40:00-00:00
+    lastmod: 2020-11-25T09:07:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships
@@ -41,6 +41,7 @@ You can generate entities with relationships from a JDL file using the `import-j
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
 
 1. [A bidirectional one-to-many relationship](#a-bidirectional-one-to-many-relationship)
+1. [A bidirectional many-to-one relationship](#a-bidirectional-many-to-one-relationship)
 1. [A unidirectional many-to-one relationship](#a-unidirectional-many-to-one-relationship)
 1. [A unidirectional one-to-many relationship](#a-unidirectional-one-to-many-relationship)
 1. [Two one-to-many relationships on the same two entities](#two-one-to-many-relationships-on-the-same-two-entities)
@@ -107,6 +108,19 @@ The same can be achieved using the below JDL as well
     }
 
 That's it, you now have a one-to-many relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
+
+## A bidirectional many-to-one relationship
+
+This is equivalent to the bidirectional one-to-many relationship after inversing the sides in the JDL file:
+
+
+    entity Owner
+    entity Car
+
+    relationship ManyToOne {
+      Car{owner} to Owner{car}
+    }
+
 
 ## A unidirectional many-to-one relationship
 
