@@ -37,13 +37,17 @@ Stream lead is: [Daniel Petisme](https://github.com/danielpetisme).
 
 ## Node.js
 
-Latest official blueprint, it replaces the server java side with the NestJS Node framework. Source code and documentation could be found here: [repository](https://github.com/jhipster/generator-jhipster-nodejs).
+Fourth official blueprint, it replaces the server java side with the NestJS Node framework. Source code and documentation could be found here: [repository](https://github.com/jhipster/generator-jhipster-nodejs).
 
 Stream lead is: [Angelo Manganiello](https://github.com/amanganiello90).
 
 ## Micronaut
 
-Official blueprint supported and driven by people of the [Micronaut team](https://github.com/jhipster/generator-jhipster-micronaut/graphs/contributors) itself.
+Fifth official blueprint supported and driven by people of the [Micronaut team](https://github.com/jhipster/generator-jhipster-micronaut/graphs/contributors) itself.
 It replaces all server side code with a [Micronaut](https://micronaut.io/) application. 
 Source code and documentation can be found here: [repository](https://github.com/jhipster/generator-jhipster-micronaut)
 
+## Quarkus
+
+Sixth official blueprint supported and driven by the JHipster community for a [supersonic, subatomic Java back-end](https://quarkus.io/).
+Source code and documentation can be found here: [repository](https://github.com/jhipster/generator-jhipster-quarkus)
