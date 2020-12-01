@@ -132,6 +132,8 @@ You can also update your entities one-by-one by running again the entity sub-gen
 jhipster entity Foo
 ```
 
+**Hint.** Sometimes files may be renamed in the generator. If you want to see Git rename detection result then you can run `git add` (`git add .` stages all) and view changes after that with your favorite Git client.
+
 ### See your own changes
 
 If you would like to see changes you have done after generating project you can follow the steps described below.
