@@ -132,7 +132,13 @@ You can also update your entities one-by-one by running again the entity sub-gen
 jhipster entity Foo
 ```
 
-**Hint.** Sometimes files may be renamed in the generator. If you want to see Git rename detection result then you can run `git add` (`git add .` stages all) and view changes after that with your favorite Git client.
+### Hints about renamed files
+
+Sometimes files may be renamed in the generator. If you want to see Git rename detection result then you can run `git add` (`git add .` stages all) and view changes after that with your favorite Git client.
+
+If many files are renamed then you may want to increase `diff.renameLimit` in Git config to make Git rename detection work as expected. For example `git config --replace-all diff.renameLimit 10000`.
+
+By default Git rename detection uses similarity threshold 50%. To see less similar files as renamed, you can use option `--find-renames=<n>` in Git commands. For example `git diff --staged --find-renames=30`.
 
 ### See your own changes
 
