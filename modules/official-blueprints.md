@@ -49,5 +49,5 @@ Source code and documentation can be found here: [repository](https://github.com
 
 ## Quarkus
 
-Sixth official blueprint supported and driven by the JHipster community for a [supersonic, subatomic Java back-end](https://quarkus.io/).
+Sixth official blueprint supported, in part by the JHipster sponsor [Entando](https://www.entando.com/), and driven by the JHipster community for a [supersonic, subatomic Java back-end](https://quarkus.io/).
 Source code and documentation can be found here: [repository](https://github.com/jhipster/generator-jhipster-quarkus)
