@@ -95,7 +95,7 @@ You can access to configuration in `.yo-rc.json`:
 
 ### Global variables:
 
-You can use constants in [generator-constants](https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-constants.js):
+You can use constants in [generator-constants](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
 
 ```
     const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
@@ -105,7 +105,7 @@ You can use constants in [generator-constants](https://github.com/jhipster/gener
 
 ### Functions:
 
-You can use all functions in [generator-base](https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-base.js):
+You can use all functions in [generator-base](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-base.js):
 
 ```
     this.angularAppName = this.getAngularAppName(); // get the Angular application name.
@@ -117,7 +117,7 @@ You can use all functions in [generator-base](https://github.com/jhipster/genera
 ## Registering a module to the JHipster marketplace
 
 To have your module available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to make sure you have the 2 keyword `yeoman-generator` and `jhipster-module` in your published npm `package.json`.
-If you find any entry in the marketplace which is not a JHipster module, you can help to blacklist it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/master/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
+If you find any entry in the marketplace which is not a JHipster module, you can help to blacklist it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/main/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
 
 Your module will become "verified" if the JHipster team verifies it.
 

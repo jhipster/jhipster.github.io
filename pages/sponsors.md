@@ -8,7 +8,7 @@ sitemap:
 ---
 # <i class="fa fa-usd"></i> Sponsors
 
-JHipster uses [OpenCollective](https://opencollective.com/generator-jhipster) to gather money. This money is used to cover project expenses (like running this website) in a transparent way ([See the OpenCollective documentation](https://opencollective.com/learn-more)), and your donation will help the project live and grow successfully.
+JHipster uses [OpenCollective](https://opencollective.com/generator-jhipster) to gather money. This money is used to cover project expenses (like running this website) in a transparent way ([See the OpenCollective documentation](https://opencollective.com/how-it-works)), and your donation will help the project live and grow successfully.
 
 Please go to our [OpenCollective page](https://opencollective.com/generator-jhipster) to become a backer or a sponsor.
 

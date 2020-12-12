@@ -63,7 +63,7 @@ Here is a list of the editors we support:
 
 # <a name="issues"></a>Issues and bugs
 
-JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
 Please use our project for submitting issues and Pull Requests:
 

@@ -19,7 +19,7 @@ Most of the JHipster development team uses Oh-My-Zsh, and if you see people usin
 
 The JHipster Oh-My-Zsh plugin is available on GitHub at [https://github.com/jhipster/jhipster-oh-my-zsh-plugin](https://github.com/jhipster/jhipster-oh-my-zsh-plugin).
 
-Currently it only adds shortcuts (full list [here](https://github.com/jhipster/jhipster-oh-my-zsh-plugin/blob/master/jhipster.plugin.zsh)), but we welcome contributions to have better auto-completion!
+Currently it only adds shortcuts (full list [here](https://github.com/jhipster/jhipster-oh-my-zsh-plugin/blob/main/jhipster.plugin.zsh)), but we welcome contributions to have better auto-completion!
 
 It is not part (yet) of the official plugin list, so you need to install it manually:
 

@@ -75,9 +75,6 @@
                         </button>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="https://www.jhipster.tech/jhipster-code/" style="color: rgb(255, 78, 78);">JHipster Code</a>
-                        </li>
                         {% if page.home == true %}
                         <li class="page-scroll">
                             <a href="#sponsors">Sponsors</a>
@@ -294,6 +291,7 @@
                                             <li {% if '/aws/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/aws/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to AWS</a></li>
                                             <li {% if '/azure/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/azure/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Azure</a></li>
                                             <li {% if '/boxfuse/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/boxfuse/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying with Boxfuse</a></li>
+                                            <li {% if '/clever-cloud/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/clever-cloud/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Clever Cloud</a></li>
                                             <li {% if '/cloudfoundry/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/cloudfoundry/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
                                             <li {% if '/gcp/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/gcp/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Google Cloud Platform</a></li>
                                             <li {% if '/heroku/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/heroku/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
@@ -356,7 +354,7 @@
                     <div class="row page-content-wrapper">
                         <div class="col-lg-12">
                             <div class="float-right visible-md visible-lg">
-                                <a href="https://github.com/jhipster/jhipster.github.io/edit/master/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;Improve this page</a>
+                                <a href="https://github.com/jhipster/jhipster.github.io/edit/main/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;Improve this page</a>
                             </div>
                             {{ content }}
                         </div>
@@ -374,10 +372,10 @@
                                     <div class="col-12">
                                         JHipster is sponsored by:
                                     </div>
-                                    <div class="col-md-offset-2 col-sm-12 col-md-4">
+                                    <div class="col-sm-12 col-md-4">
                                         <div class="thumbnail no-margin-bottom">
                                             <div class="logo-container">
-                                                <a href="https://developer.okta.com/?utm_campaign=display_website_all_multiple_dev_dev_jhipster-q2_&utm_source=jhipster&utm_medium=cpc" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="175px"></a>
+                                                <a href="https://developer.okta.com/?utm_campaign=display_website_all_multiple_dev_dev_jhipster-q2_&utm_source=jhipster&utm_medium=cpc" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/okta.png" width="280px" height="175px"></a>
                                             </div>
                                         </div>
                                         <div>
@@ -395,6 +393,16 @@
                                         <div>
                                             <div>
                                                 <a href="http://www.octoconsulting.com/" target="_blank" rel="noopener">Octo Consulting Group</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/entandoe.png" width="180px" height="175px"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener">Micro Frontend Platform for Kubernetes</a>
                                             </div>
                                         </div>
                                     </div>

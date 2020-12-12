@@ -1561,6 +1561,10 @@ footer {
     width: 100%;
     height: 100%;
     padding: 20px; }
+    .logo-container a .sponsor-img {
+        height: 60px;
+        width: auto;
+    }
 
 table tr {
     border: 1px solid lightgray

@@ -119,19 +119,19 @@ The new language `new_lang` is now available in the language menu, and it is ava
 
 If you would like to contribute a new language to the generator follow steps below;
 
-- Add the language to the `LANGUAGES` constant in [`generators/gnerator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/master/generators/generator-constants.js)
+- Add the language to the `LANGUAGES` constant in [`generators/gnerator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js)
 
         { name: 'New Language', dispName: 'New Language', value: 'nl' }
 
-- Duplicate the file [`generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/master/generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/main/resources/i18n/messages_nl.properties.ejs` and translate all the values to the new language.   
+- Duplicate the file [`generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/main/resources/i18n/messages_nl.properties.ejs` and translate all the values to the new language.   
 
-- Duplicate the folder [`generators/languages/templates/src/main/webapp/i18n/en`](https://github.com/jhipster/generator-jhipster/tree/master/generators/languages/templates/src/main/webapp/i18n/en) to `generators/languages/templates/src/main/webapp/i18n/nl` and translate all the files inside it. 
+- Duplicate the folder [`generators/languages/templates/src/main/webapp/i18n/en`](https://github.com/jhipster/generator-jhipster/tree/main/generators/languages/templates/src/main/webapp/i18n/en) to `generators/languages/templates/src/main/webapp/i18n/nl` and translate all the files inside it. 
 
-- Duplicate the file [`generators/entity-i18n/templates/i18n/entity_en.json.ejs`](https://github.com/jhipster/generator-jhipster/blob/master/generators/entity-i18n/templates/i18n/entity_en.json.ejs) to `generators/entity-i18n/templates/i18n/entity_nl.json.ejs` and translate all the values within it.
+- Duplicate the file [`generators/entity-i18n/templates/i18n/entity_en.json.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/entity-i18n/templates/i18n/entity_en.json.ejs) to `generators/entity-i18n/templates/i18n/entity_nl.json.ejs` and translate all the values within it.
 
-- Duplicate the file [`generators/languages/templates/src/test/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/master/generators/server/templates/src/test/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/test/resources/i18n/messages_nl.properties.ejs` and translate all the values within it.
+- Duplicate the file [`generators/languages/templates/src/test/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/server/templates/src/test/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/test/resources/i18n/messages_nl.properties.ejs` and translate all the values within it.
 
-- Add the language value `nl` to the `language` array in [`test/templates/all-languages/.yo-rc.json`](https://github.com/jhipster/generator-jhipster/blob/master/test/templates/all-languages/.yo-rc.json).
+- Add the language value `nl` to the `language` array in [`test/templates/all-languages/.yo-rc.json`](https://github.com/jhipster/generator-jhipster/blob/main/test/templates/all-languages/.yo-rc.json).
 
 Submit a PR with all these changes.
 

@@ -51,13 +51,7 @@ As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one r
 
 _Tip: the `User` entity_
 
-Please note that the `User` entity, which is handled by JHipster, is specific. You can do:
-
-- `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement. On the generated Angular/React client UI you will have a dropdown in `Car` to select a `User`.
-- `many-to-many` and `one-to-one` relationships to the `User` entity, but the other entity __must__ be the owner
-of the relationship (a `Team` can have a many-to-many relationship to `User`, but only the team can add/remove users, and a user cannot add/remove a team). On the Angular/React client UI, you will also be able to select a `User` in a multi-select box.
-
-When using the UAA authentication type, you can only create relationships to the User entity if the related entity is also within the UAA microservice.
+Information about it is located [here]({{ site.url }}/user-entity/).
 
 **A small warning about entity & relationship generation**: in the following examples, you'll notice that compilation
 _may_ fail in some cases because destination entities aren't generated and that's normal (this warning can be ignored).

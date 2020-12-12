@@ -29,7 +29,7 @@ Go to Stack Overflow with the ["jhipster"](http://stackoverflow.com/tags/jhipste
 
 ## If you have a bug or a feature request
 
-First read our [contributing guidelines](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+First read our [contributing guidelines](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
 Then, fill a ticket on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues/new/choose), we'll be happy to resolve your issue!
 

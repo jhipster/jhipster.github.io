@@ -78,7 +78,7 @@ _Please note: this Docker image is for running the JHipster generator inside a c
 
 ### Information
 
-JHipster has a specific [Dockerfile](https://github.com/jhipster/generator-jhipster/blob/master/Dockerfile), which provides a [Docker](https://www.docker.io/) image.
+JHipster has a specific [Dockerfile](https://github.com/jhipster/generator-jhipster/blob/main/Dockerfile), which provides a [Docker](https://www.docker.io/) image.
 
 It makes a Docker "Automated build" that is available on: [https://hub.docker.com/r/jhipster/jhipster/](https://hub.docker.com/r/jhipster/jhipster/)
 
