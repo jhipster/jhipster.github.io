@@ -858,10 +858,12 @@ function ocSilverJsonpCallback(data){
 <script type="application/javascript" src="https://json2jsonp.com/?url=https://opencollective.com/generator-jhipster/tiers/bronze-sponsor/all.json?v=2&callback=ocBronzeJsonpCallback"></script>
 <script type="application/javascript" src="https://json2jsonp.com/?url=https://opencollective.com/generator-jhipster/tiers/silver-sponsor/all.json&callback=ocSilverJsonpCallback"></script>
 <script>
-    // dead simple random select of hipster family member
-    var random = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-    document.getElementById("hipster").src = "images/logo/jhipster_family_member_" + random + ".svg";
-    document.getElementById("hipster-head").src = "images/logo/jhipster_family_member_" + random + "_head.svg";
+    familyIDFromQueryParam = (new URLSearchParams(window.location.search)).get('family')
+    // simple random select of hipster family member if not specified in the `family` query param
+    var familyMemberID = familyIDFromQueryParam || Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+    var familyMemberHeadID = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+    document.getElementById("hipster").src = "images/logo/jhipster_family_member_" + familyMemberID + ".svg";
+    document.getElementById("hipster-head").src = "images/logo/jhipster_family_member_" + familyMemberHeadID + "_head.svg";
 </script>
 <script type="application/ld+json">
 {
