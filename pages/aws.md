@@ -19,7 +19,7 @@ There are two different sub-generators for deploying JHipster projects to AWS:
 
 ## *aws-containers* sub-generator
 When using the monolith flow, this sub-generator will automatically deploy your docker-based JHipster application, using AWS Fargate running on Elastic Container Service. It leverages a number of AWS services to achieve this:
-- [AWS Fargate](https://aws.amazon.com/fargate/): A new AWS service which allows containers to be run without needing to worry about the underlying VM instance infrastructure. The sub-generator currently uses Elastic Container Service to manage the containers.
+- [AWS Fargate](https://aws.amazon.com/fargate/): An AWS service which allows containers to be run without needing to worry about the underlying VM instance infrastructure. The sub-generator currently uses Elastic Container Service to manage the containers.
 - [Elastic Container Registry](https://aws.amazon.com/ecr/): A Docker Image repository, where the application images are stored.
 - [Elastic Load Balanacer - Network Load Balancer](https://aws.amazon.com/elasticloadbalancing): The Network Load balanacer is used to direct traffic to containers.
 - [Aurora](https://aws.amazon.com/rds/aurora): A AWS managed database service, which is MySQL and PostgreSQL compatible.
@@ -46,7 +46,6 @@ If you choose to deploy the application, the sub-generator will go through a num
 
 ### Limitations
 - Only the following database types are supported (all via Aurora): Mysql, MariaDB and PostgreSQL.
-- Fargate is, at time of writing, only available in the `us-west-2` region. Check [this list](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) before attempting to run the sub-generator against a different region.
 - Instance to instance communication is currently not supported. The biggest consequence of this is that cache synchronisation is not supported between nodes. It is recommended to look at AWS' [ElasticCache](https://aws.amazon.com/elasticache/) service for distributed caching requirements.
 - SSL is not enabled.
 
