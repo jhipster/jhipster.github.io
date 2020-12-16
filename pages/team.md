@@ -242,6 +242,15 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/9989211?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Quentin Monmert</h3>
+                <p><a href="https://twitter.com/quentinmonmert"><i>@quentinmonmert</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/792925?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Charlie Mordant</h3>
