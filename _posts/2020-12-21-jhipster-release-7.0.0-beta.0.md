@@ -97,6 +97,8 @@ However, as this is a BETA release it will not be available using our other usua
 
 You also won’t be able to use the `jhipster upgrade` sub-generator, as it won’t “see” the BETA release, which is distributed through a specific beta channel on NPM.
 
+You can look at [v7 upgrade tips]({{ site.url }}/tips/033_tip_v7_upgrade.html) page for v7 upgrade hints.
+
 
 Help and bugs
 --------------
