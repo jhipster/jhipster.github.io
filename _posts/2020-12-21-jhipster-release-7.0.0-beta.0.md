@@ -23,6 +23,10 @@ Related to Blueprints and Modules:
   - added `getFrontendAppName()` and `frontendAppName` attribute
   - removed `getAngularAppName()` and `angularAppName` attribute
   - removed `getAngularXName()` and `angularXAppName` attribute
+- Removed `setup*Options()` operations
+  - A replacement may not be required. Use `load(App/Client/Server)Config` if needed.
+- `id` field is added to fields at jhipster 7.
+  - Remove id fields if the blueprint/module doesn't support. `this.fields = this.fields.filter(field => !field.id);`
 
 Related to front:
 - Angular: follow closer Angular Style Guide - [#13125](https://github.com/jhipster/generator-jhipster/issues/13125)
