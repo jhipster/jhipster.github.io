@@ -18,7 +18,7 @@ We have enabled Prettier for HTML. You can run Prettier with html enabled before
 
 In Angular client a lot of files renamed and tests moved next to files they are testing.
 
-In [manual upgrade](https://www.jhipster.tech/upgrading-an-application/#manual_upgrade) instructions page is section **Hints about renamed files** - this can help in upgrading.
+In [manual upgrade]({{ site.url }}/upgrading-an-application/#manual_upgrade) instructions page is section **Hints about renamed files** - this can help in upgrading.
 
 If the previous hint did not give a satisfactory result then you can do before upgrade:
 * move renamed files to their final location
