@@ -70,7 +70,6 @@ moveEntityFilesToV7Location = function (appDir) {
 
 renameFile = function (entityFolder, fileName, destinationFolderName, entityFromFolder, newFileName) {
   const oldFile = path.join(entityFromFolder || entityFolder, fileName);
-  console.log(oldFile);
   if (fs.existsSync(oldFile)) {
     const destinationFolder = path.join(entityFolder, destinationFolderName);
     if (!fs.existsSync(destinationFolder)) {
@@ -96,6 +95,79 @@ moveEntityFilesToV7Location('appPath');
 // moveEntityFilesToV7Location(folder);
 ```
 
+### Helper node script for moving main files
+```node
+const fs = require('fs');
+const path = require('path');
+
+// from test files only jest.conf is included in this files move script
+moveMainFilesToV7Location = function (appDir) {
+  this.appDir = appDir;
+  renameFile('account/password/password-strength-bar.component.ts', 'account/password/password-strength-bar/password-strength-bar.component.ts');
+  renameFile('account/password/password-strength-bar.scss', 'account/password/password-strength-bar/password-strength-bar.component.scss');
+  renameFile('admin/docs/docs.scss', 'admin/docs/docs.component.scss');
+  renameFile('admin/health/health-modal.component.ts', 'admin/health/modal/health-modal.component.ts');
+  renameFile('admin/health/health-modal.component.html', 'admin/health/modal/health-modal.component.html');
+  renameFile('admin/user-management/user-management-delete-dialog.component.ts', 'admin/user-management/delete/user-management-delete-dialog.component.ts');
+  renameFile('admin/user-management/user-management-delete-dialog.component.html', 'admin/user-management/delete/user-management-delete-dialog.component.html');
+  renameFile('admin/user-management/user-management-detail.component.ts', 'admin/user-management/detail/user-management-detail.component.ts');
+  renameFile('admin/user-management/user-management-detail.component.html', 'admin/user-management/detail/user-management-detail.component.html');
+  renameFile('admin/user-management/user-management-update.component.ts', 'admin/user-management/update/user-management-update.component.ts');
+  renameFile('admin/user-management/user-management-update.component.html', 'admin/user-management/update/user-management-update.component.html');
+  renameFile('admin/user-management/user-management.component.ts', 'admin/user-management/list/user-management.component.ts');
+  renameFile('admin/user-management/user-management.component.html', 'admin/user-management/list/user-management.component.html');
+  renameFile('blocks/config/uib-pagination.config.ts', 'config/uib-pagination.config.ts');
+  renameFile('blocks/interceptor/auth-expired.interceptor.ts', 'core/interceptor/auth-expired.interceptor.ts');
+  renameFile('blocks/interceptor/auth.interceptor.ts', 'core/interceptor/auth.interceptor.ts');
+  renameFile('blocks/interceptor/errorhandler.interceptor.ts', 'core/interceptor/error-handler.interceptor.ts');
+  renameFile('blocks/interceptor/notification.interceptor.ts', 'core/interceptor/notification.interceptor.ts');
+  renameFile('core/auth/user-route-access-service.ts', 'core/auth/user-route-access.service.ts');
+  renameFile('core/icons/font-awesome-icons.ts', 'config/font-awesome-icons.ts');
+  renameFile('core/login/login.model.ts', 'login/login.model.ts');
+  renameFile('core/login/login.service.ts', 'login/login.service.ts');
+  renameFile('core/login/logout.model.ts', 'login/logout.model.ts');
+  renameFile('core/language/language.constants.ts', 'config/language.constants.ts');
+  renameFile('entities/entity.module.ts', 'entities/entity-routing.module.ts');
+  renameFile('home/home.scss', 'home/home.component.scss');
+  renameFile('layouts/navbar/navbar.scss', 'layouts/navbar/navbar.component.scss');
+  renameFile('layouts/profiles/page-ribbon.scss', 'layouts/profiles/page-ribbon.component.scss');
+  renameFile('shared/constants/authority.constants.ts', 'config/authority.constants.ts');
+  renameFile('shared/constants/error.constants.ts', 'config/error.constants.ts');
+  renameFile('shared/constants/input.constants.ts', 'config/input.constants.ts');
+  renameFile('shared/constants/pagination.constants.ts', 'config/pagination.constants.ts');
+  renameFile('shared/login/login.component.ts', 'login/login.component.ts');
+  renameFile('shared/login/login.component.html', 'login/login.component.html');
+  renameFile('shared/util/datepicker-adapter.ts', 'config/datepicker-adapter.ts');
+  renameFile('shared/util/request-util.ts', 'core/request/request-util.ts');
+  renameFile('app.main.ts', '../main.ts')
+  renameFile('polyfills.ts', '../polyfills.ts')
+  renameFile('../../../test/javascript/jest.conf.js', '../../../../jest.conf.js');
+}
+
+renameFile = function (source, destination) {
+  const srcDir = 'src/main/webapp/app';
+  const oldFile = path.join(this.appDir, srcDir, source);
+  if (fs.existsSync(oldFile)) {
+    const newFile = path.join(this.appDir, srcDir, destination);
+    const destinationFolder = path.dirname(newFile);
+    if (!fs.existsSync(destinationFolder)) {
+      console.log(`creating folder ${destinationFolder}`);
+      fs.mkdirSync(destinationFolder);
+    }
+    console.log(`moving ${oldFile} to ${newFile}`);
+    fs.renameSync(oldFile, newFile);
+  }
+}
+
+// change 'appPath' to your application path
+moveMainFilesToV7Location('appPath');
+
+// alternative usage with commandline parameter: node move-angular-main-files-to-jhipster-v7-location.js 'appPath'
+// const folder = process.argv[2];
+// console.log(`Processing folder ${folder}`);
+// moveMainFilesToV7Location(folder);
+```
+
 ### Helper script to copy tests next to files they test
 
 ```node
@@ -114,6 +186,8 @@ copyFiles = function(sourceDir, destinationDir) {
       copyFiles(sourceFileWithPath, destinationFileWithPath);
     } else {
       fs.copyFile(sourceFileWithPath, destinationFileWithPath, (err) => {
+        // if destination folder doesn't exist in sources folder then throw error
+        // those cases need to be handled manually
         if (err) {
           throw err;
         }
