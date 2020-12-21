@@ -14,6 +14,10 @@ lastmod: 2020-12-19T08:30:00-00:00
 
 We have enabled Prettier for HTML. You can run Prettier with html enabled before upgrading and commit changes to Git to see real changes in HTML files after upgrade.
 
+## **Translation directive change in Angular client**
+
+We have moved `jhiTranslate` directive from [ng-jhipster](https://github.com/jhipster/ng-jhipster/blob/main/src/language/jhi-translate.directive.ts) to generated application. If you have different `jhiPrefix` than `jhi` then you may want to replace all `jhiTranslate` with `yourprefixTranslate` and commit changes to Git before upgrade to reduce changes shown after upgrade.
+
 ## **Files renamed in Angular client**
 
 In Angular client a lot of files renamed and tests moved next to files they are testing.
