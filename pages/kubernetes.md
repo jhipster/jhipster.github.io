@@ -211,13 +211,6 @@ For scaling the JHipster Registry, use
 
 The sub-generator provides monitoring tools and configuration for usage with your applications.
 
-### JHipster Console
-
-Your application logs can be found in JHipster Console (powered by Kibana). You can find its service details by
-`kubectl get svc jhipster-console `
-
-Point your browser to an IP of any of your nodes and use the node port described in the output.
-
 ### Prometheus metrics
 
 If not already done, install the [Prometheus operator by CoreOS](https://github.com/coreos/prometheus-operator). You can quickly deploy the operator using

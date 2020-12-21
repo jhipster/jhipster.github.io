@@ -206,7 +206,7 @@ During development of blueprint, please note the below steps. they are very impo
 Note: If you do not want to link the blueprint(step 3) to each project being created, use NPM instead of Yarn as yeoman doesn't seem to fetch globally linked Yarn modules. On the other hand, this means you have to use NPM in all the below steps as well.
 
 ```bash
-cd my-blueprint
+cd generator-jhipster-my-blueprint
 npm link
 ```
 
@@ -216,19 +216,22 @@ npm link
 cd generator-jhipster
 npm link
 
-cd my-blueprint
+cd generator-jhipster-my-blueprint
 npm link generator-jhipster
 ```
 
-3. Create a new folder for the app to be generated and link JHipster and your blueprint there
+3. Create a new folder for the app to be generated, and run JHipster ignoring JHipster dependencies (otherwise a released version will be installed each time npm install/ci is called)
 
 ```bash
 mkdir my-app && cd my-app
 
-npm link generator-jhipster-myblueprint
-npm link generator-jhipster (Optional: Needed only if you are using a non-released JHipster version)
+jhipster --blueprints my-blueprint --skip-jhipster-dependencies
+```
 
-jhipster -d --blueprint myblueprint
+4. Once the blueprint/generator-jhipster was released re-add the jhipster dependencies for reproducibility
+
+```bash
+jhipster --no-skip-jhipster-dependencies
 ```
 
 ## Registering a blueprint to the JHipster marketplace

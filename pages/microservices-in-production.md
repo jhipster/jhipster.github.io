@@ -4,7 +4,7 @@ title: Microservices in production
 permalink: /microservices-in-production/
 sitemap:
     priority: 0.7
-    lastmod: 2017-05-03T00:00:00-00:00
+    lastmod: 2020-09-11T00:00:00-00:00
 ---
 
 # <i class="fa fa-cloud"></i> Microservices in production
@@ -17,13 +17,9 @@ Please refer to our [JHipster Registry documentation]({{ site.url }}/jhipster-re
 
 Our [monitoring documentation]({{ site.url }}/monitoring) is also very important, to learn specific information on using:
 
-- The JHipster Console to use ELK with your microservices architecture
+- ELK to collect the logs of your microservices
+- Prometheus to collect the metrics of your microservices
 - Zipkin to trace HTTP requests throughout your services
-- Elastalert to get alerted when an issue occurs
-
-When using the Docker-Compose sub-generator, you will be asked if you want to add monitoring to your infrastructure. This option will add the JHipster Console to your `docker-compose.yml` file. Once started, it will be available on [http://localhost:5601](http://localhost:5601) and start to gather your applications' logs and metrics.
-
-For gateways and microservices applications, additional features are provided to help you effectively monitor a microservices cluster. For example logs are enriched with each application's name, host, port and Eureka/Consul ServiceId so that you can trace from which service instance they are originating from. The JHipster Console also comes with default dashboards that give you an overview of all your services metrics.
 
 ## <a name="docker_compose"></a> Using Docker Compose to develop and deploy
 

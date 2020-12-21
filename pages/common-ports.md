@@ -45,10 +45,6 @@ The ports here are listed in order, but the most common questions are for ports 
     <td>PostgreSQL</td>
   </tr>
   <tr>
-    <td>5601</td>
-    <td>JHipster Console (based on Kibana)</td>
-  </tr>
-  <tr>
     <td>5701</td>
     <td>Hazelcast</td>
   </tr>

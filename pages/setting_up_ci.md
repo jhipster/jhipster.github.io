@@ -75,6 +75,7 @@ If your Jenkins relies to a GitLab repository, you can send build status to GitL
 - Deploy your application to an *Artifactory*
 - Analyze your code with *Sonar*
 - Build and publish a *Docker* image
+- *Snyk*: dependency scanning for security vulnerabilities (requires SNYK_TOKEN)
 - Deploy to *Heroku* (requires HEROKU_API_KEY set on CI service)
 
 ### Deploy your application to an *Artifactory* (Jenkins / GitLab)
@@ -107,6 +108,13 @@ By default, you can use Docker Hub: [https://registry.hub.docker.com](https://re
 By default, you can use: `docker login`
 
 - *Docker*: what is the Organization Name for the Docker registry ?
+
+### Snyk: dependency scanning for security vulnerabilities
+
+You have to add the `SNYK_TOKEN` environment variable (check your [Snyk account](https://app.snyk.io/account))
+
+See full documentation at [https://snyk.io/](https://snyk.io/)
+
 
 ### Deploy to *Heroku*
 

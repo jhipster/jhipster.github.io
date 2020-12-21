@@ -379,7 +379,6 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | React                               | Sendil Kumar N     |
 | VueJS                               | Sahbi KTIFA        |
 | JHipster Registry                   | Pierre Besson      |
-| JHipster Console                    | Pierre Besson      |
 | JHipster core/JDL                   | Mathieu Abou-Aichi |
 | JHipster Kotlin                     | Sendil Kumar N     |
 | JHipster IDE                        | Serano Colameo     |

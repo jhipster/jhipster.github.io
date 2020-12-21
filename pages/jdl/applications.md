@@ -565,12 +565,6 @@ Here are the application options supported in the JDL:
     <td>Mandatory for gateway and microservices if auth type is uaa, must be between double-quotes</td>
   </tr>
   <tr>
-    <td>useSass</td>
-    <td>false</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td>websocket</td>
     <td>false</td>
     <td>spring-websocket, false</td>
