@@ -3,12 +3,12 @@ layout: default
 title: Release 7.0.0-beta.0
 ---
 
-JHipster release v7.0.0-beta.0
+JHipster release v7.0.0-beta.0 🦌🎅🤶🎁🎄
 ==================
 
 This is our first beta release for JHipster v7.
 
-It includes more than [1304 closed tickets and pull requests on the main project](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aclosed+milestone%3A7.0.0-beta.0).
+It includes more than [1322 closed tickets and pull requests on the main project](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aclosed+milestone%3A7.0.0-beta.0).
 
 _It is not available through the usual channels as this is a beta release, please read below for more information!_
 
@@ -35,6 +35,13 @@ Related to front:
 
 Related to backend:
 - Protect user api and create a filtered user api for relationships - [#12374](https://github.com/jhipster/generator-jhipster/issues/12374)
+- Springfox 3 upgrade - [#12133](https://github.com/jhipster/generator-jhipster/pull/12133) and [jhipster/jhipster#764](https://github.com/jhipster/jhipster/pull/764)
+  - `swagger` maven profile becomes `api-docs`
+  - `jhipster.swagger` property becomes `jhipster.api-docs`
+  - `SwaggerCustomizer` becomes `SpringfoxCustomizer`
+  - `swaggerSpringfoxApiDocket` becomes `openapiSpringfoxApiDocket`
+  - `swaggerSpringfoxManagementDocket` becomes `openAPISpringfoxManagementDocket`
+
 Entities:
 - Change relationship table name - [#11025](https://github.com/jhipster/generator-jhipster/issues/11025)
 
@@ -55,11 +62,11 @@ Entities
 - Incremental Liquibase - [#12178](https://github.com/jhipster/generator-jhipster/issues/12178)
 
 Improvements
+- Angular 11 - [#13035](https://github.com/jhipster/generator-jhipster/pull/13035)
 - Blueprint improvement
 - Webflux improvement
 - Spring Boot 2.3 - [#11682](https://github.com/jhipster/generator-jhipster/pull/11682)
 - Java 11 by default - [#12021](https://github.com/jhipster/generator-jhipster/pull/12021)
-- Springfox 3 upgrade
 - PostgreSQL as default database - [#11736](https://github.com/jhipster/generator-jhipster/issues/11736)
 - IntegrationTest annotation - [#12460](https://github.com/jhipster/generator-jhipster/issues/12460)
 - Annotation to detect generated files - [#12459](https://github.com/jhipster/generator-jhipster/issues/12459)
@@ -68,7 +75,7 @@ Improvements
 - Typescript 4 - [#12435](https://github.com/jhipster/generator-jhipster/pull/12435)
 
 Refactoring
-- jhipster library, with tech.jhipster as package name - [#12854](https://github.com/jhipster/generator-jhipster/issues/12854)
+- JHipster library, with `tech.jhipster` as package name - [#12854](https://github.com/jhipster/generator-jhipster/issues/12854)
 - JHipster Core is merged with generator-jhipster - [#11694](https://github.com/jhipster/generator-jhipster/pull/11694)
 - ng-jhipster is merged with generator-jhipster - [#12909](https://github.com/jhipster/generator-jhipster/issues/12909)
 
