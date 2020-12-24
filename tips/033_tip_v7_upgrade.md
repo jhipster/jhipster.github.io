@@ -146,9 +146,17 @@ moveMainFilesToV7Location = function (appDir) {
   renameFile('app.main.ts', '../main.ts')
   renameFile('polyfills.ts', '../polyfills.ts')
   renameFile('../../../test/javascript/jest.conf.js', '../../../../jest.conf.js');
+
+  // if you are using version greater than 7.0.0-beta.0 (generator-jhipster main branch or newer release)
+  // then you may want to uncomment lines below
+  //renameFile('core/user/account.model.ts', 'core/auth/account.model.ts');
+  //renameFile('core/user/user.model.ts', 'entities/user/user.model.ts', true);
+  //renameFile('core/user/user.service.ts', 'entities/user/user.service.ts', true);
+  //renameFile('core/user/user.model.ts', 'admin/user-management/user-management.model.ts');
+  //renameFile('core/user/user.service.ts', 'admin/user-management/service/user-management.service.ts');
 }
 
-renameFile = function (source, destination) {
+renameFile = function (source, destination, copyOnly) {
   const srcDir = 'src/main/webapp/app';
   const oldFile = path.join(this.appDir, srcDir, source);
   if (fs.existsSync(oldFile)) {
@@ -158,8 +166,13 @@ renameFile = function (source, destination) {
       console.log(`creating folder ${destinationFolder}`);
       fs.mkdirSync(destinationFolder);
     }
-    console.log(`moving ${oldFile} to ${newFile}`);
-    fs.renameSync(oldFile, newFile);
+    if (copyOnly) {
+      console.log(`copying ${oldFile} to ${newFile}`);
+      fs.copyFileSync(oldFile, newFile);
+    } else {
+      console.log(`moving ${oldFile} to ${newFile}`);
+      fs.renameSync(oldFile, newFile);
+    }
   }
 }
 
