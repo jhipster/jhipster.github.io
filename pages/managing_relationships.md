@@ -422,8 +422,8 @@ Do not use  `@MapsId` when:
     For eg,
 
     ```
-    class Car{ @OneToOne @JoinColumn(name="id") Driver currentDriver} // car can be drived by another driver in future
-    class Driver{@OneToOne @JoinColumn(name="id") Car drivingCar} // driver drives another car in future
+    class Car{ @OneToOne @JoinColumn(name="current_driver_id") Driver currentDriver} // car can be drived by another driver in future
+    class Driver{@OneToOne(mappedBy = "currentDriver") Car drivingCar} // driver drives another car in future
     ```
     Both car and driver association value may change in future.
 
