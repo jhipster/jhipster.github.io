@@ -282,11 +282,6 @@ If your application is stopped by Heroku when your Liquibase changelog is being 
 
 Heroku has a default boot-timeout limit of 90 seconds. If your app takes longer than this, Heroku will stop the process, which may leave the database in a locked state. If the problem is persistent, try contacting [Heroku Support](http://help.heroku.com){:target="_blank" rel="noopener"} to request a longer boot limit for your app.
 
-### Using Neo4j
-<a name="deploying-microservices"></a>
-As [Graphene DB](https://elements.heroku.com/addons/graphenedb){:target="_blank" rel="noopener"} does not support Neo4j 4.x you can't yet deploy reactive applications with Neo4j to Heroku!
-Beware that the free tier of Graphene DB is quite slow, therefore your application will not feel very snappy.
-
 ### Using Elasticsearch
 
 The Bonsai used addon with the free sandbox plan does [only support the latest Elasticsearch version](https://docs.bonsai.io/article/139-which-versions-bonsai-supports){:target="_blank" rel="noopener"}.
