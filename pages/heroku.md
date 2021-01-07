@@ -44,8 +44,6 @@ We support the following addons:
 
 * [Heroku Postgres](https://www.heroku.com/postgres){:target="_blank" rel="noopener"} when using PostgreSQL
 * [JawsDB](https://elements.heroku.com/addons/jawsdb){:target="_blank" rel="noopener"} when using MySQL or MariaDB
-* [mLab MongoDB](https://elements.heroku.com/addons/mongolab){:target="_blank" rel="noopener"} when [using MongoDB](/using-mongodb/)
-* [Graphenedb](https://elements.heroku.com/addons/graphenedb){:target="_blank" rel="noopener"} when [using Neo4j](/using-neo4j/)
 * [Heroku Redis](https://elements.heroku.com/addons/heroku-redis){:target="_blank" rel="noopener"} when [using Redis](/using-cache/#caching-with-redis)
 * [MemCachier](https://elements.heroku.com/addons/memcachier){:target="_blank" rel="noopener"} when [using Memcached](/using-cache/#caching-with-memcached)
 * [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai){:target="_blank" rel="noopener"} when [using Elasticsearch](/using-elasticsearch/)
