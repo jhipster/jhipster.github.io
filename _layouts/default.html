@@ -346,6 +346,16 @@
                                 </div>
                             </li>
                             <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-13"><span class="icon fa fa-fw fa-book"></span><span class="title">Blueprints documentation</span></a>
+                                <div id="dropdown-13" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/blueprints/quarkus/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/blueprints/quarkus/"><i class="fa fa-fw fa-star"></i> Quarkus</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
