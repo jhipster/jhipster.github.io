@@ -13,6 +13,20 @@ _Goal:_ By the using below mail settings you will have the default JHipster appl
 
 Start by running JHipster with `jhipster` to create a new application or use an existing JHipster generated application.
 
+## Configure 'from' address
+
+Open `src\main\resources\config\application.yml`, edit `jhipster.mail.from` property:
+
+_application.yml_
+    
+    jhipster:
+        [...]
+        mail:
+            from: username@service_provider #Replace this field with the value that will be used for spring.mail.username
+        [...]
+
+Skipping this step will likely to result in your email is marked as spam.
+
 ## Choose any of below Email Service for your Application :
 
 ### 1. Email Config - Gmail
