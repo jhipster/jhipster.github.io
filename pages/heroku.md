@@ -44,8 +44,6 @@ We support the following addons:
 
 * [Heroku Postgres](https://www.heroku.com/postgres){:target="_blank" rel="noopener"} when using PostgreSQL
 * [JawsDB](https://elements.heroku.com/addons/jawsdb){:target="_blank" rel="noopener"} when using MySQL or MariaDB
-* [mLab MongoDB](https://elements.heroku.com/addons/mongolab){:target="_blank" rel="noopener"} when [using MongoDB](/using-mongodb/)
-* [Graphenedb](https://elements.heroku.com/addons/graphenedb){:target="_blank" rel="noopener"} when [using Neo4j](/using-neo4j/)
 * [Heroku Redis](https://elements.heroku.com/addons/heroku-redis){:target="_blank" rel="noopener"} when [using Redis](/using-cache/#caching-with-redis)
 * [MemCachier](https://elements.heroku.com/addons/memcachier){:target="_blank" rel="noopener"} when [using Memcached](/using-cache/#caching-with-memcached)
 * [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai){:target="_blank" rel="noopener"} when [using Elasticsearch](/using-elasticsearch/)
@@ -283,11 +281,6 @@ If your application is stopped by Heroku when your Liquibase changelog is being 
 `heroku pg:psql -c "update databasechangeloglock set locked=false;"`
 
 Heroku has a default boot-timeout limit of 90 seconds. If your app takes longer than this, Heroku will stop the process, which may leave the database in a locked state. If the problem is persistent, try contacting [Heroku Support](http://help.heroku.com){:target="_blank" rel="noopener"} to request a longer boot limit for your app.
-
-### Using Neo4j
-<a name="deploying-microservices"></a>
-As [Graphene DB](https://elements.heroku.com/addons/graphenedb){:target="_blank" rel="noopener"} does not support Neo4j 4.x you can't yet deploy reactive applications with Neo4j to Heroku!
-Beware that the free tier of Graphene DB is quite slow, therefore your application will not feel very snappy.
 
 ### Using Elasticsearch
 

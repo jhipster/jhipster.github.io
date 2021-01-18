@@ -115,7 +115,7 @@ If you'd like to use Okta instead of Keycloak, it's pretty quick using the [Okta
 okta register
 ```
 
-Then, in your JHipster app's directory, run `okta apps create` and select **JHipster**. This will set up an Okta app for you, create `ROLE_ADMIN` and `ROLE_USER` groups, create a `.okta.env` file with your Okta settings, and configure a `groups` claim in your ID token.
+Then, in your JHipster app's directory, run `okta apps create jhipster`. This will set up an Okta app for you, create `ROLE_ADMIN` and `ROLE_USER` groups, create a `.okta.env` file with your Okta settings, and configure a `groups` claim in your ID token.
 
 Run `source .okta.env` and start your app with Maven or Gradle. You should be able to sign in with the credentials you registered with.
 
