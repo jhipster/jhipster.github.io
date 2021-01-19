@@ -26,7 +26,7 @@ and delegates to JHipster the client side components generation
 ### Example
 
 ```
-$ jhipster entity Book
+$ jhipster-quarkus entity Book
 INFO! Using JHipster version installed locally in current project's node_modules
 INFO! No custom sharedOptions found within blueprint: generator-jhipster-quarkus at /Users/daniel/workspace/jhipster/jhipster-eleven/node_modules/generator-jhipster-quarkus
 INFO! No custom commands found within blueprint: generator-jhipster-quarkus at /Users/daniel/workspace/jhipster/jhipster-eleven/node_modules/generator-jhipster-quarkus

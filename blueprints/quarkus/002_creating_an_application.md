@@ -20,11 +20,18 @@ Go to that directory:
 
 To generate your JHipster Quarkus application, type:
 
+`jhipster-quarkus`
+
+## Advanced
+
+`jhipster-quarkus` embeds the `jhipster` dependency which means you don't have to install `jhipster` by your own.
+The main benefits of `jhipster-quarkus` is to ensure the compatibility between the JHipster Quarkus blueprint and the underneath JHipster.
+
+However, if you want to use a custom `jhipster` installation, you can use the `--blueprint` flag as follow:
+
 `jhipster --blueprints quarkus`
 
-or use the alias
-
-`jhipster-quarkus`
+Please, keep in mind that in this configuration you may face compatibility issues, that's why we do not recommend this usage.
 
 ## Questions asked when generating an application
 
