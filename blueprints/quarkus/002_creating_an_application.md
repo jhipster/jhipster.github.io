@@ -16,11 +16,11 @@ First of all, create an empty directory in which you will create your applicatio
 
 Go to that directory:
 
-`cd myamy-quarkus-application`
+`cd my-quarkus-application`
 
 To generate your JHipster Quarkus application, type:
 
-`jhipster --blueprints quakurs`
+`jhipster --blueprints quarkus`
 
 or use the alias
 
@@ -28,6 +28,6 @@ or use the alias
 
 ## Questions asked when generating an application
 
-The question asked during JHipster Quarkus creation are identic to standard Quarkus.
+The question asked during JHipster Quarkus creation are identical to standard Quarkus.
 
 Please refer to the according documentation: [Questions asked when generating an application]({{ site.url }}/creating-an-app/#2)

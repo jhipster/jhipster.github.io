@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-star"></i> Quarkus
 
-[Jhipster Quarkus blueprint](https://github.com/jhipster/generator-jhipster-quarkus) to leverage JHipster to create a [Quarkus](https://quarkus.io/) application.
+[JHipster Quarkus blueprint](https://github.com/jhipster/generator-jhipster-quarkus) to leverage JHipster to create a [Quarkus](https://quarkus.io/) application.
 
 _The following documentation will focus only the differences between JHipster Quarkus and the main JHipster generator._
 

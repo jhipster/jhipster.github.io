@@ -10,6 +10,12 @@ lastmod: 2021-01-07T08:40:00-00:00
 
 Before using JHipster Quarkus, you have to prepare your environment (Java, Node) and install JHipster.
 
+We recommend to use the JHipster version defined in the JHipster Quarkus blueprint.
+
+| JHipster Quarkus | JHipster |
+|------------------|----------|
+| v0.2.1           | v6.10.5  |
+
 Please refer to the section *Local installation with NPM (recommended for normal users)* of the documentation https://www.jhipster.tech/installation/.
 
 You can now install the JHipster Quarkus blueprint: 
