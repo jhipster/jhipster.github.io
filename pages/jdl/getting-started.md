@@ -3,39 +3,28 @@ layout: default
 title: JHipster Domain Language - Getting Started
 permalink: /jdl/getting-started
 sitemap:
-    priority: 0.5
-    lastmod: 2019-10-27T12:00:00-00:00
+  priority: 0.5
+  lastmod: 2019-10-27T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Getting Started
-
 
 ## Summary
 
 In this page, you'll learn about the JDL and how to create applications and everything around them.
 
-- [<i class="fa fa-star"></i> JHipster Domain Language (JDL) - Getting Started](#i-classfa-fa-stari-jhipster-domain-language-jdl---getting-started)
-  - [Summary](#summary)
-  - [Generating content](#generating-content)
-    - [Using files](#using-files)
-    - [Using an inline JDL](#using-an-inline-jdl)
-  - [Using a remote JDL file](#using-a-remote-jdl-file)
-  - [Generating applications](#generating-applications)
-  - [Generating entities](#generating-entities)
-    - [Generating a basic entity](#generating-a-basic-entity)
-    - [Adding comments](#adding-comments)
-    - [Entities in applications](#entities-in-applications)
-  - [Generating fields](#generating-fields)
-    - [Adding comments and validations](#adding-comments-and-validations)
-  - [Enumerations](#enumerations)
-  - [Adding relationships](#adding-relationships)
-    - [Unidirectional or bidirectional relationships?](#unidirectional-or-bidirectional-relationships)
-    - [Relationship comments & validations](#relationship-comments--validations)
-  - [Options](#options)
-    - [Annotations](#annotations)
-  - [Deployments](#deployments)
-  - [Constants](#constants)
-  - [Exporting to a JDL file](#exporting-to-a-jdl-file)
+1. [Generating content](#generating-content)
+   1. [Using files](#using-files)
+   1. [Using an inline JDL](#using-an-inline-jdl)
+1. [Applications](#generating-applications)
+1. [Entities](#generating-entities)
+1. [Fields](#generating-fields)
+1. [Enums](#enumerations)
+1. [Relationships](#adding-relationships)
+1. [Options](#options)
+1. [Deployments](#deployments)
+1. [Constants](#constants)
+1. [Exporting to a JDL file](#exporting-to-a-jdl-file)
 
 ---
 
@@ -44,12 +33,13 @@ In this page, you'll learn about the JDL and how to create applications and ever
 ### Using files
 
 You can use JDL files to generate entities:
-  - Create a file with the extension '.jh' or '.jdl',
-  - Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
-  - If you are creating only entities then run `jhipster jdl my_file.jdl` in your JHipster application's root folder.
-  - If you are creating applications then run `jhipster jdl my_file.jdl` in a folder.
 
-and *Voilà*, you are done!
+- Create a file with the extension '.jh' or '.jdl',
+- Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
+- If you are creating only entities then run `jhipster jdl my_file.jdl` in your JHipster application's root folder.
+- If you are creating applications then run `jhipster jdl my_file.jdl` in a folder.
+
+and _Voilà_, you are done!
 
 If you work in a team, perhaps you would like to have multiple files instead of one.
 We added this option so that you don't manually concatenate all the files into one, you have to run:
@@ -62,14 +52,15 @@ entity creation part and create only the json files in `.jhipster` folder.
     jhipster jdl ./my-jdl-file.jdl --json-only
 
 By default `jdl` regenerates only entities that have changed, if you want all your entities to be regenerated
-then pass in the `--force`  flag.
+then pass in the `--force` flag.
 Please note that this will overwrite all your local changes to the entity files:
 
     jhipster jdl ./my-jdl-file.jdl --force
 
 If you want to use it in your project, you can add do so by doing:
-  - NPM: `npm install jhipster-core --save`
-  - Yarn: `yarn add jhipster-core`
+
+- NPM: `npm install jhipster-core --save`
+- Yarn: `yarn add jhipster-core`
 
 to install it locally, and save it in your `package.json` file.
 
@@ -78,7 +69,7 @@ to install it locally, and save it in your `package.json` file.
 ### Using an inline JDL
 
 The other way to generate content is to pass a JDL code in your CLI, this way:
-`jhipster jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
+`jhipster jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
 
 This way of generating content is especially useful when generating entities.
 
@@ -88,6 +79,7 @@ For now, we'll start with small JDL content to get to know the various ways to g
 Explanations will be made in other sections about the syntax but focus is gonna be made on the generation here.
 
 Here's the basic content we'll use:
+
 ```jdl
 application {
   config {
@@ -97,7 +89,7 @@ application {
 }
 ```
 
-This is a very basic microservice application named "jhipster", and we'll see the various ways to generate a 
+This is a very basic microservice application named "jhipster", and we'll see the various ways to generate a
 application from this sample.
 
 You'll see that, with this little sample, you've managed to create an application from scratch.
@@ -125,6 +117,7 @@ jhipster jdl default.jdl
 
 As we've seen in the previous example, generating applications is quite straightforward, let's take the previous example
 and add more things to it:
+
 ```jdl
 application {
   config {
@@ -135,11 +128,13 @@ application {
   }
 }
 ```
+
 Let's break it down:
-  - `application` is the keyword to say you want to declare an application
-  - `config` to say that you want to specify the configuration
-    - we'll later see that you can also declare entities in applications
-  - `baseName`, `applicationType`, etc. are keywords to tweak the application
+
+- `application` is the keyword to say you want to declare an application
+- `config` to say that you want to specify the configuration
+  - we'll later see that you can also declare entities in applications
+- `baseName`, `applicationType`, etc. are keywords to tweak the application
 
 This is how you create an application using the JDL.
 To see all supported application options, head to [this page](/jdl/applications).
@@ -162,6 +157,7 @@ name).
 This is the simplest way possible to declare an entity.
 
 Note that this form is equivalent to:
+
 ```jdl
 entity A(a) {}
 ```
@@ -273,11 +269,12 @@ relationship OneToOne {
 ```
 
 Here's what we can see:
-  - `OneToOne` is the relationship type
-    - there are also `OneToMany`, `ManyToMany` and `ManyToOne`
-  - we declare the source and the destination of the relationship (from `A` to `B`)
-  - we also declare the injected fields in each entity (`a` in `B`, and `b` in `A`)
-    - this means the relationship is bidirectional
+
+- `OneToOne` is the relationship type
+  - there are also `OneToMany`, `ManyToMany` and `ManyToOne`
+- we declare the source and the destination of the relationship (from `A` to `B`)
+- we also declare the injected fields in each entity (`a` in `B`, and `b` in `A`)
+  - this means the relationship is bidirectional
 
 To know more about relationships, you can head to [the dedicated page](/managing_relationships).
 
@@ -311,10 +308,11 @@ relationship OneToOne {
 ```
 
 In this example we can see:
-  - `required` to specify if a side of the relationship is required
-    - instead of having 0..1, this One to One relationship requires 1 side not to be nil
 
-To know more about relationships, you can go to the dedicated [relationship page](/jdl/relationships) 
+- `required` to specify if a side of the relationship is required
+  - instead of having 0..1, this One to One relationship requires 1 side not to be nil
+
+To know more about relationships, you can go to the dedicated [relationship page](/jdl/relationships)
 
 ---
 
@@ -330,19 +328,21 @@ entity C
 readOnly A
 dto * with mapstruct
 service * with serviceImpl
-paginate A, B with pager 
+paginate A, B with pager
 ```
 
 There a some interesting things happening here:
-  - `dto`, `paginate` and `service` are binary options as they need an entity list and a value
-    - `with` is used to specify the option value
-    - note the `*` which means the option is to be applied to all the entities
-  - `readOnly` is an unary option, that means that such options only take an entity list
+
+- `dto`, `paginate` and `service` are binary options as they need an entity list and a value
+  - `with` is used to specify the option value
+  - note the `*` which means the option is to be applied to all the entities
+- `readOnly` is an unary option, that means that such options only take an entity list
 
 There are more than one way to declare an entity list:
-  - you can enumerate them one by one: `A, B, C`
-  - you can select all of them: `*` or `all`
-    - you can have exceptions to exclude entities: `service * with serviceImpl except A, B`
+
+- you can enumerate them one by one: `A, B, C`
+- you can select all of them: `*` or `all`
+  - you can have exceptions to exclude entities: `service * with serviceImpl except A, B`
 
 ### Annotations
 
@@ -375,7 +375,7 @@ To know more about options, you can go to the [option page](/jdl/options)
 
 ## Deployments
 
-Finally, deployments can also be generated from a JDL file using the `deployment` keyword, compatible with JHipster 
+Finally, deployments can also be generated from a JDL file using the `deployment` keyword, compatible with JHipster
 v5.7 and above:
 
 ```jdl
@@ -388,19 +388,19 @@ deployment {
 
 _To import one or several deployments, you need not be in a JHipster application folder._
 
-
 Deployments are described in [their own page](/jdl/deployments).
 
 A JHipster deployment has a config with default values for all other properties and using the previous syntax will
 ensure your deployment will use the default values (as if you didn't make any specific choice).
 The resulting deployment will have:
-  - deploymentType: `docker-compose`
-  - appsFolders: `foo, bar`
-  - dockerRepositoryName: `yourDockerLoginName`
-  - serviceDiscoveryType: `eureka`
-  - gatewayType: `zuul`
-  - directoryPath: `../`
-  - etc.
+
+- deploymentType: `docker-compose`
+- appsFolders: `foo, bar`
+- dockerRepositoryName: `yourDockerLoginName`
+- serviceDiscoveryType: `eureka`
+- gatewayType: `zuul`
+- directoryPath: `../`
+- etc.
 
 Now, if you want some custom options:
 
