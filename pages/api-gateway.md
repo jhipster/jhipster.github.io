@@ -75,14 +75,6 @@ Unlike JWT, those tokens are not self-sufficient, and should be stateful, which 
   - If you have selected a caching option ([here is the "Using a cache" documentation]({{ site.url }}/using-cache/)) when generating your JHipster microservice, a specific `CachedUserInfoTokenServices` Spring Bean will be generated, which will cache those calls. When properly tuned, this will remove the performance issue.
   - If you want more information on this "user info" request, it is configured using the standard Spring Boot configuration key `security.oauth2.resource.userInfoUri` in your `src/main/resources/application.yml` configuration file.
 
-### JHipster UAA
-
-JHipster provides the option to generate a "UAA" (User Account and Authentication) server, based on Spring Security. This server provides OAuth2 tokens for securing the gateway.
-
-You will find all UAA-related information on our specific [JHipster UAA documentation]({{ site.url }}/using-uaa/).
-
-Then, the gateway uses Spring Security's JWT implementation to send JWT tokens to the microservices, so this works similarly as with the JWT configuration detailed above.
-
 ## <a name="documentation"></a> Automatic documentation
 
 The gateway exposes the Swagger API definitions of the services it proxifies so you can benefit from all useful tools like Swagger UI and swagger-codegen.

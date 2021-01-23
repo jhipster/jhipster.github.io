@@ -122,11 +122,6 @@ Here is a documentation for those properties:
             remember-me: # JHipster secure implementation of the remember-me mechanism, for session-based authentication
                 # security key (this key should be unique for your application, and kept secret)
                 key: 0b32a651e6a65d5731e869dc136fb301b0a8c0e4
-            client-authorization: # Used with JHipster UAA authentication
-                access-token-uri: # URL of the JHipster UAA server OAuth tokens
-                token-service-id: # ID of the current application
-                client-id: # OAuth client ID
-                client-secret: # OAuth client secret
             authentication:
                 jwt: # JHipster specific JWT implementation
                     # The secret token should be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line).

@@ -33,9 +33,6 @@ Here are the possible relationships from/to this entity:
     and a user cannot add/remove a team). On the front-end client UI, you will also be able to select a `User` in
     a multi-select box.
 
-When using the UAA authentication type, you can only create relationships to the User entity if the related entity is
-also within the UAA microservice.
-
 ## Modifying the User entity
 
 If you encounter a problem where you need to alter the `User` entity, we recommend not doing that.

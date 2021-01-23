@@ -288,7 +288,6 @@ Now, several things will happen when generating these applications and folders:
       - Even though we didn't specify a server port, JHipster sets one by default.
       - For microservices, the default one is `8081`
       - For gateways and monoliths, it's `8080`
-      - For UAA apps, it's `9999`
     - microserviceB in `./microserviceB` with the server port `8082`
   - Four entities will be generated
     - `A` and `B` in the monolith
@@ -369,14 +368,14 @@ Here are the application options supported in the JDL:
   <tr>
     <td>applicationType</td>
     <td>monolith</td>
-    <td>monolith, microservice, gateway, uaa</td>
+    <td>monolith, microservice, gateway</td>
     <td></td>
   </tr>
   <tr>
     <td>authenticationType</td>
-    <td>jwt or uaa</td>
-    <td>jwt, session, uaa, oauth2</td>
-    <td>uaa for UAA apps, jwt otherwise</td>
+    <td>jwt</td>
+    <td>jwt, session, oauth2</td>
+    <td>jwt</td>
   </tr>
   <tr>
     <td>baseName</td>
@@ -557,12 +556,6 @@ Here are the application options supported in the JDL:
     <td>[]</td>
     <td>protractor, cucumber, gatling</td>
     <td>Braces mandatory</td>
-  </tr>
-  <tr>
-    <td>uaaBaseName</td>
-    <td></td>
-    <td></td>
-    <td>Mandatory for gateway and microservices if auth type is uaa, must be between double-quotes</td>
   </tr>
   <tr>
     <td>websocket</td>
