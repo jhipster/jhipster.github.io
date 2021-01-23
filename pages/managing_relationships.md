@@ -34,21 +34,26 @@ In that case, three options are available:
 - [JHipster IDE]({{ site.url }}/jhipster-ide/), a plugin that provides textual editing support of JDL files for popular IDEs.
 - Deprecated: _[JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor._
 
-You can generate entities with relationships from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
+You can generate entities with relationships from a JDL file using the `jdl` sub-generator, by running `jhipster jdl your-jdl-file.jh`.
 
 ## Available relationships
 
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
 
-1. [A bidirectional one-to-many relationship](#a-bidirectional-one-to-many-relationship)
-1. [A bidirectional many-to-one relationship](#a-bidirectional-many-to-one-relationship)
-1. [A unidirectional many-to-one relationship](#a-unidirectional-many-to-one-relationship)
-1. [A unidirectional one-to-many relationship](#a-unidirectional-one-to-many-relationship)
-1. [Two one-to-many relationships on the same two entities](#two-one-to-many-relationships-on-the-same-two-entities)
-1. [A many-to-many relationship](#a-many-to-many-relationship)
-1. [A one-to-one relationship](#a-one-to-one-relationship)
-1. [A unidirectional one-to-one relationship](#a-unidirectional-one-to-one-relationship)
- - [Using JPA Derived Identifiers(@MapsId) for one-to-one relationship](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
+- [<i class="fa fa-sitemap"></i> Managing relationships](#i-classfa-fa-sitemapi-managing-relationships)
+  - [Presentation](#presentation)
+  - [JHipster UML and JDL Studio](#jhipster-uml-and-jdl-studio)
+  - [Available relationships](#available-relationships)
+  - [A bidirectional one-to-many relationship](#a-bidirectional-one-to-many-relationship)
+  - [A bidirectional many-to-one relationship](#a-bidirectional-many-to-one-relationship)
+  - [A unidirectional many-to-one relationship](#a-unidirectional-many-to-one-relationship)
+  - [A unidirectional one-to-many relationship](#a-unidirectional-one-to-many-relationship)
+  - [Two one-to-many relationships on the same two entities](#two-one-to-many-relationships-on-the-same-two-entities)
+  - [A many-to-many relationship](#a-many-to-many-relationship)
+  - [A one-to-one relationship](#a-one-to-one-relationship)
+  - [A unidirectional one-to-one relationship](#a-unidirectional-one-to-one-relationship)
+    - [Using JPA Derived Identifiers(@MapsId) for one-to-one relationship](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
+    - [Setting fetching data strategy to eager (FetchType.EAGER)](#setting-fetching-data-strategy-to-eager-fetchtypeeager)
 
 _Tip: the `User` entity_
 

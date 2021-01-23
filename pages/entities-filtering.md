@@ -21,7 +21,7 @@ When generating an entity with `jhipster entity` command, select services or ser
 
 If you want to enable filtering for existing entities, you can modify the entity configuration in your projects `.jhipster` directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true` and then re-generate with `jhipster entity <entity name>`.
 
-When using JDL, add a line `filter <entity name>` to your JDL file and re-import the definitions with `jhipster import-jdl` command.
+When using JDL, add a line `filter <entity name>` to your JDL file and re-import the definitions with `jhipster jdl` command.
 
 ## Public interface
 

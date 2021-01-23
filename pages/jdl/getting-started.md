@@ -14,18 +14,28 @@ sitemap:
 
 In this page, you'll learn about the JDL and how to create applications and everything around them.
 
-1. [Generating content](#generating-content)
-   1. [Using files](#using-files)
-   1. [Using an inline JDL](#using-an-inline-jdl)
-1. [Applications](#generating-applications)
-1. [Entities](#generating-entities)
-1. [Fields](#generating-fields)
-1. [Enums](#enumerations)
-1. [Relationships](#adding-relationships)
-1. [Options](#options)
-1. [Deployments](#deployments)
-1. [Constants](#constants)
-1. [Exporting to a JDL file](#exporting-to-a-jdl-file)
+- [<i class="fa fa-star"></i> JHipster Domain Language (JDL) - Getting Started](#i-classfa-fa-stari-jhipster-domain-language-jdl---getting-started)
+  - [Summary](#summary)
+  - [Generating content](#generating-content)
+    - [Using files](#using-files)
+    - [Using an inline JDL](#using-an-inline-jdl)
+  - [Using a remote JDL file](#using-a-remote-jdl-file)
+  - [Generating applications](#generating-applications)
+  - [Generating entities](#generating-entities)
+    - [Generating a basic entity](#generating-a-basic-entity)
+    - [Adding comments](#adding-comments)
+    - [Entities in applications](#entities-in-applications)
+  - [Generating fields](#generating-fields)
+    - [Adding comments and validations](#adding-comments-and-validations)
+  - [Enumerations](#enumerations)
+  - [Adding relationships](#adding-relationships)
+    - [Unidirectional or bidirectional relationships?](#unidirectional-or-bidirectional-relationships)
+    - [Relationship comments & validations](#relationship-comments--validations)
+  - [Options](#options)
+    - [Annotations](#annotations)
+  - [Deployments](#deployments)
+  - [Constants](#constants)
+  - [Exporting to a JDL file](#exporting-to-a-jdl-file)
 
 ---
 
@@ -36,26 +46,26 @@ In this page, you'll learn about the JDL and how to create applications and ever
 You can use JDL files to generate entities:
   - Create a file with the extension '.jh' or '.jdl',
   - Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
-  - If you are creating only entities then run `jhipster import-jdl my_file.jdl` in your JHipster application's root folder.
-  - If you are creating applications then run `jhipster import-jdl my_file.jdl` in a folder.
+  - If you are creating only entities then run `jhipster jdl my_file.jdl` in your JHipster application's root folder.
+  - If you are creating applications then run `jhipster jdl my_file.jdl` in a folder.
 
 and *Voilà*, you are done!
 
 If you work in a team, perhaps you would like to have multiple files instead of one.
 We added this option so that you don't manually concatenate all the files into one, you have to run:
 
-    jhipster import-jdl my_file1.jdl my_file2.jdl
+    jhipster jdl my_file1.jdl my_file2.jdl
 
 If you do not want to regenerate your entities while importing a JDL, you can use the `--json-only` flag to skip the
 entity creation part and create only the json files in `.jhipster` folder.
 
-    jhipster import-jdl ./my-jdl-file.jdl --json-only
+    jhipster jdl ./my-jdl-file.jdl --json-only
 
-By default `import-jdl` regenerates only entities that have changed, if you want all your entities to be regenerated
+By default `jdl` regenerates only entities that have changed, if you want all your entities to be regenerated
 then pass in the `--force`  flag.
 Please note that this will overwrite all your local changes to the entity files:
 
-    jhipster import-jdl ./my-jdl-file.jdl --force
+    jhipster jdl ./my-jdl-file.jdl --force
 
 If you want to use it in your project, you can add do so by doing:
   - NPM: `npm install jhipster-core --save`
@@ -68,7 +78,7 @@ to install it locally, and save it in your `package.json` file.
 ### Using an inline JDL
 
 The other way to generate content is to pass a JDL code in your CLI, this way:
-`jhipster import-jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
+`jhipster jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
 
 This way of generating content is especially useful when generating entities.
 
@@ -93,6 +103,23 @@ application from this sample.
 You'll see that, with this little sample, you've managed to create an application from scratch.
 
 ---
+
+## Using a remote JDL file
+
+You can also use an URL with the `jdl` command. Just pass the URL instead of the file name as below
+
+```
+jhipster jdl https://my-site.com/my.jdl
+
+
+jhipster jdl https://gist.githubusercontent.com/user/id/raw/id/myapp.jdl
+```
+
+You can also fetch a remote JDL file from our [JDL sample repository](https://github.com/jhipster/jdl-samples) by just specifying the filename and we will automatically resolve the URL
+
+```
+jhipster jdl default.jdl
+```
 
 ## Generating applications
 
