@@ -157,7 +157,7 @@ sitemap:
                         <!-- data here is inserted dynamically -->
                     </div>
                 </div>
-    
+
                 <div class="col-md-12 text-center">
                     <p>
                         <strong>Thank you to all our backers!</strong>
@@ -560,6 +560,10 @@ sitemap:
                     <span class="title_sub_tech">MongoDB</span>
                 </li>
                 <li class="clip img-circle new">
+                    <img src="images/logo/icons/mongock.png" />
+                    <span class="title_sub_tech">Mongock</span>
+                </li>
+                <li class="clip img-circle new">
                     <img src="images/logo/svg//cassandra.svg" class="invert-hover-white" />
                     <span class="title_sub_tech">Cassandra</span>
                 </li>
@@ -826,7 +830,7 @@ sitemap:
 <script>
 function ocCallback(data, divId, txAmount) {
     const activeBackers = data.filter(it => it.isActive && it.lastTransactionAmount === txAmount);
-    
+
     if (activeBackers.length > 0) {
         document.getElementById(divId).style.display = "block";
         const cols = activeBackers.map(it => `
