@@ -16,7 +16,7 @@ MongoDB is one of the supported databases that can be selected when your applica
 When MongoDB is selected:
 
 *   Spring Data MongoDB will be used to access the database. This is very close to Spring Data JPA, and this is why MongoDB support is very close to the (default) JPA support
-*   [Mongobee](https://github.com/mongobee/mongobee) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes
+*   [Mongock](https://github.com/cloudyrock/mongock) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes
 *   [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) is used to run an in-memory version of the database for running unit tests.
 
 ### MongoDB Atlas
