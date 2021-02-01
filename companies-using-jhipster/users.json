@@ -390,6 +390,12 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "Entando",
+      "url": "https://www.entando.com",
+      "logo": "entando.png",
+      "category": "Software Editor",
+      "country": "USA"
+    },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
     },
