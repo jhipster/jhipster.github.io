@@ -7,9 +7,9 @@ sitemap:
     lastmod: 2019-11-03T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Relationships
 
-## Relationships
+## Summary
 
 1. [Relationship types](#relationship-types)
 1. [Relationship methods](#relationship-methods)
@@ -198,9 +198,17 @@ A reflexive relationship is a relationship whose source & destination entities a
 
 ```jdl
 relationship ManyToMany {
-  A{parent required} to A{child}
+  A{parent} to A{child}
 }
 ```
+
+---
+
+#### A note on required reflexive relationships
+
+As noted [here](https://github.com/jhipster/generator-jhipster/issues/11495), required relationships to the same entity
+are not supported. The issue is that a child must **always** have a parent, which in turn must have one too, etc.
+A possible workaround is to have explicit root and children entities.
 
 ----
 

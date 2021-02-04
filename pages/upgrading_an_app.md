@@ -100,7 +100,7 @@ On the first run of the JHipster upgrade sub-generator, in order to avoid erasin
 
 #### Advice
 
-- Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created. This offcourse does not account for the above tip for upgrading more than once.
+- Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.
 
 - If you are updating from a very old version (example from 5.0.0 to latest) we suggest updating gradually between each minor/patch version and performing tests to make sure the application works as expected. 
 
@@ -131,6 +131,14 @@ You can also update your entities one-by-one by running again the entity sub-gen
 ```
 jhipster entity Foo
 ```
+
+### Hints about renamed files
+
+Sometimes files may be renamed in the generator. If you want to see Git rename detection result then you can run `git add` (`git add .` stages all) and view changes after that with your favorite Git client.
+
+If many files are renamed then you may want to increase `diff.renameLimit` in Git config to make Git rename detection work as expected. For example `git config --replace-all diff.renameLimit 10000`.
+
+By default Git rename detection uses similarity threshold 50%. To see less similar files as renamed, you can use option `--find-renames=<n>` in Git commands. For example `git diff --staged --find-renames=30`.
 
 ### See your own changes
 

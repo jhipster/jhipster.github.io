@@ -79,12 +79,29 @@ If you want more information on the available profiles, please go the section ti
     * `target/jhipster-0.0.1-SNAPSHOT.war`
     * `target/jhipster-0.0.1-SNAPSHOT.war.original` 
 
-**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper baseHref.
-Considering `jhipster` as the context path, it should looks like:
+**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper `base` attribute value.
+Considering `jhipster` as the context path, `base` attribute value should looks like:
 
 ```
-new BaseHrefWebpackPlugin({ baseHref: '/jhipster/' }),
+new HtmlWebpackPlugin({
+    ...
+    base: '/jhipster/'
+})
 ```
+
+Furthermore, in case you would like to use the swagger ui, you will need to update `src/main/webapp/swagger-ui/index.html`
+with the proper base path.
+Considering `jhipster` as context path it should look like this:
+
+```
+...
+var urls = [];
+axios.get("/swagger-resources").then(function (response) {
+    response.data.forEach(function (resource) {
+        urls.push({"name": resource.name, "url": "/jhipster" + resource.location});
+    });
+...    
+```    
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
@@ -101,14 +118,28 @@ To package the application as a "production" WAR, please type:
 
 `./gradlew -Pprod -Pwar clean bootWar`
 
-**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper baseHref.
-Considering `jhipster` as context path, it should looks like:
+**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper `base` attribute value.
+Considering `jhipster` as context path, `base` attribute value should looks like:
 ```
-new BaseHrefWebpackPlugin({ baseHref: '/jhipster/' }),
+new HtmlWebpackPlugin({
+    ...
+    base: '/jhipster/'
+})
 ```
 
-This will generate these files (if your application is called "jhipster"):
-*   `build/libs/jhipster-0.0.1-SNAPSHOT.war`
+Furthermore, in case you would like to use the swagger ui, you will need to update `src/main/webapp/swagger-ui/index.html`
+with the proper base path.
+Considering `jhipster` as context path it should look like this:
+
+```
+...
+var urls = [];
+axios.get("/swagger-resources").then(function (response) {
+    response.data.forEach(function (resource) {
+        urls.push({"name": resource.name, "url": "/jhipster" + resource.location});
+    });
+...    
+```  
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
@@ -164,10 +195,6 @@ Considering `jhuser` a non-root OS account that will run the application, then t
 `service jhipster start|stop|restart`
 
 There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
-
-### Running the application under a Context Path
-
-When deploying a JHipster app to an Application Server or customizing your context-path, it is required to set the `baseHref` value in `webpack.common.js`or webpack.prod.js equal to the expected context-path.
 
 ## <a name="performance"></a> Performance optimizations
 

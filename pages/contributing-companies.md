@@ -21,7 +21,7 @@ sitemap:
 *   [Boxfuse](https://boxfuse.com/) has added [specific support for JHipster]({{ site.url }}/boxfuse/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
 *   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
-*   [Datical](http://www.datical.com/), the makers of Liquibase, have continuously helped us and corrected bugs for our Liquibase support.
+*   [Liquibase](http://www.liquibase.com/) has continuously helped us and corrected bugs for our Liquibase support.
 *   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support.
 *   [JFrog](https://jfrog.com/) which provides us with a free Artifactory instance, which is used for our builds and our releases.
 

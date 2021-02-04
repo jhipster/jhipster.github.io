@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">{% if '/index.html' == page.url or '/' == page.url %}
-    <meta name="description" content="JHipster is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + Angular/React projects!">
+    <meta name="description" content="JHipster is an open source, widely used application generator, made for modern full-stack developers.">
     <meta name="author" content="JHipster Team">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@jhipster" />
     <meta name="twitter:title" content="Generate a full stack Java + Angular/React application in a few steps" />
-    <meta name="twitter:description" content="JHipster is a fully Open Source, widely used application generator. It leverages cool technologies like Spring Boot, Angular and React to give you a high level of productivity and quality." />
+    <meta name="twitter:description" content="JHipster is an open source, widely used application generator, made for modern full-stack developers." />
     <meta name="twitter:image:src" content="https://www.jhipster.tech/images/twitter-card.png?20170202" />
     <meta name="twitter:url" content="https://www.jhipster.tech/" />{% endif %}
     <meta name="google-site-verification" content="JSA7VC5gSwD5KKbXlxK8F9rXJtC91rKJq0aWhfpBC0k" />
@@ -75,9 +75,6 @@
                         </button>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="https://www.jhipster.tech/jhipster-code/" style="color: rgb(255, 78, 78);">JHipster Code</a>
-                        </li>
                         {% if page.home == true %}
                         <li class="page-scroll">
                             <a href="#sponsors">Sponsors</a>
@@ -102,6 +99,9 @@
                         {% endif %}
                         <li>
                             <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener" role="button"><i class="fa fa-github"></i> Github</a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/c/JHipsterDevelopersAssociation" target="_blank" rel="noopener" role="button"><i class="fa fa-play-circle"></i> Youtube</a>
                         </li>
                         <li class="search-box">
                             <form id="content-search-form">
@@ -225,6 +225,7 @@
                                             <li {% if '/using-uaa/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-uaa/"><i class="fa fa-fw fa-lock"></i> JHipster UAA</a></li>
                                             <li {% if '/creating-microservices/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-microservices/"><i class="fa fa-fw fa-bolt"></i> Creating microservices</a></li>
                                             <li {% if '/microservices-in-production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-in-production/"><i class="fa fa-fw fa-cloud"></i> Microservices in production</a></li>
+                                            <li {% if '/jhipster-control-center/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jhipster-control-center/"><i class="fa fa-fw fa-codepen"></i> JHipster Control Center</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -294,6 +295,7 @@
                                             <li {% if '/aws/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/aws/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to AWS</a></li>
                                             <li {% if '/azure/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/azure/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Azure</a></li>
                                             <li {% if '/boxfuse/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/boxfuse/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying with Boxfuse</a></li>
+                                            <li {% if '/clever-cloud/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/clever-cloud/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Clever Cloud</a></li>
                                             <li {% if '/cloudfoundry/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/cloudfoundry/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Cloud Foundry</a></li>
                                             <li {% if '/gcp/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/gcp/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Google Cloud Platform</a></li>
                                             <li {% if '/heroku/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/heroku/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
@@ -312,6 +314,7 @@
                                             <li {% if '/modules/marketplace/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/marketplace/"><i class="fa fa-fw fa-shopping-cart"></i> Marketplace</a></li>
                                             <li {% if '/modules/creating-a-module/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-module/"><i class="fa fa-fw fa-cube"></i> Creating a module</a></li>
                                             <li {% if '/modules/creating-a-blueprint/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-blueprint/"><i class="fa fa-fw fa-cube"></i> Creating a blueprint</a></li>
+                                            <li {% if '/blueprints/quarkus/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/blueprints/quarkus/"><i class="fa fa-fw fa-book"></i> Quarkus documentation</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -356,7 +359,7 @@
                     <div class="row page-content-wrapper">
                         <div class="col-lg-12">
                             <div class="float-right visible-md visible-lg">
-                                <a href="https://github.com/jhipster/jhipster.github.io/edit/master/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;Improve this page</a>
+                                <a href="https://github.com/jhipster/jhipster.github.io/edit/main/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;Improve this page</a>
                             </div>
                             {{ content }}
                         </div>
@@ -374,10 +377,10 @@
                                     <div class="col-12">
                                         JHipster is sponsored by:
                                     </div>
-                                    <div class="col-md-offset-2 col-sm-12 col-md-4">
+                                    <div class="col-sm-12 col-md-4">
                                         <div class="thumbnail no-margin-bottom">
                                             <div class="logo-container">
-                                                <a href="https://developer.okta.com/?utm_campaign=display_website_all_multiple_dev_dev_jhipster-q2_&utm_source=jhipster&utm_medium=cpc" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/okta.png" width="320px" height="175px"></a>
+                                                <a href="https://developer.okta.com/?utm_campaign=display_website_all_multiple_dev_dev_jhipster-q2_&utm_source=jhipster&utm_medium=cpc" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/okta.png" width="280px" height="175px"></a>
                                             </div>
                                         </div>
                                         <div>
@@ -395,6 +398,16 @@
                                         <div>
                                             <div>
                                                 <a href="http://www.octoconsulting.com/" target="_blank" rel="noopener">Octo Consulting Group</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4">
+                                        <div class="thumbnail no-margin-bottom">
+                                            <div class="logo-container">
+                                                <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/entandoe.png" width="180px" height="175px"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener">Micro Frontend Platform for Kubernetes</a>
                                             </div>
                                         </div>
                                     </div>
@@ -438,7 +451,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        Copyright &copy; JHipster 2013-2020 | Theme based on <a href="https://github.com/IronSummitMedia/startbootstrap-freelancer" target="_blank" rel="noopener">Freelancer</a> and <a href="https://github.com/dulumao/flat-admin-bootstrap-templates" target="_blank" rel="noopener">Flat admin</a>
+                                        Copyright &copy; JHipster 2013-2021 | Theme based on <a href="https://github.com/IronSummitMedia/startbootstrap-freelancer" target="_blank" rel="noopener">Freelancer</a> and <a href="https://github.com/dulumao/flat-admin-bootstrap-templates" target="_blank" rel="noopener">Flat admin</a>
                                     </div>
                                 </div>
                             </div>

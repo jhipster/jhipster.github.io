@@ -6,7 +6,7 @@ redirect_from:
   - /managing_relationships.html
 sitemap:
     priority: 0.7
-    lastmod: 2019-11-30T18:40:00-00:00
+    lastmod: 2020-11-25T09:07:00-00:00
 ---
 
 # <i class="fa fa-sitemap"></i> Managing relationships
@@ -15,7 +15,7 @@ When JPA is used, the [entity sub-generator]({{ site.url }}/creating-an-entity/)
 
 ## Presentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/), [MongoDB]({{ site.url }}/using-mongodb/) of [Couchbase]({{ site.url }}/using-couchbase/), they won't be available. In case you use [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but
+Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) or [Couchbase]({{ site.url }}/using-couchbase/), they won't be available. In case you use [MongoDB]({{ site.url }}/using-mongodb/) or [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but
 they are all available to be used.
 
 A relationship works between two entities, and JHipster will generate the code for:
@@ -34,30 +34,30 @@ In that case, three options are available:
 - [JHipster IDE]({{ site.url }}/jhipster-ide/), a plugin that provides textual editing support of JDL files for popular IDEs.
 - Deprecated: _[JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor._
 
-You can generate entities with relationships from a JDL file using the `import-jdl` sub-generator, by running `jhipster import-jdl your-jdl-file.jh`.
+You can generate entities with relationships from a JDL file using the `jdl` sub-generator, by running `jhipster jdl your-jdl-file.jh`.
 
 ## Available relationships
 
 As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
 
-1. [A bidirectional one-to-many relationship](#a-bidirectional-one-to-many-relationship)
-1. [A unidirectional many-to-one relationship](#a-unidirectional-many-to-one-relationship)
-1. [A unidirectional one-to-many relationship](#a-unidirectional-one-to-many-relationship)
-1. [Two one-to-many relationships on the same two entities](#two-one-to-many-relationships-on-the-same-two-entities)
-1. [A many-to-many relationship](#a-many-to-many-relationship)
-1. [A one-to-one relationship](#a-one-to-one-relationship)
-1. [A unidirectional one-to-one relationship](#a-unidirectional-one-to-one-relationship)
- - [Using JPA Derived Identifiers(@MapsId) for one-to-one relationship](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
+- [<i class="fa fa-sitemap"></i> Managing relationships](#i-classfa-fa-sitemapi-managing-relationships)
+  - [Presentation](#presentation)
+  - [JHipster UML and JDL Studio](#jhipster-uml-and-jdl-studio)
+  - [Available relationships](#available-relationships)
+  - [A bidirectional one-to-many relationship](#a-bidirectional-one-to-many-relationship)
+  - [A bidirectional many-to-one relationship](#a-bidirectional-many-to-one-relationship)
+  - [A unidirectional many-to-one relationship](#a-unidirectional-many-to-one-relationship)
+  - [A unidirectional one-to-many relationship](#a-unidirectional-one-to-many-relationship)
+  - [Two one-to-many relationships on the same two entities](#two-one-to-many-relationships-on-the-same-two-entities)
+  - [A many-to-many relationship](#a-many-to-many-relationship)
+  - [A one-to-one relationship](#a-one-to-one-relationship)
+  - [A unidirectional one-to-one relationship](#a-unidirectional-one-to-one-relationship)
+    - [Using JPA Derived Identifiers(@MapsId) for one-to-one relationship](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
+    - [Setting fetching data strategy to eager (FetchType.EAGER)](#setting-fetching-data-strategy-to-eager-fetchtypeeager)
 
 _Tip: the `User` entity_
 
-Please note that the `User` entity, which is handled by JHipster, is specific. You can do:
-
-- `many-to-one` relationships to this entity (a `Car` can have a many-to-one relationship to a `User`). This will generate a specific query in your new entity repository, so you can filter your entity on the current security user, which is a common requirement. On the generated Angular/React client UI you will have a dropdown in `Car` to select a `User`.
-- `many-to-many` and `one-to-one` relationships to the `User` entity, but the other entity __must__ be the owner
-of the relationship (a `Team` can have a many-to-many relationship to `User`, but only the team can add/remove users, and a user cannot add/remove a team). On the Angular/React client UI, you will also be able to select a `User` in a multi-select box.
-
-When using the UAA authentication type, you can only create relationships to the User entity if the related entity is also within the UAA microservice.
+Information about it is located [here]({{ site.url }}/user-entity/).
 
 **A small warning about entity & relationship generation**: in the following examples, you'll notice that compilation
 _may_ fail in some cases because destination entities aren't generated and that's normal (this warning can be ignored).
@@ -113,6 +113,19 @@ The same can be achieved using the below JDL as well
     }
 
 That's it, you now have a one-to-many relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
+
+## A bidirectional many-to-one relationship
+
+This is equivalent to the bidirectional one-to-many relationship after inversing the sides in the JDL file:
+
+
+    entity Owner
+    entity Car
+
+    relationship ManyToOne {
+      Car{owner} to Owner{car}
+    }
+
 
 ## A unidirectional many-to-one relationship
 

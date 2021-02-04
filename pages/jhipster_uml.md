@@ -15,7 +15,7 @@ Please note that this project is deprecated and shouldn't be used anymore.
 
 Instead, we suggest you use the JDL export feature of this project to export your XMI files to a JDL file that you can use and make models of your entities with JDL Studio.
 
-To learn more about the JDL, head [here]({{ site.url }}/profiles/).
+To learn more about the JDL, head [here]({{ site.url }}/jdl/).
 
 ***
 
@@ -63,7 +63,7 @@ Here is a list of the editors we support:
 
 # <a name="issues"></a>Issues and bugs
 
-JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster](https://github.com/jhipster/generator-jhipster/blob/master/CONTRIBUTING.md).
+JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
 Please use our project for submitting issues and Pull Requests:
 
@@ -594,7 +594,7 @@ However, a few guidelines must be respected:
 
 - The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
 
-Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentionned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L23). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
+Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentioned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L23). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
 
 
 #### Testing

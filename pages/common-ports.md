@@ -45,12 +45,12 @@ The ports here are listed in order, but the most common questions are for ports 
     <td>PostgreSQL</td>
   </tr>
   <tr>
-    <td>5601</td>
-    <td>JHipster Console (based on Kibana)</td>
-  </tr>
-  <tr>
     <td>5701</td>
     <td>Hazelcast</td>
+  </tr>
+  <tr>
+    <td>7742</td>
+    <td>Swagger Editor</td>
   </tr>
   <tr>
     <td>8080</td>
@@ -107,6 +107,10 @@ The ports here are listed in order, but the most common questions are for ports 
   <tr>
     <td>9000</td>
     <td>JHipster front-end development port with BrowserSync</td>
+  </tr>
+  <tr>
+    <td>9001</td>
+    <td>SonarQube</td>
   </tr>
   <tr>
     <td>9042</td>

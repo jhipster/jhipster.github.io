@@ -28,9 +28,9 @@ JHipster can generate API gateways. A gateway is a normal JHipster application, 
 
 When the gateways and the microservices are launched, they will register themselves in the registry (using the `eureka.client.serviceUrl.defaultZone` key in the `src/main/resources/config/application.yml` file).
 
-The gateway will automatically proxy all requests to the microservices, using their application name: for example, when microservices `app1` is registered, it is available on the gateway on the `/app1` URL.
+The gateway will automatically proxy all requests to the microservices, using their application name: for example, when microservices `app1` is registered, it is available on the gateway on the `/services/app1` URL.
 
-For example, if your gateway is running on `localhost:8080`, you could point to [http://localhost:8080/app1/rest/foos](http://localhost:8080/app1/rest/foos) to
+For example, if your gateway is running on `localhost:8080`, you could point to [http://localhost:8080/services/app1/api/foos](http://localhost:8080/services/app1/api/foos) to
 get the `foos` resource served by microservice `app1`. If you're trying to do this with your Web browser, don't forget REST resources are secured by default in JHipster, so you need to send the correct JWT header (see the point on security below), or remove the security on those URLs in the microservice's `MicroserviceSecurityConfiguration` class.
 
 If there are several instances of the same service running, the gateway will get those instances from the JHipster Registry, and will:

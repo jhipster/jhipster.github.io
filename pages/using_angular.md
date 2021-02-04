@@ -14,14 +14,14 @@ sitemap:
 Angular is using TypeScript instead of JavaScript, and as a result some specific tooling is necessary to work efficiently with it. Our [development]({{ site.url }}/development/) workflow for an Angular 2+ application is as below, use `npm` instead of `yarn` if you prefer that.
 
 1. When you generate an application the files are created and at the end of generation `npm install` task is triggered.
-2. Once `npm install` is complete it calls the `postInstall` script in `package.json`, this step triggers the `webpack:build` task.
+2. Once `npm install` is complete it calls the `postInstall` script in `package.json`, this step triggers the `webapp:build` task.
 3. Now you should have all files generated and compiled into the `www` folder inside the `target` or `build` folder based on the build tool (Maven or Gradle) selected.
 4. Now run `./mvnw` or `./gradlew` to launch the application server and it should be available at [localhost:8080](localhost:8080) this also serves the client side code compiled from the above steps.
 5. Now run `npm start` or `yarn start` in a new terminal to launch Webpack dev-server with BrowserSync. This will take care of compiling your TypeScript code, and automatically reloading your browser.
 
-If you start making changes to the client side code without having `npm start` or `yarn start` running, nothing will be reflected as the changes are not compiled so you need to either run `npm run webpack:build` manually after changes or have `npm start` or `yarn start` running.
+If you start making changes to the client side code without having `npm start` or `yarn start` running, nothing will be reflected as the changes are not compiled so you need to either run `npm run webapp:build` manually after changes or have `npm start` or `yarn start` running.
 
-You can also force Maven to run the `webpack:dev` task while starting by passing the `webpack` profile like `./mvnw -Pdev,webpack`.
+You can also force Maven to run the `webapp:dev` task while starting by passing the `webapp` profile like `./mvnw -Pdev,webapp`.
 
 **Note** Gradle automatically runs webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start` or `yarn start`).
 
@@ -31,7 +31,7 @@ Other available yarn/npm commands can be found in the `scripts` section of your 
 
 ## Project Structure
 
-The JHipster client code can be found under `src/main/webapp`, and follows closely the  [John Papa Angular 2 style guide](https://github.com/johnpapa/angular-styleguide/blob/master/a2/README.md). Please read this guide first if you have any question on our application structure, file names, TypeScript conventions...
+The JHipster client code can be found under `src/main/webapp`, and follows closely the  [Angular style guide](https://angular.io/guide/styleguide). Please read this guide first if you have any question on our application structure, file names, TypeScript conventions...
 
 This style guide is endorsed by the Angular team, and provides best practices that every Angular project should follow.
 
@@ -163,11 +163,8 @@ The shorthand methods `success`, `info`, `warning` and `error` will have a defau
 
 ## Using Angular CLI
 
-<div class="alert alert-info"><i>Info: </i>
-
-Angular CLI and JHipster can be used in parallel for development, and both have their own configuration files. By default, JHipster is using its own configuration when deploying applications or when using the CI-CD sub-generator.
-
-</div>
+Angular CLI is used to build and test JHipster applications. 
+However, we added a custom webpack configuration file in order to improve the developer experience by adding BrowserSync, ESLint (Angular CLI is still on TSLint for now), merging JSON translation files and add notifications when build has completed or failed.
 
 ### Overview
 
@@ -183,7 +180,7 @@ ng help
 
 ### Building
 
-You should not use `ng build` to build your front-end, as JHipster has its own scripts. Check our ["using in development" documentation]({{ site.url }}/development/) and our ["using in production" documentation]({{ site.url }}/production/).
+You can use `ng build` to build your front-end, but we still recommend to use the provided NPM scripts such as `npm start`, `npm run build`, etc. Check our ["using in development" documentation]({{ site.url }}/development/) and our ["using in production" documentation]({{ site.url }}/production/).
 
 ### Generating Components, Directives, Pipes and Services
 
@@ -226,7 +223,7 @@ npm test
 
 ### i18n
 
-JHipster is using the `ng2-translate` dependency for translation purpose. Angular CLI i18n is based on the default Angular i18n support, which is incompatible with JHipster.
+JHipster is using the `ngx-translate` dependency for translation purpose. Angular CLI i18n is based on the default Angular i18n support, which is incompatible with JHipster.
 
 ### Running the server
 
@@ -235,16 +232,6 @@ If you prefer to use Angular CLI to develop you application, you can run your se
 ```bash
 ng serve
 ```
-
-By using it, it will compile your Angular application and allow you to access it on `http://localhost:4200`. However your backend will not be available from it by default.
-
-To use your local backend server, use:
-
-```bash
-ng serve --proxy-conf proxy.conf.json
-```
-
-You will then be able to access your API.
 
 ### Conclusion
 

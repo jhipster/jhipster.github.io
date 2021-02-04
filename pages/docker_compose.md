@@ -35,7 +35,7 @@ JHipster provides a complete Docker support, in order to:
 - Facilitate development, as you can start a full infrastructure with a single command, even when using a complex microservices architecture
 - For people using Docker Swarm, deploying to production directly, as it uses the same Docker Compose configuration
 
-One great feature of using Docker Compose is that you can scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with a [a microservices architecture](#3).
+One great feature of using Docker Compose is that you can scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with [a microservices architecture](#3).
 
 When generating your application, JHipster generates for you:
 
@@ -61,7 +61,7 @@ On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provide
 
 <div class="alert alert-warning"><i>Warning: </i>
 
-If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under this directory to avoid any issues especially if you are using the <a href="{{ site.url }}/monitoring/">JHipster Console</a> for monitoring.
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under this directory to avoid any issues.
 
 </div>
 

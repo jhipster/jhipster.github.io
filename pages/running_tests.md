@@ -24,7 +24,7 @@ Optionally, JHipster can also generate:
 
 *   Performance tests with [Gatling](http://gatling.io/){:target="_blank" rel="noopener"}.
 *   Behaviour-driven tests with [Cucumber](https://cucumber.io/){:target="_blank" rel="noopener"}.
-*   Angular/React/Vue integration tests with [Protractor](https://angular.github.io/protractor/#/){:target="_blank" rel="noopener"}.
+*   Angular/React/Vue integration tests with [Cypress](https://www.cypress.io/){:target="_blank" rel="noopener"} or [Protractor](https://angular.github.io/protractor/#/){:target="_blank" rel="noopener"}.
 
 We have two goals in generating those tests:
 
@@ -42,7 +42,7 @@ Integration tests are done with the Spring Test Context framework, and are locat
 
 This Spring test context will use a specific test database to run its tests:
 
-*   If you use an SQL database, JHipster will launch an in-memory H2 instance in order to use a temporary database for its integration tests. Liquibase will be run automatically, and will generate the database schema.
+*   If you use an SQL database, JHipster will launch an in-memory H2 instance in order to use a temporary database for its integration tests. Alternatively, by using the `testcontainers` profile, JHipster will launch a containerized version of the production database using [Testcontainers](https://www.testcontainers.org/modules/databases/){:target="_blank" rel="noopener"}. Either way, Liquibase will be run automatically, and will generate the database schema.
 *   If you use Cassandra, JHipster will launch a containerized version of Cassandra with Docker using [Testcontainers](https://www.testcontainers.org){:target="_blank" rel="noopener"}.
 *   If you use MongoDB, JHipster will launch an in-memory MongoDB instance using [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo){:target="_blank" rel="noopener"}.
 *   If you use Elasticsearch, JHipster will launch an in-memory Elasticsearch instance using Spring Data Elasticsearch.
@@ -66,9 +66,9 @@ Those tests will mock up the access to the application's REST endpoints, so you 
 *   Those tests can be run using `npm test`.
 *   Tip: if you want to focus on a single test change the module description from `describe('...', function() {` to `fdescribe('...', function() {` and Jest will run this test only.
 
-### Protractor
+### Cypress/Protractor
 
-UI integration tests are done with [Protractor](https://angular.github.io/protractor/#/){:target="_blank" rel="noopener"}, and are located in the `src/test/javascript/e2e` folder.
+UI integration tests are done with [Cypress](https://www.cypress.io/){:target="_blank" rel="noopener"} or [Protractor](https://angular.github.io/protractor/#/){:target="_blank" rel="noopener"}, and are located in the `src/test/javascript/e2e` folder.
 
 Those tests will launch a Web browser and use the application like a real user would do, so you need to have a real application running, with its database set-up.
 
@@ -83,7 +83,11 @@ You can write your own rules to check custom constraints for your architecture a
 
 Performance tests are done with [Gatling](http://gatling.io/){:target="_blank" rel="noopener"}, and are located in the `src/test/gatling` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
 
-To run Gatling tests, you must first install Gatling: please go to the [Gatling download page](https://gatling.io/open-source/){:target="_blank" rel="noopener"} and follow the instructions there. Please note we do not allow to run Gatling from Maven or Gradle, as it causes some classpath issues with other plugins (mainly because of the use of Scala).
+To run Gatling tests, you must 
+
+1. [Download Gatling](https://gatling.io/open-source/){:target="_blank" rel="noopener"}
+2. Extract it and add the location to your `PATH`
+3. cd into `src/test/gatling` and run `gatling.sh` or `gatling.bat` depending on your OS
 
 **Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. Also tests for creating entities that have a required relationship with another entity will fail out of the box. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
@@ -97,6 +101,79 @@ For running Gatling tests on a microservice application, you have to:
 *   Run the microservice application
 *   Then, you can run Gatling tests
 
+### Using Maven/Gradle to run Gatling
+
+We do not generate Maven or Gradle configuration to run Gatling tests as this might cause some classpath issues with other plugins (mainly because of the use of Scala).
+Nevertheless you can leverage the offical [Maven plugin](https://gatling.io/docs/current/extensions/maven_plugin/){:target="_blank" rel="noopener"}  or [Gradle plugin](https://gatling.io/docs/current/extensions/gradle_plugin/){:target="_blank" rel="noopener"} to execute the Gatling tests.
+
+#### Using Maven
+
+You need to change `pom.xml`:
+
+1. Add Gatling dependency with `test` scope
+2. Add Gatling plugin 
+3. Adapt plugin configuration to JHipster layout and naming conventions
+
+```
+...
+<dependency>
+  <groupId>io.gatling.highcharts</groupId>
+  <artifactId>gatling-charts-highcharts</artifactId>
+  <version>3.5.0</version>
+  <scope>test</scope>
+</dependency>
+<!-- jhipster-needle-maven-add-dependency -->
+...
+<plugin>
+  <groupId>io.gatling</groupId>
+  <artifactId>gatling-maven-plugin</artifactId>
+  <version>3.1.1</version>
+  <configuration>
+    <runMultipleSimulations>true</runMultipleSimulations>
+    <resourcesFolder>${project.basedir}/src/test/gatling/conf</resourcesFolder>
+    <simulationsFolder>${project.basedir}/src/test/gatling/user-files/simulations</simulationsFolder>
+  </configuration>
+</plugin>
+<!-- jhipster-needle-maven-add-plugin -->
+...
+```
+
+You can execute all Gatling tests with `./mvnw gatling:test`.
+#### Using Gradle 
+
+You need to change `build.gradle`:
+
+1. Add the Gatling plugin to the plugin section
+2. Adapt source sets to the JHipster layout
+3. Adapt the included simulations to the JHipster naming conventions
+
+In case you are using the reactive option you might [need to make sure the Spring Boot-managed Netty version does not interfere with the one needed by Gatling](https://gatling.io/docs/current/extensions/gradle_plugin/#spring-boot-and-netty-version){:target="_blank" rel="noopener"}.
+
+```
+plugins {
+    ...
+    id "io.spring.nohttp"
+    // Add the Gatling plugin, please check for the latest version here https://plugins.gradle.org/plugin/io.gatling.gradle 
+    id 'io.gatling.gradle' version "3.5.0" 
+    //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
+}
+
+...
+// adapt the source sets to the JHipster specific layout
+sourceSets {
+   gatling {
+    scala.srcDirs = ["src/test/gatling/user-files/simulations"]
+    resources.srcDirs = ["src/test/gatling/conf"]
+  }
+} 
+
+gatling {
+    simulations = { include "**/*Test*.scala" }
+}
+...
+```
+
+You can execute all Gatling tests with `./gradlew gatlingRun`.
 ## Behaviour-driven development (BDD)
 
 Behaviour-driven development (BDD) is available using [Cucumber](https://cucumber.io/){:target="_blank" rel="noopener"}, with its [JVM implementation](https://github.com/cucumber/cucumber-jvm){:target="_blank" rel="noopener"}.

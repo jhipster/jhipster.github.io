@@ -333,11 +333,17 @@ form .row:first-child .floating-label-form-group {
 .margin-b-25 {
   margin-bottom: 25px !important; }
 
-.open-collective-info {
+.open-collective-info, .jhipster-code {
+  font-size: 120%;
+}
+
+.open-collective-info a, .jhipster-code a {
+  color: white;
+  text-decoration: underline;
+}
+
+.project-description {
   font-size: 120%; }
-  .open-collective-info a {
-    color: white;
-    text-decoration: underline; }
 
 .project-icon {
   width: 65px; }

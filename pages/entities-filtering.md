@@ -21,7 +21,7 @@ When generating an entity with `jhipster entity` command, select services or ser
 
 If you want to enable filtering for existing entities, you can modify the entity configuration in your projects `.jhipster` directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true` and then re-generate with `jhipster entity <entity name>`.
 
-When using JDL, add a line `filter <entity name>` to your JDL file and re-import the definitions with `jhipster import-jdl` command.
+When using JDL, add a line `filter <entity name>` to your JDL file and re-import the definitions with `jhipster jdl` command.
 
 ## Public interface
 
@@ -62,6 +62,28 @@ When this feature is enabled, a new service named as `EntityQueryService` and an
 In the `EntityQueryService`, we convert the criteria object into a static, and type safe, JPA query object. For this, it is **required** that the **static metamodel generation is enabled** in the build. See the [JPA Static Metamodel Generator documentation](http://docs.jboss.org/hibernate/orm/current/topical/html_single/metamodelgen/MetamodelGenerator.html) for details.
 
 To prove that the generated criteria is working, and Spring is well configured, the `EntityResourceIntTest` is extended with lots of test cases, one for each individual filter.
+
+### Angular
+
+When using Angular, the proper way to take advantage of this useful feature would look like this:
+
+* Equals (same applies for `contains` and `notEquals`)
+```javascript
+this.bookService.query({'title.equals':someValue}).subscribe(...);
+```
+* greaterThan (same applies for `lessThan`, `greaterOrEqualThan` and `lessOrEqualThan` when using `date` and `number` data types)
+```javascript
+this.bookService.query({'id.greaterThan':value}).subscribe(...);
+this.bookService.query({'birthday.lessOrEqualThan':value}).subscribe(...);
+```
+* In (same applies for `notIn`)
+```javascript
+this.bookService.query({'id.in':[value1, value2]}).subscribe(...);
+```
+* Specified
+```javascript
+this.bookService.query({'author.specified':true}).subscribe(...);
+```
 
 ## Limitations
 

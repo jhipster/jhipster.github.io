@@ -37,13 +37,13 @@ Answer the questions asked by the generator to create an application tailored to
 
 Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd).
 
-**Note** if you are using Maven and changed front end files after first run of the `./mvnw` command then you must run `./mvnw -Pwebpack` to see the latest front end version (Gradle detects front end changes automatically and recompiles front end if needed).
+**Note** if you are using Maven and changed front end files after first run of the `./mvnw` command then you must run `./mvnw -Pwebapp` to see the latest front end version (Gradle detects front end changes automatically and recompiles front end if needed).
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
 **Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start` or `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
-If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webpack` or `./gradlew -x webpack`. It speeds up especially Gradle.
+If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webapp` or `./gradlew -x webapp`. It speeds up especially Gradle.
 
 ## <a name="2"></a> Questions asked when generating an application
 
@@ -82,7 +82,7 @@ Answers to this question depend on previous answers. For example, if you selecte
 Here are all the possible options:
 
 *   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice and what most people use.
-*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](http://www.keycloak.org/) or [Okta](https://developer.okta.com), which handles authentication outside of the application. This is more secured than JWT, but it requires to set up an OpenID Connect server, so it's a bit more complex. Please note that by default JHipster will synchronize the user data from the OpenID Connect server, and for this it will need a database.
+*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](https://www.keycloak.org/) or [Okta](https://developer.okta.com), which handles authentication outside of the application. This is more secured than JWT, but it requires to set up an OpenID Connect server, so it's a bit more complex. Please note that by default JHipster will synchronize the user data from the OpenID Connect server, and for this it will need a database.
 *   HTTP Session Authentication: the classical session-based authentication mechanism, which is what people usually do with [Spring Security](http://docs.spring.io/spring-security/site/index.html).
 *   Authentication with JHipster UAA server: this uses a [JHipster UAA server]({{ site.url }}/using-uaa/) that must be generated separately, and which is an OAuth2 server that handles authentication outside of the application.
 
@@ -163,6 +163,7 @@ You can either use:
 
 *   Angular
 *   React
+*   Vue
 
 ### Would you like to use a Bootswatch theme?
 
@@ -196,7 +197,7 @@ The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can
 
 ## <a name="5"></a> Using a blueprint
 
-JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custome client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
+JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custom client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
 
 For example, to use the Kotlin blueprint pass the name of the blueprint like below while generating an app.
 
@@ -206,7 +207,7 @@ jhipster --blueprint kotlin
 
 The name of the blueprint is saved in the `.yo-rc.json` and will be automatically used while executing sub-generators like `entity`, `spring-controller` and `spring-service`.
 
-If a blueprint doesn't implement a specific sub-generator, it will be skiped and the JHipster templates for the same sub-generator will be used.
+If a blueprint doesn't implement a specific sub-generator, it will be skipped and the JHipster templates for the same sub-generator will be used.
 
 **Note:** An application can use only one blueprint, multiple blueprints are not supported yet.
 

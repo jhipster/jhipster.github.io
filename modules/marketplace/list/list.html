@@ -5,7 +5,7 @@
         <input class="form-control search-field" ng-model="searchText" placeholder="Filter by name or keyword" id="search-field">
         <label class="fa fa-search inline-search" for="search-field"></label>
     </div>
-    <div class="row" ng-repeat="module in modules | filter:searchText | orderBy:'-downloads'">
+    <div class="row" ng-repeat="module in modules | filter:searchText | orderBy:'-searchScore'">
         <div class="col-xs-12">
             <div class="card profile">
                 <div class="card-header">
@@ -25,7 +25,6 @@
                 <div class="card-footer">
                     <a type="button" class="btn btn-info" ng-click="details(module)">Details</a>
                     <a type="button" class="btn btn-default" ng-href="{(module.package.links.homepage)}">Home page</a>
-                    {(module.downloads)} downloads last month.
                     <div class="pull-right hidden-xs hidden-sm">
                         <span  ng-repeat="keyword in module.package.keywords">
                             <span class="label label-success keyword" ng-if="keyword === 'jhipster-blueprint'">{( keyword )}</span>

@@ -16,7 +16,6 @@ You can use our online [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or 
 [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) plugins/extensions, which are available for:
   - [Eclipse](https://marketplace.eclipse.org/content/jhipster-ide), 
   - [VS Code](https://marketplace.visualstudio.com/items?itemName=jhipster-ide.jdl)
-  - [Atom](https://atom.io/packages/ide-jhipster)
 
 to create a JDL file and its UML visualization. You can create and export or share the URL of your JDL model as well.
 

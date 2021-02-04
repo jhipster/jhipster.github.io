@@ -63,10 +63,8 @@ The configuration will be stored in a generated `.yo-rc.json` file, so it is **s
 
 This is the same procedure as using NPM, with two differences:
 
-1. Instead of upgrading NPM in step 3, install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
-2. Use `yarn global add` instead of `npm install -g`, for example:
-    * To install Yeoman, type: `yarn global add yo`
-    * To install JHipster, type: `yarn global add generator-jhipster`
+1. Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
+2. Install JHipster: `yarn global add generator-jhipster`
 
 ### Troubleshooting
 
@@ -80,7 +78,7 @@ _Please note: this Docker image is for running the JHipster generator inside a c
 
 ### Information
 
-JHipster has a specific [Dockerfile](https://github.com/jhipster/generator-jhipster/blob/master/Dockerfile), which provides a [Docker](https://www.docker.io/) image.
+JHipster has a specific [Dockerfile](https://github.com/jhipster/generator-jhipster/blob/main/Dockerfile), which provides a [Docker](https://www.docker.io/) image.
 
 It makes a Docker "Automated build" that is available on: [https://hub.docker.com/r/jhipster/jhipster/](https://hub.docker.com/r/jhipster/jhipster/)
 

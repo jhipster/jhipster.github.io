@@ -61,7 +61,7 @@ As Traefik is using Consul, it will also be useful to check the Consul administr
 
 #### Configure your Base HREF
 
-Before building the gateway's Docker image, you will need to configure the `baseHref` value in `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `baseHref` should be `/services/gateway/`.
+Before building the gateway's Docker image, you will need to configure the `base` attribute value in the `webpack.common.js` to match the gateway base name.  For example, if the gateway base name is `gateway`, the `base` attribute value should be `/services/gateway/`.
 
 #### Configure for OAuth 2.0
 If you have separated the frontend and the api, you don't need to perform additional configuration locally.
@@ -72,5 +72,16 @@ Before building the gateway's Docker image, it is necessary to [Configure your B
 ##### Server
 In `src/main/java/.../config/SecurityConfiguration.java`, you have to change the `defaultSuccessUrl` in spring.
 For example, if the gateway base name is `gateway`, under `.oauth2Login()` you have to add `.defaultSuccessUrl("/services/gateway/")`.
+
+To handle oauth2 redirection, you need to change default `spring.security.oauth2.client.registration.oidc.redirect-uri` in spring `application.yml` configuration file.
+For example, if the gateway base name is `gateway`, you have to add `redirect-uri` as below :
+```yaml
+oauth2:
+    client:
+    registration:
+        oidc:
+        # replace 'gateway' by the gateway base name
+        redirect-uri: "{baseUrl}/services/gateway/login/oauth2/code/{registrationId}"
+```
 
 You can now launch all your infrastructure by running `docker-compose up -d`.

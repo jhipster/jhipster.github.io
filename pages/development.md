@@ -57,7 +57,7 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 If you will use live reload with `npm start` or `yarn start` then you can speed up server start up by excluding webpack tasks by:
 
-`./mvnw -P-webpack`
+`./mvnw -P-webapp`
 
 Alternatively, if you have installed Maven, you can launch the Java server with Maven:
 
@@ -77,7 +77,7 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 If you will use live reload with `npm start` or `yarn start` then you can speed up server start up by excluding webpack tasks by:
 
-`./gradlew -x webpack`
+`./gradlew -x webapp`
 
 Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
 
@@ -117,7 +117,7 @@ this you can always turn off ghostMode. Some commented code is provided in `webp
 
 Direct project dependencies are configured into `package.json`, but transitive dependencies are defined into the `package-lock.json` file, that get generated when `npm install` is run.
 
-It is advised to check `package-lock.json`[https://docs.npmjs.com/files/package-lock.json] into source control, so that all team members of a project have the same versions of all dependencies. Running `npm install` again will regenerate the `package-lock.json` with the latest versions of transitive dependencies.
+It is advised to check [`package-lock.json`](https://docs.npmjs.com/files/package-lock.json) into source control, so that all team members of a project have the same versions of all dependencies. Running `npm install` again will regenerate the `package-lock.json` with the latest versions of transitive dependencies.
 
 ### Other NPM/Yarn tasks
 
@@ -176,7 +176,12 @@ The command is:
 
 If you add or modify a JPA entity, you will need to update your database schema.
 
-JHipster uses [Liquibase](http://www.liquibase.org) to manage the database updates, and stores its configuration in the `/src/main/resources/config/liquibase/` directory. There are 3 ways to work with Liquibase: use the entity sub-generator, use the liquibase:diff Maven goal, or update the configuration files manually.
+JHipster uses [Liquibase](http://www.liquibase.org) to manage the database updates, and stores its configuration in the `/src/main/resources/config/liquibase/` directory. 
+
+There are 3 ways to work with Liquibase: 
+*   use the entity sub-generator
+*   use the Maven `liquibase:diff` goal or 
+*   update the configuration files manually
 
 ### Database updates with the entity sub-generator
 
@@ -188,11 +193,11 @@ If you use the [entity sub-generator]({{ site.url }}/creating-an-entity/), here 
 
 ### Database updates with the Maven liquibase:diff goal
 
-If you have choosen to use MySQL, MariaDB or PostgreSQL in development, you can use the `./mvnw liquibase:diff` goal to automatically generate a changelog.
+If you have chosen to use MySQL, MariaDB or PostgreSQL in development, you can use the `./mvnw liquibase:diff` goal to automatically generate a changelog.
 
 If you are running H2 with disk-based persistence, this workflow is not yet working perfectly, but you can start trying to use it (and send us feedback!).
 
-[Liquibase Hibernate](https://github.com/liquibase/liquibase-hibernate) is a Maven plugin that is configured in your pom.xml, and is independant from your Spring application.yml file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
+[Liquibase Hibernate](https://github.com/liquibase/liquibase-hibernate) is a Maven plugin that is configured in your pom.xml, and is independent from your Spring application.yml file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
 
 Here is the development workflow:
 

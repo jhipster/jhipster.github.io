@@ -28,7 +28,6 @@ The JHipster microservices architecture works in the following way:
  * [Consul]({{ site.url }}/consul/) is a service discovery service, as well as a key/value store. It can be used as an alternative to the JHipster Registry.
  * [JHipster UAA]({{ site.url }}/using-uaa/) is a JHipster-based User Authentication and Authorization system, which uses the OAuth2 protocol.
  * [Microservices]({{ site.url }}/creating-microservices/) are JHipster-generated applications (using application type `microservice application` when you generate them), that handle REST requests. They are stateless, and several instances of them can be launched in parallel to handle heavy loads.
- * The [JHipster Console](https://github.com/jhipster/jhipster-console) is a monitoring & alerting console, based on the ELK stack.
 
 In the diagram below, the green components are specific to your application and the blue components provide its underlying infrastructure.
 

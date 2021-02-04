@@ -4,12 +4,12 @@ title: JHipster Domain Language - Deployments
 permalink: /jdl/deployments
 sitemap:
     priority: 0.5
-    lastmod: 2019-10-27T12:00:00-00:00
+    lastmod: 2020-11-11T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Deployments
 
-## Deployments
+## Summary
 
 1. [Syntax](#syntax)
 1. [Examples](#examples)
@@ -125,14 +125,8 @@ Here are the deployment options supported in the JDL:
   <tr>
     <td>monitoring</td>
     <td>no</td>
-    <td>no, elk, prometheus</td>
+    <td>no, prometheus</td>
     <td></td>
-  </tr>
-  <tr>
-    <td>consoleOptions</td>
-    <td>[]</td>
-    <td>[curator, zipkin]</td>
-    <td>Must be a list</td>
   </tr>
   <tr>
     <td>serviceDiscoveryType</td>

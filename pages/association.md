@@ -29,6 +29,10 @@ Secrétaire: Pierre BESSON
 
 Trésorier: Anthony VIARD
 
+Vice-président: Deepu K SASIDHARAN
+
+Vice-président: Pascal GRIMAUD
+
 ## STATUTS DE L’ASSOCIATION « JHipster Developers Association»
 
 ### ARTICLE PREMIER - NOM

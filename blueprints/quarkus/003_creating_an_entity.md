@@ -1,0 +1,81 @@
+---
+layout: default
+title: Creating an entity
+sitemap:
+priority: 0.5
+lastmod: 2021-01-07T08:40:00-00:00
+---
+
+# Creating an entity
+
+## Introduction 
+
+JHipster Quarkus entity creations permits to generate
+
+* A database table
+* A Liquibase change set
+* A JPA Entity
+* A Quarkus Panache Active Record or Repository
+* A Resteasy Controller, which has the basic CRUD operations
+* Data Transfer Objects (DTOs)
+* Pagination
+* Tests 
+
+and delegates to JHipster the client side components generation
+
+### Example
+
+```
+$ jhipster-quarkus entity Book
+INFO! Using JHipster version installed locally in current project's node_modules
+INFO! No custom sharedOptions found within blueprint: generator-jhipster-quarkus at /Users/daniel/workspace/jhipster/jhipster-eleven/node_modules/generator-jhipster-quarkus
+INFO! No custom commands found within blueprint: generator-jhipster-quarkus at /Users/daniel/workspace/jhipster/jhipster-eleven/node_modules/generator-jhipster-quarkus
+INFO! Executing jhipster:entity Book
+     info Using blueprint generator-jhipster-quarkus for entity subgenerator
+
+The entity Book is being created.
+
+
+Generating field #1
+
+? Do you want to add a field to your entity? Yes
+? What is the name of your field? isbn
+? What is the type of your field? String
+? Do you want to add validation rules to your field? Yes
+? Which validation rules do you want to add? Required
+
+================= Book =================
+Fields
+isbn (String) required
+
+
+Generating field #2
+
+? Do you want to add a field to your entity? No
+
+================= Book =================
+Fields
+isbn (String) required
+
+
+Generating relationships to other entities
+
+? Do you want to add a relationship to another entity? No
+
+================= Book =================
+Fields
+isbn (String) required
+
+
+
+? Do you want to use separate repository class for your data access? No, the Entity will be used as an Active Record
+? Do you want to use separate service class for your business logic? No, the REST controller should use the active record/repository directly
+? Do you want pagination on your entity? Yes, with pagination links
+
+Everything is configured, generating the entity...
+```
+
+## JHipster UML and JDL Studio
+
+JHipster Quarkus supports JDL imports.
+Refer to the according JHipster UML and JDL Studio section in the *[creating-an-entity](http://localhost:4000/creating-an-entity/)* tutorial.

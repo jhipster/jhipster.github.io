@@ -242,6 +242,15 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/9989211?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Quentin Monmert</h3>
+                <p><a href="https://twitter.com/quentinmonmert"><i>@quentinmonmert</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/792925?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Charlie Mordant</h3>
@@ -370,7 +379,6 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | React                               | Sendil Kumar N     |
 | VueJS                               | Sahbi KTIFA        |
 | JHipster Registry                   | Pierre Besson      |
-| JHipster Console                    | Pierre Besson      |
 | JHipster core/JDL                   | Mathieu Abou-Aichi |
 | JHipster Kotlin                     | Sendil Kumar N     |
 | JHipster IDE                        | Serano Colameo     |
@@ -393,6 +401,7 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | Java                                | Julien Dubois      |
 | Docker                              | Pascal Grimaud     |
 | Cassandra                           | Cedrick Lunven     |
+| OpenAPI                             | Christophe Bornet  |
 
 
 
@@ -468,6 +477,20 @@ JHipster is an Open Source project, we don't ask anything from our members: they
 Board members will therefore become "retired" if:
 
 - They tell us they want to leave the project
-- They don't contribute to the project for more than 1 year
+- They don't contribute to the project for 2 years
+
+Contributions are across the entire `jhipter` and `hipster-labs` organizations, and include:
+
+- Commits
+- Comments on issues/PR, responses to mailing list questions, activity on social media (Twitter, Gitter, Stack Overflow, Reddit, etc) related to JHipster
+- Project maintenance (triage, PR reviews & merge, cleanup of issues, releases, project planning)
+- CI/CD
+- Marketing & advocacy (Promoting a JHipster project on social media, conference talks, blogs, books, trainings, etc)
+
+Every year the team leads make a list of "inactive members" and send an official email to ask them if they want to retire. Then 3 cases can happen:
+
+1. The contributor agrees to retire.
+2. The contributor wants to stay in the team and tries to participate in any capacity possible. If the same person comes up in the inactive list twice in a row (inactive for 2 years) then that person is retired.
+3. The contributor doesn't reply for 5 weeks, then this person is retired.
 
 "Retired" member can become active members again, if they contribute back to the project and get elected again. They will have an advantage over other contributors, as they already know the team.

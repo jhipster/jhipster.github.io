@@ -27,6 +27,7 @@ JHipster should support the following CI systems out of the box:
 - GitLab CI: refer to the [GitLab CI Documentation](https://about.gitlab.com/gitlab-ci/)
 - Azure Pipelines: refer to the [Azure Pipelines Documentation](https://docs.microsoft.com/fr-fr/azure/devops/pipelines/?view=vsts)
 - GitHub Actions: refer to [GitHub Actions Documentation](https://github.com/features/actions)
+- CircleCI: refer to [CircleCI Documentation](https://circleci.com/docs/)
 
 ## Running the sub-generator
 
@@ -46,6 +47,7 @@ The CI/CD pipeline you want to generate:
 - GitLab CI
 - GitHub Actions
 - Travis CI
+- CircleCI
 
 **Note**: when you select Jenkins pipeline, a new `src/main/docker/jenkins.yml` file will be generated.
 So you can test Jenkins locally by running:
@@ -73,6 +75,7 @@ If your Jenkins relies to a GitLab repository, you can send build status to GitL
 - Deploy your application to an *Artifactory*
 - Analyze your code with *Sonar*
 - Build and publish a *Docker* image
+- *Snyk*: dependency scanning for security vulnerabilities (requires SNYK_TOKEN)
 - Deploy to *Heroku* (requires HEROKU_API_KEY set on CI service)
 
 ### Deploy your application to an *Artifactory* (Jenkins / GitLab)
@@ -106,6 +109,13 @@ By default, you can use: `docker login`
 
 - *Docker*: what is the Organization Name for the Docker registry ?
 
+### Snyk: dependency scanning for security vulnerabilities
+
+You have to add the `SNYK_TOKEN` environment variable (check your [Snyk account](https://app.snyk.io/account))
+
+See full documentation at [https://snyk.io/](https://snyk.io/)
+
+
 ### Deploy to *Heroku*
 
 - *Heroku: name of your Heroku Application ?
@@ -136,3 +146,6 @@ If you use Gradle:
 - Jenkins pipeline: you should use the [Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
 - GitLab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
 - Travis CI: read the [environment variables](https://docs.travis-ci.com/user/environment-variables/)
+- GitHub Actions: read the [documentation about environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables)
+- Azure Pipelines: read the [documentation about predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml)
+- CircleCI: read the [documentation about environment variables](https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables)

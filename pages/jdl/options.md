@@ -7,9 +7,9 @@ sitemap:
     lastmod: 2019-11-02T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Options
 
-## Options
+## Summary
 
 In JHipster, you can specify options for your entities such as pagination or DTO.
 You can do the same with the JDL, either with annotations on the entity, or with the following syntax:
@@ -33,6 +33,7 @@ The complete list of available options is [here](#available-options).
 
 1. [How to](#how-to)
 1. [Syntax](#syntax)
+1. [The use XYZ options](#the-use-xyz-options)
 1. [Examples](#examples)
    1. [Basic unary example](#basic-unary-example)
    1. [Basic binary example](#basic-binary-example)
@@ -54,9 +55,10 @@ There are two kinds of options:
   - unary (without option value)
   - binary (with value)
 
-And two way of applying options to entities:
+There are three ways to apply options to entities:
   - using the option name (`dto`, `readOnly`, etc.), see examples
   - using annotations
+  - use the `use XYZ` form
 
 Mixing them is not recommended as it reduces readability.
 
@@ -103,11 +105,66 @@ or
 
 ---
 
+### The use XYZ options
+
+With the use-option form, you can specify some options on your entities.
+It was created during JHipster Code 2020, and the reasons behind its creation are to:
+  - Solve the option-disabling issue (there are more than one way to say 'no' in JHipster: `no, false, none`)
+  - Propose a way to group options by entities
+
+```jdl
+entity A
+entity B
+entity C
+
+use serviceClass for * except C
+use mapstruct, serviceImpl, infinite-scroll for A, B
+use pagination for C
+```
+
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>Use option value</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>mapstruct</td>
+    <td>Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'</td>
+  </tr>
+  <tr>
+    <td>serviceClass</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>serviceImpl</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>pagination</td>
+    <td>Pagination as an option is forbidden when the application uses Cassandra</td>
+  </tr>
+  <tr>
+    <td>infinite-scroll</td>
+    <td>Pagination as an option is forbidden when the application uses Cassandra</td>
+  </tr>
+  <tr>
+    <td>elasticsearch</td>
+    <td>Requires the application to have the searchEngine option enabled</td>
+  </tr>
+  <tr>
+    <td>couchbase</td>
+    <td>Requires the application to have the searchEngine option enabled</td>
+  </tr>
+</table>
+
+---
+
 ### Examples
 
-Each example will have two forms:
+Each example will have three forms:
   - the regular one
   - the annotation-based one
+  - the use form (when applicable)
 
 ---
 
@@ -143,6 +200,13 @@ Annotation-based:
 entity A
 ```
 
+With the `use` keyword:
+```jdl
+entity A
+
+use mapstruct, serviceImpl, pagination for A
+```
+
 ---
 
 #### all, * example
@@ -166,6 +230,14 @@ entity A
 entity B
 ```
 
+With the `use` keyword:
+```jdl
+entity A
+entity B
+
+use mapstruct, serviceImpl, pagination for *
+```
+
 ---
 
 #### all, * example with exclusions (unary)
@@ -186,6 +258,14 @@ entity A
 entity B
 ```
 
+With the `use` keyword:
+```jdl
+entity A
+entity B
+
+use mapstruct, serviceImpl, pagination for * except A
+```
+
 ---
 
 #### all, * example with exclusions (binary)
@@ -204,6 +284,14 @@ entity A
 
 @dto(mapstruct)
 entity B
+```
+
+With the `use` keyword:
+```jdl
+entity A
+entity B
+
+use mapstruct, serviceImpl, pagination for all except A
 ```
 
 ---
