@@ -390,6 +390,12 @@
       "category": "System Integrator",
       "country": "France"
     },
+    {"name": "Swiss Dev Jobs",
+      "url": "https://swissdevjobs.ch",
+      "logo": "swiss-java-jobs.png",
+      "category": "Information Technology",
+      "country": "Switzerland"
+    }, 
     {"name": "Entando",
       "url": "https://www.entando.com",
       "logo": "entando.png",
