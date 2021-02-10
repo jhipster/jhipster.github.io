@@ -28,6 +28,8 @@ Bronze sponsors donate $100 per month to the project, and get the following bene
 
 ## Benefits of being a silver sponsor
 
+There is a limit to 10 silver sponsors.
+
 Silver sponsors donate $500 per month to the project, and get the following benefits:
 
 - Same benefits as bronze sponsors (visibility on main pages).
@@ -36,11 +38,25 @@ Silver sponsors donate $500 per month to the project, and get the following bene
 
 ## Benefits of being a gold sponsor
 
-Gold sponsors donate $1000 per month to the project, and get the following benefits:
+There is a limit to 3 gold sponsors.
+
+Gold sponsors donate $1,000 per month to the project, and get the following benefits:
 
 - Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
 - The ability to create 3 "[bug bounties]({{ site.url }}/bug-bounties/)" every month, non transferable. If all bug bounties are not created by the end of the month, the remaining ones are lost.
 - Company logos on all [https://www.jhipster.tech](https://www.jhipster.tech) page footers (about 550,000 views/month on January, 2018).
+
+## Benefits of being a platinum sponsor
+
+There is a limit to only 1 platinum sponsor.
+
+The Platinum sponsor donates $2,500 per month to the project, and gets the following benefits:
+
+- Same benefits as gold sponsors (visibility on all pages, thank you tweet, 3 bug bounties).
+- Visibility on JHipster Online, with a logo on the welcome page, and on the main page to generate applications.
+- A text to add at the end of each generation. This text will need to be submitted as a PR by the sponsor, and will be on each release published during the sponsorship period.
+- The possibility to add a custom JHipster logo in the official logo list. This logo will be submitted as a PR by the sponsor, and will be in the JHipster official logo list. It will need to comply to JHipster's code of conduct.
+- A reserved slot for each JHipster conference organized by the JHipster Developers Association. For organizational reasons, those slots will be reserved starting 3 months after the initial sponsorship payment, and will be available until 3 months after the last sponsorship payment.
 
 ## What will the project do with the money?
 
