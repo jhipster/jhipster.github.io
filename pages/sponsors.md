@@ -30,7 +30,8 @@ Bronze sponsors donate $100 per month to the project, and get the following bene
 
 Silver sponsors donate $500 per month to the project, and get the following benefits:
 
-- Same benefits as bronze sponsors (visibility on main pages, and thank you tweet).
+- Same benefits as bronze sponsors (visibility on main pages).
+- "Thank you" tweet from [@jhipster](https://twitter.com/jhipster).
 - The ability to create 1 "[bug bounty]({{ site.url }}/bug-bounties/)" every month, non transferable. If that bug bounty is not created by the end of the month, it is lost.
 
 ## Benefits of being a gold sponsor
