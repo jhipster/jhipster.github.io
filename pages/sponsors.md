@@ -55,7 +55,7 @@ The Platinum sponsor donates $2,500 per month to the project, and gets the follo
 - Same benefits as gold sponsors (visibility on all pages, thank you tweet, 3 bug bounties).
 - Visibility on JHipster Online, with a logo on the welcome page, and on the main page to generate applications.
 - A message to add at the end of each generation. This message will need to be submitted as a PR by the sponsor and will be on each release published during the sponsorship period.
-- The possibility to add a custom JHipster logo in the official logo list. This logo will be submitted as a PR by the sponsor, and will be in the JHipster official logo list. It will need to comply to JHipster's code of conduct.
+- The option to add a custom JHipster logo in the official logo list. This logo will be submitted as a PR by the sponsor and will be in the JHipster official logo list. It will need to comply with JHipster's code of conduct.
 - A reserved slot for each JHipster conference organized by the JHipster Developers Association. For organizational reasons, those slots will be reserved starting 3 months after the initial sponsorship payment, and will be available until 3 months after the last sponsorship payment.
 
 ## What will the project do with the money?
