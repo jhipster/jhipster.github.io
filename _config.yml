@@ -1,10 +1,13 @@
-safe:        true
+safe: true
 markdown: kramdown
 exclude: [node_modules, bower_components, vendor]
 url: https://www.jhipster.tech
 github_repository_url: https://github.com/jhipster/jhipster.github.io
 kramdown:
   input: GFM
+# Do not change gems to plugins, unless concerns mentioned in following PRs are addressed
+  # https://github.com/jhipster/jhipster.github.io/pull/557
+  # https://github.com/jhipster/jhipster.github.io/pull/776
 gems:
   - jekyll-redirect-from
   - jemoji
@@ -12,6 +15,7 @@ whitelist:
   - jekyll-redirect-from
   - jemoji
 defaults:
+  -
     scope:
       path: "" # an empty string here means all files in the project
     values:

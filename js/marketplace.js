@@ -5,8 +5,7 @@
 
         .config(['$interpolateProvider', function ($interpolateProvider) {
             return $interpolateProvider.startSymbol('{(').endSymbol(')}');
-          }
-        ])
+        }])
 
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.otherwise({

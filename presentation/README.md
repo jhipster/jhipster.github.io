@@ -1,5 +1,5 @@
 ### JHipster presentation
 
-This presention is made with reveal.js
+This presentation is made with reveal.js
 
-To see this presention, checkout this repository and open "index.html"
+To see this presentation, checkout this repository and open "index.html"
