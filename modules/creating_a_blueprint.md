@@ -23,7 +23,7 @@ This allows to create third-party blueprints that can override a specific part o
 To use a blueprint, run the below command
 
 ```bash
-jhipster --blueprint <blueprint name>
+jhipster --blueprints <blueprint name>
 ```
 
 ## Example
@@ -55,6 +55,7 @@ A JHipster blueprint:
 - is an NPM package, and is a Yeoman generator.
 - follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the `yo` command. Instead of being prefixed by `generator-`, it is prefixed by `generator-jhipster-`, and instead of having just the `yeoman-generator` keyword, it must have 2 keywords, `yeoman-generator` and `jhipster-blueprint`.
 - A blueprint can only extend the following sub-generators (under the generators folder)
+    - app
     - common
     - client
     - server
@@ -65,6 +66,7 @@ A JHipster blueprint:
     - languages
     - spring-controller
     - spring-service
+    - heroku
 
 ## Import the generator-jhipster
 
@@ -105,7 +107,7 @@ Each JHipster sub-generator is made of multiple yeoman phases, each phase is a g
 
 There are multiple ways to customize a phase from JHipster.
 
-1) Let JHipster handle a phase, blueprint doesnt override anything.
+1) Let JHipster handle a phase, blueprint doesn't override anything.
 
 ```javascript
     get initializing() {
@@ -141,7 +143,7 @@ There are multiple ways to customize a phase from JHipster.
                 // Do all your stuff here
             },
         }
-        return Object.assign(phaseFromJHipster, myCustomPhaseSteps);
+        return { ...phaseFromJHipster, ...myCustomPhaseSteps };
     }
 ```
 
