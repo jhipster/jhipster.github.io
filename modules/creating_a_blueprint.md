@@ -67,6 +67,10 @@ A JHipster blueprint:
     - spring-controller
     - spring-service
     - heroku
+    - ci-cd
+    - cypress
+    - page
+    - entities
 
 ## Import the generator-jhipster
 
