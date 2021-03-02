@@ -9,9 +9,9 @@ lastmod: 2018-10-05T18:20:00-00:00
 
 __Tip submitted by [@Tonterias](https://github.com/Tonterias)__
 
-Let's say that you need a new authority besides the given ones of ADMIN and USER.
+Let's say that you need a new authority besides the given ones of ADMIN and USER. Let the new authority be called `ROLE_EXAMPLE_AUTHORITY`.
 
-Modify AuthoritiesConstants.java file to include your new authorities:
+Modify AuthoritiesConstants.java file to include your new authority/authorities:
 
 	/**
 	 * Constants for Spring Security authorities.
@@ -23,36 +23,58 @@ Modify AuthoritiesConstants.java file to include your new authorities:
 	    public static final String USER = "ROLE_USER";
 	
 	    public static final String ANONYMOUS = "ROLE_ANONYMOUS";
+	    
+	    public static final String EXAMPLE_AUTHORITY = "ROLE_EXAMPLE_AUTHORITY";
 	
 	    private AuthoritiesConstants() {
 	    }
 	}
 
-Do not forget to include your new role in your authorities.csv:
+Do not forget to include your new role in your `authority.csv`:
 
 	name
 	ROLE_ADMIN
 	ROLE_USER
 	ROLE_ANONYMOUS
+	ROLE_EXAMPLE_AUTHORITY
 
 
-With that, you will be able to use it in your SecurityConfiguration.java or in (FrontpageconfigResource.java), for example:
+With that, you will be able to use it in your SecurityConfiguration.java:
+
+```
+@Override
+    public void configure(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http
+            .csrf()
+            .disable()
+            ...
+        ...
+        .and()
+            .authorizeRequests()
+            ...
+            .antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.ROLE_EXAMPLE_AUTHORITY)
+```
+
+And in your Controller layer (e.g. `FrontPageConfigResource.java`):
 	
 	@DeleteMapping("/order-items/{id}")
 	@Timed
-	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+	@PreAuthorize("hasAuthority('ROLE_EXAMPLE_AUTHORITY')")
 	public ResponseEntity<Void> deleteOrderItem(@PathVariable Long id) {
 	    ...
 	}
 
-and/or Angular files: jhiHasAnyAuthority=[‘ROLE_ADMIN’. ‘ROLE_X’ ……] or even consider to use it in the routes:
+And in your Angular html files: `jhiHasAnyAuthority=[‘ROLE_ADMIN’, ‘ROLE_EXAMPLE_AUTHORITY’ ...]` 
+
+And in your Angular routes:
 
 	export const messageRoute: Routes = [
 	    {
 	        path: 'message',
 	        component: MessageComponent,
 	        data: {
-	            authorities: ['ROLE_USER'],
+	            authorities: ['ROLE_EXAMPLE_AUTHORITY'],
 	            pageTitle: 'Messages'
 	        },
 	        canActivate: [UserRouteAccessService]
