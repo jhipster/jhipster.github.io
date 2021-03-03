@@ -21,6 +21,7 @@ sitemap:
 1. [Microservice workflow](#microservice-workflow)
 1. [Complete example breakdowns](#complete-example-breakdowns)
 1. [Available application configuration options](#available-application-configuration-options)
+1. [See also](#see-also)
 
 ***
 
@@ -359,6 +360,8 @@ You can also create an entire microservice stack using JDL, [see this blog post]
 
 Here are the application options supported in the JDL:
 
+_Not what you're looking for? Check the [regular options](/jdl/options#available-options)._
+
 <table class="table table-striped table-responsive">
   <tr>
     <th>JDL option name</th>
@@ -571,3 +574,9 @@ Here are the application options supported in the JDL:
     <td></td>
   </tr>
 </table>
+
+---
+
+### See also
+
+The regular options are available [here](/jdl/options)
