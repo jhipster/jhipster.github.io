@@ -46,6 +46,7 @@ The complete list of available options is [here](#available-options).
 1. [Microservice-related options](#microservice-related-options)
 1. [Custom annotations](#custom-annotations)
 1. [Available options](#available-options)
+1. [See also](#see-also)
 
 ---
 
@@ -403,6 +404,8 @@ However, for custom options, they will be generated under and `options` key in t
 
 Here are the entity options supported in the JDL:
 
+_Not what you're looking for? Check the [application options](/jdl/applications#available-application-configuration-options)._
+
 <table class="table table-striped table-responsive">
   <tr>
     <th>JDL option name</th>
@@ -506,3 +509,9 @@ Here are the entity options supported in the JDL:
     <td></td>
   </tr>
 </table>
+
+---
+
+### See also
+
+The application options are available [here](/jdl/applications)
