@@ -16,24 +16,8 @@ MongoDB is one of the supported databases that can be selected when your applica
 When MongoDB is selected:
 
 *   Spring Data MongoDB will be used to access the database. This is very close to Spring Data JPA, and this is why MongoDB support is very close to the (default) JPA support
-*   [Mongobee](https://github.com/mongobee/mongobee) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes
+*   [Mongock](https://www.mongock.io) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes
 *   [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) is used to run an in-memory version of the database for running unit tests.
 
-### MongoDB Atlas
 
-If you want to use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), you can encounter this error:
-
-```json
-error: {
-    "ok" : 0,
-    "errmsg" : "user is not allowed to do action [find] on [mydb.system.indexes]",
-    "code" : 8000,
-    "codeName" : "AtlasError"
-}
-```
-
-As [Mongobee](https://github.com/mongobee/mongobee/) is not maintained anymore, you could migrate to [Mongock](https://github.com/cloudyrock/mongock). See:
-
-- the ticket: [issues/8665](https://github.com/jhipster/generator-jhipster/issues/8665)
-- the proposal: [issues/8678](https://github.com/jhipster/generator-jhipster/issues/8678)
-- the question on [StackOverFlow](https://stackoverflow.com/questions/49958635/mongodb-atlas-user-is-not-allowed-to-do-action-find-on-system-indexes)
+<br/><br/><br/><br/><br/>
