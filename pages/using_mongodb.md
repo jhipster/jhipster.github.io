@@ -18,6 +18,3 @@ When MongoDB is selected:
 *   Spring Data MongoDB will be used to access the database. This is very close to Spring Data JPA, and this is why MongoDB support is very close to the (default) JPA support
 *   [Mongock](https://www.mongock.io) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes
 *   [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) is used to run an in-memory version of the database for running unit tests.
-
-
-<br/><br/><br/><br/><br/>
