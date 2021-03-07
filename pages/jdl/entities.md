@@ -232,7 +232,7 @@ Common databases:
   </tr>
   <tr>
     <td>Enum</td>
-    <td></td>
+    <td>Enum</td>
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
@@ -242,12 +242,7 @@ Common databases:
   </tr>
   <tr>
     <td>LocalDate</td>
-    <td></td>
-    <td><dfn>required, unique</dfn></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Date</td>
+    <td>LocalDate</td>
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
@@ -262,7 +257,7 @@ Common databases:
   </tr>
   <tr>
     <td>Duration</td>
-    <td></td>
+    <td>Duration</td>
     <td><dfn>required, unique</dfn></td>
   </tr>
   <tr>
