@@ -4,7 +4,7 @@ title: Common ports
 permalink: /common-ports/
 sitemap:
     priority: 0.7
-    lastmod: 2018-10-15T10:20:00-00:00
+    lastmod: 2021-03-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-plug"></i> Common ports
@@ -19,10 +19,6 @@ The ports here are listed in order, but the most common questions are for ports 
   <tr>
     <th>Port</th>
     <th>Description</th>
-  </tr>
-  <tr>
-    <td>80</td>
-    <td>Traefik HTTP entrypoint</td>
   </tr>
   <tr>
     <td>2181</td>
@@ -163,9 +159,5 @@ The ports here are listed in order, but the most common questions are for ports 
   <tr>
     <td>27017</td>
     <td>MongoDB</td>
-  </tr>
-  <tr>
-    <td>28080</td>
-    <td>Traefik admin UI</td>
   </tr>
 </table>
