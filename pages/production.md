@@ -6,7 +6,7 @@ redirect_from:
   - /production.html
 sitemap:
     priority: 0.7
-    lastmod: 2019-02-04T00:00:00-00:00
+    lastmod: 2021-03-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-play-circle"></i> Using JHipster in production
@@ -294,14 +294,9 @@ If everything is OK, you will get A+
 
 #### HTTPS configuration with a front-end proxy
 
-There are many solutions to setup a front-end HTTPS proxy in front of a JHipster application. We describe here the 2 most common ones.
+There are many solutions to setup a front-end HTTPS proxy in front of a JHipster application.
 
-With a microservice architecture, you can use JHipster's Traefik support:
-
-- Follow our [Traefik documentation]({{ site.url }}/traefik/) to configure your architecture
-- Follow the [Official Traefik website documentation](https://docs.traefik.io/user-guide/examples/) to set up HTTPS
-
-If you'd rather use the Apache HTTP server, you can set it up with Let's Encrypt:
+One of the most common solution would be to use the Apache HTTP server, you can set it up with Let's Encrypt:
 
 - Install Apache and Let's Encrypt: `apt-get install -y apache2 python-certbot-apache`
 - Configure Let's Encrypt: `certbot --apache -d <your-domain.com> --agree-tos -m <your-email> --redirect`
