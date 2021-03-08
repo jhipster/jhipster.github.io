@@ -118,8 +118,8 @@ Here are the deployment options supported in the JDL:
   </tr>
   <tr>
     <td>gatewayType</td>
-    <td>zuul</td>
-    <td>zuul, traefik</td>
+    <td>SpringCloudGateway</td>
+    <td>SpringCloudGateway</td>
     <td>Value is ignored when serviceDiscoveryType is `no`</td>
   </tr>
   <tr>

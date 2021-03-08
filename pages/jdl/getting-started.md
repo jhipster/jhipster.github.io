@@ -398,7 +398,7 @@ The resulting deployment will have:
 - appsFolders: `foo, bar`
 - dockerRepositoryName: `yourDockerLoginName`
 - serviceDiscoveryType: `eureka`
-- gatewayType: `zuul`
+- gatewayType: `SpringCloudGateway`
 - directoryPath: `../`
 - etc.
 
