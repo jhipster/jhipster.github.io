@@ -19,7 +19,15 @@ Spring Cache and the Hibernate 2nd-level cache will use the same caching solutio
 - Spring Cache for higher-level or aggregate objects, like you typically have with DTOs
 - The Hibernate 2nd-level cache for entities mapped to the database, in order to reduce the number of SQL requests
 
-JHipster supports 5 caches implementations: Ehcache, Caffeine, Hazelcast, Infinispan and Memcached. They are all detailed below.
+JHipster supports the following cache implementations: 
+1. Ehcache,
+2. Caffeine, 
+3. Hazelcast, 
+4. Infinispan, 
+5. Memcached,
+6. Redis.
+
+They are all detailed below.
 
 ## Common configuration
 
