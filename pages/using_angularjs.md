@@ -13,6 +13,6 @@ sitemap:
 
 As of JHipster 5, AngularJS is not supported anymore with JHipster.
 
-We have great support for Angular and React, which are both more modern tools, we hope you will enjoy them!
+We have great support for [Angular]({{ site.url }}/using-angular/) and [React]({{ site.url }}/using-reac/), which are both more modern tools, we hope you will enjoy them!
 
 If you still need to use AngularJS 1.x, please have a look at [our archives]({{ site.url }}/documentation-archive/).
