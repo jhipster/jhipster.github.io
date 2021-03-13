@@ -4,7 +4,7 @@ title: JHipster Domain Language - Deployments
 permalink: /jdl/deployments
 sitemap:
     priority: 0.5
-    lastmod: 2020-11-11T12:00:00-00:00
+    lastmod: 2021-03-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Deployments
@@ -118,8 +118,8 @@ Here are the deployment options supported in the JDL:
   </tr>
   <tr>
     <td>gatewayType</td>
-    <td>zuul</td>
-    <td>zuul, traefik</td>
+    <td>SpringCloudGateway</td>
+    <td>SpringCloudGateway</td>
     <td>Value is ignored when serviceDiscoveryType is `no`</td>
   </tr>
   <tr>

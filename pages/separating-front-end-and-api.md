@@ -4,7 +4,7 @@ title: Separating the front-end and the API server
 permalink: /separating-front-end-and-api/
 sitemap:
     priority: 0.7
-    lastmod: 2019-01-29T00:00:00-00:00
+    lastmod: 2021-03-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-unlink"></i> Separating the front-end and the API server
@@ -24,7 +24,7 @@ You can choose to generate only a JHipster back-end or JHipster front-end applic
 - `jhipster --skip-client` will only generate a back-end application (this is typically what JHipster microservices are)
 - `jhipster --skip-server [options]` will only generate a front-end application (e.g. `jhipster --skip-server --db=sql --auth=jwt`)
 
-This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are monoliths with the Zuul gateway service enabled).
+This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are monoliths with the SpringCloudGateway gateway service enabled).
 
 ## Directory layout
 
@@ -128,51 +128,3 @@ This configuration means that:
 - Any unhandled requests will forward to `index.html`
 
 This configuration will require some tuning depending on your specific needs, but should be a good enough starting point for most applications.
-
-### Configuration with Oauth 2.0 and traefik
-Here is a sample `site.conf` for Oauth 2.0:
-if the server base name is `back`, and the name of the server hosting traefik is `api.jhipster.tech`.
-If this configuration is for a docker image, don't use `localhost` instead of `api.jhipster.tech` as it is resolved in a container, not your local machine.
-
-    server {
-        listen 80;
-        index index.html;
-        server_name localhost;
-        error_log  /var/log/nginx/error.log;
-
-        root /usr/share/nginx/html;
-
-        location ~* ^/api(.*) {
-            proxy_pass http://api.jhipster.tech/services/back/api$1;
-        }
-        location ~* ^/management(.*) {
-            proxy_pass http://api.jhipster.tech/services/back/management$1;
-        }
-        location ~* ^/swagger-resources(.*) {
-            proxy_pass http://api.jhipster.tech/services/back/swagger-resources$1;
-        }        
-        location ~* ^/v2/api-docs(.*) {
-           proxy_pass http://api.jhipster.tech/services/back/v2/api-docs$1;
-        }
-        location ~* ^/auth(.*) {
-           proxy_pass http://api.jhipster.tech/services/back/auth$1;
-        }
-        location ~* ^/oauth2(.*) {
-           proxy_pass http://api.jhipster.tech/services/back/oauth2$1;
-        }
-        location ~* ^/login(.*) {
-           proxy_pass http://api.jhipster.tech/services/back/login$1;
-        }
- 
-        location / {
-            try_files $uri $uri/ /index.html;
-        }
-    }
-
-This configuration means that:
-
-- NGinx will run on port `80`
-- It will read the static assets in folder `/usr/share/nginx/html`, and
-- It will act as a proxy from `/api` to `http://api.jhipster.tech/services/back`
-- `http://api.jhipster.tech/services/back` is load balanced by traefik
-- Any unhandled requests will forward to `index.html`

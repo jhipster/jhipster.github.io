@@ -6,7 +6,7 @@ redirect_from:
   - /tech_stack.html
 sitemap:
     priority: 0.8
-    lastmod: 2014-05-16T00:00:00-00:00
+    lastmod: 2021-03-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-stack-overflow"></i> Technology stack
@@ -54,7 +54,7 @@ A complete [Spring application](http://spring.io/):
 
 Microservices are optional, and fully supported:
 
-* HTTP routing using [Netflix Zuul](https://github.com/Netflix/zuul) or [Traefik](https://traefik.io/)
+* HTTP routing using [Spring Cloud Gateway](https://github.com/spring-cloud/spring-cloud-gateway)
 * Service discovery using [Netflix Eureka](https://github.com/Netflix/eureka) or [HashiCorp Consul](https://www.consul.io/)
 
 ## Ready to go into production:
