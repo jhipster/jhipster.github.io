@@ -15,8 +15,7 @@ When JPA is used, the [entity sub-generator]({{ site.url }}/creating-an-entity/)
 
 ## Presentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) or [Couchbase]({{ site.url }}/using-couchbase/), they won't be available. In case you use [MongoDB]({{ site.url }}/using-mongodb/) or [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but
-they are all available to be used.
+Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) they won't be available. In case you use [MongoDB]({{ site.url }}/using-mongodb/), [Couchbase]({{ site.url }}/using-couchbase/) or [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but they are all available to be used. For more information about Couchbase and MongoDB relationships please refer to [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb). 
 
 A relationship works between two entities, and JHipster will generate the code for:
 
@@ -54,6 +53,7 @@ As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one r
   - [A unidirectional one-to-one relationship](#a-unidirectional-one-to-one-relationship)
     - [Using JPA Derived Identifiers(@MapsId) for one-to-one relationship](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
     - [Setting fetching data strategy to eager (FetchType.EAGER)](#setting-fetching-data-strategy-to-eager-fetchtypeeager)
+  - [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb)
 
 _Tip: the `User` entity_
 
@@ -455,3 +455,62 @@ There is [a known issue of NPE during JSON deserialization](https://github.com/j
     ```
 - Return null if the collection is empty when fetching the resource in the backend
 - Using DTO and handle the edge case of empty collection
+
+### Embedded Entities for Couchbase and MongoDB
+
+Couchbase and MongoDB supports relationships through embedded documents. For more information regarding embedded documents in MongoDB refer to [https://docs.mongodb.com/manual/applications/data-models-relationships/](https://docs.mongodb.com/manual/applications/data-models-relationships/) and for Couchbase refer to [https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html](https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html).
+
+You can define embedded documents simply by using `@embedded`. For example to define a one-to-one relationship; 
+
+```
+entity Country {
+  countryName String
+}
+
+@embedded
+entity Region {
+  regionName String
+}
+
+
+relationship OneToOne {
+  Country to Region
+}
+```
+
+Similarly, for a one-to-many relationship,
+
+```
+entity Country {
+  countryName String
+}
+
+@embedded
+entity Region {
+  regionName String
+}
+
+
+relationship OneToMany {
+  Country to Region
+}
+```
+
+For a many-to-many relationship you can simply use the `@embedded` keyword in both directions; 
+
+```
+@embedded
+  entity Country {
+  countryName String
+}
+
+@embedded
+entity Region {
+  regionName String
+}
+
+
+relationship ManyToMany {
+  Country to Region
+}
+```
