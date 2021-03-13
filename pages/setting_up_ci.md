@@ -77,6 +77,7 @@ If your Jenkins relies to a GitLab repository, you can send build status to GitL
 - Build and publish a *Docker* image
 - *Snyk*: dependency scanning for security vulnerabilities (requires SNYK_TOKEN)
 - Deploy to *Heroku* (requires HEROKU_API_KEY set on CI service)
+- Would you like to enable the Cypress Dashboard (requires both CYPRESS_PROJECT_ID and CYPRESS_RECORD_KEY set on CI service)
 
 ### Deploy your application to an *Artifactory* (Jenkins / GitLab)
 
@@ -115,6 +116,13 @@ You have to add the `SNYK_TOKEN` environment variable (check your [Snyk account]
 
 See full documentation at [https://snyk.io/](https://snyk.io/)
 
+### Cypress Dashboard: record your tests in a web application provided by Cypress
+
+You have to add the `CYPRESS_PROJECT_ID` and the `CYPRESS_RECORD_KEY` environment variables (check your [Dashboard project](https://dashboard.cypress.io/))
+
+You can disable the record by changing `CYPRESS_ENABLE_RECORD` environment variable value to false.
+
+See full the documentation at [cypress.io/dashboard](https://www.cypress.io/dashboard/)
 
 ### Deploy to *Heroku*
 
