@@ -35,7 +35,7 @@ get the `foos` resource served by microservice `app1`. If you're trying to do th
 
 If there are several instances of the same service running, the gateway will get those instances from the JHipster Registry, and will:
 
-- Load balance HTTP requests using [Netflix Ribbon](https://github.com/Netflix/ribbon).
+- Load balance HTTP requests using [Spring Coud Load Balancer](https://spring.io/guides/gs/spring-cloud-loadbalancer/).
 - Provide a circuit breaker using [Netflix Hystrix](https://github.com/Netflix/hystrix), so that not available instances are quickly and safely removed.
 
 Each gateway has a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.

@@ -234,8 +234,8 @@ Kubernetes offers a number of facilities out-of-the-box to help with Microservic
 There are a number of benefits of using Kubernetes facilities:
 * Simplified deployment
 * No need for additional Eureka/Consul deployment
-* No need for Zuul to proxy/route requests
-* No need for Ribbon
+* No need for Spring Cloud Gateway to proxy/route requests
+* No need for Spring Cloud Load Balancer
 
 At the same time, there are some drawbacks:
 * No Application Management through JHipster Registry - This function relies on Spring Cloud's `DiscoveryClient`. This can be updated in the future to add `spring-cloud-kubernetes`
@@ -247,7 +247,7 @@ At the same time, there are some drawbacks:
 To avoid relying on Eureka or Consul, you'll need to disable service discovery altogether
 * When asked `Which service discovery server do you want to use?`, choose `No service discovery`
 
-A JHipster Gateway usually fronts the API calls and routing these calls using `Zuul`. Without a service registry, routing via `Zuul` won't work. You'll need to use Kubernetes `Ingress` to route the traffic to microservices.
+A JHipster Gateway usually fronts the API calls and routing these calls using `Spring Cloud Gateway`. Without a service registry, routing via `Spring Cloud Gateway` won't work. You'll need to use Kubernetes `Ingress` to route the traffic to microservices.
 * When asked `Choose the kubernetes service type for your edge services`, choose `Ingress`.
 
 ## Istio

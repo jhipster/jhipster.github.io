@@ -24,7 +24,7 @@ You can choose to generate only a JHipster back-end or JHipster front-end applic
 - `jhipster --skip-client` will only generate a back-end application (this is typically what JHipster microservices are)
 - `jhipster --skip-server [options]` will only generate a front-end application (e.g. `jhipster --skip-server --db=sql --auth=jwt`)
 
-This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are monoliths with the SpringCloudGateway gateway service enabled).
+This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are monoliths with the Spring Cloud Gateway service enabled).
 
 ## Directory layout
 

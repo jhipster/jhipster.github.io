@@ -119,7 +119,6 @@ Here are the deployment options supported in the JDL:
   <tr>
     <td>gatewayType</td>
     <td>SpringCloudGateway</td>
-    <td>SpringCloudGateway</td>
     <td>Value is ignored when serviceDiscoveryType is `no`</td>
   </tr>
   <tr>
