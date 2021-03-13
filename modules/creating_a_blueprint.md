@@ -67,6 +67,10 @@ A JHipster blueprint:
     - spring-controller
     - spring-service
     - heroku
+    - ci-cd
+    - cypress
+    - page
+    - entities
 
 ## Import the generator-jhipster
 
@@ -88,8 +92,6 @@ A JHipster blueprint must have generator-jhipster as a dependency and should imp
             }
 
             this.configOptions = jhContext.configOptions || {};
-            // This sets up options for this sub generator and is being reused from JHipster
-            jhContext.setupClientOptions(this, jhContext);
         }
 
         get initializing() {
