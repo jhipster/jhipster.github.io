@@ -382,7 +382,6 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | JHipster core/JDL                   | Mathieu Abou-Aichi |
 | JHipster Kotlin                     | Sendil Kumar N     |
 | JHipster IDE                        | Serano Colameo     |
-| UAA                                 | David Steiman      |
 | JDL studio                          | Deepu K Sasidharan |
 | JHipster online                     | Julien Dubois      |
 | Continuous Integration and Delivery | Pascal Grimaud     |
