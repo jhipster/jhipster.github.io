@@ -79,8 +79,8 @@ If you want more information on the available profiles, please go the section ti
     * `target/jhipster-0.0.1-SNAPSHOT.war`
     * `target/jhipster-0.0.1-SNAPSHOT.war.original` 
 
-**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper `base` attribute value.
-Considering `jhipster` as the context path, `base` attribute value should looks like:
+**Please note** that when building a JAR or WAR file with a context path **and** you chose the **React client** or the **Vue client**, you will need to update the `webpack.prod.js` and/or `webpack.common.js` (update both files in case of **Vue**) with the proper `base` attribute value.
+Considering `jhipster` as the context path, `base` attribute value should look like:
 
 ```
 new HtmlWebpackPlugin({
@@ -89,19 +89,12 @@ new HtmlWebpackPlugin({
 })
 ```
 
-Furthermore, in case you would like to use the swagger ui, you will need to update `src/main/webapp/swagger-ui/index.html`
-with the proper base path.
-Considering `jhipster` as context path it should look like this:
+If you chose the **Angular client**, you will need to update the `index.html` with the proper `base` tag.
+Considering `jhipster` as the context path, `base` tag value should look like:
 
 ```
-...
-var urls = [];
-axios.get("/swagger-resources").then(function (response) {
-    response.data.forEach(function (resource) {
-        urls.push({"name": resource.name, "url": "/jhipster" + resource.location});
-    });
-...    
-```    
+<base href="/jhipster/"/>
+```
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
@@ -118,8 +111,9 @@ To package the application as a "production" WAR, please type:
 
 `./gradlew -Pprod -Pwar clean bootWar`
 
-**Please note** that when building a JAR or WAR file with a context path, you will need to update the `webpack.prod.js` or ``webpack.common.js`` with the proper `base` attribute value.
-Considering `jhipster` as context path, `base` attribute value should looks like:
+**Please note** that when building a JAR or WAR file with a context path **and** you chose the **React client** or the **Vue client**, you will need to update the `webpack.prod.js` and/or `webpack.common.js` (update both files in case of **Vue**) with the proper `base` attribute value.
+Considering `jhipster` as the context path, `base` attribute value should look like:
+
 ```
 new HtmlWebpackPlugin({
     ...
@@ -127,19 +121,12 @@ new HtmlWebpackPlugin({
 })
 ```
 
-Furthermore, in case you would like to use the swagger ui, you will need to update `src/main/webapp/swagger-ui/index.html`
-with the proper base path.
-Considering `jhipster` as context path it should look like this:
+If you chose the **Angular client**, you will need to update the `index.html` with the proper `base` tag.
+Considering `jhipster` as the context path, `base` tag value should look like:
 
 ```
-...
-var urls = [];
-axios.get("/swagger-resources").then(function (response) {
-    response.data.forEach(function (resource) {
-        urls.push({"name": resource.name, "url": "/jhipster" + resource.location});
-    });
-...    
-```  
+<base href="/jhipster/"/>
+```
 
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
