@@ -103,3 +103,7 @@ Deploy to Kubernetes cluster:
 1. Apply the Kubernetes configurations: `./kubectl-apply.sh`
 
 For full Kubernetes generator features, see [Deploying to Kubernetes](/kubernetes).
+
+## Enable HTTPS
+
+To enable HTTPS for your cluster, see Ray Tsang's [External Load Balancing docs](https://spring-gcp.saturnism.me/deployment/kubernetes/load-balancing/external-load-balancing). 
