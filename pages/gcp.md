@@ -83,7 +83,7 @@ Google Kubernetes Engine is a fully managed Kubernetes cluster as a service. Onc
 
 1. Enable API: `gcloud services enable container.googleapis.com containerregistry.googleapis.com`
 1. Install `kubectl` CLI if not already installed: `gcloud components install kubectl`
-1. Create a new Google Kubernetes Engine cluster: `gcloud container clusters create mycluster --zone us-central1-a` (see [available zones])(https://cloud.google.com/compute/docs/regions-zones/)
+1. Create a new Google Kubernetes Engine cluster: `gcloud container clusters create mycluster --zone [us-central1-a](https://cloud.google.com/compute/docs/regions-zones/) --machine-type [n1-standard-4](https://cloud.google.com/compute/docs/machine-types/)`
 
 Once the cluster is created, you can use JHipster Kubernetes generator to generate the deployment descriptors.
 
