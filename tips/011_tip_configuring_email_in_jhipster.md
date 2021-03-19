@@ -3,7 +3,7 @@ layout: default
 title: Configuring Email with - Gmail and more
 sitemap:
 priority: 0.5
-lastmod: 2015-12-23T22:40:00-00:00
+lastmod: 2021-03-18T19:48:00-00:00
 ---
 # Configuring Email with - Gmail and more...
 
@@ -87,6 +87,7 @@ _application-dev.yml_
                 ssl.trust: smtp-mail.outlook.com
             [...]
 __Note__ : If you want to send Email from a Corporate Outlook account then set `host` as the Microsoft Exchange Server of your company, for e.g. `emea.mycompany.com`. Also set `username` as Standard Id of the system provided by the company (Domain/Username) and `password` as your system password.
+For Corporate Outlook, `username` property in **spring.mail** must match the `from` property in **jhipster.mail**.
 
 ___Tip___ : To find your `Microsoft Exchange Server` : Open Outlook > Click Tools > Click Account Settings... > Double Click on Microsoft Exchange (under Email tab) and copy the Microsoft Exchange Server address.
 
