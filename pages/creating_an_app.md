@@ -212,7 +212,6 @@ Doesn't support attribute changes like type and constraints.
 Conflicts with:
 
 *   `--fork` option, since it saves to disk overriding the old state.
-*   Manual edits to `.jhipster/*` definitions
 
 ### Would you like to install other generators from the JHipster Marketplace?
 
