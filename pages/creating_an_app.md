@@ -188,15 +188,15 @@ By default JHipster provide Java unit/integration testing (using Spring's JUnit 
 
 You can find more information on our ["Running tests" guide]({{ site.url }}/running-tests/).
 
-### Would you like to use incremental liquibase changelog?
+### Would you like to use incremental Liquibase changelogs?
 
-JHipster optionally creates incremental changelogs for you, so you don't need to recreate the database or to manually generate liquibase diff.
+JHipster optionally creates incremental changelogs for you, so you don't need to recreate the database or to manually generate Liquibase diff.
 
 Run JHipster using `--incremental-changelog` option anytime to enable it.
 
-When executing JHipster, entities contain 2 states:
+When executing JHipster, entities contain two states:
 
-*   The old state which is already saved to disc
+*   The old state which is already saved to disk
 *   The new state, which is in the memory (generated from jdl or prompts)
 
 A diff is generated between them and changelogs are created.
