@@ -193,22 +193,21 @@ The Okta developer blog also has some ❤️ for Micronaut and Quarkus:
 
 ## <a name="https"></a> HTTPS
 
-You can enforce the use of HTTPS when your app is running on Heroku by adding the following configuration to your `SecurityConfiguration.java`.
+You can force the use of HTTPS by adding the following configuration to your `SecurityConfiguration.java`.
 
 ```java
-@Configuration
-public class WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+// Spring MVC
+http.requiresChannel(channel -> channel
+    .anyRequest().requiresSecure());
 
-  @Override
-  protected void configure(HttpSecurity http) throws Exception {
-    http.requiresChannel()
-      .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
-      .requiresSecure();
-  }
-}
+// WebFlux
+http.redirectToHttps(redirect -> redirect
+    .httpsRedirectWhen(e -> e.getRequest().getHeaders().containsKey("X-Forwarded-Proto")));
 ```
 
-This will work splendidly on Heroku. For more production tips on Heroku, see [Preparing a Spring Boot App for Production on Heroku](https://devcenter.heroku.com/articles/preparing-a-spring-boot-app-for-production-on-heroku).
+See Spring Security's [Servlet](https://docs.spring.io/spring-security/site/docs/5.5.x/reference/html5/#servlet-http-redirect) and [WebFlux](https://docs.spring.io/spring-security/site/docs/5.5.x/reference/html5/#webflux-http-redirect) documentation for more information.
+
+This has been tested and known to work on Heroku and Google Cloud. For more production tips on Heroku, see [Preparing a Spring Boot App for Production on Heroku](https://devcenter.heroku.com/articles/preparing-a-spring-boot-app-for-production-on-heroku).
 
 ## <a name="implementation-details"></a> Leakage of implementation details
 
