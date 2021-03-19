@@ -190,11 +190,11 @@ You can find more information on our ["Running tests" guide]({{ site.url }}/runn
 
 ### Would you like to use incremental liquibase changelog?
 
-JHipster allows you to create incremental changelogs, so you don't need to recreate the database or to manually generate liquibase diff.
+JHipster optionally creates incremental changelogs for you, so you don't need to recreate the database or to manually generate liquibase diff.
 
 Run JHipster using `--incremental-changelog` option anytime to enable it.
 
-When executing JHipster, entities contains 2 states:
+When executing JHipster, entities contain 2 states:
 
 *   The old state which is already saved to disc
 *   The new state, which is in the memory (generated from jdl or prompts)
@@ -207,7 +207,7 @@ Supported features:
 *   Create/remove relationships
 *   JDL and prompts
 
-Doesn't supports attribute changes like type and constraints.
+Doesn't support attribute changes like type and constraints.
 
 Conflicts with:
 
