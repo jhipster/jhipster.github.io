@@ -188,6 +188,32 @@ By default JHipster provide Java unit/integration testing (using Spring's JUnit 
 
 You can find more information on our ["Running tests" guide]({{ site.url }}/running-tests/).
 
+### Would you like to use incremental liquibase changelog?
+
+JHipster allows you to create incremental changelogs, so you don't need to recreate the database or to manually generate liquibase diff.
+
+Run JHipster using `--incremental-changelog` option anytime to enable it.
+
+When executing JHipster, entities contains 2 states:
+
+*   The old state which is already saved to disc
+*   The new state, which is in the memory (generated from jdl or prompts)
+
+A diff is generated between them and changelogs are created.
+
+Supported features:
+
+*   Create/remove fields
+*   Create/remove relationships
+*   JDL and prompts
+
+Doesn't supports attribute changes like type and constraints.
+
+Conflicts with:
+
+*   `--fork` option, since it saves to disk overriding the old state.
+*   Manual edits to `.jhipster/*` definitions
+
 ### Would you like to install other generators from the JHipster Marketplace?
 
 The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
