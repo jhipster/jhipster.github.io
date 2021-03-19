@@ -198,8 +198,8 @@ You can force the use of HTTPS by adding the following configuration to your `Se
 ```java
 // Spring MVC
 http.requiresChannel(channel -> channel
-    .anyRequest().requiresSecure());
-
+    .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure());
+    
 // WebFlux
 http.redirectToHttps(redirect -> redirect
     .httpsRedirectWhen(e -> e.getRequest().getHeaders().containsKey("X-Forwarded-Proto")));
