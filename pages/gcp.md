@@ -107,3 +107,17 @@ For full Kubernetes generator features, see [Deploying to Kubernetes](/kubernete
 ## Enable HTTPS
 
 To enable HTTPS for your cluster, see Ray Tsang's [External Load Balancing docs](https://spring-gcp.saturnism.me/deployment/kubernetes/load-balancing/external-load-balancing). 
+
+You can force the use of HTTPS by adding the following configuration to your `SecurityConfiguration.java`.
+
+```java
+// Spring MVC
+http.requiresChannel(channel -> channel
+    .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure());
+
+// WebFlux
+http.redirectToHttps(redirect -> redirect
+    .httpsRedirectWhen(e -> e.getRequest().getHeaders().containsKey("X-Forwarded-Proto")));
+```
+
+See Spring Security's [Servlet](https://docs.spring.io/spring-security/site/docs/5.5.x/reference/html5/#servlet-http-redirect) and [WebFlux](https://docs.spring.io/spring-security/site/docs/5.5.x/reference/html5/#webflux-http-redirect) documentation for more information.
