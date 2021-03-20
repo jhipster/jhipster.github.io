@@ -247,7 +247,7 @@ At the same time, there are some drawbacks:
 To avoid relying on Eureka or Consul, you'll need to disable service discovery altogether
 * When asked `Which service discovery server do you want to use?`, choose `No service discovery`
 
-A JHipster Gateway usually fronts the API calls and routing these calls using `Spring Cloud Gateway`. Without a service registry, routing via `Spring Cloud Gateway` won't work. You'll need to use Kubernetes `Ingress` to route the traffic to microservices.
+A JHipster Gateway usually fronts the API calls and routing these calls using Spring Cloud Gateway. Without a service registry, routing via Spring Cloud Gateway won't work. You'll need to use Kubernetes Ingress to route the traffic to microservices.
 * When asked `Choose the kubernetes service type for your edge services`, choose `Ingress`.
 
 ## Istio
