@@ -120,9 +120,11 @@ Run `source .okta.env` and start your app with Maven or Gradle. You should be ab
 
 If you're on Windows, you should install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) so the `source` command will work.
 
-If you'd like to configure things manually through the Okta developer console, see the instructions below.
+If you'd like to configure things manually through the Okta Admin Console, see the instructions below.
 
-First, you'll need to create a free developer account at <https://developer.okta.com/signup/>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.okta.com`.
+#### Create an OIDC App with the Okta Admin Console
+
+First, you'll need to create a free developer account at <https://developer.okta.com/signup>. After doing so, you'll get your own Okta domain, that has a name like `https://dev-123456.okta.com`.
 
 Modify `src/main/resources/config/application.yml` to use your Okta settings. Hint: replace `{yourOktaDomain}` with your org's name (e.g., `dev-123456.okta.com`).
 
@@ -139,15 +141,24 @@ security:
           client-secret: {client-secret}
 ```
 
-Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Add Application**. Click **Web** and click the **Next** button. Give the app a name you’ll remember, and specify `http://localhost:8080/login/oauth2/code/oidc` as a Login redirect URI. Click **Done**, then edit your app to add `http://localhost:8080` as a Logout redirect URI. Copy the client ID and secret into your `application.yml` file.
+Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Applications** > **Add Application** > **Create New App**. Select **Web**, **OpenID Connect**, and click **Create**. Give the app a name you'll remember, and specify `http://localhost:8080/login/oauth2/code/oidc` as a Login redirect URI. Add `http://localhost:8080` as a Logout redirect URI and click **Save**. Copy the client ID and secret into your `application.yml` file.
 
-Create a `ROLE_ADMIN` and `ROLE_USER` group (**Users** > **Groups** > **Add Group**) and add users to them. You can use the account you signed up with, or create a new user (**Users** > **Add Person**). Navigate to **API** > **Authorization Servers**, and click on the `default` server. Click the **Claims** tab and **Add Claim**. Name it `groups`, and include it in the ID Token. Set the value type to `Groups` and set the filter to be a Regex of `.*`. Click **Create**.
+Create a `ROLE_ADMIN` and `ROLE_USER` group (**Directory** > **Groups** > **Add Group**) and add users to them. You can use the account you signed up with, or create a new user (**Directory** > **People** > **Add Person**). Navigate to **Security** > **API** > **Authorization Servers**, and click on the `default` server. Click the **Claims** tab and **Add Claim**. Name it `groups`, and include it in the ID Token. Set the value type to `Groups` and set the filter to be a Regex of `.*`. Click **Create**.
 
 <img src="{{ site.url }}/images/security-add-claim.png" alt="Add Claim" width="600" style="margin: 10px">
 
-**NOTE:** If you want to use Okta all the time (instead of Keycloak), modify JHipster’s Protractor tests to use this account when running. Do this by changing the credentials in `src/test/javascript/e2e/account/account.spec.ts` and `src/test/javascript/e2e/admin/administration.spec.ts`.
-
 After making these changes, you should be good to go! If you have any issues, please post them to [Stack Overflow](https://stackoverflow.com/questions/tagged/jhipster). Make sure to tag your question with "jhipster" and "okta".
+
+To use Okta when running e2e tests, you can set environment variables.
+
+```shell
+export CYPRESS_E2E_USERNAME=<your-username>
+export CYPRESS_E2E_PASSWORD=<your-password>
+```
+
+If you're using Protractor, remove the `CYPRESS_` prefix.
+
+#### Use Environment Variables
 
 You can also use environment variables to override the defaults. For example:
 
@@ -168,37 +179,34 @@ heroku config:set \
   SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="$SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET"
 ```
 
-For Cloud Foundry, you can use something like the following, where `$appName` is the name of your app.
-
-```bash
-export appName={your-app}
-cf set-env $appName SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI "$SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI"
-cf set-env $appName SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID "$SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID"
-cf set-env $appName SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET "$SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET"
-```
-
 See [Use OpenID Connect Support with JHipster](https://developer.okta.com/blog/2017/10/20/oidc-with-jhipster) to learn more about JHipster 5 and OIDC with Okta. 
 
-If you're using JHipster 6, see [Better, Faster, Lighter Java with Java 12 and JHipster 6](https://developer.okta.com/blog/2019/04/04/java-11-java-12-jhipster-oidc). If you're using microservices with JHipster 6, see [Java Microservices with Spring Cloud Config and JHipster](https://developer.okta.com/blog/2019/05/23/java-microservices-spring-cloud-config).
+If you're using JHipster 6, see [Better, Faster, Lighter Java with Java 12 and JHipster 6](https://developer.okta.com/blog/2019/04/04/java-11-java-12-jhipster-oidc). If you're using microservices with JHipster 6, see [Java Microservices with Spring Cloud Config and JHipster](https://developer.okta.com/blog/2019/05/23/java-microservices-spring-cloud-config). 
+
+For JHipster 7, see [Reactive Java Microservices with Spring Boot and JHipster](https://developer.okta.com/blog/2021/01/20/reactive-java-microservices).
+
+The Okta developer blog also has some ❤️ for Micronaut and Quarkus:
+
+- [Build a Secure Micronaut and Angular App with JHipster](https://developer.okta.com/blog/2020/08/17/micronaut-jhipster-heroku)
+- [Fast Java Made Easy with Quarkus and JHipster](https://developer.okta.com/blog/2021/03/08/jhipster-quarkus-oidc)
 
 ## <a name="https"></a> HTTPS
 
-You can enforce the use of HTTPS when your app is running on Heroku by adding the following configuration to your `SecurityConfiguration.java`.
+You can force the use of HTTPS by adding the following configuration to your `SecurityConfiguration.java`.
 
 ```java
-@Configuration
-public class WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
-
-  @Override
-  protected void configure(HttpSecurity http) throws Exception {
-    http.requiresChannel()
-      .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
-      .requiresSecure();
-  }
-}
+// Spring MVC
+http.requiresChannel(channel -> channel
+    .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure());
+    
+// WebFlux
+http.redirectToHttps(redirect -> redirect
+    .httpsRedirectWhen(e -> e.getRequest().getHeaders().containsKey("X-Forwarded-Proto")));
 ```
 
-This will work on both Heroku and Cloud Foundry. For more production tips on Heroku, see [Preparing a Spring Boot App for Production on Heroku](https://devcenter.heroku.com/articles/preparing-a-spring-boot-app-for-production-on-heroku).
+See Spring Security's [Servlet](https://docs.spring.io/spring-security/site/docs/5.5.x/reference/html5/#servlet-http-redirect) and [WebFlux](https://docs.spring.io/spring-security/site/docs/5.5.x/reference/html5/#webflux-http-redirect) documentation for more information.
+
+This has been tested and known to work on Heroku and Google Cloud. For more production tips on Heroku, see [Preparing a Spring Boot App for Production on Heroku](https://devcenter.heroku.com/articles/preparing-a-spring-boot-app-for-production-on-heroku).
 
 ## <a name="implementation-details"></a> Leakage of implementation details
 
