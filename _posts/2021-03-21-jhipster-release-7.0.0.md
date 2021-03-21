@@ -1,0 +1,179 @@
+---
+layout: default
+title: Release 7.0.0
+---
+
+JHipster release v7.0.0
+==================
+
+This is our first stable release of JHipster v7!
+
+Here is a summary of the release notes from our 2 beta releases of JHipster v7.0.0, updated with our latest changes.
+
+It includes a total of 2371 closed tickets and pull requests on the main project:
+
+- 825 closed tickets and pull requests: [v7.0.0](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aclosed+milestone%3A7.0.0)
+- 226 closed tickets and pull requests: [v7.0.0-beta.1](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aclosed+milestone%3A7.0.0-beta.1)
+- 1320 closed tickets and pull requests: [v7.0.0-beta.0](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aclosed+milestone%3A7.0.0-beta.0)
+
+Breaking changes
+------------
+
+Related to Blueprints and Modules:
+- Remove getAllJhipsterConfig - [#12023](https://github.com/jhipster/generator-jhipster/issues/12023). Use getJhipsterConfig instead of getAllJhipsterConfig.
+- Create jhipsterConfig for synchronised config and move configOptions to generator-base - [#12026](https://github.com/jhipster/generator-jhipster/pull/12026). generators-base-blueprint's jhipsterConfig field is now a proxy instead of a Storage object look at the PR description for migration.
+- Updates to `getXXXAppName()` methods on `base-generator` [#12325](https://github.com/jhipster/generator-jhipster/issues/12325):
+  - added `getFrontendAppName()` and `frontendAppName` attribute
+  - removed `getAngularAppName()` and `angularAppName` attribute
+  - removed `getAngularXName()` and `angularXAppName` attribute
+- Removed `setup*Options()` operations
+  - A replacement may not be required. Use `load(App/Client/Server)Config` if needed.
+- `id` field is added to fields at jhipster 7.
+  - Remove id fields if the blueprint/module doesn't support. `this.fields = this.fields.filter(field => !field.id);`
+
+Related to front:
+- Angular: follow closer Angular Style Guide - [#13125](https://github.com/jhipster/generator-jhipster/issues/13125)
+- React: tests next to the files they are testing [#13425](https://github.com/jhipster/generator-jhipster/issues/13425)
+- Login page refactoring - [#11926](https://github.com/jhipster/generator-jhipster/pull/11926)
+- Replace moment by Day.js - [#12575](https://github.com/jhipster/generator-jhipster/issues/12575)
+- Server common scripts - webpack profile replaced by webapp [#13196](https://github.com/jhipster/generator-jhipster/pull/13196)
+
+Related to backend:
+- Protect user api and create a filtered user api for relationships - [#12374](https://github.com/jhipster/generator-jhipster/issues/12374)
+- Springfox 3 upgrade - [#12133](https://github.com/jhipster/generator-jhipster/pull/12133) and [jhipster/jhipster#764](https://github.com/jhipster/jhipster/pull/764)
+  - `swagger` maven profile becomes `api-docs`
+  - `jhipster.swagger` property becomes `jhipster.api-docs`
+  - `SwaggerCustomizer` becomes `SpringfoxCustomizer`
+  - `swaggerSpringfoxApiDocket` becomes `openapiSpringfoxApiDocket`
+  - `swaggerSpringfoxManagementDocket` becomes `openAPISpringfoxManagementDocket`
+- All generated Gateways are Reactive instead of Spring MVC - [#13855](https://github.com/jhipster/generator-jhipster/issues/13855)
+  - Zuul is replaced by Spring Cloud Gateway
+  - Ribbon is replaced by Spring Cloud Load Balancer
+- Add id to PUT request - [#14139](https://github.com/jhipster/generator-jhipster/issues/14139)
+
+Entities:
+- Change relationship table name - [#11025](https://github.com/jhipster/generator-jhipster/issues/11025)
+
+Most important new features and upgrades
+-------------
+
+New features
+- Vue.js support - [#12064](https://github.com/jhipster/generator-jhipster/pull/12064)
+- Cypress support - [#12307](https://github.com/jhipster/generator-jhipster/pull/12307)
+- JDL Studio V2
+- JHipster Control Center - See the [project](https://github.com/jhipster/jhipster-control-center)
+- Prettier for Java - [#12109](https://github.com/jhipster/generator-jhipster/issues/12109)
+- Angular CLI support - [#10539](https://github.com/jhipster/generator-jhipster/issues/10539)
+- Snyk support - [#12441](https://github.com/jhipster/generator-jhipster/issues/12441)
+- Add support to --pk-type - [#13296](https://github.com/jhipster/generator-jhipster/issues/13296)
+- Add support to @MapstructExpression - [#13195](https://github.com/jhipster/generator-jhipster/pull/13195)
+- Support Neo4j with k8s subgenerator - [#13548](https://github.com/jhipster/generator-jhipster/pull/13548)
+- NPM 7 - [#13060](https://github.com/jhipster/generator-jhipster/pull/13060)
+
+Entities
+- add support for custom ids - [#13258](https://github.com/jhipster/generator-jhipster/pull/13258)
+- Incremental Liquibase - [#12178](https://github.com/jhipster/generator-jhipster/issues/12178)
+
+Improvements
+- Angular 11 - [#13035](https://github.com/jhipster/generator-jhipster/pull/13035)
+- Blueprint improvement
+- Webflux improvement
+- Spring Boot 2.4 - [#13551](https://github.com/jhipster/generator-jhipster/pull/13551)
+- Java 11 by default - [#12021](https://github.com/jhipster/generator-jhipster/pull/12021)
+- PostgreSQL as default database - [#11736](https://github.com/jhipster/generator-jhipster/issues/11736)
+- IntegrationTest annotation - [#12460](https://github.com/jhipster/generator-jhipster/issues/12460)
+- Annotation to detect generated files - [#12459](https://github.com/jhipster/generator-jhipster/issues/12459)
+- Remove system and anonymoususer - [#13043](https://github.com/jhipster/generator-jhipster/pull/13043)
+- Docker-Compose v3 - [#12428](https://github.com/jhipster/generator-jhipster/issues/12428)
+- Typescript 4 - [#12435](https://github.com/jhipster/generator-jhipster/pull/12435)
+- Webpack 5 for React and Vue - [#13615](https://github.com/jhipster/generator-jhipster/pull/13615)
+
+Refactoring
+- JHipster library, with `tech.jhipster` as package name - [#12854](https://github.com/jhipster/generator-jhipster/issues/12854)
+- JHipster Core is merged with generator-jhipster - [#11694](https://github.com/jhipster/generator-jhipster/pull/11694)
+- ng-jhipster is merged with generator-jhipster - [#12909](https://github.com/jhipster/generator-jhipster/issues/12909)
+
+Removed
+- Removed audit page - [#12024](https://github.com/jhipster/generator-jhipster/pull/12024)
+- Yarn support dropped - [#12134](https://github.com/jhipster/generator-jhipster/pull/12134)
+- Remove deprecated JHipster Console (ELK) - [#12414](https://github.com/jhipster/generator-jhipster/pull/12414)
+- UAA support dropped - [#13081](https://github.com/jhipster/generator-jhipster/issues/13081)
+- Traefik support dropped - [#14233](https://github.com/jhipster/generator-jhipster/issues/14233)
+
+
+Closed tickets and merged pull requests
+------------
+As always, __[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aclosed+milestone%3A7.0.0)__.
+
+How to upgrade
+------------
+
+**Automatic upgrade**
+
+For an automatic upgrade, use the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) on an existing application:
+
+Upgrade your version of JHipster:
+
+```
+npm update -g generator-jhipster
+```
+
+And then run the upgrade sub-generator:
+
+```
+jhipster upgrade
+```
+
+**Manual upgrades**
+
+For a manual upgrade, first upgrade your version of JHipster with:
+
+```
+npm update -g generator-jhipster
+```
+
+If you have an existing project, it will still use the JHipster version with which it was generated.
+To upgrade your project, you must first delete its `node_modules` folder and then run:
+
+```
+jhipster
+```
+
+You can also update your project and all its entities by running
+
+```
+jhipster --with-entities
+```
+
+You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_
+
+```
+jhipster entity Foo
+```
+
+**Tips**
+
+To generate your project with incremental Liquibase changelogs, you should use:
+
+```
+jhipster --incremental-changelog
+```
+
+To generate your project with `@GeneratedByJHipster` annotation in your Java classes, you should use:
+
+```
+jhipster --with-generated-flag
+```
+
+
+Help and bugs
+--------------
+
+If you find any issue with this release, don't hesitate to:
+
+- Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+
+If the issue you have is an urgent bug or security issue, please:
+
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
