@@ -8,6 +8,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "bundle exec jekyll serve"
+    "start": "bundle exec jekyll serve",
+    "sass": "gulp sass",
+    "images": "gulp images"
   }
 }
