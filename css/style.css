@@ -11,7 +11,7 @@ body {
   outline: none; }
 
 .navlink {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   height: 60px;
   line-height: 60px;
   padding: 0px 20px 0px 20px;
@@ -72,7 +72,7 @@ a:hover {
   text-indent: 1em; }
 
 .brand {
-  font-family: 'Pacifico', cursive; }
+  font-family: "Pacifico", cursive; }
 
 .light {
   color: #fff; }
@@ -97,8 +97,8 @@ a:hover {
 
 .cse input.gsc-search-button,
 input.gsc-search-button {
-  background-color: #3E8ACC !important;
-  border: 1px solid #3E8ACC; }
+  background-color: #3e8acc !important;
+  border: 1px solid #3e8acc; }
 
 .inline-search {
   position: relative;
@@ -133,7 +133,7 @@ input.gsc-search-button {
       height: 60px;
       line-height: 60px;
       margin-left: 0px;
-      font-family: 'Roboto Condensed', sans-serif;
+      font-family: "Roboto Condensed", sans-serif;
       font-weight: 400;
       padding: 0;
       font-size: 1.5em; }
@@ -178,10 +178,10 @@ input.gsc-search-button {
       height: 60px;
       line-height: 60px;
       vertical-align: middle;
-      font-family: 'Roboto Condensed', sans-serif;
+      font-family: "Roboto Condensed", sans-serif;
       font-size: 1.5em; }
   .navbar .navbar-nav > li > a {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
     height: 60px;
     line-height: 60px;
     padding: 0px 20px 0px 20px; }
@@ -195,13 +195,13 @@ input.gsc-search-button {
     z-index: -1;
     position: absolute; }
     .navbar .dropdown-menu .title {
-      font-family: 'Roboto Condensed', sans-serif;
+      font-family: "Roboto Condensed", sans-serif;
       padding: 5px 10px;
       -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
     .navbar .dropdown-menu .message {
-      font-family: 'Roboto Condensed', sans-serif;
+      font-family: "Roboto Condensed", sans-serif;
       text-align: center;
       padding: 10px 20px; }
     .navbar .dropdown-menu .notifications.list-group {
@@ -212,7 +212,7 @@ input.gsc-search-button {
         min-width: 250px;
         padding: 8px;
         border: 0;
-        border-bottom: 1px solid #EEE; }
+        border-bottom: 1px solid #eee; }
         .navbar .dropdown-menu .notifications.list-group .list-group-item .icon {
           margin-right: 5px; }
       .navbar .dropdown-menu .notifications.list-group .badge {
@@ -239,7 +239,7 @@ input.gsc-search-button {
         margin: 0px;
         border: 0; }
     .navbar .dropdown.profile .dropdown-menu .profile-info {
-      font-family: 'Roboto Condensed', sans-serif;
+      font-family: "Roboto Condensed", sans-serif;
       padding: 15px; }
       .navbar .dropdown.profile .dropdown-menu .profile-info .username {
         font-size: 1.8em; }
@@ -260,7 +260,7 @@ input.gsc-search-button {
     -webkit-transition: all 0.25s;
     transition: all 0.25s;
     font-size: 12px;
-    font-family: 'Roboto Condensed', sans-serif; }
+    font-family: "Roboto Condensed", sans-serif; }
     .app-container .app-footer .wrapper {
       padding: 10px 35px;
       padding-left: 25px;
@@ -290,7 +290,7 @@ input.gsc-search-button {
           padding: 0;
           width: 100%;
           overflow: hidden;
-          font-family: 'Roboto Condensed', sans-serif; }
+          font-family: "Roboto Condensed", sans-serif; }
           .app-container .content-container .side-menu .navbar-header .navbar-brand .icon {
             width: 60px;
             text-align: center;
@@ -317,7 +317,7 @@ input.gsc-search-button {
         width: 100%;
         overflow: hidden; }
         .app-container .content-container .side-menu .navbar-nav li a {
-          font-family: 'Roboto Condensed', sans-serif;
+          font-family: "Roboto Condensed", sans-serif;
           padding: 0 10px 0 10px;
           height: 46px;
           line-height: 46px;
@@ -400,7 +400,7 @@ input.gsc-search-button {
   margin-right: -15px; }
 
 .page-title {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   margin-left: -10px;
   margin-right: -10px;
   padding: 15px 10px;
@@ -415,13 +415,13 @@ input.gsc-search-button {
     vertical-align: middle; }
 
 .sub-title {
-  font-family: 'Roboto Condensed', sans-serif; }
+  font-family: "Roboto Condensed", sans-serif; }
   .sub-title > * {
     display: inline-block; }
   .sub-title h3 {
     margin-right: 10px; }
   .sub-title .description {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
     font-size: 0.9em; }
   .sub-title .action .btn {
     padding: 0 0.5em; }
@@ -511,7 +511,7 @@ input.gsc-search-button {
 
 /* Card */
 .card {
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 1px;
   overflow: hidden;
   position: relative; }
@@ -531,13 +531,13 @@ input.gsc-search-button {
     padding: 1.2em 25px;
     float: left; }
     .card .card-header .card-title .title {
-      font-family: 'Roboto Condensed', sans-serif;
+      font-family: "Roboto Condensed", sans-serif;
       font-size: 1.5em;
       text-decoration: none; }
   .card .card-header .pull-right {
     padding: 0.5em 1em; }
   .card .card-header:after {
-    content: '';
+    content: "";
     display: block;
     clear: both; }
   .card .card-profile-img img {
@@ -554,12 +554,12 @@ input.gsc-search-button {
   .card.summary-inline .card-body .content {
     float: right; }
     .card.summary-inline .card-body .content .title {
-      font-family: 'Lato', sans-serif;
+      font-family: "Lato", sans-serif;
       margin-top: -0.3em;
       font-size: 3.5em;
       text-align: right; }
     .card.summary-inline .card-body .content .sub-title {
-      font-family: 'Lato', sans-serif;
+      font-family: "Lato", sans-serif;
       font-size: 0.9em;
       text-align: right;
       margin-top: -10px;
@@ -591,7 +591,7 @@ input.gsc-search-button {
   margin-bottom: 5px;
   border-radius: 1px;
   border-width: 1px;
-  font-family: 'Roboto Condensed', sans-serif; }
+  font-family: "Roboto Condensed", sans-serif; }
 
 .btn-group-lg > .btn,
 .btn-group-lg > .btn-lg {
@@ -627,7 +627,7 @@ input.gsc-search-button {
 .modal {
   z-index: 100001; }
   .modal .modal-dialog .modal-header {
-    font-family: 'Roboto Condensed', sans-serif; }
+    font-family: "Roboto Condensed", sans-serif; }
   .modal .modal-dialog .modal-content {
     border-radius: 1px;
     box-shadow: none; }
@@ -684,6 +684,9 @@ input.gsc-search-button {
 
 .bootstrap-switch {
   border-radius: 1px; }
+
+.oc-bronze-sponsor .thumbnail {
+  min-height: 175px !important; }
 
 .thumbnail {
   border-radius: 1px;
@@ -769,7 +772,7 @@ body.login-page {
   position: relative;
   clear: both;
   display: block;
-  content: ''; }
+  content: ""; }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   padding: 0;
@@ -854,7 +857,7 @@ body.login-page {
   margin-left: -1px; }
 
 .tab:after {
-  content: '';
+  content: "";
   display: block;
   clear: both; }
 
@@ -1090,21 +1093,21 @@ body.login-page {
       font-size: 0.75em; }
 
 .icons-list:after {
-  content: '';
+  content: "";
   display: block;
   position: relative;
   clear: both; }
 
-.row.example > [class*='col-'] > div {
-  background-color: #EEE;
+.row.example > [class*="col-"] > div {
+  background-color: #eee;
   padding: 10px;
-  border: 1px solid #DDD; }
+  border: 1px solid #ddd; }
 
 .breadcrumb {
   margin-bottom: 0; }
   .breadcrumb > li + li:before {
     font-family: FontAwesome;
-    content: '\f105';
+    content: "\f105";
     margin-right: 3px; }
 
 .message-list {
@@ -1112,7 +1115,7 @@ body.login-page {
   padding: 0;
   list-style-type: none; }
   .message-list > a > li {
-    border-bottom: 1px dotted #EEE;
+    border-bottom: 1px dotted #eee;
     padding: 8px; }
     .message-list > a > li > .message-block {
       padding-left: 70px;
@@ -1122,7 +1125,7 @@ body.login-page {
         font-weight: bold; }
       .message-list > a > li > .message-block .message-datetime {
         font-size: 10px;
-        color: #AAA; }
+        color: #aaa; }
       .message-list > a > li > .message-block .message {
         font-size: 12px; }
     .message-list > a > li .profile-img {
@@ -1138,7 +1141,7 @@ body.login-page {
   margin-bottom: 5px; }
 
 .landing-page {
-  font-family: 'Roboto Condensed', sans-serif; }
+  font-family: "Roboto Condensed", sans-serif; }
   .landing-page .navbar .navbar-toggle {
     position: absolute;
     right: 0;
@@ -1249,7 +1252,7 @@ body.login-page {
         width: 100%;
         overflow: hidden;
         padding-left: 0px;
-        font-family: 'Roboto Condensed', sans-serif; }
+        font-family: "Roboto Condensed", sans-serif; }
         .landing-page .navbar .navbar-header .navbar-brand .icon {
           width: 50px;
           text-align: center;
@@ -1392,8 +1395,7 @@ body.login-page {
 
 #about a {
   color: white;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 footer {
   color: #000000;
@@ -1428,8 +1430,7 @@ footer {
     background-color: #233140; }
     footer .footer-below a {
       color: #ccc;
-      text-decoration: underline;
-    }
+      text-decoration: underline; }
 
 .btn-social {
   display: inline-block;
@@ -1486,7 +1487,7 @@ footer {
   background-color: transparent;
   cursor: pointer; }
   .portfolio-modal .close-modal:hover {
-    opacity: .3; }
+    opacity: 0.3; }
   .portfolio-modal .close-modal .lr {
     z-index: 1051;
     width: 1px;
@@ -1512,7 +1513,7 @@ footer {
 .flat-blue a.btn-social {
   color: #fff; }
   .flat-blue a.btn-social:hover {
-    color: #3E8ACC; }
+    color: #3e8acc; }
 
 .btn-outline {
   margin-top: 15px;
@@ -1521,14 +1522,14 @@ footer {
   font-size: 20px;
   color: #fff;
   background: 0 0;
-  transition: all .3s ease-in-out; }
+  transition: all 0.3s ease-in-out; }
   .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
     border: solid 2px #fff;
-    color: #3E8ACC;
+    color: #3e8acc;
     background: #fff; }
   .btn-outline.blue {
-    color: #3E8ACC;
-    border-color: #3E8ACC; }
+    color: #3e8acc;
+    border-color: #3e8acc; }
 
 .team-member {
   max-width: 250px !important;
@@ -1546,7 +1547,10 @@ footer {
   padding-top: 30px;
   height: 0;
   overflow: hidden; }
-  .video-container iframe, .video-container object, .video-container embed, .video-container img {
+  .video-container iframe,
+  .video-container object,
+  .video-container embed,
+  .video-container img {
     position: absolute;
     top: 0;
     left: 0;
@@ -1562,46 +1566,40 @@ footer {
     height: 100%;
     padding: 20px; }
     .logo-container a .sponsor-img {
-        height: 60px;
-        width: auto;
-    }
+      height: 60px;
+      width: auto; }
 
 table tr {
-    border: 1px solid lightgray
-}
-table tr > td, th {
-    padding: 10px;
-}
+  border: 1px solid lightgray; }
+  table tr > td {
+    padding: 10px; }
+
+th {
+  padding: 10px; }
+
 table tr:nth-child(even) {
-    background: #f0f0f0;
-}
+  background: #f0f0f0; }
+
 @media (max-width: 1080px) {
   #content-search-form {
-    display: none;
-  }
+    display: none; }
   #mobile-content-search-form {
-    padding: 5px 0 5px 10px;
-  }
-  #mobile-content-search-form > span.algolia-autocomplete {
-    width: 90%;
-    margin-left: 5px;
-  }
-  #mobile-content-search-form input.mobile-doc-search-algolia {
-    width: 100%;
-  }
-  #mobile-content-search-form .algolia-autocomplete .ds-dropdown-menu {
-    min-width: auto;
-  }
-  #mobile-content-search-form .algolia-autocomplete .ds-dropdown-menu:before {
-    right: 90%;
-  }
-}
+    padding: 5px 0 5px 10px; }
+    #mobile-content-search-form > span.algolia-autocomplete {
+      width: 90%;
+      margin-left: 5px; }
+    #mobile-content-search-form input.mobile-doc-search-algolia {
+      width: 100%; }
+    #mobile-content-search-form .algolia-autocomplete .ds-dropdown-menu {
+      min-width: auto; }
+      #mobile-content-search-form .algolia-autocomplete .ds-dropdown-menu:before {
+        right: 90%; } }
+
 @media (min-width: 1080px) {
   #mobile-content-search-form {
-    display: none;
-  }
-}
-#content-search-form input[type=text] {
+    display: none; } }
+
+#content-search-form input[type="text"] {
   float: right;
   width: 130px;
   box-sizing: border-box;
@@ -1613,11 +1611,10 @@ table tr:nth-child(even) {
   background-repeat: no-repeat;
   padding: 10px 40px 10px 15px;
   -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-#content-search-form input[type=text]:focus {
-  width: 100%;
-}
+  transition: width 0.4s ease-in-out; }
+  #content-search-form input[type="text"]:focus {
+    width: 100%; }
+
 #content-search-form i {
   position: relative;
   font-size: 20px;
@@ -1625,15 +1622,14 @@ table tr:nth-child(even) {
   right: 25px;
   color: #ccc;
   z-index: 1;
-  float: right;
-}
+  float: right; }
+
 #content-search-form > span.algolia-autocomplete,
 #content-search-form > input {
-  margin-top: 7px;
-}
+  margin-top: 7px; }
+
 #content-search-form .algolia-autocomplete .algolia-docsearch-suggestion--wrapper {
-  padding: 0;
-}
+  padding: 0; }
+
 #content-search-form .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-  color: #3d8acc;
-}
+  color: #3d8acc; }

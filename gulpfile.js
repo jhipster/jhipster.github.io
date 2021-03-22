@@ -3,8 +3,6 @@ var gulp = require("gulp"),
     sass = require("gulp-sass"),
     imagemin = require('gulp-imagemin');
 
-gulp.task('images', ['min-img', 'min-images', 'min-company-logo'])
-
 gulp.task('min-img', function () {
     return gulp.src('images/logo/**/*.{png,gif,jpg,jpeg}')
         .pipe(imagemin({optimizationLevel: 5, progressive: true, interlaced: true}))
@@ -40,6 +38,9 @@ gulp.task('init-server', function() {
     });
 });
 
-gulp.task('dev', ['sass','watch','init-server']);
 
-gulp.task('default', ['dev']);
+gulp.task('images', gulp.parallel('min-img', 'min-images', 'min-company-logo'));
+
+gulp.task('dev', gulp.parallel('sass','watch','init-server'));
+
+gulp.task('default', gulp.series('dev'));
