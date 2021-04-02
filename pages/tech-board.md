@@ -33,12 +33,12 @@ Current members:
 * Paul Hinz (Entando)
 
 
-The members are chosen by the project leaders and should come from 
+The members are chosen by the project leaders and should come from:
 * representative industry companies and leaders
-* representative organisations that user JHipster
+* representative organisations that use JHipster
 * open-source project leaders
 * Java champions
 * people from academia
 * ...
 
-If you are interested to be a part of this technical board, please contact us here: < EMAIL >
+If you are interested to be part of this technical board, please contact us here: < EMAIL >
