@@ -9,7 +9,7 @@ JHipster release v7.0.1
 This is the first patch release of JHipster v7:
 - Vue: npm start doesn't refresh correctly - [#14474](https://github.com/jhipster/generator-jhipster/issues/14474)
 - Reactive: user and authorities - [#14475](https://github.com/jhipster/generator-jhipster/issues/14475) [14482](https://github.com/jhipster/generator-jhipster/issues/14482)
-- Swagger authtentication is broken - [#14488](https://github.com/jhipster/generator-jhipster/issues/14488)
+- Swagger authentication is broken - [#14488](https://github.com/jhipster/generator-jhipster/issues/14488)
 - Use HMR by default in Angular - [#14555](https://github.com/jhipster/generator-jhipster/pull/14555)
 - Many libraries upgrades
 
