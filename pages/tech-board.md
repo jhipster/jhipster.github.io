@@ -37,7 +37,7 @@ The members are chosen by the project leaders and should come from:
 * representative industry companies and leaders
 * representative organisations that use JHipster
 * open-source project leaders
-* Java champions
+* community and technology leaders
 * people from academia
 * ...
 
