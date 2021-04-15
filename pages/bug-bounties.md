@@ -14,7 +14,7 @@ Any ticket opened on the [JHipster bug tracker](https://github.com/jhipster/gene
 
 ## Who can create bug bounties?
 
-- [Silver and gold sponsors]({{ site.url }}/sponsors/)
+- [Silver, gold and platinum sponsors]({{ site.url }}/sponsors/)
 - The three [core team project leads]({{ site.url }}/team/), [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) and [@pascalgrimaud](https://github.com/pascalgrimaud).
 
 ## How much is a bug bounty?
