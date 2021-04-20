@@ -158,7 +158,7 @@ deploy-to-clever-env:
 
 ## Using Github Action
 
-define `$CLEVER_TOKEN` and `CLEVER_SECRET` to gitlab CI/CD environment variables
+define `CLEVER_TOKEN` and `CLEVER_SECRET` to Github secret (Settings > Secret)
 
 add this step to your `.github-action.yml`
 <pre>
