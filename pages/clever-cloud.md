@@ -156,6 +156,26 @@ deploy-to-clever-env:
     url: https://${APP_NAME}.cleverapps.io
 </pre>
 
+## Using Github Action
+
+define `$CLEVER_TOKEN` and `CLEVER_SECRET` to gitlab CI/CD environment variables
+
+add this step to your `.github-action.yml`
+<pre>
+- uses: actions/checkout@v2
+- name: Deploy on cc
+  env:
+    APP_NAME:[clever cloud app name]
+    APP_ID: [clever cloud app id]
+  run: |
+    git fetch --prune --unshallow
+    wget https://clever-tools.cellar.services.clever-cloud.com/releases/latest/clever-tools-latest_linux.tar.gz
+    tar xvzf clever-tools-latest_linux.tar.gz
+    ./clever-tools-latest_linux/clever login --token ${{ secrets.CLEVER_TOKEN }} --secret ${{ secrets.CLEVER_SECRET }}
+    ./clever-tools-latest_linux/clever link ${{ env.APP_ID }}
+    ./clever-tools-latest_linux/clever deploy -f -a ${{ env.APP_NAME }}
+</pre>
+
 ## Changing the Java version
 
 You can select the Java version (Java 11 by default)
