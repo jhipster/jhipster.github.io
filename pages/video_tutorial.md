@@ -15,15 +15,15 @@ sitemap:
     <div class="col-md-6 col-sm-12">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/uQqlO3IGpTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/6lf64CctDAQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
                 <h3 id="thumbnail-label">JHipster Blog Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>This 17-minute tutorial shows how to create a JHipster 6 application, work with
+                <p>This 15-minute tutorial shows how to create a JHipster 7 application, work with
                 the provided tools, use the JDL Studio to create several entities with their relationships, 
                 and deploy the end result to the cloud.</p>
                 <p>Presented by Matt Raible (<a href="https://twitter.com/mraible">@mraible</a>)</p>
-                <p>Published on 25 Jun 2019</p>
+                <p>Published on 30 Apr 2021</p>
             </div>
         </div>
     </div>
@@ -97,6 +97,23 @@ sitemap:
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uQqlO3IGpTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">JHipster Blog Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>This 17-minute tutorial shows how to create a JHipster 6 application, work with
+                the provided tools, use the JDL Studio to create several entities with their relationships, 
+                and deploy the end result to the cloud.</p>
+                <p>Presented by Matt Raible (<a href="https://twitter.com/mraible">@mraible</a>)</p>
+                <p>Published on 25 Jun 2019</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ktnvqoouulg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
@@ -106,8 +123,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -133,6 +148,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -146,8 +163,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -174,6 +189,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -187,8 +204,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -215,6 +230,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -228,8 +245,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -257,21 +272,21 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/kkHN2G_nXV0" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Get hip with JHipster 3.0<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <h3 id="thumbnail-label">Get Hip with JHipster 3.0<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
                 <p>This is the video of a JHipster 3.0 presentation for Devoxx, France.</p>
                 <p>Presented by Matt Raible (<a href="https://twitter.com/mraible">@mraible</a>)</p>
                 <p>Published on 9 May 2016</p>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -298,6 +313,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -311,8 +328,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -334,13 +349,15 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/baVOGuFIe9M" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Get hip with JHipster 2.0<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <h3 id="thumbnail-label">Get Hip with JHipster 2.0<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
                 <p>This is the video of a JHipster 2.0 presentation for Devoxx, Belgium.</p>
                 <p>Presented by Matt Raible (<a href="https://twitter.com/mraible">@mraible</a>)</p>
                 <p>Published on 11 Nov 2015</p>
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
