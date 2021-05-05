@@ -28,9 +28,9 @@ When the Elasticsearch option is selected:
 
 ### Using in Development
 
-In development, JHipster runs with an embedded Elasticsearch instance. You can also use an external Elasticsearch instance if you set a `SPRING_DATA_JEST_URI` environment variable (or add a `spring.data.jest.uri` property to your `application-dev.yml`). 
+In development, you need to use an external Elasticsearch instance by setting a `SPRING_DATA_JEST_URI` environment variable (or add a `spring.data.jest.uri` property to your `application-dev.yml`). 
 
-The easiest way to run an external Elasticsearch instance is to use the provided Docker Compose configuration:
+Alternatively, the easiest way to run an external Elasticsearch instance is to use the provided Docker Compose configuration:
 
     docker-compose -f src/main/docker/elasticsearch.yml up -d
     
