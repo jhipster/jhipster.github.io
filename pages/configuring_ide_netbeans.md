@@ -9,9 +9,9 @@ sitemap:
     lastmod: 2016-08-20T18:40:00-00:00
 ---
 
-# <i class="fa fa-keyboard-o"></i> Configuring Netbeans
+# <i class="fa fa-keyboard-o"></i> Configuring Apache Netbeans
 
-Importing your JHipster application in Netbeans is straightforward.
+Importing your JHipster application in NetBeans is straightforward.
 
 ## 1. Open your project
 
