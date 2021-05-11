@@ -557,7 +557,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   <tr>
     <td>testFrameworks</td>
     <td>[]</td>
-    <td>protractor, cucumber, gatling</td>
+    <td>cypress, protractor, cucumber, gatling</td>
     <td>Braces mandatory</td>
   </tr>
   <tr>
