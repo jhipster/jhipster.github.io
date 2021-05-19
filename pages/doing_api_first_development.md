@@ -98,8 +98,8 @@ When using IntelliJ
 
 ### Using the `openapi-client` Sub-Generator
 
-JHipster also provides support for generation of client code using [Spring-Cloud FeignClients](https://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign) using an OpenAPI/Swagger specification.
-The generated FeignClient can be used in both Monolithic and Micro-service applications and supports Swagger v2 and OpenAPI v3 definitions. To invoke this sub-generator run `jhipster openapi-client`.
+JHipster also provides support for generation of client code using [Spring-Cloud FeignClients or Java webclient for reactive apps](https://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign) using an OpenAPI/Swagger specification.
+The generated Client can be used in both Monolithic and Micro-service applications and supports Swagger v2 and OpenAPI v3 definitions. To invoke this sub-generator run `jhipster openapi-client`.
 
 
 
