@@ -19,7 +19,7 @@ First, generate the entities in the microservices applications: this works as us
 
 Then, on the gateway(s), run the entity sub-generator again. A new question will appear at the beginning, which is specific to gateways:
 
-- You will have the choice either to generate an new entity normally (a gateway is also a standard JHipster application, so this would work like for a monolith application), or use an existing JHipster configuration from a microservice.
+- You will have the choice either to generate a new entity normally (a gateway is also a standard JHipster application, so this would work like for a monolith application), or use an existing JHipster configuration from a microservice.
 - If you choose to generate the entity from a microservice, you will need to enter the path to this microservice on your local computer, and then JHipster will generate the front-end code on the gateway.
 
 ## <a name="hazelcast"></a> Distributed caching with Hazelcast
