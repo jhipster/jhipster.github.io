@@ -35,6 +35,18 @@ sitemap:
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/clkEUHWT9-M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Build Reactive Java Microservices with Spring Boot and JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/mraible">Matt Raible</a> shows how to create a reactive microservices architecture with Spring Boot and JHipster.</p>
+                <p>Published on 13 May 2021</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/hfIIGc5lkME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
@@ -56,6 +68,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -68,8 +82,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -94,6 +106,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -109,8 +123,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -136,6 +148,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -148,8 +162,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -176,6 +188,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -189,8 +203,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -217,6 +229,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -230,8 +244,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -258,6 +270,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -272,8 +286,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -300,6 +312,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -313,8 +327,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -343,6 +355,8 @@ sitemap:
             </div>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
@@ -356,8 +370,6 @@ sitemap:
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
