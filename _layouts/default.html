@@ -215,10 +215,26 @@
                                     </div>
                                 </div>
                             </li>
-                            <li {% if '/jdl/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/"><span class="icon fa fa-fw fa-star"></span><span class="title">JDL</span></a></li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-5"><span class="icon fa fa-fw fa-sitemap"></span><span class="title">Microservices</span></a>
-                                <div id="dropdown-5" class="panel-collapse collapse">
+                                <a data-toggle="collapse" href="#dropdown-5"><span class="icon fa fa-fw fa-star"></span><span class="title">JDL</span></a>
+                                <div id="dropdown-5" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav">
+                                            <li {% if '/jdl/intro' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/intro"><i class="fa fa-fw fa-star"></i>Overview</a></li>
+                                            <li {% if '/jdl/applications' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/applications"><i class="fa fa-fw fa-rocket"></i> Applications</a></li>
+                                            <li {% if '/jdl/entities-fields' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/entities-fields"><i class="fa fa-fw fa-bolt"></i> Entities & fields</a></li>
+                                            <li {% if '/jdl/enums' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/enums"><i class="fa fa-fw fa-bolt"></i> Enums</a></li>
+                                            <li {% if '/jdl/relationships' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/relationships"><i class="fa fa-fw fa-sitemap"></i> Relationships</a></li>
+                                            <li {% if '/jdl/options' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/options"><i class="fa fa-fw fa-puzzle-piece"></i> Options</a></li>
+                                            <li {% if '/jdl/deployments' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/deployments"><i class="fa fa-fw fa-cloud-upload"></i> Deployments</a></li>
+                                            <li {% if '/jdl/troubleshooting' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/troubleshooting"><i class="fa fa-fw fa-cogs"></i> Troubleshooting</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel panel-default dropdown">
+                                <a data-toggle="collapse" href="#dropdown-6"><span class="icon fa fa-fw fa-sitemap"></span><span class="title">Microservices</span></a>
+                                <div id="dropdown-6" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/microservices-architecture/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-architecture/"><i class="fa fa-fw fa-map-signs"></i> Overview</a></li>
@@ -233,8 +249,8 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-6"><span class="icon fa fa-fw fa-puzzle-piece"></span><span class="title">Options</span></a>
-                                <div id="dropdown-6" class="panel-collapse collapse">
+                                <a data-toggle="collapse" href="#dropdown-7"><span class="icon fa fa-fw fa-puzzle-piece"></span><span class="title">Options</span></a>
+                                <div id="dropdown-7" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/security/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/security/"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
@@ -254,8 +270,8 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-7"><span class="icon fa fa-fw fa-code"></span><span class="title">Development</span></a>
-                                <div id="dropdown-7" class="panel-collapse collapse">
+                                <a data-toggle="collapse" href="#dropdown-8"><span class="icon fa fa-fw fa-code"></span><span class="title">Development</span></a>
+                                <div id="dropdown-8" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/development/"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
@@ -274,8 +290,8 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-8"><span class="icon fa fa-fw fa-umbrella"></span><span class="title">Test &amp; QA</span></a>
-                                <div id="dropdown-8" class="panel-collapse collapse">
+                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-umbrella"></span><span class="title">Test &amp; QA</span></a>
+                                <div id="dropdown-9" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/running-tests/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/running-tests/"><i class="fa fa-fw fa-shield"></i> Running tests</a></li>
@@ -287,8 +303,8 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-9"><span class="icon fa fa-fw fa-cloud"></span><span class="title">Production</span></a>
-                                <div id="dropdown-9" class="panel-collapse collapse">
+                                <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-cloud"></span><span class="title">Production</span></a>
+                                <div id="dropdown-10" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/production/"><i class="fa fa-fw fa-play-circle"></i> Using in production</a></li>
@@ -308,8 +324,8 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Modules &amp; Blueprints</span></a>
-                                <div id="dropdown-10" class="panel-collapse collapse" style="height: 0px;">
+                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Modules &amp; Blueprints</span></a>
+                                <div id="dropdown-11" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/modules/official-blueprints/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/official-blueprints/"><i class="fa fa-fw fa-star"></i> Official blueprints</a></li>
@@ -322,8 +338,8 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Tools</span></a>
-                                <div id="dropdown-11" class="panel-collapse collapse" style="height: 0px;">
+                                <a data-toggle="collapse" href="#dropdown-12"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Tools</span></a>
+                                <div id="dropdown-12" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li><a href="https://start.jhipster.tech/jdl-studio/"><i class="fa fa-fw fa-terminal"></i> JDL Studio</a></li>
@@ -338,8 +354,8 @@
                             </li>
 
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-12"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
-                                <div id="dropdown-12" class="panel-collapse collapse" style="height: 0px;">
+                                <a data-toggle="collapse" href="#dropdown-13"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
+                                <div id="dropdown-13" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/help/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/help/"><i class="fa fa-fw fa-users"></i> Community help</a></li>

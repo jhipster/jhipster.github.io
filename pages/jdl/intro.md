@@ -1,7 +1,9 @@
 ---
 layout: default
 title: JHipster Domain Language
-permalink: /jdl/
+permalink: /jdl/intro
+redirect_from:
+  - /jdl/
 sitemap:
     priority: 0.5
     lastmod: 2019-10-27T12:00:00-00:00
