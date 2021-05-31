@@ -67,7 +67,8 @@ Starting from JHipster Core v6, enum values can have explicit values:
 enum Country {
   BELGIUM (Belgium),
   FRANCE (France),
-  ITALY (Italy)
+  ITALY (Italy),
+  CHINA ("中国")
 }
 ```
 
