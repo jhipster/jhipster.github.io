@@ -144,18 +144,6 @@ entity.
 
 ---
 
-#### With joint fields
-
-Used to specify which column in the entities are used for the join (default to `id`).
-
-```jdl
-relationship OneToOne {
-  A{b(name)} to B{a(name)}
-}
-```
-
-It roughly translates to SQL: `JOIN B b with a.name = b.name`
-
 ---
 
 #### With methods
