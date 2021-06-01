@@ -64,7 +64,7 @@ The ELK stack is often used for log aggregation and search, it consists of the f
 - [Kibana](https://www.elastic.co/products/kibana) to visualize the logs with a nice interface
 
 <div class="alert alert-warning"><i> Warning: </i>
-JHipster supports forwarding logs to Logstash, however as of JHipster version 7, we do not provide any ELK stack docker deployment and ready to use dashboards. This used to be part of the [JHipster Console](https://github.com/jhipster/jhipster-console) subproject that is no longer maintained. We advise existing users to migrate to another ELK solution.</div>
+JHipster supports forwarding logs to Logstash, however as of JHipster version 7, we do not provide any ELK stack docker deployment and ready to use dashboards. This used to be part of the <a href="https://github.com/jhipster/jhipster-console">JHipster Console</a> subproject that is no longer maintained. We advise existing users to migrate to another ELK solution.</div>
 
 
 ### Forwarding logs to Logstash
