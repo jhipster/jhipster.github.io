@@ -4,7 +4,7 @@ title: JHipster Domain Language - Deployments
 permalink: /jdl/deployments
 sitemap:
     priority: 0.5
-    lastmod: 2021-03-08T12:00:00-00:00
+    lastmod: 2021-06-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Deployments
@@ -50,14 +50,14 @@ deployment {
 If you want more than one deployment, here's how you do it:
 
 ```
-// will be created under 'docker-compose' folder
+// will be created under the 'docker-compose' folder
 deployment {
   deploymentType docker-compose
   appsFolders [foo, bar]
   dockerRepositoryName "yourDockerLoginName"
 }
 
-// will be created under 'kubernetes' folder
+// will be created under the 'kubernetes' folder
 deployment {
   deploymentType kubernetes
   appsFolders [foo, bar]
@@ -152,6 +152,18 @@ Here are the deployment options supported in the JDL:
     <td>Applicable only when deploymentType is kubernetes</td>
   </tr>
   <tr>
+    <td>kubernetesUseDynamicStorage</td>
+    <td>false</td>
+    <td>true, false</td>
+    <td>Applicable only when deploymentType is kubernetes, enables the kubernetesStorageClassName option</td>
+  </tr>
+  <tr>
+    <td>kubernetesStorageClassName</td>
+    <td>""</td>
+    <td></td>
+    <td>Applicable only when deploymentType is kubernetes, can be left empty (two double-quotes)</td>
+  </tr>
+  <tr>
     <td>kubernetesServiceType</td>
     <td>LoadBalancer</td>
     <td>LoadBalancer, NodePort, Ingress</td>
@@ -162,6 +174,12 @@ Here are the deployment options supported in the JDL:
     <td></td>
     <td></td>
     <td>The domain for Ingress when kubernetesServiceType is `Ingress`. Must be in double quotes. Applicable only when deploymentType is kubernetes</td>
+  </tr>
+  <tr>
+    <td>ingressType</td>
+    <td>nginx</td>
+    <td>nginx, gke</td>
+    <td>The kubernetes ingress type</td>
   </tr>
   <tr>
     <td>istio</td>
@@ -180,5 +198,11 @@ Here are the deployment options supported in the JDL:
     <td>ephemeral</td>
     <td>ephemeral, persistent</td>
     <td>Applicable only when deploymentType is openshift</td>
+  </tr>
+  <tr>
+    <td>registryReplicas</td>
+    <td>2</td>
+    <td></td>
+    <td>The number of replicas, when using the openshift deployment type</td>
   </tr>
 </table>
