@@ -11,7 +11,8 @@ This is the first minor release of JHipster v7 with [817 closed tickets and merg
 Breaking changes
 ------------
 
-- Redux toolkit migration - [#15033](https://github.com/jhipster/generator-jhipster/issues/15033)
+- React: Redux toolkit migration - [#15033](https://github.com/jhipster/generator-jhipster/issues/15033)
+- React: Migrate to react-hook-form from availity-reactstrap-validation - [#15191](https://github.com/jhipster/generator-jhipster/pull/15191)
 
 Most important new features and upgrades
 -------------
