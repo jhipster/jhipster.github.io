@@ -54,6 +54,7 @@ These are the currently supported languages
 *   Polish 
 *   Portuguese (Brazilian)
 *   Portuguese 
+*   Punjabi
 *   Romanian 
 *   Russian 
 *   Slovak 
