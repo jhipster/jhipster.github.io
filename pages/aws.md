@@ -15,31 +15,36 @@ sitemap:
 
 ## *aws* sub-generator
 
-An instance based sub-generator for deploying applications via Elastic Beanstalk. This is great (and very cheap!) for small applications.
-
-This sub-generator allows to deploy automatically your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/) using [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html).
+This sub-generator allows you to automatically deploy your JHipster application to the [Amazon AWS cloud](https://aws.amazon.com/) using [AWS Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html) to provision the infrastructure.
 
 <div class="alert alert-info"> <i>Tip:</i> As an alternative to Elastic Beanstalk you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/boxfuse/">Boxfuse</a>.  
 Boxfuse comes with first-class support for JHipster as well as support for both MySQL and PostgreSQL databases.</div>
 
 ### Limitations
 
-*   You can only use it with a SQL database (Oracle and Microsoft SQL Server aren't supported).
-*   Websockets doesn't work behind the load balancer by default.
+*   You can only use it with a SQL database (but note that Oracle and Microsoft SQL Server aren't supported).
+*   Websockets don't work behind the load balancer by default.
 
 ### Prerequisites
 
-Before running the sub-generator, you need to setup your AWS SDK credentials. Log in with your Amazon AWS account and create a user for your JHipster application. To grant this user the required permissions attach the `AWSElasticBeanstalkFullAccess`, `AmazonRDSFullAccess` and `IAMFullAccess` policies.
+Before running the sub-generator, create AWS SDK credentials so that JHipster can deploy to Elastic Beanstalk. 
 
-After that create a credentials file at `~/.aws/credentials` on Mac/Linux or `C:\Users\USERNAME\.aws\credentials` on Windows.
+Log into your Amazon AWS account and create an IAM user with programmatic access. 
 
-```
+Attach the following policies to grant the user the necessary permissions:
+- `AdministratorAccess-AWSElasticBeanstalk` (formerly `AWSElasticBeanstalkFullAccess`, now deprecated)
+- `AmazonRDSFullAccess` and
+- `IAMFullAccess`.
+
+Create the user and download the `csv` file with the new credentials. Use them to create a credentials file called `~/.aws/credentials` on Mac/Linux or `C:\Users\USERNAME\.aws\credentials` on Windows, as follows:
+```ini
 [default]
 aws_access_key_id = your_access_key
 aws_secret_access_key = your_secret_key
 ```
+If you already have a `default` profile, create a new named profile and set the environment variable `AWS_PROFILE` to the new profile name (see [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) for details).
 
-If you use a named profile different than `default`, you have to set the environment variable `AWS_PROFILE` with the correct profile.
+Test your access by executing `aws sts get-caller-identity`.
 
 ### Deploying your application
 
@@ -47,15 +52,24 @@ To deploy your application to Amazon AWS, type:
 
 `jhipster aws`
 
+You will be prompted for:
+- Application name: Name of the collection of Elastic Beanstalk components that make up the application (default is the project name)
+- Environment name: Name of the AWS resource environment that will run the application
+- Name of S3 bucket: Holds the static web components
+- Database name: name of the RDS database
+- Database username: RDS database username
+- Database password: [hidden]
+- On which EC2 instance type do you want to deploy? Select the capacity of the AWS EC2 virtual machine 
+- On which RDS instance class do you want to deploy? Select the capacity of the RDS database instance
+- On which region do you want to deploy? Select the AWS region to host the instance
+
 This should package your application in "production" mode, create a Beanstalk application (with a SQL database), upload your code on S3, and start the application.
 
 ### Updating your deployed application
 
-When your application is already deployed, you can re-deploy it by run the sub-generator again:
+You can update a deployed application by running the sub-generator again with `jhipster aws`.
 
-`jhipster aws`
-
-The sub generator ask your database credentials again but they will be ignored during the update.
+Note that you will be prompted for your database credentials again but they will be ignored during the update.
 
 ### Deleting your application
 
