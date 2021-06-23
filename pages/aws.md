@@ -53,15 +53,15 @@ To deploy your application to Amazon AWS, type:
 `jhipster aws`
 
 You will be prompted for:
-- Application name: 
-- Environment name: 
-- Name of S3 bucket: 
-- Database name: 
-- Database username: 
+- Application name: Name of the collection of Elastic Beanstalk components (defaults to project name)
+- Environment name: Name of the AWS resource environment that will run the application
+- Name of S3 bucket: Holds static web components
+- Database name: RDS database name
+- Database username: RDS database username
 - Database password: [hidden]
-- On which EC2 instance type do you want to deploy? 
-- On which RDS instance class do you want to deploy? 
-- On which region do you want to deploy? 
+- On which EC2 instance type do you want to deploy? Select the capacity of the AWS virtual machine 
+- On which RDS instance class do you want to deploy? Select the capacity of the RDS instance
+- On which region do you want to deploy? Select the AWS region to host the instance
 
 This should package your application in "production" mode, create a Beanstalk application (with a SQL database), upload your code on S3, and start the application.
 
