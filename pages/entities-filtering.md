@@ -44,9 +44,9 @@ For each entity, you can enable filtering in the entity generator, and after, yo
         - To list all the entities, where xyz is greater than 'someValue'.
     * *xyz.lessThan=someValue*
         - To list all the entities, where xyz is less than 'someValue'.
-    * *xyz.greaterOrEqualThan=someValue*
+    * *xyz.greaterThanOrEqual=someValue*
         - To list all the entities, where xyz is greater than or equal to 'someValue'.
-    * *xyz.lessOrEqualThan=someValue*
+    * *xyz.lessThanOrEqual=someValue*
         - To list all the entities, where xyz is less than or equal to 'someValue'.
 
 They can be combined freely.
@@ -71,10 +71,10 @@ When using Angular, the proper way to take advantage of this useful feature woul
 ```javascript
 this.bookService.query({'title.equals':someValue}).subscribe(...);
 ```
-* greaterThan (same applies for `lessThan`, `greaterOrEqualThan` and `lessOrEqualThan` when using `date` and `number` data types)
+* greaterThan (same applies for `lessThan`, `greaterThanOrEqual` and `lessThanOrEqual` when using `date` and `number` data types)
 ```javascript
 this.bookService.query({'id.greaterThan':value}).subscribe(...);
-this.bookService.query({'birthday.lessOrEqualThan':value}).subscribe(...);
+this.bookService.query({'birthday.lessThanOrEqual':value}).subscribe(...);
 ```
 * In (same applies for `notIn`)
 ```javascript
