@@ -119,7 +119,7 @@ The new language `new_lang` is now available in the language menu, and it is ava
 
 If you would like to contribute a new language to the generator follow steps below;
 
-- Add the language to the `LANGUAGES` constant in [`generators/gnerator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js)
+- Add the language to the `LANGUAGES` constant in [`generators/generator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js)
 
         { name: 'New Language', dispName: 'New Language', value: 'nl' }
 
