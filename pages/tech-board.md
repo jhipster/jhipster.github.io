@@ -7,7 +7,7 @@ sitemap:
     lastmod: 2021-03-31T00:00:00-00:00
 ---
 
-# JHipster Technical board
+# Technology Advisory Board
 
 JHipster is supported by a technical board that ensures the platform continues to reflect and serve its diverse and growing user community. 
 The Board discusses and makes recommendations regarding the roadmap and technical directions.
