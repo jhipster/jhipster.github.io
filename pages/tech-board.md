@@ -28,7 +28,6 @@ The board meets quarterly, with the ability to meet more frequently if needed.
 Current members:
 * Julien Dubois (Microsoft)
 * Deepu K Sasidharan (Adyen)
-* Pascal Grimaud (Ippon technologies)
 * Matt Raible (Okta)
 * Paul Hinz (Entando)
 
