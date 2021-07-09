@@ -4,7 +4,7 @@ title: JHipster Domain Language - Deployments
 permalink: /jdl/deployments
 sitemap:
     priority: 0.5
-    lastmod: 2021-06-08T12:00:00-00:00
+    lastmod: 2021-07-08T12:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Deployments
@@ -179,7 +179,7 @@ Here are the deployment options supported in the JDL:
     <td>ingressType</td>
     <td>nginx</td>
     <td>nginx, gke</td>
-    <td>The kubernetes ingress type</td>
+    <td>The kubernetes ingress type, only set when `kubernetesServiceType` is set to Ingress</td>
   </tr>
   <tr>
     <td>istio</td>
