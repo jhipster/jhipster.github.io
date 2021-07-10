@@ -85,11 +85,12 @@ To work better with Hazelcast, JHipster includes support for the Hazelcast Manag
 
 ## Caching with Infinispan
 
-[Infinispan](http://infinispan.org/) is a highly performant caching solution that can work as an in-memory local cache as well as clustered cache. It offers support for multiple cache modes,
-  - [local](http://infinispan.org/docs/stable/user_guide/user_guide.html#local_mode)
-  - [invalidation](http://infinispan.org/docs/stable/user_guide/user_guide.html#invalidation_mode)
-  - [distributed](http://infinispan.org/docs/stable/user_guide/user_guide.html#replicated_mode)
-  - [replicated](http://infinispan.org/docs/stable/user_guide/user_guide.html#distribution_mode)
+[Infinispan](http://infinispan.org/) is a highly performant caching solution that can work as an in-memory local cache as well as clustered cache. It offers support for multiple cache modes:
+  - [Local](https://infinispan.org/docs/9.4.x/user_guide/user_guide.html#local_mode)
+  - [Invalidation](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#invalidation_mode)
+  - [Distributed](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#replicated_mode)
+  - [Replicated](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#distribution_mode)
+  - [Scattered](https://infinispan.org/docs/9.4.x/user_guide/user_guide.html#scattered_mode)
 
 With JHipster, Infinispan can be used:
 
