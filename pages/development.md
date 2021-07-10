@@ -163,10 +163,10 @@ This option is bit more complex than using H2, but you have a some important ben
 
 **Note**: for MySQL, you probably need to start your database with these options:
 
-*   `--lower_case_table_names=1` : see the [documentation](https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html)
-*   `--skip-ssl` : see the [documentation](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connection-options.html#option_general_ssl)
-*   `--character_set_server=utf8` : see the [documentation](https://dev.mysql.com/doc/refman/5.7/en/server-options.html#option_mysqld_character-set-server)
-*   `--explicit_defaults_for_timestamp` : see the [documentation](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp)
+*   `--lower_case_table_names=1`: see the [MySQL Schema Object Names documentation](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html)
+*   `--skip-ssl`: see the [MySQL Server Options documentation](https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_ssl)
+*   `--character_set_server=utf8`: see the [MySQL Server System Variables documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_character_set_server)
+*   `--explicit_defaults_for_timestamp` : see the [MySQL Server System Variables documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp)
 
 The command is:
 

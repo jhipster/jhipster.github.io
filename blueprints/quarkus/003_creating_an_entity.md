@@ -78,4 +78,4 @@ Everything is configured, generating the entity...
 ## JHipster UML and JDL Studio
 
 JHipster Quarkus supports JDL imports.
-Refer to the according JHipster UML and JDL Studio section in the *[creating-an-entity](http://localhost:4000/creating-an-entity/)* tutorial.
+Refer to the according JHipster UML and JDL Studio section in the *[creating-an-entity](https://www.jhipster.tech/creating-an-entity/)* tutorial.
