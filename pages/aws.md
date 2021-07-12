@@ -34,7 +34,7 @@ Log into your Amazon AWS account and create an IAM user with programmatic access
 Attach the following policies to grant the user the necessary permissions:
 - `AdministratorAccess-AWSElasticBeanstalk`
 - `AmazonS3FullAccess`
-- `AmazonRDSFullAccess
+- `AmazonRDSFullAccess`
 - `IAMFullAccess`
 
 Create the user and download the `csv` file with the new credentials. Use them to create a credentials file called `~/.aws/credentials` on Mac/Linux or `C:\Users\USERNAME\.aws\credentials` on Windows, as follows:
