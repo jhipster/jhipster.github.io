@@ -17,6 +17,7 @@ Additionally, these filters should follow a resonable, and concise pattern, and 
 
 ## How to activate
 
+_Note_: `filter` is not compatible with `reactive`.
 When generating an entity with `jhipster entity` command, select services or service implementation to enable filtering on this entity. 
 
 If you want to enable filtering for existing entities, you can modify the entity configuration in your projects `.jhipster` directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true` and then re-generate with `jhipster entity <entity name>`.
