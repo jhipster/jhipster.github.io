@@ -190,6 +190,84 @@ The Okta developer blog also has some ❤️ for Micronaut and Quarkus:
 - [Build a Secure Micronaut and Angular App with JHipster](https://developer.okta.com/blog/2020/08/17/micronaut-jhipster-heroku)
 - [Fast Java Made Easy with Quarkus and JHipster](https://developer.okta.com/blog/2021/03/08/jhipster-quarkus-oidc)
 
+### Auth0
+
+If you'd like to use [`Auth0`](https://auth0.com/) instead of `Keycloak`, you can follow the below configuration steps:
+
+#### Create an OIDC App using Auth0 Admin Dashboard
+- Create a free developer account at <https://auth0.com/signup>. After successful sign-up, your account shall be associated with a unique domain like `dev-xxx.us.auth0.com`
+- Create a new application of type `Regular Web Applications`. Switch to the `Settings` tab, and configure your application settings like:
+    - Allowed Callback URLs: `http://localhost:8080/login/oauth2/code/oidc`
+    - Allowed Logout URLs: `http://localhost:8080/`
+- Navigate to **User Management** > **Roles** and create new roles named `ROLE_ADMIN`, and `ROLE_USER`.
+- Navigate to **User Management** > **Users** and create a new user account. Click on the **Role** tab to assign roles to the newly created user account.
+- Navigate to **Auth Pipeline** > **Rules** and create a new Rule. Choose `Empty rule` template. Provide a meaningful name like `JHipster claims` and replace `Script` content with the following and Save.
+```javascript
+function (user, context, callback) {
+  user.preferred_username = user.email;
+  const roles = (context.authorization || {}).roles;
+  function prepareCustomClaimKey(claim) {
+    return `https://www.jhipster.tech/${claim}`;
+  }
+  const rolesClaim = prepareCustomClaimKey('roles');
+  if(context.idToken) {
+  	context.idToken[rolesClaim] = roles;
+  }
+  if(context.accessToken) {
+  	context.accessToken[rolesClaim] = roles;
+  }
+  callback(null, user, context);
+}
+```
+#### Configure JHipster Application to use Auth0 as OIDC Provider
+- In your `JHipster` application, modify `src/main/resources/config/application.yml` to use `Auth0` application configurations:
+```yaml
+spring:
+  ...
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: https://{your-auth0-domain}/
+        registration:
+          oidc:
+            client-id: {clientId}
+            client-secret: {clientSecret}
+jhipster:
+  ...
+  security:
+    oauth2:
+      audience:
+        - https://{your-auth0-domain}/api/v2/
+```
+If you have a doubt on the `issuer-uri` value, then, you can get the value from **Applications** > **{Your Application}** > **Settings** > **Advanced Settings** > **Endpoints** > **OpenID Configuration** field value. Remove `.well-known/openid-configuration` suffix as that shall be added by the spring security.
+
+You can use the default `Auth0 Management API` audience value from the **Applications** > **API** > **API Audience** field. You can also define your own custom API and use the identifier as the API  audience.
+
+- Before running `Cypress` tests, specify `Auth0` user details by overriding `E2E_USERNAME`, and `E2E_PASSWORD` cypress environment variables. Refer to cypress [documentation](https://docs.cypress.io/guides/guides/environment-variables#Setting) for more details.
+```shell
+export CYPRESS_E2E_USERNAME=<your-username>
+export CYPRESS_E2E_PASSWORD=<your-password>
+```
+
+_Note_: Auth0 requires a user to provide authorization consent on the first login. Consent flow is currently not handled in the cypress test suite. To mitigate the issue, you can use a user account that has already granted consent to authorize application access via interactive login.
+
+##### Using Environment Variables
+
+You can also use environment variables to override the defaults. For example:
+
+```bash
+export SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI="https://{your-auth0-domain}/"
+export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID="{client-id}"
+export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="{client-secret}"
+export JHIPSTER_SECURITY_OAUTH2_AUDIENCE="https://{your-auth0-domain}/api/v2/"
+```
+
+You can put this in an `~/.auth0.env` file, run `source ~/.auth0.env` to override `Keycloak` with `Auth0` and start your app with Maven or Gradle. You should be able to sign in with the credentials you registered with.
+
+_Note_: If you're on `Windows`, you should install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) so the `source` command will work.
+
 ## <a name="https"></a> HTTPS
 
 You can force the use of HTTPS by adding the following configuration to your `SecurityConfiguration.java`.
