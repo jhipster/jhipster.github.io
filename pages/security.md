@@ -192,7 +192,7 @@ The Okta developer blog also has some ❤️ for Micronaut and Quarkus:
 
 ### Auth0
 
-If you'd like to use [`Auth0`](https://auth0.com/) instead of `Keycloak`, you can follow the below configuration steps:
+If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, you can follow the below configuration steps:
 
 #### Create an OIDC App using Auth0 Admin Dashboard
 - Create a free developer account at <https://auth0.com/signup>. After successful sign-up, your account shall be associated with a unique domain like `dev-xxx.us.auth0.com`
