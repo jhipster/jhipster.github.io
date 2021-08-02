@@ -220,7 +220,7 @@ function (user, context, callback) {
 }
 ```
 #### Configure JHipster Application to use Auth0 as OIDC Provider
-- In your `JHipster` application, modify `src/main/resources/config/application.yml` to use `Auth0` application configurations:
+- In your `JHipster` application, modify `src/main/resources/config/application.yml` to use your Auth0 settings:
 ```yaml
 spring:
   ...
@@ -241,17 +241,17 @@ jhipster:
       audience:
         - https://{your-auth0-domain}/api/v2/
 ```
-If you have a doubt on the `issuer-uri` value, then, you can get the value from **Applications** > **{Your Application}** > **Settings** > **Advanced Settings** > **Endpoints** > **OpenID Configuration** field value. Remove `.well-known/openid-configuration` suffix as that shall be added by the spring security.
+If you have a doubt on the `issuer-uri` value, then, you can get the value from **Applications** > **{Your Application}** > **Settings** > **Advanced Settings** > **Endpoints** > **OpenID Configuration**. Remove `.well-known/openid-configuration` suffix since that will be added by the Spring Security.
 
 You can use the default `Auth0 Management API` audience value from the **Applications** > **API** > **API Audience** field. You can also define your own custom API and use the identifier as the API  audience.
 
-- Before running `Cypress` tests, specify `Auth0` user details by overriding `E2E_USERNAME`, and `E2E_PASSWORD` cypress environment variables. Refer to cypress [documentation](https://docs.cypress.io/guides/guides/environment-variables#Setting) for more details.
+- Before running `Cypress` tests, specify `Auth0` user details by overriding the `E2E_USERNAME` and `E2E_PASSWORD` environment variables. Refer to [Cypress documentation](https://docs.cypress.io/guides/guides/environment-variables#Setting) for more details.
 ```shell
 export CYPRESS_E2E_USERNAME=<your-username>
 export CYPRESS_E2E_PASSWORD=<your-password>
 ```
 
-_Note_: Auth0 requires a user to provide authorization consent on the first login. Consent flow is currently not handled in the cypress test suite. To mitigate the issue, you can use a user account that has already granted consent to authorize application access via interactive login.
+_Note_: Auth0 requires a user to provide authorization consent on the first login. Consent flow is currently not handled in the Cypress test suite. To mitigate the issue, you can use a user account that has already granted consent to authorize application access via interactive login.
 
 ##### Using Environment Variables
 
@@ -264,7 +264,7 @@ export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="{client-se
 export JHIPSTER_SECURITY_OAUTH2_AUDIENCE="https://{your-auth0-domain}/api/v2/"
 ```
 
-You can put this in an `~/.auth0.env` file, run `source ~/.auth0.env` to override `Keycloak` with `Auth0` and start your app with Maven or Gradle. You should be able to sign in with the credentials you registered with.
+You can put this in an `~/.auth0.env` file and run `source ~/.auth0.env` to override the default Keycloak settings with Auth0 and start your app with Maven or Gradle. You should be able to sign in with the credentials you registered with.
 
 _Note_: If you're on `Windows`, you should install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) so the `source` command will work.
 
