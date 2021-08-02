@@ -206,15 +206,16 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, you can fo
 function (user, context, callback) {
   user.preferred_username = user.email;
   const roles = (context.authorization || {}).roles;
+
   function prepareCustomClaimKey(claim) {
     return `https://www.jhipster.tech/${claim}`;
   }
   const rolesClaim = prepareCustomClaimKey('roles');
-  if(context.idToken) {
-  	context.idToken[rolesClaim] = roles;
+  if (context.idToken) {
+    context.idToken[rolesClaim] = roles;
   }
-  if(context.accessToken) {
-  	context.accessToken[rolesClaim] = roles;
+  if (context.accessToken) {
+    context.accessToken[rolesClaim] = roles;
   }
   callback(null, user, context);
 }
