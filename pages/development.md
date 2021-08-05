@@ -138,7 +138,7 @@ If you use a non-embedded database, like MySQL, MariaDB, PostgreSQL, MSSQL, Mong
 
 The easiest and recommended way with JHipster is to use Docker Compose. [Follow our Docker Compose guide here.]({{ site.url }}/docker-compose/)
 
-If you prefer to install and configure your database manually, don't forget to configure your Spring Boot properties accordingly in your `src/main/resources/config/application-*.yml` files (for example your database URL, login and password).
+If you prefer to install and configure your database manually, you must create the schema and its user because Liquibase only creates the objects (tables, indexes, ...) in an existing schema. Then don't forget to configure your Spring Boot properties accordingly in your `src/main/resources/config/application-*.yml` files (for example your database URL, login and password).
 
 ### Using the H2 database in development
 
