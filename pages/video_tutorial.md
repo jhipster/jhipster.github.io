@@ -32,6 +32,18 @@ sitemap:
 ## <i class="fa fa-film"> Other JHipster videos
 
 <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/V1g0aZtPAkw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Generating Fullstack Springboot & Angular 12 Application with JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/bloch_gaetan">Gaëtan Bloch</a> shows how to generate a fullstack application with JHipster and explore the different features: tests (JUnit, Jest, Integration with TestContainers, e2e with Cypress, performance with Gatling), security (JWT), i18n, API documentation (OAS/Swagger), QA (SonarQube, OWASP vulnerabilities check) and CI/CD pipeline (GitHub Actions) and cloud deplyement to Heroku.</p>
+              <p>Streamed live on Aug 04, 2021 at <a href="https://geekle.us/software_architecture">Geekle.us Worldwide Architecture Summit Vol.2</a></p>
+            </div>
+        </div>
+    </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
