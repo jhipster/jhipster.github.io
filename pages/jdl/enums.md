@@ -24,8 +24,8 @@ sitemap:
 Enumeration declaration is done as follows:
 
 ```
-enum [<enum name>] {
-  <ENUM KEY> ([<enum value>])
+enum <enum name> {
+  <ENUM KEY> [(<enum value>)]
 }
 ```
 
