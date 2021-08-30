@@ -142,6 +142,11 @@
                                     <span class="icon fa fa-home"></span><span class="title">Home</span>
                                 </a>
                             </li>
+                            <li {% if '/tech-board' == page.url %}class="active" {% endif %}>
+                                <a href="{{ site.url }}/tech-board/">
+                                    <span class="icon fa fa-rocket"></span><span class="title">JHipster Tech Board</span>
+                                </a>
+                            </li>
                             <li {% if '/releases/' == page.url %}class="active" {% endif %}>
                                 <a href="{{ site.url }}/releases/">
                                     <span class="icon fa fa-file-text-o"></span><span class="title">Release notes</span>
