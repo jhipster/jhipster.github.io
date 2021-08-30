@@ -15,7 +15,7 @@ Microservices are a type of JHipster application, that have no front-end (the An
 
 Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) works a little bit differently in a microservices architecture, as the front-end and the back-end codes are not located in the same application.
 
-First, generate the entities in the microservices applications: this works as usual, and you can also use [JHipster UML]({{ site.url }}/jhipster-uml/) or [JDL Studio](https://start.jhipster.tech/jdl-studio/) to help you generate complex entities and relationships. As microservices don't have a front-end, no Angular/React code will be generated.
+First, generate the entities in the microservices applications: this works as usual, and you can also use [JHipster UML]({{ site.url }}/jhipster-uml/) or [JDL Studio](https://start.jhipster.tech/jdl-studio/) to help you generate complex entities and relationships. As microservices don't have a front-end, no Angular/React code will be generated. The user entity is not accessible in the microservice when using JWT or DTO, only when OAuth2 is use, there is a mechanism in the microservice to extract user data from the token and save it to the microservice's database. So for JWT and DTO you can not use and/or define a relationship with the User entity because it exists only in the gateway database.
 
 Then, on the gateway(s), run the entity sub-generator again. A new question will appear at the beginning, which is specific to gateways:
 
