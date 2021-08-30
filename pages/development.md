@@ -77,7 +77,7 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 If you will use live reload with `npm start` or `yarn start` then you can speed up server start up by excluding webpack tasks by:
 
-`./gradlew -x webapp`
+`./gradlew -x webpack`
 
 Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
 
