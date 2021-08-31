@@ -126,9 +126,9 @@ relationship OneToOne {
   A{b} to B{a}
 }
 ```
-Not specifying an injected field is the short form of using having an bidirectional relationship.
+Not specifying an injected field is the short form of having a bidirectional relationship.
 
-another example:
+Another example:
 ```jdl
 relationship OneToOne {
   A{b} to B
