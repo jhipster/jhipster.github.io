@@ -123,11 +123,19 @@ relationship OneToOne {
 Note that this example is the same as:
 ```jdl
 relationship OneToOne {
+  A{b} to B{a}
+}
+```
+Not specifying an injected field is the short form of having a bidirectional relationship.
+
+Another example:
+```jdl
+relationship OneToOne {
   A{b} to B
 }
 ```
+This will generate a unidirectional relationship. You can only find entity B through entity A, but you cannot find entity A through entity B.
 
-Not specifying an injected field is the short form of using having an unidirectional relationship.
 
 ---
 
