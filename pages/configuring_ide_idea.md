@@ -66,6 +66,10 @@ By default IntelliJ IDEA does not automatically compile files when the applicati
   * Windows : `CTRL+ALT+SHIFT+/`
 * Enter `Registry...` and enable `compiler.automake.allow.when.app.running`
 
+Note: For IntelliJ IDEA version 2021.2
+* Go to `File -> Settings -> Build, Execution, Deployment -> Compiler` and enable "Build project automatically"
+* Go to `File -> Advanced Settings -> Compiler` and enable "Allow auto-make to start even if developed application is currently running"
+
 ## Maven IDE profile
 
 If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
