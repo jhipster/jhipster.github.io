@@ -192,7 +192,7 @@ The Okta developer blog also has some ❤️ for Micronaut and Quarkus:
 
 ### Auth0
 
-If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, you can follow the below configuration steps:
+If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the configuration steps below:
 
 #### Create an OIDC App using Auth0 Admin Dashboard
 - Create a free developer account at <https://auth0.com/signup>. After successful sign-up, your account shall be associated with a unique domain like `dev-xxx.us.auth0.com`
@@ -230,6 +230,7 @@ spring:
       client:
         provider:
           oidc:
+            # make sure to include the ending slash!
             issuer-uri: https://{your-auth0-domain}/
         registration:
           oidc:
@@ -246,7 +247,7 @@ If you have a doubt on the `issuer-uri` value, then, you can get the value from 
 
 You can use the default `Auth0 Management API` audience value from the **Applications** > **API** > **API Audience** field. You can also define your own custom API and use the identifier as the API  audience.
 
-- Before running `Cypress` tests, specify `Auth0` user details by overriding the `E2E_USERNAME` and `E2E_PASSWORD` environment variables. Refer to [Cypress documentation](https://docs.cypress.io/guides/guides/environment-variables#Setting) for more details.
+- Before running `Cypress` tests, specify `Auth0` user details by overriding the `CYPRESS_E2E_USERNAME` and `CYPRESS_E2E_PASSWORD` environment variables. Refer to [Cypress documentation](https://docs.cypress.io/guides/guides/environment-variables#Setting) for more details.
 ```shell
 export CYPRESS_E2E_USERNAME=<your-username>
 export CYPRESS_E2E_PASSWORD=<your-password>
