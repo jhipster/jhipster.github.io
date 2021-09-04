@@ -236,6 +236,7 @@ spring:
           oidc:
             client-id: {clientId}
             client-secret: {clientSecret}
+            scope: openid,profile,email
 jhipster:
   ...
   security:
