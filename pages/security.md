@@ -200,6 +200,7 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
 - Create a new application of type `Regular Web Applications`. Switch to the `Settings` tab, and configure your application settings like:
     - Allowed Callback URLs: `http://localhost:8080/login/oauth2/code/oidc`
     - Allowed Logout URLs: `http://localhost:8080/`
+    - NOTE: If you're using the JHipster Registry, add URLs for port 8761 too.
 - Navigate to **User Management** > **Roles** and create new roles named `ROLE_ADMIN`, and `ROLE_USER`.
 - Navigate to **User Management** > **Users** and create a new user account. Click on the **Role** tab to assign roles to the newly created user account.
 - Navigate to **Auth Pipeline** > **Rules** and create a new Rule. Choose `Empty rule` template. Provide a meaningful name like `JHipster claims` and replace `Script` content with the following and Save.
@@ -247,7 +248,7 @@ jhipster:
 ```
 If you have a doubt on the `issuer-uri` value, then, you can get the value from **Applications** > **{Your Application}** > **Settings** > **Advanced Settings** > **Endpoints** > **OpenID Configuration**. Remove `.well-known/openid-configuration` suffix since that will be added by the Spring Security.
 
-You can use the default `Auth0 Management API` audience value from the **Applications** > **API** > **API Audience** field. You can also define your own custom API and use the identifier as the API  audience.
+You can use the default `Auth0 Management API` audience value from the **Applications** > **API** > **API Audience** field. You can also define your own custom API and use the identifier as the API audience.
 
 - Before running `Cypress` tests, specify `Auth0` user details by overriding the `CYPRESS_E2E_USERNAME` and `CYPRESS_E2E_PASSWORD` environment variables. Refer to [Cypress documentation](https://docs.cypress.io/guides/guides/environment-variables#Setting) for more details.
 ```shell
