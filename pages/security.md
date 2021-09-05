@@ -15,14 +15,14 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 
 By default, JHipster comes with 2 different users:
 
-*   "user", who is a normal user with "ROLE_USER" authorization. The default password is "user"
-*   "admin", who is an admin user with "ROLE_USER" and "ROLE_ADMIN" authorizations. The default password is "admin"
+*   "user", who is a normal user with "ROLE_USER" authorization. The default password is "user".
+*   "admin", who is an admin user with "ROLE_USER" and "ROLE_ADMIN" authorizations. The default password is "admin".
 
 The two authorizations "ROLE_USER" and "ROLE_ADMIN" provide the same access to the entities which means that a "user" is authorized to perform the same CRUD operations as an "admin". This behavior can be an issue when the application will go to production because a "user" can for example delete any entities. More details on how to improve the access-control can be found on this [blog post](https://blog.ippon.tech/improving-the-access-control-of-a-jhipster-application/).
 
 For security reasons, you should change those default passwords in production.
 
-JHipster provides 4 main security mechanisms:
+JHipster provides three main security mechanisms:
 
 1. [JSON Web Tokens (JWT)](#jwt)
 2. [Session-based authentication](#session)
@@ -64,7 +64,7 @@ We have modified the Spring Security remember-me mechanism so that you have a un
 
 ### Cookie theft protection
 
-We have added a very complete cookie theft protection mechanism: we store your security information in a cookie, as well as in the database, and each time a user logs in we modify those values and check if they have been altered. That way, if a someone ever steals your cookie, they will be able to use it only once, at most.
+We have added a very complete cookie theft protection mechanism: we store your security information in a cookie, as well as in the database, and each time a user logs in we modify those values and check if they have been altered. That way, if someone ever steals your cookie, they will be able to use it only once, at most.
 
 <h2 id="oauth2">OAuth 2.0 and OpenID Connect</h2>
 
@@ -97,6 +97,7 @@ spring:
           oidc:
             client-id: web_app
             client-secret: web_app
+            scope: openid,profile,email
 ```
 
 Keycloak uses an embedded H2 database by default, so you will lose the created users if you restart your Docker container. To keep your data, please read the [Keycloak Docker documentation](https://hub.docker.com/r/jboss/keycloak/). One solution, with keeping the H2 database, is to do the following:
