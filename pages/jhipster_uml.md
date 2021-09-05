@@ -214,7 +214,7 @@ As you can see, there are 3 types of reflexivity. JHipster-UML only supports the
 
 
 ### A complete example
-We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
+We use a diagram from the Oracle HR example available [here](https://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
 Here's a screenshot of such a diagram (from Modelio):  
 ![HR UML diagram]({{ site.url }}/images/jhipsteruml_overviewdiagram.png)
@@ -510,7 +510,7 @@ Since v1.6.2, it is now possible to specify table names for entities.
 
 To do that, one has to specify the table name along with the class name like that:
 
-![tablenameimage](http://i.imgur.com/ECdb1bx.png)
+![tablenameimage](https://i.imgur.com/ECdb1bx.png)
 
 The convention `<ENTITY_NAME>\s*(<TABLE_NAME>)` is universal no matter the editor.
 
