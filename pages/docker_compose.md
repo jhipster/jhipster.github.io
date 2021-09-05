@@ -187,7 +187,7 @@ Follow these steps to do so:
 
 Unlike the other databases, where the schema migrations are applied by the application itself, Cassandra schema migrations are applied by a dedicated Docker container.
 
-#### <a name="cassandra-in-development"></a>Cassandra in development
+<h4 id="cassandra-in-development">Cassandra in development</h4>
 To start a Cassandra cluster to run your application locally, you can use the docker_compose file for development use:
 `docker-compose -f src/main/docker/cassandra.yml up -d`
 
