@@ -1633,3 +1633,8 @@ table tr:nth-child(even) {
 
 #content-search-form .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
   color: #3d8acc; }
+
+/* Fix links to relative anchors */
+html {
+  scroll-padding-top: 80px; /* height of your sticky header */
+}
