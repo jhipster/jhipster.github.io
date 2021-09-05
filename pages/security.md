@@ -139,6 +139,7 @@ security:
         oidc:
           client-id: {client-id}
           client-secret: {client-secret}
+          scope: openid,profile,email
 ```
 
 Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do this, log in to your Okta Developer account and navigate to **Applications** > **Applications** > **Add Application** > **Create New App**. Select **Web**, **OpenID Connect**, and click **Create**. Give the app a name you'll remember, and specify `http://localhost:8080/login/oauth2/code/oidc` as a Login redirect URI. Add `http://localhost:8080` as a Logout redirect URI and click **Save**. Copy the client ID and secret into your `application.yml` file.
