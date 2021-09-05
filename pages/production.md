@@ -19,7 +19,7 @@ JHipster generates a fully production-ready, optimized and secured application. 
 4. [Security](#security)
 5. [Monitoring](#monitoring)
 
-## <a name="build"></a> Building a production package
+<h2 id="build">Building a production package</h2>
 
 ### Testing a production build
 
@@ -131,7 +131,7 @@ Considering `jhipster` as the context path, `base` tag value should look like:
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
 
-## <a name="run"></a> Running in production
+<h2 id="run">Running in production</h2>
 
 ### Executing the JAR file without an application server
 
@@ -183,7 +183,7 @@ Considering `jhuser` a non-root OS account that will run the application, then t
 
 There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
 
-## <a name="performance"></a> Performance optimizations
+<h2 id="performance">Performance optimizations</h2>
 
 ### Cache tuning
 
@@ -231,7 +231,7 @@ Those optimized assets will be generated in `target/classes/static` for Maven or
 
 This code will be served when you run the application with the `prod` profile.
 
-## <a name="security"></a> Security
+<h2 id="security">Security</h2>
 
 ### Securing the default user and admin accounts
 
@@ -289,7 +289,7 @@ One of the most common solution would be to use the Apache HTTP server, you can 
 - Configure Let's Encrypt: `certbot --apache -d <your-domain.com> --agree-tos -m <your-email> --redirect`
 - Configure auto-renewal of SSL certificates: add `10 3 * * * /usr/bin/certbot renew --quiet` in your crontab
 
-## <a name="monitoring"></a> Monitoring
+<h2 id="monitoring">Monitoring</h2>
 
 JHipster comes with full monitoring support from [Micrometer](https://micrometer.io/).
 

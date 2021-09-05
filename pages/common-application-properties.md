@@ -19,11 +19,11 @@ In a JHipster application, there are three kinds of properties:
 2. [JHipster application properties](#2)
 3. [Application-specific properties](#3)
 
-## <a name="1"></a> Spring Boot standard application properties
+<h2 id="1">Spring Boot standard application properties</h2>
 
 Like any Spring Boot application, JHipster allows you to configure any standard [Spring Boot application property](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
 
-## <a name="2"></a> JHipster application properties
+<h2 id="2">JHipster application properties</h2>
 
 JHipster provides specific application properties, which come from the [JHipster server-side library](https://github.com/jhipster/jhipster). Those properties are standard for all JHipster projects, but some of them only work depending on what you selected when you built your application: for example the `jhipster.cache.hazelcast` key only works if you selected Hazelcast as your 2nd-level Hibernate cache.
 
@@ -196,7 +196,7 @@ Here is a documentation for those properties:
             display-on-active-profiles: dev
 ```
 
-## <a name="3"></a> Application-specific properties
+<h2 id="3">Application-specific properties</h3>
 
 Your generated application can also have its own Spring Boot properties. This is highly recommended, as it allows type-safe configuration of the application, as well as auto-completion and documentation within an IDE.
 

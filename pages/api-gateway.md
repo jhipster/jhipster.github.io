@@ -20,11 +20,11 @@ JHipster can generate API gateways. A gateway is a normal JHipster application, 
 5. [Rate limiting](#rate_limiting)
 6. [Access control policy](#acl)
 
-## <a name="architecture_diagram"></a> Architecture diagram
+<h2 id="architecture_diagram">Architecture diagram</h2>
 
 <img src="{{ site.url }}/images/microservices_architecture_detail.001.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
 
-## <a name="http_routing"></a> HTTP requests routing using the gateway
+<h2 id="http_routing">HTTP requests routing using the gateway</h2>
 
 When the gateways and the microservices are launched, they will register themselves in the registry (using the `eureka.client.serviceUrl.defaultZone` key in the `src/main/resources/config/application.yml` file).
 
@@ -40,7 +40,7 @@ If there are several instances of the same service running, the gateway will get
 
 Each gateway has a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.
 
-## <a name="security"></a> Security
+<h2 id="security">Security</h2>
 
 Standard JHipster security options are detailed on [this security documentation page]({{ site.url }}/security/). However, securing a microservice architecture has some specific tunings and options, which are detailed here.
 
@@ -75,7 +75,7 @@ Unlike JWT, those tokens are not self-sufficient, and should be stateful, which 
   - If you have selected a caching option ([here is the "Using a cache" documentation]({{ site.url }}/using-cache/)) when generating your JHipster microservice, a specific `CachedUserInfoTokenServices` Spring Bean will be generated, which will cache those calls. When properly tuned, this will remove the performance issue.
   - If you want more information on this "user info" request, it is configured using the standard Spring Boot configuration key `security.oauth2.resource.userInfoUri` in your `src/main/resources/application.yml` configuration file.
 
-## <a name="documentation"></a> Automatic documentation
+<h2 id="documentation">Automatic documentation</h2>
 
 The gateway exposes the Swagger API definitions of the services it proxifies so you can benefit from all useful tools like Swagger UI and swagger-codegen.
 
@@ -85,7 +85,7 @@ Using this drop-down list, all microservices APIs are automatically documented, 
 
 When using a secured API, security tokens are automatically added to the Swagger UI interface, so all requests work out-of-the-box.
 
-## <a name="rate_limiting"></a> Rate limiting
+<h2 id="rate_limiting">Rate limiting</h2>
 
 This is an advanced feature that uses [Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j) and [Hazelcast](https://hazelcast.com/) to provide quality of service on microservices.
 
@@ -118,7 +118,7 @@ If you want to add more rules, or modify the existing rules, you need to code th
 - Adding limits per minute or per day
 - Removing all limits for "admin" users
 
-## <a name="acl"></a> Access control policy
+<h2 id="acl">Access control policy</h2>
 
 By default all registered microservices are available through the gateway. If you want to exclude a specific API from being exposed through the gateway, you can use the gateway's specific access control policy filter. It is configurable using the `jhipster.gateway.authorized-microservices-endpoints` key in the `application-*.yml` files:
 

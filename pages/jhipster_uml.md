@@ -488,7 +488,7 @@ Click on an element and write a comment in the description field.
 ![GenMyModel, commenting]({{ site.url }}/images/jhipsteruml_genmymodel_commenting.png)
 
 
-## <a name="#othereditors"></a> Other editors
+<h2 id="#othereditors">Other editors</h2>
 
 ### Sparx EA
 

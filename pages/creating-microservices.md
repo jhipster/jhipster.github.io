@@ -11,7 +11,7 @@ sitemap:
 
 Microservices are a type of JHipster application, that have no front-end (the Angular front-end must be generated on a [gateway]({{ site.url }}/api-gateway/)), and which work with the [JHipster Registry]({{ site.url }}/jhipster-registry/) to be configured, discovered, and managed.
 
-## <a name="generating_entities"></a> Generating entities in a microservices architecture
+<h2 id="generating_entities">Generating entities in a microservices architecture</h2>
 
 Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) works a little bit differently in a microservices architecture, as the front-end and the back-end codes are not located in the same application.
 
@@ -22,7 +22,7 @@ Then, on the gateway(s), run the entity sub-generator again. A new question will
 - You will have the choice either to generate a new entity normally (a gateway is also a standard JHipster application, so this would work like for a monolith application), or use an existing JHipster configuration from a microservice.
 - If you choose to generate the entity from a microservice, you will need to enter the path to this microservice on your local computer, and then JHipster will generate the front-end code on the gateway.
 
-## <a name="hazelcast"></a> Distributed caching with Hazelcast
+<h2 id="hazelcast">Distributed caching with Hazelcast</h2>
 
 If your application uses an SQL database, JHipster proposes a different 2nd-level caching solution with microservices:
 
@@ -40,7 +40,7 @@ Using Hazelcast with microservices will result in a specific configuration:
 - With the `dev` profile, JHipster will create a cluster of those instances on localhost (`127.0.0.1`),  using a different port per instance. By default, the Hazelcast port is `your application's port + 5701` (so if your application's port is `8081`, Hazelcast will use port `13782`)
 - With the `prod` profile, JHipster will create a cluster with all the other nodes it finds, using the default Hazelcast port (`5701`)
 
-## <a name="no_database"></a> Microservices with no database
+<h2 id="no_database">Microservices with no database</h2>
 
 Only microservices applications can be created without a database. This is because microservices are small and do not have user-management code.
 

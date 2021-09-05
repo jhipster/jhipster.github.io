@@ -11,7 +11,7 @@ sitemap:
 
 Microservices are a specific kind of JHipster applications. Please refer to our main [Using JHipster in production documentation]({{ site.url }}/production) for more information on doing a production build, optimizing it and securing it.
 
-## <a name="elk"></a> Microservices monitoring
+<h2 id="elk">Microservices monitoring</h2>
 
 Please refer to our [JHipster Registry documentation]({{ site.url }}/jhipster-registry) for learning which runtime dashboards are available, and how to use them.
 
@@ -21,7 +21,7 @@ Our [monitoring documentation]({{ site.url }}/monitoring) is also very important
 - Prometheus to collect the metrics of your microservices
 - Zipkin to trace HTTP requests throughout your services
 
-## <a name="docker_compose"></a> Using Docker Compose to develop and deploy
+<h2 id="docker_compose">Using Docker Compose to develop and deploy</h2>
 
 Working on a microservices architecture means you will need several different services and databases working together, and in that context Docker Compose is a great tool to manage your development, testing and production environments.
 
@@ -29,7 +29,7 @@ A specific section on microservices is included in our [Docker Compose documenta
 
 As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) to learn more about using Docker Compose with JHipster.
 
-## <a name="cloudfoundry"></a> Going to production with Cloud Foundry
+<h2 id="cloudfoundry">Going to production with Cloud Foundry</h2>
 
 The [Cloud Foundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
 
@@ -47,7 +47,7 @@ Two solutions are available to solve this issue:
 - Secure your Cloud Foundry using specific routes.
 - Keep everything public, but use HTTPS everywhere, and secure your JHipster Registry using Spring Security's basic authentication support
 
-## <a name="heroku"></a> Going to production with Heroku
+<h2 id="heroku">Going to production with Heroku</h2>
 
 The [Heroku sub-generator]({{ site.url }}/heroku/) works nearly the same with a microservices architecture, the main difference is that you have more applications to deploy:
 

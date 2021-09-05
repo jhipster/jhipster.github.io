@@ -21,7 +21,7 @@ _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating
 4.  [Using a database](#using-a-database)
 5.  [Internationalization](#internationalization)
 
-## <a name="general-configuration"></a> General configuration
+<h2 id="general-configuration">General configuration</h2>
 
 ### IDE configuration
 
@@ -35,7 +35,7 @@ If you want more information on the available profiles, please go the section ti
 
 If you want to configure some specific JHipster properties, have a look at the [common application properties]({{ site.url }}/common-application-properties/) page.
 
-## <a name="running-java-server"></a> Running the Java server
+<h2 id="running-java-server">Running the Java server</h2>
 
 ### As a "main" Java class
 
@@ -85,7 +85,7 @@ Alternatively, if you have installed Gradle, you can launch the Java server with
 
 If you want more information on using Gradle, please go to [https://gradle.org](https://gradle.org)
 
-## <a name="working-with-angular"></a> Working with Angular/React
+<h2 id="working-with-angular">Working with Angular/React</h2>
 
 ### Running Webpack
 
@@ -130,7 +130,7 @@ Those tasks are the same whether you use NPM or Yarn, we use the `npm` command a
 - `npm run test:watch`: keep the Jest unit tests running, for live feedback when code is changed
 - `npm run e2e`: run "end to end" tests with Protractor (only works if the Protractor option has been selected when the project was generated)
 
-## <a name="using-a-database"></a> Using a database
+<h2 id="using-a-database">Using a database</h2>
 
 ### Running a database
 
@@ -219,7 +219,7 @@ If you prefer (or need) to do a database update manually, here is the developmen
 
 If you want more information on using Liquibase, please go to [http://www.liquibase.org](http://www.liquibase.org).
 
-## <a name="internationalization"></a> Internationalization
+<h2 id="internationalization">Internationalization</h2>
 
 Internationalization (or i18n) is a first-class citizen in JHipster, as we believe it should be set up at the beginning of your project (and not as an afterthought).
 

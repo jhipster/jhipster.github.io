@@ -26,7 +26,7 @@ sitemap:
 5. [Deploying a Spring Boot executable Jar file to Azure App Service](#5)
 6. [Deploying Spring Boot microservices to Azure Spring Cloud](#6)
 
-## <a name="1"></a> Installing the "az CLI"
+<h2 id="1">Installing the "az CLI"</h2>
 
 You can manage your Azure resources using the [Web-based Azure portal](https://portal.azure.com/?WT.mc_id=online-jhipster-judubois) or using [the Azure
 command-line interface](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli/?WT.mc_id=online-jhipster-judubois), also known as the "az CLI".
@@ -35,14 +35,14 @@ As with JHipster we always automate everything, installing this "az CLI" is mand
 
 To install the az CLI on your machine, [follow the "Install the Azure CLI" official documentation](https://docs.microsoft.com/cli/azure/install-azure-cli/?WT.mc_id=online-jhipster-judubois).
 
-## <a name="2"></a> Current limitations
+<h2 id="2">Current limitations</h2>
 
 Those limitations can be solved in the future, if you are interested to help do not hesitate to contribute to the project:
 
 - The sub-generators do not automatically configure external services like databases (see next section for supported databases), Elasticsearch, Kafka or Redis. So you will need to create and configure them manually.
 - Azure only provides Maven plugins, and as a result the JHipster sub-generators can only work with Maven.
 
-## <a name="3"></a> Supported databases
+<h2 id="3">Supported databases</h2>
 
 ### SQL databases
 
@@ -72,7 +72,7 @@ You can install a NoSQL database like Cassandra or MongoDB using [the Azure Mark
 
 CosmosDB is a globally distributed, managed database from Microsoft. It is compatible at the API level with Cassandra and MongoDB, so it can be used with a JHipster application that is generated using those technologies.
 
-## <a name="4"></a> Storing secrets
+<h2 id="4">Storing secrets</h2>
 
 There are several "secrets" that you should store securely in JHipster, at least your database password (see previous section), and your security tokens (have a look at our [security documentation]({{ site.url }}/security/) for more information).
 
@@ -82,7 +82,7 @@ There are many options in Azure, which you can use to store this data in a bette
 - Environment variables. This is the easiest option, but it's bit annoying to setup and it is the less secure one.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/?WT.mc_id=online-jhipster-judubois): this is the most secured option, but it is specific to Azure. There is a dedicated [Azure Spring Boot Starter for Key Vault](https://docs.microsoft.com/en-us/azure/java/spring-framework/spring-boot-starters-for-azure/?WT.mc_id=online-jhipster-judubois) which is our recommended way to configure JHipster with Azure Key Vault.
 
-## <a name="5"></a> Deploying a Spring Boot executable Jar file to Azure App Service
+<h2 id="5">Deploying a Spring Boot executable Jar file to Azure App Service</h2>
 
 [![Deploying to Azure App Service](https://img.youtube.com/vi/kciGvVrfwpw/0.jpg)](https://www.youtube.com/watch?v=kciGvVrfwpw)
 
@@ -147,7 +147,7 @@ az ad sp create-for-rbac --name http://<your-security-role> --role contributor -
 
 Execute that command to get the secured token. Then, in the GitHub project where your application is located, go to `Settings > Secrets`, and create a new secret named `AZURE_CREDENTIALS` in which you need to paste the secured token.
 
-## <a name="6"></a> Deploying Spring Boot microservices to Azure Spring Cloud
+<h2 id="6">Deploying Spring Boot microservices to Azure Spring Cloud</h2>
 
 [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois) is a managed service for Spring Boot applications. It can host any kind of JHipster applications, including monoliths, but it is particularly suited for hosting JHipster microservices and JHipster gateways, which follow the standard JHipster [microservice architecture]({{ site.url }}/microservices-architecture/).
 

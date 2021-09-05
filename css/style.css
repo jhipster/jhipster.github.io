@@ -1638,3 +1638,11 @@ table tr:nth-child(even) {
 html {
   scroll-padding-top: 80px; /* height of your sticky header */
 }
+
+h1 a, h2 a, h3 a, h4 a {
+  display: none;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a {
+  display: inline-block;
+}

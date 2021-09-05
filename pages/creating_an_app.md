@@ -19,7 +19,7 @@ _**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating
 4. [Command-line options](#3)
 5. [Tips](#4)
 
-## <a name="1"></a> Quick start
+<h2 id="1">Quick start</h2>
 
 First of all, create an empty directory in which you will create your application:
 
@@ -45,7 +45,7 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webapp` or `./gradlew -x webapp`. It speeds up especially Gradle.
 
-## <a name="2"></a> Questions asked when generating an application
+<h2 id="2">Questions asked when generating an application</h2>
 
 _Some questions change depending on the previous choices you have made. For example, you won't need to configure an Hibernate cache if you didn't select an SQL database._
 
@@ -218,7 +218,7 @@ Conflicts with:
 
 The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
 
-## <a name="5"></a> Using a blueprint
+<h2 id="5">Using a blueprint</h2>
 
 JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custom client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
 
@@ -234,7 +234,7 @@ If a blueprint doesn't implement a specific sub-generator, it will be skipped an
 
 **Note:** An application can use only one blueprint, multiple blueprints are not supported yet.
 
-## <a name="3"></a> Command-line options
+<h2 id="3">Command-line options</h2>
 
 You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `jhipster app --help`.
 
@@ -262,6 +262,6 @@ Here are the options you can pass:
 * `--skip-fake-data` - Skip generation of fake data for development
 * `--creation-timestamp` - Set a timestamp for reproducible build. Timestamp should be a parsable js date ex: 2019-01-01. Must be used with --with-entities or import-jdl (generator-jhipster > 6.5.1)
 
-## <a name="4"></a> Tips
+<h2 id="4">Tips</h2>
 
 You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force --with-entities`.

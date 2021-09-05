@@ -384,7 +384,11 @@
                             <div class="float-right visible-md visible-lg">
                                 <a href="https://github.com/jhipster/jhipster.github.io/edit/main/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;Improve this page</a>
                             </div>
-                            {{ content }}
+                            {% capture anchor %}
+                                <span class="sr-only">Permalink to "%heading%"</span>
+                                <i class="fa fa-link" aria-hidden="true"></i>
+                            {% endcapture %}
+                            {% include anchor_headings.html html=content anchorBody=anchor %}
                         </div>
                     </div>
                     <!-- /.row -->

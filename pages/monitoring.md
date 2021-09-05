@@ -19,7 +19,7 @@ JHipster provides several options to monitor your applications at runtime.
 5. [Zipkin](#zipkin)
 6. [Alerting with Elastalert](#elastalert)
 
-## <a name="generated-dashboards"></a> Generated dashboards
+<h2 id="generated-dashboards">Generated dashboards</h2>
 
 For monoliths and gateways, JHipster generates several dashboards to monitor each application. 
 Those dashboards are available at runtime, and are the easiest way to do some monitoring.
@@ -48,13 +48,13 @@ The health dashboard uses Spring Boot Actuator's health endpoint to give health 
 The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
 You can change the log level of a Java package by clicking on a button, which is very convenient both in development and in production.
 
-## <a name="jhipster-registry"></a> JHipster Registry
+<h2 id="jhipster-registry">JHipster Registry</h2>
 
 The JHipster Registry has [its own documentation page here]({{ site.url }}/jhipster-registry/).
 
 It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application error.
 
-## <a name="elk"></a> ELK (Elasticsearch, Logstash, Kibana) Stack
+<h2 id="elk">ELK (Elasticsearch, Logstash, Kibana) Stack</h2>
 
 The ELK stack is often used for log aggregation and search, it consists of the following components:
 
@@ -99,7 +99,7 @@ To collect those logs, on the Logstash side, a simple `logstash.conf` file can b
 
 For more information on how to setup the ELK stack, please refer to the [official Elastic documentation](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
 
-## <a name="configuring-metrics-forwarding"></a> Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)
+<h2 id="configuring-metrics-forwarding">Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)</h2>
 
 JHipster exposes application metrics in the [Prometheus](https://prometheus.io/) format by default.
 It is exposed under `management/prometheus`.
@@ -153,7 +153,7 @@ provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/47
 
 Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
-## <a name="zipkin"></a> Zipkin
+<h2 id="zipkin">Zipkin</h2>
 
 JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile and set the `spring.zipkin.enabled` property to true. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs.
 
