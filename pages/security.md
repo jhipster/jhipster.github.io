@@ -256,6 +256,8 @@ export CYPRESS_E2E_PASSWORD=<your-password>
 
 _Note_: Auth0 requires a user to provide authorization consent on the first login. Consent flow is currently not handled in the Cypress test suite. To mitigate the issue, you can use a user account that has already granted consent to authorize application access via interactive login.
 
+If you experience authentication issues with Cypress, see [this guide](https://docs.cypress.io/guides/testing-strategies/auth0-authentication#Auth0-Rate-Limiting-Logins) for a workaround.
+
 ##### Using Environment Variables
 
 You can also use environment variables to override the defaults. For example:
