@@ -30,7 +30,7 @@ Current members:
 * Deepu K Sasidharan (Adyen)
 * Matt Raible (Okta)
 * Paul Hinz (Entando)
-
+* Alina Yurenko (Oracle)
 
 The members are chosen by the project leaders and should come from:
 * representative industry companies and leaders
@@ -38,6 +38,5 @@ The members are chosen by the project leaders and should come from:
 * open-source project leaders
 * community and technology leaders
 * people from academia
-* ...
 
-If you are interested to be part of this technical board, please contact us here: < EMAIL >
+If you are interested to be part of this technical board, please contact us.
