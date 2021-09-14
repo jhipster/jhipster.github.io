@@ -20,6 +20,7 @@ Most important new features and upgrades
 - Enable OAuth2 refresh token - [#15424](https://github.com/jhipster/generator-jhipster/pull/15424)
 - Support Punjabi language - [#15402](https://github.com/jhipster/generator-jhipster/pull/15402)
 - Replace Spring Cloud Hystrix by Spring Cloud Resilience4j - [#14031](https://github.com/jhipster/generator-jhipster/issues/14031)
+- Support generating Gradle Enterprise configuration - [#14226](https://github.com/jhipster/generator-jhipster/issues/14226) 
 - Many libraries upgrades
 
 Closed tickets and merged pull requests
