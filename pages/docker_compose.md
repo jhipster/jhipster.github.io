@@ -26,7 +26,7 @@ Using Docker and Docker Compose is highly recommended in development, and is als
 8. [Common commands](#8)
 9. [Memory Tweaking](#9)
 
-## <a name="1"></a> Description
+<h2 id="1">Description</h2>
 
 _Please note: this Docker configuration is used to run your generated application(s) inside a container image. It's completely different from the [Docker setup]({{ site.url }}/installation/) that JHipster also provides, which is for running the JHipster generator inside a container_
 
@@ -44,7 +44,7 @@ When generating your application, JHipster generates for you:
 
 Those files are located inside folder `src/main/docker/`.
 
-## <a name="2"></a> Prerequisites
+<h2 id="2">Prerequisites</h2>
 
 You have to install Docker and Docker Compose:
 
@@ -78,7 +78,7 @@ __Solution 2__
   - `npm install -g YOUR_PACKAGE`,
   - then exit and log into the container normally: `docker container exec -it jhipster bash`
 
-## <a name="3"></a> Building and running a Docker image of your application
+<h2 id="3">Building and running a Docker image of your application</h2>
 
 To build a Docker image of your application using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon:
 
@@ -119,7 +119,7 @@ This command will start up your application and the services it relies on (datab
 
 If you chose OAuth 2.0 for authentication, be sure to read our [Keycloak section on this documentation](#7).
 
-## <a name="docker-compose-subgen"></a> Generating a custom Docker-Compose configuration for multiple applications
+<h2 id="docker-compose-subgen">Generating a custom Docker-Compose configuration for multiple applications</h2>
 
 If your architecture is composed of several JHipster applications, you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all selected applications. This will allow you to deploy and scale your complete architecture with one command.
 To use the `docker-compose` subgenerator:
@@ -139,7 +139,7 @@ In the case of a microservice architecture, this configuration will also pre-con
 - Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
 
 
-## <a name="4"></a> Working with databases
+<h2 id="4">Working with databases</h2>
 
 ### MySQL, MariaDB, PostgreSQL, Oracle, MongoDB, Couchbase, Neo4j or Cassandra
 
@@ -187,7 +187,7 @@ Follow these steps to do so:
 
 Unlike the other databases, where the schema migrations are applied by the application itself, Cassandra schema migrations are applied by a dedicated Docker container.
 
-#### <a name="cassandra-in-development"></a>Cassandra in development
+<h4 id="cassandra-in-development">Cassandra in development</h4>
 To start a Cassandra cluster to run your application locally, you can use the docker_compose file for development use:
 `docker-compose -f src/main/docker/cassandra.yml up -d`
 
@@ -215,7 +215,7 @@ If you want to use the MSSQL Docker image with JHipster, there are a few steps t
 - Create the database with a MSSQL client of your choice
 - Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
-## <a name="5"></a> Elasticsearch
+<h2 id="5">Elasticsearch</h2>
 
 Running `docker-compose -f src/main/docker/app.yml up` already starts up your search engine automatically.
 
@@ -223,7 +223,7 @@ If you only want to start your Elasticsearch node, and not the other services, u
 
 - `docker-compose -f src/main/docker/elasticsearch.yml up`
 
-## <a name="6"></a> Sonar
+<h2 id="6">Sonar</h2>
 
 A Docker Compose configuration is generated for running Sonar:
 
@@ -236,7 +236,7 @@ To analyze your code, run Sonar on your project:
 
 The Sonar reports will be available at: [http://localhost:9000](http://localhost:9000)
 
-## <a name="7"></a> Keycloak
+<h2 id="7">Keycloak</h2>
 
 If you chose OAuth 2.0 as your authentication, Keycloak is used as the default identity provider. Running `docker-compose -f src/main/docker/app.yml up` starts up Keycloak automatically.
 
@@ -252,7 +252,7 @@ If you only want to start Keycloak, and not the other services, use its specific
 
 - `docker-compose -f src/main/docker/keycloak.yml up`
 
-## <a name="8"></a> Common commands
+<h2 id="8">Common commands</h2>
 
 ### List the containers
 
@@ -297,7 +297,7 @@ Be careful! All data will be deleted:
 `docker container rm <container_id>`
 
 
-## <a name="9"></a> Memory Tweaking
+<h2 id="9">Memory Tweaking</h2>
 
 In order to optimize memory usage for applications running in the container, you can setup Java memory parameters on `Dockerfile` or `docker-compose.yml`
 

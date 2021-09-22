@@ -29,11 +29,11 @@ To distinct JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](https://gi
   * Stubbing feign clients
   * Emulating OAuth2 authentication
 
-## <a name="architecture_diagram"></a> Architecture diagram
+<h2 id="architecture_diagram">Architecture diagram</h2>
 
 <img src="{{ site.url }}/images/microservices_architecture_detail.002.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
 
-## <a name="claims"></a> 1. Security claims of microservice architecture
+<h2 id="claims">1. Security claims of microservice architecture</h2>
 
 Before digging into OAuth2 and its application on JHipster microservices, it's important to clarify the claims to a solid security solution.
 
@@ -62,7 +62,7 @@ No matter how much problems a security solution may solve, it should be strong a
 Using stateless protocols is not a warranty of the security solution is scalable. In the end, there should not be any single point of failure. A counter-example is a shared auth database or single auth-server-instance, which is hit once per request.
 
 
-## <a name="oauth2"></a> 2. Understanding OAuth2 in this context
+<h2 id="oauth2">2. Understanding OAuth2 in this context</h2>
 
 Using the OAuth2 protocol (note: it's a **protocol**, not a framework, not an application) is satisfying all 6 claims. It follows strict standards, what makes this solution compatible to other microservices as well, and remote systems, too. JHipster provides a couple of solutions, based on the following security design:
 
@@ -89,7 +89,7 @@ As an addition, the following rules can be applied for access control:
 * Complex access configuration is expressed using [ABAC][], using boolean expressions over both "roles" and "scopes"
   * example: hasRole("ADMIN") and hasScope("shop-manager.read", "shop-manager.write")
 
-## <a name="jhipster-uaa"></a> 3. Using JHipster UAA
+<h2 id="jhipster-uaa">3. Using JHipster UAA</h2>
 
 When scaffolding a JHipster microservice, you may choose the UAA options instead of JWT authentication.
 
@@ -159,7 +159,7 @@ As of standard, access tokens can be either passed by URL, in headers, or in a c
 
 RSA is not required for JWT signing, and Spring Security does provide symmetric token signing as well. This also solves some problems, which make development harder. But this is insecure, since an attacker needs to get into one single microservice to be able to generate its own JWT tokens.
 
-## <a name="inter-service-communication"></a> 4. Secure inter-service-communication using Feign clients
+<h2 id="inter-service-communication">4. Secure inter-service-communication using Feign clients</h2>
 
 Currently only JHipster UAA is providing an scalable approach of secure inter-service-communication.
 
@@ -243,7 +243,7 @@ The REST client automatically gets authorized with your UAA server, when there i
 
 This approach addresses a scenario when machine request run over a separate OAuth client not referring to an user session. This is important, in particular when entity auditing is used on a request, issued by another request in another service. As an alternative, the access token of the initial request may be forwarded to further calls. Currently, there is no "default solution" provided by JHipster.
 
-## <a name="testing"></a> 5. Testing UAA applications
+<h2 id="testing">5. Testing UAA applications</h2>
 
 ### Mocking Feign clients
 

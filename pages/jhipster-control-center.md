@@ -25,7 +25,7 @@ All its features are packaged into one external application with a modern Vue us
 4. [Authentication mechanism](#authentication)
 5. [Features](#features)
 
-## <a name="profiles"></a>  Specific Spring profiles
+<h2 id="profiles"> Specific Spring profiles</h2>
 
 **The Control Center uses the usual JHipster `dev` and `prod` Spring profiles. But, to work properly, it has to be started with a spring profile corresponding to a spring cloud discovery backend.**
 
@@ -38,7 +38,7 @@ This is very useful for microservices architectures: this is how the Control Cen
 
 For all applications, including monoliths, this is how the Hazelcast distributed cache can automatically scale, see [the Hazelcast cache documentation]({{ site.url }}/using-cache/)
 
-## <a name="installation"></a> Installation
+<h2 id="installation">Installation</h2>
 
 ### Running locally
 
@@ -77,7 +77,7 @@ A container image has been made available on Docker hub. To use it, run these co
 - `docker pull jhipster/jhipster-control-center`
 - `docker run -d --name jhcc -p 7419:7419 jhipster/jhipster-control-center:latest`
 
-## <a name="architecture"></a> Architecture
+<h2 id="architecture">Architecture</h2>
 
 This is a standard web application that connects to one or several JHipster applications through their management API endpoints. Those management endpoints can either be exposed on the standard API port (typically 8080, 8081, ...) or preferably on a dedicated management port (typically 9999) so that they are isolated from the outside world.
 
@@ -85,7 +85,7 @@ The Control Center use [Spring Cloud Gateway](https://docs.spring.io/spring-clou
 
 ![]({{ site.url }}/images/jhipster-control-center-architecture.png)
 
-## <a name="authentication"></a> Authentication mechanism
+<h2 id="authentication">Authentication mechanism</h2>
 
 In order to access to your applications, the JHipster Control Center use a specific security mechanism depending on the profile.
 
@@ -97,7 +97,7 @@ This profile use a third-party authorization - authentication server like Keyclo
 
 Then, our security configuration, in Oauth2SecurityConfiguration.java, will use Spring Security's filter chain to get an authorization from Keycloak ang generate a Spring's Principal (current user) with `http.oauth2Login()`. Afterwards, Spring Security's filter chain will apply `http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter())` to get an authentication with his roles. With this way, we can change our provider (Keycloak, Okta, etc.) easly.
 
-## <a name="features"></a> Features
+<h2 id="features">Features</h2>
 
 ### ***Instances***
 
