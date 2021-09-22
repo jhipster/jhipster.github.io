@@ -22,7 +22,7 @@ The two authorizations "ROLE_USER" and "ROLE_ADMIN" provide the same access to t
 
 For security reasons, you should change those default passwords in production.
 
-JHipster provides 4 main security mechanisms:
+JHipster provides 3 main security mechanisms:
 
 1. [JSON Web Tokens (JWT)](#jwt)
 2. [Session-based authentication](#session)
