@@ -32,7 +32,7 @@ See [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/
 
 ---
 
-## <a name="issues"></a>Issues and bugs
+<h2 id="issues">Issues and bugs</h2>
 
 The JDL is [available on GitHub](https://github.com/jhipster/jhipster-core), and follows the same
 [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).

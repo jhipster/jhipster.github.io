@@ -15,20 +15,20 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 
 By default, JHipster comes with 2 different users:
 
-*   "user", who is a normal user with "ROLE_USER" authorization. The default password is "user"
-*   "admin", who is an admin user with "ROLE_USER" and "ROLE_ADMIN" authorizations. The default password is "admin"
+*   "user", who is a normal user with "ROLE_USER" authorization. The default password is "user".
+*   "admin", who is an admin user with "ROLE_USER" and "ROLE_ADMIN" authorizations. The default password is "admin".
 
 The two authorizations "ROLE_USER" and "ROLE_ADMIN" provide the same access to the entities which means that a "user" is authorized to perform the same CRUD operations as an "admin". This behavior can be an issue when the application will go to production because a "user" can for example delete any entities. More details on how to improve the access-control can be found on this [blog post](https://blog.ippon.tech/improving-the-access-control-of-a-jhipster-application/).
 
 For security reasons, you should change those default passwords in production.
 
-JHipster provides 3 main security mechanisms:
+JHipster provides three main security mechanisms:
 
 1. [JSON Web Tokens (JWT)](#jwt)
 2. [Session-based authentication](#session)
 3. [OAuth 2.0 and OpenID Connect](#oauth2)
 
-## <a name="jwt"></a> JSON Web Tokens (JWT)
+<h2 id="jwt">JSON Web Tokens (JWT)</h2>
 
 [JSON Web Token (JWT)](https://jwt.io/) authentication is a stateless security mechanism, so it's a good option if you want to scale your application on several different servers.
 
@@ -49,7 +49,7 @@ It can be set up using the usual Spring Boot property configuration: using a Spr
 using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
-## <a name="session"></a> Session-based authentication
+<h2 id="session">Session-based authentication</h2>
 
 This is the "classical" Spring Security authentication mechanism, but we have improved it quite significantly. It uses the HTTP Session, so it is a stateful mechanism: if you plan to scale your application on multiple servers, you need to have a load balancer with sticky sessions so that each user stays on the same server.
 
@@ -64,9 +64,9 @@ We have modified the Spring Security remember-me mechanism so that you have a un
 
 ### Cookie theft protection
 
-We have added a very complete cookie theft protection mechanism: we store your security information in a cookie, as well as in the database, and each time a user logs in we modify those values and check if they have been altered. That way, if a someone ever steals your cookie, they will be able to use it only once, at most.
+We have added a very complete cookie theft protection mechanism: we store your security information in a cookie, as well as in the database, and each time a user logs in we modify those values and check if they have been altered. That way, if someone ever steals your cookie, they will be able to use it only once, at most.
 
-## <a name="oauth2"></a> OAuth2 and OpenID Connect
+<h2 id="oauth2">OAuth 2.0 and OpenID Connect</h2>
 
 OAuth is a stateful security mechanism, like HTTP Session. Spring Security provides excellent OAuth 2.0 and OIDC support, and this is leveraged by JHipster. If you're not sure what OAuth and OpenID Connect (OIDC) are, please see [What the Heck is OAuth?](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
 
@@ -97,6 +97,7 @@ spring:
           oidc:
             client-id: web_app
             client-secret: web_app
+            scope: openid,profile,email
 ```
 
 Keycloak uses an embedded H2 database by default, so you will lose the created users if you restart your Docker container. To keep your data, please read the [Keycloak Docker documentation](https://hub.docker.com/r/jboss/keycloak/). One solution, with keeping the H2 database, is to do the following:
@@ -275,7 +276,7 @@ You can put this in an `~/.auth0.env` file and run `source ~/.auth0.env` to over
 
 _Note_: If you're on `Windows`, you should install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) so the `source` command will work.
 
-## <a name="https"></a> HTTPS
+<h2 id="https">HTTPS</h2>
 
 You can force the use of HTTPS by adding the following configuration to your `SecurityConfiguration.java`.
 
@@ -293,7 +294,7 @@ See Spring Security's [Servlet](https://docs.spring.io/spring-security/site/docs
 
 This has been tested and known to work on Heroku and Google Cloud. For more production tips on Heroku, see [Preparing a Spring Boot App for Production on Heroku](https://devcenter.heroku.com/articles/preparing-a-spring-boot-app-for-production-on-heroku).
 
-## <a name="implementation-details"></a> Leakage of implementation details
+<h2 id="implementation-details">Leakage of implementation details</h2>
 
 Every failure/exception is mapped to a [problem datastructure](https://github.com/zalando/problem) and returned to the client.
 

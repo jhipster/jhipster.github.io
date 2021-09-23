@@ -31,7 +31,7 @@ All those features are packaged into one convenient application with a modern An
 4. [Administration dashboards](#dashboards)
 5. [Securing the JHipster Registry](#security)
 
-## <a name="installation"></a> Installation
+<h2 id="installation">Installation</h2>
 
 ### Spring profiles
 
@@ -86,7 +86,7 @@ You can run a JHipster Registry instance in the cloud. This is mandatory in prod
 
 Please read [the "microservices in production" documentation]({{ site.url }}/microservices-in-production/) to learn how to deploy the JHipster Registry to Cloud Foundry or to Heroku.
 
-## <a name="eureka"></a> Service discovery with Eureka
+<h2 id="eureka">Service discovery with Eureka</h2>
 
 ![]({{ site.url }}/images/jhipster-registry-eureka.png)
 
@@ -95,7 +95,7 @@ The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eu
 - This is very useful for microservices architectures: this is how the gateways know which microservices are available, and which instances are up
 - For all applications, including monoliths, this is how the Hazelcast distributed cache can automatically scale, see [the Hazelcast cache documentation]({{ site.url }}/using-cache/)
 
-## <a name="spring-cloud-config"></a> Application configuration with Spring Cloud Config
+<h2 id="spring-cloud-config">Application configuration with Spring Cloud Config</h2>
 
 ![]({{ site.url }}/images/jhipster-registry-spring-cloud-config.png)
 
@@ -115,7 +115,7 @@ For example, adding properties in a `gateway-prod.yml` file will set those prope
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
 
-### <a name="encryption"></a> Using encrypted configuration values
+#<h2 id="encryption">Using encrypted configuration values</h2>
 
 The JHipster Registry has a specific `configuration > encryption` page to allow encryption and decryption of configuration values.
 
@@ -132,7 +132,7 @@ The cipher text must be placed in any `*.yml` configuration file, in the form `p
 
 For more information, please refer to Spring Cloud Config's [Encryption and Decryption documentation](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html#_encryption_and_decryption).
 
-## <a name="dashboards"></a> Administration dashboards
+<h2 id="dashboards">Administration dashboards</h2>
 
 The JHipster Registry provides administration dashboards, which are used for all application types. As soon as an application registers on the Eureka server, it will become available in the dashboards.
 
@@ -177,7 +177,7 @@ The configuration dashboard uses Spring Boot Actuator's configuration endpoint t
 The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
 You can change the log level of Java package by clicking on a button, which is very convenient both in development and in production.
 
-## <a name="security"></a> Securing the JHipster Registry
+<h2 id="security">Securing the JHipster Registry</h2>
 
 The JHipster Registry is secured by default. You can login using the usual "admin/admin" login and password that are used in normal JHipster applications.
 

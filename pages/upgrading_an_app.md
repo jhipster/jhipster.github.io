@@ -15,7 +15,7 @@ gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 1. [Option 1 - automatic upgrade](#automatic_upgrade)
 2. [Option 2 - manual upgrade](#manual_upgrade)
 
-## <a name="automatic_upgrade"></a> Option 1 - automatic upgrade
+<h2 id="automatic_upgrade">Option 1 - automatic upgrade</h2>
 
 When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrading an existing application to this new version, without erasing your changes.
 
@@ -106,7 +106,7 @@ On the first run of the JHipster upgrade sub-generator, in order to avoid erasin
 
 - There are some helpful approaches from the JHipster community around designing the application in such a way that makes the update process easier, and reduces the amount of merge conflicts. We recommend using [JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo).  
 
-## <a name="manual_upgrade"></a> Option 2 - manual upgrade
+<h2 id="manual_upgrade">Option 2 - manual upgrade</h2>
 
 For a manual upgrade, first upgrade your version of JHipster with:
 

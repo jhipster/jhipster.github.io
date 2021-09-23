@@ -49,7 +49,7 @@ Here's what's covered on this page:
 
 ***
 
-# <a name="introduction"></a>Introduction
+# Introduction
 
 JHipster-UML is an alternative to the usual Q&A as it offers you the possibility to use a UML editor to create a diagram that will be parsed by JHipster-UML.
 
@@ -61,7 +61,7 @@ Here is a list of the editors we support:
 
 ***
 
-# <a name="issues"></a>Issues and bugs
+<h1 id="issues">Issues and bugs</h1>
 
 JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
@@ -83,7 +83,7 @@ Finally, an issue has been reported from a Windows user using Git Bash. The JHip
 
 ***
 
-# <a name="install"></a>Installation
+<h1 id="install">Installation</h1>
 To install JHipster UML use the command:
 
  ```
@@ -111,12 +111,12 @@ JHipster UML is a tool that _can_ be used with the JHipster's generator. If you'
 
 ***
 
-# <a name="howtouse"></a>How to use it
+<h1 id="howtouse">How to use it</h1>
 
 To use JHipster-UML, you need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
 
 
-## <a name="umlfile"></a>The UML file
+<h2 id="umlfile">The UML file</h2>
 
 The class diagram should modelize the entities of your JHipster application domain, thus you have restrictions, you have to follow the methodology.
 
@@ -214,7 +214,7 @@ As you can see, there are 3 types of reflexivity. JHipster-UML only supports the
 
 
 ### A complete example
-We use a diagram from the Oracle HR example available [here](http://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
+We use a diagram from the Oracle HR example available [here](https://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
 Here's a screenshot of such a diagram (from Modelio):  
 ![HR UML diagram]({{ site.url }}/images/jhipsteruml_overviewdiagram.png)
@@ -223,7 +223,7 @@ As you can see, we changed it as to make it a bit more interesting.
 JHipster can generate entities and associations between them (one-to-one, one-to-many, etc.), and in this example we added every type of association (even the reflexive and the inheritance). JHipster doesn't support inheritance yet (but reflexivity is supported by JHipster, with a warning), but we decided to include it in the example so as to have a solid base to work with.
 
 
-## <a name="usejuml"></a>Use JHipster-UML
+<h2 id="usejuml">Use JHipster-UML</h2>
 
 Once you have your JHipster application set up and your class diagram in a UML editor, follow these steps:
 
@@ -264,7 +264,7 @@ Finally, if you need help, there's a command for that too:
 
 **Note: If you want to use the classes and methods available, the preferred entry point of JHipster-UML is the ParserFactory (so that you don't open the file, read it, find the root element, etc.).**
 
-## <a name="jumlfile"></a>JHipster-UML file
+<h2 id="jumlfile">JHipster-UML file</h2>
 
 JHipster-UML can be configured by the command line and / or by a JSON based configuration file, the `jumlfile`.
 The options described in the help can be used in the both but the commande line take precedence over the `jumlfile`.
@@ -287,7 +287,7 @@ You Will have the following options:
 - force : false (without force)
 
 
-## <a name="whatsgenerated"></a>What's generated
+<h2 id="whatsgenerated">What's generated</h2>
 
 After executing JHipster-UML, the _.jhipster_ folder will be created (if it didn't exist before) and filled with the entities present in the XMI file in the JSON format.
 
@@ -296,7 +296,7 @@ Please note that one entity may, at least, not be generated: the User entity. It
 Next, it's pretty straightforward: run your app!
 
 
-## <a name="jhipsternotes"></a>JHipster notes
+<h2 id="jhipsternotes">JHipster notes</h2>
 
 JHipster is a great scaffolding tool with many conventions, some of them are worth mentioning when generating entities with JHipster-UML:
 
@@ -304,7 +304,7 @@ JHipster is a great scaffolding tool with many conventions, some of them are wor
   - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you.
 
 
-## <a name="reservedwords"></a>Reserved words
+<h2 id="reservedwords">Reserved words</h2>
 
 JHipster maintains a list of forbidden (*under some conditions*) words.
 For instance, if you want to generate entities for your app, and if this app uses Cassandra, you can't use the words `BATCH` in either a field name or a table name.
@@ -314,7 +314,7 @@ As of v2.0.0, JHipster UML detects such words and immediately throws an exceptio
 
 ***
 
-# <a name="examples"></a>Examples
+<h1 id="examples">Examples</h1>
 
 Each editor will be discussed here, so that you know how to get a good XMI file.
 
@@ -326,7 +326,7 @@ In JHipster-UML, each editor has been tested with the Oracle example. If you wis
   - For GenMyModel: [genmymodel_evolve.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
 
 
-## <a name="modelioexample"></a>Modelio
+<h2 id="modelioexample">Modelio</h2>
 
 **Note for Mac users: Modelio is behaving weirdly on Mac (the GUI), it may be caused by the graphics and window manager on Mac, as it has not been diagnosed on Linux Ubuntu. It works, but the interaction may not be pleasant.**
 
@@ -391,7 +391,7 @@ To comment a class (or an attribute), double-click on the element, select the `N
 Please note that commenting relationships is not possible with this editor.
 
 
-## <a name="umldesignerexample"></a>UML Designer
+<h2 id="umldesignerexample">UML Designer</h2>
 
 UML Designer can be downloaded [here](http://www.umldesigner.org/).
 It works the same way as Eclipse.
@@ -432,7 +432,7 @@ Commenting is possible for classes and attributes (not relationships): click on 
 ![Uml Designer, commenting]({{ site.url }}/images/jhipsteruml_umldesigner_commenting.png)
 
 
-## <a name="genmymodelexample"></a>GenMyModel
+<h2 id="genmymodelexample">GenMyModel</h2>
 
 GenMyModel is an in-browser UML editor that can be found [here](https://dashboard.genmymodel.com/). You can use it for free but with restrictions, we hope that this editor will enable users to fiddle around with JHipster-UML without the constraint of downloading an application.
 
@@ -488,7 +488,7 @@ Click on an element and write a comment in the description field.
 ![GenMyModel, commenting]({{ site.url }}/images/jhipsteruml_genmymodel_commenting.png)
 
 
-## <a name="#othereditors"></a> Other editors
+<h2 id="#othereditors">Other editors</h2>
 
 ### Sparx EA
 
@@ -496,7 +496,7 @@ Support for dealing with this editor has been added by Guillaume Finance.
 Here is the [repo](https://github.com/guillaumefinance/MDG-Sparx-EA-UML-JHipster), and you can read the presentation [here](http://www.umlchannel.com/en/enterprise-architect/item/204-mdg-viseo-ea-uml-to-jhipster-generator-jdl-uml-model-sparx-enterprise-architect).
 
 
-## <a name="enumerationexamples"></a>Enumerations
+<h2 id="enumerationexamples">Enumerations</h2>
 
 JHipster and JHipster UML support both support enumerations.
 Here's how you define them:
@@ -504,13 +504,13 @@ Here's how you define them:
   - For UML Designer, there is the `Enumeration` object that can be placed and used. However, the literal is not called `Enumeration Literal` but only `Literal`;
   - GenMyModel possess the objects needed: `Enum` and `Enum Literal` in the main object panel (on the left hand side of the screen).
 
-## <a name="tablenames"></a>Table names
+<h2 id="tablenames">Table names</h2>
 
 Since v1.6.2, it is now possible to specify table names for entities.
 
 To do that, one has to specify the table name along with the class name like that:
 
-![tablenameimage](http://i.imgur.com/ECdb1bx.png)
+![tablenameimage](https://i.imgur.com/ECdb1bx.png)
 
 The convention `<ENTITY_NAME>\s*(<TABLE_NAME>)` is universal no matter the editor.
 
@@ -518,7 +518,7 @@ However, if you don't want to pick a dedicated table name, you can write the cla
 
 Note that this feature is available for UML editors since v1.6.2.
 
-## <a name="requiredrels"></a>Required relationships
+<h2 id="requiredrels">Required relationships</h2>
 
 As of v2.0.0, required relationships are possible to make.
 To specify one, make sure the end of the relationship to make required isn't "0" ("1", or "*" will do the trick).
@@ -526,7 +526,7 @@ To see an example of that, remember the complete HR example from Oracle, and not
 
 ***
 
-# <a name="testing-juml"></a>Testing JHipster-UML
+<h1 id="testing-juml">Testing JHipster-UML</h1>
 
 The tests are available in the test folder and can be run via `npm test`.
 We use Mocha for testing (along with chai and expect from chai).
@@ -539,7 +539,7 @@ If, however, you don't want to install everything globally, run:
 
 ***
 
-# <a name="contributing"></a>Contributing: issues and enhancements
+<h1 id="contributing">Contributing: issues and enhancements</h1>
 
 Because our tool isn't perfect (_yet_), you may notice some irregularities. GitHub provides a pretty nice issue tracker so that everyone can post about an issue.
 We follow the same guidelines as JHipster, with a few additions:
@@ -550,7 +550,7 @@ We follow the same guidelines as JHipster, with a few additions:
 
 <b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not on the main JHipster page.</b>
 
-## <a name="parsermodifications"></a>Parser modifications
+<h2 id="parsermodifications">Parser modifications</h2>
 
 The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) hassle-free, provided the XMI can be parsed.
 
@@ -634,7 +634,7 @@ Don't forget to modify the [editor detector](https://github.com/jhipster/jhipste
 
 ***
 
-# <a name="annexes"></a>Annexes
+<h1 id="annexes">Annexes</h1>
 
 Here is the types supported by this project:
 

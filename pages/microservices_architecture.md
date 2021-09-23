@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-sitemap"></i> Doing microservices with JHipster
 
-## <a name="microservices_vs_monolithic"></a> Microservices vs Monolithic architecture
+<h2 id="microservices_vs_monolithic">Microservices vs Monolithic architecture</h2>
 
 The first question JHipster will ask you is the kind of application you want to generate. You have the choice between two architecture styles:
 
@@ -18,7 +18,7 @@ The first question JHipster will ask you is the kind of application you want to 
 
 A "monolithic" application is much easier to work on, so if you don't have any specific requirements, this is the option we recommend, and our default option.
 
-## <a name="overview"></a> Microservices architecture overview
+<h2 id="overview">Microservices architecture overview</h2>
 
 The JHipster microservices architecture works in the following way:
 
