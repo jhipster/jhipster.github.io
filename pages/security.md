@@ -51,7 +51,7 @@ using an environment variable, or even a specific `application-prod.yml` file wh
 
 <h2 id="session">Session-based authentication</h2>
 
-This is the "classical" Spring Security authentication mechanism, but we have improved it quite significantly. It uses the HTTP Session, so it is a stateful mechanism: if you plan to scale your application on multiple servers, you need to have a load balancer with sticky sessions so that each user stays on the same server.
+This is the "classical" Spring Security authentication mechanism, but we have improved it quite significantly. It uses the HTTP Session, so it is a stateful mechanism: if you plan to scale your application on multiple servers, you need to have a load balancer with sticky sessions so that each user stays on the same server or consider adding [Spring Session](https://spring.io/projects/spring-session) to store the sessions in a database rather than in memory.
 
 ### Securing Session-based authentication
 
