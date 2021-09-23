@@ -196,7 +196,7 @@ Here is a documentation for those properties:
             display-on-active-profiles: dev
 ```
 
-<h2 id="3">Application-specific properties</h3>
+<h2 id="3">Application-specific properties</h2>
 
 Your generated application can also have its own Spring Boot properties. This is highly recommended, as it allows type-safe configuration of the application, as well as auto-completion and documentation within an IDE.
 
