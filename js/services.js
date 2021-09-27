@@ -53,7 +53,7 @@
             },
 
             getNpmInfo: function (npmPackageName) {
-                return $http.get('https://cors.bridged.cc/registry.npmjs.org/' + npmPackageName + '/latest').success(function (resp) {
+                return $http.get('https://cors.bridged.cc/https://registry.npmjs.org/' + npmPackageName + '/latest').success(function (resp) {
                     return resp;
                 });
             }
