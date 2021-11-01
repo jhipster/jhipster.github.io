@@ -93,7 +93,7 @@ In order to access to your applications, the JHipster Control Center use a speci
 This is a custom JHipster implementation. The JWT key used to sign the request should be the same for the applications and the Control Center: as by default the Control Center configures applications through Spring Cloud Config, this should work out-of-the-box, as it will send the same key to all applications.
 
 #### ***OAuth2***
-This profile use a third-party authorization - authentication server like Keycloak (or Okta soon). The Control Center will use the OAuth2 protocole to generate a session in Keycloak when you connect to the Control Center. 
+This profile use a third-party authorization - authentication server like Keycloak (or Okta soon). The Control Center will use the OAuth2 protocol to generate a session in Keycloak when you connect to the Control Center. 
 
 Then, our security configuration, in Oauth2SecurityConfiguration.java, will use Spring Security's filter chain to get an authorization from Keycloak ang generate a Spring's Principal (current user) with `http.oauth2Login()`. Afterwards, Spring Security's filter chain will apply `http.oauth2ResourceServer().jwt().jwtAuthenticationConverter(jwtAuthenticationConverter())` to get an authentication with his roles. With this way, we can change our provider (Keycloak, Okta, etc.) easly.
 
