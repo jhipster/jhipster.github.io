@@ -33,7 +33,7 @@ JHipster uses the standard Maven directory layout. When working on the back-end,
 When working on the front-end, there are 2 directories you need to know:
 
 - `src/main/webapp` is where the client application will be developed
-- `target/static` is where your client application will be packaged
+- `target/classes/static` is where your client application will be packaged
 
 If you have separate teams working on the front-end and back-end, you have two solutions:
 
