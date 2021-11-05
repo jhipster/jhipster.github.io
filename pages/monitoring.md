@@ -49,7 +49,7 @@ The health dashboard uses Spring Boot Actuator's health endpoint to give health 
 The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
 You can change the log level of a Java package by clicking on a button, which is very convenient both in development and in production.
 
-<h2 id="security-metrics">Security Metrics</h2>
+## Security Metrics
 JHipster tracks JWT-related security metrics in projects that uses JWT authentication type.
 
 In particular, JHipster tracks token validation errors count (i.e. invalid tokens count) as a custom meter named `security.authentication.invalid-tokens`, and the causes of such validation errors with the following meter tags:
