@@ -38,6 +38,8 @@ This authentication mechanism doesn't exist by default with Spring Security, it'
 
 This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
 
+JHipster automatically tracks invalid JWTs as an custom application metric, refer to the [monitoring documentation]({{ site.url }}/monitoring/#security-metrics).
+
 ### Securing JWT
 
 - JHipster uses a secret key, which can be configured using two Spring Boot properties: `jhipster.security.authentication.jwt.secret` and `jhipster.security.authentication.jwt.base64-secret`.
