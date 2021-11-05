@@ -4,7 +4,7 @@ title: Monitoring your JHipster Applications
 permalink: /monitoring/
 sitemap:
     priority: 0.7
-    lastmod: 2019-02-01T00:00:00-00:00
+    lastmod: 2021-11-05T00:00:00-00:00
 ---
 # <i class="fa fa-line-chart"></i> Monitoring your JHipster Applications
 
@@ -13,6 +13,7 @@ JHipster provides several options to monitor your applications at runtime.
 ## Summary
 
 1. [Generated dashboards](#generated-dashboards)
+2. [Security metrics](#security-metrics)
 2. [JHipster Registry](#jhipster-registry)
 3. [ELK](#elk)
 4. [Forwarding metrics to a supported third party monitoring system](#configuring-metrics-forwarding)
@@ -47,6 +48,17 @@ The health dashboard uses Spring Boot Actuator's health endpoint to give health 
 
 The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
 You can change the log level of a Java package by clicking on a button, which is very convenient both in development and in production.
+
+<h2 id="security-metrics">Security Metrics</h2>
+JHipster tracks JWT-related security metrics in projects that uses JWT authentication type.
+
+In particular, JHipster tracks token validation errors count (i.e. invalid tokens count) as a custom meter named `security.authentication.invalid-tokens`, and the causes of such validation errors with the following meter tags:
+- `invalid-signature`: the JWT signature verification has failed;
+- `expired`: the JWT has expired;
+- `unsupported`: the JWT format does not match the format expected by the application;
+- `malformed`: the JWT was not correctly constructed.
+
+These metrics are not available in the generated dashboards, but they are exposed as application metrics and can be [forwarded to a third-party monitoring system](#configuring-metrics-forwarding) for visualization.
 
 <h2 id="jhipster-registry">JHipster Registry</h2>
 
