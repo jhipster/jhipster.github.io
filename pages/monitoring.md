@@ -14,13 +14,12 @@ JHipster provides several options to monitor your applications at runtime.
 
 1. [Generated dashboards](#generated-dashboards)
 2. [Security metrics](#security-metrics)
-2. [JHipster Registry](#jhipster-registry)
-3. [ELK](#elk)
-4. [Forwarding metrics to a supported third party monitoring system](#configuring-metrics-forwarding)
-5. [Zipkin](#zipkin)
-6. [Alerting with Elastalert](#elastalert)
+3. [JHipster Registry](#jhipster-registry)
+4. [ELK](#elk)
+5. [Forwarding metrics to a supported third party monitoring system](#configuring-metrics-forwarding)
+6. [Zipkin](#zipkin)
 
-<h2 id="generated-dashboards">Generated dashboards</h2>
+## Generated dashboards
 
 For monoliths and gateways, JHipster generates several dashboards to monitor each application. 
 Those dashboards are available at runtime, and are the easiest way to do some monitoring.
@@ -60,7 +59,7 @@ In particular, JHipster tracks token validation errors count (i.e. invalid token
 
 These metrics are not available in the generated dashboards, but they are exposed as application metrics and can be [forwarded to a third-party monitoring system](#configuring-metrics-forwarding) for visualization.
 
-<h2 id="jhipster-registry">JHipster Registry</h2>
+## JHipster Registry
 
 The JHipster Registry has [its own documentation page here]({{ site.url }}/jhipster-registry/).
 
@@ -165,7 +164,7 @@ provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/47
 
 Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
-<h2 id="zipkin">Zipkin</h2>
+## Zipkin
 
 JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile and set the `spring.zipkin.enabled` property to true. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs.
 
