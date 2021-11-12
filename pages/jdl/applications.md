@@ -413,7 +413,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   <tr>
     <td>clientFramework</td>
     <td>angularX</td>
-    <td>angularX, react</td>
+    <td>angularX, angular, react, vue, svelte, no</td>
     <td></td>
   </tr>
   <tr>
