@@ -11,17 +11,19 @@ sitemap:
 
 ## Summary
 
-1. [Syntax](#syntax)
-1. [Options in applications](#options-in-applications)
-1. [Examples](#examples)
-   1. [Basic Example](#basic-example)
-   1. [More than one application](#more-than-one-application)
-   1. [With entities](#with-entities)
-   1. [With options](#with-options)
-1. [Microservice workflow](#microservice-workflow)
-1. [Complete example breakdowns](#complete-example-breakdowns)
-1. [Available application configuration options](#available-application-configuration-options)
-1. [See also](#see-also)
+- [<i class="fa fa-star"></i> JHipster Domain Language (JDL) - Applications](#i-classfa-fa-stari-jhipster-domain-language-jdl---applications)
+  - [Summary](#summary)
+    - [Syntax](#syntax)
+    - [Options in applications](#options-in-applications)
+    - [Examples](#examples)
+      - [Basic example](#basic-example)
+      - [More than one application](#more-than-one-application)
+      - [With entities](#with-entities)
+      - [With options](#with-options)
+    - [Complete example breakdowns](#complete-example-breakdowns)
+    - [Microservice workflow](#microservice-workflow)
+    - [Available application configuration options](#available-application-configuration-options)
+    - [See also](#see-also)
 
 ***
 
@@ -413,7 +415,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   <tr>
     <td>clientFramework</td>
     <td>angularX</td>
-    <td>angularX, react</td>
+    <td>angularX, angular, react, vue, svelte, no</td>
     <td></td>
   </tr>
   <tr>
