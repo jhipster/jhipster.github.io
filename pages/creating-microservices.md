@@ -13,7 +13,7 @@ Microservices are a type of JHipster application, that have no front-end (the An
 
 <h2 id="entities">Entities in a microservices architecture</h2>
 
-The user entity is not accessible in the microservice when using JWT or DTO, only when OAuth2 is use, there is a mechanism in the microservice to extract user data from the token and save it to the microservice's database. So for JWT and DTO you can not use and/or define a relationship with the User entity because it exists only in the gateway database.
+The User entity is not generated in a microservice when using JWT or DTO. When OAuth 2.0 is used, there is a mechanism in the microservice to extract user data from the token and save it to the microservice's database. So for JWT and DTO you can not use and/or define a relationship with the User entity because it exists only in the gateway's database.
 
 Relationships between entities from different microservices are not supported.
 
