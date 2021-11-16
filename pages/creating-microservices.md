@@ -36,7 +36,7 @@ Microfrontend support is a work in progress. Implementation is subject to change
 
 It uses [Webpack Module Federaration](https://webpack.js.org/concepts/module-federation/) and allows frontend entities implementation to be located in the microservice instead of in the gateway.
 
-Gateway is still required to be running in development due to the authentication process.
+A gateway is still required to be running in development due to the authentication process.
 
 You can find more information about starting microfrontends using gateway or alone in the generated README.
 
