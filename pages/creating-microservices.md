@@ -30,7 +30,7 @@ Then, on the gateway(s), run the entity sub-generator again. A new question will
 - You will have the choice either to generate a new entity normally (a gateway is also a standard JHipster application, so this would work like for a monolith application), or use an existing JHipster configuration from a microservice.
 - If you choose to generate the entity from a microservice, you will need to enter the path to this microservice on your local computer, and then JHipster will generate the front-end code on the gateway.
 
-<h2 id="microfrontends">Microfrontends</h2>
+## Microfrontends
 
 Microfrontend support is a work in progress. Implementation is subject to change and varies between frameworks. Refer to [Microfrontend Support](https://github.com/jhipster/generator-jhipster/issues/17031) for updated status.
 
