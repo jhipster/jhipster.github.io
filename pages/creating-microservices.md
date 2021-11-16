@@ -19,7 +19,7 @@ Relationships between entities from different microservices are not supported.
 
 <h2 id="generating_entities">Generating entities</h2>
 
-For entities in microfrontend see [Microfrontends](#microfrontends)
+For entities in a microfrontend see [Microfrontends](#microfrontends).
 
 Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) works a little bit differently in a microservices architecture, as the front-end and the back-end codes are not located in the same application.
 
