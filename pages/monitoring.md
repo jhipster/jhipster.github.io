@@ -4,7 +4,7 @@ title: Monitoring your JHipster Applications
 permalink: /monitoring/
 sitemap:
     priority: 0.7
-    lastmod: 2019-02-01T00:00:00-00:00
+    lastmod: 2021-11-05T00:00:00-00:00
 ---
 # <i class="fa fa-line-chart"></i> Monitoring your JHipster Applications
 
@@ -13,13 +13,13 @@ JHipster provides several options to monitor your applications at runtime.
 ## Summary
 
 1. [Generated dashboards](#generated-dashboards)
-2. [JHipster Registry](#jhipster-registry)
-3. [ELK](#elk)
-4. [Forwarding metrics to a supported third party monitoring system](#configuring-metrics-forwarding)
-5. [Zipkin](#zipkin)
-6. [Alerting with Elastalert](#elastalert)
+2. [Security metrics](#security-metrics)
+3. [JHipster Registry](#jhipster-registry)
+4. [ELK](#elk)
+5. [Forwarding metrics to a supported third party monitoring system](#configuring-metrics-forwarding)
+6. [Zipkin](#zipkin)
 
-<h2 id="generated-dashboards">Generated dashboards</h2>
+## Generated dashboards
 
 For monoliths and gateways, JHipster generates several dashboards to monitor each application. 
 Those dashboards are available at runtime, and are the easiest way to do some monitoring.
@@ -48,7 +48,18 @@ The health dashboard uses Spring Boot Actuator's health endpoint to give health 
 The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
 You can change the log level of a Java package by clicking on a button, which is very convenient both in development and in production.
 
-<h2 id="jhipster-registry">JHipster Registry</h2>
+## Security Metrics
+JHipster tracks JWT-related security metrics in projects that uses JWT authentication type.
+
+In particular, JHipster tracks token validation errors count (i.e. invalid tokens count) as a custom meter named `security.authentication.invalid-tokens`, and the causes of such validation errors with the following meter tags:
+- `invalid-signature`: the JWT signature verification has failed;
+- `expired`: the JWT has expired;
+- `unsupported`: the JWT format does not match the format expected by the application;
+- `malformed`: the JWT was not correctly constructed.
+
+These metrics are not available in the generated dashboards, but they are exposed as application metrics and can be [forwarded to a third-party monitoring system](#configuring-metrics-forwarding) for visualization.
+
+## JHipster Registry
 
 The JHipster Registry has [its own documentation page here]({{ site.url }}/jhipster-registry/).
 
@@ -153,7 +164,7 @@ provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/47
 
 Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
-<h2 id="zipkin">Zipkin</h2>
+## Zipkin
 
 JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile and set the `spring.zipkin.enabled` property to true. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs.
 
