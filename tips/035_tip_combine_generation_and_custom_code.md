@@ -24,7 +24,8 @@ However, that later process is always painful and you can spend days for a major
 
 ### Pro
 
- - Do what you want 
+ - Do what you want
+
 ### Con
  
  - You'll tend do not benefit from JHipster new features
