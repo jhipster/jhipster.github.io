@@ -39,3 +39,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 1. [Time Drift in Docker]({{ site.url }}/tips/032_tip_time_drift_docker.html)
 1. [User entity management]({{ site.url }}/user-entity/)
 1. [Remove the register account service]({{ site.url }}/tips/034_tip_remove_register_account_service.html)
+1. [Combine generation and custom code]({{ site.url }}/tips/035_tip_combine_generation_and_custom_code.html)
