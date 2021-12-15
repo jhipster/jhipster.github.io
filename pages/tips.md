@@ -15,7 +15,6 @@ This section contains **user-submitted tips'n tricks** on using JHipster.
 
 _If you want to contribute, don't hesitate to send us a Pull Request with your tips on our [GitHub repository](https://github.com/jhipster/jhipster.github.io)._
 
-1. [Create a static Swagger API documentation]({{ site.url }}/tips/008_tips_static_swagger_docs.html)
 1. [Using Bootswatch themes]({{ site.url }}/tips/009_tips_using_bootswatch_themes.html)
 1. [Configuring Email with - Gmail and more]({{ site.url }}/tips/011_tip_configuring_email_in_jhipster.html)
 1. [Speed up the generator-jhipster]({{ site.url }}/tips/013_tip_speed_up_generator.html)
