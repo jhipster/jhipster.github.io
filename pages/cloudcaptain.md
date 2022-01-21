@@ -1,33 +1,35 @@
 ---
 layout: default
-title: Deploying to AWS with Boxfuse
-permalink: /boxfuse/
+title: Deploying to AWS with CloudCaptain
+permalink: /cloudcaptain/
 redirect_from:
+  - /cloudcaptain.html
   - /boxfuse.html
+  - /boxfuse/
 sitemap:
     priority: 0.7
-    lastmod: 2016-08-22T00:00:00-00:00
+    lastmod: 2022-01-21T00:00:00-00:00
 ---
 
-# Deploying to AWS with Boxfuse
+# Deploying to AWS with CloudCaptain
 
-This guide show how to deploy your JHipster application to AWS using [Boxfuse](https://boxfuse.com/).
+This guide show how to deploy your JHipster application to AWS using [CloudCaptain](https://cloudcaptain.sh/).
 
-[![]({{ site.url }}/images/logo/logo-boxfuse.png)](https://boxfuse.com/)
+[![]({{ site.url }}/images/logo/logo-cloudcaptain.png)](https://cloudcaptain.sh/)
 
-Boxfuse comes with **first-class support for JHipster** and works by creating minimal immutable machine images for your application, which can then be deployed either on VirtualBox or on AWS.
+CloudCaptain comes with **first-class support for JHipster** and works by creating minimal immutable machine images for your application, which can then be deployed either on VirtualBox or on AWS.
 
 <div class="alert alert-info"><i>Tip: </i>
 
-As an alternative to Boxfuse you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/aws/">Elastic Beanstalk</a>.
+As an alternative to CloudCaptain you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/aws/">Elastic Beanstalk</a>.
 
 </div>
 
 ## Prerequisites
 
-To be able to deploy, you must first [create a Boxfuse account](https://console.boxfuse.com) and install the [Boxfuse Client](https://boxfuse.com/getstarted/download).
+To be able to deploy, you must first [create a CloudCaptain account](https://console.cloudcaptain.sh) and install the [CloudCaptain Client](https://cloudcaptain.sh/getstarted/download).
 
-You will also need to connect your AWS account in the [Boxfuse Console](https://console.boxfuse.com).
+You will also need to connect your AWS account in the [CloudCaptain Console](https://console.cloudcaptain.sh).
 
 ## Preparing a deployment
 
@@ -45,7 +47,7 @@ To deploy your application to AWS type:
 
 `boxfuse run -env=prod`
 
-Boxfuse will then analyse your application, fuse a minimal machine image for it and automatically provision, configure and secure all necessary
+CloudCaptain will then analyse your application, fuse a minimal machine image for it and automatically provision, configure and secure all necessary
 AWS infrastructure (instances, security groups, Elastic IPs, ELBs, MySQL or PostgreSQL RDS databases, ...)
 
 <pre>Creating jhipster ...
@@ -76,7 +78,7 @@ Remapping Elastic IP 52.29.78.197 to i-95d15028 ...
 Waiting 15s for AWS to complete Elastic IP Zero Downtime transition ...
 Deployment completed successfully. myuser/jhipster:1.0 is up and running at http://jhipster-myuser.boxfuse.io:8080/</pre>
 
-Note that you didn't need to explicitly specify things like ports, healthcheck urls or database types. By default Boxfuse auto-discovers those
+Note that you didn't need to explicitly specify things like ports, healthcheck urls or database types. By default CloudCaptain auto-discovers those
 from your JHipster war based on your `application-prod.yml` file and the included jars. 
 You can override those auto-discovered settings if you want to, but in most cases you won't need to.
 
@@ -87,5 +89,5 @@ are performed as zero downtime-blue deployments.
 
 ## More information
 
-*   [Get Started with Boxfuse and JHipster](https://boxfuse.com/getstarted/jhipster)
-*   [JHipster Boxfuse documentation](https://boxfuse.com/docs/payloads/jhipster)
+*   [Get Started with CloudCaptain and JHipster](https://cloudcaptain.sh/getstarted/jhipster)
+*   [JHipster CloudCaptain documentation](https://cloudcaptain.sh/docs/payloads/jhipster)
