@@ -17,7 +17,7 @@ sitemap:
 *   [Okta](https://developer.okta.com/), which provides time and hardware to [@mraible](https://twitter.com/mraible) to improve the project. They also contributed the [OIDC support]({{ site.url }}/security/#oauth2) and [Ionic module]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic).
 *   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/). It is maintained by [Ray Tsang](https://twitter.com/saturnism).
 *   [Heroku](https://www.heroku.com/) contributed the [Heroku sub-generator]({{ site.url }}/heroku/). It is maintained by [Joe Kutner](https://twitter.com/codefinger).
-*   [Boxfuse](https://boxfuse.com/) has added [specific support for JHipster]({{ site.url }}/boxfuse/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
+*   [CloudCaptain](https://cloudcaptain.sh/) has added [specific support for JHipster]({{ site.url }}/cloudcaptain/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
 *   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
 *   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
 *   [Liquibase](http://www.liquibase.com/) has continuously helped us and corrected bugs for our Liquibase support.
