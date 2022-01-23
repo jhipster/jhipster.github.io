@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-user"></i> The User entity
 
-NOTE: this is not created for microservices using some kinds of secvurity, as detailed
+NOTE: this is not created for microservices using some kinds of security, as detailed
 <a href="/creating-microservices/">here</a>.
 
 This entity is a special entity as JHipster creates and manages it internally.
