@@ -13,6 +13,7 @@ sitemap:
 
 ## Companies contributing to JHipster
 
+*   [Ippon Technologies](https://fr.ippon.tech/), which provides 1 day per month to contribute for everyone who is in the Ippon JHipster team.
 *   [Microsoft](https://www.microsoft.com/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) to improve the project.
 *   [Okta](https://developer.okta.com/), which provides time and hardware to [@mraible](https://twitter.com/mraible) to improve the project. They also contributed the [OIDC support]({{ site.url }}/security/#oauth2) and [Ionic module]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic).
 *   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/). It is maintained by [Ray Tsang](https://twitter.com/saturnism).
