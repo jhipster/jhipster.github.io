@@ -251,7 +251,7 @@ To enable SSL, generate a certificate using:
 
     keytool -genkey -alias <your-application> -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 
-You can also use Let's Encrypt using [this tutorial](https://maximilian-boehm.com/en-gb/blog/create-a-java-keystore-jks-from-lets-encrypt-certificates-3594921/).
+You can also use Let's Encrypt using [this tutorial](https://community.letsencrypt.org/t/tutorial-java-keystores-jks-with-lets-encrypt/34754).
 
 Then, modify the `server.ssl` properties so your `application-prod.yml` configuration looks like:
 
