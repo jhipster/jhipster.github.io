@@ -278,7 +278,7 @@ entity C
 entity D
 dto * with mapstruct
 service * with serviceClass
-paginate D with pager
+paginate D with pagination
 ```
 
 Now, several things will happen when generating these applications and folders:
