@@ -12,8 +12,7 @@ sitemap:
 
 # <i class="fa fa-cube"></i> Creating a stand alone Blueprint (aka module)
 
-As of JHipster v7.8.0, module support was merged into blueprint support.
-So same rules applies.
+As of JHipster v7.8.0, module support was merged into blueprint support. So the same rules apply.
 
 Before creating a Blueprint, make sure you have read [Blueprint Basics](/module/blueprint-basics)
 

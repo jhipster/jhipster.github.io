@@ -45,7 +45,7 @@ mkdir my-blueprint && cd my-blueprint
 
 jhipster generate-blueprint
 ```
-A JHipster blueprint must have generator-jhipster as a dependency and should import the appropriate sub generator to override it.
+A JHipster blueprint must have `generator-jhipster` as a dependency and should import the appropriate sub-generator to override it.
 
 ```javascript
 import chalk from 'chalk';
