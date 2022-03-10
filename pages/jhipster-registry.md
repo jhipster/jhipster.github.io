@@ -115,7 +115,7 @@ For example, adding properties in a `gateway-prod.yml` file will set those prope
 
 As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
 
-#<h2 id="encryption">Using encrypted configuration values</h2>
+<h2 id="encryption">Using encrypted configuration values</h2>
 
 The JHipster Registry has a specific `configuration > encryption` page to allow encryption and decryption of configuration values.
 
