@@ -37,12 +37,7 @@ JHipster provides a complete Docker support, in order to:
 
 One great feature of using Docker Compose is that you can scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with [a microservices architecture](#3).
 
-When generating your application, JHipster generates for you:
-
-- A `Dockerfile` for building a Docker image and running your application inside a container
-- Several Docker Compose configurations to help you run your application with third-party services, for example a database
-
-Those files are located inside folder `src/main/docker/`.
+When generating your application, JHipster generates for you several Docker Compose configurations to help you run your application with third-party services, for example a database. Those files are located inside folder `src/main/docker/`.
 
 <h2 id="2">Prerequisites</h2>
 
