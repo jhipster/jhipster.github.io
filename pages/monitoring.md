@@ -133,10 +133,10 @@ Create a new configuration file (e.g. `BasicAuthConfiguration.java`).
     @Configuration
     @Order(1)
     @ConditionalOnProperty(prefix = "management", name = "metrics.export.prometheus.enabled")
-    public class BasicAuthConfiguration extends WebSecurityConfigurerAdapter {
+    public class BasicAuthConfiguration {
 
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
+        @Bean
+        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             http
                 .antMatcher("/management/prometheus/**")
                 .authorizeRequests()
@@ -147,11 +147,12 @@ Create a new configuration file (e.g. `BasicAuthConfiguration.java`).
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().csrf().disable();
+            return http.build();
         }
     }
 
 
-You can login with the default `admin/admin`. You must add following configuration to you prometheus configuration such that prometheus can still scrape your application.
+You can log in with the default `admin/admin`. You must add following configuration to you prometheus configuration such that prometheus can still scrape your application.
 
     basic_auth:
         username: "admin"
