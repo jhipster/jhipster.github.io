@@ -183,6 +183,54 @@ heroku config:set \
   SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="$SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET"
 ```
 
+#### Create a Native OIDC App for Mobile
+
+If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhipster/generator-jhipster-ionic) or [React Native](https://github.com/jhipster/generator-jhipster-react-native) blueprints, you will need to create a native app on Okta if you're using OIDC. 
+
+Using the [Okta CLI](https://cli.okta.com), run `okta apps create`. Select the default app name, or change it as you see fit. Choose **Native** and press **Enter**.
+
+- **Ionic**: Change the Redirect URI to `[http://localhost:8100/callback,dev.localhost.ionic:/callback]` and the Logout Redirect URI to `[http://localhost:8100/logout,dev.localhost.ionic:/logout]`.
+- **React Native**: Use `[http://localhost:19006/,https://auth.expo.io/@<username>/<appname>]` for redirect URIs. 
+
+**NOTE:** `dev.localhost.ionic` is the default scheme, but you can also use something more traditional like `com.okta.dev-133337` (where `dev-133337.okta.com` is your Okta Org URL). If you change it, be sure to update the `scheme` in your Ionic app's `src/environments/environment.ts` and the redirect URLs in `src/app/auth/factories/auth.factory.ts`.
+
+The Okta CLI will create an OIDC App in your Okta Org. It will add the redirect URIs you specified and grant access to the Everyone group.
+
+```shell
+Okta application configuration:
+Issuer:    https://dev-133337.okta.com/oauth2/default
+Client ID: 0oab8eb55Kb9jdMIr5d6
+```
+
+**NOTE**: You can also use the Okta Admin Console to create your app. See [Create a Native App](https://developer.okta.com/docs/guides/sign-into-mobile-app/create-okta-application/) for more information.
+
+##### Ionic
+
+Open `ionic/src/app/auth/auth-config.service.ts` and add the client ID from your Native app. For example:
+
+```ts
+environment.oidcConfig.server_host = this.authConfig.issuer;
+environment.oidcConfig.client_id = '<your-client-id>';
+```
+
+You'll also need to add a trusted origin for `http://localhost:8100`. In your Okta Admin Console, go to **Security** > **API** > **Trusted Origins** > **Add Origin**. Use the following values:
+
+- Name: `http://localhost:8100`
+- Origin URL: `http://localhost:8100`
+- Type: Check **both** CORS and Redirect
+
+Click **Save**.
+
+Restart your Ionic app and log in with Okta!
+
+##### React Native
+
+Copy the client ID to `app/config/app-config.js`.
+
+Restart your Ionic app and log in with Okta!
+
+#### OpenID Connect Tutorials
+
 See [Use OpenID Connect Support with JHipster](https://developer.okta.com/blog/2017/10/20/oidc-with-jhipster) to learn more about JHipster 5 and OIDC with Okta. 
 
 If you're using JHipster 6, see [Better, Faster, Lighter Java with Java 12 and JHipster 6](https://developer.okta.com/blog/2019/04/04/java-11-java-12-jhipster-oidc). If you're using microservices with JHipster 6, see [Java Microservices with Spring Cloud Config and JHipster](https://developer.okta.com/blog/2019/05/23/java-microservices-spring-cloud-config). 
@@ -199,6 +247,7 @@ The Okta developer blog also has some ❤️ for Micronaut and Quarkus:
 If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the configuration steps below:
 
 #### Create an OIDC App using Auth0 Admin Dashboard
+
 - Create a free developer account at <https://auth0.com/signup>. After successful sign-up, your account shall be associated with a unique domain like `dev-xxx.us.auth0.com`
 - Create a new application of type `Regular Web Applications`. Switch to the `Settings` tab, and configure your application settings like:
     - Allowed Callback URLs: `http://localhost:8080/login/oauth2/code/oidc`
@@ -207,6 +256,7 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
 - Navigate to **User Management** > **Roles** and create new roles named `ROLE_ADMIN`, and `ROLE_USER`.
 - Navigate to **User Management** > **Users** and create a new user account. Click on the **Role** tab to assign roles to the newly created user account.
 - Navigate to **Auth Pipeline** > **Rules** and create a new Rule. Choose `Empty rule` template. Provide a meaningful name like `JHipster claims` and replace `Script` content with the following and Save.
+
 ```javascript
 function (user, context, callback) {
   user.preferred_username = user.email;
@@ -225,8 +275,11 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
 #### Configure JHipster Application to use Auth0 as OIDC Provider
-- In your `JHipster` application, modify `src/main/resources/config/application.yml` to use your Auth0 settings:
+
+In your `JHipster` application, modify `src/main/resources/config/application.yml` to use your Auth0 settings:
+
 ```yaml
 spring:
   ...
@@ -249,11 +302,13 @@ jhipster:
       audience:
         - https://{your-auth0-domain}/api/v2/
 ```
+
 If you have a doubt on the `issuer-uri` value, then, you can get the value from **Applications** > **{Your Application}** > **Settings** > **Advanced Settings** > **Endpoints** > **OpenID Configuration**. Remove `.well-known/openid-configuration` suffix since that will be added by the Spring Security.
 
 You can use the default `Auth0 Management API` audience value from the **Applications** > **API** > **API Audience** field. You can also define your own custom API and use the identifier as the API audience.
 
 - Before running `Cypress` tests, specify `Auth0` user details by overriding the `CYPRESS_E2E_USERNAME` and `CYPRESS_E2E_PASSWORD` environment variables. Refer to [Cypress documentation](https://docs.cypress.io/guides/guides/environment-variables#Setting) for more details.
+
 ```shell
 export CYPRESS_E2E_USERNAME=<your-username>
 export CYPRESS_E2E_PASSWORD=<your-password>
@@ -277,6 +332,67 @@ export JHIPSTER_SECURITY_OAUTH2_AUDIENCE="https://{your-auth0-domain}/api/v2/"
 You can put this in an `~/.auth0.env` file and run `source ~/.auth0.env` to override the default Keycloak settings with Auth0 and start your app with Maven or Gradle. You should be able to sign in with the credentials you registered with.
 
 _Note_: If you're on `Windows`, you should install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) so the `source` command will work.
+
+#### Create a Native OIDC App for Mobile
+
+If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhipster/generator-jhipster-ionic) or [React Native](https://github.com/jhipster/generator-jhipster-react-native) blueprints, you will need to create a native app on Auth0 if you're using OIDC.
+
+1. Create a **Native** app and add the following Allowed Callback URLs:
+
+    - Ionic: `http://localhost:8100/callback,dev.localhost.ionic:/callback`
+    - React Native: `http://localhost:19006/,https://auth.expo.io/@<username>/<appname>`
+
+2. Set the Allowed Logout URLs to:
+
+    - Ionic: `http://localhost:8100/logout,dev.localhost.ionic:/logout`
+    - React: `http://localhost:19006/,https://auth.expo.io/@<username>/<appname>`
+
+3. Set the Allowed Origins (CORS):
+
+    - Ionic: `http://localhost:8100`
+    - React Native: `http://localhost:19006`
+
+##### Ionic
+
+Update `ionic/src/app/auth/auth-config.service.ts` to use the generated client ID:
+
+```ts
+environment.oidcConfig.server_host = this.authConfig.issuer;
+environment.oidcConfig.client_id = 'Dz7Oc9Zv9onjUBsdC55wReC4ifGMlA7G';
+```
+
+Update `environment.ts` to specify your audience.
+
+```ts
+export const environment = {
+  ...
+  oidcConfig: {
+    ...
+    audience: 'https://<your-auth0-domain>/api/v2/'
+  },
+  ..
+};
+```
+
+Restart your Ionic app and log in with Auth0!
+
+##### React Native
+
+Copy the client ID to `app/config/app-config.js`.
+
+Update the `audience` in `app/modules/login/login.utils.ts`:
+
+```ts
+audience: 'https://<your-auth0-domain>/api/v2/',
+```
+
+Restart your React Native app and log in with Auth0!
+
+<!--
+#### OpenID Connect Tutorials
+
+// coming soon!
+-->
 
 <h2 id="https">HTTPS</h2>
 
