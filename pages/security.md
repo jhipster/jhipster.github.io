@@ -204,7 +204,17 @@ Client ID: 0oab8eb55Kb9jdMIr5d6
 
 **NOTE**: You can also use the Okta Admin Console to create your app. See [Create a Native App](https://developer.okta.com/docs/guides/sign-into-mobile-app/create-okta-application/) for more information.
 
-#### Ionic
+#### Add Claims to Access Token
+
+In order to authentication successfully with your mobile app, you have to do a bit more configuration in Okta. Since the mobile client will only send an access token to JHipster, you need to 1) add a `groups` claim to the access token and 2) add a couple more claims so the user's name will be available in JHipster.
+
+**NOTE:** These steps are not necessary if you're using a version of JHipster with [a `CustomClaimConverter`](https://github.com/jhipster/generator-jhipster/pull/12609). In other words, if you're using Spring a MVC-based monolith, you don't need it. Support has not been added to WebFlux, yet.
+
+Navigate to **Security** > **API** > **Authorization Servers**, click the **Authorization Servers** tab and edit the **default** one. Click the **Claims** tab and **Add Claim**. Name it "groups" and include it in the Access Token. Set the value type to "Groups" and set the filter to be a Regex of `.*`. Click **Create**.
+
+Add another claim, name it `given_name`, include it in the access token, use `Expression` in the value type, and set the value to `user.firstName`. Optionally, include it in the `profile` scope. Perform the same actions to create a `family_name` claim and use expression `user.lastName`.
+
+#### Update Your Ionic App
 
 Open `ionic/src/app/auth/auth-config.service.ts` and add the client ID from your Native app. For example:
 
@@ -223,7 +233,7 @@ Click **Save**.
 
 Restart your Ionic app and log in with Okta!
 
-#### React Native
+#### Update Your React Native App
 
 Copy the client ID to `app/config/app-config.js`.
 
@@ -318,7 +328,7 @@ _Note_: Auth0 requires a user to provide authorization consent on the first logi
 
 If you experience authentication issues with Cypress, see [this guide](https://docs.cypress.io/guides/testing-strategies/auth0-authentication#Auth0-Rate-Limiting-Logins) for a workaround.
 
-##### Using Environment Variables
+#### Use Environment Variables
 
 You can also use environment variables to override the defaults. For example:
 
@@ -352,17 +362,7 @@ If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhi
     - Ionic: `http://localhost:8100`
     - React Native: `http://localhost:19006`
 
-#### Add Claims to Access Token
-
-In order to authentication successfully with your Ionic app, you have to do a bit more configuration in Okta. Since the Ionic client will only send an access token to JHipster, you need to 1) add a `groups` claim to the access token and 2) add a couple more claims so the user's name will be available in JHipster.
-
-**NOTE:** These steps are not necessary if you're using a version of JHipster with [a `CustomClaimConverter`](https://github.com/jhipster/generator-jhipster/pull/12609). In other words, if you're using Spring a MVC-based monolith, you don't need it. Support has not been added to WebFlux, yet.
-
-Navigate to **Security** > **API** > **Authorization Servers**, click the **Authorization Servers** tab and edit the **default** one. Click the **Claims** tab and **Add Claim**. Name it "groups" and include it in the Access Token. Set the value type to "Groups" and set the filter to be a Regex of `.*`. Click **Create**.
-
-Add another claim, name it `given_name`, include it in the access token, use `Expression` in the value type, and set the value to `user.firstName`. Optionally, include it in the `profile` scope. Perform the same actions to create a `family_name` claim and use expression `user.lastName`.
-
-#### Ionic
+#### Update Your Ionic App
 
 Update `ionic/src/app/auth/auth-config.service.ts` to use the generated client ID:
 
@@ -386,7 +386,7 @@ export const environment = {
 
 Restart your Ionic app and log in with Auth0!
 
-#### React Native
+#### Update Your React Native App
 
 Copy the client ID to `app/config/app-config.js`.
 
