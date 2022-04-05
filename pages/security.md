@@ -183,7 +183,7 @@ heroku config:set \
   SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="$SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET"
 ```
 
-#### Create a Native Okta App for Mobile
+#### Create a Native App for Mobile on Okta
 
 If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhipster/generator-jhipster-ionic) or [React Native](https://github.com/jhipster/generator-jhipster-react-native) blueprints, you will need to create a native app on Okta if you're using OIDC. 
 
@@ -343,7 +343,7 @@ You can put this in an `~/.auth0.env` file and run `source ~/.auth0.env` to over
 
 _Note_: If you're on `Windows`, you should install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) so the `source` command will work.
 
-#### Create a Native Auth0 App for Mobile
+#### Create a Native App for Mobile on Auth0
 
 If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhipster/generator-jhipster-ionic) or [React Native](https://github.com/jhipster/generator-jhipster-react-native) blueprints, you will need to create a native app on Auth0 if you're using OIDC.
 
