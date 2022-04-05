@@ -32,13 +32,13 @@ JHipster provides three main security mechanisms:
 
 [JSON Web Token (JWT)](https://jwt.io/) authentication is a stateless security mechanism, so it's a good option if you want to scale your application on several different servers.
 
-Please note that this is the default option when using a [microservices architecture]({{ site.url }}/microservices-architecture/).
+Please note that this is the default option when using a [microservices architecture](/microservices-architecture/).
 
 This authentication mechanism doesn't exist by default with Spring Security, it's a JHipster-specific integration of [the Java JWT project](https://github.com/jwtk/jjwt).
 
 This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
 
-JHipster automatically tracks invalid JWTs as an custom application metric, refer to the [monitoring documentation]({{ site.url }}/monitoring/#security-metrics).
+JHipster automatically tracks invalid JWTs as an custom application metric, refer to the [monitoring documentation](/monitoring/#security-metrics).
 
 ### Securing JWT
 
@@ -47,7 +47,7 @@ The second option uses a Base64-encoded string, so it is considered more secured
 A warning will be shown at application startup if you don't use the Base64 property.
 - Those keys should have a minimum length of 512 bits: if they are not long enough, you will not be able to use them to login. If that happens, there will be a clear warning at the console to explain that issue.
 - The secret keys are configured in the `application-*.yml` files. As those keys must be kept secret, you **should** store them in a secure way for your production profile.
-It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry]({{ site.url }}/jhipster-registry/) (our recommended option),
+It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/) (our recommended option),
 using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
@@ -57,7 +57,7 @@ This is the "classical" Spring Security authentication mechanism, but we have im
 
 ### Securing Session-based authentication
 
-- For remember-me authentication, the remember-me key is configured in the `application-dev.yml` and `application-prod.yml` files, as the `jhipster.security.remember-me.key` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry]({{ site.url }}/jhipster-registry/) (our recommended option), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
+- For remember-me authentication, the remember-me key is configured in the `application-dev.yml` and `application-prod.yml` files, as the `jhipster.security.remember-me.key` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/) (our recommended option), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
 ### Improved remember-me mechanism
@@ -82,7 +82,7 @@ To log into your application, you'll need to have [Keycloak](https://www.keycloa
 docker-compose -f src/main/docker/keycloak.yml up
 ```
 
-If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation]({{ site.url }}/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
+If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
 The security settings in `src/main/resources/config/application.yml` are configured for this image.
 
@@ -149,7 +149,7 @@ Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do t
 
 Create a `ROLE_ADMIN` and `ROLE_USER` group (**Directory** > **Groups** > **Add Group**) and add users to them. You can use the account you signed up with, or create a new user (**Directory** > **People** > **Add Person**). Navigate to **Security** > **API** > **Authorization Servers**, and click on the `default` server. Click the **Claims** tab and **Add Claim**. Name it `groups`, and include it in the ID Token. Set the value type to `Groups` and set the filter to be a Regex of `.*`. Click **Create**.
 
-<img src="{{ site.url }}/images/security-add-claim.png" alt="Add Claim" width="600" style="margin: 10px">
+<img src="/images/security-add-claim.png" alt="Add Claim" width="600" style="margin: 10px">
 
 After making these changes, you should be good to go! If you have any issues, please post them to [Stack Overflow](https://stackoverflow.com/questions/tagged/jhipster). Make sure to tag your question with "jhipster" and "okta".
 
