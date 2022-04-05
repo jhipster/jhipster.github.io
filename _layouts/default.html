@@ -546,7 +546,7 @@
     <script type="text/javascript" src="{{ site.url }}/js/users.js"></script>
     {% endif %}
     <script>
-    if (self !== top && !window.location.origin.includes('jhipster-site.netlify.app')) {
+    if (self !== top) {
         window.top.location.href = "https://www.jhipster.tech";
     }
     </script>
