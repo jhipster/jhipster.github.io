@@ -206,7 +206,7 @@ Client ID: 0oab8eb55Kb9jdMIr5d6
 
 #### Add Claims to Access Token
 
-In order to authentication successfully with your mobile app, you have to do a bit more configuration in Okta. Since the mobile client will only send an access token to JHipster, you need to 1) add a `groups` claim to the access token and 2) add a couple more claims so the user's name will be available in JHipster.
+In order to authenticate successfully with your mobile app, you have to do a bit more configuration in Okta. Since the mobile client will only send an access token to JHipster, you need to 1) add a `groups` claim to the access token and 2) add a couple more claims so the user's name will be available in JHipster.
 
 **NOTE:** These steps are not necessary if you're using a version of JHipster with [a `CustomClaimConverter`](https://github.com/jhipster/generator-jhipster/pull/12609). In other words, if you're using Spring a MVC-based monolith, you don't need it. Support has not been added to WebFlux, yet.
 
@@ -368,7 +368,7 @@ Update `ionic/src/app/auth/auth-config.service.ts` to use the generated client I
 
 ```ts
 environment.oidcConfig.server_host = this.authConfig.issuer;
-environment.oidcConfig.client_id = 'Dz7Oc9Zv9onjUBsdC55wReC4ifGMlA7G';
+environment.oidcConfig.client_id = '<native-client-id>';
 ```
 
 Update `environment.ts` to specify your audience.
