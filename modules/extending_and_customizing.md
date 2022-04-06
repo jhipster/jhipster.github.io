@@ -90,12 +90,12 @@ while `jhipsterConfig` and `blueprintConfig` are [proxy objects](https://yeoman.
 
 ### Global constants:
 
-You can use constants in [generator-constants.js](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
+You can use constants in [`generator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
 
 ```javascript
-  const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
-  const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
-  const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
+const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
+const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
+const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
 
 ### Functions:
 
@@ -148,7 +148,7 @@ jhipster --no-skip-jhipster-dependencies
 ## Registering a blueprint to the JHipster marketplace
 
 To make your blueprint available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to make sure you have the two keywords `yeoman-generator` and `jhipster-blueprint` in your published npm `package.json`.
-If you find any entry in the marketplace that is not a JHipster module or blueprint, you can help to deny list it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/main/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
+If you find any entry in the marketplace that is not a JHipster module or blueprint, you can help to deny list it by adding it to the `blacklistedModules` section of the [`modules-config.json file`](https://github.com/jhipster/jhipster.github.io/blob/main/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
 
 
 Once you publish your blueprint to NPM, your blueprint will become available in our marketplace.
