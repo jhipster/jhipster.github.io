@@ -14,9 +14,9 @@ sitemap:
 
 JHipster has support for `plugins`, and we call them `blueprints` and `modules`.
 
-Prior to JHipster v7.7.0, `modules` were Yeoman generators executed using `yo`, extended `generators-jhipster`'s `generator-base` class, and registered hooks to integrate into JHipster's workflow.
+Prior to JHipster v7.9.0, `modules` were Yeoman generators executed using `yo`, extended `generators-jhipster`'s `generator-base` class, and registered hooks to integrate into JHipster's workflow.
 
-As of JHipster v7.7.0, `modules` are `blueprints` with stand-alone generators (not blueprinted) and a custom CLI.
+As of JHipster v7.9.0, `modules` are `blueprints` with stand-alone generators (not blueprinted) and a custom CLI.
 We will refer to them as standalone blueprints (or just blueprints) from now on.
 
 ## Basic rules for a JHipster blueprint
@@ -101,6 +101,7 @@ You can use constants in [`generator-constants.js`](https://github.com/jhipster/
 const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
 const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
 const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
+```
 
 ### Functions:
 
