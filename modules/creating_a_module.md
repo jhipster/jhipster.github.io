@@ -16,9 +16,13 @@ As of JHipster v7.9.0, module support was merged into blueprint support. So the 
 
 Before creating a Blueprint, make sure you have read [Blueprint Basics](/module/blueprint-basics)
 
+## Example
+
+[JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) was converted from a module to a blueprint.
+
 ## Migration
 
-- Rename your module app and entity generators (if they exist) to app-module and entity-module
+- Rename your module app and entity generators (if they exist) to something else like app-module and entity-module
 ```sh
 mv generators/app generators/app-module
 mv generators/entity generators/entity-module
