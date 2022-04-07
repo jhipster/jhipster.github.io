@@ -117,7 +117,7 @@ There are multiple ways to customize a priority from JHipster.
 ```javascript
     get [INITIALIZING_PRIORITY]() {
         return {
-            ...super.initializing,
+            ...super._initializing(),
             displayLogo() {
                 // override the displayLogo method from the initializing priority of JHipster
             },
@@ -140,7 +140,7 @@ This is usefull to customize properties that will be used during the priority to
                 // Stuff to do BEFORE the JHipster steps
                 // Eg: set name that will generate nameCapitalized, nameLowercase, etc.
             }
-            ...super.initializing,
+            ...super._initializing(),
             myCustomPostInitStep() {
                 // Stuff to do AFTER the JHipster steps
             }
