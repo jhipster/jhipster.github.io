@@ -26,21 +26,6 @@ To use a blueprint, run the below command
 jhipster --blueprints <blueprint name>
 ```
 
-## Examples
-
-JHipster has many official blueprints, some examples:
-
-- Backend
-  - [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) blueprint replaces most of the server side Java code with equivalent Kotlin code.
-  - [JHipster.NET](https://github.com/jhipster/jhipster-dotnetcore) blueprint replaces the entire server side with .NET implementation.
-  - [JHipster NodeJS](https://github.com/jhipster/generator-jhipster-nodejs) blueprint replaces the entire server side with NestJS implementation.
-- Backend Customization
-  - [JHipster Native](https://github.com/jhipster/generator-jhipster-native) blueprint customizes JHipster applications with Spring Native compatibility.
-- Frontend
-  - [Svelte Hipster](https://github.com/jhipster/generator-jhipster-svelte) blueprint replaces the entire client side with Svelte implementation.
-- Mobile
-  - [JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) blueprint generates an Ionic application.
-
 ## Generating the blueprint
 
 We recommend to use the builtin `generate-blueprint` generator to kickstart your blueprint
