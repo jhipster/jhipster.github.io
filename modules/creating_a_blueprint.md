@@ -30,11 +30,16 @@ jhipster --blueprints <blueprint name>
 
 JHipster has many official blueprints, some examples:
 
-- [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) blueprint replaces most of the server side Java code with equivalent Kotlin code.
-- [JHipster.NET](https://github.com/jhipster/jhipster-dotnetcore) blueprint replaces the entire server side with .NET implementation.
-- [JHipster NodeJS](https://github.com/jhipster/generator-jhipster-nodejs) blueprint replaces the entire server side with NestJS implementation.
-- [Svelte Hipster](https://github.com/jhipster/generator-jhipster-svelte) blueprint replaces the entire client side with Svelte implementation.
-- [JHipster Native](https://github.com/jhipster/generator-jhipster-native) blueprint customizes JHipster applications with Spring Native compatibility.
+- Backend
+  - [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) blueprint replaces most of the server side Java code with equivalent Kotlin code.
+  - [JHipster.NET](https://github.com/jhipster/jhipster-dotnetcore) blueprint replaces the entire server side with .NET implementation.
+  - [JHipster NodeJS](https://github.com/jhipster/generator-jhipster-nodejs) blueprint replaces the entire server side with NestJS implementation.
+- Backend Customization
+  - [JHipster Native](https://github.com/jhipster/generator-jhipster-native) blueprint customizes JHipster applications with Spring Native compatibility.
+- Frontend
+  - [Svelte Hipster](https://github.com/jhipster/generator-jhipster-svelte) blueprint replaces the entire client side with Svelte implementation.
+- Mobile
+  - [JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) blueprint generates a Ionic application.
 
 ## Generating the blueprint
 
