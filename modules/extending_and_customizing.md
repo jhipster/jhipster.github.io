@@ -40,7 +40,7 @@ Or use the custom provided CLI:
 jhipster-my-blueprint
 ```
 
-### Examples
+## Examples
 
 JHipster has many official blueprints, some examples:
 
@@ -55,7 +55,7 @@ JHipster has many official blueprints, some examples:
 - Mobile
   - [JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) blueprint generates an Ionic application.
 
-### Side-by-side blueprint
+## Side-by-side blueprint
 
 Each generator can be a side-by-side (SBS) blueprint. An sbs blueprint doesn't change the original generator's behavior but can customize the behavior and the result.
 Side-by-side blueprint makes easier to support multiple JHipster versions and port to a new JHipster version.
@@ -71,7 +71,7 @@ At this example the generator [customizes package.json](https://github.com/jhips
 
 A side-by-side blueprint can be used to create hooks and help migrate an existing module. This is covered in [Creating a module](/modules/creating-a-module).
 
-### Custom CLI
+## Custom CLI
 
 Standalone blueprints can be executed using `yo`, but `yo` is aggressive in generators discovery (can be slow) and lacks some improvements. The JHipster CLI provides help and JHipster integration.
 Therefore, we recommend using the `jhipster` CLI or creating a custom CLI based on `generator-jhipster`.
@@ -81,9 +81,11 @@ A custom CLI will execute the dependent `generator-jhipster` and will make sure 
 
 Custom CLI allows you to execute a custom generator and is covered in [Creating a module](/modules/creating-a-module).
 
-## Development
+## Development and public API
 
-### Application configuration:
+We still lack published JSDoc API documentation, so you will need to refer to the source code.
+
+## Application configuration:
 
 JHipster's configuration follows [Yeoman configuration](https://yeoman.io/authoring/storage.html) pattern and provides additional support for blueprint config.
 
@@ -93,7 +95,7 @@ The `blueprintStorage` and `blueprintConfig` properties store the blueprint-spec
 The `config` and `blueprintStorage` are [Storage instances](https://yeoman.github.io/generator/Storage.html), 
 while `jhipsterConfig` and `blueprintConfig` are [proxy objects](https://yeoman.github.io/generator/Storage.html#createProxy) for `config` and `blueprintStorage` storages for convenience.
 
-### Global constants:
+## Constants:
 
 You can use constants in [`generator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
 
@@ -103,7 +105,7 @@ const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
 const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
 ```
 
-### Functions:
+## Functions:
 
 You can use all functions in [generator-base.js](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-base.js):
 
