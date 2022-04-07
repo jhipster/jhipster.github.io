@@ -39,7 +39,7 @@ JHipster has many official blueprints, some examples:
 - Frontend
   - [Svelte Hipster](https://github.com/jhipster/generator-jhipster-svelte) blueprint replaces the entire client side with Svelte implementation.
 - Mobile
-  - [JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) blueprint generates a Ionic application.
+  - [JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) blueprint generates an Ionic application.
 
 ## Generating the blueprint
 
