@@ -401,6 +401,36 @@
       "logo": "entando.png",
       "category": "Software Editor",
       "country": "USA"
+    }, 
+    {"name": "Scouts et Guides de France",
+      "url": "https://sgdf.fr",
+      "logo": "sgdf.png",
+      "category": "Association",
+      "country": "France"
+    },
+    {"name": "IQVIA",
+      "url": "https://www.iqvia.com",
+      "logo": "iqvia.png",
+      "category": "Healthcare",
+      "country": "USA"
+    },
+    {"name": "Infosys",
+      "url": "https://www.infosys.com",
+      "logo": "infosys.png",
+      "category": "Information Technology",
+      "country": "India"
+    },
+    {"name": "APNIC",
+      "url": "https://www.apnic.net",
+      "logo": "apnic.png",
+      "category": "Information Technology",
+      "country": "APAC"
+    },
+    {"name": "Devoteam",
+      "url": "https://www.devoteam.com",
+      "logo": "devoteam.png",
+      "category": "Information Technology",
+      "country": "France"
     },
     {"name": "K2innovation",
       "url": "http://www.k2innovation.it"
@@ -1154,6 +1184,69 @@
     },
     {"name": "Raster Images",
       "url": "https://www.raster.in/"
+    },
+    {"name": "Ennoia Systems",
+      "url": "http://www.ennoiasystems.com.mx"
+    },
+    {"name": "Afrik Lonnya",
+      "url": "http://afriklonnya.com"
+    },
+    {"name": "StandByStand",
+      "url": "https://www.standbystand.eu"
+    },
+    {"name": "Software Evolutivo",
+      "url": "https://softwareevolutivo.com.ec"
+    },
+    {"name": "Mobilunity",
+      "url": "https://mobilunity.com"
+    },
+    {"name": "Claro",
+      "url": "https://www.claro.com.do"
+    },
+    {"name": "Jumbo Tour",
+      "url": "https://www.jumbotours.com"
+    },
+    {"name": "Scan Repeat",
+      "url": "https://scanrepeat.com"
+    },
+    {"name": "Recostream",
+      "url": "https://recostream.com"
+    },
+    {"name": "iTech Mission",
+      "url": "http://www.itechmission.org"
+    },
+    {"name": "Recruitly",
+      "url": "https://recruitly.io"
+    },
+    {"name": "Tarienna",
+      "url": "https://www.tarienna.eu"
+    },
+    {"name": "Gorilla Technology",
+      "url": "https://www.gorilla-technology.com"
+    },
+    {"name": "Seller Metrics",
+      "url": "https://sellermetrics.app"
+    },
+    {"name": "Nervia Technologies",
+      "url": "https://nerviatechnologies.info"
+    },
+    {"name": "Clonk",
+      "url": "https://clonkapp.com"
+    },
+    {"name": "Discus Business Solutions",
+      "url": "https://discus.solutions"
+    },
+    {"name": "Wobseo",
+      "url": "https://wobseo.com"
+    },
+    {"name": "Squadbotik",
+      "url": "https://squadbotik.ch"
+    },
+    {"name": "MindNerves",
+      "url": "https://mindnerves.com"
+    },
+    {"name": "Gregousa",
+      "url": "https://www.gregousa.com"
     }
   ]
 }
