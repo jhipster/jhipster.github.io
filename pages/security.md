@@ -78,13 +78,30 @@ OAuth is a stateful security mechanism, like HTTP Session. Spring Security provi
 
 To log into your application, you'll need to have [Keycloak](https://www.keycloak.org) up and running. The JHipster Team has created a Docker container for you that has the default users and roles. Start Keycloak using the following command.
 
-```
+```shell
 docker-compose -f src/main/docker/keycloak.yml up
+```
+Alternatively, you can use `npm` as follows:
+
+```shell
+npm run docker:keycloak:up
 ```
 
 If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
-The security settings in `src/main/resources/config/application.yml` are configured for this image.
+> :information_source: Note for JHipster 7.8.1 and KeyCloak 16.1.0 on Apple Silicon (M1)
+> 
+> KeyCloak may misbehave on Apple Silicon in Compatability Mode and the solution is not obvious. You may want to build the KeyCloak image locally to address. The following steps have been shown to work:
+> 
+> 1. Clone Keycloak containers repository: `git clone git@github.com:keycloak/keycloak-containers.git`
+> 1. Open `server` directory, e.g., `cd keycloak-containers/server`
+> 1. Checkout at desired version, e.g., `git checkout 16.1.0`
+> 1. Build docker image `docker build -t jboss/keycloak:16.1.0 .`
+> 1. Run Keycloak `npm run docker:keycloak:up`
+
+If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
+
+The security settings in `src/main/resources/config/application.yml` are configured for this image. See above note on `/etc/hosts` and take note that `issuer-uri` may need to change
 
 ```yaml
 spring:
@@ -95,6 +112,10 @@ spring:
         provider:
           oidc:
             issuer-uri: http://localhost:9080/auth/realms/jhipster
+            # localhost will be bound to the guest (container), not the host
+            # to run KeyCloak as a daemon, i.e., npm run docker:keycloak:up, /etc/hosts must be edited
+            # and the issuer-uri should be as follows:
+            # issuer-uri: http://keycloak:9080/auth/realms/jhipster
         registration:
           oidc:
             client-id: web_app
