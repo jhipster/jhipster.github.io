@@ -242,8 +242,8 @@ Open `ionic/src/environments/environment.ts` and add the client ID from your Nat
 
 ```ts
 oidcConfig: {
-  client_id: '0oab8eb55Kb9jdMIr5d6',
-  server_host: 'https://dev-133337.okta.com/oauth2/default',
+  client_id: '<native-client-id>',
+  server_host: 'https://<your-okta-domain>/oauth2/default',
   ...
 }
 ```
@@ -395,7 +395,7 @@ Update `ionic/src/environments/environment.ts` to use the generated client ID. T
 
 ```ts
 oidcConfig: {
-  client_id: '0oab8eb55Kb9jdMIr5d6',
+  client_id: '<native-client-id>',
   server_host: 'https://<your-auth0-domain>/',
   ...
   audience: 'https://<your-auth0-domain>/api/v2/'
