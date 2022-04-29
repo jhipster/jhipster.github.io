@@ -238,11 +238,14 @@ Add another claim, name it `given_name`, include it in the access token, use `Ex
 
 #### Update Your Ionic App
 
-Open `ionic/src/app/auth/auth-config.service.ts` and add the client ID from your Native app. For example:
+Open `ionic/src/environments/environment.ts` and add the client ID from your Native app. The value for `server_host` will be looked up from your JHipster app (at `/api/auth-info`), but you can define it as a fallback value. For example:
 
 ```ts
-environment.oidcConfig.server_host = this.authConfig.issuer;
-environment.oidcConfig.client_id = '<your-client-id>';
+oidcConfig: {
+  client_id: '0oab8eb55Kb9jdMIr5d6',
+  server_host: 'https://dev-133337.okta.com/oauth2/default',
+  ...
+}
 ```
 
 You'll also need to add a trusted origin for `http://localhost:8100`. In your Okta Admin Console, go to **Security** > **API** > **Trusted Origins** > **Add Origin**. Use the following values:
@@ -387,24 +390,16 @@ If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhi
 
 #### Update Your Ionic App
 
-Update `ionic/src/app/auth/auth-config.service.ts` to use the generated client ID:
+Update `ionic/src/environments/environment.ts` to use the generated client ID. The value for `server_host` will be looked up from your JHipster app (at `/api/auth-info`), but you can define it as a fallback value. You'll also need to specify the audience. For example:
+
 
 ```ts
-environment.oidcConfig.server_host = this.authConfig.issuer;
-environment.oidcConfig.client_id = '<native-client-id>';
-```
-
-Update `environment.ts` to specify your audience.
-
-```ts
-export const environment = {
+oidcConfig: {
+  client_id: '0oab8eb55Kb9jdMIr5d6',
+  server_host: 'https://<your-auth0-domain>/',
   ...
-  oidcConfig: {
-    ...
-    audience: 'https://<your-auth0-domain>/api/v2/'
-  },
-  ..
-};
+  audience: 'https://<your-auth0-domain>/api/v2/'
+}
 ```
 
 Restart your Ionic app and log in with Auth0!
