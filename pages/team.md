@@ -47,6 +47,16 @@ If you want to join the team, or see how we work, our community rules are at the
             </div>
         </div>
     </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/3706415?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Daniel Franco</h3>
+                <p>Project co-lead</p>
+                <p><a href="https://twitter.com/dandrfranco"><i>@dandrfranco</i></a></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 ## Board of developers
@@ -120,15 +130,6 @@ If you want to join the team, or see how we work, our community rules are at the
             <div class="caption">
                 <h3>Hippolyte Durix</h3>
                 <p><a href="https://twitter.com/hdurix"><i>@hdurix</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/3706415?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Daniel Franco</h3>
-                <p><a href="https://twitter.com/dandrfranco"><i>@dandrfranco</i></a></p>
             </div>
         </div>
     </div>
