@@ -311,7 +311,7 @@ function (user, context, callback) {
 }
 ```
 
-If you'd like to have all these steps automated for you, add a 👍 to [issue #351](https://github.com/auth0/auth0-cli/issues/351) in the Auth0 CLI project.
+_If you'd like to have all these steps automated for you, add a 👍 to [issue #351](https://github.com/auth0/auth0-cli/issues/351) in the Auth0 CLI project._
 
 #### Configure JHipster Application to use Auth0 as OIDC Provider
 
