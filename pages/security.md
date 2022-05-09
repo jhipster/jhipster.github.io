@@ -392,14 +392,18 @@ If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhi
 
 Update `ionic/src/environments/environment.ts` to use the generated client ID. The value for `server_host` will be looked up from your JHipster app (at `/api/auth-info`), but you can define it as a fallback value. You'll also need to specify the audience. For example:
 
-
 ```ts
-oidcConfig: {
+const oidcConfig: IAuthConfig = {
   client_id: '<native-client-id>',
   server_host: 'https://<your-auth0-domain>/',
   ...
-  audience: 'https://<your-auth0-domain>/api/v2/'
-}
+};
+
+export const environment = {
+  ...
+  audience: 'https://<your-auth0-domain>/api/v2/',
+  ...
+};
 ```
 
 Restart your Ionic app and log in with Auth0!
