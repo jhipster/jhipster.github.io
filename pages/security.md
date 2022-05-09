@@ -311,6 +311,8 @@ function (user, context, callback) {
 }
 ```
 
+If you'd like to have all these steps automated for you, add a 👍 to [issue #351](https://github.com/auth0/auth0-cli/issues/351) in the Auth0 CLI project.
+
 #### Configure JHipster Application to use Auth0 as OIDC Provider
 
 In your `JHipster` application, modify `src/main/resources/config/application.yml` to use your Auth0 settings:
