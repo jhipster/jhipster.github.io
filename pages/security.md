@@ -214,7 +214,7 @@ Using the [Okta CLI](https://cli.okta.com), run `okta apps create`. Select the d
 - **Ionic**: Change the Redirect URI to `[http://localhost:8100/callback,dev.localhost.ionic:/callback]` and the Logout Redirect URI to `[http://localhost:8100/logout,dev.localhost.ionic:/logout]`.
 - **React Native**: Use `[http://localhost:19006/,https://auth.expo.io/@<username>/<appname>]` for redirect URIs. 
 
-**NOTE:** `dev.localhost.ionic` is the default scheme, but you can also use something more traditional like `com.okta.dev-133337` (where `dev-133337.okta.com` is your Okta Org URL). If you change it, be sure to update the `scheme` in your Ionic app's `src/environments/environment.ts` and the redirect URLs in `src/app/auth/factories/auth.factory.ts`.
+**NOTE:** `dev.localhost.ionic` is the default scheme, but you can also use something more traditional like `com.okta.dev-133337` (where `dev-133337.okta.com` is your Okta Org URL). If you change it, be sure to update the `scheme` in your Ionic app's `src/environments/environment.ts`.
 
 The Okta CLI will create an OIDC App in your Okta Org. It will add the redirect URIs you specified and grant access to the Everyone group.
 
@@ -385,7 +385,7 @@ If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhi
 
 3. Set the Allowed Origins (CORS):
 
-    - Ionic: `http://localhost:8100`
+    - Ionic: `http://localhost:8100,capacitor://localhost,http://localhost`
     - React Native: `http://localhost:19006`
 
 #### Update Your Ionic App
