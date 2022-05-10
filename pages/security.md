@@ -214,7 +214,7 @@ Using the [Okta CLI](https://cli.okta.com), run `okta apps create`. Select the d
 - **Ionic**: Change the Redirect URI to `[http://localhost:8100/callback,dev.localhost.ionic:/callback]` and the Logout Redirect URI to `[http://localhost:8100/logout,dev.localhost.ionic:/logout]`.
 - **React Native**: Use `[http://localhost:19006/,https://auth.expo.io/@<username>/<appname>]` for redirect URIs. 
 
-**NOTE:** `dev.localhost.ionic` is the default scheme, but you can also use something more traditional like `com.okta.dev-133337` (where `dev-133337.okta.com` is your Okta Org URL). If you change it, be sure to update the `scheme` in your Ionic app's `src/environments/environment.ts` and the redirect URLs in `src/app/auth/factories/auth.factory.ts`.
+**NOTE:** `dev.localhost.ionic` is the default scheme, but you can also use something more traditional like `com.okta.dev-133337` (where `dev-133337.okta.com` is your Okta Org URL). If you change it, be sure to update the `scheme` in your Ionic app's `src/environments/environment.ts`.
 
 The Okta CLI will create an OIDC App in your Okta Org. It will add the redirect URIs you specified and grant access to the Everyone group.
 
@@ -238,11 +238,14 @@ Add another claim, name it `given_name`, include it in the access token, use `Ex
 
 #### Update Your Ionic App
 
-Open `ionic/src/app/auth/auth-config.service.ts` and add the client ID from your Native app. For example:
+Open `ionic/src/environments/environment.ts` and add the client ID from your Native app. The value for `server_host` will be looked up from your JHipster app (at `/api/auth-info`), but you can define it as a fallback value. For example:
 
 ```ts
-environment.oidcConfig.server_host = this.authConfig.issuer;
-environment.oidcConfig.client_id = '<your-client-id>';
+oidcConfig: {
+  client_id: '<native-client-id>',
+  server_host: 'https://<your-okta-domain>/oauth2/default',
+  ...
+}
 ```
 
 You'll also need to add a trusted origin for `http://localhost:8100`. In your Okta Admin Console, go to **Security** > **API** > **Trusted Origins** > **Add Origin**. Use the following values:
@@ -307,6 +310,8 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
+_If you'd like to have all these steps automated for you, add a 👍 to [issue #351](https://github.com/auth0/auth0-cli/issues/351) in the Auth0 CLI project._
 
 #### Configure JHipster Application to use Auth0 as OIDC Provider
 
@@ -382,28 +387,24 @@ If you're developing a mobile app with JHipster's [Ionic](https://github.com/jhi
 
 3. Set the Allowed Origins (CORS):
 
-    - Ionic: `http://localhost:8100`
+    - Ionic: `http://localhost:8100,capacitor://localhost,http://localhost`
     - React Native: `http://localhost:19006`
 
 #### Update Your Ionic App
 
-Update `ionic/src/app/auth/auth-config.service.ts` to use the generated client ID:
+Update `ionic/src/environments/environment.ts` to use the generated client ID. The value for `server_host` will be looked up from your JHipster app (at `/api/auth-info`), but you can define it as a fallback value. You'll also need to specify the audience. For example:
 
 ```ts
-environment.oidcConfig.server_host = this.authConfig.issuer;
-environment.oidcConfig.client_id = '<native-client-id>';
-```
+const oidcConfig: IAuthConfig = {
+  client_id: '<native-client-id>',
+  server_host: 'https://<your-auth0-domain>/',
+  ...
+};
 
-Update `environment.ts` to specify your audience.
-
-```ts
 export const environment = {
   ...
-  oidcConfig: {
-    ...
-    audience: 'https://<your-auth0-domain>/api/v2/'
-  },
-  ..
+  audience: 'https://<your-auth0-domain>/api/v2/',
+  ...
 };
 ```
 
