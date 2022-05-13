@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2018-10-20T18:40:00-00:00
 ---
 
-# <i class="fa fa-terminal"></i> Using Fisher 
+# <i class="fa fa-terminal"></i> Using Fisher
 
 If you are using Linux or Mac OS X, [fisher](https://github.com/jorgebucaran/fisher) is a great tool to manage your [fish shell](http://fishshell.com/) configuration.
 
@@ -23,6 +23,6 @@ Currently it only adds shortcuts (full list [here](https://github.com/jhipster/j
 
 1. Install it via ``fisher`` command:
 
-    `fisher add jhipster/jhipster-fisher-plugin`
+    `fisher install jhipster/jhipster-fisher-plugin`
 
 For more details about [Fisher](https://github.com/jorgebucaran/fisher) have a look at their [usage](https://github.com/jorgebucaran/fisher#usage) section.
