@@ -410,7 +410,7 @@ Use `@MapsId` when:
 * Dependent - if the owning side (child entity) seems tightly dependent on the non-owning (parent entity).
 * Association value is never meant to be changed - if you are never going to change the id(primary key) of the child entity once it is set.
 
-    For eg,
+    For example:
 
     ```
     class User{}
@@ -424,7 +424,7 @@ Do not use  `@MapsId` when:
 * Not dependent - If the owning side (child entity) seems not dependent on the non-owning (parent entity)
 * Association value is meant to be changed - if you think that the child entity is going to refer to another parent entity in future.
 
-    For eg,
+    For example:
 
     ```
     class Car{ @OneToOne @JoinColumn(name="current_driver_id") Driver currentDriver} // car can be drived by another driver in future
@@ -446,7 +446,7 @@ All the relationships use the default JPA FetchType:
 There is [a known issue of NPE during JSON deserialization](https://github.com/jhipster/generator-jhipster/issues/10981) due to eager fetch type. If you would like to set either `OneToMany` or `ManyToMany` relationship to `FetchType.EAGER`, you can use one of the following solutions:
 - Use ```@JsonInclude(JsonInclude.Include.NON_EMPTY)``` on the relationship
 
-    For eg,
+    For example:
 
     ```
     @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
