@@ -338,7 +338,7 @@ The same can be achieved using the below JDL as well
 
 That's it, you now have a one-to-one relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Driver` since `Car` is the owning side.
 
-[More information on using one-to-one with JPA Derived Identifiers](#8)
+[More information on using one-to-one with JPA Derived Identifiers](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
 
 ## A unidirectional one-to-one relationship
 
