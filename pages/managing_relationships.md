@@ -15,7 +15,7 @@ When JPA is used, the [entity sub-generator]({{ site.url }}/creating-an-entity/)
 
 ## Presentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) they won't be available. In case you use [MongoDB]({{ site.url }}/using-mongodb/), [Couchbase]({{ site.url }}/using-couchbase/) or [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but they are all available to be used. For more information about Couchbase and MongoDB relationships please refer to [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb). 
+Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) they won't be available. In case you use [MongoDB]({{ site.url }}/using-mongodb/), [Couchbase]({{ site.url }}/using-couchbase/) or [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but they are all available to be used. For more information about Couchbase and MongoDB relationships please refer to [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb).
 
 A relationship works between two entities, and JHipster will generate the code for:
 
@@ -209,7 +209,7 @@ Generate the `Person` entity, which has two one-to-many relationships to the `Ca
     Generating relationships to other entities
     ? Do you want to add a relationship to another entity? Yes
     ? What is the name of the other entity? Car
-    ? What is the name of the relationship? drivedCar
+    ? What is the name of the relationship? drivenCar
     ? What is the type of the relationship? one-to-many
     ? What is the name of this relationship in the other entity? driver
 
@@ -241,7 +241,7 @@ The same can be achieved using the below JDL as well
     }
 
     relationship OneToMany {
-      Person{drivedCar} to Car{driver}
+      Person{drivenCar} to Car{driver}
     }
 
 A `Car` can now have a driver and a owner, which are both `Person` entities. On the generated Angular/React client UI you will dropdowns in `Car` to select a `Person` for `owner` field and `driver` field.
@@ -379,7 +379,7 @@ This is the corresponding JDL:
     }
 
 ### Using JPA Derived Identifiers(@MapsId) for one-to-one relationship
-  
+
 [JPA Derived Identifiers](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/MapsId.html) can be used to have [the most efficient mapping](https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate/).
 
 This is the corresponding JDL for previous uni-directional one-to-one example:
@@ -389,7 +389,7 @@ This is the corresponding JDL for previous uni-directional one-to-one example:
     entity Passport
 
     relationship OneToOne {
-      Citizen{passport} to Passport with jpaDerivedIdentifier 
+      Citizen{passport} to Passport with jpaDerivedIdentifier
     }
 
 This is the corresponding JDL for previous bi-directional one-to-one example:
@@ -398,10 +398,10 @@ This is the corresponding JDL for previous bi-directional one-to-one example:
     entity Car
 
     relationship OneToOne {
-      Car{driver} to Driver{car} with jpaDerivedIdentifier 
+      Car{driver} to Driver{car} with jpaDerivedIdentifier
     }
 
- However, based on business requirements, there might be cases where this should be avoided because it has following constraint: 
+ However, based on business requirements, there might be cases where this should be avoided because it has following constraint:
 **Once the id(primary key) is set at owning side, it is not changeable using JPA/Hibernate. You should not change it anyway.**
 
 **Here are a few suggestions regarding usage:**
@@ -445,7 +445,7 @@ All the relationships use the default JPA FetchType:
 
 There is [a known issue of NPE during JSON deserialization](https://github.com/jhipster/generator-jhipster/issues/10981) due to eager fetch type. If you would like to set either `OneToMany` or `ManyToMany` relationship to `FetchType.EAGER`, you can use one of the following solutions:
 - Use ```@JsonInclude(JsonInclude.Include.NON_EMPTY)``` on the relationship
-    
+
     For eg,
 
     ```
@@ -460,7 +460,7 @@ There is [a known issue of NPE during JSON deserialization](https://github.com/j
 
 Couchbase and MongoDB supports relationships through embedded documents. For more information regarding embedded documents in MongoDB refer to [https://docs.mongodb.com/manual/applications/data-models-relationships/](https://docs.mongodb.com/manual/applications/data-models-relationships/) and for Couchbase refer to [https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html](https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html).
 
-You can define embedded documents simply by using `@embedded`. For example to define a one-to-one relationship; 
+You can define embedded documents simply by using `@embedded`. For example to define a one-to-one relationship;
 
 ```
 entity Country {
@@ -496,7 +496,7 @@ relationship OneToMany {
 }
 ```
 
-For a many-to-many relationship you can simply use the `@embedded` keyword in both directions; 
+For a many-to-many relationship you can simply use the `@embedded` keyword in both directions;
 
 ```
 @embedded
