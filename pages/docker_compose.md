@@ -102,8 +102,10 @@ With Maven, type: <pre>./mvnw -Pprod package verify jib:dockerBuild --offline</p
 With Gradle, type: <pre>./gradlew -Pprod bootJar jibDockerBuild --offline</pre>
 </p>
 <p>
-If jib has not already pulled the base Docker image in its cache, to do it, you need to modify the pom.xml by adding `docker://` as prefix of your base image.
-Example <pre><from>docker://imagename:latest</pre>
+If jib has not already pulled the base Docker image in its cache, to do it, you need to modify the pom.xml (in case of Maven) or the docker.gradle (in case of Gradle) by adding `docker://` as prefix of your base image (at the "image" tag, nested in the "from" tag).
+</p>
+<p>
+Example: <pre>docker://imagename:latest</pre>
 In this way jib puts the image present in your local docker daemon in its cache.
 </p>
 </div>
