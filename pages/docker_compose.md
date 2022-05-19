@@ -102,7 +102,9 @@ With Maven, type: <pre>./mvnw -Pprod package verify jib:dockerBuild --offline</p
 With Gradle, type: <pre>./gradlew -Pprod bootJar jibDockerBuild --offline</pre>
 </p>
 <p>
-Note that jib is currently unable to pull a local Docker image from the Docker daemon. Progress on this issue is tracked at [GoogleContainerTools/jib/issues/1468](https://github.com/GoogleContainerTools/jib/issues/1468).
+If jib has not already pulled the base Docker image in its cache, to do it, you need to modify the pom.xml by adding `docker://` as prefix of your base image.
+Example <pre><from>docker://imagename:latest</pre>
+In this way jib puts the image present in your local docker daemon in its cache.
 </p>
 </div>
 
