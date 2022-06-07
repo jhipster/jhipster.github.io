@@ -226,16 +226,6 @@ Client ID: 0oab8eb55Kb9jdMIr5d6
 
 **NOTE**: You can also use the Okta Admin Console to create your app. See [Create a Native App](https://developer.okta.com/docs/guides/sign-into-mobile-app/create-okta-application/) for more information.
 
-#### Add Claims to Access Token
-
-In order to authenticate successfully with your mobile app, you have to do a bit more configuration in Okta. Since the mobile client will only send an access token to JHipster, you need to 1) add a `groups` claim to the access token and 2) add a couple more claims so the user's name will be available in JHipster.
-
-**NOTE:** These steps are not necessary if you're using a version of JHipster with [a `CustomClaimConverter`](https://github.com/jhipster/generator-jhipster/pull/12609). In other words, if you're using Spring a MVC-based monolith, you don't need it. Support has not been added to WebFlux, yet.
-
-Navigate to **Security** > **API** > **Authorization Servers**, click the **Authorization Servers** tab and edit the **default** one. Click the **Claims** tab and **Add Claim**. Name it "groups" and include it in the Access Token. Set the value type to "Groups" and set the filter to be a Regex of `.*`. Click **Create**.
-
-Add another claim, name it `given_name`, include it in the access token, use `Expression` in the value type, and set the value to `user.firstName`. Optionally, include it in the `profile` scope. Perform the same actions to create a `family_name` claim and use expression `user.lastName`.
-
 #### Update Your Ionic App
 
 Open `ionic/src/environments/environment.ts` and add the client ID from your Native app. The value for `server_host` will be looked up from your JHipster app (at `/api/auth-info`), but you can define it as a fallback value. For example:
