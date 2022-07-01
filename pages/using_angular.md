@@ -27,7 +27,7 @@ You can also force Maven to run the `webapp:dev` task while starting by passing 
 
 Other available yarn/npm commands can be found in the `scripts` section of your project's `package.json` file.
 
-- To work on your code in your browser, we recommend using [Angular Augury](https://augury.angular.io/), so you can visualize your routes and debug your code
+- To work on your code in your browser, we recommend using [Angular DevTools](https://angular.io/guide/devtools). Angular DevTools is a browser extension that provides debugging and profiling capabilities for Angular applications (**Note** Angular DevTools supports Angular v12 and later).
 
 ## Project Structure
 
