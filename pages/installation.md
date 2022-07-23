@@ -98,12 +98,6 @@ For Mac/Windows, you will have to obtain the IP using following command: <code>d
 
 </div>
 
-<div class="alert alert-info"><i>Tip: </i>
-
-<a href="https://docs.docker.com/docker-for-windows/">
-
-</div>
-
 On Linux, you might need to run the `docker` command as root user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as a non-root user. Follow the steps on [http://askubuntu.com/a/477554](http://askubuntu.com/a/477554) to do so.
 
 ### Usage on Linux/Mac Windows (with Docker)
