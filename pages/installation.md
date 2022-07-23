@@ -86,10 +86,8 @@ This image will allow you to run JHipster inside Docker.
 
 ### Prerequisites
 
-This depends on your operating system.
-
-1.  **Linux:** Linux supports Docker out-of-box. You should follow the tutorial on the [Docker](https://docs.docker.com/installation/#installation) website.
-2.  **Mac & Windows:** install the [Docker Toolbox](https://www.docker.com/docker-toolbox) to get Docker installed.
+1.  **(Recommended) Docker Desktop:** the easiest way to build, run and test the dockerized apps. [Docker Desktop](https://docs.docker.com/desktop/) comes with graphical interface for managing containers/images/volumes, Docker developer tools, Kubernetes support and much more.
+2.  **Docker Engine:** client-server application with command line interface (CLI). Follow the [Docker Engine](https://docs.docker.com/engine/install/) installation instructions
 
 As the generated files are in your shared folder, they will not be deleted if you stop your Docker container. However, if you don't want Docker to keep downloading all the Maven and NPM dependencies every time you start the container, you should commit its state or mount a volume.
 
@@ -100,15 +98,9 @@ For Mac/Windows, you will have to obtain the IP using following command: <code>d
 
 </div>
 
-<div class="alert alert-info"><i>Tip: </i>
-
-<a href="https://docs.docker.com/docker-for-windows/">Docker Desktop for Windows</a>/<a href="https://docs.docker.com/docker-for-mac/">Docker Desktop for Mac</a> is an easy-to-use graphical interface provided with the Docker Toolbox, which will make this installation a lot easier.
-
-</div>
-
 On Linux, you might need to run the `docker` command as root user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as a non-root user. Follow the steps on [http://askubuntu.com/a/477554](http://askubuntu.com/a/477554) to do so.
 
-### Usage on Linux/Mac Windows (using Docker Toolbox)
+### Usage on Linux/Mac Windows (with Docker)
 
 #### Pull the image
 
