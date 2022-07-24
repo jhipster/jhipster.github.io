@@ -3,7 +3,7 @@ services:
   site:
     container_name: jhipster.github.io
     command: jekyll serve
-    image: jekyll/jekyll:latest
+    image: jekyll/jekyll:3.8
     volumes:
       - ./:/srv/jekyll
       # this volume will keep all gems
