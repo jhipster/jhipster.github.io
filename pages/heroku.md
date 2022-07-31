@@ -284,11 +284,12 @@ Heroku has a default boot-timeout limit of 90 seconds. If your app takes longer 
 
 ### Using Elasticsearch
 
-The Bonsai used addon with the free sandbox plan does [only support the latest Elasticsearch version](https://docs.bonsai.io/article/139-which-versions-bonsai-supports){:target="_blank" rel="noopener"}.
-This might lead to some [incompatibilities](https://github.com/jhipster/generator-jhipster/issues/10003){:target="_blank" rel="noopener"} depending in the Spring Data and JHipster versions you are using.
+The Bonsai used addon with the free sandbox plan does [only support Elasticsearch 7.10.x](https://docs.bonsai.io/article/139-which-versions-bonsai-supports){:target="_blank" rel="noopener"}.
+This might lead to some [incompatibilities](https://github.com/jhipster/generator-jhipster/issues/10003){:target="_blank" rel="noopener"} depending in the Spring Data and [JHipster versions you are using](https://github.com/jhipster/generator-jhipster/issues/18650){:target="_blank" rel="noopener"}. 
+JHipster [enforces bonsai compatible Elasticsearch](https://github.com/jhipster/generator-jhipster/pull/18774){:target="_blank" rel="noopener"} dependencies (e.g. clients) when deploying to Heroku. 
 
 <div class="alert alert-warning"><i class="fa fa-money" aria-hidden="true"></i>
-If you are willing to use a <b>paid plan</b> you can of course select the used Elasticsearch version. <a href="https://github.com/jhipster/generator-jhipster/issues/10003#issuecomment-587770177" target="_blank" rel="noopener">Setting it to e.g. <code class="highlighter-rouge">6.5.4</code> or <code class="highlighter-rouge">6.6.2</code></a> will work with all JHipster 6.x versions.
+If you are willing to use a <b>paid</b> addon you can use the <a href="https://devcenter.heroku.com/articles/foundelasticsearch" target="_blank" rel="noopener">official Elastic Cloud integration</a> to get access to the latest Elasticsearch version and features.
 </div>
 
 ### Using Okta
