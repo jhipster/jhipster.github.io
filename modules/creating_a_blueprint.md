@@ -14,7 +14,7 @@ sitemap:
 
 A JHipster blueprint is a Yeoman generator that is [composed](http://yeoman.io/authoring/composability.html) from a specific JHipster sub-generator to extend the functionality of that sub-generator. The blueprint can override any defined getter of the sub generator and provide its own templates and functionality.
 
-JHipster blueprints are listed on the [JHipster marketplace]({{ site.url }}/modules/marketplace/) with the `jhipster-blueprint` label.
+JHipster blueprints are listed on the [JHipster marketplace](/modules/marketplace/) with the `jhipster-blueprint` label.
 
 This allows to create third-party blueprints that can override a specific part of JHipster, say for example only the client side templates.
 
@@ -26,222 +26,109 @@ To use a blueprint, run the below command
 jhipster --blueprints <blueprint name>
 ```
 
-## Example
+## Generating the blueprint
 
-The [JHipster Kotlin](https://github.com/jhipster/jhipster-kotlin) blueprint replaces most of the server side Java code with equivalent Kotlin code.
-
-It is our official blueprint that showcases how you can create your own blueprint.
-
-The [JHipster Sample Blueprint](https://github.com/hipster-labs/generator-jhipster-sample-blueprint) shows how a client sub-generator can be overridden.
-
-Or, you can use the [JHipster blueprint generator](https://github.com/jhipster/generator-jhipster-blueprint) to help you to initialize your blueprint. 
-
-To use the JHipster blueprint generator run the following commands
+We recommend to use the builtin `generate-blueprint` generator to kickstart your blueprint
 
 ```bash
-npm install -g generator-jhipster-blueprint
-
 mkdir my-blueprint && cd my-blueprint
 
-yo jhipster-blueprint
+jhipster generate-blueprint
 ```
-
-Choose the sub-generators that you would like to override while answering the questions.
-
-## Basic rules for a JHipster blueprint
-
-A JHipster blueprint:
-
-- is an NPM package, and is a Yeoman generator.
-- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the `yo` command. Instead of being prefixed by `generator-`, it is prefixed by `generator-jhipster-`, and instead of having just the `yeoman-generator` keyword, it must have 2 keywords, `yeoman-generator` and `jhipster-blueprint`.
-- A blueprint can only extend the following sub-generators (under the generators folder)
-    - app
-    - common
-    - client
-    - server
-    - entity
-    - entity-client
-    - entity-server
-    - entity-i18n
-    - languages
-    - spring-controller
-    - spring-service
-    - heroku
-    - ci-cd
-    - cypress
-    - page
-    - entities
-
-## Import the generator-jhipster
-
-A JHipster blueprint must have generator-jhipster as a dependency and should import the appropriate sub generator to override it.
+A JHipster blueprint must have `generator-jhipster` as a dependency and should import the appropriate sub-generator to override it.
 
 ```javascript
-    const chalk = require('chalk');
-    const ClientGenerator = require('generator-jhipster/generators/client');
-    ...
+import chalk from 'chalk';
+import ClientGenerator from 'generator-jhipster/generators/client';
+import {
+  INITIALIZING_PRIORITY,
+  // Others priorities omitted for brevity
+} from 'generator-jhipster/priorities';
 
-    module.exports = class extends ClientGenerator {
-        constructor(args, opts) {
-            super(args, Object.assign({ fromBlueprint: true }, opts)); // fromBlueprint variable is important
+export default class extends ClientGenerator {
+  constructor(args, opts, features) {
+    super(args, opts, features);
 
-            const jhContext = this.jhipsterContext = this.options.jhipsterContext;
+    if (this.options.help) return;
 
-            if (!jhContext) {
-                this.error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprint helloworld')}`);
-            }
+    if (!this.options.jhipsterContext) {
+      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints myBlueprint')}`);
+    }
+  }
 
-            this.configOptions = jhContext.configOptions || {};
-        }
+  get [INITIALIZING_PRIORITY]() {
+    return {
+      // async preInitializingTemplateTask() {},
+      ...super._initializing(),
+      // async postInitializingTemplateTask() {},
+    };
+  }
 
-        get initializing() {
-            // Here we are not overriding this phase and hence its being handled by JHipster
-            return super._initializing();
-        }
+  // Others priorities omitted for brevity
+}
+```
 
-        // other phases of the sub generator
+## Developing
+
+### Priorities
+
+There are multiple ways to customize a priority from JHipster.
+
+1) Let JHipster handle the priority, blueprint doesn't override anything.
+
+```javascript
+    get [INITIALIZING_PRIORITY]() {
+        return super.initializing;
     }
 ```
 
-Any method beginning with `_` can be reused from the superclass that is being extended, for example `ClientGenerator` in the example above.
-
-Each JHipster sub-generator is made of multiple yeoman phases, each phase is a getter, `get initializing` for example. A blueprint can customize one or more phases of the sub-generator that it is overriding.
-
-There are multiple ways to customize a phase from JHipster.
-
-1) Let JHipster handle a phase, blueprint doesn't override anything.
+2) Override the entire priority, this is when the blueprint takes control of a priority.
 
 ```javascript
-    get initializing() {
-        return super._initializing();
-    }
+  get [INITIALIZING_PRIORITY]() {
+    return {
+      myCustomInitPriorityStep() {
+        // Do all your stuff here
+      },
+      myAnotherCustomInitPriorityStep(){
+        // Do all your stuff here
+      }
+    };
+  }
 ```
 
-2) Override the entire phase, this is when the blueprint takes control of a phase.
+3) Partially override a priority, this is when the blueprint gets the priority from JHipster and customizes it.
 
 ```javascript
-    get initializing() {
+    get [INITIALIZING_PRIORITY]() {
         return {
-            myCustomInitPhaseStep() {
+            ...super._initializing(),
+            displayLogo() {
+                // override the displayLogo method from the initializing priority of JHipster
+            },
+            myCustomInitPriorityStep() {
                 // Do all your stuff here
             },
-            myAnotherCustomInitPhaseStep(){
-                // Do all your stuff here
-            }
         };
     }
 ```
 
-3) Partially override a phase, this is when the blueprint gets the phase from JHipster and customizes it.
+4) Decorate a priority, this is when the blueprint runs custom steps before or after the priority coming from JHipster.
 
-```javascript
-    get initializing() {
-        const phaseFromJHipster = super._initializing();
-        const myCustomPhaseSteps = {
-            displayLogo() {
-                // override the displayLogo method from the _initializing phase of JHipster
-            },
-            myCustomInitPhaseStep() {
-                // Do all your stuff here
-            },
-        }
-        return { ...phaseFromJHipster, ...myCustomPhaseSteps };
-    }
-```
-
-4) Decorate a phase, this is when the blueprint runs custom steps before or after the phase coming from JHipster.
+This is usefull to customize properties that will be used during the priority to generate derived properties.
 
 ```javascript
     // Run the blueprint steps before and/or after any parent steps
     get initializing() {
-        const customPrePhaseSteps = {
+        return {
             myCustomPreInitStep() {
                 // Stuff to do BEFORE the JHipster steps
+                // Eg: set name that will generate nameCapitalized, nameLowercase, etc.
             }
-        };
-        const customPostPhaseSteps = {
+            ...super._initializing(),
             myCustomPostInitStep() {
                 // Stuff to do AFTER the JHipster steps
             }
         };
-        return {
-            ...customPrePhaseSteps,
-            ...super._initializing(),
-            ...customPostPhaseSteps
-        };
     }
 ```
-
-You can also access to JHipster's variables and functions directly from a Blueprint.
-
-## Available variables and functions
-
-### Variables from configuration:
-
-You can access to configuration in `.yo-rc.json` which will consist of both the JHipster config and your blueprint config.
-
-### Global variables:
-
-You can use constants in [generator-constants](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
-
-```javascript
-    const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
-    const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
-    const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
-```
-
-### Functions:
-
-You can use all functions in [generator-base](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-base.js):
-
-```javascript
-    this.angularAppName = this.getAngularAppName(); // get the Angular application name.
-    this.printJHipsterLogo(); // to print the JHipster logo
-```
-
-**Note**: The functions in `generator-base.js` and variables in `generator-constants.js` are part of public API and hence will follow semver versioning. But other files like `generator-base-private.js`, `utils.js` etc will not follow semver versioning and might break method signature across minor versions.
-
-## Running local Blueprint version for development
-
-During development of blueprint, please note the below steps. they are very important.
-
-1. Link your blueprint globally 
-
-Note: If you do not want to link the blueprint(step 3) to each project being created, use NPM instead of Yarn as yeoman doesn't seem to fetch globally linked Yarn modules. On the other hand, this means you have to use NPM in all the below steps as well.
-
-```bash
-cd generator-jhipster-my-blueprint
-npm link
-```
-
-2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non-released JHipster version, like the main branch or your own custom fork)
-
-```bash
-cd generator-jhipster
-npm link
-
-cd generator-jhipster-my-blueprint
-npm link generator-jhipster
-```
-
-3. Create a new folder for the app to be generated, and run JHipster ignoring JHipster dependencies (otherwise a released version will be installed each time npm install/ci is called)
-
-```bash
-mkdir my-app && cd my-app
-
-jhipster --blueprints my-blueprint --skip-jhipster-dependencies
-```
-
-4. Once the blueprint/generator-jhipster was released re-add the jhipster dependencies for reproducibility
-
-```bash
-jhipster --no-skip-jhipster-dependencies
-```
-
-## Registering a blueprint to the JHipster marketplace
-
-To have your blueprint available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to make sure you have the two keyword `yeoman-generator` and `jhipster-blueprint` in your published npm `package.json`.
-If you find any entry in the marketplace which is not a JHipster module or blueprint, you can help to blacklist it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/main/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
-
-
-Once you publish your blueprint to NPM, your blueprint will become available in our marketplace.

@@ -329,12 +329,13 @@
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Modules &amp; Blueprints</span></a>
+                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Blueprints</span></a>
                                 <div id="dropdown-11" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li {% if '/modules/official-blueprints/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/official-blueprints/"><i class="fa fa-fw fa-star"></i> Official blueprints</a></li>
                                             <li {% if '/modules/marketplace/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/marketplace/"><i class="fa fa-fw fa-shopping-cart"></i> Marketplace</a></li>
+                                            <li {% if '/modules/extending-and-customizing/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/extending-and-customizing/"><i class="fa fa-fw fa-cube"></i> Blueprint Basics</a></li>
                                             <li {% if '/modules/creating-a-module/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-module/"><i class="fa fa-fw fa-cube"></i> Creating a module</a></li>
                                             <li {% if '/modules/creating-a-blueprint/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-blueprint/"><i class="fa fa-fw fa-cube"></i> Creating a blueprint</a></li>
                                             <li {% if '/blueprints/quarkus/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/blueprints/quarkus/"><i class="fa fa-fw fa-book"></i> Quarkus documentation</a></li>

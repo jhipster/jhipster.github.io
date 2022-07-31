@@ -10,115 +10,136 @@ sitemap:
     lastmod: 2015-12-05T18:40:00-00:00
 ---
 
-# <i class="fa fa-cube"></i> Creating a module
+# <i class="fa fa-cube"></i> Creating a stand alone Blueprint (aka module)
 
-A JHipster module is a Yeoman generator that is [composed](http://yeoman.io/authoring/composability.html) with a specific JHipster sub-generator to inherit some of the common functionality from JHipster. A JHipster module can also register itself to act as a hook from the JHipster generator.
+As of JHipster v7.9.0, module support was merged into blueprint support. So the same rules apply.
 
-JHipster modules are listed on the [JHipster marketplace]({{ site.url }}/modules/marketplace/).
-
-This allows developers to create third-party generators that have access to the JHipster variables and functions, and act like standard JHipster sub-generators.
-The hook mechanism invokes third-party generators before and after app generation and entity generation.
+Before creating a Blueprint, make sure you have read [Blueprint Basics](/module/blueprint-basics)
 
 ## Example
 
-The [JHipster Fortune module](https://github.com/jdubois/generator-jhipster-fortune) generates a "fortune cookie" page in a JHipster-generated application.
+[JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) was converted from a module to a blueprint.
 
-It is our sample module that showcases how you can use JHipster's variables and functions in order to create your own generator.
+## Migration
 
-Or, you can use the [JHipster module generator](https://github.com/jhipster/generator-jhipster-module) to help you to initialize your module.
-
-## Basic rules for a JHipster module
-
-A JHipster module:
-
-- is an NPM package, and is a Yeoman generator.
-- follows an extension of the Yeoman rules listed at [http://yeoman.io/generators/](http://yeoman.io/generators/) and can be installed, used and updated using the "yo" command. Instead of being prefixed by "generator-", it is prefixed by "generator-jhipster-", and instead of having just the "yeoman-generator" keyword, it must have two keywords, "yeoman-generator" and "jhipster-module".
-- A JHipster module registering as a hook should not call `process.exit` in its generators being hooked.
-
-## Import the generator-jhipster
-
-A JHipster module must import the generator-jhipster:
-
-```
-    const util = require('util');
-    const BaseGenerator = require('generator-jhipster/generators/generator-base');
-    const jhipsterConstants = require('generator-jhipster/generators/generator-constants');
-
-    const JhipsterGenerator = generator.extend({});
-    util.inherits(JhipsterGenerator, BaseGenerator);
-
-    module.exports = JhipsterGenerator.extend({
-
-        // all your yeoman code here
-
-    });
+- Rename your module app and entity generators (if they exist) to something else like app-module and entity-module
+```sh
+mv generators/app generators/app-module
+mv generators/entity generators/entity-module
 ```
 
-Then, you can access to JHipster's variables and functions directly.
+- Rename every other generator that matches a generator-jhipster generator (otherwise they will be called as a blueprint).
+And update referentes.
+- Add a custom cli (`cli/cli.mjs`).
+```
+#!/usr/bin/env node
 
-## Hooks
+import { runJHipster, done, logger } from 'generator-jhipster/esm/cli';
+import { readFile } from 'fs/promises';
+import { fileURLToPath } from 'url';
+import { dirname, basename } from 'path';
 
-JHipster will call certain hooks before and after some of its tasks, currently available and planned tasks are listed below.
+// Get package name to use as namespace.
+// Allows blueprints to be aliased.
+const packagePath = dirname(dirname(fileURLToPath(import.meta.url)));
+const packageFolderName = basename(packagePath);
 
-- Post Entity creation hook
-- Pre Entity creation hook [planned]
-- Post App creation hook
-- Pre App creation hook [planned]
+(async () => {
+  const { version, bin } = JSON.parse(await readFile(new URL('../package.json', import.meta.url)));
+  const executableName = Object.keys(bin)[0];
 
-[JHipster module generator](https://github.com/jhipster/generator-jhipster-module) now has option to generate this.
-A JHipster module can register to act as a hook when its main generator is run by the end user. You need to call the `registerModule` method from your main (app) generator to register as hook, you need to pass the below parameters in the method as below
+  runJHipster({
+    executableName,
+    executableVersion: version,
+    defaultCommand: 'app-module', // Generator to be used as entry point to replace `yo` command
+    blueprints: {
+      [packageFolderName]: version,
+    },
+    lookups: [{ packagePaths: [packagePath], lookups: ['generators'] }],
+  }).catch(done);
+})();
+
+process.on('unhandledRejection', up => {
+  logger.error('Unhandled promise rejection at:');
+  logger.fatal(up);
+});
+```
+
+- Add the cli to `package.json`.
+```
+{
+  "bin": {
+    "jhipster-module": "cli/cli.mjs"
+  }
+}
+```
+
+### Hooks
+
+Hooks support will be removed for JHipster 8. For migration, you can use the following side-by-side blueprints to simulate hooks.
+
+- Add the following generators.
+
+App generator (`generators/app/index.mjs`) for post app hooks:
 
 ```javascript
-this.registerModule(npmPackageName, hookFor, hookType[, callbackSubGenerator[, description]])
+import chalk from 'chalk';
+import { GeneratorBase } from 'generator-jhipster';
+import { INSTALL_PRIORITY } from 'generator-jhipster/priorities';
+
+export default class extends GeneratorBase {
+  constructor(args, opts, features) {
+    super(args, opts, features);
+
+    if (this.options.help) return;
+
+    if (!this.options.jhipsterContext) {
+      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints myBlueprint')}`);
+    }
+
+    this.sbsBlueprint = true;
+  }
+
+  get [INSTALL_PRIORITY]() {
+    return {
+      async afterRunHook() {
+        await this.composeWithJHipster(`my-blueprint:app-module`, {
+          appConfig: this.configOptions,
+        });
+      },
+    };
+  }
+}
 ```
 
-- `npmPackageName` npm package name of the generator. e.g: `jhipster-generator-fortune`
-- `hookFor` which Jhipster hook from above this should be registered to ( values must be `entity` or `app`)
-- `hookType` where to hook this at the generator stage ( values must be `pre` or `post`)
-- `callbackSubGenerator` [optional] sub generator to invoke, if this is not given the module's main (app) generator will be called, e.g: `bar` or `foo` generator
-- `description` [optional] description of the generator, if this is not given we will generate a default based on the npm name given
+Entity generator (`generators/entity/index.mjs`) for post entity hooks:
 
-## Available variables and functions
+```javascript
+import chalk from 'chalk';
+import { GeneratorBase } from 'generator-jhipster';
+import { INSTALL_PRIORITY } from 'generator-jhipster/priorities';
 
-### Variables from configuration:
+export default class extends GeneratorBase {
+  constructor(args, opts, features) {
+    super(args, opts, features);
 
-You have to use this function:
+    if (this.options.help) return;
 
-You can access to configuration in `.yo-rc.json`:
+    if (!this.options.jhipsterContext) {
+      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints myBlueprint')}`);
+    }
 
+    this.sbsBlueprint = true;
+  }
+
+  get [INSTALL_PRIORITY]() {
+    return {
+      async afterRunHook() {
+        await this.composeWithJHipster(`my-blueprint:entity-module`, {
+          entityConfig: this.options.jhipsterContext.context,
+        });
+      },
+    };
+  }
+}
 ```
-    this.jhipsterAppConfig = this.getJhipsterConfig();
-    this.baseName = this.jhipsterAppConfig.baseName;
-    this.packageName = this.jhipsterAppConfig.packageName;
-    this.clientFramework = this.jhipsterAppConfig.clientFramework;
-```
-
-### Global variables:
-
-You can use constants in [generator-constants](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
-
-```
-    const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
-    const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
-    const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
-```
-
-### Functions:
-
-You can use all functions in [generator-base](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-base.js):
-
-```
-    this.angularAppName = this.getAngularAppName(); // get the Angular application name.
-    this.printJHipsterLogo(); // to print the JHipster logo
-```
-
-**Note**: The functions in `generator-base.js` and variables in `generator-constants.js` are part of public API and hence will follow semver versioning. But other files like `generator-base-private.js`, `utils.js` etc will not follow semver versioning and might break method signature across minor versions.
-
-## Registering a module to the JHipster marketplace
-
-To have your module available in [the JHipster marketplace]({{ site.url }}/modules/marketplace/), you need to make sure you have the 2 keyword `yeoman-generator` and `jhipster-module` in your published npm `package.json`.
-If you find any entry in the marketplace which is not a JHipster module, you can help to blacklist it by adding it to the `blacklistedModules` section of the [modules-config.json file](https://github.com/jhipster/jhipster.github.io/blob/main/modules/marketplace/data/modules-config.json) by doing a Pull Request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
-
-Your module will become "verified" if the JHipster team verifies it.
-
-Once you publish your module to NPM, your module will become available in our marketplace.
