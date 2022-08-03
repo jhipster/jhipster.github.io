@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Release 7.9.1
+title: Release 7.9.2
 ---
 
-# JHipster release v7.9.1
+# JHipster release v7.9.1 & v7.9.2
 
 This is the new patch release of JHipster v7 with [20 closed tickets and merged pull requests](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A7.9.1+is%3Aclosed). This release addresses the [issue with file permissions for `mvnw`, `gradlew` and `npmw`](https://github.com/jhipster/generator-jhipster/issues/19294)
 
