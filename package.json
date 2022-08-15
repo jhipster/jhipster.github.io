@@ -4,7 +4,8 @@
     "browser-sync": "2.27.5",
     "gulp": "4.0.2",
     "gulp-imagemin": "7.1.0",
-    "gulp-sass": "5.0.0"
+    "gulp-sass": "5.0.0",
+    "sass": "1.54.4"
   },
   "private": true,
   "scripts": {

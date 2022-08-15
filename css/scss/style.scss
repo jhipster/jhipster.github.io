@@ -973,11 +973,21 @@ input.gsc-search-button {
   border-radius: 1px;
 }
 
-.oc-bronze-sponsor {
-  .thumbnail {
-    min-height: 175px !important;
+.oc-sponsor-dynamic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  .sponsor-col-logo {
+    height: 100%;
   }
 }
+
+.oc-sponsor-gold {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 // Thumbnail
 .thumbnail {
   border-radius: 1px;
@@ -2257,4 +2267,23 @@ table tr:nth-child(even) {
       color: #3d8acc;
     }
   }
+}
+
+/* Fix links to relative anchors */
+html {
+  scroll-padding-top: 80px; /* height of your sticky header */
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+  display: none;
+}
+
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a {
+  display: inline-block;
 }
