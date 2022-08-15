@@ -201,35 +201,29 @@ sitemap:
                     <p>
                         <strong>Thank you to our gold sponsors!</strong>
                     </p>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-4">
-                            <div class="thumbnail no-margin-bottom">
-                                <div class="logo-container">
-                                    <a href="http://www.octoconsulting.com/" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/octoconsulting.png" width="180px" height="175px"></a>
-                                </div>
-                                <div class="caption">
-                                    <a href="http://www.octoconsulting.com/" target="_blank" rel="noopener">Octo Consulting Group</a>
-                                </div>
+                    <div class="oc-sponsor-gold">
+                        <div class="thumbnail no-margin-bottom">
+                            <div class="logo-container">
+                                <a href="http://www.octoconsulting.com/" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/octoconsulting.png" width="180px" height="175px"></a>
+                            </div>
+                            <div class="caption">
+                                <a href="http://www.octoconsulting.com/" target="_blank" rel="noopener">Octo Consulting Group</a>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="thumbnail no-margin-bottom">
-                                <div class="logo-container">
-                                    <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/entandoe.png" width="180px" height="175px"></a>
-                                </div>
-                                <div class="caption">
-                                    <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener">Application Composition Platform for Kubernetes</a>
-                                </div>
+                        <div class="thumbnail no-margin-bottom">
+                            <div class="logo-container">
+                                <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/entandoe.png" width="180px" height="175px"></a>
+                            </div>
+                            <div class="caption">
+                                <a href="https://dev.entando.org/jhipster" target="_blank" rel="noopener">Application Composition Platform for Kubernetes</a>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="thumbnail no-margin-bottom">
-                                <div class="logo-container">
-                                    <a href="https://www.datastax.com/" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/datastax.png" width="180px" height="175px"></a>
-                                </div>
-                                <div class="caption">
-                                    <a href="https://www.datastax.com/" target="_blank" rel="noopener">DataStax is the open, multi-cloud stack for modern data apps.</a>
-                                </div>
+                        <div class="thumbnail no-margin-bottom">
+                            <div class="logo-container">
+                                <a href="https://www.datastax.com/" target="_blank" rel="noopener"><img src="{{ site.url }}/images/open-collective/datastax.png" width="180px" height="175px"></a>
+                            </div>
+                            <div class="caption">
+                                <a href="https://www.datastax.com/" target="_blank" rel="noopener">DataStax is the open, multi-cloud stack for modern data apps.</a>
                             </div>
                         </div>
                     </div>
@@ -238,7 +232,7 @@ sitemap:
                     <p>
                         <strong>Thank you to our silver sponsors!</strong>
                     </p>
-                    <div class="row" id="oc-silver-sponsor">
+                    <div class="oc-sponsor-dynamic" id="oc-silver-sponsor">
                         <!-- data here is inserted dynamically -->
                     </div>
                 </div>
@@ -246,7 +240,7 @@ sitemap:
                     <p>
                         <strong>Thank you to our bronze sponsors!</strong>
                     </p>
-                    <div class="row" id="oc-bronze-sponsor">
+                    <div class="oc-sponsor-dynamic" id="oc-bronze-sponsor">
                         <!-- data here is inserted dynamically -->
                     </div>
                 </div>
@@ -853,8 +847,8 @@ function ocCallback(data, divId, txAmount) {
     if (activeBackers.length > 0) {
         document.getElementById(divId).style.display = "block";
         const cols = activeBackers.map(it => `
-        <div class="col-sm-6 col-md-2">
-            <div class="thumbnail no-margin-bottom">
+        <div class="sponsor-col">
+            <div class="thumbnail no-margin-bottom sponsor-col-logo">
                 <div class="logo-container">
                     <div class="logo-container">
                         <a href="${it.website || it.profile}" target="_blank" rel="noopener" style="padding: 0px"><img src="${it.image || `{{ site.url }}/images/open-collective/${it.name.toLowerCase()}.png`}" class="sponsor-img"></a>

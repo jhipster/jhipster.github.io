@@ -1,6 +1,6 @@
 var gulp = require("gulp"),
     browserSync = require('browser-sync').create(),
-    sass = require("gulp-sass"),
+    sass = require('gulp-sass')(require('sass')),
     imagemin = require('gulp-imagemin');
 
 gulp.task('min-img', function () {
