@@ -68,6 +68,16 @@ export default class extends ClientGenerator {
 }
 ```
 
+## Local Blueprints
+
+A local blueprint is implemented inside your project `.blueprint` directory. It's detected and used by default.
+
+Kickstart using [Generating the blueprint]() or just run
+
+```
+jhipster generate-blueprint --local-blueprint --sub-generators app --all-priorities
+```
+
 ## Developing
 
 ### Priorities
