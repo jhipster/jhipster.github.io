@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Blueprint Basics
-permalink: /modules/extending-and-customizaing/
+permalink: /modules/extending-and-customizing/
 redirect_from:
-  - /extending_and_customizaing.html
-  - /modules/extending_and_customizaing.html
+  - /extending_and_customizing.html
+  - /modules/extending_and_customizing.html
 sitemap:
     priority: 0.7
     lastmod: 2015-12-05T18:40:00-00:00
@@ -109,7 +109,7 @@ const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
 
 You can use all functions in [generator-base.js](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-base.js):
 
-## Running local Blueprint version for development
+## Running a Blueprint locally for development
 
 While developing a blueprint, please note the below steps. They are very important.
 
