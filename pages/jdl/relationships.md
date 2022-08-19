@@ -37,7 +37,7 @@ There are four relationship types:
   - `ManyToMany`
 
 To know more about relationships and what's possible to achieve, you can head
-to [the dedicated page](/managing_relationships).
+to [the dedicated page](/managing-relationships).
 
 A note on plural names: JHipster handles them so that you don't have to in your relationships.
 
