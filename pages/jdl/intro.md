@@ -16,6 +16,7 @@ their relationships in a single file (or more than one) with a user-friendly syn
 
 You can use our online [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or one of the 
 [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) plugins/extensions, which are available for:
+  - [IntelliJ](https://plugins.jetbrains.com/plugin/19697-jhipster-jdl)
   - [Eclipse](https://marketplace.eclipse.org/content/jhipster-ide), 
   - [VS Code](https://marketplace.visualstudio.com/items?itemName=jhipster-ide.jdl)
 
