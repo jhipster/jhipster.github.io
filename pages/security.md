@@ -291,7 +291,7 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
     }
   }
   ```
-- Select **Deploy** and add the `Add Roles` action to your Login flow.
+- Select **Deploy** and drag the `Add Roles` action to your Login flow.
 
 _If you'd like to have all these steps automated for you, add a 👍 to [issue #351](https://github.com/auth0/auth0-cli/issues/351) in the Auth0 CLI project._
 
