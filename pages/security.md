@@ -280,7 +280,7 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
     - NOTE: If you're using the JHipster Registry, add URLs for port 8761 too.
 - Navigate to **User Management** > **Roles** and create new roles named `ROLE_ADMIN`, and `ROLE_USER`.
 - Navigate to **User Management** > **Users** and create a new user account. Click on the **Role** tab to assign roles to the newly created user account.
-- Navigate to **Actions** > **Flows** and select **Login**. Create a new action with an `Add Roles` name and the default trigger and runtime. Change the `onExecutePostLogin` handler to be as follows:
+- Navigate to **Actions** > **Flows** and select **Login**. Create a new action named `Add Roles` and use the default trigger and runtime. Change the `onExecutePostLogin` handler to be as follows:
 
   ```js
   exports.onExecutePostLogin = async (event, api) => {
