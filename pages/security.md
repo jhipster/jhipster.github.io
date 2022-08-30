@@ -286,6 +286,7 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
   exports.onExecutePostLogin = async (event, api) => {
     const namespace = 'https://www.jhipster.tech';
     if (event.authorization) {
+      api.idToken.setCustomClaim("preferred_username", event.user.email);
       api.idToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
       api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
     }
