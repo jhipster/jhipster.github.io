@@ -280,26 +280,18 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
     - NOTE: If you're using the JHipster Registry, add URLs for port 8761 too.
 - Navigate to **User Management** > **Roles** and create new roles named `ROLE_ADMIN`, and `ROLE_USER`.
 - Navigate to **User Management** > **Users** and create a new user account. Click on the **Role** tab to assign roles to the newly created user account.
-- Navigate to **Auth Pipeline** > **Rules** and create a new Rule. Choose `Empty rule` template. Provide a meaningful name like `JHipster claims` and replace `Script` content with the following and Save.
+- Navigate to **Actions** > **Flows** and select **Login**. Create a new action with an `Add Roles` name and the default tigger and runtime. Change the `onExecutePostLogin` handler to be as follows:
 
-```javascript
-function (user, context, callback) {
-  user.preferred_username = user.email;
-  const roles = (context.authorization || {}).roles;
-
-  function prepareCustomClaimKey(claim) {
-    return `https://www.jhipster.tech/${claim}`;
+```js
+exports.onExecutePostLogin = async (event, api) => {
+  const namespace = 'https://www.jhipster.tech';
+  if (event.authorization) {
+    api.idToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
+    api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
   }
-  const rolesClaim = prepareCustomClaimKey('roles');
-  if (context.idToken) {
-    context.idToken[rolesClaim] = roles;
-  }
-  if (context.accessToken) {
-    context.accessToken[rolesClaim] = roles;
-  }
-  callback(null, user, context);
 }
 ```
+- Select **Deploy** and add the `Add Roles` action to your Login flow.
 
 _If you'd like to have all these steps automated for you, add a 👍 to [issue #351](https://github.com/auth0/auth0-cli/issues/351) in the Auth0 CLI project._
 
