@@ -89,9 +89,9 @@ npm run docker:keycloak:up
 
 If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
-> :information_source: Note for JHipster 7.8.1 and KeyCloak 16.1.0 on Apple Silicon (M1)
+> <i class="fa-solid fa-square-info"></i> Note for JHipster 7.8.1 and Keycloak 16.1.0 on Apple Silicon (M1)
 > 
-> KeyCloak may misbehave on Apple Silicon in Compatability Mode and the solution is not obvious. You may want to build the KeyCloak image locally to address. The following steps have been shown to work:
+> Keycloak may misbehave on Apple Silicon in Compatability Mode and the solution is not obvious. You may want to build the Keycloak image locally to address. The following steps have been shown to work:
 > 
 > 1. Clone Keycloak containers repository: `git clone git@github.com:keycloak/keycloak-containers.git`
 > 1. Open `server` directory, e.g., `cd keycloak-containers/server`
@@ -113,7 +113,7 @@ spring:
           oidc:
             issuer-uri: http://localhost:9080/auth/realms/jhipster
             # localhost will be bound to the guest (container), not the host
-            # to run KeyCloak as a daemon, i.e., npm run docker:keycloak:up, /etc/hosts must be edited
+            # to run Keycloak as a daemon, i.e., npm run docker:keycloak:up, /etc/hosts must be edited
             # and the issuer-uri should be as follows:
             # issuer-uri: http://keycloak:9080/auth/realms/jhipster
         registration:
