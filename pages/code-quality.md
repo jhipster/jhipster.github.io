@@ -21,7 +21,7 @@ If you use Maven, it has been automatically configured:
 
     ./mvnw -Pprod clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001
 
-> <i class="icon fa fa-solid fa-square-info"></i> Note for SonarQube image 9.6.0 on Apple Silicon (M1)
+> <i class="fa fa-info-circle"></i> **Note for SonarQube image 9.6.0 on Apple Silicon (M1)**
 >
 > SonarQube does not work Apple Silicon in Compatability Mode and the solution is not obvious. You can build the Docker image locally to solve the problem: 
 >
