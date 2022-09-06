@@ -89,7 +89,7 @@ npm run docker:keycloak:up
 
 If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
-> <i class="fa-solid fa-square-info"></i> Note for JHipster 7.8.1 and Keycloak 16.1.0 on Apple Silicon (M1)
+> <i class="icon fa fa-solid fa-square-info"></i> Note for JHipster 7.8.1 and Keycloak 16.1.0 on Apple Silicon (M1)
 > 
 > Keycloak may misbehave on Apple Silicon in Compatability Mode and the solution is not obvious. You may want to build the Keycloak image locally to address. The following steps have been shown to work:
 > 
