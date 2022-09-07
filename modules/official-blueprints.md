@@ -84,6 +84,6 @@ Stream leads: [Marcelo Shima](https://github.com/mshima) and [Matt Raible](https
 
 # jOOQ
 
-The j00Q blueprint integrates j00Q as the persistence layer. Source code and documentation can be found in the [generator-jhipster-jooq](https://github.com/jhipster/generator-jhipster-jooq) repository. {⭐️: 6}
+The jOOQ blueprint integrates jOOQ as the persistence layer. Source code and documentation can be found in the [generator-jhipster-jooq](https://github.com/jhipster/generator-jhipster-jooq) repository. {⭐️: 6}
 
 Stream lead: [Marcelo Shima](https://github.com/mshima)
