@@ -66,7 +66,7 @@ Stream lead is [Frederik Hahne](https://github.com/atomfrede).
 
 ## Svelte
 
-The Svelte blueprint replaces the client with Svelete. Source code and documentation could be found in the [generator-jhipster-svelte](https://github.com/jhipster/generator-jhipster-svelte) repository. {⭐️: 44}
+The Svelte blueprint replaces the client-side code with the SvelteKit framework. Source code and documentation could be found in the [generator-jhipster-svelte](https://github.com/jhipster/generator-jhipster-svelte) repository. {⭐️: 44}
 
 Stream lead is: [Vishal Mahajan](https://github.com/vishal423).
 
