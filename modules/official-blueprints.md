@@ -19,8 +19,6 @@ The JHipster team maintains several official blueprints. These blueprints have t
 
 The blueprints below are ordered by the number of stars they have on GitHub. 
 
-{:toc}
-
 ## Kotlin
 
 The Kotlin blueprint replaces most of Java back-end code with Kotlin. Source code and documentation could be found in the [jhipster-kotlin](https://github.com/jhipster/jhipster-kotlin) repository. {⭐️: 411}
