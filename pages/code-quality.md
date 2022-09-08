@@ -23,7 +23,7 @@ If you use Maven, it has been automatically configured:
 
 > <i class="fa fa-info-circle"></i> **Note for SonarQube 9.6.0 on Apple Silicon (M1)**
 >
-> SonarQube does not work with Apple Silicon in compatability mode. You can build the Docker image locally to solve the problem: 
+> SonarQube does not work with Apple Silicon using official images, a native image is not provided, and it fails in compatibility mode. You can build the Docker image locally to solve the problem: 
 >
 > ```
 > git clone git@github.com:SonarSource/docker-sonarqube.git
