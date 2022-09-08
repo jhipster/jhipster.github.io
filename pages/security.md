@@ -91,7 +91,7 @@ If you want to use Keycloak with Docker Compose, be sure to read our [Docker Com
 
 > <i class="fa fa-info-circle"></i> **Note for JHipster 7.8.1 and Keycloak 16.1.0 on Apple Silicon (M1)**
 > 
-> Keycloak may misbehave on Apple Silicon in compatability mode and the solution is not obvious. You can build the Keycloak image locally to solve the problem:
+> Keycloak prior to v18 may misbehave on Apple Silicon in compatibility mode and the solution is not obvious. You can build the Keycloak image locally to solve the problem:
 > 
 > ```
 > git clone git@github.com:keycloak/keycloak-containers.git
