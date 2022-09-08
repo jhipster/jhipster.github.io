@@ -89,15 +89,16 @@ npm run docker:keycloak:up
 
 If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
-> :information_source: Note for JHipster 7.8.1 and KeyCloak 16.1.0 on Apple Silicon (M1)
+> <i class="fa fa-info-circle"></i> **Note for JHipster 7.8.1 and Keycloak 16.1.0 on Apple Silicon (M1)**
 > 
-> KeyCloak may misbehave on Apple Silicon in Compatability Mode and the solution is not obvious. You may want to build the KeyCloak image locally to address. The following steps have been shown to work:
+> Keycloak prior to v18 may misbehave on Apple Silicon in compatibility mode and the solution is not obvious. You can build the Keycloak image locally to solve the problem:
 > 
-> 1. Clone Keycloak containers repository: `git clone git@github.com:keycloak/keycloak-containers.git`
-> 1. Open `server` directory, e.g., `cd keycloak-containers/server`
-> 1. Checkout at desired version, e.g., `git checkout 16.1.0`
-> 1. Build docker image `docker build -t jboss/keycloak:16.1.0 .`
-> 1. Run Keycloak `npm run docker:keycloak:up`
+> ```
+> git clone git@github.com:keycloak/keycloak-containers.git
+> cd keycloak-containers/server
+> git checkout 16.1.0
+> docker build -t jboss/keycloak:16.1.0 .
+> ```
 
 If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
@@ -113,7 +114,7 @@ spring:
           oidc:
             issuer-uri: http://localhost:9080/auth/realms/jhipster
             # localhost will be bound to the guest (container), not the host
-            # to run KeyCloak as a daemon, i.e., npm run docker:keycloak:up, /etc/hosts must be edited
+            # to run Keycloak as a daemon, i.e., npm run docker:keycloak:up, /etc/hosts must be edited
             # and the issuer-uri should be as follows:
             # issuer-uri: http://keycloak:9080/auth/realms/jhipster
         registration:

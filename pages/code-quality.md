@@ -21,6 +21,17 @@ If you use Maven, it has been automatically configured:
 
     ./mvnw -Pprod clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001
 
+> <i class="fa fa-info-circle"></i> **Note for SonarQube 9.6.0 on Apple Silicon (M1)**
+>
+> SonarQube does not work with Apple Silicon using official images, a native image is not provided, and it fails in compatibility mode. You can build the Docker image locally to solve the problem: 
+>
+> ```
+> git clone git@github.com:SonarSource/docker-sonarqube.git
+> cd docker-sonarqube/9/community
+> git checkout 9.6.0
+> docker build -t sonarqube:9.6.0-community .
+> ```
+
 If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
 
     ./mvnw initialize sonar:sonar -Dsonar.host.url=http://localhost:9001

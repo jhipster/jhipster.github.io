@@ -2015,3 +2015,8 @@ h3:hover a,
 h4:hover a {
   display: inline-block;
 }
+
+/* Make blockquotes more visible */
+blockquote {
+  background: lightyellow;
+}
