@@ -26,7 +26,7 @@ If you use Maven, it has been automatically configured:
 > SonarQube does not work with Apple Silicon using official images, a native image is not provided, and it fails in compatibility mode. You can build the Docker image locally to solve the problem: 
 >
 > ```
-> git clone git@github.com:SonarSource/docker-sonarqube.git
+> git clone https://github.com/SonarSource/docker-sonarqube.git
 > cd docker-sonarqube/9/community
 > git checkout 9.6.0
 > docker build -t sonarqube:9.6.0-community .
