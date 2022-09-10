@@ -33,7 +33,7 @@ The .NET Core blueprint is the first attempt to leave the Java environment and j
 
 - Code and docs: [jhipster/jhipster-dotnetcore](https://github.com/jhipster/jhipster-dotnetcore)
 - GitHub ⭐️: 249
-- Stream lead: [Daniel Petisme](https://github.com/danielpetisme)
+- Stream lead: [Nicolas Raymond](https://github.com/nicolas63)
 
 ## React Native
 
