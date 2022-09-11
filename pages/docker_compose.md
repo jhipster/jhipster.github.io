@@ -84,7 +84,7 @@ To build a Docker image of your application using [Jib](https://github.com/Googl
 To build a Docker image of your application without Docker and push it directly into your Docker registry, run:
 
 - Maven: `./mvnw package -Pprod verify jib:build -Dimage=<dockerhub-username>/<artifact-id>`
-- Gradle: `./gradlew -Pprod bootJar jib --image=<dockerhub-username>/<artifact-id>`
+- Gradle: `./gradlew -Pprod bootJar jib -Djib.to.image=<dockerhub-username>/<artifact-id>`
 
 If this doesn't work out of the box for you, refer to the Jib documentation for configurations details, specifically regarding how to set up authentication to a Docker registry:
 
