@@ -77,13 +77,14 @@ __Solution 2__
 
 To build a Docker image of your application using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon:
 
-- With Maven, type: `./mvnw package -Pprod verify jib:dockerBuild`
-- With Gradle, type: `./gradlew -Pprod bootJar jibDockerBuild`
+- NPM: `npm run java:docker`, on Apple Silicon: `npm run java:docker:arm64`
+- Maven: `./mvnw package -Pprod verify jib:dockerBuild`
+- Gradle: `./gradlew -Pprod bootJar jibDockerBuild`
 
 To build a Docker image of your application without Docker and push it directly into your Docker registry, run:
 
-- With Maven, type: `./mvnw package -Pprod verify jib:build`
-- With Gradle, type: `./gradlew -Pprod bootJar jib`
+- Maven: `./mvnw package -Pprod verify jib:build -Djib.to.image=<dockerhub-username>/<artifact-id>`
+- Gradle: `./gradlew -Pprod bootJar jib -Djib.to.image=<dockerhub-username>/<artifact-id>`
 
 If this doesn't work out of the box for you, refer to the Jib documentation for configurations details, specifically regarding how to set up authentication to a Docker registry:
 
