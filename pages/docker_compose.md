@@ -77,8 +77,7 @@ __Solution 2__
 
 To build a Docker image of your application using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon:
 
-- NPM: `npm run java:docker`
-  - On Apple Silicon: `npm run java:docker:arm64`
+- NPM: `npm run java:docker`, on Apple Silicon: `npm run java:docker:arm64`
 - Maven: `./mvnw package -Pprod verify jib:dockerBuild`
 - Gradle: `./gradlew -Pprod bootJar jibDockerBuild`
 
