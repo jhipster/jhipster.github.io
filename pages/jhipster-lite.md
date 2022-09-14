@@ -22,7 +22,7 @@ Some details about the solution:
 
 The original JHipster and JHLite are **not the same thing**, they are **not generating the same code** and **not serving the same purpose**! Here are some choice elements you can take into account:
 
-![Choosing JHipster]({{ site.url }}/images/jhlite_choice.png)
+![Choosing JHipster]({{ site.url }}/images/jhlite_choice.png){:style="max-width: 100%"}
 
 ## Discover JHipster Lite
 
