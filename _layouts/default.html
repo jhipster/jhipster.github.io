@@ -137,12 +137,12 @@
                             </button>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li {% if '/index.html' == page.url %}class="active" {% endif %}>
+                            <li {% if '/' == page.url %}class="active" {% endif %}>
                                 <a href="/">
                                     <span class="icon fa fa-home"></span><span class="title">Home</span>
                                 </a>
                             </li>
-                            <li {% if '/tech-board' == page.url %}class="active" {% endif %}>
+                            <li {% if '/tech-board/' == page.url %}class="active" {% endif %}>
                                 <a href="{{ site.url }}/tech-board/">
                                     <span class="icon fa fa-rocket"></span><span class="title">JHipster Tech Board</span>
                                 </a>
@@ -357,6 +357,12 @@
                                         </ul>
                                     </div>
                                 </div>
+                            </li>
+
+                            <li {% if '/jhipster-lite/' == page.url %}class="active" {% endif %}>
+                                <a href="{{ site.url }}/jhipster-lite/">
+                                    <span class="icon fa fa-bolt"></span><span class="title">JHipster Lite</span>
+                                </a>
                             </li>
 
                             <li class="panel panel-default dropdown">
