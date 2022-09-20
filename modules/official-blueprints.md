@@ -65,7 +65,7 @@ The Quarkus blueprint is supported, in part by the JHipster sponsor [Entando](ht
 
 - Code and docs: [jhipster/generator-jhipster-quarkus](https://github.com/jhipster/generator-jhipster-quarkus)
 - GitHub ⭐️: 111
-- Stream lead: [Anthony Viard](https://github.com/avdev4j)
+- Stream lead: [Matt Raible](https://github.com/mraible)
 
 # Entity Audit
 
