@@ -12,42 +12,98 @@ sitemap:
 
 # <i class="fa fa-star"></i> Officially supported blueprints
 
-JHipster supports several official blueprints. These blueprints have two main goals:
+The JHipster team maintains several official blueprints. These blueprints have two main goals:
 
 * Enhance JHipster with new features using different languages and/or support
 * Demonstrate how the main generator behavior can be modified to fit anyone's needs
 
+The blueprints below are ordered by the number of stars they have on GitHub. 
+
 ## Kotlin
 
-It replaces most of Java back-end code with Kotlin. Source code and documentation could be found here: [repository](https://github.com/jhipster/jhipster-kotlin).
+The Kotlin blueprint replaces most of Java back-end code with Kotlin. 
 
-Stream lead is: [Sendil Kumar](https://github.com/sendilkumarn).
+- Code and docs: [jhipster/jhipster-kotlin](https://github.com/jhipster/jhipster-kotlin)
+- GitHub ⭐️: 411
+- Stream lead: [Sendil Kumar](https://github.com/sendilkumarn)
 
-## Vue.js
+## .NET Core
 
-It replaces the whole front-end logic with Vue.js. Source code and documentation could be found here: [repository](https://github.com/jhipster/jhipster-vuejs).
+The .NET Core blueprint is the first attempt to leave the Java environment and join the .NET world. 
 
-Stream lead is: [Sahbi Ktifa](https://github.com/sahbi-ktifa).
+- Code and docs: [jhipster/jhipster-dotnetcore](https://github.com/jhipster/jhipster-dotnetcore)
+- GitHub ⭐️: 249
+- Stream lead: [Nicolas Raymond](https://github.com/nicolas63)
 
-## .Net
+## React Native
 
-This is the first attempt to leave the Java environment and join .Net world. Source code and documentation could be found here: [repository](https://github.com/jhipster/jhipster-dotnetcore).
+The React Native blueprint creates a client application with React Native. 
 
-Stream lead is: [Daniel Petisme](https://github.com/danielpetisme).
+- Code and docs: [jhipster/generator-jhipster-react-native](https://github.com/jhipster/generator-jhipster-react-native)
+- GitHub ⭐️: 235
+- Stream lead: [Jon Ruddell](https://github.com/ruddell)
 
 ## Node.js
 
-It replaces the server java side with the NestJS Node framework. Source code and documentation could be found here: [repository](https://github.com/jhipster/generator-jhipster-nodejs).
+The Node.js blueprint replaces the server java side with the NestJS Node framework. 
 
-Stream lead is: [Angelo Manganiello](https://github.com/amanganiello90).
+- Code and docs: [jhipster/generator-jhipster-nodejs](https://github.com/jhipster/generator-jhipster-nodejs)
+- GitHub ⭐️: 223
+- Stream lead: [Angelo Manganiello](https://github.com/amanganiello90)
 
-## Micronaut
+## Ionic
 
-This blueprint supported and driven by people of the [Micronaut team](https://github.com/jhipster/generator-jhipster-micronaut/graphs/contributors) itself.
-It replaces all server side code with a [Micronaut](https://micronaut.io/) application. 
-Source code and documentation can be found here: [repository](https://github.com/jhipster/generator-jhipster-micronaut)
+The Ionic blueprint creates a client application with Ionic. 
+
+- Code and docs: [jhipster/generator-jhipster-ionic](https://github.com/jhipster/generator-jhipster-ionic)
+- GitHub ⭐️: 171
+- Stream lead: [Matt Raible](https://github.com/mraible)
 
 ## Quarkus
 
-This blueprint supported, in part by the JHipster sponsor [Entando](https://www.entando.com/), and driven by the JHipster community for a [supersonic, subatomic Java back-end](https://quarkus.io/).
-Source code and documentation can be found here: [repository](https://github.com/jhipster/generator-jhipster-quarkus)
+The Quarkus blueprint is supported, in part by the JHipster sponsor [Entando](https://www.entando.com/), and driven by the JHipster community for a [supersonic, subatomic Java back-end](https://quarkus.io/).
+
+- Code and docs: [jhipster/generator-jhipster-quarkus](https://github.com/jhipster/generator-jhipster-quarkus)
+- GitHub ⭐️: 111
+- Stream lead: [Matt Raible](https://github.com/mraible)
+
+# Entity Audit
+
+The Entity Audit blueprint integrates Javers for entity auditing. 
+
+- Code and docs: [hipster-labs/generator-jhipster-entity-audit](https://github.com/hipster-labs/generator-jhipster-entity-audit)
+- GitHub ⭐️: 107
+- Stream lead: [Marcelo Shima](https://github.com/mshima)
+
+## Micronaut
+
+The Micronaut blueprint is supported and driven by people of the [Micronaut team](https://github.com/jhipster/generator-jhipster-micronaut/graphs/contributors) itself.
+It replaces all server side code with a [Micronaut](https://micronaut.io/) application.
+
+- Code and docs: [jhipster/generator-jhipster-micronaut](https://github.com/jhipster/generator-jhipster-micronaut)
+- GitHub ⭐️: 91
+- Stream lead: [Frederik Hahne](https://github.com/atomfrede)
+
+## Svelte
+
+The Svelte blueprint replaces the client-side code with the SvelteKit framework. 
+
+- Code and docs: [jhipster/generator-jhipster-svelte](https://github.com/jhipster/generator-jhipster-svelte)
+- GitHub ⭐️: 44
+- Stream lead: [Vishal Mahajan](https://github.com/vishal423)
+
+## JHipster Native
+
+The JHipster Native blueprint integrates Spring Native, making it possible to create a native binary with GraalVM. 
+
+- Code and docs: [jhipster/generator-jhipster-native](https://github.com/jhipster/generator-jhipster-native)
+- GitHub ⭐️: 28
+- Stream leads: [Marcelo Shima](https://github.com/mshima) and [Matt Raible](https://github.com/mraible)
+
+# jOOQ
+
+The jOOQ blueprint integrates jOOQ as the persistence layer. 
+
+- Code and Docs: [jhipster/generator-jhipster-jooq](https://github.com/jhipster/generator-jhipster-jooq)
+- GitHub ⭐️: 6
+- Stream lead: [Marcelo Shima](https://github.com/mshima)
