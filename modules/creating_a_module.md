@@ -23,6 +23,7 @@ Before creating a Blueprint, make sure you have read [Blueprint Basics](/module/
 ## Migration
 
 - Rename your module app and entity generators (if they exist) to something else like app-module and entity-module
+
 ```sh
 mv generators/app generators/app-module
 mv generators/entity generators/entity-module
@@ -31,6 +32,7 @@ mv generators/entity generators/entity-module
 - Rename every other generator that matches a generator-jhipster generator (otherwise they will be called as a blueprint).
 And update referentes.
 - Add a custom cli (`cli/cli.mjs`)
+
 ```javascript
 #!/usr/bin/env node
 
@@ -66,6 +68,7 @@ process.on('unhandledRejection', up => {
 ```
 
 - Add the cli to `package.json`
+
 ```json
 {
   "bin": {
