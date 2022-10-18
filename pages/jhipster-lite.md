@@ -18,6 +18,11 @@ Some details about the solution:
 - The best quality as possible: 💯% code coverage, 0 code smell, no duplication 😎
 - This generator is a webapp using Java (Spring Boot) and Vue.js
 
+## Some videos
+
+- [What is JHipster Lite and why should you care?][devoxx-jhlite] by [Julien Dubois][jdubois]
+- [Simple WebServices with JHipster Lite][webservices-with-jhlite] by [Colin Damon][cdamon]
+
 ## Choosing between JHipster and JHipster Lite
 
 The original JHipster and JHLite are **not the same thing**, they are **not generating the same code** and **not serving the same purpose**! Here are some elements you can take into account:
@@ -33,3 +38,9 @@ Join us on [GitHub][GitHub repository]! You will be able to run your JHipster li
 [Hexagonal Architecture]: https://github.com/jhipster/jhipster-lite/blob/main/documentation/hexagonal-architecture.md
 [Online version]: https://lite.jhipster.tech
 [GitHub repository]: https://github.com/jhipster/jhipster-lite
+
+[devoxx-jhlite]: https://youtu.be/RnLGnY-vzLI
+[jdubois]: https://twitter.com/juliendubois
+
+[webservices-with-jhlite]: https://youtu.be/mEECPRZjajI
+[cdamon]: https://www.linkedin.com/in/colin-damon/
