@@ -21,14 +21,14 @@ This option has some limitations:
 
 When the Elasticsearch option is selected:
 
-*   Spring Data Elasticsearch is used, with the help of [Spring Data Jest](https://github.com/VanRoy/spring-data-jest). Spring Data Jest which allows communication with Elasticsearch's REST API. It disables Spring Boot's autoconfiguration and uses its own instead.
+*   Spring Data Elasticsearch is used. It can be configured using `spring.elasticsearch.*` configuration properties.
 *   The "repository" package has new subpackage, called "search", that holds all Elasticsearch repositories.
 *   The "User" entity gets indexed in Elasticsearch, and you can query is using the `/api/_search/users/:query` REST endpoint.
 *   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the Angular/React user interface, so you can search your entity in the main CRUD screen.
 
 ### Using in Development
 
-In development, JHipster runs with an embedded Elasticsearch instance. You can also use an external Elasticsearch instance if you set a `SPRING_DATA_JEST_URI` environment variable (or add a `spring.data.jest.uri` property to your `application-dev.yml`). 
+In development, JHipster runs with an embedded Elasticsearch instance. You can also use an external Elasticsearch instance if you set a `SPRING_DATA_URIS` environment variable (or add a `spring.elasticsearch.uris` property to your `application-dev.yml`). 
 
 The easiest way to run an external Elasticsearch instance is to use the provided Docker Compose configuration:
 
@@ -36,7 +36,7 @@ The easiest way to run an external Elasticsearch instance is to use the provided
     
 Then set an environment variable to point to it:
 
-    export SPRING_DATA_JEST_URI=http://localhost:9200
+    export SPRING_DATA_URIS=http://localhost:9200
 
 ### Using in Production
 
