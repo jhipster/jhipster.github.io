@@ -57,7 +57,7 @@ Unfortunately, as of JHipster 7.9.3, Elasticsearch [doesn't work out of the box 
 
 ### Using Elastic Cloud
 
-You can [starting a free trial](https://cloud.elastic.co/registration) on Elastic Cloud. After logging in, create a deployment. Use the default settings, select **7.17.7** as the version, and press **Create deployment**.
+You can [start a free trial](https://cloud.elastic.co/registration) on Elastic Cloud. After logging in, create a deployment. Use the default settings, select **7.17.7** as the version, and press **Create deployment**.
 
 **WARNING**: Using the latest version will result in an "Unable to parse response body" error.
 
