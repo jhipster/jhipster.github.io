@@ -13,7 +13,7 @@ sitemap:
 
 - The easiest way is to use [Azure App Service](https://azure.microsoft.com/services/app-service/?WT.mc_id=online-jhipster-judubois) to deploy your monoliths.
 - If you are using Spring Boot microservices, 
- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/?WT.mc_id=online-jhipster-judubois) fully supports JHipster applications.
+ [Azure Spring Apps](https://azure.microsoft.com/services/spring-apps/?WT.mc_id=online-jhipster-judubois) fully supports JHipster applications.
 - As with any Docker and Kubernetes cloud provider, you can use the JHipster Docker and Kubernetes support to deploy your Docker images to Microsoft Azure. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) and our [Kubernetes documentation]({{ site.url }}/kubernetes/) for more information on these options.
 
 [![Microsoft Azure]({{ site.url }}/images/logo/logo-azure.png)](https://azure.microsoft.com/overview/?WT.mc_id=online-jhipster-judubois)
