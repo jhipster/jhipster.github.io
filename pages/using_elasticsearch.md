@@ -69,7 +69,7 @@ Set the credentials and endpoint URL as a new `ELASTIC_URL` environment variable
 heroku config:set ELASTIC_URL=https://elastic:<password>@<endpoint-url>
 ```
 
-Then, modify `heroku.gradle` to remove the workaround for Bansai (that no longer works) and update `application-heroku.yml` to use `ELASTIC_URL`:
+Then, modify `heroku.gradle` to remove the workaround for Bonsai (that no longer works) and update `application-heroku.yml` to use `ELASTIC_URL`:
 
 ```yaml
 spring:
