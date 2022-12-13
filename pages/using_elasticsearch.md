@@ -23,7 +23,7 @@ When the Elasticsearch option is selected:
 
 *   Spring Data Elasticsearch is used with Spring Boot's autoconfiguration.
 *   The "repository" package has a new subpackage, called "search", that holds all Elasticsearch repositories.
-*   The "User" entity gets indexed in Elasticsearch, and you can query is using the `/api/_search/users/:query` REST endpoint.
+*   The "User" entity gets indexed in Elasticsearch, and you can query it using the `/api/_search/users/:query` REST endpoint.
 *   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the UI, so you can search your entity in the main CRUD screen.
 
 ### Using in Development
