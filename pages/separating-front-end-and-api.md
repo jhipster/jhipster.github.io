@@ -45,8 +45,8 @@ If you have separate teams working on the front-end and back-end, you have two s
 Once the front-end and back-end have been separated, the issue will be how to handle HTTP requests:
 
 - All API calls will use a `/api` prefix. If you are using Angular, there is also a specific `SERVER_API_URL` constant, defined in the `webpack.common.js` configuration, that can enrich this prefix. For example, you can use `"http://api.jhipster.tech:8081/"` as a back-end API server (If you do this, please read our documentation on CORS below).
-- Calls to `/` serve static assets (from the front-end), which should not be cached by the browser.
-- Calls to `/app` (which contains the client-side application) and to `/content` (which contains the static content, like images and CSS) should be cached in production, as those assets are hashed.
+- `/index.html` should not be cached by the browser or server.
+- Calls to `/` that serve static assets (from the front-end) `/app` (which contains the client-side application) and `/content` (which contains the static content, like images and CSS) should be cached in production, as those assets are hashed.
 - Calls to a non-existent route should forward the request to `index.html`. This is normally handled in the backend through `ClientForwardController`. When deploying the client separately, this needs to be configured.  See the [Angular](https://angular.io/guide/deployment#server-configuration) or [React](https://facebook.github.io/create-react-app/docs/deployment) documentation for several examples.
 
 # Using BrowserSync
