@@ -53,7 +53,7 @@ In production, JHipster expects an external Elasticsearch instance. By default, 
 
 On Heroku, the [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai) is configured as an add-on. JHipster is automatically configured to talk to it. 
 
-Unfortunately, as of JHipster 7.9.3, Elasticsearch [doesn't work out of the box with Heroku](https://github.com/jhipster/generator-jhipster/issues/20315). To solve this, you can create a Docker image with Elasticsearch and deploy it to somewhere that can run it, or you can use Elastic Cloud. 
+Unfortunately, as of JHipster 7.9.3, Elasticsearch [doesn't work out of the box with Heroku](https://github.com/jhipster/generator-jhipster/issues/20315). To solve this, you can create a Docker image with Elasticsearch and deploy it to somewhere that can run it, or you can use Elastic Cloud. We don't automatically configure the [Elasticsearch Add-on](https://elements.heroku.com/addons/foundelasticsearch) because its cheapest plan is 67 USD/month and that seems a little expensive.
 
 ### Using Elastic Cloud
 
