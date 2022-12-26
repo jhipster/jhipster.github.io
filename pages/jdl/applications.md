@@ -490,8 +490,8 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   </tr>
   <tr>
     <td>messageBroker</td>
-    <td>false</td>
-    <td>kafka, false</td>
+    <td>no</td>
+    <td>kafka, no</td>
     <td></td>
   </tr>
   <tr>
@@ -520,8 +520,8 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   </tr>
   <tr>
     <td>searchEngine</td>
-    <td>false</td>
-    <td>elasticsearch, false</td>
+    <td>no</td>
+    <td>elasticsearch, couchbase, no</td>
     <td></td>
   </tr>
   <tr>
@@ -532,7 +532,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   </tr>
   <tr>
     <td>serviceDiscoveryType</td>
-    <td>false</td>
+    <td>no</td>
     <td>eureka, consul, no</td>
     <td></td>
   </tr>
@@ -562,8 +562,8 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   </tr>
   <tr>
     <td>websocket</td>
-    <td>false</td>
-    <td>spring-websocket, false</td>
+    <td>no</td>
+    <td>spring-websocket, no</td>
     <td></td>
   </tr>
 </table>
