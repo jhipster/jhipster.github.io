@@ -34,5 +34,5 @@ The incorrect part here is:
  
  * Hide the dropdown and set the current user in `preference` **at client side** programmatically. (Again this kind of solution is only valid for entities such as Preference, Settings, User Profile and so on, where having a dropdown to choose user does not makes sense. )
  * Hide the dropdown and set the current user in `preference` **at server side** programmatically. (Again this kind of solution is only valid for entities such as Preference, Settings, User Profile and so on, where having a dropdown to choose user does not makes sense. JHipster have already provided a method to get current user.)
- * Validate and load the correct association value before doing any business logic on that user. (Again this is needed only if your logic depends on `preference.gerUser()`
+ * Validate and load the correct association value before doing any business logic on that user. (Again this is needed only if your logic depends on `preference.getUser()`
  * If you are using Hibernate 5.4.2 and later then you will get correct association value but only after entity merge operation has finished. So if your business logic is excuted before entity merge operation, you have to take care of it otherwise you might get incorrect results.
