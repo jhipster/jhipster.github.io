@@ -202,6 +202,7 @@ If you are running H2 with disk-based persistence, this workflow is not yet work
 Here is the development workflow:
 
 *   Modify your JPA entity (add a field, a relationship, etc.)
+*   Skip changes in the re-generated liquibase file for that entity `config/liquibase/changelog/DATE_added_entity_ENTITY_NAME.xml` to avoid conflict with the soon to be generated changelog file bellow
 *   Compile your application (this works on the compiled Java code, so don't forget to compile!)
 *   Run `./mvnw liquibase:diff` (or `./mvnw compile liquibase:diff` to compile before)
 *   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory
