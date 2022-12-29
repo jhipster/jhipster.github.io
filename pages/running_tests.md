@@ -81,7 +81,7 @@ You can write your own rules to check custom constraints for your architecture a
 
 ## Performance tests
 
-Performance tests are done with [Gatling](http://gatling.io/){:target="_blank" rel="noopener"}, and are located in the `src/test/java/gatling/simulations` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
+Performance tests are done with [Gatling](http://gatling.io/){:target="_blank" rel="noopener"}, and are located in the `src/test/java/gatling/simulations` folder. They are generated for each entity, and allow to test each of them with a lot of concurrent requests.
 
 **Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. Also tests for creating entities that have a required relationship with another entity will fail out of the box. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
