@@ -6,7 +6,7 @@ redirect_from:
   - /development.html
 sitemap:
     priority: 0.7
-    lastmod: 2016-12-01T00:00:00-00:00
+    lastmod: 2023-01-05T00:00:00-00:00
 ---
 
 # <i class="fa fa-code"></i> Using JHipster in development
@@ -180,7 +180,7 @@ JHipster uses [Liquibase](http://www.liquibase.org) to manage the database updat
 
 There are 3 ways to work with Liquibase: 
 *   use the entity sub-generator
-*   use the Maven `liquibase:diff` goal or 
+*   use the liquibase plugin 
 *   update the configuration files manually
 
 ### Database updates with the entity sub-generator
@@ -191,24 +191,30 @@ If you use the [entity sub-generator]({{ site.url }}/creating-an-entity/), here 
 *   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory, and has been automatically added to your `src/main/resources/config/liquibase/master.xml` file
 *   Review this change log, it will be applied the next time you run your application
 
-### Database updates with the Maven liquibase:diff goal
+### Database updates with the liquibase plugin
 
-If you have chosen to use MySQL, MariaDB or PostgreSQL in development, you can use the `./mvnw liquibase:diff` goal to automatically generate a changelog.
+If you have chosen to use H2, MySQL, MariaDB or PostgreSQL in development, you can follow this section to automatically generate a changelog.
 
-If you are running H2 with disk-based persistence, this workflow is not yet working perfectly, but you can start trying to use it (and send us feedback!).
+*Note: If you are running H2 with in-memory persistence, you need to startup your application before running the liquibase commands.*
 
-[Liquibase Hibernate](https://github.com/liquibase/liquibase-hibernate) is a Maven plugin that is configured in your pom.xml, and is independent from your Spring application.yml file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
+#### Maven
+
+[Liquibase Hibernate](https://github.com/liquibase/liquibase-hibernate) is a Maven plugin that is configured in your `pom.xml`, and is independent from your Spring `application.yml` file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
 
 Here is the development workflow:
 
-*   Modify your JPA entity (add a field, a relationship, etc.)
-*   Skip changes in the re-generated liquibase file for that entity `config/liquibase/changelog/DATE_added_entity_ENTITY_NAME.xml` to avoid conflict with the soon to be generated changelog file bellow
-*   Compile your application (this works on the compiled Java code, so don't forget to compile!)
-*   Run `./mvnw liquibase:diff` (or `./mvnw compile liquibase:diff` to compile before)
-*   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory
-*   Review this change log and add it to your `src/main/resources/config/liquibase/master.xml` file, so it is applied the next time you run your application
+1.   Modify your JPA entity (add a field, a relationship, etc.)
+2.   Skip changes in the re-generated liquibase file for that entity `config/liquibase/changelog/DATE_added_entity_ENTITY_NAME.xml` to avoid conflict with the soon to be generated changelog file bellow
+3.   Compile your application (this works on the compiled Java code, so don't forget to compile!)
+4.   Run `./mvnw liquibase:diff` (or `./mvnw compile liquibase:diff` to compile before)
+5.   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory
+6.   Review this change log and add it to your `src/main/resources/config/liquibase/master.xml` file, so it is applied the next time you run your application
 
-If you use Gradle instead of Maven, you can use the same workflow by running `./gradlew liquibaseDiffChangelog -PrunList=diffLog`, and change the database configuration in `build.gradle` in the liquibase configuration if required.
+#### Gradle
+
+[Liquibase gradle plugin](https://github.com/liquibase/liquibase-gradle-plugin) is a Gradle plugin that is configured in your `build.gradle`, and is independent from your Spring `application.yml` file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
+
+You can use the same workflow as for Maven except for the 4th step where you need to run `./gradlew liquibaseDiffChangelog -PrunList=diffLog`.
 
 ### Database updates by manually editing the change log
 
