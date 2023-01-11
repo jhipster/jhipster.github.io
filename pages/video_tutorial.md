@@ -35,6 +35,44 @@ sitemap:
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/haTQ1xJKQQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Micro Frontends for Java Microservices<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/mraible">Matt Raible</a> explains what micro frontends are and shows how you can use them with React, Spring Boot, and JHipster microservices.</p>
+              <p>Published on Jan 1, 2023 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RnLGnY-vzLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">What is JHipster Lite and why should you care?<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/juliendubois">Julien Dubois</a> compares JHipster and JHipster Lite and shows how JHipster Lite works.</p>
+              <p>Published on Oct 14, 2022 | <a href="https://www.youtube.com/@DevoxxForever">Devoxx YouTube</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/NucXvPL1z5o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="caption">
+                <h3 id="thumbnail-label">Build and deploy cloud native Java microservices on Kubernetes with Istio service mesh<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/deepu105">Deepu K Sasidharan</a> shows how to build and deploy Java microservices to the cloud using Istio, Kubernetes, JHipster, and Spring Cloud.</p>
+              <p>Published on Oct 11, 2022 | <a href="https://www.youtube.com/@DevoxxForever">Devoxx YouTube</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="thumbnail no-margin-bottom">
+            <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/3kGrkVUZ_Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
