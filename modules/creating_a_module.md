@@ -14,7 +14,7 @@ sitemap:
 
 As of JHipster v7.9.0, module support was merged into blueprint support. So the same rules apply.
 
-Before creating a Blueprint, make sure you have read [Blueprint Basics](/module/blueprint-basics)
+Before creating a Blueprint, make sure you have read [Blueprint Basics](/modules/extending-and-customizing/#-blueprint-basics)
 
 ## Example
 
