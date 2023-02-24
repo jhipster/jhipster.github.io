@@ -127,43 +127,43 @@ While developing a blueprint, please note the below steps. They are very importa
 
 1. Link your blueprint globally 
 
-Note: If you do not want to link the blueprint(step 3) to each project being created.
+    Note: If you do not want to link the blueprint (Step 3) to each project being created.
 
-```bash
-cd generator-jhipster-my-blueprint
-npm link
-```
+    ```bash
+    cd generator-jhipster-my-blueprint
+    npm link
+    ```
 
-2. Link a development version of JHipster to your blueprint (optional: required only if you want to use a non-released JHipster version, like the main branch or your own custom fork)
+1. Link a development version of JHipster to your blueprint. Note: required only if you want to use a non-released JHipster version, like the `main` branch or your own custom fork)
 
-```bash
-cd generator-jhipster
-npm link
+    ```bash
+    cd generator-jhipster
+    npm link
 
-cd generator-jhipster-my-blueprint
-npm link generator-jhipster
-```
+    cd generator-jhipster-my-blueprint
+    npm link generator-jhipster
+    ```
 
-Or install `generator-jhipster` from git:
+    Or install `generator-jhipster` from git:
 
-```bash
-cd generator-jhipster-my-blueprint
-npm install jhipster/generator-jhipster
-```
+    ```bash
+    cd generator-jhipster-my-blueprint
+    npm install jhipster/generator-jhipster
+    ```
 
-3. Create a new folder for the app to be generated, and run JHipster ignoring JHipster dependencies (otherwise a released version will be installed each time `npm install/ci` is called)
+1. Create a new folder for the app to be generated, and run JHipster ignoring JHipster dependencies (otherwise a released version will be installed each time `npm install/ci` is called)
 
-```bash
-mkdir my-app && cd my-app
+    ```bash
+    mkdir my-app && cd my-app
 
-jhipster --blueprints my-blueprint --skip-jhipster-dependencies
-```
+    jhipster --blueprints my-blueprint --skip-jhipster-dependencies
+    ```
 
-4. Once the blueprint/generator-jhipster is released, re-add the JHipster dependencies for reproducibility
+1. Once the blueprint/generator-jhipster is released, re-add the JHipster dependencies for reproducibility
 
-```bash
-jhipster --no-skip-jhipster-dependencies
-```
+    ```bash
+    jhipster --no-skip-jhipster-dependencies
+    ```
 
 ## Registering a blueprint to the JHipster marketplace
 
