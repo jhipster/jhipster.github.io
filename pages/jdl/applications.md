@@ -387,16 +387,16 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
     <td></td>
   </tr>
   <tr>
-    <td>blueprint</td>
-    <td></td>
-    <td>Name of an additional blueprint (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
-    <td>DEPRECATED. String</td>
+    <td><s>blueprint</s></td>
+    <td>DEPRECATED</td>
+    <td><s>Name of an additional blueprint</s></td>
+    <td>See <a href="#blueprints">blueprints</a></td>
   </tr>
   <tr>
-    <td>blueprints</td>
-    <td></td>
-    <td>Names of additional blueprints (see <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>)</td>
-    <td></td>
+    <td id="blueprints">blueprints</td>
+    <td>[]</td>
+    <td>Names of additional blueprints. See <a href="https://www.jhipster.tech/modules/marketplace/#/list">Marketplace</a>, including custom blueprints internally published.</td>
+    <td>Array of blueprints to use, e.g., <code>[blueprint1, blueprint2]</code></td>
   </tr>
   <tr>
     <td>buildTool</td>
