@@ -29,7 +29,7 @@ docker-compose -f src/main/docker/pulsar.yml up -d
 
 ## Usage
 
-Check the [Spring for Apache Pulsar documentation](https://docs.spring.io/spring-pulsar/docs/0.2.0/reference/html/) for how to use Pulsar in JHipster.
+Check the [Spring for Apache Pulsar documentation](https://docs.spring.io/spring-pulsar/docs/current/reference/html/) (prefer the versioned pulsar documentation link generated in your application's README.md) for how to use Pulsar in JHipster.
 There are several ways to interact with Pulsar from lowest to highest level of abstraction:
 * Generate Producer/Consumer/Reader from respectively PulsarProducerFactory/PulsarConsumerFactory/PulsarReaderFactory
 * Inject PulsarTemplate and create PulsarListener beans
