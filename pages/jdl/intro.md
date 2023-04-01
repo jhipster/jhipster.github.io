@@ -48,3 +48,8 @@ documentation:
 
 You can also check the official [JDL sample repository](https://github.com/jhipster/jdl-samples) and propose examples 
 if you want!
+
+---
+
+In case you already have existing databases and would like to create the JDL representation then you can use 
+this project [SQL to JDL](https://github.com/Blackdread/sql-to-jdl) which will help you get started quickly.
