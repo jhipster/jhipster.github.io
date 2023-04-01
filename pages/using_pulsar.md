@@ -23,7 +23,9 @@ sitemap:
 
 Generate a new application and make sure to select `Asynchronous messages using Apache Pulsar` when prompted for technologies you would like to use. A Docker Compose configuration file is generated and you can start Pulsar with the command:
 
-`docker-compose -f src/main/docker/pulsar.yml up -d`
+```sh
+docker-compose -f src/main/docker/pulsar.yml up -d
+```
 
 ## Usage
 
