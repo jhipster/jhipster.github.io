@@ -48,7 +48,7 @@ A complete [Spring application](http://spring.io/):
 *   [Elasticsearch](https://github.com/elastic/elasticsearch) support if you want to have search capabilities on top of your database
 *   [MongoDB](http://www.mongodb.org) and [Couchbase](https://www.couchbase.com) support if you'd rather use a document-oriented NoSQL database instead of JPA
 *   [Cassandra](http://cassandra.apache.org/) support if you'd rather use a column-oriented NoSQL database instead of JPA
-*   [Kafka](http://kafka.apache.org/) support if you want to use a publish-subscribe messaging system
+*   [Kafka](http://kafka.apache.org/) and [Pulsar](http://pulsar.apache.org/) support if you want to use a publish-subscribe messaging system
 
 ## Technology stack for microservices
 
