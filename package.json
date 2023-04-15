@@ -1,7 +1,7 @@
 {
   "name": "jhipster-public-wesite",
   "devDependencies": {
-    "browser-sync": "2.27.11",
+    "browser-sync": "2.29.1",
     "gulp": "4.0.2",
     "gulp-imagemin": "8.0.0",
     "gulp-sass": "5.0.0",
