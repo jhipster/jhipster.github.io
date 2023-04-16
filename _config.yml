@@ -5,7 +5,7 @@ url: https://www.jhipster.tech
 github_repository_url: https://github.com/jhipster/jhipster.github.io
 kramdown:
   input: GFM
-plugins_dir:
+plugins:
   - jekyll-redirect-from
   - jemoji
 whitelist:
