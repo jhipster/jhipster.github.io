@@ -219,12 +219,31 @@ $theme-danger-color: $color-red;
         }
       }
       .dropdown-menu {
-        background-color: $color-light-grey;
+        right: auto;
+        left: 0;
+        background-color: $color-dark-blue;
+        font-size: 16px;
+        margin-left: 25px;
+        min-width: auto;
         border-color: $color-dark-blue;
         .title {
           background-color: $color-white;
           .badge {
             background-color: $color-dark-blue;
+          }
+        }
+        & > li {
+          & > a {
+            font-family: roboto condensed,sans-serif;
+            font-weight: 700;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 20px;
+            color: $color-white;
+            background-color: $color-dark-blue;
+          }
+          &:hover > a { 
+            color: $color-dark-blue-1; 
           }
         }
       }

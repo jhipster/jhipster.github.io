@@ -119,7 +119,12 @@
   background-color: #FA2A00;
 }
 .flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu {
-  background-color: #F9F9F9;
+  right: auto;
+  left: 0;
+  background-color: #353d47;
+  font-size: 16px;
+  margin-left: 25px;
+  min-width: auto;
   border-color: #353d47;
 }
 .flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu .title {
@@ -127,6 +132,18 @@
 }
 .flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu .title .badge {
   background-color: #353d47;
+}
+.flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+  font-family: roboto condensed, sans-serif;
+  font-weight: 700;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  color: #FFF;
+  background-color: #353d47;
+}
+.flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu > li:hover > a {
+  color: #3E8ACC;
 }
 .flat-blue .navbar.navbar-inverse .navbar-nav .dropdown-menu.danger {
   border-color: #FA2A00;
