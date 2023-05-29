@@ -76,7 +76,7 @@ This way of generating content is especially useful when generating entities.
 ---
 
 For now, we'll start with small JDL content to get to know the various ways to generate content.
-Explanations will be made in other sections about the syntax but focus is gonna be made on the generation here.
+The focus here is on the generation of code. Explanation about the syntax is made in other sections.
 
 Here's the basic content we'll use:
 
