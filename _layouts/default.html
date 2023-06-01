@@ -112,9 +112,24 @@
                                 <input type="text" name="search" class="doc-search-algolia" placeholder="Search..." />
                             </form>
                         </li>
-                        <li>
-                            <a href="{{ site.url }}/cn{{page.url}}"><i class="fa fa-fw fa-globe"></i> 中文</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" id="languages-toggle-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true">                                
+                                <i class="fa fa-fw fa-globe"></i> English
+                                <span class="caret"></span> 
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languages-toggle-dropdown">
+                                <!--
+                                <li>
+                                    <a href="{{ page.url }}">English</a>
+                                </li>
+                                -->
+                                <li>
+                                    <a href="/cn{{page.url}}">中文</a>
+                                </li>
+                                <li>
+                                    <a href="/jp{{page.url}}">日本語</a>
+                                </li>
+                            </ul>                             
                         <li>
                             <button type="button" class="navbar-right-expand-toggle visible-xs pull-right light">
                                 <i class="fa fa-times icon"></i>
