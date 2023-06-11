@@ -491,7 +491,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   <tr>
     <td>messageBroker</td>
     <td>no</td>
-    <td>kafka, no</td>
+    <td>kafka, pulsar, no</td>
     <td></td>
   </tr>
   <tr>
