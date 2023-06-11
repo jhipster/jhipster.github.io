@@ -20,6 +20,7 @@ sitemap:
    1. [With injected fields](#with-injected-fields)
    1. [With joint fields](#with-joint-fields)
    1. [With methods](#with-methods)
+   1. [With options](#with-options)
    1. [With required sides](#with-required-sides)
    1. [Reflexive relationships](#reflexive-relationships)
    1. [Commenting](#commenting)
@@ -94,11 +95,13 @@ This syntax is really useful when:
 Relationship declaration is done as follows:
 ```
 relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
-  <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]+
+  @<option>("<option value>")+ <from entity>[{<relationship name>[(<display field>)]}] to @<option>("<option value>")+ <to entity>[{<relationship name>[(<display field>)]}]+
 }
 ```
 
   - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
+  - `<option>` is one of the supported values: `onDelete | onUpdate`. Make sure to put this on the correct side of the relationship.
+  - `<option value>` is one of the fitting values for the given option: `NO ACTION | RESTRICT | CASCADE | SET NULL | SET DEFAULT`
   - `<from entity>` is the name of the entity owner of the relationship: the source,
   - `<to entity>` is the name of the entity where the relationship goes to: the destination,
   - `<relationship name>` is the name of the field having the other end as type,
@@ -159,6 +162,16 @@ entity.
 ```jdl
 relationship OneToOne {
   A to B with jpaDerivedIdentifier
+}
+```
+
+---
+
+#### With options
+
+```jdl
+relationship ManyToOne {
+   A to @OnDelete("SET NULL") @OnUpdate("CASCADE") B
 }
 ```
 
