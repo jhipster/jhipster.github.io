@@ -81,13 +81,7 @@ You can write your own rules to check custom constraints for your architecture a
 
 ## Performance tests
 
-Performance tests are done with [Gatling](http://gatling.io/){:target="_blank" rel="noopener"}, and are located in the `src/test/gatling` folder. They are generated for each entity, and allows to test each of them with a lot of concurrent user requests.
-
-To run Gatling tests, you must 
-
-1. [Download Gatling](https://gatling.io/open-source/){:target="_blank" rel="noopener"}
-2. Extract it and add the location to your `PATH`
-3. cd into `src/test/gatling` and run `gatling.sh` or `gatling.bat` depending on your OS
+Performance tests are done with [Gatling](http://gatling.io/){:target="_blank" rel="noopener"}, and are located in the `src/test/java/gatling/simulations` folder. They are generated for each entity, and allow to test each of them with a lot of concurrent requests.
 
 **Warning!** At the moment, those tests do not take into account the validation rules you may have enforced on your entities. Also tests for creating entities that have a required relationship with another entity will fail out of the box. You will anyway need to change those tests, according to your business rules, so here are few tips to improve your tests:
 
@@ -101,77 +95,10 @@ For running Gatling tests on a microservice application, you have to:
 *   Run the microservice application
 *   Then, you can run Gatling tests
 
-### Using Maven/Gradle to run Gatling
-
-We do not generate Maven or Gradle configuration to run Gatling tests as this might cause some classpath issues with other plugins (mainly because of the use of Scala).
-Nevertheless you can leverage the offical [Maven plugin](https://gatling.io/docs/current/extensions/maven_plugin/){:target="_blank" rel="noopener"}  or [Gradle plugin](https://gatling.io/docs/current/extensions/gradle_plugin/){:target="_blank" rel="noopener"} to execute the Gatling tests.
-
-#### Using Maven
-
-You need to change `pom.xml`:
-
-1. Add Gatling dependency with `test` scope
-2. Add Gatling plugin 
-3. Adapt plugin configuration to JHipster layout and naming conventions
-
-```
-...
-<dependency>
-  <groupId>io.gatling.highcharts</groupId>
-  <artifactId>gatling-charts-highcharts</artifactId>
-  <version>3.5.0</version>
-  <scope>test</scope>
-</dependency>
-<!-- jhipster-needle-maven-add-dependency -->
-...
-<plugin>
-  <groupId>io.gatling</groupId>
-  <artifactId>gatling-maven-plugin</artifactId>
-  <version>3.1.1</version>
-  <configuration>
-    <runMultipleSimulations>true</runMultipleSimulations>
-    <resourcesFolder>${project.basedir}/src/test/gatling/conf</resourcesFolder>
-    <simulationsFolder>${project.basedir}/src/test/gatling/user-files/simulations</simulationsFolder>
-  </configuration>
-</plugin>
-<!-- jhipster-needle-maven-add-plugin -->
-...
-```
+### Using Maven to run Gatling
 
 You can execute all Gatling tests with `./mvnw gatling:test`.
-#### Using Gradle 
-
-You need to change `build.gradle`:
-
-1. Add the Gatling plugin to the plugin section
-2. Adapt source sets to the JHipster layout
-3. Adapt the included simulations to the JHipster naming conventions
-
-In case you are using the reactive option you might [need to make sure the Spring Boot-managed Netty version does not interfere with the one needed by Gatling](https://gatling.io/docs/current/extensions/gradle_plugin/#spring-boot-and-netty-version){:target="_blank" rel="noopener"}.
-
-```
-plugins {
-    ...
-    id "io.spring.nohttp"
-    // Add the Gatling plugin, please check for the latest version here https://plugins.gradle.org/plugin/io.gatling.gradle 
-    id 'io.gatling.gradle' version "3.5.0" 
-    //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
-}
-
-...
-// adapt the source sets to the JHipster specific layout
-sourceSets {
-   gatling {
-    scala.srcDirs = ["src/test/gatling/user-files/simulations"]
-    resources.srcDirs = ["src/test/gatling/conf"]
-  }
-} 
-
-gatling {
-    simulations = { include "**/*Test*.scala" }
-}
-...
-```
+### Using Gradle to run Gatling
 
 You can execute all Gatling tests with `./gradlew gatlingRun`.
 ## Behaviour-driven development (BDD)
