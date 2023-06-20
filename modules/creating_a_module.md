@@ -36,7 +36,7 @@ And update referentes.
 ```javascript
 #!/usr/bin/env node
 
-import { runJHipster, done, logger } from 'generator-jhipster/esm/cli';
+import { runJHipster, done, logger } from 'generator-jhipster/cli';
 import { readFile } from 'fs/promises';
 import { fileURLToPath } from 'url';
 import { dirname, basename } from 'path';
@@ -87,10 +87,10 @@ App generator (`generators/app/index.mjs`) for post app hooks:
 
 ```javascript
 import chalk from 'chalk';
-import { GeneratorBase } from 'generator-jhipster';
+import GeneratorBaseApplication from 'generator-jhipster/generators/base-application';
 import { INSTALL_PRIORITY } from 'generator-jhipster/priorities';
 
-export default class extends GeneratorBase {
+export default class extends GeneratorBaseApplication {
   constructor(args, opts, features) {
     super(args, opts, features);
 
@@ -103,7 +103,7 @@ export default class extends GeneratorBase {
     this.sbsBlueprint = true;
   }
 
-  get [INSTALL_PRIORITY]() {
+  get [GeneratorBaseApplication.INSTALL]() {
     return {
       async afterRunHook() {
         await this.composeWithJHipster(`my-blueprint:app-module`, {
@@ -119,10 +119,9 @@ Entity generator (`generators/entity/index.mjs`) for post entity hooks:
 
 ```javascript
 import chalk from 'chalk';
-import { GeneratorBase } from 'generator-jhipster';
-import { INSTALL_PRIORITY } from 'generator-jhipster/priorities';
+import GeneratorBaseApplication from 'generator-jhipster/generators/base-application';
 
-export default class extends GeneratorBase {
+export default class extends GeneratorBaseApplication {
   constructor(args, opts, features) {
     super(args, opts, features);
 
@@ -135,7 +134,7 @@ export default class extends GeneratorBase {
     this.sbsBlueprint = true;
   }
 
-  get [INSTALL_PRIORITY]() {
+  get [GeneratorBaseApplication.INSTALL]() {
     return {
       async afterRunHook() {
         await this.composeWithJHipster(`my-blueprint:entity-module`, {
