@@ -102,14 +102,14 @@ For each state, the required authorities are listed in the state's data, and whe
 
 The authorities are also defined on the server-side in the class `AuthoritiesConstants.java`, and logically the client and server-side authorities should be the same.
 
-In the example below, the 'sessions' state is designed to be accessed only by authenticated users who have `ROLE_USER` authority:
+In the example below, the 'settings' state is designed to be accessed only by authenticated users who have `ROLE_ADMIN` authority:
 
-    export const sessionsRoute: Route = {
+    export const settingsRoute: Route = {
         path: 'sessions',
-        component: SessionsComponent,
+        component: SettingsComponent,
+        title: 'global.menu.account.settings',
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'global.menu.account.sessions'
+            authorities: ['ROLE_ADMIN'],
         },
         canActivate: [UserRouteAccessService]
     };
