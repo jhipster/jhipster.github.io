@@ -119,8 +119,7 @@ Entity generator (`generators/entity/index.mjs`) for post entity hooks:
 
 ```javascript
 import chalk from 'chalk';
-import { GeneratorBase } from 'generator-jhipster';
-import { INSTALL_PRIORITY } from 'generator-jhipster/priorities';
+import GeneratorBase from 'generator-jhipster/base';
 
 export default class extends GeneratorBase {
   constructor(args, opts, features) {
@@ -135,7 +134,7 @@ export default class extends GeneratorBase {
     this.sbsBlueprint = true;
   }
 
-  get [INSTALL_PRIORITY]() {
+  get [GeneratorBase.INSTALL]() {
     return {
       async afterRunHook() {
         await this.composeWithJHipster(`my-blueprint:entity-module`, {
