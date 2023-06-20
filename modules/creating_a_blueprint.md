@@ -40,10 +40,6 @@ A JHipster blueprint must have `generator-jhipster` as a dependency and should i
 ```javascript
 import chalk from 'chalk';
 import ClientGenerator from 'generator-jhipster/generators/client';
-import {
-  INITIALIZING_PRIORITY,
-  // Others priorities omitted for brevity
-} from 'generator-jhipster/priorities';
 
 export default class extends ClientGenerator {
   constructor(args, opts, features) {
@@ -56,7 +52,7 @@ export default class extends ClientGenerator {
     }
   }
 
-  get [INITIALIZING_PRIORITY]() {
+  get [ClientGenerator.INITIALIZING]() {
     return {
       // async preInitializingTemplateTask() {},
       ...super._initializing(),
@@ -89,7 +85,7 @@ There are multiple ways to customize a priority from JHipster.
 1) Let JHipster handle the priority, blueprint doesn't override anything.
 
 ```javascript
-    get [INITIALIZING_PRIORITY]() {
+    get [Generator.INITIALIZING]() {
         return super.initializing;
     }
 ```
@@ -97,7 +93,7 @@ There are multiple ways to customize a priority from JHipster.
 2) Override the entire priority, this is when the blueprint takes control of a priority.
 
 ```javascript
-  get [INITIALIZING_PRIORITY]() {
+  get [Generator.INITIALIZING]() {
     return {
       myCustomInitPriorityStep() {
         // Do all your stuff here
@@ -112,7 +108,7 @@ There are multiple ways to customize a priority from JHipster.
 3) Partially override a priority, this is when the blueprint gets the priority from JHipster and customizes it.
 
 ```javascript
-    get [INITIALIZING_PRIORITY]() {
+    get [Generator.INITIALIZING]() {
         return {
             ...super._initializing(),
             displayLogo() {
