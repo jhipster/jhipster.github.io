@@ -20,7 +20,7 @@ What's new?
 - Consul as default [#19300](https://github.com/jhipster/generator-jhipster/issues/19300)
 - Rename angularX configuration option to angular [#19361](https://github.com/jhipster/generator-jhipster/issues/19361)
 - Drop upgrade-config generator [#19655](https://github.com/jhipster/generator-jhipster/issues/19655)
-- Bump node dependency to 16 lts [#19648](https://github.com/jhipster/generator-jhipster/pull/19648)
+- Bump node dependency to 18 lts [#22372](https://github.com/jhipster/generator-jhipster/pull/22372)
 
 ### :beetle: Bug Fixes
 - Prevent leakage of user information via api [#22373](https://github.com/jhipster/generator-jhipster/pull/22373)
