@@ -4,7 +4,7 @@ title: JHipster Domain Language - Troubleshooting
 permalink: /jdl/troubleshooting
 sitemap:
     priority: 0.5
-    lastmod: 2019-10-27T12:00:00-00:00
+    lastmod: 2023-07-09T23:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -19,7 +19,7 @@ You can do these things with it:
   - And declare some JHipster specific options.
 
 If you wish to view the JDL's grammar, there is an HTML file available
-[here](https://github.com/jhipster/jhipster-core/blob/master/lib/dsl/gen/grammar.html).
+[here](https://github.com/jhipster/generator-jhipster/blob/master/jdl/parsing/generated/grammar.html).
 
 ---
 
@@ -34,13 +34,14 @@ See [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/
 
 <h2 id="issues">Issues and bugs</h2>
 
-The JDL is [available on GitHub](https://github.com/jhipster/jhipster-core), and follows the same
+The JDL is [available on GitHub](https://github.com/jhipster/generator-jhipster/tree/main/jdl), and follows the same
 [contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
-Please use our project for submitting issues and Pull Requests concerning the library itself.
+Please use the ["JDL"](https://github.com/jhipster/generator-jhipster/labels/theme%3A%20JDL) label for submitting 
+issues and Pull Requests concerning the library itself.
 
-- [JDL issue tracker](https://github.com/jhipster/jhipster-core/issues)
-- [JDL Pull Requests](https://github.com/jhipster/jhipster-core/pulls)
+- [JDL issue tracker](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aopen+is%3Aissue+label%3A%22theme%3A+JDL%22)
+- [JDL Pull Requests](https://github.com/jhipster/generator-jhipster/pulls?q=is%3Aopen+is%3Apr+label%3A%22theme%3A+JDL%22)
 
 When submitting anything, you must be as precise as possible:  
   - **One posted issue must only have one problem** (or one demand/question);  
