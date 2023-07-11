@@ -27,10 +27,10 @@ recommended approach.
 The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool
 than with the classical Yeoman questions and answers.
 
-The JDL project is [available on GitHub](https://github.com/jhipster/generator-jhipster/), it is an Open Source project like
+The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-core/), it is an Open Source project like
 JHipster (Apache 2.0 License). It can also be used as a node library to do JDL parsing.
 
-_If you like the [JHipster Domain Language](https://github.com/jhipster/generator-jhipster/),
+_If you like the [JHipster Domain Language](https://github.com/jhipster/jhipster-core/),
 the [JDL Studio](https://github.com/jhipster/jdl-studio/) or the
 [JHipster IDE](https://github.com/jhipster/jhipster-ide/) don't forget to give them a star on
 [GitHub](https://github.com/jhipster/) - thanks_!
@@ -41,7 +41,6 @@ If you don't know the JDL yet, it is recommended to go through the [Getting Star
 
 However, if you're already familiar with the JDL and what you can do with it, you can also browse the detailed
 documentation:
-  1. [Getting Started](/jdl/getting-started)
   1. [Applications](/jdl/applications)
   1. [Entities & fields](/jdl/entities-fields)
   1. [Enums](/jdl/enums)
