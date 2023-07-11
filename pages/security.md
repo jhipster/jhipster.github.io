@@ -317,11 +317,9 @@ spring:
             client-secret: {clientSecret}
             scope: openid,profile,email
 jhipster:
-  ...
   security:
     oauth2:
-      audience:
-        - https://{your-auth0-domain}/api/v2/
+      audience: https://{your-auth0-domain}/api/v2/
 ```
 
 If you have a doubt on the `issuer-uri` value, then, you can get the value from **Applications** > **{Your Application}** > **Settings** > **Advanced Settings** > **Endpoints** > **OpenID Configuration**. Remove `.well-known/openid-configuration` suffix since that will be added by the Spring Security.
