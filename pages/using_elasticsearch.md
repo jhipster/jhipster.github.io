@@ -6,7 +6,7 @@ redirect_from:
   - /using_elasticsearch.html
 sitemap:
     priority: 0.7
-    lastmod: 2022-12-13T00:00:00-00:00
+    lastmod: 2023-07-12T00:00:00-00:00
 ---
 
 # <i class="fa fa-search"></i> Using Elasticsearch
@@ -21,29 +21,22 @@ This option has some limitations:
 
 When the Elasticsearch option is selected:
 
-*   Spring Data Elasticsearch is used with Spring Boot's autoconfiguration.
+*   Spring Data Elasticsearch is used with Spring Boot's autoconfiguration. It can be configured using `spring.elasticsearch.*` configuration properties.
 *   The "repository" package has a new subpackage, called "search", that holds all Elasticsearch repositories.
 *   The "User" entity gets indexed in Elasticsearch, and you can query it using the `/api/_search/users/:query` REST endpoint.
 *   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the UI, so you can search your entity in the main CRUD screen.
 
 ### Using in Development
 
-In development, you need to use an external Elasticsearch instance. The easiest way to run an external Elasticsearch instance is to use the provided Docker Compose configuration:
+In development, JHipster runs with an embedded Elasticsearch instance. You can also use an external Elasticsearch instance if you set a `SPRING_DATA_URIS` environment variable (or add a `spring.elasticsearch.uris` property to your `application-dev.yml`).
+
+The easiest way to run an external Elasticsearch instance is to use the provided Docker Compose configuration:
 
     docker-compose -f src/main/docker/elasticsearch.yml up -d
-    
-By default, the `SPRING_ELASTICSEARCH_URIS` property is set to talk to this instance in `application-dev.yml` and `application-prod.yml`:
 
-```yaml
-spring:
-  ...
-  elasticsearch:
-    uris: http://localhost:9200
-```
+Then set an environment variable to point to it:
 
-You can override this setting by modifying these files, or using an environment variable:
-
-    export SPRING_ELASTICSEARCH_URIS=https://cloud-instance
+    export SPRING_DATA_URIS=http://localhost:9200
 
 ### Using in Production
 

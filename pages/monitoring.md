@@ -4,7 +4,7 @@ title: Monitoring your JHipster Applications
 permalink: /monitoring/
 sitemap:
     priority: 0.7
-    lastmod: 2021-11-05T00:00:00-00:00
+    lastmod: 2023-07-12T00:00:00-00:00
 ---
 # <i class="fa fa-line-chart"></i> Monitoring your JHipster Applications
 
@@ -119,10 +119,9 @@ Forwarding metrics to alternative systems is also supported via [spring boot act
 If you would like to disable exposing the metrics endpoint you can disable it in `src/main/resources/application.yml`.
 
     management:
-        metrics:
+        prometheus:
             export:
-                prometheus:
-                    enabled: false
+                enabled: false
 
 
 The prometheus endpoint is unprotected by default. If you want to protect it via spring security you can do so by adding basic auth to the prometheus endpoint
@@ -167,11 +166,11 @@ Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only 
 
 ## Zipkin
 
-JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Cloud Sleuth](https://cloud.spring.io/spring-cloud-sleuth/) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile and set the `spring.zipkin.enabled` property to true. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs.
+JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Boot Actuator Tracing](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-docs/src/docs/asciidoc/actuator/tracing.adoc) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs.
 
 Zipkin also provide a service dependency graph feature that lets you visualize the dependencies between microservices over time.
 
-For more information on how to setup your application to report tracecs to Zipkin, follow the official [Spring Cloud Sleuth documentation](https://cloud.spring.io/spring-cloud-sleuth/reference/html/#sending-spans-to-zipkin).
+For more information on how to setup your application to report traces to Zipkin, refer to [Spring Boot Production-ready Features](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.micrometer-tracing).
 
 [jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "JHipster Metrics page"
 [grafana-micrometer-dashboard]: {{ site.url }}/images/monitoring_grafana_micrometer.png "Grafana Micrometer Dashboard" 
