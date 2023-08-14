@@ -79,23 +79,6 @@ If you want more information on the available profiles, please go the section ti
     * `target/jhipster-0.0.1-SNAPSHOT.war`
     * `target/jhipster-0.0.1-SNAPSHOT.war.original` 
 
-**Please note** that when building a JAR or WAR file with a context path **and** you chose the **React client** or the **Vue client**, you will need to update the `webpack.prod.js` and/or `webpack.common.js` (update both files in case of **Vue**) with the proper `base` attribute value.
-Considering `jhipster` as the context path, `base` attribute value should look like:
-
-```
-new HtmlWebpackPlugin({
-    ...
-    base: '/jhipster/'
-})
-```
-
-If you chose the **Angular client**, you will need to update the `index.html` with the proper `base` tag.
-Considering `jhipster` as the context path, `base` tag value should look like:
-
-```
-<base href="/jhipster/"/>
-```
-
 **Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
 
@@ -110,25 +93,6 @@ This will generate a file `build/libs/jhipster-0.0.1-SNAPSHOT.jar` (if your appl
 To package the application as a "production" WAR, please type:
 
 `./gradlew -Pprod -Pwar clean bootWar`
-
-**Please note** that when building a JAR or WAR file with a context path **and** you chose the **React client** or the **Vue client**, you will need to update the `webpack.prod.js` and/or `webpack.common.js` (update both files in case of **Vue**) with the proper `base` attribute value.
-Considering `jhipster` as the context path, `base` attribute value should look like:
-
-```
-new HtmlWebpackPlugin({
-    ...
-    base: '/jhipster/'
-})
-```
-
-If you chose the **Angular client**, you will need to update the `index.html` with the proper `base` tag.
-Considering `jhipster` as the context path, `base` tag value should look like:
-
-```
-<base href="/jhipster/"/>
-```
-
-**Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
 
 <h2 id="run">Running in production</h2>
@@ -146,11 +110,6 @@ If you are on Windows, use:
 `java -jar jhipster-0.0.1-SNAPSHOT.jar`
 
 **Please note** that this JAR file uses the profile we selected when building it. As it was built using the `prod` file in the previous section, it will therefore run with the `prod` profile.
-
-You can specify the context path as an environment variable or as a command line parameter like:
-```bash 
-java -jar jhipster.jar --server.servlet.context-path=/jhipster
-```
 
 ### Running the application in a Docker container
 
@@ -288,6 +247,42 @@ One of the most common solution would be to use the Apache HTTP server, you can 
 - Install Apache and Let's Encrypt: `apt-get install -y apache2 python-certbot-apache`
 - Configure Let's Encrypt: `certbot --apache -d <your-domain.com> --agree-tos -m <your-email> --redirect`
 - Configure auto-renewal of SSL certificates: add `10 3 * * * /usr/bin/certbot renew --quiet` in your crontab
+
+### Custom Context Path
+
+You can specify a context-path at spring-boot backends using a runtime option like:
+
+```bash
+java -jar jhipster.jar --server.servlet.context-path=/jhipster/
+```
+
+Or appending to application.yml:
+
+```
+---
+server:
+  servlet:
+    context-path: /jhipster/
+```
+
+At frontend bundlers context-path is a build-time configuration.
+
+At **Angular** frontends can be configured using:
+- `angular.json` at `projects -> * your project name -> architect -> build -> options -> baseHref : '/jhipster/'`
+- `ng build --base-href '/jhipster/'`
+- [APP_BASE_HREF](https://angular.io/api/common/APP_BASE_HREF)
+
+At **Webpack based** frontends you can configure using:
+
+- Webpack configuration file:
+```
+new HtmlWebpackPlugin({
+    ...
+    base: '/jhipster/'
+})
+```
+
+Others adjusts may be necessary like configuring your development server and adjust iframes pages like swagger-ui
 
 <h2 id="monitoring">Monitoring</h2>
 
