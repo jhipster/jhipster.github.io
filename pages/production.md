@@ -250,13 +250,13 @@ One of the most common solution would be to use the Apache HTTP server, you can 
 
 ### Custom Context Path
 
-You can specify a context-path at spring-boot backends using a runtime option like:
+You can specify a context path for your Spring Boot backend by passing in a `server.servlet.context-path` parameter and value:
 
 ```bash
 java -jar jhipster.jar --server.servlet.context-path=/jhipster/
 ```
 
-Or appending to application.yml:
+Or, you can add this configuration to `application.yml`:
 
 ```
 ---
@@ -265,14 +265,14 @@ server:
     context-path: /jhipster/
 ```
 
-At frontend bundlers context-path is a build-time configuration.
+For frontend bundlers, the context path is a build-time configuration.
 
-At **Angular** frontends can be configured using:
-- `angular.json` at `projects -> * your project name -> architect -> build -> options -> baseHref : '/jhipster/'`
+**Angular** frontends can be configured using:
+- `angular.json`: `projects -> * your project name -> architect -> build -> options -> baseHref : '/jhipster/'`
 - `ng build --base-href '/jhipster/'`
-- [APP_BASE_HREF](https://angular.io/api/common/APP_BASE_HREF)
+- Use [APP_BASE_HREF](https://angular.io/api/common/APP_BASE_HREF)
 
-At **Webpack based** frontends you can configure using:
+For **Webpack-based** frontends, you can configure using:
 
 - Webpack configuration file:
 ```
@@ -282,9 +282,9 @@ new HtmlWebpackPlugin({
 })
 ```
 
-Others adjusts may be necessary like configuring your development server and adjust iframes pages like swagger-ui
+Others modifications may be necessary, like configuring your development server and adjusting iframes in pages like swagger-ui.
 
-**Please note** that using a relative base path like `./` is possible but you must adjust others configurations to be compatible with it.
+**Please note** that using a relative base path like `./` is possible, but you must adjust other configurations to be compatible with it.
 
 <h2 id="monitoring">Monitoring</h2>
 
