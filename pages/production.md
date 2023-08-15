@@ -284,6 +284,8 @@ new HtmlWebpackPlugin({
 
 Others adjusts may be necessary like configuring your development server and adjust iframes pages like swagger-ui
 
+**Please note** that using a relative base path like `./` is possible but you must adjust others configurations to be compatible with it.
+
 <h2 id="monitoring">Monitoring</h2>
 
 JHipster comes with full monitoring support from [Micrometer](https://micrometer.io/).
