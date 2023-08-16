@@ -389,7 +389,7 @@ This is the corresponding JDL for previous uni-directional one-to-one example:
     entity Passport
 
     relationship OneToOne {
-      Citizen{passport} to Passport with jpaDerivedIdentifier
+      Citizen{passport} to @Id Passport
     }
 
 This is the corresponding JDL for previous bi-directional one-to-one example:
@@ -398,7 +398,7 @@ This is the corresponding JDL for previous bi-directional one-to-one example:
     entity Car
 
     relationship OneToOne {
-      Car{driver} to Driver{car} with jpaDerivedIdentifier
+      Car{driver} to @Id Driver{car}
     }
 
  However, based on business requirements, there might be cases where this should be avoided because it has following constraint:

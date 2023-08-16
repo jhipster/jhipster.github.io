@@ -45,6 +45,10 @@ The ports here are listed in order, but the most common questions are for ports 
     <td>Hazelcast</td>
   </tr>
   <tr>
+    <td>6650</td>
+    <td>Pulsar - Service port</td>
+  </tr>
+  <tr>
     <td>7742</td>
     <td>Swagger Editor</td>
   </tr>

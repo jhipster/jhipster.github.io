@@ -44,19 +44,22 @@ Here is the main project structure:
     ├── app                               - Your application
     │   ├── account                       - User account management UI
     │   ├── admin                         - Administration UI
-    │   ├── blocks                        - Common building blocks like configuration and interceptors
+    │   ├── config                        - Some utilities files
+    │   ├── core                          - Common building blocks like configuration and interceptors
     │   ├── entities                      - Generated entities (more information below)
     │   ├── home                          - Home page
     │   ├── layouts                       - Common page layouts like navigation bar and error pages
+    │       ├── main                      - Main page
+    │           ├── main.component.ts     - Main application class
+    │   ├── login                         - Login page
     │   ├── shared                        - Common services like authentication and internationalization
-    │   ├── app.main.ts                   - Main application class
     │   ├── app.module.ts                 - Application modules configuration
     │   ├── app-routing.module.ts         - Main application router
     ├── content                           - Static content
     │   ├── css                           - CSS stylesheets
     │   ├── images                        - Images
+    │   ├── scss                          - Sass style sheet files will be here if you choose the option
     ├── i18n                              - Translation files
-    ├── scss                              - Sass style sheet files will be here if you choose the option
     ├── swagger-ui                        - Swagger UI front-end
     ├── 404.html                          - 404 page
     ├── favicon.ico                       - Fav icon
@@ -99,14 +102,14 @@ For each state, the required authorities are listed in the state's data, and whe
 
 The authorities are also defined on the server-side in the class `AuthoritiesConstants.java`, and logically the client and server-side authorities should be the same.
 
-In the example below, the 'sessions' state is designed to be accessed only by authenticated users who have `ROLE_USER` authority:
+In the example below, the 'settings' state is designed to be accessed only by authenticated users who have `ROLE_ADMIN` authority:
 
-    export const sessionsRoute: Route = {
+    export const settingsRoute: Route = {
         path: 'sessions',
-        component: SessionsComponent,
+        component: SettingsComponent,
+        title: 'global.menu.account.settings',
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'global.menu.account.sessions'
+            authorities: ['ROLE_ADMIN'],
         },
         canActivate: [UserRouteAccessService]
     };

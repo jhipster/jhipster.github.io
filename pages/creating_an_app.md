@@ -153,6 +153,10 @@ Websockets can be enabled using Spring Websocket. We also provide a complete sam
 
 Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message broker.
 
+#### Asynchronous messages using Apache Pulsar
+
+Use [Apache Pulsar]({{ site.url }}/using-pulsar/) as a publish/subscribe message broker.
+
 ### Which _Framework_ would you like to use for the client?
 
 The client-side framework to use.

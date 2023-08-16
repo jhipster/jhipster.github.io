@@ -20,6 +20,7 @@ sitemap:
    1. [With injected fields](#with-injected-fields)
    1. [With joint fields](#with-joint-fields)
    1. [With methods](#with-methods)
+   1. [With options](#with-options)
    1. [With required sides](#with-required-sides)
    1. [Reflexive relationships](#reflexive-relationships)
    1. [Commenting](#commenting)
@@ -48,7 +49,7 @@ A note on plural names: JHipster handles them so that you don't have to in your 
 Mentioned after the source and destination entity, used with the `with` keyword.
 
 Supported methods:
-  - `jpaDerivedIdentifier`: `@MapsId` is used for the association (**applicable only for OneToOne**)
+  - `builtInEntity`: required when the destination entity is a built in entity like `User` and `Authority`
 
 ---
 
@@ -94,17 +95,19 @@ This syntax is really useful when:
 Relationship declaration is done as follows:
 ```
 relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
-  <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]+
+  @<option>("<option value>")+ <from entity>[{<relationship name>[(<display field>)]}] to @<option>("<option value>")+ <to entity>[{<relationship name>[(<display field>)]}]+
 }
 ```
 
   - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
+  - `<option>` is one of the supported values: `Id | OnDelete | OnUpdate`. Make sure to put this on the correct side of the relationship. First character case is not sensitive (jdl export will generate upper).
+  - `<option value>` is one of the fitting optional values for the given option: `NO ACTION | RESTRICT | CASCADE | SET NULL | SET DEFAULT`
   - `<from entity>` is the name of the entity owner of the relationship: the source,
   - `<to entity>` is the name of the entity where the relationship goes to: the destination,
   - `<relationship name>` is the name of the field having the other end as type,
   - `<display field>` is the name of the field that should show up in select boxes (default: `id`),
   - `required` whether the injected field is required.
-  - `with jpaDerivedIdentifier` whether `@MapsId` is used for the association (applicable only for one-to-one)
+  - `with builtInEntity` whether the relationship destination is an built in entity
   - And you can have more than one relationship body
     - See the [Multiple relationship bodies](#multiple-relationship-bodies) section for more info!
 
@@ -158,7 +161,17 @@ entity.
 
 ```jdl
 relationship OneToOne {
-  A to B with jpaDerivedIdentifier
+  A to User with builtInEntity
+}
+```
+
+---
+
+#### With options
+
+```jdl
+relationship ManyToOne {
+   A to @OnDelete("SET NULL") @OnUpdate("CASCADE") B
 }
 ```
 

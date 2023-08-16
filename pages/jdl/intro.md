@@ -6,7 +6,7 @@ redirect_from:
   - /jdl/
 sitemap:
     priority: 0.5
-    lastmod: 2019-10-27T12:00:00-00:00
+    lastmod: 2023-07-09T23:00:00-00:00
 ---
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
@@ -27,10 +27,10 @@ recommended approach.
 The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool
 than with the classical Yeoman questions and answers.
 
-The JDL project is [available on GitHub](https://github.com/jhipster/jhipster-core/), it is an Open Source project like
+The JDL project is [available on GitHub](https://github.com/jhipster/generator-jhipster/tree/main/jdl), it is an Open Source project like
 JHipster (Apache 2.0 License). It can also be used as a node library to do JDL parsing.
 
-_If you like the [JHipster Domain Language](https://github.com/jhipster/jhipster-core/),
+_If you like the [JHipster Domain Language](https://github.com/jhipster/generator-jhipster/tree/main/jdl),
 the [JDL Studio](https://github.com/jhipster/jdl-studio/) or the
 [JHipster IDE](https://github.com/jhipster/jhipster-ide/) don't forget to give them a star on
 [GitHub](https://github.com/jhipster/) - thanks_!
@@ -51,3 +51,8 @@ documentation:
 
 You can also check the official [JDL sample repository](https://github.com/jhipster/jdl-samples) and propose examples 
 if you want!
+
+---
+
+In case you already have existing databases and would like to create the JDL representation then you can use
+this project [SQL to JDL](https://github.com/Blackdread/sql-to-jdl) which will help you get started quickly.
