@@ -39,3 +39,4 @@ _If you want to contribute, don't hesitate to send us a Pull Request with your t
 1. [User entity management]({{ site.url }}/user-entity/)
 1. [Remove the register account service]({{ site.url }}/tips/034_tip_remove_register_account_service.html)
 1. [Combine generation and custom code]({{ site.url }}/tips/035_tip_combine_generation_and_custom_code.html)
+1. [Allow common web fonts in spring security]({{ site.url }}/tips/036_tip_allow_common_web_fonts_in_spring_security.html)
