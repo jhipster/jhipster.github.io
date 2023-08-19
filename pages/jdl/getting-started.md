@@ -397,7 +397,7 @@ The resulting deployment will have:
 - deploymentType: `docker-compose`
 - appsFolders: `foo, bar`
 - dockerRepositoryName: `yourDockerLoginName`
-- serviceDiscoveryType: `eureka`
+- serviceDiscoveryType: `consul`
 - gatewayType: `SpringCloudGateway`
 - directoryPath: `../`
 - etc.

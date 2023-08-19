@@ -55,7 +55,7 @@ A complete [Spring application](http://spring.io/):
 Microservices are optional, and fully supported:
 
 * HTTP routing using [Spring Cloud Gateway](https://github.com/spring-cloud/spring-cloud-gateway)
-* Service discovery using [Netflix Eureka](https://github.com/Netflix/eureka) or [HashiCorp Consul](https://www.consul.io/)
+* Service discovery using [HashiCorp Consul](https://www.consul.io/) or [Netflix Eureka](https://github.com/Netflix/eureka)
 
 ## Ready to go into production:
 

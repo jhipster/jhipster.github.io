@@ -533,7 +533,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   <tr>
     <td>serviceDiscoveryType</td>
     <td>no</td>
-    <td>eureka, consul, no</td>
+    <td>consul, eureka, no</td>
     <td></td>
   </tr>
   <tr>
