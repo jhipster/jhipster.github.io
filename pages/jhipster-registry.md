@@ -7,7 +7,7 @@ sitemap:
     lastmod: 2019-02-01T00:00:00-00:00
 ---
 
-# <i class="fa fa-dashboard"></i> The JHipster Registry
+# <i class="fa fa-dashboard"></i> The JHipster Registry (**deprecated** - Use Consul instead)
 
 ## Overview
 

@@ -69,7 +69,7 @@ Select the option.
 
 ### Enter the admin password used to secure the JHipster Registry admin
 
-This question is only displayed if you choose microservices architecture.
+This question is only displayed if you choose microservices architecture with JHipster Registry.
 
 ### What should we use for the Kubernetes namespace?
 

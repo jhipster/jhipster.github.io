@@ -9,6 +9,7 @@
   },
   "private": true,
   "scripts": {
+    "clean": "rm Gemfile.lock && bundle install",
     "start": "bundle exec jekyll serve",
     "sass": "gulp sass",
     "images": "gulp images"
