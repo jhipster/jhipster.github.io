@@ -11,7 +11,7 @@ sitemap:
 
 ## Consul overview
 
-As an alternative to the JHipster Registry you can choose to use [Consul](https://www.consul.io/), a datacenter management solution from Hashicorp.
+[Consul](https://www.consul.io/) is used as the default service registry solution.
 Compared to Eureka it has a number of advantages:
 
 - It is easier to operate in a multi-node cluster than Eureka.

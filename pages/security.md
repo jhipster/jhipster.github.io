@@ -47,7 +47,7 @@ The second option uses a Base64-encoded string, so it is considered more secured
 A warning will be shown at application startup if you don't use the Base64 property.
 - Those keys should have a minimum length of 512 bits: if they are not long enough, you will not be able to use them to login. If that happens, there will be a clear warning at the console to explain that issue.
 - The secret keys are configured in the `application-*.yml` files. As those keys must be kept secret, you **should** store them in a secure way for your production profile.
-It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/) (our recommended option),
+It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/),
 using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
@@ -57,7 +57,7 @@ This is the "classical" Spring Security authentication mechanism, but we have im
 
 ### Securing Session-based authentication
 
-- For remember-me authentication, the remember-me key is configured in the `application-dev.yml` and `application-prod.yml` files, as the `jhipster.security.remember-me.key` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/) (our recommended option), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
+- For remember-me authentication, the remember-me key is configured in the `application-dev.yml` and `application-prod.yml` files, as the `jhipster.security.remember-me.key` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
 ### Improved remember-me mechanism
@@ -278,6 +278,7 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
 - Create a new application of type `Regular Web Applications`. Switch to the `Settings` tab, and configure your application settings like:
     - Allowed Callback URLs: `http://localhost:8080/login/oauth2/code/oidc`
     - Allowed Logout URLs: `http://localhost:8080/`
+    - NOTE: If you're using Consul, add URLs for port 8500 too.
     - NOTE: If you're using the JHipster Registry, add URLs for port 8761 too.
 - Navigate to **User Management** > **Roles** and create new roles named `ROLE_ADMIN`, and `ROLE_USER`.
 - Navigate to **User Management** > **Users** and create a new user account. Click on the **Role** tab to assign roles to the newly created user account.

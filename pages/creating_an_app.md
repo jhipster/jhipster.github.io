@@ -68,15 +68,7 @@ This is the name of your application.
 Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. 
 You can override it by providing a new value.
 
-### Do you want to use the JHipster Registry to configure, monitor and scale your application?
-
-The [JHipster Registry]({{ site.url }}/jhipster-registry/) is an Open Source tool used to manage your application at runtime.
-
-It is required when using a microservices architecture (this is why this question is only asked when generating a monolith).
-
 ### Which _type_ of authentication would you like to use?
-
-Answers to this question depend on previous answers. For example, if you selected the [JHipster Registry]({{ site.url }}/jhipster-registry/) above, you can only use JWT authentication.
 
 Here are all the possible options:
 

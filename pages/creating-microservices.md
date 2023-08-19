@@ -9,7 +9,7 @@ sitemap:
 
 # <i class="fa fa-bolt"></i> Creating microservices
 
-Microservices are a type of JHipster application, that have no front-end (the Angular front-end must be generated on a [gateway]({{ site.url }}/api-gateway/)), and which work with the [JHipster Registry]({{ site.url }}/jhipster-registry/) to be configured, discovered, and managed.
+Microservices are a type of JHipster application, that have no front-end (the Angular front-end must be generated on a [gateway]({{ site.url }}/api-gateway/)), and which work with the [Consul]({{ site.url }}/consul/) to be configured, discovered, and managed.
 
 <h2 id="entities">Entities in a microservices architecture</h2>
 
@@ -54,7 +54,7 @@ This solution is the default with microservices, as in this architecture the ide
 
 Using Hazelcast with microservices will result in a specific configuration:
 
-- At start-up, your application will connect to the JHipster Registry to find if other instances of the same service are running
+- At start-up, your application will connect to the Service Registry to find if other instances of the same service are running
 - With the `dev` profile, JHipster will create a cluster of those instances on localhost (`127.0.0.1`),  using a different port per instance. By default, the Hazelcast port is `your application's port + 5701` (so if your application's port is `8081`, Hazelcast will use port `13782`)
 - With the `prod` profile, JHipster will create a cluster with all the other nodes it finds, using the default Hazelcast port (`5701`)
 

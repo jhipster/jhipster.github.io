@@ -183,7 +183,7 @@ docker-compose -f jhipster-sample-microservices/prod/prod.yml up
 
 It will start:
 
-- the JHipster Registry
+- Consul or the JHipster Registry
 - the gateway
 - a MySQL database
 - the microservice

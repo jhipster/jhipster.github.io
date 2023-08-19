@@ -129,8 +129,8 @@ Here are the deployment options supported in the JDL:
   </tr>
   <tr>
     <td>serviceDiscoveryType</td>
-    <td>eureka</td>
-    <td>eureka, consul, no</td>
+    <td>consul</td>
+    <td>consul, eureka, no</td>
     <td></td>
   </tr>
   <tr>
