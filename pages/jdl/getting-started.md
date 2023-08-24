@@ -60,7 +60,6 @@ Please note that this will overwrite all your local changes to the entity files:
 If you want to use it in your project, you can add do so by doing:
 
 - NPM: `npm install jhipster-core --save`
-- Yarn: `yarn add jhipster-core`
 
 to install it locally, and save it in your `package.json` file.
 

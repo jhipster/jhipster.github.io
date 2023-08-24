@@ -55,7 +55,7 @@ You can launch the Java server with Maven. JHipster provides a Maven wrapper, so
 
 The application will be available on [http://localhost:8080](http://localhost:8080).
 
-If you will use live reload with `npm start` or `yarn start` then you can speed up server start up by excluding webpack tasks by:
+If you will use live reload with `npm start` then you can speed up server start up by excluding webpack tasks by:
 
 `./mvnw -P-webapp`
 
@@ -75,7 +75,7 @@ If you selected the Gradle option, JHipster provides a Gradle wrapper, so you do
 
 The application will be available on [http://localhost:8080](http://localhost:8080).
 
-If you will use live reload with `npm start` or `yarn start` then you can speed up server start up by excluding webpack tasks by:
+If you will use live reload with `npm start` then you can speed up server start up by excluding webpack tasks by:
 
 `./gradlew -x webapp`
 
@@ -94,8 +94,6 @@ _This step is required to see changes in your TypeScript code and have live relo
 Running Webpack is the default task in the `package.json` file, so it is enough to run:
 
 `npm start`
-
-(or, if you use Yarn, `yarn start`).
 
 This provides very impressive features:
 
@@ -119,9 +117,9 @@ Direct project dependencies are configured into `package.json`, but transitive d
 
 It is advised to check [`package-lock.json`](https://docs.npmjs.com/files/package-lock.json) into source control, so that all team members of a project have the same versions of all dependencies. Running `npm install` again will regenerate the `package-lock.json` with the latest versions of transitive dependencies.
 
-### Other NPM/Yarn tasks
+### Other NPM tasks
 
-Those tasks are the same whether you use NPM or Yarn, we use the `npm` command as an example but you can replace it with `yarn`.
+Some `npm` commands used as an example.
 
 - `npm run lint`: check for code style issues in the TypeScript code
 - `npm run lint:fix`: try to automatically correct TypeScript lint issues

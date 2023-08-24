@@ -37,7 +37,7 @@ When using Angular 2+ and Maven if you need to do a clean run with webpack compi
 
   `./mvnw -Pdev,webapp`
 
-**Note** Gradle automatically runs webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start` or `yarn start`).
+**Note** Gradle automatically runs webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start`).
 
 ## In production, JHipster has to run with the `prod` profile
 

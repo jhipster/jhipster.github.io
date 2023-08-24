@@ -50,7 +50,6 @@ In the JHipster applications this problem has reproduced with the following Grad
 * gulpConstantDev
 * gulpBuildWithOpts
 * npmInstall
-* yarn_install
 * webpack
 
 Exists hack which prevents this error/hanging in the JHipster applications. Just put the following code to your `build.gradle`:
@@ -62,11 +61,6 @@ tasks.withType(NodeTask) {
     }
 }
 tasks.withType(com.moowork.gradle.node.npm.NpmTask) {
-    doLast {
-        println()
-    }
-}
-tasks.withType(com.moowork.gradle.node.yarn.YarnTask) {
     doLast {
         println()
     }

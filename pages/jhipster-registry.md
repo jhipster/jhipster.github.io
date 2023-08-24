@@ -67,7 +67,7 @@ Similarly, to run the registry with the `prod` profile, adapt the arguments to y
 
 The JHipster Registry can be cloned/forked/downloaded directly from [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry). As the JHipster Registry is also a JHipster-generated application, you can run it like any other JHipster application:
 
-- run it in development with `./mvnw` (for the Java server) and `yarn start` (for managing the front-end), it will use by default the `dev` profile and it will be available at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
+- run it in development with `./mvnw` (for the Java server) and `npm start` (for managing the front-end), it will use by default the `dev` profile and it will be available at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
 - use `./mvnw -Pprod package` to package it in production, and generate the usual JHipster executable JAR file. You can then run the JAR file using the `dev` or `prod` Spring profile, for example: `java -jar jhipster-registry-<version>.jar --spring.profiles.active=prod`
 
 Please note that to use the `dev` and `composite` profile, you need to have a `central-config` directory with your configuration, so if you run `java -jar jhipster-registry-<version>.jar --spring.profiles.active=dev`, you need to have that directory set up.

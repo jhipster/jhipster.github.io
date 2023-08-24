@@ -47,13 +47,13 @@ https-proxy=http://username:password@host:port
 https_proxy=http://username:password@host:port
 ```
 
-## Yarn configuration
+## Npm configuration
 
 Use these commands:
 
 ```
-yarn config set proxy http://username:password@host:port
-yarn config set https-proxy http://username:password@host:port
+npm config set proxy http://username:password@host:port
+npm config set https-proxy http://username:password@host:port
 ```
 
 ## Git configuration
