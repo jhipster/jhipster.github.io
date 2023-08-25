@@ -41,7 +41,7 @@ Once the application is generated, you can launch it using Maven (`./mvnw` on Li
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start` or `yarn start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
 
 If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webapp` or `./gradlew -x webapp`. It speeds up especially Gradle.
 
@@ -252,7 +252,6 @@ Here are the options you can pass:
 * `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
 * `--entity-suffix` - Add suffix after entities class names (Default: empty string)
 * `--dto-suffix` - Add suffix after DTOs class names (Default: DTO)
-* `--yarn` - Use Yarn instead of NPM (Default: false)
 * `--prettier-java` - Use [prettier-java](https://github.com/jhipster/prettier-java) for formatting all Java classes (Default: false)
 * `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
 * `--skip-fake-data` - Skip generation of fake data for development

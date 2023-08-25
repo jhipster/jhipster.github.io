@@ -22,9 +22,9 @@ In order to do that you have to:
 
 ## Full tip using Babel
 
-First, add those `package.json` dependencies: `@babel/core`, `@babel/preset-env` and `babel-loader`. Example with `yarn`:
+First, add those `package.json` dependencies: `@babel/core`, `@babel/preset-env` and `babel-loader`. Example with `npm`:
 ```bash
-yarn add @babel/core @babel/preset-env babel-loader --exact --dev
+npm install @babel/core @babel/preset-env babel-loader --save-dev
 ```
 (tested with the following versions for a working IE11 version on a JHipster v6.3.1 generated application:
 ```json

@@ -419,7 +419,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
   <tr>
     <td>clientPackageManager</td>
     <td>npm</td>
-    <td>npm, yarn</td>
+    <td>npm</td>
     <td></td>
   </tr>
   <tr>

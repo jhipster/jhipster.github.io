@@ -16,8 +16,7 @@ sitemap:
 We provide 4 ways of working with JHipster. If in doubt, choose our 2nd option, "Local installation with NPM":
 
 *   [JHipster Online](https://start.jhipster.tech/) is a way to generate an application without installing JHipster in the first place.
-*   "Local installation with NPM" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work. In case of doubt, choose this installation.
-*   "Local installation with Yarn" is the same as classical "Local installation with NPM", but using [Yarn](https://yarnpkg.com/) instead of NPM. Please note that Yarn is a lot less popular than NPM in our community, so this isn't a recommended option for newcomers.
+*   "Local installation with NPM" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work.
 *   The "[Docker](https://www.docker.io/)" container, which brings you a lightweight container with JHipster installed.
 
 ## JHipster Online (for users wanting a simplified way to run JHipster)
@@ -56,21 +55,6 @@ JHipster uses [Yeoman](http://yeoman.io/) for code generation.
 To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
 
 The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommended not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, delete the `.yo-rc.json` file.
-
-## Local installation with Yarn (alternative to NPM)
-
-### Quick setup
-
-This is the same procedure as using NPM, with two differences:
-
-1. Install Yarn from [the Yarn website](https://yarnpkg.com/en/docs/install)
-2. Install JHipster: `yarn global add generator-jhipster`
-
-### Troubleshooting
-
-If you have problems using Yarn globally, be sure to have `$HOME/.config/yarn/global/node_modules/.bin` in your path.
-
-On Mac or Linux: ```export PATH="$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin"```
 
 ## Docker installation (for advanced users only)
 
@@ -188,12 +172,6 @@ You can then go to the /home/jhipster/app directory in your container, and start
 `cd /home/jhipster/app`
 
 `jhipster`
-
-<div class="alert alert-info"><i>Tip: </i>
-
-If you prefer using Yarn, you can use <code>jhipster --yarn</code>, to use Yarn instead of NPM.
-
-</div>
 
 Once your application is created, you can run all the normal gulp/bower/maven commands, for example:
 

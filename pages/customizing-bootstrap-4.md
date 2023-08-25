@@ -11,7 +11,7 @@ sitemap:
 
 ## Basic customization
 
-_Pro tip: don't forget to run `npm start` or `yarn start` to get immediate feedback of your changes!_
+_Pro tip: don't forget to run `npm start` to get immediate feedback of your changes!_
 
 The simplest way to customize how your JHipster application looks like is by
 overriding CSS styles in `src/main/webapp/content/css/global.css`, or if you selected the Sass option, the `src/main/webapp/content/scss/global.scss` file.
