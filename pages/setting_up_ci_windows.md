@@ -15,7 +15,7 @@ sitemap:
 
 Download the Jenkins Windows Installer from [https://jenkins.io/](https://jenkins.io/)
 
-The installer configures Jenkins to run as a service using the SYSTEM user which can be dangerous, it's safer to change the user's service to a non priviledged one:
+The installer configures Jenkins to run as a service using the SYSTEM user which can be dangerous, it's safer to change the user's service to a non privileged one:
 
 [http://antagonisticpleiotropy.blogspot.fr/2012/08/running-jenkins-in-windows-with-regular.html](http://antagonisticpleiotropy.blogspot.fr/2012/08/running-jenkins-in-windows-with-regular.html)
 

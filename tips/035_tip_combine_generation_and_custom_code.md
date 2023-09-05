@@ -36,7 +36,7 @@ With this one, you'll try to avoid modifying generated class and to host your cu
 Here, you can use the --with-generated-flag jhipster cli option in order to easily differentiate the generated classes from your custom ones.
 Finally, you'll only modify the main router on frontend part in order to route to your custom home page instead of the generated one.
 
-In order to avoid your router file being overriden at each generation, you can create a `.yo-resolve` file at the root of your project and tell to yeoman the expected behavior.
+In order to avoid your router file being overridden at each generation, you can create a `.yo-resolve` file at the root of your project and tell to yeoman the expected behavior.
 
 Example:
 ```

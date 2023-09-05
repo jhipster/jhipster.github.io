@@ -14,7 +14,7 @@ What's new
 The highlights of this release are:
 
 - We upgraded to the latest Spring Boot 1.1.9
-- We now __recommend__ the use of Maven over Gradle, and the use of Grunt over Gulp.js. Both Gradle and Gulp.js were community-driven add-ons, and we find them hard to maintain, while it is clear that very few people are using them. So we are looking for volonteers to maintain those tools (it you like one of them, speak up! Become a maintainer!).
+- We now __recommend__ the use of Maven over Gradle, and the use of Grunt over Gulp.js. Both Gradle and Gulp.js were community-driven add-ons, and we find them hard to maintain, while it is clear that very few people are using them. So we are looking for volunteers to maintain those tools (it you like one of them, speak up! Become a maintainer!).
 - We have reworked the generator options, so they are in a more logical order
 - We now have Java 8 by default, instead of Java 7. As Java 7 will be end-of-life'd in April 2015, we feel it is the right time to switch!
 

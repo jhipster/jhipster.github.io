@@ -13,7 +13,7 @@ sitemap:
 
 After the basic CRUD functionalities are implemented for an entity, there is a very common request to create various filters for the attributes of the entity,
 so the server could be used more effectively. These filters should be sent as the request parameters, so any client - and any browser - could use it.
-Additionally, these filters should follow a resonable, and concise pattern, and they must be allowed combining them freely.
+Additionally, these filters should follow a reasonable, and concise pattern, and they must be allowed combining them freely.
 
 ## How to activate
 
