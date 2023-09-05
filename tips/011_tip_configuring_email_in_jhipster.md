@@ -170,6 +170,6 @@ _application-dev.yml_
 
 *Similarly you can configure any other email service. Just check the SMTP Mail Server and Server Port of your Email Service and change the above fields accordingly*
 
-___Now run your application! Go to Register Page, submit the form with a valid Email addrees and you should receive an Activation Email from the above configured Email Address.___
+___Now run your application! Go to Register Page, submit the form with a valid Email address and you should receive an Activation Email from the above configured Email Address.___
 
 __Note__ : You can try sending test Emails with your credentials using [these examples](https://github.com/RawSanj/java-mail-clients).

@@ -129,7 +129,7 @@ As always with JHipster, a Docker Compose configuration is provided so you can s
 
 ## Caching with Redis
 
-[Redis](https://redis.io/) is an Open Source, in-memory data struture store that can be used as a performant caching solution. Depending on your configuration, you can choose to use Redis as a single server node or as a distributed cache.
+[Redis](https://redis.io/) is an Open Source, in-memory data structure store that can be used as a performant caching solution. Depending on your configuration, you can choose to use Redis as a single server node or as a distributed cache.
 
 JHipster uses [Redisson](https://redisson.org/) as the redis Java client mainly for 2 reasons:
 - It is highly recommended by Redis

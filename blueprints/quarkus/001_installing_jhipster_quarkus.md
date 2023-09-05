@@ -16,6 +16,6 @@ You can now install the JHipster Quarkus blueprint:
 
 `npm install -g generator-jhipster-quarkus`
 
-You can validate the installation by checking the presence of the `jhipster-quarkus`commmand: `which jhipster-quarkus` (for Mac/Linux).
+You can validate the installation by checking the presence of the `jhipster-quarkus`command: `which jhipster-quarkus` (for Mac/Linux).
 
 You're done. You can now start creating Quarkus applications with JHipster.

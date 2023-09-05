@@ -13,4 +13,4 @@ sitemap:
 
 ## Downloads
 
-The application binairies (for Mac, Windows and Linux) are available on [the GitHub release page](https://github.com/jhipster/jhipster-app/releases).
+The application binaries (for Mac, Windows and Linux) are available on [the GitHub release page](https://github.com/jhipster/jhipster-app/releases).
