@@ -34,7 +34,7 @@ Then, on the gateway(s), run the entity sub-generator again. A new question will
 
 Microfrontend support is a work in progress. Implementation is subject to change and varies between frameworks. Refer to [Microfrontend Support](https://github.com/jhipster/generator-jhipster/issues/17031) for the latest status.
 
-JHipster's microfrontends implementation uses [Webpack Module Federaration](https://webpack.js.org/concepts/module-federation/) and allows frontend entities implementation to be located in the microservice instead of in the gateway.
+JHipster's microfrontends implementation uses [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/) and allows frontend entities implementation to be located in the microservice instead of in the gateway.
 
 A gateway is still required to be running in development due to the authentication process.
 

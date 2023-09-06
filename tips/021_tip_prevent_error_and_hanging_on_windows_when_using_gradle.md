@@ -28,7 +28,7 @@ Unable to process incoming event 'ProgressComplete ' (ProgressCompleteEvent)
 
 ## When problem occurs
 
-Problem occurs after some command has outputed some critical symbols and/or amount of symbols to this cmd.exe window.
+Problem occurs after some command has outputted some critical symbols and/or amount of symbols to this cmd.exe window.
 The emergence of the problem depends on the Screen Buffer Size Height. The higher it is the greater is the chance that no error/hanging occurs.
 But the problem is reproduced also with the maximum Screen Buffer Size Height (9999).
 

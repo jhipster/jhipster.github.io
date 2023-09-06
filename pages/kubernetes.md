@@ -15,7 +15,7 @@ JHipster app(s) and associated services can be deployed in the following ways
 
 - Standard kubectl/kustomize/skaffold sub-generator `jhipster kubernetes|k8s`
 - Helm sub-generator `jhipster kubernetes-helm|helm-k8s`
-- Knative sub-genarator `jhipster kubernetes-knative|knative`
+- Knative sub-generator `jhipster kubernetes-knative|knative`
 
 # `jhipster kubernetes | k8s`
 

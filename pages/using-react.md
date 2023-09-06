@@ -69,7 +69,7 @@ webapp
          └── foo.json                     - French translation of Foo name, fields, ...
 ```
 
-Please note that the default language translations would be based on what you have choosen during app generation. 'en' and 'fr' are shown here only for demonstration.
+Please note that the default language translations would be based on what you have chosen during app generation. 'en' and 'fr' are shown here only for demonstration.
 
 ## Redux
 
