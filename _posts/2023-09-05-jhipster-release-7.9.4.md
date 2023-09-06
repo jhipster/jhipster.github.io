@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Release 7.9.4
+redirect_from:
+  - /2022/09/02/jhipster-release-7.9.4.html
 ---
 
 # JHipster release v7.9.4
