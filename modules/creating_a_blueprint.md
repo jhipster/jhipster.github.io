@@ -123,7 +123,7 @@ There are multiple ways to customize a priority from JHipster.
 
 4) Decorate a priority, this is when the blueprint runs custom steps before or after the priority coming from JHipster.
 
-This is usefull to customize properties that will be used during the priority to generate derived properties.
+This is useful to customize properties that will be used during the priority to generate derived properties.
 
 ```javascript
     // Run the blueprint steps before and/or after any parent steps

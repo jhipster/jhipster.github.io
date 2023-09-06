@@ -263,7 +263,7 @@ Finally, if you need help, there's a command for that too:
 <h2 id="jumlfile">JHipster-UML file</h2>
 
 JHipster-UML can be configured by the command line and / or by a JSON based configuration file, the `jumlfile`.
-The options described in the help can be used in the both but the commande line take precedence over the `jumlfile`.
+The options described in the help can be used in the both but the command line take precedence over the `jumlfile`.
 
 ### A concrete example
 

@@ -35,7 +35,7 @@ Similar to [Liquibase](http://www.liquibase.org/), JHipster provide a tool to ap
 Some information on the tool:
 
 *   After generating an entity, its CQL file will be generated in `src/main/resources/config/cql/changelog/` in the same way we generate Liquibase changelogs for JPA
-*   For running tests, all the CQL scripts in the `src/main/resources/config/cql/changelog/` directory are automically applied to the in memory cluster
+*   For running tests, all the CQL scripts in the `src/main/resources/config/cql/changelog/` directory are automatically applied to the in memory cluster
     *   Meaning you have nothing to do but to drop your script in the changelog directory to have it applied for the tests
 *   The tool uses its own cassandra table `schema_version` to store the metadata info
 

@@ -57,7 +57,7 @@ This means that we need to make sure developer experience is not affected by bel
 Developer experience is subjective hence the below can be a rough guide for the JHipster community. It will be the overall experience of using JHipster as a product and a platform. That includes
 
 - The JHipster CLI experience (ease of use, intuitiveness, speed etc)
-- Generated code (quality, simplicity, readability, maintenance ease, upgradeability, familiarity etc)
+- Generated code (quality, simplicity, readability, maintenance ease, upgradability, familiarity etc)
 - UX of Tools like JHipster online, JDL studio
 - Docs (Website & generated Readme)
 

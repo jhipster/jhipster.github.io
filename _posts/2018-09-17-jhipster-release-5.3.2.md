@@ -8,7 +8,7 @@ JHipster release v5.3.2
 
 JHipster v5.3.2 is a patch release, with [134 tickets and pull requests closed](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A5.3.2+is%3Aclosed), so if you had any bugs in JHipster v5.3.1, this update will hopefully solve them!
 
-This release is the first one where we used extensively our [bug bounty program](https://www.jhipster.tech/bug-bounties/), and this worked remarquably well, with [$1,100 in paid bounties](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aissue+milestone%3A5.3.2+is%3Aclosed+label%3A%24100) - and which also explains why this release has so many fixed bugs! As this has been a great success, we will continue to push this program forward: if you or your company benefit from JHipster, please consider [sponsoring the project](https://www.jhipster.tech/sponsors/), as the sponsor money fuels the bug bounty program.
+This release is the first one where we used extensively our [bug bounty program](https://www.jhipster.tech/bug-bounties/), and this worked remarkably well, with [$1,100 in paid bounties](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aissue+milestone%3A5.3.2+is%3Aclosed+label%3A%24100) - and which also explains why this release has so many fixed bugs! As this has been a great success, we will continue to push this program forward: if you or your company benefit from JHipster, please consider [sponsoring the project](https://www.jhipster.tech/sponsors/), as the sponsor money fuels the bug bounty program.
 
 Here are the most important bug fixes and enhancements from this release:
 

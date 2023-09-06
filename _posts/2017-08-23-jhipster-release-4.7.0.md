@@ -14,7 +14,7 @@ What's new
 - Spring dependencies upgrades - see [#6268](https://github.com/jhipster/generator-jhipster/pull/6268)
 - Bootstrap, ng-bootstrap and Webpack upgrades - see [#6233](https://github.com/jhipster/generator-jhipster/pull/6233)
 - Upgrade to JHipster Console v2.2.1 - see [#6175](https://github.com/jhipster/generator-jhipster/pull/6175)
-- Migratation of Logstash appender from UDP to TCP - see [#6102](https://github.com/jhipster/generator-jhipster/issues/6102)
+- Migration of Logstash appender from UDP to TCP - see [#6102](https://github.com/jhipster/generator-jhipster/issues/6102)
 - Many minor bugs and small new features
 
 Closed tickets and merged pull requests

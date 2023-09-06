@@ -9,7 +9,7 @@ JHipster release v5.7.0
 This new minor release comes with 55 closed tickets and pull requests. It has 2 major improvements:
 
 - JHipster now uses UTC timestamps everywhere thanks to [#8284](https://github.com/jhipster/generator-jhipster/issues/8284). This follows our goal of generating full-stack, high quality applications. This will cause a few issues in existing applications, as we now force UTC (for example in the Hibernate configuration and in the Liquibase scripts), but the migration should be easy as this doesn't touch a lot of lines of code.
-- The JDL has been refined, firstly by fixing several bugs (including in [#8547](https://github.com/jhipster/generator-jhipster/issues/8547)), and secondly by adding support for deploying applications straight from the JDL. Depoyments only work with Docker-based tools for the moment, so we support Docker Compose, Kubernetes, Openshift and Rancher Compose. If you want more information the documentation is already updated in the [JDL documentation]({{ site.url }}/jdl/).
+- The JDL has been refined, firstly by fixing several bugs (including in [#8547](https://github.com/jhipster/generator-jhipster/issues/8547)), and secondly by adding support for deploying applications straight from the JDL. Deployments only work with Docker-based tools for the moment, so we support Docker Compose, Kubernetes, Openshift and Rancher Compose. If you want more information the documentation is already updated in the [JDL documentation]({{ site.url }}/jdl/).
 
 Closed tickets and merged pull requests
 ------------
