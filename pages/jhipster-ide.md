@@ -18,7 +18,7 @@ The following features are available:
 - Auto-Completion
 - Formatting
 - Hover Information
-- Mark Occurences
+- Mark Occurrences
 - Go To Declaration
 - Rename Refactoring
 - Toggle Comments
