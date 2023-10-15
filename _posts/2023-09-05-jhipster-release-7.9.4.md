@@ -53,7 +53,7 @@ jhipster
 You can also update your project and all its entities by running
 
 ```
-jhipster --with-entities
+jhipster --force
 ```
 
 You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_
