@@ -83,7 +83,7 @@ Below are the steps processed by the JHipster upgrade sub-generator:
 5. Checkout the `jhipster_upgrade` branch.
 6. Upgrade JHipster to the latest available version globally.
 7. Clean the current project directory.
-8. Re-generate the application using the `jhipster --force --with-entities` command.
+8. Re-generate the application using the `jhipster --force` command.
 9. Commit the generated code to the `jhipster_upgrade` branch.
 10. Merge the `jhipster_upgrade` branch back to the original branch from where the `npx jhipster upgrade` command was launched.
 11. Now you need to proceed with resolving merge conflicts if there are any.
@@ -123,7 +123,7 @@ jhipster
 You can also update your project and all its entities by running
 
 ```
-jhipster --with-entities
+jhipster --force
 ```
 
 You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_
@@ -159,7 +159,7 @@ npm install -g generator-jhipster@jhipsterVersionYouUsedLastTime
 Regenerate your project:
 
 ```
-jhipster --force --with-entities --skip-install
+jhipster --force --skip-install
 ```
 
 With `git diff` you can now see all your changes as reverted. If you would like to see all your changes as added then you can commit all to Git and then revert the last commit.
@@ -173,12 +173,12 @@ Generate project with JHipster version you used last time to generate your proje
 * copy your project `.yo-rc.json` file and `.jhipster` folder into this new folder
 * find out what JHipster version you used last time to generate your project: look at the `.yo-rc.json`, find out the value of the `jhipsterVersion`
 * install JHipster version you used last time to generate your project: `npm install -g generator-jhipster@jhipsterVersionYouUsedLastTime`
-* in the created folder run: `jhipster --with-entities --skip-install`
+* in the created folder run: `jhipster --skip-install`
 
 Generate project with the latest JHipster:
 * create a new folder
 * copy your project `.yo-rc.json` file and `.jhipster` folder into this new folder
 * install the latest JHipster version: `npm install -g generator-jhipster`
-* in the created folder run: `jhipster --with-entities --skip-install`
+* in the created folder run: `jhipster --skip-install`
 
 Compare those 2 folders with your favorite file and folder compare tool to see changes done by JHipster.

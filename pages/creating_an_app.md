@@ -247,7 +247,6 @@ Here are the options you can pass:
 * `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
 * `--auth` - Specify the authentication type when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
 * `--db` - Specify the database when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
-* `--with-entities` - Regenerate the existing entities if they were already generated (using their configuration in the `.jhipster` folder) (Default: false)
 * `--skip-checks` - Skip the check of the required tools (Default: false)
 * `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
 * `--entity-suffix` - Add suffix after entities class names (Default: empty string)
@@ -259,4 +258,4 @@ Here are the options you can pass:
 
 <h2 id="4">Tips</h2>
 
-You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force --with-entities`.
+You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force`.
