@@ -3,13 +3,11 @@ layout: default
 title: Release 8.0.0-rc.1
 ---
 
-# JHipster release v8.0.0-c.1
+# JHipster release v8.0.0-rc.1
 
 This is our first release candidate for JHipster v8.
 
 It includes [452 closed tickets and pull requests on the main project](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.0.0-rc.1).
-
-_It is not available through the usual channels as this is a beta release, please read below for more information!_
 
 ## What's new?
 
@@ -56,11 +54,9 @@ As always, **[you can check all closed tickets and merged pull requests here](ht
 
 ## How to install
 
-This is a release candidate, so it is not available on our usual "stable" release channel.
-
 To install JHipster v8.0.0-rc.1 using using NPM:
 
-    npm install -g generator-jhipster@rc
+    npm install -g generator-jhipster
 
 It is also available using the JHipster Docker image, as it is automatically built from our source code.
 
@@ -69,7 +65,6 @@ However, as this is a release candidate it will not be available using our other
 - [JHipster Online](https://start.jhipster.tech)
 - [JHipster Devbox](https://github.com/jhipster/jhipster-devbox)
 
-You also won’t be able to use the `jhipster upgrade` sub-generator, as it won’t “see” the release candidates, which is distributed through a specific beta channel on NPM.
 
 ## Help and bugs
 
