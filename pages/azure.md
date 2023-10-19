@@ -36,7 +36,7 @@ You can also create a new JHipster application with built-in azd deployment to A
 
 <div class="thumbnail no-margin-bottom">
     <div class="video-container">
-        <iframe width="420" height="315" src="https://www.youtube.com/watch?v=AmxPv_5Bs_k&t=33s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/AmxPv_5Bs_k&t=33s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="caption">
         <h3 id="thumbnail-label">JHipster On Azure Spring Apps Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
