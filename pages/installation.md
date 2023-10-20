@@ -33,7 +33,7 @@ In the future, we expect JHipster Online to provide more features.
 
 ### Quick setup
 
-1.  Install Java 11. We recommend you use [Eclipse Temurin builds](https://adoptium.net/temurin/releases/?version=11), as they are open source and free.
+1.  Install Java 17 or 21 LTS. We recommend you use [Eclipse Temurin builds](https://adoptium.net/temurin/releases/?version=21), as they are open source and free.
 2.  Install Node.js from [the Node.js website](http://nodejs.org/) (please use an LTS 64-bit version, non-LTS versions are not supported)
 3.  Install JHipster: `npm install -g generator-jhipster`
 4.  (optional) If you want to use a module or a blueprint (for instance from the [JHipster Marketplace]({{ site.url }}/modules/marketplace/#/list)), install [Yeoman](https://yeoman.io/): `npm install -g yo`
