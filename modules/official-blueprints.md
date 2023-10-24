@@ -7,7 +7,7 @@ redirect_from:
   - /modules/official-blueprints.html
 sitemap:
     priority: 0.7
-    lastmod: 2019-09-02T11:24:00-00:00
+    lastmod: 2023-10-23T20:15:00-00:00
 ---
 
 # <i class="fa fa-star"></i> Officially supported blueprints
@@ -25,7 +25,7 @@ The Kotlin blueprint replaces most of Java back-end code with Kotlin. Source cod
 {⭐️: 411}
 
 - Code and docs: [jhipster/jhipster-kotlin](https://github.com/jhipster/jhipster-kotlin)
-- GitHub ⭐️: 411
+- GitHub ⭐️: 444
 - Stream lead: [Sendil Kumar](https://github.com/sendilkumarn)
 
 ## .NET Core
@@ -33,7 +33,7 @@ The Kotlin blueprint replaces most of Java back-end code with Kotlin. Source cod
 The .NET Core blueprint is the first attempt to leave the Java environment and join the .NET world. 
 
 - Code and docs: [jhipster/jhipster-dotnetcore](https://github.com/jhipster/jhipster-dotnetcore)
-- GitHub ⭐️: 249
+- GitHub ⭐️: 293
 - Stream lead: [Nicolas Raymond](https://github.com/nicolas63)
 
 ## React Native
@@ -41,7 +41,7 @@ The .NET Core blueprint is the first attempt to leave the Java environment and j
 The React Native blueprint creates a client application with React Native. 
 
 - Code and docs: [jhipster/generator-jhipster-react-native](https://github.com/jhipster/generator-jhipster-react-native)
-- GitHub ⭐️: 235
+- GitHub ⭐️: 257
 - Stream lead: [Jon Ruddell](https://github.com/ruddell)
 
 ## Node.js
@@ -49,7 +49,7 @@ The React Native blueprint creates a client application with React Native.
 The Node.js blueprint replaces the server java side with the NestJS Node framework. 
 
 - Code and docs: [jhipster/generator-jhipster-nodejs](https://github.com/jhipster/generator-jhipster-nodejs)
-- GitHub ⭐️: 223
+- GitHub ⭐️: 242
 - Stream lead: [Angelo Manganiello](https://github.com/amanganiello90)
 
 ## Ionic
@@ -57,7 +57,7 @@ The Node.js blueprint replaces the server java side with the NestJS Node framewo
 The Ionic blueprint creates a client application with Ionic. 
 
 - Code and docs: [jhipster/generator-jhipster-ionic](https://github.com/jhipster/generator-jhipster-ionic)
-- GitHub ⭐️: 171
+- GitHub ⭐️: 182
 - Stream lead: [Matt Raible](https://github.com/mraible)
 
 ## Quarkus
@@ -65,7 +65,7 @@ The Ionic blueprint creates a client application with Ionic.
 The Quarkus blueprint is supported, in part by the JHipster sponsor [Entando](https://www.entando.com/), and driven by the JHipster community for a [supersonic, subatomic Java back-end](https://quarkus.io/).
 
 - Code and docs: [jhipster/generator-jhipster-quarkus](https://github.com/jhipster/generator-jhipster-quarkus)
-- GitHub ⭐️: 111
+- GitHub ⭐️: 130
 - Stream lead: [Matt Raible](https://github.com/mraible)
 
 # Entity Audit
@@ -73,7 +73,7 @@ The Quarkus blueprint is supported, in part by the JHipster sponsor [Entando](ht
 The Entity Audit blueprint integrates Javers for entity auditing. 
 
 - Code and docs: [hipster-labs/generator-jhipster-entity-audit](https://github.com/hipster-labs/generator-jhipster-entity-audit)
-- GitHub ⭐️: 107
+- GitHub ⭐️: 119
 - Stream lead: [Marcelo Shima](https://github.com/mshima)
 
 ## Micronaut
@@ -82,7 +82,7 @@ The Micronaut blueprint is supported and driven by people of the [Micronaut team
 It replaces all server side code with a [Micronaut](https://micronaut.io/) application.
 
 - Code and docs: [jhipster/generator-jhipster-micronaut](https://github.com/jhipster/generator-jhipster-micronaut)
-- GitHub ⭐️: 91
+- GitHub ⭐️: 94
 - Stream lead: [Frederik Hahne](https://github.com/atomfrede)
 
 ## Svelte
@@ -90,7 +90,7 @@ It replaces all server side code with a [Micronaut](https://micronaut.io/) appli
 The Svelte blueprint replaces the client-side code with the SvelteKit framework. 
 
 - Code and docs: [jhipster/generator-jhipster-svelte](https://github.com/jhipster/generator-jhipster-svelte)
-- GitHub ⭐️: 44
+- GitHub ⭐️: 57
 - Stream lead: [Vishal Mahajan](https://github.com/vishal423)
 
 ## JHipster Native
@@ -98,7 +98,7 @@ The Svelte blueprint replaces the client-side code with the SvelteKit framework.
 The JHipster Native blueprint integrates Spring Native, making it possible to create a native binary with GraalVM. 
 
 - Code and docs: [jhipster/generator-jhipster-native](https://github.com/jhipster/generator-jhipster-native)
-- GitHub ⭐️: 28
+- GitHub ⭐️: 35
 - Stream leads: [Marcelo Shima](https://github.com/mshima) and [Matt Raible](https://github.com/mraible)
 
 # jOOQ
