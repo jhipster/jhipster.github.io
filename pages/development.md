@@ -202,7 +202,7 @@ If you have chosen to use H2, MySQL, MariaDB or PostgreSQL in development, you c
 Here is the development workflow:
 
 1.   Modify your JPA entity (add a field, a relationship, etc.)
-2.   Skip changes in the re-generated liquibase file for that entity `config/liquibase/changelog/DATE_added_entity_ENTITY_NAME.xml` to avoid conflict with the soon to be generated changelog file bellow
+2.   Skip changes in the regenerated liquibase file for that entity `config/liquibase/changelog/DATE_added_entity_ENTITY_NAME.xml` to avoid conflict with the soon to be generated changelog file bellow
 3.   Compile your application (this works on the compiled Java code, so don't forget to compile!)
 4.   Run `./mvnw liquibase:diff` (or `./mvnw compile liquibase:diff` to compile before)
 5.   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory
@@ -233,8 +233,8 @@ Usage is as follows:
 - With Angular, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which uses JSON files for translation
 - With React, thanks to a specific JHipster component, which works the same way as the Angular component, and uses the same files
 
-For example, to add a translation to the "first name" field, add a "translate" attribute with a key: `<label jhiTranslate="settings.form.firstname">First Name</label>`
+For example, to add a translation to the "First Name" field, add a "translate" attribute with a key: `<label jhiTranslate="settings.form.firstname">First Name</label>`
 
-This key references a JSON document, which will return the translated String. Angular/React will then replace the "First Name" String with the translated version.
+This key references a JSON document, which will return the translated string. Angular/React will then replace the "First Name" string with the translated version.
 
 If you want more information on using languages, read our [Installing new languages documentation]({{ site.url }}/installing-new-languages/).
