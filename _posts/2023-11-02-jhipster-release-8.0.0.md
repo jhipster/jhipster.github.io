@@ -13,25 +13,25 @@ It includes [242 closed tickets and pull requests on the main project](https://g
 
 ### :computer: Frontend
 
-- Upgrade to angular 16 [#22182](https://github.com/jhipster/generator-jhipster/pull/22182)
-- Upgrade to vue 3 [#22232](https://github.com/jhipster/generator-jhipster/pull/22232)
-- Moved test files from test folder to main for vue [#23188](https://github.com/jhipster/generator-jhipster/pull/23188)
-- Update to prettier 3 [#22875](https://github.com/jhipster/generator-jhipster/pull/22875)
-- Migrate vue to vite. ([#23532](https://github.com/jhipster/generator-jhipster/pull/23532))
-- fix swagger for gateway/microservices ([#23499](https://github.com/jhipster/generator-jhipster/pull/23499))
+- Upgrade to Angular 16 [#22182](https://github.com/jhipster/generator-jhipster/pull/22182)
+- Upgrade to Vue 3 [#22232](https://github.com/jhipster/generator-jhipster/pull/22232)
+- Moved test files from test folder to main for Vue [#23188](https://github.com/jhipster/generator-jhipster/pull/23188)
+- Update to Prettier 3 [#22875](https://github.com/jhipster/generator-jhipster/pull/22875)
+- Migrate Vue to Vite. ([#23532](https://github.com/jhipster/generator-jhipster/pull/23532))
+- Fix Swagger for gateway/microservices ([#23499](https://github.com/jhipster/generator-jhipster/pull/23499))
 - Rework translation process ([#23488](https://github.com/jhipster/generator-jhipster/pull/23488))
 
 ### :gem: Features & Enhancements
 
-- Bump node dependency to 18 LTS [#22372](https://github.com/jhipster/generator-jhipster/pull/22372)
+- Bump Node dependency to 18 LTS [#22372](https://github.com/jhipster/generator-jhipster/pull/22372)
 - Enable CORS when app is a gateway or monolith [#22780](https://github.com/jhipster/generator-jhipster/pull/22780)
 - Add devcontainer for JHipster development [#22814](https://github.com/jhipster/generator-jhipster/pull/22814)
 - Add support for JDK 20 and 21 [#23344](https://github.com/jhipster/generator-jhipster/pull/23344)
-- Update spring-boot version to 3.1.4 ([#23613](https://github.com/jhipster/generator-jhipster/pull/23613))
-- Switch to hibernate 6.2.x [#23107](https://github.com/jhipster/generator-jhipster/pull/23107)
-- Update maven version to 3.9.5 ([#23843](https://github.com/jhipster/generator-jhipster/pull/23843))
+- Update spring-boot version to 3.1.5 ([#23930](https://github.com/jhipster/generator-jhipster/pull/23930))
+- Switch to Hibernate 6.2.x [#23107](https://github.com/jhipster/generator-jhipster/pull/23107)
+- Update Maven version to 3.9.5 ([#23843](https://github.com/jhipster/generator-jhipster/pull/23843))
 - Upgrade to Gradle 8.4 ([#23787](https://github.com/jhipster/generator-jhipster/pull/23787))
-- Upgrade keycloak 22.0.1 [#23098](https://github.com/jhipster/generator-jhipster/pull/23098)
+- Upgrade Keycloak to 22.0.1 [#23098](https://github.com/jhipster/generator-jhipster/pull/23098)
 - Update Node version to 18.17.1 [#23278](https://github.com/jhipster/generator-jhipster/pull/23278)
 - Update openapi-generator-maven-plugin version to 7.0.0 [#23303](https://github.com/jhipster/generator-jhipster/pull/23303)
 
@@ -44,10 +44,10 @@ It includes [242 closed tickets and pull requests on the main project](https://g
   - cloudfoundry
   - gae
   - openshift
-- drop openapi-client sub-generator ([#23632](https://github.com/jhipster/generator-jhipster/pull/23632))
-- drop page sub-generator ([#23615](https://github.com/jhipster/generator-jhipster/pull/23615))
-- drop upgrade-config sub-generator ([ab46e40](https://github.com/jhipster/generator-jhipster/commit/ab46e40d7013e68a1d82d3578d62a7c29f5b466e))
-- drop spring-controller and spring-service sub-generators ([#23502](https://github.com/jhipster/generator-jhipster/pull/23502))
+- Drop openapi-client sub-generator ([#23632](https://github.com/jhipster/generator-jhipster/pull/23632))
+- Drop page sub-generator ([#23615](https://github.com/jhipster/generator-jhipster/pull/23615))
+- Drop upgrade-config sub-generator ([ab46e40](https://github.com/jhipster/generator-jhipster/commit/ab46e40d7013e68a1d82d3578d62a7c29f5b466e))
+- Drop spring-controller and spring-service sub-generators ([#23502](https://github.com/jhipster/generator-jhipster/pull/23502))
 - Consul as default [#19300](https://github.com/jhipster/generator-jhipster/issues/19300)
 
 ### :paw_prints: JDL/Internals/Blueprints
