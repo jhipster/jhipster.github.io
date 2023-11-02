@@ -6,7 +6,7 @@ redirect_from:
   - /team.html
 sitemap:
     priority: 0.7
-    lastmod: 2015-07-30T18:40:00-00:00
+    lastmod: 2023-11-02T17:10:00-00:00
 ---
 
 # <i class="fa fa-coffee"></i> Team
@@ -99,15 +99,6 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/3602612?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Enrico Costanzi</h3>
-                <p><a href="https://twitter.com/enricocostanzi"><i>@enricocostanzi</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/25530077?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Clément Dessoude</h3>
@@ -117,28 +108,10 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/17642361?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Christopher Dionisio</h3>
-                <p><a href="https://twitter.com/chris_dns"><i>@chris_dns</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/9678039?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Hippolyte Durix</h3>
                 <p><a href="https://twitter.com/hdurix"><i>@hdurix</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/9017981?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Alexandre Gaspard-Cilia</h3>
-                <p><a href="https://twitter.com/Screach_FR"><i>@Screach_FR</i></a></p>
             </div>
         </div>
     </div>
@@ -166,24 +139,6 @@ If you want to join the team, or see how we work, our community rules are at the
             <div class="caption">
                 <h3>Kaido Hallik</h3>
                 <p></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/3100637?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Erik Kemperman</h3>
-                <p><a href="https://twitter.com/erikkemperman"><i>@erikkemperman</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/7074827?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Sahbi Ktifa</h3>
-                <p><a href="https://twitter.com/SahbiKtifa"><i>@SahbiKtifa</i></a></p>
             </div>
         </div>
     </div>
@@ -225,15 +180,6 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/361007?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Gaël Marziou</h3>
-                <p><a href="https://twitter.com/gmarziou"><i>@gmarziou</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/155828?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Aurélien Mino</h3>
@@ -265,15 +211,6 @@ If you want to join the team, or see how we work, our community rules are at the
             <div class="caption">
                 <h3>Sudharaka Palamakumbura</h3>
                 <p><a href="https://twitter.com/PSudharaka"><i>@PSudharaka</i></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/593564?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Daniel Petisme</h3>
-                <p><a href="https://twitter.com/danielpetisme"><i>@danielpetisme</i></a></p>
             </div>
         </div>
     </div>
@@ -357,15 +294,6 @@ If you want to join the team, or see how we work, our community rules are at the
             </div>
         </div>
     </div>
-    <div class="col-xs-3 team-member">
-        <div class="thumbnail no-margin-bottom">
-            <img src="https://avatars.githubusercontent.com/u/2188969?v=3" class="img-responsive">
-            <div class="caption">
-                <h3>Panayiotis Vlissidis</h3>
-                <p><a href="https://twitter.com/panvliss"><i>@panvliss</i></a></p>
-            </div>
-        </div>
-    </div>
 </div>
 
 ## JHipster streams
@@ -378,7 +306,7 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 |-------------------------------------|--------------------|
 | Angular                             | William Marques    |
 | React                               | Sendil Kumar N     |
-| VueJS                               | Sahbi KTIFA        |
+| VueJS                               |                    |
 | JHipster Registry                   | Pierre Besson      |
 | JHipster core/JDL                   | Mathieu Abou-Aichi |
 | JHipster Kotlin                     | Sendil Kumar N     |
@@ -419,10 +347,64 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/3602612?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Enrico Costanzi</h3>
+                <p><a href="https://twitter.com/enricocostanzi"><i>@enricocostanzi</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/17815919?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Victor Da Silva</h3>
                 <p><a href="https://twitter.com/VicAntune"><i>@VicAntune</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/17642361?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Christopher Dionisio</h3>
+                <p><a href="https://twitter.com/chris_dns"><i>@chris_dns</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/9017981?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Alexandre Gaspard-Cilia</h3>
+                <p><a href="https://twitter.com/Screach_FR"><i>@Screach_FR</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/3100637?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Erik Kemperman</h3>
+                <p><a href="https://twitter.com/erikkemperman"><i>@erikkemperman</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/7074827?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Sahbi Ktifa</h3>
+                <p><a href="https://twitter.com/SahbiKtifa"><i>@SahbiKtifa</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/361007?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Gaël Marziou</h3>
+                <p><a href="https://twitter.com/gmarziou"><i>@gmarziou</i></a></p>
             </div>
         </div>
     </div>
@@ -437,10 +419,28 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/593564?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Daniel Petisme</h3>
+                <p><a href="https://twitter.com/danielpetisme"><i>@danielpetisme</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/571389?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Anders Steiner</h3>
                 <p><a href="https://twitter.com/andidevv"><i>@andidevv</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/2188969?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Panayiotis Vlissidis</h3>
+                <p><a href="https://twitter.com/panvliss"><i>@panvliss</i></a></p>
             </div>
         </div>
     </div>
