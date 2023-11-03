@@ -29,7 +29,7 @@ Current members:
 * Julien Dubois (Microsoft)
 * Deepu K Sasidharan (Okta)
 * Matt Raible (Okta)
-* Paul Hinz (Entando)
+* Paul Hinz
 * Alina Yurenko (Oracle)
 
 The members are chosen by the project leaders and should come from:
