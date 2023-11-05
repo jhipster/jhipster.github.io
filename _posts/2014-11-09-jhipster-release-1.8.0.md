@@ -11,7 +11,7 @@ JHipster release 1.8.0
 What's new
 ----------
 
-We have a major change in this release: we swichted our JPA ID generation strategy, from "TABLE" to "AUTO". Originally we selected "TABLE" as it's the easiest way to be portable across databases, but we discovered (thanks to our friends from YourKit!) that this was consuming extra database connections. As a result of this change, you can now use JHipster applications without any trouble on "free" cloud databases like ClearDB or ElephantSQL (which only give you 4 connections available).
+We have a major change in this release: we switched our JPA ID generation strategy, from "TABLE" to "AUTO". Originally we selected "TABLE" as it's the easiest way to be portable across databases, but we discovered (thanks to our friends from YourKit!) that this was consuming extra database connections. As a result of this change, you can now use JHipster applications without any trouble on "free" cloud databases like ClearDB or ElephantSQL (which only give you 4 connections available).
 
 And as always, __[you can check all the closed tickets here](https://github.com/jhipster/generator-jhipster/issues?q=milestone%3A1.8.0+is%3Aclosed)__.
 

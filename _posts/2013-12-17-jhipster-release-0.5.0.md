@@ -12,7 +12,7 @@ What's new
 ----------
 
 - The "entity" sub-generator is now in ready to use. A full documentation is available [here](/creating-an-entity/)
-- You can now create a single executable JAR file of the application, for easy deployment. It is documentated in the [production section](/production/)
+- You can now create a single executable JAR file of the application, for easy deployment. It is documented in the [production section](/production/)
 - Several bug fixes and minor improvements, and updated documentation
 
 How to upgrade

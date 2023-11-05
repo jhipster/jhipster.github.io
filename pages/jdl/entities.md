@@ -123,7 +123,7 @@ entity A {
 ```
 
 Let's break it down:
-  - `pattern` is the keyword to declare a regex validation (with the normal parenthesises)
+  - `pattern` is the keyword to declare a regex validation (with the normal parentheses)
   - `/.../` the pattern is declared inside two slashes
   - `\` anti-slashes needn't be escaped
 
