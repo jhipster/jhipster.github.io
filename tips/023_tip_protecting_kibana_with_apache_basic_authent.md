@@ -18,7 +18,7 @@ Tip submitted by [@raiden0610](https://github.com/raiden0610)
 
     service apache2 restart
 
-## Vitualhost configuration
+## Virtualhost configuration
 Find where your virtualhost 443 or 80 config is, depending on your distros.
 
 For example in Ubuntu 16.04: the config is on the file **000-default-le-ssl.conf** in **/etc/apache2/sites-availables** directory.
