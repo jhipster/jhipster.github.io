@@ -101,7 +101,7 @@ or
 @<option name>(<option value>)
 ```
 
-  - Similar to Java, annotations may take values in parenthesises
+  - Similar to Java, annotations may take values in parentheses
     - depending on the option, values may or may not be optional
 
 ---
