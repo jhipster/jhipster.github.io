@@ -45,7 +45,3 @@ You can also create a new JHipster application with built-in azd deployment to A
         <p>Published on 26 Sep 2023</p>
     </div>
 </div>
-
-## [Deprecated] Deploying using the "azure" sub-generator
-
-JHipster still has an "azure" sub-generator, which is documented in our previous versions, but it is deprecated.
