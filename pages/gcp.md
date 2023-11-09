@@ -24,59 +24,6 @@ Install and authenticate with the gcloud SDK on your local environment to access
 
 - [Install gcloud SDK](https://cloud.google.com/sdk/install)
 
-## Deploy to Google App Engine
-
-Google App Engine is a fully managed Platform as a Service that can automatically scale up application instances under load, and scale down to zero when not used.
-
-You can use the Google App Engine generator to generate and deploy JHipster application. Google App Engine generator supports monolith and micro-service applications, with Cloud SQL MySQL/PostgreSQL database.
-
-#### Deploying Monoliths to Google App Engine
-
-1. Generate a new monolith application: `jhipster`
-1. Run Google App Engine generator: `jhipster gae`
-1. Optionally create a new Cloud SQL instance if creating a brand new application
-
-This generator will:
-1. Add `src/main/appengine/app.yaml` that describes the App Engine instance and scaling configuration.
-1. Add the App Engine plugin to Maven / Gradle.
-
-To deploy:
-Please note that currently the Google App Engine generator only supports deployments to [App Engine Standard (Java 11)](https://cloud.google.com/appengine/docs/standard/java11/) environment. 
-
-- Use the App Engine plugin to deploy: `./mvnw package appengine:deploy -DskipTests -Pgae,prod,prod-gae` or using Gradle `./gradlew appengineDeploy -Pgae -Pprod-gae`
-
-#### Deploying Microservices to Google App Engine
-
-[Google Cloud supports micro-service architecture on GAE](https://cloud.google.com/appengine/docs/standard/java/microservices-on-app-engine) 
-by isolating each micro-service as a separate service. We use a [`dispatch.yaml` file](https://cloud.google.com/appengine/docs/standard/java11/reference/dispatch-yaml) 
-to route the requests from the gateway to each micro-service. Therefore, in order to deploy microservices to GAE you will 
-need to deploy the gateway and each microservice as separate services.
- 
-Following are the steps that needs to be carried out.
-
-1. Run the GAE sub-generator on each micro-service. It is important to run this as the first step as the gateway application setup
-will depend on this. 
-
-2. Run the GAE sub-generator on the gateway application. This will prompt for some additional questions in order to 
-create the `dispatch.yaml` file. 
-
-3. Deploy each microservice and the gateway application using `./mvnw package appengine:deploy -DskipTests -Pgae,prod,prod-gae` 
-for Maven or `./gradlew appengineDeploy -Pgae -Pprod-gae` for gradle.
-    
-**Note 1:** If you are using Windows, we recommend using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) 
-or [jhipster-devbox](https://github.com/jhipster/jhipster-devbox) to avoid Windows spedific issues such as, [https://github.com/jhipster/generator-jhipster/issues/11249 
-](https://github.com/jhipster/generator-jhipster/issues/11249) 
-
-**Note 2:** If you are using Cloud SQL, you need to add Cloud SQL Client role to the App Engine service account. Refer, [https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up](https://cloud.google.com/sql/docs/mysql/connect-app-engine#setting_up)
-
-In addition, Google App Engine provides a full suite of features to manage your application:
-- Traffic Splitting - Deploy multiple versions of your application and split traffic to different versions. This is also great for canary new changes.
-- Stackdriver Logging - Automatically capture and store application logs in centralized logging that can be searched, monitored, and exported.
-- Error Reporting - Automatically extract errors and exceptions for the log and notify you of new errors.
-- Cloud Debugger - Allow you to debug your production application without stopping the world. If you needed more log messages to diagnose the issue, add new log messages without redeploying/restarting your application.
-
-You can watch a walk through of features in [2018 JHipster Conf video on the Google App Engine generator](https://www.youtube.com/watch?v=J9_MW3HOj5w) with [Ray Tsang](https://twitter.com/saturnism) and [Ludovic Champenois](https://twitter.com/ludoch).
-   
 ## Deploy to Google Kubernetes Engine
 
 Google Kubernetes Engine is a fully managed Kubernetes cluster as a service. Once provisioned, you can deploy your containers and JHipster applications using standard Kubernetes commands.
