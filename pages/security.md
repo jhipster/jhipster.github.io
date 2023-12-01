@@ -26,7 +26,7 @@ JHipster provides three main security mechanisms:
 
 1. [JSON Web Tokens (JWT)](#jwt)
 2. [Session-based authentication](#session)
-3. [OAuth 2.0 and OpenID Connect](#oauth2) { [Keycloak](#keycloak), [Auth0 by Okta](#auth0), [Okta](#okta) }
+3. [OAuth 2.0 and OpenID Connect](#oauth2) { [Keycloak](#keycloak) | [Auth0 by Okta](#auth0) | [Okta](#okta) }
 
 <h2 id="jwt">JSON Web Tokens (JWT)</h2>
 
