@@ -12,8 +12,8 @@ gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 
 ## Summary
 
-1. [Option 1 - Automatic Upgrade](#option-1-automatic-upgrade)
-2. [Option 2 - Manual Upgrade](#option-2-manual-upgrade)
+1. [Option 1 - Automatic Upgrade](#option-1---automatic-upgrade)
+2. [Option 2 - Manual Upgrade](#option-2---manual-upgrade)
 
 ## Option 1 - Automatic Upgrade
 
