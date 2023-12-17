@@ -8,22 +8,22 @@ sitemap:
 gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 ---
 
-# <i class="fa fa-refresh"></i> Upgrading an application
+# <i class="fa fa-level-up"></i> Upgrading an application
 
 ## Summary
 
-1. [Option 1 - automatic upgrade](#automatic_upgrade)
-2. [Option 2 - manual upgrade](#manual_upgrade)
+1. [Option 1 - Automatic Upgrade](#option-1-automatic-upgrade)
+2. [Option 2 - Manual Upgrade](#option-2-manual-upgrade)
 
-<h2 id="automatic_upgrade">Option 1 - automatic upgrade</h2>
+## Option 1 - Automatic Upgrade
 
 When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrading an existing application to this new version, without erasing your changes.
 
 This is helpful to:
 
-- Have the latest JHipster features in an existing application
-- Get the changes when there is an important bug fix or security update
-- Retain your changes in your codebase, and merge them with newly generated code
+* Have the latest JHipster features in an existing application
+* Get the changes when there is an important bug fix or security update
+* Retain your changes in your codebase, and merge them with newly generated code
 
 _Please read this page carefully before doing an upgrade, to understand how the upgrade process works_
 
@@ -35,7 +35,7 @@ For this sub-generator to work you need to have `git` installed from [http://git
 
 Go into the application's root directory:
 
-`cd myapplication/`
+`cd myJHipsterProject/`
 
 To upgrade your application, type:
 
@@ -43,22 +43,23 @@ To upgrade your application, type:
 
 Here are the options you can pass:
 
-* `--verbose` - Log each step of the upgrade process in detail
-* `--target-version 6.6.0` - Upgrade to the target version of JHipster instead of the latest release, useful if a project is several versions behind
-* `--target-blueprint-versions kotlin@1.4.0,vuejs@1.3.0` - Upgrade to the target blueprints version instead of the latest release of each blueprint. The target version of a blueprint should however be compatible with the target JHipster version. 
-* `--force` - Run the upgrade sub-generator even if no new JHipster version is available
-* `--skip-checks` - Disable checks during project regeneration
-* `--skip-install` - Skips installing dependencies during the upgrade process
-* `--silent` - Hides output of the generation process
+* `--auto-crlf`– Detect line endings
+* `--skip-cache` – Do not remember prompt answers (default: false)
+* `--skip-install` – Do not automatically install dependencies (default: false)
+* `--force-install` – Fail on install dependencies error (default: false)
+* `--ask-answered` – Show prompts for already configured options (default: false)
+* `-h, --help` – display help for command
 
 If you are doing the upgrade more than once you could consider to first upgrade the JHipster tree like this:
-	
-    git checkout jhipster_upgrade
-	git checkout --patch master .yo-rc.json
-	git checkout --patch master .jhipster
-	git commit -a
-	git push --set-upstream origin jhipster_upgrade
-	git checkout master
+
+```shell
+git checkout jhipster_upgrade
+git checkout --patch master .yo-rc.json
+git checkout --patch master .jhipster
+git commit -a
+git push --set-upstream origin jhipster_upgrade
+git checkout master
+```
 
 With doing the above you upgrade the jhipster_upgrade tree with your latest changes so JHipster can make use of that during the upgrade. For example when you changed your model.
 
@@ -68,7 +69,7 @@ Here is how the upgrade process works graphically (read the sections below to ha
 
 ![GitGraph]({{ site.url }}/images/upgrade_gitgraph.png)
 
-(this image comes from [JSFiddle](http://jsfiddle.net/lordlothar99/tqp9gyu3/) )
+(this image comes from Mermaid [GitHub Gist](https://gist.github.com/timothystone/aa5bcd27d1ede5a08a7065e2e1a1cb77) )
 
 Please note that the `jhipster_upgrade` branch will be created orphan on your project, although it doesn't display correctly on the above graph.
 
@@ -100,35 +101,36 @@ On the first run of the JHipster upgrade sub-generator, in order to avoid erasin
 
 #### Advice
 
-- Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.
+* Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.
 
-- If you are updating from a very old version (example from 5.0.0 to latest) we suggest updating gradually between each minor/patch version and performing tests to make sure the application works as expected. 
+* If you are updating from a very old version (example from 5.0.0 to latest) we suggest updating gradually between each minor/patch version and performing tests to make sure the application works as expected. 
 
-- There are some helpful approaches from the JHipster community around designing the application in such a way that makes the update process easier, and reduces the amount of merge conflicts. We recommend using [JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo).  
+* There are some helpful approaches from the JHipster community around designing the application in such a way that makes the update process easier, and reduces the amount of merge conflicts. We recommend using [JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo).  
 
-<h2 id="manual_upgrade">Option 2 - manual upgrade</h2>
+## Option 2 - Manual Upgrade
 
 For a manual upgrade, first upgrade your version of JHipster with:
 
-```
+```shell
 npm install -g generator-jhipster
 ```
 
-Delete your project `node_modules` folder and then run:
+Delete your project `node_modules` folder and then run `jhipster`:
 
-```
+```shell
+rm -rf node_modules
 jhipster
 ```
 
 You can also update your project and all its entities by running
 
-```
+```shell
 jhipster --force
 ```
 
-You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_
+You can also update your entities individually by running the `entity` sub-generator, i.e., if your entity is named _Foo_:
 
-```
+```shell
 jhipster entity Foo
 ```
 
