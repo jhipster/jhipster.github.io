@@ -8,22 +8,22 @@ sitemap:
 gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 ---
 
-# <i class="fa fa-refresh"></i> Upgrading an application
+# <i class="fa fa-level-up"></i> Upgrading an application
 
 ## Summary
 
-1. [Option 1 - automatic upgrade](#automatic_upgrade)
-2. [Option 2 - manual upgrade](#manual_upgrade)
+1. [Option 1 - Automatic Upgrade](#option-1-automatic-upgrade)
+2. [Option 2 - Manual Upgrade](#option-2-manual-upgrade)
 
-<h2 id="automatic_upgrade">Option 1 - automatic upgrade</h2>
+## Option 1 - Automatic Upgrade
 
 When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrade an existing application to this new version, without erasing your changes.
 
 This is helpful to:
 
-- Have the latest JHipster features in an existing application
-- Get the changes when there is an important bug fix or security update
-- Retain your changes in your codebase, and merge them with newly generated code
+* Have the latest JHipster features in an existing application
+* Get the changes when there is an important bug fix or security update
+* Retain your changes in your codebase, and merge them with newly generated code
 
 _Please read this page carefully before doing an upgrade, to understand how the upgrade process works_
 
@@ -35,7 +35,7 @@ For this sub-generator to work you need to have `git` installed from [http://git
 
 Go into the application's root directory:
 
-`cd myapplication/`
+`cd myJHipsterProject/`
 
 To upgrade your application, type:
 
@@ -70,7 +70,7 @@ Here is how the upgrade process works graphically (read the sections below to ha
 
 ![GitGraph]({{ site.url }}/images/upgrade_gitgraph.png)
 
-(this image comes from [JSFiddle](http://jsfiddle.net/lordlothar99/tqp9gyu3/) )
+(this image comes from Mermaid [GitHub Gist](https://gist.github.com/timothystone/aa5bcd27d1ede5a08a7065e2e1a1cb77) )
 
 Please note that the `jhipster_upgrade` branch will be created orphan on your project, although it doesn't display correctly on the above graph.
 
@@ -102,35 +102,36 @@ On the first run of the JHipster upgrade sub-generator, in order to avoid erasin
 
 #### Advice
 
-- Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.
+* Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.
 
-- If you are updating from a very old version (example from 5.0.0 to latest) we suggest updating gradually between each minor/patch version and performing tests to make sure the application works as expected. 
+* If you are updating from a very old version (example from 5.0.0 to latest) we suggest updating gradually between each minor/patch version and performing tests to make sure the application works as expected. 
 
-- There are some helpful approaches from the JHipster community around designing the application in such a way that makes the update process easier, and reduces the amount of merge conflicts. We recommend using [JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo).  
+* There are some helpful approaches from the JHipster community around designing the application in such a way that makes the update process easier, and reduces the amount of merge conflicts. We recommend using [JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo).  
 
-<h2 id="manual_upgrade">Option 2 - manual upgrade</h2>
+## Option 2 - Manual Upgrade
 
 For a manual upgrade, first upgrade your version of JHipster with:
 
-```
+```shell
 npm install -g generator-jhipster
 ```
 
-Delete your project `node_modules` folder and then run:
+Delete your project `node_modules` folder and then run `jhipster`:
 
-```
+```shell
+rm -rf node_modules
 jhipster
 ```
 
 You can also update your project and all its entities by running
 
-```
+```shell
 jhipster --force
 ```
 
-You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_
+You can also update your entities individually by running the `entity` sub-generator, i.e., if your entity is named _Foo_:
 
-```
+```shell
 jhipster entity Foo
 ```
 
