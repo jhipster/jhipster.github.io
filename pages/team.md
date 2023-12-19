@@ -6,7 +6,7 @@ redirect_from:
   - /team.html
 sitemap:
     priority: 0.7
-    lastmod: 2023-11-02T17:10:00-00:00
+    lastmod: 2023-12-19T17:10:00-00:00
 ---
 
 # <i class="fa fa-coffee"></i> Team
@@ -129,6 +129,7 @@ If you want to join the team, or see how we work, our community rules are at the
             <img src="https://avatars.githubusercontent.com/u/203401?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Frederik Hahne</h3>
+                <p><a href="https://mastodon.social/@atomfrede"><i>@atomfrede@mastodon.social</i></a></p>
                 <p><a href="https://twitter.com/atomfrede"><i>@atomfrede</i></a></p>
             </div>
         </div>
