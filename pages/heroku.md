@@ -32,7 +32,7 @@ Authentication successful.
 <div class="alert alert-warning"><i class="fa fa-money" aria-hidden="true"></i>
 As of <a href="https://blog.heroku.com/next-chapter" target="_blank" rel="noopener">>November 2022 Heroku does not offer a completly free tier</a> anymore.
 This means you will need a properly <a href="https://devcenter.heroku.com/articles/account-verification" target="_blank" rel="noopener">verified Heroku account</a>
-and deploying an application using the smallest dyno options and the smallest Postgres size will cost you around <b>12$ per month</b>.
+and deploying an application using the smallest dyno options and the smallest Postgres size will cost you around <b>$12 per month</b>.
 </div>
 
 The Heroku sub-generator creates an application using [free dynos](https://devcenter.heroku.com/articles/dyno-types){:target="_blank" rel="noopener"} with add-ons matching your selected configuration.
