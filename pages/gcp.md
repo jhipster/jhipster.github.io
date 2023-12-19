@@ -4,7 +4,7 @@ title: Deploying to Google Cloud Platform
 permalink: /gcp/
 sitemap:
     priority: 0.5
-    lastmod: 2018-10-02T00:00:00-00:00
+    lastmod: 2023-12-19T00:00:00-00:00
 ---
 
 # <i class="fa fa-cloud-upload"></i> Deploying to Google Cloud Platform

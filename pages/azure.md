@@ -4,7 +4,7 @@ title: Deploying to Microsoft Azure
 permalink: /azure/
 sitemap:
     priority: 0.7
-    lastmod: 2018-08-24T00:00:00-00:00
+    lastmod: 2023-12-19T00:00:00-00:00
 ---
 
 # <i class="fa fa-cloud-upload"></i> Deploying to Microsoft Azure

@@ -6,7 +6,7 @@ redirect_from:
   - /heroku.html
 sitemap:
     priority: 0.7
-    lastmod: 2020-06-06T00:00:00-00:00
+    lastmod: 2023-12-19T00:00:00-00:00
 ---
 
 # Deploying to Heroku
@@ -15,10 +15,6 @@ This sub-generator allows deployment of your JHipster application to the [Heroku
 
 [![]({{ site.url }}/images/logo/logo-heroku.png)](https://www.heroku.com/){:target="_blank" rel="noopener"}
 
-Heroku is helping JHipster in two ways:
-
-- Joe Kutner, from Heroku, is currently maintaining this sub-generator
-- Heroku gives us free credits, allowing us to test generated applications with complex, high-end setups, to guarantee everything works well for our common users
 
 ## Running the sub-generator
 
@@ -33,9 +29,10 @@ Password (typing will be hidden): YOUR_PASSWORD
 Authentication successful.
 </pre>
 
-<div class="alert alert-info"><i class="fa fa-info-circle" aria-hidden="true"></i>
-The Heroku sub-generator will always use free tiers/options. 
-Nevertheless installing addons needs a properly <a href="https://devcenter.heroku.com/articles/account-verification" target="_blank" rel="noopener">verified Heroku account</a>. Therefore to avoid any unexpected build failures, we would recommend verifying your Heroku account before starting this sub-generator.
+<div class="alert alert-warning"><i class="fa fa-money" aria-hidden="true"></i>
+As of <a href="https://blog.heroku.com/next-chapter" target="_blank" rel="noopener">>November 2022 Heroku does not offer a completly free tier</a> anymore.
+This means you will need a properly <a href="https://devcenter.heroku.com/articles/account-verification" target="_blank" rel="noopener">verified Heroku account</a>
+and deploying an application using the smallest dyno options and the smallest Postgres size will cost you around <b>$12 per month</b>.
 </div>
 
 The Heroku sub-generator creates an application using [free dynos](https://devcenter.heroku.com/articles/dyno-types){:target="_blank" rel="noopener"} with add-ons matching your selected configuration.
@@ -291,31 +288,6 @@ JHipster [enforces bonsai compatible Elasticsearch](https://github.com/jhipster/
 <div class="alert alert-warning"><i class="fa fa-money" aria-hidden="true"></i>
 If you are willing to use a <b>paid</b> addon you can use the <a href="https://devcenter.heroku.com/articles/foundelasticsearch" target="_blank" rel="noopener">official Elastic Cloud integration</a> to get access to the latest Elasticsearch version and features.
 </div>
-
-### Using Okta
-
-When you select [Okta](https://elements.heroku.com/addons/okta){:target="_blank" rel="noopener"} the sub-generator will create a bash script which creates all groups and roles required by JHipster.
-When you login with the user and credentials provided during creation you will need to select a new password as the script makes sure to expire the password directly, 
-as it is stored in `.yo-rc.json`.
-
-<div class="alert alert-info"><i class="fa fa-info-circle" aria-hidden="true"></i>
-The script to provision the Okta addon requires
-<ul>
-  <li><a href="https://curl.haxx.se/" target="_blank" rel="noopener">cURL</a> for web request to the <a href="https://developer.okta.com/docs/reference/" target="_blank" rel="noopener">Okta API</a></li>
-  <li><a href="https://stedolan.github.io/jq/" target="_blank" rel="noopener">jq</a> for parsing/manipulating JSON data</li>
-</ul>
-If it can't find these tools the sub-generator will warn you and you have to execute <code class="highlighter-rouge">./provision-okta-addon.sh</code> manually.
-</div>
-
-### Free dynos
-
-Free dynos are limited and should not be used for production deployment, because
-
-* they fall to sleep after [30 minutes idle period](https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping){:target="_blank" rel="noopener"}
-* they have [limited dyno hours per month](https://devcenter.heroku.com/articles/free-dyno-hours#usage){:target="_blank" rel="noopener"}. When these are consumed your dynos won't run until the next month!
-
-You can upgrade your dyno configuration directly from the Heroku admin ui.
-If you realize e.g. a database plan is too small for you can select a new plan from the admin ui.
 
 ## More information
 
