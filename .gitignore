@@ -15,4 +15,6 @@ Gemfile.lock
 
 # VSCode
 .vscode/
-/nbproject/private/
+
+# NetBeans
+nbproject/
