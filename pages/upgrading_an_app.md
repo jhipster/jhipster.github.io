@@ -70,33 +70,6 @@ Here is how the upgrade process works graphically (read the sections below to ha
 
 ![GitGraph]({{ site.url }}/images/upgrade_gitgraph.png)
 
-Testing jhipster.tech mermaid compatibility...
-
-```mermaid
-%%{init: { 'logLevel': 'debug', 'theme': 'neutral' } }%%
-gitGraph LR:
-    commit id: "chore: initial commit" tag: "1.0.0"
-    commit id: "feat: controller" tag: "1.1.0"
-    branch jhipster_upgrade
-    checkout jhipster_upgrade
-    commit id: "feat(8.0.0): npx jhipster upgrade"
-    checkout main
-    merge jhipster_upgrade tag: "1.2.0"
-    commit id: "fix: cool patch" tag: "1.2.1"
-    commit id: "docs: update variable"
-    checkout jhipster_upgrade
-    commit id: "feat(8.1.0): npx jhipster upgrade"
-    checkout main
-    merge jhipster_upgrade tag: "1.3.0"
-    commit id: "fix: another cool patch" tag: "1.3.1"
-    commit id: "feat: another controller" tag: "1.4.0"
-    checkout jhipster_upgrade
-    commit id: "fix(8.1.1): npx jhipster upgrade"
-    checkout main
-    merge jhipster_upgrade tag: "1.4.1"
-    commit id: "test: controller"
-```
-
 (this image comes from Mermaid [GitHub Gist](https://gist.github.com/timothystone/aa5bcd27d1ede5a08a7065e2e1a1cb77) )
 
 Please note that the `jhipster_upgrade` branch will be created orphan on your project, although it doesn't display correctly on the above graph.
