@@ -117,6 +117,15 @@ If you want to join the team, or see how we work, our community rules are at the
     </div>
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/6011616?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Renan Franca</h3>
+                <p><a href="https://twitter.com/renan_afranca"><i>@renan_afranca</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/66230?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Zsombor Gegesy</h3>
@@ -129,8 +138,10 @@ If you want to join the team, or see how we work, our community rules are at the
             <img src="https://avatars.githubusercontent.com/u/203401?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Frederik Hahne</h3>
-                <p><a href="https://mastodon.social/@atomfrede"><i>@atomfrede@mastodon.social</i></a></p>
-                <p><a href="https://twitter.com/atomfrede"><i>@atomfrede</i></a></p>
+                <p>
+                    <a href="https://mastodon.social/@atomfrede" small><i>@atomfrede@mastodon.social</i></a>
+                    <a href="https://twitter.com/atomfrede"><i>@atomfrede</i></a>
+                </p>
             </div>
         </div>
     </div>
