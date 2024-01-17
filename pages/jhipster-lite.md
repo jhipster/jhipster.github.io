@@ -33,7 +33,7 @@ The original JHipster and JHLite are **not the same thing**, they are **not gene
 
 An online version is available at [lite.jhipster.tech][Online version]. Generate your first project!
 
-Join us on [GitHub][GitHub repository]! You will be able to run your JHipster lite instance locally.
+Join us on [GitHub][GitHub repository]! You will be able to run your JHipster Lite instance locally.
 
 [Hexagonal Architecture]: https://github.com/jhipster/jhipster-lite/blob/main/documentation/hexagonal-architecture.md
 [Online version]: https://lite.jhipster.tech
