@@ -4,7 +4,7 @@ title: Deploying to Microsoft Azure
 permalink: /azure/
 sitemap:
     priority: 0.7
-    lastmod: 2018-08-24T00:00:00-00:00
+    lastmod: 2023-12-19T00:00:00-00:00
 ---
 
 # <i class="fa fa-cloud-upload"></i> Deploying to Microsoft Azure
@@ -45,7 +45,3 @@ You can also create a new JHipster application with built-in azd deployment to A
         <p>Published on 26 Sep 2023</p>
     </div>
 </div>
-
-## [Deprecated] Deploying using the "azure" sub-generator
-
-JHipster still has an "azure" sub-generator, which is documented in our previous versions, but it is deprecated.
