@@ -304,7 +304,27 @@ The example body is returned though the HTTP Status of the response is `501 Not 
 
 ### Authentication
 
-Authentication is beyond the scope of this guide. However, review of the `demo.jhipster.security.jwt.TokenAuthenticationIT` integration test can provide some insight into testing authentication in Insomina, Postman, curl, and other HTTP tools.
+JHipster, by default, secures `/api/**` in `demo.jhipster.config.SecurityConfiguration#filterChain(HttpSecurity,  MvcRequestMatcher.Builder)` requiring authentication, e.g., `.requestMatchers(mvc.pattern("/api/**")).authenticated()`.
+
+Authentication is beyond the scope of this guide. However, review of the `demo.jhipster.security.jwt.TokenAuthenticationIT` integration test can provide some insight into testing authentication in Insomina, Postman, curl, and other HTTP tools. For example, it is possible to generate a JWT Bearer token using Docker as follows:
+
+```shell
+docker run --rm --name jwt-cli bitnami/jwt-cli encode \
+-S b64:<JHIPSTER_JWT_SECRET> \
+-P 'auth=["ROLE_ADMIN"]' \
+-e=$(date -v+60S +%s) \ # man date; produce an epoch system time + 60 seconds, macOS date command shown
+-s anonymous \
+-A HS512 \
+--no-typ
+```
+
+This will generate a Bearer token for API calls, as follows:
+
+```shell
+curl -v -H "Accept: application/json" -H "Authorization: Bearer <ENCODED_TOKEN>" http://localhost:8081/api/pets/1
+```
+
+
 
 ### Using the `openapi-client` Sub-Generator
 
