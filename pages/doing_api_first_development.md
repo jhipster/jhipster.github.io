@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Doing API-First development
-permalink: /doing-api-first-development/
+permalink: /doing-api-first-development
 redirect_from:
   - /doing-api-first-development.html
 sitemap:
