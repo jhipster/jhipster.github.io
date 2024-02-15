@@ -11,19 +11,28 @@ sitemap:
 
 # <i class="fa fa-search"></i> Doing API-First development
 
-When generating a JHipster application, when prompted for additional technologies choose the `API first development using OpenAPI-generator` option to leverage the [OpenAPI-generator](https://github.com/OpenAPITools/openapi-generator).
+When generating a JHipster application and prompted "Which other technologies would you like to use?" choose the `API first development using OpenAPI-generator` option to leverage the [OpenAPI-generator](https://github.com/OpenAPITools/openapi-generator), as shown below:
 
-This option will configure the build tool, Maven or Gradle, to use the plugin to generate API code from an OpenAPI (Swagger) definition file. Both Swagger v2 and OpenAPI v3 formats are supported.
+```shell
+# ... other prompts answered ...
+? Which other technologies would you like to use? (Press <space> to select, <a> to toggle all, <i> to invert selection, 
+and <enter> to proceed)
+ ◯ Apache Kafka as asynchronous messages broker
+ ◯ Apache Pulsar as asynchronous messages broker
+❯◉ API first development using OpenAPI-generator
+```
+
+This option will configure the build tool, Maven or Gradle, to use the openapi-generator-maven-plugin to generate API code from an OpenAPI (Swagger) Specification (OAS) file. Both Swagger v2 and OpenAPI v3 formats are supported.
 
 ## Rationale for API-First development
 
-In API first development, instead of generating the documentation from the code, the API specification is written first and then code is generated from the specification.
+In API first development, also called "Contract First Development," the API specification is written first and then code is generated from the API specification. Contrast this with generating the documentation from the code.
 
-This provides the following advantages:
+API first development provides the following advantages:
 
 - The API is designed for the consumers and not as a consequence of the implementation.
 - The specification file can be used to mock new server endpoints in development further decoupling the frontend and backend.
-- Use of the OpenAPI documentation does not require a live server.
+- Use of the specification file does not require a live server.
 
 ## Default Configuration
 
@@ -64,17 +73,21 @@ The plugin's default configuration is shown below (Maven) and defined in the pro
 </plugin>
 ```
 
-## Using the openapi-generator plugin
+> ℹ️ JHipster users are always encouraged to adapt the build tooling to the specifics of the environment or the standards adopted within an organization. JHipster puts a project on the right foundation with tools and practices that have been tested at scale. If the JHipster's use of the Spring Delegate pattern is not the standard for an organization the `configOption:delegatePattern` can be removed (the default is `false`).
+>
+> As always, users are expected to understand the implications of changes to JHipster's default behavior. Just as JHipster cannot teach users how to use Spring, changes to Spring may result in behavior that cannot not be documented by JHipster.
 
-The OpenAPI Specification (OAS) file is read by the generator from the defined file in the plugin's `inputSpec` element. JHipster's default file is located at `src/main/resources/swagger/api.yml`. The plugin generates an interface from the OAS for implementation. The interfaces have default methods which respond with a `501 Not implemented` HTTP status and an empty body.
+## Using the openapi-generator-maven-plugin
+
+The OpenAPI Specification (OAS) file is read by the generator from the defined file in the plugin's `inputSpec` element. JHipster's default location for the OAS is `src/main/resources/swagger/api.yml`. The plugin generates interfaces and Data Transfer Objects (DTOs) from the OAS for implementation. The interfaces have default methods which respond with a `501 Not implemented` HTTP status and an empty body.
 
 ### Developing an API with the OpenAPI Specification 
 
-This guide will use the classic Pet Store specification from OpenAPI for simplicity as writing an OAS is beyond the scope of this guide. Using a tool such as [swagger-editor](http://editor.swagger.io), API developers can write an OAS and place it in `src/main/resources/swagger/api.yml`. 
+This guide will use the classic Pet Store specification from OpenAPI for simplicity as writing an OAS is beyond the scope of this guide. API developers can write an OAS and place it in `src/main/resources/swagger/api.yml` using a tool such as [swagger-editor](http://editor.swagger.io). Many IDEs provide OAS tools for editing as well.
 
 #### Pro Tip
 
-JHipster, when choosing `API first development using OpenAPI-generator` provides a Docker Compose descriptor for the Swagger Editor at `src/main/docker/swagger-editor.yml`. To use this editor locally, run `docker compose -f src/main/docker/swagger-editor.yml up -d`.
+JHipster, when choosing `API first development using OpenAPI-generator`, provides a Docker Compose descriptor for the Swagger Editor at `src/main/docker/swagger-editor.yml`. To use this editor locally, run `docker compose -f src/main/docker/swagger-editor.yml up -d`.
 
 ### JHipster's Layered Architecture and Technical Structure Tests by ArchUnit
 
@@ -126,6 +139,8 @@ target/generated-sources
                                 └── PetsApiDelegate.java
 ```
 
+> ⚠️The OpenAPI Generator is responsible for the creation of DTOs ("models") and delegates. Implementations MUST not be placed in the `target/generated-sources`. These classes are subject to generation at anytime and SHOULD NOT be committed to source control.
+ 
 ### Implementation
 
 The following steps will be repeated as needed for each delegate implementation:
@@ -144,7 +159,7 @@ Create the `api` package in the `web` layer, i.e., `mkdir -p src/main/java/demo/
 
 ##### Override the methods of the PetApi
 
-The OpenAPI Generator creates `@RequestMapping` methods in the `PetApi` interface for each `paths` element defined in the OAS by the `operationId`. The writing of the OAS is beyond the scope of this guide, but observe in the `PetApi` each `@RequestMapping` annotation and the generated method. A notable example is the `operationId: find by pet id` and the resulting interface method of `findPetById`, overridden in the example that follows:
+The OpenAPI Generator creates `@RequestMapping` methods in the `demo.jhipster.web.api.PetApi` interface for each `paths` element defined in the OAS using the `operationId`. The writing of the OAS is beyond the scope of this guide, but observe in the `demo.jhipster.web.api.PetApi` each `@RequestMapping` annotation and the generated method. A notable example is the `operationId: find by pet id` and the resulting interface method of `findPetById`, overridden in the example that follows:
 
 ```java
 package demo.jhipster.web.api;
@@ -182,8 +197,6 @@ public class PetsApiDelegateImpl implements PetsApiDelegate {
 }
 ```
 
-> ⚠️The OpenAPI Generator is responsible for the creation of DTOs ("models") and delegates. Implementations MUST not be placed in the `target/generated-sources`. These classes are subject to generation at anytime and SHOULD NOT be part committed to source control. 
-
 ##### Pro Tip
 
 If the OpenAPI Generator is not producing the types or code desired, review the documentation. The JHipster default settings are generically adapted to most APIs. Consider reviewing the `importMappings` and `typeMappings` [options of the provided plugin](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin) for additional flexibility.
@@ -204,9 +217,9 @@ curl -H "Accept: application/json" http://localhost:8081/api/pets/1
 
 ### Mocking Endpoints in Development
 
-Providing the `NativeWebRequest` bean to the Delegate interface provides example response bodies for the methods that have not been overridden. The endpoints still respond with a `501 Not Implemented` HTTP status code, but this may be useful for mocking endpoints before the actual implementation.
+Providing the `NativeWebRequest` bean to the Delegate interface can return example response bodies for the methods that have not been overridden. The endpoints still respond with a `501 Not Implemented` HTTP status code, but the example response may be useful for mocking endpoints before the actual implementation.
 
-> ℹ️The OAS sample provides example bodies as expected. The `schemas` for each operation MUST define an `example` for the OpenAPI Generator to produce the response bodies. The following snippet is helpful:
+> ℹ️ The OAS sample provides example bodies as documented. The `schemas` for each operation MUST define an `example` for the OpenAPI Generator to produce the response bodies. The following snippet is helpful:
 
 ```yaml
 # ...
@@ -225,7 +238,11 @@ components:
 
 #### Override the default constructor of the Delegate Implementation
 
-With the OAS properly defined, add the `NativeWebRequest` to the implementation follows and provide a constructor, overriding the default No Args constructor:
+With the OAS properly defined, add the `NativeWebRequest` to the implementation as shown below. Each step is shown in the example implementation below and follows:
+
+1. Add `NativeWebRequest request` property to the implementation.
+2. Override the default no-args constructor,`public PetsApiDelegateImpl(NativeWebRequest request){...}`
+3. Override the `demo.jhipster.web.api.PetsApiDelegate#getRequest()` returning the `Optional<NativeWebRequest>`.
 
 ```java
 package demo.jhipster.web.api;
@@ -323,8 +340,6 @@ This will generate a Bearer token for API calls, as follows:
 ```shell
 curl -v -H "Accept: application/json" -H "Authorization: Bearer <ENCODED_TOKEN>" http://localhost:8081/api/pets/1
 ```
-
-
 
 ### Using the `openapi-client` Sub-Generator
 
