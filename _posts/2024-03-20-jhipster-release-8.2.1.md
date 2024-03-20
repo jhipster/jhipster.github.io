@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Release 8.2.0
+title: Release 8.2.1
 ---
 
-# JHipster release v8.2.0
+# JHipster release v8.2.1
 
-This is our minor release for JHipster v8.
+This is our minor release for JHipster v8. Please note that 8.2.1 is a patch release for 8.2.0, as 8.2.0 is deprecated due to a compilation error bug.
 
-It includes [1104 closed issues and pull requests on the main project](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.2.0) after the 8.1.0 release.
+It includes [1104 closed issues and pull requests on the main project](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.2.1) after the 8.1.0 release.
 
 ## What's new?
 
@@ -32,11 +32,11 @@ It includes [1104 closed issues and pull requests on the main project](https://g
 
 ## Closed tickets and merged pull requests
 
-As always, **[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.2.0)**.
+As always, **[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.2.1)**.
 
 ## How to install
 
-To install JHipster v8.2.0 using using NPM:
+To install JHipster v8.2.1 using using NPM:
 
     npm install -g generator-jhipster
 
