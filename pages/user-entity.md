@@ -56,7 +56,7 @@ entity ApplicationUser {
 }
 
 relationship OneToOne {
-  ApplicationUser{internalUser} to User
+  ApplicationUser{internalUser(login)} to @OnDelete("CASCADE") @Id User with builtInEntity
 }
 ```
 
