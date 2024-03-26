@@ -28,7 +28,7 @@ The board meets quarterly, with the ability to meet more frequently if needed.
 Current members:
 * Julien Dubois (Microsoft)
 * Deepu K Sasidharan (Okta)
-* Matt Raible (Okta)
+* Matt Raible
 * Paul Hinz
 * Alina Yurenko (Oracle)
 

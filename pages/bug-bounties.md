@@ -15,7 +15,7 @@ Any ticket opened on the [JHipster bug tracker](https://github.com/jhipster/gene
 ## Who can create bug bounties?
 
 - [Silver, gold and platinum sponsors]({{ site.url }}/sponsors/)
-- The three [core team project leads]({{ site.url }}/team/), [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) and [@pascalgrimaud](https://github.com/pascalgrimaud).
+- The [project leads]({{ site.url }}/team/#project-leads) and [governing body]({{ site.url }}/team/#governing-body).
 
 ## How much is a bug bounty?
 
@@ -35,15 +35,15 @@ Happy bug hunting :-)
 
 Once a ticket is created, it can get the bug bounty label by two actions:
 
-- a silver or gold sponsor adds a comment asking to add the bug bounty label and mentioning [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) or [@pascalgrimaud](https://github.com/pascalgrimaud) on GitHub.
-- [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) or [@pascalgrimaud](https://github.com/pascalgrimaud) directly add the bug bounty label, as they believe it is an important new feature, a critical bug, a long-standing issue, or a time-consuming task. If you are working on an issue and if you think it deserves a bounty don't hesitate to ask one of the project leads.
+- a silver or gold sponsor adds a comment asking to add the bug bounty label and mentioning one of the [project leads]({{ site.url }}/team/#project-leads) on GitHub.
+- [project leads]({{ site.url }}/team/#project-leads) and [governing body]({{ site.url }}/team/#governing-body) directly add the bug bounty label, as they believe it is an important new feature, a critical bug, a long-standing issue, or a time-consuming task. If you are working on an issue and if you think it deserves a bounty don't hesitate to ask one of the project leads.
 
 To be valid, the bug bounty should then have the [\$\$ bug-bounty \$\$](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24) label added by either
-[@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) or [@pascalgrimaud](https://github.com/pascalgrimaud). It should also have a "$100", "$200", "$300" or "$500" label to tell how much it is worth, but if that tag has been forgotten, it is by default worth "$100".
+[project leads]({{ site.url }}/team/#project-leads) or [governing body]({{ site.url }}/team/#governing-body). It should also have a "$100", "$200", "$300" or "$500" label to tell how much it is worth, but if that tag has been forgotten, it is by default worth "$100".
 
 ## How to get the money
 
-Once a bug bounty is created, anybody can propose a fix (even [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) and [@pascalgrimaud](https://github.com/pascalgrimaud)!). Our goal is to spend that money so that something is fixed as quickly as possible.
+Once a bug bounty is created, anybody can propose a fix (even the [project leads]({{ site.url }}/team/#project-leads) and [governing body]({{ site.url }}/team/#governing-body)!). Our goal is to spend that money so that something is fixed as quickly as possible.
 
 In order to claim the money, you must:
 
@@ -52,4 +52,4 @@ In order to claim the money, you must:
 - That Pull Request must be merged by someone from the core team. If there are several Pull Requests, the core team member either selects the most recent one or the best one - that's up to the team member to decide what is best for the project.
 - You can then [add a $100, $200, $300 or $500 expense on the JHipster OpenCollective](https://opencollective.com/generator-jhipster/expenses/new). You must add a link to your Pull Request in the description (for example: `$100 bug bounty claim for https://github.com/jhipster/generator-jhipster/pull/1234`).
 - Then, you must add a comment on your Pull Request, telling that you claimed the money, with a link to your OpenCollective expense. This is to be sure it is the same person who fixed the issue and claimed the money.
-- That expense will then be validated by [@jdubois](https://github.com/jdubois), [@deepu105](https://github.com/deepu105) or [@pascalgrimaud](https://github.com/pascalgrimaud), and you will receive your money on your Paypal account.
+- That expense will then be validated by the [project leads]({{ site.url }}/team/#project-leads) or [governing body]({{ site.url }}/team/#governing-body), and you will receive your money on your Paypal account.
