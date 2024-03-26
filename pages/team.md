@@ -5,8 +5,8 @@ permalink: /team/
 redirect_from:
   - /team.html
 sitemap:
-    priority: 0.7
-    lastmod: 2023-12-19T17:10:00-00:00
+  priority: 0.7
+  lastmod: 2023-12-19T17:10:00-00:00
 ---
 
 # <i class="fa fa-coffee"></i> Team
@@ -15,14 +15,24 @@ JHipster is developed by a team of people around the world. We have a lot of con
 
 If you want to join the team, or see how we work, our community rules are at the end of this page.
 
-## Project leads
+## JHipster Governance Structure
+
+JHipster is an open-source project, and we have a governance structure to ensure that the project is well maintained and that the community is well served. The governance structure is as follows:
+
+- **[JHipster Developer Association](https://www.jhipster.tech/association/#-jhipster-developers-association)**: A French non-profit association (“Association loi 1901”) which serves as a legal entity for JHipster events and services.
+- **Governing Body**: Advisory body overseeing all projects under the JHipster organizations and JHipster Developer Association. The Governing Body is responsible for the overall direction of the project.
+- **Project Leads**: Leads are responsible for the day-to-day management of the project. Leads have admin rights and are responsible for releases.
+- **Board of Developers**: The core team of developers who have write access to the main repository and have voting rights when it comes to project decisions.
+
+## Governing Body
+
 <div class="row">
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/316835?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Julien Dubois</h3>
-                <p>Project lead</p>
+                <p>Founder and Chair, President of JHipster Developer Association</p>
                 <p><a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a></p>
             </div>
         </div>
@@ -32,7 +42,7 @@ If you want to join the team, or see how we work, our community rules are at the
             <img src="https://avatars.githubusercontent.com/u/1107223?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Deepu K Sasidharan</h3>
-                <p>Project co-lead</p>
+                <p>Co-Chair, Vice President of JHipster Developer Association</p>
                 <p><a href="https://twitter.com/deepu105"><i>@deepu105</i></a></p>
             </div>
         </div>
@@ -42,18 +52,43 @@ If you want to join the team, or see how we work, our community rules are at the
             <img src="https://avatars.githubusercontent.com/u/9156882?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Pascal Grimaud</h3>
-                <p>Project co-lead</p>
+                <p>Co-Chair, Vice President of JHipster Developer Association</p>
                 <p><a href="https://twitter.com/pascalgrimaud"><i>@pascalgrimaud</i></a></p>
             </div>
         </div>
     </div>
+</div>
+
+## Project leads
+
+<div class="row">
     <div class="col-xs-3 team-member">
         <div class="thumbnail no-margin-bottom">
             <img src="https://avatars.githubusercontent.com/u/3706415?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Daniel Franco</h3>
-                <p>Project co-lead</p>
+                <p>JHipster co-lead</p>
                 <p><a href="https://twitter.com/dandrfranco"><i>@dandrfranco</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/17892?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Matt Raible</h3>
+                <p>JHipster co-lead</p>
+                <p><a href="https://twitter.com/mraible"><i>@mraible</i></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 team-member">
+        <div class="thumbnail no-margin-bottom">
+            <img src="https://avatars.githubusercontent.com/u/9156882?v=3" class="img-responsive">
+            <div class="caption">
+                <h3>Pascal Grimaud</h3>
+                <p>JHipster Lite Lead</p>
+                <p><a href="https://twitter.com/pascalgrimaud"><i>@pascalgrimaud</i></a></p>
             </div>
         </div>
     </div>
@@ -315,7 +350,7 @@ JHipster supports a wide range of technology choices for your application and as
 The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/1fac4Uxv3bKr0rNmgg1WXv67CE_6nfHEPIuCp-_iU-uA/edit?usp=sharing)
 
 | Stream                              | Leader             |
-|-------------------------------------|--------------------|
+| ----------------------------------- | ------------------ |
 | Angular                             | William Marques    |
 | React                               | Sendil Kumar N     |
 | VueJS                               |                    |
@@ -342,8 +377,6 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | Docker                              | Pascal Grimaud     |
 | Cassandra                           | Cedrick Lunven     |
 | OpenAPI                             | Christophe Bornet  |
-
-
 
 ## Retired members of the board of developers
 
@@ -463,6 +496,7 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 We do most of our work on [the project's GitHub page](https://github.com/jhipster/generator-jhipster).
 
 Internal team discussions happen in the following channels:
+
 - The [jhipster-dev mailing list](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)
 - The [jhipster-dev-team Gitter chat](https://gitter.im/jhipster/jhipster-dev-team)
 
@@ -473,13 +507,13 @@ Those discussion channels are publicly viewable, as everything we do in JHipster
 - Participate regularly in the project (commits, PRs, etc)
 - Ask someone from the current board, with some bio and background information, and that person will submit a vote on the dev mailing list
 - Everybody on the dev mailing list can vote (+1 if they agree, -1 if they don’t)
-    - One “-1” vote will decline adding the new member, but the person who votes “-1” will need to explain why
+  - One “-1” vote will decline adding the new member, but the person who votes “-1” will need to explain why
 
 # What do people in the board of developers gain?
 
 - Write access to the main repository, and to most of the projects under the [JHipster organization](https://github.com/jhipster).
 - Costs associated with the project (for example travel costs to come to a JHipster conference) can be paid by [our OpenCollective account](https://opencollective.com/generator-jhipster). This depends on the money available on the account,
-and this is decided and validated by the project leads.
+  and this is decided and validated by the project leads.
 - Free licenses and free quotas that the project regularly gets from friendly companies.
 
 # Who are the "retired members of the board of developers"?
