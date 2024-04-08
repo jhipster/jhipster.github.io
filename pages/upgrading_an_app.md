@@ -71,7 +71,6 @@ First, using Node 16, run `jhipster-migrate --verbose` and specify 7.9.4 as the 
 Next, resolve conflicts and make sure you have a working 7.9.4 app with passing tests. Commit all your changes. 
 
 Then, run `jhipster-migrate` to upgrade to the latest version. Resolve conflicts, commit,as and celebrate!
-Then, run `jhipster-migrate` to upgrade to the latest version. Resolve conflicts, commit,as and celebrate!
 
 For a working example, see the following pull requests from the 21-Points Health project.
 
