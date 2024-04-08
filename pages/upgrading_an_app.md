@@ -4,7 +4,7 @@ title: Updating an application
 permalink: /upgrading-an-application/
 sitemap:
     priority: 0.7
-    lastmod: 2014-06-02T00:00:00-00:00
+    lastmod: 2024-04-08T00:00:00-00:00
 gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 ---
 
@@ -17,7 +17,7 @@ gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 
 <h2 id="automatic_upgrade">Option 1 - automatic upgrade</h2>
 
-When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrading an existing application to this new version, without erasing your changes.
+When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrade an existing application to this new version, without erasing your changes.
 
 This is helpful to:
 
@@ -61,6 +61,21 @@ If you are doing the upgrade more than once you could consider to first upgrade 
 	git checkout master
 
 With doing the above you upgrade the jhipster_upgrade tree with your latest changes so JHipster can make use of that during the upgrade. For example when you changed your model.
+
+### Upgrading from JHipster 7 and previous versions
+
+The upgrade sub-generator is a light version of the [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate). If you need to upgrade a JHipster 7 app, it's recommended you use the migrate blueprint. For example, let's assume you have a 7.9.3 app.
+
+First, using Node 16, run `jhipster-migrate --verbose` and specify 7.9.4 as the target version.
+
+Next, resolve conflicts make sure you have a working 7.9.4 app with passing tests. 
+
+Then, run `jhipster-migrate` to upgrade to the latest version. Resolve conflicts and celebrate!
+
+For a working example, see the following pull requests from the 21-Points Health project.
+
+- [Upgrade to JHipster 7.9.4](https://github.com/mraible/21-points/pull/248)
+- [Upgrade to JHipster 8.2.1](https://github.com/mraible/21-points/pull/249)
 
 ### Graphical view of the upgrade process
 
