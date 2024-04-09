@@ -66,11 +66,7 @@ With doing the above you upgrade the jhipster_upgrade tree with your latest chan
 
 The [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) is an advanced version of the upgrade sub-generator. If you need to upgrade a JHipster 7 app, it's recommended you use the migrate blueprint. For example, let's assume you have a 7.9.3 app.
 
-First, using Node 16, run `jhipster-migrate --verbose` and specify 7.9.4 as the target version.
-
-Next, resolve conflicts and make sure you have a working 7.9.4 app with passing tests. Commit all your changes. 
-
-Then, run `jhipster-migrate` to upgrade to the latest version. Resolve conflicts, commit, and celebrate!
+Run `jhipster-migrate` to upgrade to the latest version. Resolve conflicts, commit, and celebrate!
 
 For a working example, see the following pull requests from the 21-Points Health project.
 
