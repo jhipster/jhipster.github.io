@@ -174,7 +174,19 @@ relationship ManyToOne {
    A to @OnDelete("SET NULL") @OnUpdate("CASCADE") B
 }
 ```
+Note: 
 
+In Hibernate/JPA, deleting a parent entity in a many-to-one relationship with child entities depends on the relationship configuration and cascading behavior.
+
+Cascading Delete: When enabled, deleting the parent automatically deletes its associated children. This is achieved using CascadeType.REMOVE in the @OneToMany annotation on the parent entity class.
+```
+@OneToMany(mappedBy = "parent", cascade = CascadeType.REMOVE)
+private List<ChildEntity> children;
+```
+No Cascading Delete: If not enabled, deleting a parent with children will result in a foreign key constraint violation. You must manually remove or disassociate the children before deleting the parent.
+Use cascading delete with caution as it can lead to unintended data loss.
+
+Alternative for Preventing Delete Error: Use the @OnDelete annotation in JDL which will configure the database schema for cascading delete or add cascade = CascadeType.REMOVE to the generated Java code (if applicable).
 ---
 
 #### With required sides
