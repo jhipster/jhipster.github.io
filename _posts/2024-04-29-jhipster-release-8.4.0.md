@@ -15,11 +15,11 @@ It includes [224 closed issues and pull requests on the main branch](https://git
 - Update Codec for Redis to fix `LazyInitializationException` ([#25988](https://github.com/jhipster/generator-jhipster/pull/25988))
 - Use custom CSRF handler to provide BREACH protection ([#25907](https://github.com/jhipster/generator-jhipster/pull/25907))
 - Fix Spring Boot profiles to inherit from Spring Boot parent ([#25980](https://github.com/jhipster/generator-jhipster/pull/25980))
-- Remove `LocaleConfiguration` that's no longer needed ([#23818](https://github.com/jhipster/generator-jhipster/pull/23818))
 - Add support for homepage customizations in blueprints ([#25943](https://github.com/jhipster/generator-jhipster/pull/25943))
 
 ### :computer: Frontend
 
+- [Angular] Remove `LocaleConfiguration` that's no longer needed ([#23818](https://github.com/jhipster/generator-jhipster/pull/23818))
 - [Node] Upgrade to Node 20.12.2 ([#25801](https://github.com/jhipster/generator-jhipster/pull/25801))
 
 ### :scroll: Others
