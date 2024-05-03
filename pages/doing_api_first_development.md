@@ -151,7 +151,7 @@ The following steps will be repeated as needed for each delegate implementation:
 
 #### Implement the Delegate
 
-This might be called a Controller or Handler. The implementation class will use the Spring `@Component` annotation.
+The implementation class will use the Spring `@Service` annotation.
 
 ##### Create the API package
 
@@ -167,12 +167,12 @@ package demo.jhipster.web.api;
 import demo.jhipster.service.api.dto.Pet;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class PetsApiDelegateImpl implements PetsApiDelegate {
     
     private final List<Pet> pets = new ArrayList<>();
@@ -248,9 +248,9 @@ With the OAS properly defined, add the `NativeWebRequest` to the implementation 
 package demo.jhipster.web.api;
 
 import demo.jhipster.service.api.dto.Pet;
-// imports trimmed fro brevity
+// imports trimmed for brevity
 
-@Component
+@Service
 public class PetsApiDelegateImpl implements PetsApiDelegate {
 
     private final NativeWebRequest request;
