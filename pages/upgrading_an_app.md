@@ -39,28 +39,15 @@ Go into the application's root directory:
 
 To upgrade your application, type:
 
-`npx generator-jhipster@latest upgrade`
+```
+npm install -g generator-jhipster@latest
+jhipster upgrade
+```
 
 Here are the options you can pass:
 
-* `--verbose` - Log each step of the upgrade process in detail
-* `--target-version 6.6.0` - Upgrade to the target version of JHipster instead of the latest release, useful if a project is several versions behind
-* `--target-blueprint-versions kotlin@1.4.0,vuejs@1.3.0` - Upgrade to the target blueprints version instead of the latest release of each blueprint. The target version of a blueprint should however be compatible with the target JHipster version. 
-* `--force` - Run the upgrade sub-generator even if no new JHipster version is available
 * `--skip-checks` - Disable checks during project regeneration
-* `--skip-install` - Skips installing dependencies during the upgrade process
 * `--silent` - Hides output of the generation process
-
-If you are doing the upgrade more than once you could consider to first upgrade the JHipster tree like this:
-	
-    git checkout jhipster_upgrade
-	git checkout --patch master .yo-rc.json
-	git checkout --patch master .jhipster
-	git commit -a
-	git push --set-upstream origin jhipster_upgrade
-	git checkout master
-
-With doing the above you upgrade the jhipster_upgrade tree with your latest changes so JHipster can make use of that during the upgrade. For example when you changed your model.
 
 ### Upgrading from JHipster 7 and previous versions
 
