@@ -39,7 +39,7 @@ Go into the application's root directory:
 
 To upgrade your application, type:
 
-`npx jhipster upgrade`
+`npx generator-jhipster@latest upgrade`
 
 Here are the options you can pass:
 
