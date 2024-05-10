@@ -39,6 +39,10 @@ Go into the application's root directory:
 
 To upgrade your application, type:
 
+`npx generator-jhipster@latest upgrade`
+
+An alternative is to use global instalation:
+
 ```
 npm install -g generator-jhipster@latest
 jhipster upgrade
