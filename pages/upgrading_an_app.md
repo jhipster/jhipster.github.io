@@ -41,7 +41,7 @@ To upgrade your application, type:
 
 `npx generator-jhipster@latest upgrade`
 
-An alternative is to use global instalation:
+An alternative is to use global installation:
 
 ```
 npm install -g generator-jhipster@latest
