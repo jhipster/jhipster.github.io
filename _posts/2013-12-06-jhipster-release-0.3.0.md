@@ -43,5 +43,5 @@ Help and bugs
 
 If you find any issue with this release, don't hesitate to:
 
-- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
+- Contact [@jhipster](https://twitter.com/jhipster) on X
 - Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)

@@ -11,7 +11,7 @@ sitemap:
 
 # <i class="fa fa-file-text-o"></i> Release notes
 
-To get the latest JHipster news, please follow us on Twitter: [@jhipster](https://twitter.com/jhipster)
+To get the latest JHipster news, please follow us on X: [@jhipster](https://twitter.com/jhipster)
 
 {% for post in site.posts %}
   {% assign split_post_title = post.title | split: "Release " %}

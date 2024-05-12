@@ -19,7 +19,7 @@ What an incredible journey it has been! In just 10 months, the project has reach
 
 For our next minor releases we will still focus on stability and compatibility between all the options that are provided by JHipster. We have found very useful to have the same workflow and project structure, whereas you use Maven/Grunt/MySQL or Gradle/Gulp.js/MongoDB/Atmosphere. This allows different teams and projects to work better together.
 
-Thank you to all our contributors and users! If you like our project, please give us a star on GitHub, and follow us on Twitter!
+Thank you to all our contributors and users! If you like our project, please give us a star on GitHub, and follow us on X!
 
 How to upgrade
 ------------
@@ -41,6 +41,6 @@ Help and bugs
 
 If you find any issue with this release, don't hesitate to:
 
-- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
+- Contact [@jhipster](https://twitter.com/jhipster) on X
 - Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
 - Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)

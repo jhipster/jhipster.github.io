@@ -20,7 +20,7 @@ Lots of new features and bug fixes in this new release!
 
 Our biggest news is the new AngularJS code for our entities, thanks to [gzsombor](https://github.com/gzsombor) in PR  [#1372](https://github.com/jhipster/generator-jhipster/pull/1372)). Entities have now an easier-to-read code and better URLs. This can of course still be improved, don't hesitate to send us feedback!
 
-One long-standing and really annoying issue with Jadira (see [#1626](https://github.com/jhipster/generator-jhipster/issues/1626)) is finally fixed: many thanks to [@chrisphe](https://twitter.com/chrisphe), the Jadira lead developer, who did the 4.0.0.GA release just for us, only a few hours after we asked it on Twitter!
+One long-standing and really annoying issue with Jadira (see [#1626](https://github.com/jhipster/generator-jhipster/issues/1626)) is finally fixed: many thanks to [@chrisphe](https://twitter.com/chrisphe), the Jadira lead developer, who did the 4.0.0.GA release just for us, only a few hours after we asked it on X!
 
 We upgraded to Swagger 2, now called "SpringFox", see [#1508](https://github.com/jhipster/generator-jhipster/issues/1508), and this allowed us to solve another long-standing issue with date handling in swagger, see [#1515](https://github.com/jhipster/generator-jhipster/issues/1515).
 
@@ -54,6 +54,6 @@ Help and bugs
 
 If you find any issue with this release, don't hesitate to:
 
-- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
+- Contact [@jhipster](https://twitter.com/jhipster) on X
 - Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
 - Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)

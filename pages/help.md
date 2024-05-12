@@ -39,7 +39,7 @@ Join our chat room on [Gitter.im](https://gitter.im/jhipster/generator-jhipster)
 
 ## If there is some urgent news you need to share
 
-Mention [@jhipster](https://twitter.com/jhipster) on Twitter.
+Mention [@jhipster](https://twitter.com/jhipster) on X.
 
 ## If you want to see what the core team is doing
 
