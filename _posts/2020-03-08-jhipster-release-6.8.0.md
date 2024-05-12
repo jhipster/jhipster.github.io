@@ -91,4 +91,4 @@ If you find any issue with this release, don't hesitate to:
 
 If the issue you have is an urgent bug or security issue, please:
 
-- Contact [@jhipster](https://twitter.com/jhipster) on X
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter

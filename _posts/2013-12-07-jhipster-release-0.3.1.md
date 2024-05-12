@@ -33,5 +33,5 @@ Help and bugs
 
 If you find any issue with this release, don't hesitate to:
 
-- Contact [@jhipster](https://twitter.com/jhipster) on X
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
 - Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
