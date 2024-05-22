@@ -1,76 +1,78 @@
 ---
 layout: default
-title: JHipster Domain Language - Entities & fields
+title: Langage de Domaine JHipster (JDL) - Entités & champs
 permalink: /jdl/entities-fields
 sitemap:
     priority: 0.5
     lastmod: 2019-10-27T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Entities
+# <i class="fa fa-star"></i> Langage de Domaine JHipster (JDL) - Entités
 
-## Summary
+## Sommaire
 
-1. [Syntax](#syntax)
-1. [Examples](#examples)
-   1. [Basic example](#basic-example)
-   1. [With a custom table name](#with-a-custom-table-name)
-   1. [With fields](#with-fields)
-   1. [With field validations](#with-field-validations)
-   1. [Blob declaration](#blob-declaration)
-   1. [Regular expressions](#regular-expressions)
-   1. [Commenting](#commenting)
-1. [Field types and validations](#field-types-and-validations)
+1. [Syntaxe](#syntaxe)
+1. [Exemples](#exemples)
+   1. [Exemple de base](#exemple-de-base)
+   1. [Avec un nom de table personnalisé](#avec-un-nom-de-table-personnalisé)
+   1. [Avec des champs](#avec-des-champs)
+   1. [Avec des validations de champ](#avec-des-validations-de-champ)
+   1. [Déclaration de Blob](#déclaration-de-blob)
+   1. [Expressions régulières](#expressions-régulières)
+   1. [Commentaire](#commentaire)
+1. [Types de champs et validations](#types-de-champs-et-validations)
 
 ---
 
-### Syntax
+### Syntaxe
 
-The entity declaration is done as follows:
+La déclaration d'entité se fait comme suit :
 ```
-[<entity javadoc>]
-[<entity annotation>*]
-entity <entity name> [(<table name>)] {
-  [<field javadoc>]
-  [<field annotation>*]
-  <field name> <field type> [<validation>*]
+[<javadoc de l'entité>]
+[<annotation de l'entité>]
+entity <nom de l'entité> [(<nom de la table>)] {
+[<javadoc du champ>]
+[<annotation du champ>]
+<nom du champ> <type du champ> [<validation>*]
 }
 ```
 
-  - `<entity name>` the name of the entity,
-  - `<field name>` the name of one field of the entity,
-  - `<field type>` the JHipster supported type of the field,
-  - and as an option:
-    - `<entity javadoc>` the documentation of the entity,
-    - `<entity annotation>` the options for the entity (see [OptionsEntity][] for a complete list of available options),
-    - `<table name>` the database table name (if you want to specify something different that the name automatically computed from the entity name),
-    - `<field javadoc>` the documentation of the field,
-    - `<field annotation>` the options for the field (see [OptionsField][] for a complete list of available options),
-    - `<validation>` the validations for the field.
+
+  - `<nom de l'entité>` le nom de l'entité,
+  - `<nom du champ>` le nom d'un champ de l'entité,
+  - `<type du champ>` le type de champ supporté par JHipster,
+  - et en option :
+    - `<javadoc de l'entité>` la documentation de l'entité,
+    - `<annotation de l'entité>` les options pour l'entité (voir [OptionsEntity][] pour une liste complète des options disponibles),
+    - `<nom de la table>` le nom de la table de la base de données (si vous souhaitez spécifier un nom différent de celui automatiquement calculé à partir du nom de l'entité),
+    - `<javadoc du champ>` la documentation du champ,
+    - `<annotation du champ>` les options pour le champ (voir [OptionsField][] pour une liste complète des options disponibles),
+    - `<validation>` les validations pour le champ.
 
 ---
 
-### Examples
+### Exemples
 
-#### Basic example
+#### Exemple de base
 
 ```jdl
 entity A
+
 ```
 
-This is equivalent to:
+Ceci équivaut à :
 
 ```jdl
 entity A(a) {}
 ```
 
-The former the simpler form, without specifying a "body" (braces for fields) and a table name.
+La première forme est plus simple, sans spécifier de "corps" (accolades pour les champs) ni de nom de table.
 
 ---
 
-#### With a custom table name
+#### Avec un nom de table personnalisé
 
-Specifying a custom table name is possible too:
+Il est également possible de spécifier un nom de table personnalisé :
 
 ```jdl
  entity A(my_super_entity)
@@ -78,7 +80,7 @@ Specifying a custom table name is possible too:
 
 ---
 
-#### With fields
+#### Avec des champs
 
 ```jdl
 entity A {
@@ -89,7 +91,7 @@ entity A {
 
 ---
 
-#### With field validations
+#### Avec des validations de champ
 
 ```jdl
 entity A {
@@ -100,21 +102,21 @@ entity A {
 
 ---
 
-#### Blob declaration
+#### Déclaration de Blob
 
-JHipster gives a great choice as one can choose between an image type or any binary type. JDL lets you do the same.
-Create a custom type (see DataType) with the editor, name it according to these conventions:
-  - `AnyBlob` or `Blob` to create a field of the "any" binary type;
-  - `ImageBlob` to create a field meant to be an image.
-  - `TextBlob` to create a field for a CLOB (long text).
+JHipster offre un grand choix, car on peut choisir entre un type d'image ou tout type binaire. JDL vous permet de faire de même.
+Créez un type personnalisé (voir DataType) avec l'éditeur, nommez-le selon ces conventions :
+  - `AnyBlob` ou `Blob`  pour créer un champ du type binaire "any";
+  - `ImageBlob` pour créer un champ destiné à être une image.
+  - `TextBlob` pour créer un champ pour un CLOB (long texte).
 
-And you can create as many DataTypes as you like.
+Et vous pouvez créer autant de DataTypes que vous le souhaitez.
 
 ---
 
-#### Regular expressions
+#### Expressions régulières
 
-This is a certain validation (only available to String types), and its syntax is:
+Ceci est une validation spécifique (disponible uniquement pour les types String), et sa syntaxe est :
 
 ```jdl
 entity A {
@@ -122,70 +124,71 @@ entity A {
 }
 ```
 
-Let's break it down:
-  - `pattern` is the keyword to declare a regex validation (with the normal parentheses)
-  - `/.../` the pattern is declared inside two slashes
-  - `\` anti-slashes needn't be escaped
+Décomposons cela:
+  - `pattern` est le mot-clé pour déclarer une validation regex (avec les parenthèses normales)
+  - `/.../` le motif est déclaré entre deux barres obliques
+  - `\` les anti-slashs n'ont pas besoin d'être échappés
 
 ---
 
-#### Commenting
+#### Commentaire
 
-Commenting is possible in the JDL for entities and fields, and will generate documentation (Javadoc or JSDoc, depending
-on the backend).
+Les commentaires sont possibles dans le JDL pour les entités et les champs, et généreront de la documentation (Javadoc ou JSDoc, selon le backend).
 
 ```jdl
 /**
- * This is a comment
- * about a class
- * @author Someone
+ * Ceci est un commentaire
+ * à propos d'une classe
+ * @author Quelqu'un
  */
 entity A {
   /**
-   * This comment will also be used!
+   * Ce commentaire sera également utilisé !
    * @type...
    */
    name String
-   age Integer // this is yet another comment
+   age Integer // ceci est un autre commentaire
 }
+
 ```
 
-These comments will later be added as Javadoc comments by JHipster. The JDL possesses its own kind of comment:
-  - // an ignored comment
-  - /** not an ignored comment */
+Ces commentaires seront ensuite ajoutés comme commentaires Javadoc par JHipster. Le JDL possède son propre type de commentaire :
+  - // un commentaire ignoré
+  - /** un commentaire non ignoré  */
 
-Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
-Please note that the JDL Studio directives that start with `#` will be ignored during parsing.
+Par conséquent, tout ce qui commence par `//` est considéré comme un commentaire interne pour JDL et ne sera pas pris en compte comme Javadoc.
+Veuillez noter que les directives JDL Studio qui commencent par  `#` seront ignorées lors de l'analyse.
 
-Another form of comments are the following comments:
+Une autre forme de commentaires est la suivante :
 ```
 entity A {
-  name String /** My super field */
-  count Integer /** My other super field */
+  name String /** Mon super champ */
+  count Integer /** Mon autre super champ */
 }
+
 ```
 
-Here A's name will be commented with `My super field`, B with `My other super field`.
+Ici, le nom de A sera commenté avec `Mon super champ`, celui de B avec  `Mon autre super champ`.
 
-Yes, commas are not mandatory but it's wiser to have them so as not to make mistakes in the code.
-**If you want to mix commas and following comments, beware!**
+Oui, les virgules ne sont pas obligatoires, mais il est plus sage de les utiliser pour éviter les erreurs dans le code.
+**Si vous souhaitez mélanger les virgules et les commentaires suivants, attention!**
 ```
 entity A {
-  name String, /** My comment */
+  name String, /** Mon commentaire */
   count Integer
 }
 ```
-A's name won't have the comment, because the count will.
+Le nom de A n'aura pas le commentaire, car le count l'aura.
 
 ---
 
-### Field types and validations
+### Types de champs et validations
 
-Each field type has its own validation list. Here are the types supported in the JDL:
+Chaque type de champ a sa propre liste de validations. Voici les types supportés dans le JDL :
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>JDL type</th>
+    <th>Type JDL</th>
     <th>Validations</th>
   </tr>
   <tr>

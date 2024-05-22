@@ -1,96 +1,96 @@
 ---
 layout: default
-title: JHipster Domain Language - Deployments
+title: Langage de Domaine JHipster - Déploiements
 permalink: /jdl/deployments
 sitemap:
     priority: 0.5
     lastmod: 2021-07-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Deployments
+# <i class="fa fa-star"></i> Langage de Domaine JHipster (JDL) - Déploiements
 
-## Summary
+## Sommaire
 
-1. [Syntax](#syntax)
-1. [Examples](#examples)
-1. [Available deployment options](#available-deployment-options)
+1. [Syntaxe](#syntaxe)
+1. [Exemples](#exemples)
+1. [Options de déploiement disponibles](#options-de-deploiement-disponibles)
 
 ---
 
-### Syntax
+### Syntaxe
 
-The deployment declaration is done as follows:
+La déclaration de déploiement se fait comme suit :
 
 ```
 deployment {
-  <deployment option name> <deployment option value>
+  <nom de l'option de déploiement> <valeur de l'option de déploiement>
 }
 ```
 
-  - Similar to applications, deployment declaration works by specifying option keys & values
+  - Similaire aux applications, la déclaration de déploiement fonctionne en spécifiant des clés et des valeurs d'options
 
 ---
 
-### Examples
+### Exemples
 
-#### Basic example
+#### Exemple de base
 
 ```jdl
 deployment {
   deploymentType docker-compose
   appsFolders [foo, bar]
-  dockerRepositoryName "yourDockerLoginName"
+  dockerRepositoryName "votreNomDeConnexionDocker"
 }
 ```
 
 ---
 
-#### More than one deployment
+#### Plus d'un déploiement
 
-If you want more than one deployment, here's how you do it:
+Si vous souhaitez plus d'un déploiement, voici comment faire :
 
 ```
-// will be created under the 'docker-compose' folder
+// sera créé dans le dossier 'docker-compose'
 deployment {
   deploymentType docker-compose
   appsFolders [foo, bar]
-  dockerRepositoryName "yourDockerLoginName"
+  dockerRepositoryName "votreNomDeConnexionDocker"
 }
 
-// will be created under the 'kubernetes' folder
+// sera créé dans le dossier 'kubernetes'
 deployment {
   deploymentType kubernetes
   appsFolders [foo, bar]
-  dockerRepositoryName "yourDockerLoginName"
+  dockerRepositoryName "votreNomDeConnexionDocker"
 }
+
 ```
+Vous pouvez avoir un déploiement par `deploymentType`. Les applications définies dans `appsFolders` doivent se trouver dans le même dossier où vous créez les déploiements ou dans le dossier défini dans `directoryPath`.
 
-You can have one deployment per `deploymentType`. The applications defined in `appsFolders` should be in the same 
-folder where you are creating deployments or in the folder defined in `directoryPath`.
-
-For example, above you need to have a folder structure like this:
+Par exemple, ci-dessus, vous devez avoir une structure de dossiers comme ceci :
 
 ```
 .
-├── yourJdlFile.jdl
+├── votreFichierJdl.jdl
 ├── foo
 ├── bar
-├── kubernetes // will be created by the JDL
-└── docker-compose // will be created by the JDL
+├── kubernetes // sera créé par le JDL
+└── docker-compose // sera créé par le JDL
+
 ```
 
 ---
 
-### Available deployment options
+### Options de déploiement disponibles
 
-Here are the deployment options supported in the JDL:
+Voici les options de déploiement prises en charge dans le JDL:
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>JDL option name</th>
-    <th>Default value</th>
-    <th>Possible values</th>
-    <th>Comment</th>
+    <th>Nom de l'option JDL</th>
+    <th>Valeur par défaut</th>
+    <th>Valeurs possibles</th>
+    <th>Commentaire</th>
   </tr>
   <tr>
     <td>deploymentType</td>
@@ -102,24 +102,24 @@ Here are the deployment options supported in the JDL:
     <td>directoryPath</td>
     <td>"../"</td>
     <td></td>
-    <td>Relative path. Must be in double quotes</td>
+    <td>Chemin relatif. Doit être entre guillemets doubles</td>
   </tr>
   <tr>
     <td>appsFolders</td>
     <td>[]</td>
     <td></td>
-    <td>Directory names for the applications separated by comma. Must be a list, example [foo, bar]</td>
+    <td>Noms des répertoires des applications séparés par des virgules. Doit être une liste, exemple [foo, bar]</td>
   </tr>
   <tr>
     <td>clusteredDbApps</td>
     <td>[]</td>
     <td></td>
-    <td>Directory names for the applications with clustered DB separated by comma. Must be a list, example [foo, bar]</td>
+    <td>Noms des répertoires des applications avec DB en cluster, séparés par des virgules. Doit être une liste, exemple [foo, bar]</td>
   </tr>
   <tr>
     <td>gatewayType</td>
     <td>SpringCloudGateway</td>
-    <td>Value is ignored when serviceDiscoveryType is `no`</td>
+    <td>La valeur est ignorée lorsque serviceDiscoveryType est `no`</td>
   </tr>
   <tr>
     <td>monitoring</td>
@@ -137,72 +137,72 @@ Here are the deployment options supported in the JDL:
     <td>dockerRepositoryName</td>
     <td></td>
     <td></td>
-    <td>The name or URL of the docker repository. Must be in double quotes</td>
+    <td>Le nom ou l'URL du dépôt Docker. Doit être entre guillemets doubles</td>
   </tr>
   <tr>
     <td>dockerPushCommand</td>
     <td>"docker push"</td>
     <td></td>
-    <td>The docker push command to use. Must be in double quotes</td>
+    <td>La commande de push Docker à utiliser. Doit être entre guillemets doubles</td>
   </tr>
   <tr>
     <td>kubernetesNamespace</td>
     <td>default</td>
     <td></td>
-    <td>Applicable only when deploymentType is kubernetes</td>
+    <td>Applicable uniquement lorsque deploymentType est kubernetes</td>
   </tr>
   <tr>
     <td>kubernetesUseDynamicStorage</td>
     <td>false</td>
     <td>true, false</td>
-    <td>Applicable only when deploymentType is kubernetes, enables the kubernetesStorageClassName option</td>
+    <td>Applicable uniquement lorsque deploymentType est kubernetes, active l'option kubernetesStorageClassName</td>
   </tr>
   <tr>
     <td>kubernetesStorageClassName</td>
     <td>""</td>
     <td></td>
-    <td>Applicable only when deploymentType is kubernetes, can be left empty (two double-quotes)</td>
+    <td>Applicable uniquement lorsque deploymentType est kubernetes, peut être vide (deux guillemets doubles)</td>
   </tr>
   <tr>
     <td>kubernetesServiceType</td>
     <td>LoadBalancer</td>
     <td>LoadBalancer, NodePort, Ingress</td>
-    <td>Applicable only when deploymentType is kubernetes</td>
+    <td>Applicable uniquement lorsque deploymentType est kubernetes</td>
   </tr>
   <tr>
     <td>ingressDomain</td>
     <td></td>
     <td></td>
-    <td>The domain for Ingress when kubernetesServiceType is `Ingress`. Must be in double quotes. Applicable only when deploymentType is kubernetes</td>
+    <td>Le domaine pour Ingress lorsque kubernetesServiceType est `Ingress`. Doit être entre guillemets doubles. Applicable uniquement lorsque deploymentType est kubernetes</td>
   </tr>
   <tr>
     <td>ingressType</td>
     <td>nginx</td>
     <td>nginx, gke</td>
-    <td>The kubernetes ingress type, only set when `kubernetesServiceType` is set to Ingress</td>
+    <td>Le type d'ingress Kubernetes, uniquement défini lorsque `kubernetesServiceType` est réglé sur Ingress</td>
   </tr>
   <tr>
     <td>istio</td>
     <td>false</td>
     <td>true, false</td>
-    <td>Applicable only when deploymentType is kubernetes</td>
+    <td>Applicable uniquement lorsque deploymentType est kubernetes</td>
   </tr>
   <tr>
     <td>openshiftNamespace</td>
     <td>default</td>
     <td></td>
-    <td>Applicable only when deploymentType is openshift</td>
+    <td>Applicable uniquement lorsque deploymentType est openshift</td>
   </tr>
   <tr>
     <td>storageType</td>
     <td>ephemeral</td>
     <td>ephemeral, persistent</td>
-    <td>Applicable only when deploymentType is openshift</td>
+    <td>Applicable uniquement lorsque deploymentType est openshift</td>
   </tr>
   <tr>
     <td>registryReplicas</td>
     <td>2</td>
     <td></td>
-    <td>The number of replicas, when using the openshift deployment type</td>
+    <td>Le nombre de réplicas, lors de l'utilisation du type de déploiement openshift</td>
   </tr>
 </table>

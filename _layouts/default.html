@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">{% if '/index.html' == page.url or '/' == page.url %}
-    <meta name="description" content="JHipster is a development platform to quickly generate, develop, and deploy modern web applications + microservice architectures.">
-    <meta name="author" content="JHipster Team">
+    <meta name="description" content="JHipster est une plateforme de développement permettant de générer, développer et déployer rapidement des applications web modernes et des architectures microservices.">
+    <meta name="author" content="Équipe JHipster">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@jhipster" />
-    <meta name="twitter:title" content="JHipster - Full Stack Platform for the Modern Developer!" />
-    <meta name="twitter:description" content="JHipster is a development platform to quickly generate, develop, and deploy modern web applications + microservice architectures." />
+    <meta name="twitter:title" content="JHipster - Plateforme Full Stack pour le Développeur Moderne !" />
+    <meta name="twitter:description" content="JHipster est une plateforme de développement permettant de générer, développer et déployer rapidement des applications web modernes et des architectures microservices." />
     <meta name="twitter:image" content="https://www.jhipster.tech/images/twitter-card.png?20210212" />
     <meta name="twitter:url" content="https://www.jhipster.tech/" />{% endif %}
     <meta name="google-site-verification" content="JSA7VC5gSwD5KKbXlxK8F9rXJtC91rKJq0aWhfpBC0k" />
-    <!-- Chrome, Firefox OS and Opera -->
+    <!-- Chrome, Firefox OS et Opera -->
     <meta name="theme-color" content="#353d47">
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#353d47">
@@ -21,42 +21,43 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#353d47">
     <title>{{ page.title }}</title>
 
-    <!-- Fonts -->
+    <!-- Polices -->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
 
-    <!-- CSS Libs -->
+    <!-- Bibliothèques CSS -->
     <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/lib/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/lib/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/lib/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="/lib/css/dataTables.bootstrap.css">
-    <!-- CSS App -->
+    <!-- CSS de l'application -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/themes/flat-blue.css">
     {% if page.home == true %}
     <link rel="stylesheet" type="text/css" href="/css/home.css">
     {% endif %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-    <!-- Bootstrap Docs CSS subset to get icon -->
+    <!-- CSS Bootstrap Docs pour obtenir des icônes -->
     <!--<link href="/css/bootstrap-docs.css" rel="stylesheet">-->
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- Shim HTML5 et Respond.js pour la prise en charge des éléments HTML5 et des requêtes médias sous IE8 -->
+    <!-- ATTENTION: Respond.js ne fonctionne pas si vous visualisez la page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Favicon with QHD -->
+    <!-- Favicon avec QHD -->
     <link rel="icon" type="image/png" href="/images/logo/favicon-64x64.ico" sizes="64x64" />
     <link rel="icon" type="image/png" href="/images/logo/favicon-48x48.ico" sizes="48x48" />
     <link rel="icon" type="image/png" href="/images/logo/favicon-32x32.ico" sizes="32x32" />
     <link rel="icon" type="image/png" href="/images/logo/favicon-16x16.ico" sizes="16x16" />
 </head>
+
 
 <body class="flat-blue">
     <div class="app-container{% if page.home == true %} home{% else %} expanded {% endif %}">
@@ -77,24 +78,24 @@
                     <ul class="nav navbar-nav navbar-right">
                         {% if page.home == true %}
                         <li class="page-scroll">
-                            <a href="#learn">Learn</a>
+                            <a href="#learn">Apprendre</a>
                         </li>
                         <li class="page-scroll">
                             <a href="#sponsors">Sponsors</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#about">About</a>
+                            <a href="#about">À propos</a>
                         </li>
                         <li class="page-scroll">
                             <a href="#opts">Options</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#modules">Modules &amp; Blueprints</a>
+                            <a href="#modules">Modules &amp; Schémas</a>
                         </li>
                         {% endif %}
                         {% if page.home != true %}
                         <li class="page-scroll">
-                            <a href="{{ site.url }}/sponsors/">Sponsor</a>
+                            <a href="{{ site.url }}/sponsors/">Sponsoriser</a>
                         </li>
                         {% endif %}
                         <li>
@@ -109,12 +110,12 @@
                         <li class="search-box">
                             <form id="content-search-form">
                                 <i class="fa fa-search"></i>
-                                <input type="text" name="search" class="doc-search-algolia" placeholder="Search..." />
+                                <input type="text" name="search" class="doc-search-algolia" placeholder="Rechercher..." />
                             </form>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" id="languages-toggle-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true">
-                                <i class="fa fa-fw fa-globe"></i> English
+                                <i class="fa fa-fw fa-globe"></i> Français
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="languages-toggle-dropdown">
@@ -129,6 +130,9 @@
                                 <li>
                                     <a href="/jp{{page.url}}">日本語</a>
                                 </li>
+                                <li>
+                                    <a href="/fr{{page.url}}">Français</a>
+                                </li>
                             </ul>
                         <li>
                             <button type="button" class="navbar-right-expand-toggle visible-xs pull-right light">
@@ -136,9 +140,9 @@
                             </button>
                         </li>
                     </ul>
-
                 </div>
             </nav>
+            
             <div class="side-menu sidebar-inverse">
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="side-menu-container">
@@ -154,81 +158,82 @@
                         <ul class="nav navbar-nav">
                             <li {% if '/' == page.url %}class="active" {% endif %}>
                                 <a href="/">
-                                    <span class="icon fa fa-home"></span><span class="title">Home</span>
+                                    <span class="icon fa fa-home"></span><span class="title">Accueil</span>
                                 </a>
                             </li>
                             <li {% if '/tech-board/' == page.url %}class="active" {% endif %}>
                                 <a href="{{ site.url }}/tech-board/">
-                                    <span class="icon fa fa-rocket"></span><span class="title">JHipster Tech Board</span>
+                                    <span class="icon fa fa-rocket"></span><span class="title">Tableau technologique de JHipster</span>
                                 </a>
                             </li>
                             <li {% if '/releases/' == page.url %}class="active" {% endif %}>
                                 <a href="{{ site.url }}/releases/">
-                                    <span class="icon fa fa-file-text-o"></span><span class="title">Release notes</span>
+                                    <span class="icon fa fa-file-text-o"></span><span class="title">Notes de version</span>
                                 </a>
                             </li>
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-1">
-                                    <span class="icon fa fa-road"></span><span class="title">JHipster in a few minutes</span>
+                                    <span class="icon fa fa-road"></span><span class="title">JHipster en quelques minutes</span>
                                 </a>
-                                <!-- Dropdown level 1 -->
+                                <!-- Niveau de menu déroulant 1 -->
                                 <div id="dropdown-1" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/tech-stack/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tech-stack/"><i class="fa fa-fw fa-stack-overflow"></i> Technology stack</a></li>
-                                            <li {% if '/presentation' == page.url %}class="active" {% endif %}><a href="/presentation" target="_blank" rel="noopener"><i class="fa fa-fw fa-desktop"></i> Official JHipster slides</a></li>
-                                            <li {% if '/screenshots/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/screenshots/"><i class="fa fa-fw fa-picture-o"></i> JHipster in 5 screenshots</a></li>
-                                            <li {% if '/video-tutorial/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/video-tutorial/"><i class="fa fa-fw fa-film"></i> Video tutorial (15 minutes)</a></li>
-                                            <li><a href="https://github.com/jhipster/jhipster-guides" target="_blank" rel="noopener"><i class="fa fa-fw fa-road"></i> Online guides</a></li>
-                                            <li {% if '/companies-using-jhipster/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/companies-using-jhipster/"><i class="fa fa-fw fa-thumbs-up"></i> Companies using JHipster</a></li>
-                                            <li {% if '/showcase/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/showcase/"><i class="fa fa-fw fa-file-image-o"></i> Showcase of JHipster apps</a></li>
+                                            <li {% if '/tech-stack/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tech-stack/"><i class="fa fa-fw fa-stack-overflow"></i> Stack technologique</a></li>
+                                            <li {% if '/presentation' == page.url %}class="active" {% endif %}><a href="/presentation" target="_blank" rel="noopener"><i class="fa fa-fw fa-desktop"></i> Diapositives officielles de JHipster</a></li>
+                                            <li {% if '/screenshots/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/screenshots/"><i class="fa fa-fw fa-picture-o"></i> JHipster en 5 captures d'écran</a></li>
+                                            <li {% if '/video-tutorial/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/video-tutorial/"><i class="fa fa-fw fa-film"></i> Tutoriel vidéo (15 minutes)</a></li>
+                                            <li><a href="https://github.com/jhipster/jhipster-guides" target="_blank" rel="noopener"><i class="fa fa-fw fa-road"></i> Guides en ligne</a></li>
+                                            <li {% if '/companies-using-jhipster/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/companies-using-jhipster/"><i class="fa fa-fw fa-thumbs-up"></i> Entreprises utilisant JHipster</a></li>
+                                            <li {% if '/showcase/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/showcase/"><i class="fa fa-fw fa-file-image-o"></i> Vitrine des applications JHipster</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-2">
-                                    <span class="icon fa fa-handshake-o"></span><span class="title">Contributing</span>
+                                    <span class="icon fa fa-handshake-o"></span><span class="title">Contribuer</span>
                                 </a>
-                                <!-- Dropdown level 1 -->
+                                <!-- Niveau de menu déroulant 1 -->
                                 <div id="dropdown-2" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/sponsors/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/sponsors/"><i class="fa fa-fw fa-usd"></i> Financial sponsors</a></li>
-                                            <li {% if '/contributing-individuals/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/contributing-individuals/"><i class="fa fa-fw fa-keyboard-o"></i> Contributing individuals</a></li>
-                                            <li {% if '/contributing-companies/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/contributing-companies/"><i class="fa fa-fw fa-building"></i> Contributing companies</a></li>
+                                            <li {% if '/sponsors/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/sponsors/"><i class="fa fa-fw fa-usd"></i> Sponsors financiers</a></li>
+                                            <li {% if '/contributing-individuals/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/contributing-individuals/"><i class="fa fa-fw fa-keyboard-o"></i> Individus contributeurs</a></li>
+                                            <li {% if '/contributing-companies/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/contributing-companies/"><i class="fa fa-fw fa-building"></i> Entreprises contributeurs</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-3">
-                                    <span class="icon fa fa-fw fa-wrench"></span><span class="title">Setting up your environment</span>
+                                    <span class="icon fa fa-fw fa-wrench"></span><span class="title">Configuration de votre environnement</span>
                                 </a>
-                                <!-- Dropdown level 1 -->
+                                <!-- Niveau de menu déroulant 1 -->
                                 <div id="dropdown-3" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/installation/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installation/"><i class="fa fa-fw fa-cloud-download"></i> Installing JHipster</a></li>
-                                            <li {% if '/configuring-a-corporate-proxy/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/configuring-a-corporate-proxy/"><i class="fa fa-fw fa-exchange"></i> Configuring a proxy</a></li>
-                                            <li {% if '/configuring-ide/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/configuring-ide/"><i class="fa fa-fw fa-keyboard-o"></i> Configuring your IDE</a></li>
+                                            <li {% if '/installation/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installation/"><i class="fa fa-fw fa-cloud-download"></i> Installation de JHipster</a></li>
+                                            <li {% if '/configuring-a-corporate-proxy/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/configuring-a-corporate-proxy/"><i class="fa fa-fw fa-exchange"></i> Configuration d'un proxy d'entreprise</a></li>
+                                            <li {% if '/configuring-ide/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/configuring-ide/"><i class="fa fa-fw fa-keyboard-o"></i> Configuration de votre IDE</a></li>
                                             <li {% if '/docker-compose/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/docker-compose/"><i class="fa fa-fw fa-music"></i> Docker Compose</a></li>
-                                            <li {% if '/shell-plugins/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/shell-plugins/"><i class="fa fa-fw fa-terminal"></i> Shell Plugins</a></li>
+                                            <li {% if '/shell-plugins/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/shell-plugins/"><i class="fa fa-fw fa-terminal"></i> Plugins Shell</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
+                            
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-4"><span class="icon fa fa-fw fa-list-ol"></span><span class="title">Core JHipster tasks</span></a>
+                                <a data-toggle="collapse" href="#dropdown-4"><span class="icon fa fa-fw fa-list-ol"></span><span class="title">Tâches principales de JHipster</span></a>
                                 <div id="dropdown-4" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/creating-an-app/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-app/"><i class="fa fa-fw fa-rocket"></i> Creating an application</a></li>
-                                            <li {% if '/creating-an-entity/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-entity/"><i class="fa fa-fw fa-bolt"></i> Creating an entity</a></li>
-                                            <li {% if '/using-dtos/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-dtos/"><i class="fa fa-fw fa-briefcase"></i> Creating DTOs</a></li>
-                                            <li {% if '/managing-relationships/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/managing-relationships/"><i class="fa fa-fw fa-sitemap"></i> Managing relationships</a></li>
-                                            <li {% if '/installing-new-languages/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installing-new-languages/"><i class="fa fa-fw fa-flag"></i> Internationalization</a></li>
-                                            <li {% if '/upgrading-an-application/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/upgrading-an-application/"><i class="fa fa-fw fa-refresh"></i> Upgrading an application</a></li>
+                                            <li {% if '/creating-an-app/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-app/"><i class="fa fa-fw fa-rocket"></i> Création d'une application</a></li>
+                                            <li {% if '/creating-an-entity/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-an-entity/"><i class="fa fa-fw fa-bolt"></i> Création d'une entité</a></li>
+                                            <li {% if '/using-dtos/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-dtos/"><i class="fa fa-fw fa-briefcase"></i> Création de DTOs</a></li>
+                                            <li {% if '/managing-relationships/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/managing-relationships/"><i class="fa fa-fw fa-sitemap"></i> Gestion des relations</a></li>
+                                            <li {% if '/installing-new-languages/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/installing-new-languages/"><i class="fa fa-fw fa-flag"></i> Internationalisation</a></li>
+                                            <li {% if '/upgrading-an-application/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/upgrading-an-application/"><i class="fa fa-fw fa-refresh"></i> Mise à niveau d'une application</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -238,31 +243,32 @@
                                 <div id="dropdown-5" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/jdl/intro' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/intro"><i class="fa fa-fw fa-star"></i>Overview</a></li>
-                                            <li {% if '/jdl/getting-started' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/getting-started"><i class="fa fa-fw fa-graduation-cap"></i> Getting Started</a></li>
+                                            <li {% if '/jdl/intro' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/intro"><i class="fa fa-fw fa-star"></i> Présentation</a></li>
+                                            <li {% if '/jdl/getting-started' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/getting-started"><i class="fa fa-fw fa-graduation-cap"></i> Premiers pas</a></li>
                                             <li {% if '/jdl/applications' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/applications"><i class="fa fa-fw fa-rocket"></i> Applications</a></li>
-                                            <li {% if '/jdl/entities-fields' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/entities-fields"><i class="fa fa-fw fa-bolt"></i> Entities & fields</a></li>
-                                            <li {% if '/jdl/enums' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/enums"><i class="fa fa-fw fa-bolt"></i> Enums</a></li>
-                                            <li {% if '/jdl/relationships' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/relationships"><i class="fa fa-fw fa-sitemap"></i> Relationships</a></li>
+                                            <li {% if '/jdl/entities-fields' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/entities-fields"><i class="fa fa-fw fa-bolt"></i> Entités & champs</a></li>
+                                            <li {% if '/jdl/enums' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/enums"><i class="fa fa-fw fa-bolt"></i> Énumérations</a></li>
+                                            <li {% if '/jdl/relationships' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/relationships"><i class="fa fa-fw fa-sitemap"></i> Relations</a></li>
                                             <li {% if '/jdl/options' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/options"><i class="fa fa-fw fa-puzzle-piece"></i> Options</a></li>
-                                            <li {% if '/jdl/deployments' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/deployments"><i class="fa fa-fw fa-cloud-upload"></i> Deployments</a></li>
-                                            <li {% if '/jdl/troubleshooting' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/troubleshooting"><i class="fa fa-fw fa-cogs"></i> Troubleshooting</a></li>
+                                            <li {% if '/jdl/deployments' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/deployments"><i class="fa fa-fw fa-cloud-upload"></i> Déploiements</a></li>
+                                            <li {% if '/jdl/troubleshooting' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jdl/troubleshooting"><i class="fa fa-fw fa-cogs"></i> Dépannage</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
+                            
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-6"><span class="icon fa fa-fw fa-sitemap"></span><span class="title">Microservices</span></a>
                                 <div id="dropdown-6" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/microservices-architecture/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-architecture/"><i class="fa fa-fw fa-map-signs"></i> Overview</a></li>
-                                            <li {% if '/api-gateway/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/api-gateway/"><i class="fa fa-fw fa-exchange"></i> API Gateway</a></li>
+                                            <li {% if '/microservices-architecture/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-architecture/"><i class="fa fa-fw fa-map-signs"></i> Vue d'ensemble</a></li>
+                                            <li {% if '/api-gateway/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/api-gateway/"><i class="fa fa-fw fa-exchange"></i> Passerelle API</a></li>
                                             <li {% if '/consul/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/consul/"><i class="fa fa-fw fa-bullseye"></i> Consul</a></li>
-                                            <li {% if '/jhipster-registry/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jhipster-registry/"><i class="fa fa-fw  fa-dashboard"></i> JHipster Registry</a></li>
-                                            <li {% if '/creating-microservices/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-microservices/"><i class="fa fa-fw fa-bolt"></i> Creating microservices</a></li>
-                                            <li {% if '/microservices-in-production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-in-production/"><i class="fa fa-fw fa-cloud"></i> Microservices in production</a></li>
-                                            <li {% if '/jhipster-control-center/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jhipster-control-center/"><i class="fa fa-fw fa-codepen"></i> JHipster Control Center</a></li>
+                                            <li {% if '/jhipster-registry/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jhipster-registry/"><i class="fa fa-fw  fa-dashboard"></i> Registre JHipster</a></li>
+                                            <li {% if '/creating-microservices/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/creating-microservices/"><i class="fa fa-fw fa-bolt"></i> Création de microservices</a></li>
+                                            <li {% if '/microservices-in-production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/microservices-in-production/"><i class="fa fa-fw fa-cloud"></i> Microservices en production</a></li>
+                                            <li {% if '/jhipster-control-center/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/jhipster-control-center/"><i class="fa fa-fw fa-codepen"></i> Centre de contrôle JHipster</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -272,39 +278,40 @@
                                 <div id="dropdown-7" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/security/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/security/"><i class="fa fa-fw fa-lock"></i> Securing your app</a></li>
-                                            <li {% if '/entities-filtering/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/entities-filtering/"><i class="fa fa-fw fa-filter"></i> Filtering your entities</a></li>
-                                            <li {% if '/using-elasticsearch/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-elasticsearch/"><i class="fa fa-fw fa-search"></i> Using Elasticsearch</a></li>
-                                            <li {% if '/using-websockets/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-websockets/"><i class="fa fa-fw fa-envelope"></i> Using Websockets</a></li>
-                                            <li {% if '/doing-api-first-development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/doing-api-first-development/"><i class="fa fa-fw fa-file-text"></i> Doing API-First development</a></li>
-                                            <li {% if '/using-cache/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cache/"><i class="fa fa-fw fa-line-chart"></i> Using a cache</a></li>
-                                            <li {% if '/using-oracle/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-oracle/"><i class="fa fa-fw fa-database"></i> Using Oracle</a></li>
-                                            <li {% if '/using-mongodb/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-mongodb/"><i class="fa fa-fw fa-leaf"></i> Using MongoDB</a></li>
-                                            <li {% if '/using-couchbase/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-couchbase/"><i class="fa fa-fw fa-database"></i> Using Couchbase</a></li>
-                                            <li {% if '/using-neo4/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-neo4j/"><i class="fa fa-fw fa-database"></i> Using Neo4j</a></li>
-                                            <li {% if '/using-cassandra/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cassandra/"><i class="fa fa-fw fa-eye"></i> Using Cassandra</a></li>
-                                            <li {% if '/using-kafka/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-kafka/"><i class="fa fa-fw fa-envelope"></i> Using Kafka</a></li>
-                                            <li {% if '/using-pulsar/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-pulsar/"><i class="fa fa-fw fa-envelope"></i> Using Pulsar</a></li>
+                                            <li {% if '/security/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/security/"><i class="fa fa-fw fa-lock"></i> Sécurisation de votre application</a></li>
+                                            <li {% if '/entities-filtering/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/entities-filtering/"><i class="fa fa-fw fa-filter"></i> Filtrage de vos entités</a></li>
+                                            <li {% if '/using-elasticsearch/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-elasticsearch/"><i class="fa fa-fw fa-search"></i> Utilisation d'Elasticsearch</a></li>
+                                            <li {% if '/using-websockets/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-websockets/"><i class="fa fa-fw fa-envelope"></i> Utilisation de Websockets</a></li>
+                                            <li {% if '/doing-api-first-development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/doing-api-first-development/"><i class="fa fa-fw fa-file-text"></i> Développement API-First</a></li>
+                                            <li {% if '/using-cache/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cache/"><i class="fa fa-fw fa-line-chart"></i> Utilisation d'un cache</a></li>
+                                            <li {% if '/using-oracle/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-oracle/"><i class="fa fa-fw fa-database"></i> Utilisation d'Oracle</a></li>
+                                            <li {% if '/using-mongodb/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-mongodb/"><i class="fa fa-fw fa-leaf"></i> Utilisation de MongoDB</a></li>
+                                            <li {% if '/using-couchbase/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-couchbase/"><i class="fa fa-fw fa-database"></i> Utilisation de Couchbase</a></li>
+                                            <li {% if '/using-neo4/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-neo4j/"><i class="fa fa-fw fa-database"></i> Utilisation de Neo4j</a></li>
+                                            <li {% if '/using-cassandra/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-cassandra/"><i class="fa fa-fw fa-eye"></i> Utilisation de Cassandra</a></li>
+                                            <li {% if '/using-kafka/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-kafka/"><i class="fa fa-fw fa-envelope"></i> Utilisation de Kafka</a></li>
+                                            <li {% if '/using-pulsar/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-pulsar/"><i class="fa fa-fw fa-envelope"></i> Utilisation de Pulsar</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
+                            
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-8"><span class="icon fa fa-fw fa-code"></span><span class="title">Development</span></a>
+                                <a data-toggle="collapse" href="#dropdown-8"><span class="icon fa fa-fw fa-code"></span><span class="title">Développement</span></a>
                                 <div id="dropdown-8" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/development/"><i class="fa fa-fw fa-code"></i> Using in development</a></li>
-                                            <li {% if '/profiles/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/profiles/"><i class="fa fa-fw fa-group"></i> Managing profiles</a></li>
-                                            <li {% if '/common-application-properties/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/common-application-properties/"><i class="fa fa-fw fa-flask"></i> Common application properties</a></li>
-                                            <li {% if '/common-ports/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/common-ports/"><i class="fa fa-fw fa-plug"></i> Common ports</a></li>
-                                            <li {% if '/separating-front-end-and-api/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/separating-front-end-and-api/"><i class="fa fa-fw fa-unlink"></i> Separating front-end and API</a></li>
-                                            <li {% if '/managing-server-errors/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/managing-server-errors/"><i class="fa fa-fw fa-fire-extinguisher"></i> Managing server errors</a></li>
-                                            <li {% if '/using-angular/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angular/"><i class="fa fa-fw fa-html5"></i> Using Angular</a></li>
-                                            <li {% if '/using-react/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-react/"><i class="fa fa-fw fa-html5"></i> Using React</a></li>
-                                            <li {% if '/using-vue/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-vue/"><i class="fa fa-fw fa-html5"></i> Using Vue</a></li>
-                                            <li {% if '/customizing-bootstrap-4/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap-4/"><i class="fa fa-fw fa-css3"></i> Customizing Bootstrap 4</a></li>
-                                            <li {% if '/tls/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tls/"><i class="fa fa-fw fa-lock"></i> Using TLS and HTTP/2</a></li>
+                                            <li {% if '/development/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/development/"><i class="fa fa-fw fa-code"></i> Utilisation en développement</a></li>
+                                            <li {% if '/profiles/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/profiles/"><i class="fa fa-fw fa-group"></i> Gestion des profils</a></li>
+                                            <li {% if '/common-application-properties/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/common-application-properties/"><i class="fa fa-fw fa-flask"></i> Propriétés d'application communes</a></li>
+                                            <li {% if '/common-ports/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/common-ports/"><i class="fa fa-fw fa-plug"></i> Ports communs</a></li>
+                                            <li {% if '/separating-front-end-and-api/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/separating-front-end-and-api/"><i class="fa fa-fw fa-unlink"></i> Séparation du front-end et de l'API</a></li>
+                                            <li {% if '/managing-server-errors/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/managing-server-errors/"><i class="fa fa-fw fa-fire-extinguisher"></i> Gestion des erreurs du serveur</a></li>
+                                            <li {% if '/using-angular/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-angular/"><i class="fa fa-fw fa-html5"></i> Utilisation d'Angular</a></li>
+                                            <li {% if '/using-react/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-react/"><i class="fa fa-fw fa-html5"></i> Utilisation de React</a></li>
+                                            <li {% if '/using-vue/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/using-vue/"><i class="fa fa-fw fa-html5"></i> Utilisation de Vue</a></li>
+                                            <li {% if '/customizing-bootstrap-4/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/customizing-bootstrap-4/"><i class="fa fa-fw fa-css3"></i> Personnalisation de Bootstrap 4</a></li>
+                                            <li {% if '/tls/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tls/"><i class="fa fa-fw fa-lock"></i> Utilisation de TLS et HTTP/2</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -314,54 +321,57 @@
                                 <div id="dropdown-9" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/running-tests/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/running-tests/"><i class="fa fa-fw fa-shield"></i> Running tests</a></li>
-                                            <li {% if '/code-quality/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/code-quality/"><i class="fa fa-fw fa-diamond"></i> Code quality</a></li>
-                                            <li {% if '/dependency-vulnerabities-check/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/dependency-vulnerabities-check/"><i class="fa fa-fw fa-check-circle-o"></i> Dependency Vulnerabilities Check</a></li>
-                                            <li {% if '/setting-up-ci/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/setting-up-ci/"><i class="fa fa-fw fa-stethoscope"></i> Continuous Integration</a></li>
+                                            <li {% if '/running-tests/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/running-tests/"><i class="fa fa-fw fa-shield"></i> Exécution des tests</a></li>
+                                            <li {% if '/code-quality/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/code-quality/"><i class="fa fa-fw fa-diamond"></i> Qualité du code</a></li>
+                                            <li {% if '/dependency-vulnerabities-check/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/dependency-vulnerabities-check/"><i class="fa fa-fw fa-check-circle-o"></i> Vérification des vulnérabilités des dépendances</a></li>
+                                            <li {% if '/setting-up-ci/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/setting-up-ci/"><i class="fa fa-fw fa-stethoscope"></i> Intégration continue</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
+                            
                             <li class="panel panel-default dropdown">
                                 <a data-toggle="collapse" href="#dropdown-10"><span class="icon fa fa-fw fa-cloud"></span><span class="title">Production</span></a>
                                 <div id="dropdown-10" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/production/"><i class="fa fa-fw fa-play-circle"></i> Using in production</a></li>
-                                            <li {% if '/monitoring/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/monitoring/"><i class="fa fa-fw fa-line-chart"></i> Monitoring</a></li>
+                                            <li {% if '/production/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/production/"><i class="fa fa-fw fa-play-circle"></i> Utilisation en production</a></li>
+                                            <li {% if '/monitoring/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/monitoring/"><i class="fa fa-fw fa-line-chart"></i> Surveillance</a></li>
                                             <li {% if '/docker-hub/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/docker-hub/"><i class="fa fa-fw fa-cloud"></i> Docker Hub</a></li>
-                                            <li {% if '/azure/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/azure/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Azure</a></li>
-                                            <li {% if '/cloudcaptain/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/cloudcaptain/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying with CloudCaptain</a></li>
-                                            <li {% if '/clever-cloud/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/clever-cloud/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Clever Cloud</a></li>
-                                            <li {% if '/heroku/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/heroku/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Heroku</a></li>
-                                            <li {% if '/kubernetes/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/kubernetes/"><i class="fa fa-fw fa-cloud-upload"></i> Deploying to Kubernetes</a></li>
+                                            <li {% if '/azure/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/azure/"><i class="fa fa-fw fa-cloud-upload"></i> Déploiement sur Azure</a></li>
+                                            <li {% if '/cloudcaptain/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/cloudcaptain/"><i class="fa fa-fw fa-cloud-upload"></i> Déploiement avec CloudCaptain</a></li>
+                                            <li {% if '/clever-cloud/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/clever-cloud/"><i class="fa fa-fw fa-cloud-upload"></i> Déploiement sur Clever Cloud</a></li>
+                                            <li {% if '/heroku/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/heroku/"><i class="fa fa-fw fa-cloud-upload"></i> Déploiement sur Heroku</a></li>
+                                            <li {% if '/kubernetes/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/kubernetes/"><i class="fa fa-fw fa-cloud-upload"></i> Déploiement sur Kubernetes</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Blueprints</span></a>
+                                <a data-toggle="collapse" href="#dropdown-11"><span class="icon fa fa-fw fa-cubes"></span><span class="title">Modèles</span></a>
                                 <div id="dropdown-11" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/modules/official-blueprints/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/official-blueprints/"><i class="fa fa-fw fa-star"></i> Official blueprints</a></li>
-                                            <li {% if '/modules/marketplace/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/marketplace/"><i class="fa fa-fw fa-shopping-cart"></i> Marketplace</a></li>
-                                            <li {% if '/modules/extending-and-customizing/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/extending-and-customizing/"><i class="fa fa-fw fa-cube"></i> Blueprint Basics</a></li>
-                                            <li {% if '/modules/creating-a-module/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-module/"><i class="fa fa-fw fa-cube"></i> Creating a module</a></li>
-                                            <li {% if '/modules/creating-a-blueprint/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-blueprint/"><i class="fa fa-fw fa-cube"></i> Creating a blueprint</a></li>
-                                            <li {% if '/blueprints/quarkus/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/blueprints/quarkus/"><i class="fa fa-fw fa-book"></i> Quarkus documentation</a></li>
+                                            <li {% if '/modules/official-blueprints/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/official-blueprints/"><i class="fa fa-fw fa-star"></i> Modèles officiels</a></li>
+                                            <li {% if '/modules/marketplace/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/marketplace/"><i class="fa fa-fw fa-shopping-cart"></i> Place de marché</a></li>
+                                            <li {% if '/modules/extending-and-customizing/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/extending-and-customizing/"><i class="fa fa-fw fa-cube"></i> Bases des modèles</a></li>
+                                            <li {% if '/modules/creating-a-module/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-module/"><i class="fa fa-fw fa-cube"></i> Création d'un module</a></li>
+                                            <li {% if '/modules/creating-a-blueprint/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/modules/creating-a-blueprint/"><i class="fa fa-fw fa-cube"></i> Création d'un modèle</a></li>
+                                            <li {% if '/blueprints/quarkus/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/blueprints/quarkus/"><i class="fa fa-fw fa-book"></i> Documentation Quarkus</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
+                            
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-12"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Tools</span></a>
+                                <a data-toggle="collapse" href="#dropdown-12"><span class="icon fa fa-fw fa-wrench"></span><span class="title">Outils</span></a>
                                 <div id="dropdown-12" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             <li><a href="https://start.jhipster.tech/jdl-studio/"><i class="fa fa-fw fa-terminal"></i> JDL Studio</a></li>
                                             <li {% if '/jhipster-ide/' == page.url %}class="active" {% endif %}>
-                                                <a href="{{ site.url }}/jhipster-ide/"><i class="fa fa-fw fa-object-group"></i> JHipster IDE</a></li>
+                                                <a href="{{ site.url }}/jhipster-ide/"><i class="fa fa-fw fa-object-group"></i> IDE JHipster</a>
+                                            </li>
                                             <li {% if '/jhipster-uml/' == page.url %}class="active" {% endif %}>
                                                 <a href="{{ site.url }}/jhipster-uml/"><i class="fa fa-fw fa-magic"></i> JHipster-UML</a>
                                             </li>
@@ -369,41 +379,42 @@
                                     </div>
                                 </div>
                             </li>
-
+                            
                             <li {% if '/jhipster-lite/' == page.url %}class="active" {% endif %}>
                                 <a href="{{ site.url }}/jhipster-lite/">
                                     <span class="icon fa fa-bolt"></span><span class="title">JHipster Lite</span>
                                 </a>
                             </li>
-
+                            
                             <li class="panel panel-default dropdown">
-                                <a data-toggle="collapse" href="#dropdown-13"><span class="icon fa fa-fw fa-question"></span><span class="title">Getting help</span></a>
+                                <a data-toggle="collapse" href="#dropdown-13"><span class="icon fa fa-fw fa-question"></span><span class="title">Obtenir de l'aide</span></a>
                                 <div id="dropdown-13" class="panel-collapse collapse" style="height: 0px;">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
-                                            <li {% if '/help/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/help/"><i class="fa fa-fw fa-users"></i> Community help</a></li>
-                                            <li {% if '/bug-bounties/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/bug-bounties/"><i class="fa fa-fw fa-usd"></i> Bug bounties</a></li>
+                                            <li {% if '/help/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/help/"><i class="fa fa-fw fa-users"></i> Aide de la communauté</a></li>
+                                            <li {% if '/bug-bounties/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/bug-bounties/"><i class="fa fa-fw fa-usd"></i> Prime de bug</a></li>
                                         </ul>
                                      </div>
                                 </div>
                             </li>
-                            <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Tips'n tricks</span></a></li>
+                            <li {% if '/tips/' == page.url %}class="active" {% endif %}><a href="{{ site.url }}/tips/"><span class="icon fa fa-fw fa-cogs"></span><span class="title">Astuces</span></a></li>
+                            
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
                 </nav>
             </div>
-            <!-- Main Content -->
+            <!-- Contenu principal -->
             <div id="page-wrapper" class="container-fluid">
                 <div class="side-body" id="page-top">
                     {% if page.layout_grid == true %} {{ content }} {% else %}
                     <div class="row page-content-wrapper">
                         <div class="col-lg-12">
                             <div class="float-right visible-md visible-lg">
-                                <a href="https://github.com/jhipster/jhipster.github.io/edit/main/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;Improve this page</a>
+                                <a href="https://github.com/jhipster/jhipster.github.io/edit/main/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;Améliorer cette page</a>
                             </div>
                             {% capture anchor %}
-                                <span class="sr-only">Permalink to "%heading%"</span>
+                                <span class="sr-only">Lien permanent vers "%heading%"</span>
                                 <i class="fa fa-link" aria-hidden="true"></i>
                             {% endcapture %}
                             {% include anchor_headings.html html=content anchorBody=anchor %}
@@ -412,7 +423,7 @@
                     <!-- /.row -->
                     {% endif %}
 
-                    <!-- Footer -->
+                    <!-- Pied de page -->
                     <footer class="text-center">
                         {% if page.home != true %}
                         <hr>
@@ -422,12 +433,12 @@
                                 <div class="row">
                                     <div class="footer-col col-md-4">
                                         <div class="col-md-4 col-sm-12">
-                                            <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="{{ site.url }}/team/">Team</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-coffee fa-fw"></i> <a class="link" href="{{ site.url }}/team/">Équipe</a></h5>
                                             <h5 class="text-left"><i class="fa fa-pencil fa-fw"></i> <a class="link" href="{{ site.url }}/artwork/">Artwork</a></h5>
                                         </div>
                                         <div class="col-md-4 col-sm-12">
-                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="{{ site.url }}/policies/">Policies</a></h5>
-                                            <h5 class="text-left"><i class="fa fa-meetup fa-fw"></i> <a class="link" href="{{ site.url }}/meetups/">Meetups</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-gavel fa-fw"></i> <a class="link" href="{{ site.url }}/policies/">Politiques</a></h5>
+                                            <h5 class="text-left"><i class="fa fa-meetup fa-fw"></i> <a class="link" href="{{ site.url }}/meetups/">Rencontres</a></h5>
                                         </div>
                                         <div class="col-md-4 col-sm-12">
                                             <h5 class="text-left"><i class="fa fa-database fa-fw"></i> <a class="link" href="{{ site.url }}/documentation-archive/">Archives</a></h5>
@@ -453,20 +464,21 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        Copyright &copy; JHipster 2013-2023 | Theme based on <a href="https://github.com/IronSummitMedia/startbootstrap-freelancer" target="_blank" rel="noopener">Freelancer</a> and <a href="https://github.com/dulumao/flat-admin-bootstrap-templates" target="_blank" rel="noopener">Flat admin</a>
+                                        Droits d'auteur &copy; JHipster 2013-2023 | Thème basé sur <a href="https://github.com/IronSummitMedia/startbootstrap-freelancer" target="_blank" rel="noopener">Freelancer</a> et <a href="https://github.com/dulumao/flat-admin-bootstrap-templates" target="_blank" rel="noopener">Flat admin</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </footer>
                 </div>
-                <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+                <!-- Bouton de retour en haut de page (visible uniquement sur les écrans de petite et très petite taille) -->
                 <div class="scroll-top page-scroll visible-xs visible-sm">
                     <a class="btn btn-primary" href="#page-top">
                         <i class="fa fa-chevron-up"></i>
                     </a>
                 </div>
             </div>
+
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->
