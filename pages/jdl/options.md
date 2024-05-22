@@ -9,128 +9,132 @@ sitemap:
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Options
 
-## Summary
+## Sommaire
 
-In JHipster, you can specify options for your entities such as pagination or DTO.
-You can do the same with the JDL, either with annotations on the entity, or with the following syntax:
+Dans JHipster, vous pouvez spécifier des options pour vos entités telles que la pagination ou les DTO.
+Vous pouvez faire de même avec le JDL, soit avec des annotations sur l'entité, soit avec la syntaxe suivante :
 
-    entity A {
-      name String required
-    }
-    entity B
-    entity C
+```jdl
+entity A {
+  name String required
+}
+entity B
+entity C
 
-    dto A, B with mapstruct
+dto A, B with mapstruct
 
-    paginate A with infinite-scroll
-    paginate B with pagination
-    paginate C with pager  // pager is only available in AngularJS
+paginate A with infinite-scroll
+paginate B with pagination
+paginate C with pager  // pager est uniquement disponible dans AngularJS
 
-    service A with serviceClass
-    service C with serviceImpl
+service A with serviceClass
+service C with serviceImpl
+```
 
-The complete list of available options is [here](#available-options).
+La liste complète des options disponibles est [ici](#available-options).
 
-1. [How to](#how-to)
-1. [Syntax](#syntax)
-1. [The use XYZ options](#the-use-xyz-options)
-1. [Examples](#examples)
-   1. [Basic unary example](#basic-unary-example)
-   1. [Basic binary example](#basic-binary-example)
-   1. [all, * example](#all--example)
-   1. [all, * example with exclusions (unary)](#all--example-with-exclusions-unary)
-   1. [all, * example with exclusions (binary)](#all--example-with-exclusions-binary)
-   1. [Option with custom values](#option-with-custom-values)
-   1. [Mixed example](#mixed-example)
-1. [About services](#about-services)
-1. [Microservice-related options](#microservice-related-options)
-1. [Custom annotations](#custom-annotations)
-1. [Available options](#available-options)
-1. [See also](#see-also)
-
----
-
-### How to
-
-There are two kinds of options:
-  - unary (without option value)
-  - binary (with value)
-
-There are three ways to apply options to entities:
-  - using the option name (`dto`, `readOnly`, etc.), see examples
-  - using annotations
-  - use the `use XYZ` form
-
-Mixing them is not recommended as it reduces readability.
+1. [Comment faire](#comment-faire)
+1. [Syntaxe](#syntaxe)
+1. [Les options d'utilisation XYZ](#les-options-dutilisation-xyz)
+1. [Exemples](#exemples)
+   1. [Exemple de base unaire](#exemple-de-base-unaire)
+   1. [Exemple de base binaire](#exemple-de-base-binaire)
+   1. [Exemple all, *](#exemple-all--)
+   1. [Exemple all, * avec exclusions (unaire)](#exemple-all--avec-exclusions-unaire)
+   1. [Exemple all, * avec exclusions (binaire)](#exemple-all--avec-exclusions-binaire)
+   1. [Option avec des valeurs personnalisées](#option-avec-des-valeurs-personnalisées)
+   1. [Exemple mixte](#exemple-mixte)
+1. [À propos des services](#à-propos-des-services)
+1. [Options liées aux microservices](#options-liées-aux-microservices)
+1. [Annotations personnalisées](#annotations-personnalisées)
+1. [Options disponibles](#options-disponibles)
+1. [Voir aussi](#voir-aussi)
 
 ---
 
-### Syntax
+### Comment faire
 
-For the regular form:
+Il existe deux types d'options :
+  - unaires (sans valeur d'option)
+  - binaires (avec une valeur)
+
+Il existe trois façons d'appliquer des options aux entités :
+  - en utilisant le nom de l'option (`dto`, `readOnly`, etc.), voir exemples
+  - en utilisant des annotations
+  - en utilisant la forme `utiliser XYZ`
+
+Il n'est pas recommandé de les mélanger car cela réduit la lisibilité.
+
+---
+
+### Syntaxe
+
+
+Pour la forme régulière :
 ```
 <option name> <option entity list>
 
-or
+ou
 
 <option name> <option entity list> with <option value>
 
-or
+ou
 
 <option name> <option entity list> with <option value> except <option excluded entity list>
 
-or 
+ou 
 
 <option name> <option entity list> except <option excluded entity list>
+
 ```
 
-  - For unary options:
-    - the option name and the list is needed
-    - the excluded entities are optional with the `except` keyword (see below for more details)
-  - For binary options:
-    - the entity list precedes the `with` keyword and the option value
-    - again, the excluded entities are in the end with the `except` keyword
+  - Pour les options unitaires :
+    - le nom de l'option et la liste sont nécessaires
+    - les entités exclues sont optionnelles avec le mot-clé `except` (voir ci-dessous pour plus de détails)
+  - Pour les options binaires:
+    - la liste des entités précède le mot-clé `with` et la valeur de l'option
+    - encore une fois, les entités exclues se trouvent à la fin avec le mot-clé `except`
 
-For annotations:
+Pour les annotations :
 ```
 @<option name>
 entity <entity name>
 
-or
+ou
 
 @<option name>(<option value>)
 ```
 
-  - Similar to Java, annotations may take values in parentheses
-    - depending on the option, values may or may not be optional
+- Tout comme en Java, les annotations peuvent prendre des valeurs entre parenthèses.
+- Selon l'option, les valeurs peuvent être facultatives ou non.
 
 ---
 
-### The use XYZ options
+### Les options d'utilisation XYZ
 
-With the use-option form, you can specify some options on your entities.
-It was created during JHipster Code 2020, and the reasons behind its creation are to:
-  - Solve the option-disabling issue (there are more than one way to say 'no' in JHipster: `no, false, none`)
-  - Propose a way to group options by entities
+Avec la forme d'utilisation d'option, vous pouvez spécifier certaines options sur vos entités.
+Elle a été créée lors de JHipster Code 2020, et les raisons derrière sa création sont :
+  - Résoudre le problème de désactivation des options (il existe plus d'une façon de dire 'non' dans JHipster : `no, false, none`)
+  - Proposer un moyen de regrouper les options par entités
 
 ```jdl
-entity A
-entity B
-entity C
+entité A
+entité B
+entité C
 
-use serviceClass for * except C
-use mapstruct, serviceImpl, infinite-scroll for A, B
-use pagination for C
+utiliser serviceClass pour * sauf C
+utiliser mapstruct, serviceImpl, infinite-scroll pour A, B
+utiliser pagination pour C
 ```
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>Use option value</th>
-    <th>Comment</th>
+    <th>Valeur de l'option Use</th>
+    <th>Commentaire</th>
   </tr>
   <tr>
     <td>mapstruct</td>
-    <td>Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'</td>
+    <td>Si des DTOs doivent être créés pour vos entités ; si une entité a un DTO mais pas de service, alors 'serviceClass sera utilisé'</td>
   </tr>
   <tr>
     <td>serviceClass</td>
@@ -142,43 +146,43 @@ use pagination for C
   </tr>
   <tr>
     <td>pagination</td>
-    <td>Pagination as an option is forbidden when the application uses Cassandra</td>
+    <td>La pagination est interdite lorsque l'application utilise Cassandra</td>
   </tr>
   <tr>
     <td>infinite-scroll</td>
-    <td>Pagination as an option is forbidden when the application uses Cassandra</td>
+    <td>La pagination est interdite lorsque l'application utilise Cassandra</td>
   </tr>
   <tr>
     <td>elasticsearch</td>
-    <td>Requires the application to have the searchEngine option enabled</td>
+    <td>Requiert que l'application ait l'option searchEngine activée</td>
   </tr>
   <tr>
     <td>couchbase</td>
-    <td>Requires the application to have the searchEngine option enabled</td>
+    <td>Requiert que l'application ait l'option searchEngine activée</td>
   </tr>
 </table>
 
 ---
 
-### Examples
+### Exemples
 
-Each example will have three forms:
-  - the regular one
-  - the annotation-based one
-  - the use form (when applicable)
+Chaque exemple aura trois formes :
+  - la forme régulière
+  - la forme basée sur les annotations  
+  - la forme `use` (lorsque applicable)
 
 ---
 
-#### Basic unary example
+#### Exemple de base unitaire
 
-Regular:
+Régulière :
 ```jdl
 entity A
 
 readOnly A
 ```
 
-Annotation-based:
+Basée sur les annotations :
 ```jdl
 @readOnly
 entity A
@@ -186,22 +190,22 @@ entity A
 
 ---
 
-#### Basic binary example
+#### Exemple de base binaire
 
-Regular:
+Régulière:
 ```jdl
 entity A
 
 dto A with mapstruct
 ```
 
-Annotation-based:
+Basée sur les annotations :
 ```jdl
 @dto(mapstruct)
 entity A
 ```
 
-With the `use` keyword:
+Avec le mot-clé `use`:
 ```jdl
 entity A
 
@@ -210,11 +214,11 @@ use mapstruct, serviceImpl, pagination for A
 
 ---
 
-#### all, * example
+#### Exemple avec all, *
 
-`all` and `*` are aliases.
+`all` et `*` sont des alias.
 
-Regular:
+Régulière:
 ```jdl
 entity A
 entity B
@@ -222,7 +226,7 @@ entity B
 dto all with mapstruct
 ```
 
-Annotation-based:
+Basée sur les annotations:
 ```jdl
 @dto(mapstruct)
 entity A
@@ -231,7 +235,7 @@ entity A
 entity B
 ```
 
-With the `use` keyword:
+Avec le mot-clé `use`:
 ```jdl
 entity A
 entity B
@@ -241,9 +245,9 @@ use mapstruct, serviceImpl, pagination for *
 
 ---
 
-#### all, * example with exclusions (unary)
+#### Exemple avec all, * et exclusions (unitaire)
 
-Regular:
+Régulière:
 ```jdl
 entity A
 entity B
@@ -251,7 +255,7 @@ entity B
 skipClient * except A
 ```
 
-Annotation-based:
+Basée sur les annotations :
 ```jdl
 entity A
 
@@ -259,7 +263,7 @@ entity A
 entity B
 ```
 
-With the `use` keyword:
+Avec le mot-clé `use`:
 ```jdl
 entity A
 entity B
@@ -269,9 +273,9 @@ use mapstruct, serviceImpl, pagination for * except A
 
 ---
 
-#### all, * example with exclusions (binary)
+#### Exemple avec all, * et exclusions (binaire)
 
-Regular:
+Régulière:
 ```jdl
 entity A
 entity B
@@ -279,7 +283,7 @@ entity B
 dto all with mapstruct except A
 ```
 
-Annotation-based:
+Basée sur les annotations :
 ```jdl
 entity A
 
@@ -287,7 +291,7 @@ entity A
 entity B
 ```
 
-With the `use` keyword:
+Avec le mot-clé `use`:
 ```jdl
 entity A
 entity B
@@ -297,7 +301,7 @@ use mapstruct, serviceImpl, pagination for all except A
 
 ---
 
-#### Option with custom values
+#### Option avec valeurs personnalisées
 
 ```jdl
 entity A
@@ -308,9 +312,9 @@ microservice all with mySuperMS
 
 ---
 
-#### Mixed example
+#### Exemple mixte
 
-Regular:
+Régulière:
 ```jdl
 entity A
 entity B
@@ -322,7 +326,7 @@ service * with serviceClass except C
 search A with elasticsearch
 ```
 
-Annotation-based:
+Basée sur les annotations :
 ```jdl
 @dto(mapstruct)
 @search(elastisearch)
@@ -340,36 +344,35 @@ entity C
 
 ---
 
-### About services
+### À propos des services
 
-No services specified will create a resource class which will call the repository interface directly. This is the
-default and simplest option, see A.
+Aucun service spécifié ne créera une classe ressource qui appellera directement l'interface repository. C'est l'option
+par défaut et la plus simple, voir A.
 
-`service with serviceClass` (see B) will make the resource call the service class which will call the repository interface.
-`service with serviceImpl` (see C) will make a service interface which will be used by the resource class.
+`service with serviceClass` (voir B) fera que la ressource appellera la classe de service qui appellera l'interface repository.
+`service with serviceImpl` (voir C) créera une interface de service qui sera utilisée par la classe ressource.
 
-The interface is implemented by a concrete class which will call the repository interface.
+L'interface est implémentée par une classe concrète qui appellera l'interface repository.
 
-Using no service unless sure is the simplest option and good for CRUD. Use service with a Class if you will have a lot
-of business logic which will use multiple repositories making it ideal for a service class. JHipsters are not fan of
-unnecessary Interfaces but if you like them go for service with impl.
+Utiliser aucun service sauf en cas de certitude est l'option la plus simple et idéale pour le CRUD. Utilisez un service avec une Classe si vous avez beaucoup de logique métier qui utilisera plusieurs repositories, ce qui est idéal pour une classe de service. Les JHipsters ne sont pas fans des Interfaces inutiles mais si vous les aimez, optez pour un service avec impl.
 
-    entity A
-    entity B
-    entity C
+```
+  entity A
+  entity B
+  entity C
 
-    // no service for A
-    service B with serviceClass
-    service C with serviceImpl
+  // aucun service pour A
+  service B with serviceClass
+  service C with serviceImpl
 
----
+```
 
-### Microservice-related options
+### Options liées aux microservices
 
-As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL:
-the microservice's name and the search engine.
+Depuis JHipster v3, des microservices peuvent être créés. Vous pouvez spécifier certaines options pour générer vos entités dans le JDL :
+le nom du microservice et le moteur de recherche.
 
-Here is how you can specify your microservice's name (the JHipster app's name):
+Voici comment vous pouvez spécifier le nom de votre microservice (le nom de l'application JHipster) 
 
 ```
 entity A
@@ -380,164 +383,162 @@ microservice C with myotherjhipsterapp
 search * with elasticsearch except C
 ```
 
-The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
-specifies how and if you want your entities searched.
+La première option est utilisée pour indiquer à JHipster que vous souhaitez que votre microservice gère vos entités, tandis que la seconde
+spécifie comment et si vous voulez que vos entités soient recherchées.
 
 ---
 
-### Custom annotations
+### Annotations personnalisées
 
-Custom annotations are possible in the JDL, for instance:
+Les annotations personnalisées sont possibles dans le JDL, par exemple :
 
 ```jdl
 @customAnnotation(customValue)
 entity A
 ```
 
-The main use case for this is for blueprints: sometimes, you need have custom options for entities, or even fields.
-For regular options (`dto`, `pagination`, etc.), these options will be generated in the JSON like in the CLI.
-However, for custom options, they will be generated under and `options` key in the dumped JSON.
+Le principal cas d'utilisation de cela est pour les blueprints : parfois, vous avez besoin d'options personnalisées pour les entités, ou même pour les champs.
+Pour les options régulières (`dto`, `pagination`, etc.), ces options seront générées dans le JSON comme dans le CLI.
+Cependant, pour les options personnalisées, elles seront générées sous une clé  `options`  dans le JSON exporté.
 
 ---
 
-### Available options
+### Options disponibles
 
-_Not what you're looking for? Check the [application options](/jdl/applications#available-application-configuration-options)._
+_Vous ne trouvez pas ce que vous cherchez ? Consultez les [options d'application](/jdl/applications#available-application-configuration-options)._
 
-#### Entity options
+#### Options d'entité
 
-Here are the entity options supported in the JDL:
+Voici les options d'entité supportées dans le JDL :
 
 <table class="table table-striped table-responsive">
   <tr>
-    <th>JDL option name (entity)</th>
-    <th>Option type</th>
-    <th>Default value</th>
-    <th>Possible values</th>
-    <th>Comment</th>
+    <th>Nom de l'option JDL (entité)</th>
+    <th>Type d'option</th>
+    <th>Valeur par défaut</th>
+    <th>Valeurs possibles</th>
+    <th>Commentaire</th>
   </tr>
   <tr>
     <td>skipClient</td>
-    <td>unary</td>
+    <td>unitaire</td>
     <td>false</td>
     <td></td>
-    <td>This will make the client code generation to be skipped</td>
+    <td>Cela fera que la génération de code client soit ignorée</td>
   </tr>
   <tr>
     <td>skipServer</td>
-    <td>unary</td>
+    <td>unitaire</td>
     <td>false</td>
     <td></td>
-    <td>This will make the server code generation to be skipped</td>
+    <td>Cela fera que la génération de code serveur soit ignorée</td>
   </tr>
   <tr>
     <td>noFluentMethod</td>
-    <td>unary</td>
+    <td>unitaire</td>
     <td>false</td>
     <td></td>
     <td>
-      See <a href="https://www.jhipster.tech/2016/08/17/jhipster-release-3.6.0.html#important-change-fluent-setters">this note</a>
-      for more information
+      Voir <a href="https://www.jhipster.tech/2016/08/17/jhipster-release-3.6.0.html#important-change-fluent-setters">cette note</a>
+      pour plus d'informations
     </td>
   </tr>
   <tr>
     <td>filter</td>
-    <td>unary</td>
+    <td>unitaire</td>
     <td>false</td>
     <td></td>
     <td>
-      See <a href="https://www.jhipster.tech/entities-filtering/">filtering</a> for more details; if an entity is filtered
-      but doesn't have a service then 'serviceClass' will be used
+      Voir <a href="https://www.jhipster.tech/entities-filtering/">filtering</a> pour plus de détails ; si une entité est filtrée
+      mais n'a pas de service, alors 'serviceClass' sera utilisé
     </td>
   </tr>
   <tr>
     <td>readOnly</td>
-    <td>unary</td>
+    <td>unitaire</td>
     <td>false</td>
     <td></td>
     <td>
-      Adding this option will make an entity readOnly, see
-      <a href="https://www.jhipster.tech/2019/10/10/jhipster-release-6.4.0.html#jhipster-release-v640">this release note</a>
-      for more details
+      Ajouter cette option rendra une entité en lecture seule, voir
+      <a href="https://www.jhipster.tech/2019/10/10/jhipster-release-6.4.0.html#jhipster-release-v640">cette note de version</a>
+      pour plus de détails
      </td>
   </tr>
   <tr>
     <td>dto</td>
-    <td>binary</td>
+    <td>binaire</td>
     <td>no</td>
     <td>mapstruct, no</td>
-    <td>Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'</td>
+    <td>Si des DTOs doivent être créés pour vos entités ; si une entité a un DTO mais pas de service, alors 'serviceClass sera utilisé'</td>
   </tr>
   <tr>
     <td>service</td>
-    <td>binary</td>
+    <td>binaire</td>
     <td>no</td>
     <td>serviceClass, serviceImpl, no</td>
     <td></td>
   </tr>
   <tr>
     <td>paginate</td>
-    <td>binary</td>
+    <td>binaire</td>
     <td>no</td>
     <td>pagination, infinite-scroll, no</td>
-    <td>Pagination is forbidden when the application uses Cassandra</td>
+    <td>La pagination est interdite lorsque l'application utilise Cassandra</td>
   </tr>
   <tr>
     <td>search</td>
-    <td>binary</td>
+    <td>binaire</td>
     <td>no</td>
     <td>elasticsearch, no</td>
-    <td>Requires the application to have the searchEngine option enabled</td>
+    <td>Requiert que l'application ait l'option searchEngine activée</td>
   </tr>
   <tr>
     <td>microservice</td>
-    <td>binary</td>
+    <td>binaire</td>
     <td></td>
-    <td>custom value</td>
-    <td>Will be automatically added for every entity declared inside a microservice application</td>
+    <td>valeur personnalisée</td>
+    <td>Sera automatiquement ajouté pour chaque entité déclarée dans une application microservice</td>
   </tr>
   <tr>
     <td>angularSuffix</td>
-    <td>binary</td>
+    <td>binaire</td>
     <td></td>
-    <td>custom value</td>
+    <td>valeur personnalisée</td>
     <td></td>
   </tr>
   <tr>
     <td>clientRootFolder</td>
-    <td>binary</td>
+    <td>binaire</td>
     <td></td>
-    <td>custom value</td>
+    <td>valeur personnalisée</td>
     <td></td>
   </tr>
 </table>
+Options de champ
 
-#### Field options
-
-Here are the field options supported in the JDL:
-
+Voici les options de champ supportées dans le JDL :
 <table class="table table-striped table-responsive">
   <tr>
-    <th>JDL option name (field)</th>
-    <th>Default value</th>
-    <th>Possible values</th>
-    <th>Comment</th>
+    <th>Nom de l'option JDL (champ)</th>
+    <th>Valeur par défaut</th>
+    <th>Valeurs possibles</th>
+    <th>Commentaire</th>
   </tr>
   <tr>
     <td>defaultValue</td>
-    <td>undefined</td>
-    <td>any value fitting to the datatype of the field, e.g. "myDefaultValue" or 42 or true</td>
-    <td>Will define a fixed default value on database schema side on the column, as well as adjust the clients passing in the option as default from input forms (only Angular for now)</td>
+    <td>indéfini</td>
+    <td>toute valeur correspondant au type de données du champ, par exemple "myDefaultValue" ou 42 ou true</td>
+    <td>Définira une valeur par défaut fixe au niveau du schéma de la base de données sur la colonne, et ajustera les clients en passant l'option par défaut à partir des formulaires de saisie (uniquement Angular pour l'instant)</td>
   </tr>
   <tr>
     <td>defaultValueComputed</td>
-    <td>undefined</td>
-    <td>database functions to generate default values for a column, e.g. "NOW(6)"</td>
-    <td>This will generate a default value on database level using the given function</td>
+    <td>indéfini</td>
+    <td>fonctions de base de données pour générer des valeurs par défaut pour une colonne, par exemple "NOW(6)"</td>
+    <td>Cela générera une valeur par défaut au niveau de la base de données en utilisant la fonction donnée</td>
   </tr>
 </table>
 ---
 
-### See also
+### Voir aussi
 
-The application options are available [here](/jdl/applications)
+Les options d'application sont disponibles [ici](/jdl/applications)

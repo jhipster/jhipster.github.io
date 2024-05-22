@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Langage de Domaine JHipster (JDL) - Applications
+title: Langage de Domaine JHipster - Applications
 permalink: /jdl/applications
 sitemap:
     priority: 0.5

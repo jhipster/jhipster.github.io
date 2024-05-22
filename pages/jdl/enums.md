@@ -1,43 +1,45 @@
 ---
 layout: default
-title: JHipster Domain Language - Enums
+title: Langage de Domaine JHipster - Enums
 permalink: /jdl/enums
 sitemap:
     priority: 0.5
     lastmod: 2019-10-27T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Enums
+# <i class="fa fa-star"></i> Langage de Domaine JHipster (JDL) -  Énumérations
 
-## Summary
+## Sommaire
 
-1. [Syntax](#syntax)
-1. [Examples](#examples)
-   1. [Basic example](#basic-example)
-   1. [With values](#with-values)
-   1. [Commenting](#commenting)
+1. [Syntaxe](#syntaxe)
+1. [Exemples](#exemples)
+   1. [Exemple de base](#exemple-de-base)
+   1. [Avec valeurs](#avec-valeurs)
+   1. [Commentaire](#Commentaire)
 
 ---
 
-### Syntax
+### Syntaxe
 
-Enumeration declaration is done as follows:
+La déclaration d'une énumération se fait comme suit :
+
 
 ```
-enum <enum name> {
-  <ENUM KEY> [(<enum value>)]
+enum <nom de l'énum> {
+<CLÉ DE L'ÉNUM> [(<valeur de l'énum>)]
 }
 ```
 
-  - Enumeration entry values are mandatory
-    - And uppercase keys must be used
-  - Enumeration entry values are optional, and must be wrapped inside parenthesises
+
+  - Les valeurs des entrées de l'énumération sont obligatoires
+    - Et des clés en majuscules doivent être utilisées
+  - Les valeurs des entrées de l'énumération sont optionnelles et doivent être enveloppées entre parenthèses
 
 ---
 
-### Examples
+### Exemples
 
-#### Basic example
+#### Exemple de base
 
 ```jdl
 enum Country {
@@ -45,9 +47,10 @@ enum Country {
   FRANCE,
   ITALY
 }
+
 ```
 
-And its use:
+Et son utilisation :
 
 ```jdl
 enum Country {}
@@ -59,9 +62,9 @@ entity A {
 
 ---
 
-#### With values
+#### Avec valeurs
 
-Starting from JHipster Core v6, enum values can have explicit values:
+À partir de JHipster Core v6, les valeurs des énumérations peuvent avoir des valeurs explicites :
 
 ```jdl
 enum Country {
@@ -74,21 +77,21 @@ enum Country {
 
 ---
 
-#### Commenting
+#### Commentaire
 
-Just like relationships, entities and fields, commenting is possible for enums, with the same rules.
+Comme pour les relations, entités et champs, il est possible de commenter les énumérations, selon les mêmes règles.
 
-Comments will later be added as Javadoc comments by JHipster. The JDL possesses its own kind of comment:
-  - // an ignored comment
-  - /** not an ignored comment */
+Les commentaires seront ensuite ajoutés en tant que commentaires Javadoc par JHipster. Le JDL possède son propre type de commentaire :
+  - // un commentaire ignoré
+  - /** un commentaire non ignoré */
 
-Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
-Please note that the JDL Studio directives that start with `#` will be ignored during parsing.
+Ainsi, tout ce qui commence par  `//` iest considéré comme un commentaire interne pour JDL, et ne sera pas pris en compte comme Javadoc.
+Veuillez noter que les directives de JDL Studio qui commencent par `#` seront ignorées lors de l'analyse.
 
 ```jdl
-/** This comment will be taken into account */
+/** Ce commentaire sera pris en compte */
 enum Country {
-  // But not this one!
+  // Mais pas celui-ci !
   FRANCE
 }
 ```

@@ -1,28 +1,28 @@
 ---
 layout: default
-title: Error - e-mail already used
+title: Erreur - adresse e-mail déjà utilisée
 permalink: /problem/email-already-used/
 sitemap:
-    priority: 0.7
+    priorité: 0.7
     lastmod: 2017-09-10T00:00:00-00:00
 ---
 
-# <i class="fa fa-map-signs"></i> Welcome to the JHipster website!
+# <i class="fa fa-map-signs"></i> Bienvenue sur le site de JHipster !
 
-You probably found this page by clicking on an error message in an application that was developed with JHipster.
+Vous avez probablement trouvé cette page en cliquant sur un message d'erreur dans une application développée avec JHipster.
 
-JHipster is a an application generator, which was used to develop the application you are using. You can find more information about JHipster by going to our [home page]({{ site.url }}).
+JHipster est un générateur d'application, qui a été utilisé pour développer l'application que vous utilisez. Vous pouvez trouver plus d'informations sur JHipster en allant sur notre [page d'accueil]({{ site.url }}).
 
-Please find below some information on the error that happened.
+Veuillez trouver ci-dessous quelques informations sur l'erreur qui s'est produite.
 
-## <i class="fa fa-warning"></i> Error: e-mail already used
+## <i class="fa fa-warning"></i> Erreur : adresse e-mail déjà utilisée
 
-### Error description
+### Description de l'erreur
 
-This is a JHipster error that is used when the end-user tries to use an e-mail address that is already being used.
+Il s'agit d'une erreur de JHipster qui est utilisée lorsque l'utilisateur final essaie d'utiliser une adresse e-mail qui est déjà utilisée.
 
-### How can this page be customized?
+### Comment personnaliser cette page ?
 
-Error pages are configured in each application's `ErrorConstants` class. If you want to provide your own error pages in your application, please modify this class accordingly.
+Les pages d'erreur sont configurées dans la classe `ErrorConstants` de chaque application. Si vous souhaitez fournir vos propres pages d'erreur dans votre application, veuillez modifier cette classe en conséquence.
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br>

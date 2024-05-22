@@ -9,40 +9,40 @@ sitemap:
 
 # <i class="fa fa-star"></i> JHipster Domain Language (JDL)
 
-## Troubleshooting
+## Dépannage
 
-We tried to keep the syntax as friendly as we can for developers.
-You can do these things with it:
-  - Declare applications with their options and entities,
-  - Declare entities with their attributes,
-  - Declare the relationships between them,
-  - And declare some JHipster specific options.
+Nous avons essayé de rendre la syntaxe aussi conviviale que possible pour les développeurs.
+Vous pouvez faire ces choses avec :
+  - Déclarer des applications avec leurs options et entités,
+  - Déclarer des entités avec leurs attributs,
+  - Déclarer les relations entre elles,
+  - Et déclarer certaines options spécifiques à JHipster.
 
-If you wish to view the JDL's grammar, there is an HTML file available
-[here](https://github.com/jhipster/generator-jhipster/blob/master/jdl/parsing/generated/grammar.html).
-
----
-
-### The JDL import only finds one entity when matching MS baseName
-
-This is a known issue regarding the parsing system and fixing it is tricky.
-A workaround is to use different names for the microservice and the entities inside.
-
-See [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/308) for more information.
+Si vous souhaitez consulter la grammaire du JDL, un fichier HTML est disponible
+[ici](https://github.com/jhipster/generator-jhipster/blob/master/jdl/parsing/generated/grammar.html).
 
 ---
 
-<h2 id="issues">Issues and bugs</h2>
+### L'importation du JDL ne trouve qu'une seule entité lors de la correspondance du baseName MS
 
-The JDL is [available on GitHub](https://github.com/jhipster/generator-jhipster/tree/main/jdl), and follows the same
-[contributing guidelines as JHipster]( https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
+Il s'agit d'un problème connu concernant le système de parsing et sa résolution est délicate.
+Une solution de contournement consiste à utiliser des noms différents pour le microservice et les entités à l'intérieur.
 
-Please use the ["JDL"](https://github.com/jhipster/generator-jhipster/labels/theme%3A%20JDL) label for submitting 
-issues and Pull Requests concerning the library itself.
+Voir [JHipster Core issue #308](https://github.com/jhipster/jhipster-core/issues/308) pour plus d'informations.
 
-- [JDL issue tracker](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aopen+is%3Aissue+label%3A%22theme%3A+JDL%22)
-- [JDL Pull Requests](https://github.com/jhipster/generator-jhipster/pulls?q=is%3Aopen+is%3Apr+label%3A%22theme%3A+JDL%22)
+---
 
-When submitting anything, you must be as precise as possible:  
-  - **One posted issue must only have one problem** (or one demand/question);  
-  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.  
+<h2 id="issues">Problèmes et bugs</h2>
+
+Le JDL est [disponible sur GitHub](https://github.com/jhipster/generator-jhipster/tree/main/jdl), et suit les mêmes
+[directives de contribution que JHipster](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
+
+Veuillez utiliser l'étiquette ["JDL"](https://github.com/jhipster/generator-jhipster/labels/theme%3A%20JDL) pour soumettre 
+des problèmes et des Pull Requests concernant la bibliothèque elle-même.
+
+- [Tracker de problèmes JDL](https://github.com/jhipster/generator-jhipster/issues?q=is%3Aopen+is%3Aissue+label%3A%22theme%3A+JDL%22)
+- [Pull Requests JDL](https://github.com/jhipster/generator-jhipster/pulls?q=is%3Aopen+is%3Apr+label%3A%22theme%3A+JDL%22)
+
+Lorsque vous soumettez quelque chose, vous devez être aussi précis que possible :  
+  - **Un problème posté ne doit avoir qu'un seul problème** (ou une seule demande/question);  
+  - Les Pull Requests sont les bienvenues, mais les commits doivent être 'atomiques' pour être vraiment compréhensibles.  

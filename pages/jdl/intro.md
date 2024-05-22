@@ -1,6 +1,6 @@
 ---
 layout: default
-title: JHipster Domain Language
+title: JHipster Domain Language (JDL)
 permalink: /jdl/intro
 redirect_from:
   - /jdl/
@@ -9,51 +9,46 @@ sitemap:
     lastmod: 2023-07-09T23:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL)
+# <i class="fa fa-star"></i> JHipster Domain Language (JDL) En Francais Langage de Domaine JHipster
 
-The JDL is a JHipster-specific domain language where you can describe all your applications, deployments, entities and
-their relationships in a single file (or more than one) with a user-friendly syntax.
+Le JDL est un langage de domaine spécifique à JHipster qui vous permet de décrire toutes vos applications, déploiements, entités et leurs relations dans un seul fichier (ou plusieurs) avec une syntaxe conviviale.
 
-You can use our online [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or one of the 
-[JHipster IDE](https://www.jhipster.tech/jhipster-ide/) plugins/extensions, which are available for:
+Vous pouvez utiliser notre [JDL-Studio en ligne](https://start.jhipster.tech/jdl-studio/) ou l'un des plugins/extensions de 
+[JHipster IDE](https://www.jhipster.tech/jhipster-ide/), disponibles pour :
   - [IntelliJ](https://plugins.jetbrains.com/plugin/19697-jhipster-jdl)
-  - [Eclipse](https://marketplace.eclipse.org/content/jhipster-ide), 
+  - [Eclipse](https://marketplace.eclipse.org/content/jhipster-ide)
   - [VS Code](https://marketplace.visualstudio.com/items?itemName=jhipster-ide.jdl)
 
-to create a JDL file and its UML visualization. You can create and export or share the URL of your JDL model as well.
+pour créer un fichier JDL et sa visualisation UML. Vous pouvez également créer et exporter ou partager l'URL de votre modèle JDL.
 
-This can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/) and is the
-recommended approach.
-The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool
-than with the classical Yeoman questions and answers.
+Cela peut être utilisé comme un remplacement de l'[entité sous-générateur]({{ site.url }}/creating-an-entity/) et est la méthode recommandée.
+L'idée est qu'il est beaucoup plus facile de [gérer les relations]({{ site.url }}/managing-relationships/) en utilisant un outil visuel
+qu'avec les questions-réponses classiques de Yeoman.
 
-The JDL project is [available on GitHub](https://github.com/jhipster/generator-jhipster/), it is an Open Source project like
-JHipster (Apache 2.0 License). It can also be used as a node library to do JDL parsing.
+Le projet JDL est [disponible sur GitHub](https://github.com/jhipster/generator-jhipster/), c'est un projet Open Source comme
+JHipster (licence Apache 2.0). Il peut également être utilisé comme une bibliothèque node pour faire l'analyse syntaxique du JDL.
 
-_If you like the [JHipster Domain Language](https://github.com/jhipster/generator-jhipster/),
-the [JDL Studio](https://github.com/jhipster/jdl-studio/) or the
-[JHipster IDE](https://github.com/jhipster/jhipster-ide/) don't forget to give them a star on
-[GitHub](https://github.com/jhipster/) - thanks_!
+_Si vous aimez le [JHipster Domain Language](https://github.com/jhipster/generator-jhipster/),
+le [JDL Studio](https://github.com/jhipster/jdl-studio/) ou le
+[JHipster IDE](https://github.com/jhipster/jhipster-ide/), n'oubliez pas de leur donner une étoile sur
+[GitHub](https://github.com/jhipster/) - merci_!
 
 ---
 
-If you don't know the JDL yet, it is recommended to go through the [Getting Started](/jdl/getting-started) page first.
+Si vous ne connaissez pas encore le JDL, il est recommandé de consulter d'abord la page [Premiers pas](/jdl/getting-started).
 
-However, if you're already familiar with the JDL and what you can do with it, you can also browse the detailed
-documentation:
-  1. [Getting Started](/jdl/getting-started)
+Cependant, si vous êtes déjà familier avec le JDL et ce que vous pouvez faire avec, vous pouvez également parcourir la documentation détaillée :
+  1. [Premiers pas](/jdl/getting-started)
   1. [Applications](/jdl/applications)
-  1. [Entities & fields](/jdl/entities-fields)
-  1. [Enums](/jdl/enums)
-  1. [Relationships](/jdl/relationships)
+  1. [Entités & champs](/jdl/entities-fields)
+  1. [ Énumérations](/jdl/enums)
+  1. [Relations](/jdl/relationships)
   1. [Options](/jdl/options)
-  1. [Deployments](/jdl/deployments)
-  1. [Troubleshooting](/jdl/troubleshooting)
+  1. [Déploiements](/jdl/deployments)
+  1. [ Dépannage](/jdl/troubleshooting)
 
-You can also check the official [JDL sample repository](https://github.com/jhipster/jdl-samples) and propose examples 
-if you want!
+Vous pouvez également consulter le [dépôt d'exemples JDL officiel](https://github.com/jhipster/jdl-samples) et proposer des exemples si vous le souhaitez !
 
 ---
 
-In case you already have existing databases and would like to create the JDL representation then you can use
-this project [SQL to JDL](https://github.com/Blackdread/sql-to-jdl) which will help you get started quickly.
+Si vous avez déjà des bases de données existantes et souhaitez créer la représentation JDL, vous pouvez utiliser ce projet [SQL to JDL](https://github.com/Blackdread/sql-to-jdl) qui vous aidera à démarrer rapidement.

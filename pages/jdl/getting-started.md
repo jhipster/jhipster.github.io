@@ -1,83 +1,83 @@
 ---
 layout: default
-title: JHipster Domain Language - Getting Started
+title: Langage de Domaine JHipster -  Premiers pas
 permalink: /jdl/getting-started
 sitemap:
   priority: 0.5
   lastmod: 2021-03-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-star"></i> JHipster Domain Language (JDL) - Getting Started
+# <i class="fa fa-star"></i> Langage de Domaine JHipster (JDL) -  Premiers pas
 
-## Summary
+## Sommaire
 
-In this page, you'll learn about the JDL and how to create applications and everything around them.
+Sur cette page, vous apprendrez à utiliser le JDL et à créer des applications et tout ce qui les entoure.
 
-1. [Generating content](#generating-content)
-   1. [Using files](#using-files)
-   1. [Using an inline JDL](#using-an-inline-jdl)
-1. [Applications](#generating-applications)
-1. [Entities](#generating-entities)
-1. [Fields](#generating-fields)
-1. [Enums](#enumerations)
-1. [Relationships](#adding-relationships)
+1. [Générer du contenu](#generer-du-contenu)
+   1. [Utiliser des fichiers](#utiliser-des-fichiers)
+   1. [Utiliser un JDL inline](#utiliser-un-jdl-inline)
+1. [Applications](#generer-des-applications)
+1. [Entités](#generer-des-entites)
+1. [Champs](#generer-des-champs)
+1. [Énumérations](#enumerations)
+1. [Relations](#ajouter-des-relations)
 1. [Options](#options)
-1. [Deployments](#deployments)
-1. [Constants](#constants)
-1. [Exporting to a JDL file](#exporting-to-a-jdl-file)
+1. [Déploiements](#deploiements)
+1. [Constantes](#constantes)
+1. [Exporter vers un fichier JDL](#exporter-vers-un-fichier-jdl)
 
 ---
 
-## Generating content
+## Générer du contenu
 
-### Using files
+### Utiliser des fichiers
 
-You can use JDL files to generate entities:
+Vous pouvez utiliser des fichiers JDL pour générer des entités :
 
-- Create a file with the extension '.jh' or '.jdl',
-- Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
-- If you are creating only entities then run `jhipster jdl my_file.jdl` in your JHipster application's root folder.
-- If you are creating applications then run `jhipster jdl my_file.jdl` in a folder.
+- Créez un fichier avec l'extension '.jh' ou '.jdl',
+- Déclarez vos applications, déploiements, entités et relations ou créez et téléchargez le fichier avec [JDL-Studio](https://start.jhipster.tech/jdl-studio/) ou [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
+- Si vous ne créez que des entités, exécutez `jhipster jdl my_file.jdl` dans le dossier racine de votre application JHipster.
+- Si vous créez des applications, exécutez `jhipster jdl my_file.jdl` dans un dossier.
 
-and _Voilà_, you are done!
+et _Voilà_, c'est terminé !
 
-If you work in a team, perhaps you would like to have multiple files instead of one.
-We added this option so that you don't manually concatenate all the files into one, you have to run:
+Si vous travaillez en équipe, vous préférerez peut-être avoir plusieurs fichiers au lieu d'un seul.
+Nous avons ajouté cette option pour que vous n'ayez pas à concaténer manuellement tous les fichiers en un seul. Il suffit d'exécuter :
 
     jhipster jdl my_file1.jdl my_file2.jdl
 
-If you do not want to regenerate your entities while importing a JDL, you can use the `--json-only` flag to skip the
-entity creation part and create only the json files in `.jhipster` folder.
+Si vous ne souhaitez pas régénérer vos entités lors de l'importation d'un JDL, vous pouvez utiliser l'option `--json-only` pour ignorer la création des entités et créer uniquement les fichiers json dans le dossier `.jhipster`.
 
     jhipster jdl ./my-jdl-file.jdl --json-only
 
-By default `jdl` regenerates only entities that have changed, if you want all your entities to be regenerated
-then pass in the `--force` flag.
-Please note that this will overwrite all your local changes to the entity files:
+Par défaut, `jdl` régénère uniquement les entités qui ont changé. Si vous souhaitez que toutes vos entités soient régénérées,
+utilisez l'option `--force`.
+Veuillez noter que cela écrasera toutes vos modifications locales aux fichiers d'entité :
 
     jhipster jdl ./my-jdl-file.jdl --force
 
-If you want to use it in your project, you can add do so by doing:
+Si vous souhaitez l'utiliser dans votre projet, vous pouvez l'ajouter en faisant :
 
-- NPM: `npm install jhipster-core --save`
+- NPM : `npm install jhipster-core --save`
 
-to install it locally, and save it in your `package.json` file.
+pour l'installer localement et l'enregistrer dans votre fichier `package.json`.
 
 ---
 
-### Using an inline JDL
 
-The other way to generate content is to pass a JDL code in your CLI, this way:
+### Utiliser un JDL inline
+
+L'autre façon de générer du contenu est de passer un code JDL dans votre CLI, de cette manière :
 `jhipster jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
 
-This way of generating content is especially useful when generating entities.
+Cette méthode de génération de contenu est particulièrement utile pour générer des entités.
 
 ---
 
-For now, we'll start with small JDL content to get to know the various ways to generate content.
-The focus here is on the generation of code. Explanation about the syntax is made in other sections.
+Pour l'instant, nous allons commencer avec un petit contenu JDL pour connaître les différentes façons de générer du contenu.
+L'accent est mis ici sur la génération de code. L'explication de la syntaxe est faite dans d'autres sections.
 
-Here's the basic content we'll use:
+Voici le contenu de base que nous utiliserons :
 
 ```jdl
 application {
@@ -86,18 +86,18 @@ application {
     applicationType microservice
   }
 }
+
 ```
 
-This is a very basic microservice application named "jhipster", and we'll see the various ways to generate a
-application from this sample.
+Il s'agit d'une application microservice très basique nommée "jhipster", et nous verrons les différentes façons de générer
+une application à partir de cet exemple.
 
-You'll see that, with this little sample, you've managed to create an application from scratch.
-
+Vous verrez qu'avec ce petit exemple, vous avez réussi à créer une application à partir de zéro.
 ---
 
-## Using a remote JDL file
+## Utiliser un fichier JDL distant
 
-You can also use an URL with the `jdl` command. Just pass the URL instead of the file name as below
+Vous pouvez également utiliser une URL avec la commande `jdl`.  Il suffit de passer l'URL au lieu du nom du fichier comme ci-dessous :
 
 ```
 jhipster jdl https://my-site.com/my.jdl
@@ -106,16 +106,15 @@ jhipster jdl https://my-site.com/my.jdl
 jhipster jdl https://gist.githubusercontent.com/user/id/raw/id/myapp.jdl
 ```
 
-You can also fetch a remote JDL file from our [JDL sample repository](https://github.com/jhipster/jdl-samples) by just specifying the filename and we will automatically resolve the URL
-
+Vous pouvez également récupérer un fichier JDL distant à partir de notre [répertoire d'exemples JDL ](https://github.com/jhipster/jdl-samples) en spécifiant simplement le nom du fichier, et nous résoudrons automatiquement l'URL :
 ```
 jhipster jdl default.jdl
 ```
 
-## Generating applications
+## Générer des applications
 
-As we've seen in the previous example, generating applications is quite straightforward, let's take the previous example
-and add more things to it:
+Comme nous l'avons vu dans l'exemple précédent, générer des applications est assez simple. Prenons l'exemple précédent
+et ajoutons-y plus de choses :
 
 ```jdl
 application {
@@ -128,60 +127,59 @@ application {
 }
 ```
 
-Let's break it down:
+Décomposons cela:
 
-- `application` is the keyword to say you want to declare an application
-- `config` to say that you want to specify the configuration
-  - we'll later see that you can also declare entities in applications
-- `baseName`, `applicationType`, etc. are keywords to tweak the application
+- `application` est le mot-clé pour dire que vous voulez déclarer une application
+- `config` pour dire que vous voulez spécifier la configuration
+  - nous verrons plus tard que vous pouvez également déclarer des entités dans les applications
+- `baseName`, `applicationType`, etc. sont des mots-clés pour ajuster l'application
 
-This is how you create an application using the JDL.
-To see all supported application options, head to [this page](/jdl/applications).
+C'est ainsi que vous créez une application en utilisant le JDL.
+Pour voir toutes les options d'application prises en charge, rendez-vous sur [cette page](/jdl/applications).
 
 ---
 
-## Generating entities
+## Générer des entités
 
-Generating entities is a bit less straightforward.
-You can also go to the dedicated [entity page](/jdl/entities-fields) to know more about what you can do with entities.
+Générer des entités est un peu moins simple.
+Vous pouvez également consulter la [page dédiée aux entités](/jdl/entities-fields) pour en savoir plus sur ce que vous pouvez faire avec les entités.
 
-### Generating a basic entity
+### Générer une entité de base
 
 ```jdl
 entity A
 ```
 
-This entity doesn't have fields, or even an explicit table name (even though JHipster sets one for you from the entity's
-name).
-This is the simplest way possible to declare an entity.
+Cette entité n'a pas de champs, ni même de nom de table explicite (bien que JHipster en définisse un pour vous à partir du nom de l'entité).
+C'est la façon la plus simple de déclarer une entité.
 
-Note that this form is equivalent to:
+Notez que cette forme est équivalente à :
 
 ```jdl
 entity A(a) {}
 ```
 
-We've added a table name and braces.
-By default, JHipster generates a table name based on the specified entity name.
+Nous avons ajouté un nom de table et des accolades.
+Par défaut, JHipster génère un nom de table basé sur le nom de l'entité spécifiée.
 
-The braces are needed when declaring fields.
+Les accolades sont nécessaires pour déclarer des champs.
 
-### Adding comments
+### Ajouter des commentaires
 
-This is the way to add a comment to an entity:
+Voici comment ajouter un commentaire à une entité :
 
 ```jdl
 /**
- * This is a simple entity
+ * Ceci est une entité simple
  */
 entity A
 ```
 
-If the backend is in Java, this will add a Javadoc comment.
+Si le backend est en Java, cela ajoutera un commentaire Javadoc.
 
-### Entities in applications
+### Entités dans les applications
 
-To only generate some entities in an application, the `entities` keyword can be used:
+Pour générer uniquement certaines entités dans une application, le mot-clé entities peut être utilisé :
 
 ```jdl
 application {
@@ -199,13 +197,13 @@ entity B
 entity C
 ```
 
-This is especially useful in microservice architectures.
+C'est particulièrement utile dans les architectures de microservices.
 
 ---
 
-## Generating fields
+## Générer des champs
 
-Fields are declared in entities, by specifying a body to an entity:
+Les champs sont déclarés dans les entités, en spécifiant un corps à une entité :
 
 ```jdl
 entity MyEntity {
@@ -214,11 +212,11 @@ entity MyEntity {
 }
 ```
 
-There are more than these two types, check them out in the [entities & fields page](/jdl/entities-fields).
+Il y a plus de types que ces deux-là, consultez-les dans la [page des entités et des champs](/jdl/entities-fields).
 
-### Adding comments and validations
+### Ajouter des commentaires et des validations
 
-The same way we've added comments to entities, we can add comments to fields:
+De la même manière que nous avons ajouté des commentaires aux entités, nous pouvons ajouter des commentaires aux champs :
 
 ```jdl
 entity MyEntity {
@@ -227,13 +225,13 @@ entity MyEntity {
 }
 ```
 
-Validations depend on the field type, and are also detailed in the [entities & fields page](/jdl/entities-fields).
+Les validations dépendent du type de champ et sont également détaillées dans la[page des entités et des champs](/jdl/entities-fields).
 
 ---
 
-## Enumerations
+## Énumérations
 
-Enumerations are types with fixed values:
+Les énumérations sont des types avec des valeurs fixes :
 
 ```jdl
 enum Type {
@@ -246,17 +244,17 @@ entity E {
 }
 ```
 
-Notice how enumeration's values are optional.
+Remarquez que les valeurs des énumérations sont optionnelles.
 
-They only have one validation: `required`.
+Elles n'ont qu'une seule validation: `required`.
 
-You can check the dedicated [enum page](/jdl/enums) for details about enums.
+Vous pouvez consulter la [page dédiée aux énumérations](/jdl/enums) pour plus de détails sur les énumérations.
 
 ---
 
-## Adding relationships
+## Ajouter des relations  
 
-Relationships between entities are also available and are declared with the `relationship` keyword.
+Les relations entre entités sont également disponibles et sont déclarées avec le mot-clé  `relationship`.
 
 ```jdl
 entity A
@@ -267,20 +265,20 @@ relationship OneToOne {
 }
 ```
 
-Here's what we can see:
+Voici ce que nous pouvons remarquer:
 
-- `OneToOne` is the relationship type
-  - there are also `OneToMany`, `ManyToMany` and `ManyToOne`
-- we declare the source and the destination of the relationship (from `A` to `B`)
-- we also declare the injected fields in each entity (`a` in `B`, and `b` in `A`)
-  - this means the relationship is bidirectional
+- `OneToOne` est le type de relation
+  - il y a aussi `OneToMany`, `ManyToMany` et `ManyToOne`
+- nous déclarons la source et la destination de la relation (de `A` à `B`)
+- nous déclarons également les champs injectés dans chaque entité (`a` dans `B`, et `b` dans `A`)
+  - cela signifie que la relation est bidirectionnelle
 
-To know more about relationships, you can head to [the dedicated page](/managing_relationships).
+Pour en savoir plus sur les relations, vous pouvez consulter [la page dédiée](/managing_relationships).
 
-### Unidirectional or bidirectional relationships?
+### Relations unidirectionnelles ou bidirectionnelles ?
 
-Depending on how you design your models, you may want unidirectional relationships instead of bidirectional ones.
-This is achieved by not specifying an injected field like this:
+En fonction de la conception de vos modèles, vous pouvez préférer des relations unidirectionnelles plutôt que bidirectionnelles.
+Cela se fait en ne spécifiant pas de champ injecté, comme ceci :
 
 ```jdl
 relationship OneToOne {
@@ -288,7 +286,7 @@ relationship OneToOne {
 }
 ```
 
-You can also not specify them, and at least one will be injected by default (the source)
+Vous pouvez également ne pas les spécifier, et au moins un sera injecté par défaut (la source) :
 
 ```jdl
 relationship OneToOne {
@@ -296,9 +294,9 @@ relationship OneToOne {
 }
 ```
 
-### Relationship comments & validations
+### Commentaires et validations des relations
 
-Relationships also have comments, validations (only one: `required`):
+Les relations ont également des commentaires et des validations (une seule : `required`):
 
 ```jdl
 relationship OneToOne {
@@ -306,18 +304,18 @@ relationship OneToOne {
 }
 ```
 
-In this example we can see:
+Dans cet exemple, nous pouvons voir :
 
-- `required` to specify if a side of the relationship is required
-  - instead of having 0..1, this One to One relationship requires 1 side not to be nil
+- `required` pour spécifier si un côté de la relation est requis
+  - au lieu d'avoir 0..1, cette relation Un à Un exige qu'un côté ne soit pas nul
 
-To know more about relationships, you can go to the dedicated [relationship page](/jdl/relationships)
+Pour en savoir plus sur les relations, vous pouvez consulter la [page dédiée aux relations](/jdl/relationships)
 
 ---
 
 ## Options
 
-The same way you can apply options to entities in the CLI, you can also do that in the JDL:
+De la même manière que vous pouvez appliquer des options aux entités dans le CLI, vous pouvez également le faire dans le JDL :
 
 ```jdl
 entity A
@@ -330,22 +328,22 @@ service * with serviceImpl
 paginate A, B with pager
 ```
 
-There a some interesting things happening here:
+Il y a plusieurs choses intéressantes ici :
 
-- `dto`, `paginate` and `service` are binary options as they need an entity list and a value
-  - `with` is used to specify the option value
-  - note the `*` which means the option is to be applied to all the entities
-- `readOnly` is an unary option, that means that such options only take an entity list
+- `dto`, `paginate` et `service` sont des options binaires car elles nécessitent une liste d'entités et une valeur
+  - `with` est utilisé pour spécifier la valeur de l'option
+  - notez le `*` qui signifie que l'option doit être appliquée à toutes les entités
+- `readOnly` est une option unitaire, ce qui signifie que ces options ne prennent qu'une liste d'entités
 
-There are more than one way to declare an entity list:
+Il existe plusieurs façons de déclarer une liste d'entités :
 
-- you can enumerate them one by one: `A, B, C`
-- you can select all of them: `*` or `all`
-  - you can have exceptions to exclude entities: `service * with serviceImpl except A, B`
+- vous pouvez les énumérer une par une :: `A, B, C`
+- vous pouvez les sélectionner toutes: `*` ou `all`
+  - ous pouvez avoir des exceptions pour exclure des entités: `service * with serviceImpl except A, B`
 
 ### Annotations
 
-Annotations are another way to declare options, let's rewrite the previous example:
+Les annotations sont une autre façon de déclarer des options, réécrivons l'exemple précédent :
 
 ```jdl
 @readOnly
@@ -364,18 +362,18 @@ entity B
 entity C
 ```
 
-Similar to Java, or Typescript, annotations are "decorators", options to entities.
+Similaires à Java ou Typescript, les annotations sont des "décorateurs", des options pour les entités.
 
-This example and the previous are equivalent as they can be used to generate the same code.
+Cet exemple et le précédent sont équivalents car ils peuvent être utilisés pour générer le même code.
 
-To know more about options, you can go to the [option page](/jdl/options)
+Pour en savoir plus sur les options, vous pouvez consulter la [page des options](/jdl/options)
 
 ---
 
-## Deployments
+## Déploiements
 
-Finally, deployments can also be generated from a JDL file using the `deployment` keyword, compatible with JHipster
-v5.7 and above:
+Enfin, les déploiements peuvent également être générés à partir d'un fichier JDL en utilisant le mot-clé `deployment`, compatible avec JHipster
+v5.7 et supérieur :
 
 ```jdl
 deployment {
@@ -385,13 +383,12 @@ deployment {
 }
 ```
 
-_To import one or several deployments, you need not be in a JHipster application folder._
+_Pour importer un ou plusieurs déploiements, vous n'avez pas besoin d'être dans un dossier d'application JHipster._
 
-Deployments are described in [their own page](/jdl/deployments).
+Les déploiements sont décrits dans [leur propre page](/jdl/deployments).
 
-A JHipster deployment has a config with default values for all other properties and using the previous syntax will
-ensure your deployment will use the default values (as if you didn't make any specific choice).
-The resulting deployment will have:
+Un déploiement JHipster a une configuration avec des valeurs par défaut pour toutes les autres propriétés et en utilisant la syntaxe précédente, vous vous assurez que votre déploiement utilisera les valeurs par défaut (comme si vous n'aviez fait aucun choix spécifique).
+Le déploiement résultant aura :
 
 - deploymentType: `docker-compose`
 - appsFolders: `foo, bar`
@@ -401,7 +398,7 @@ The resulting deployment will have:
 - directoryPath: `../`
 - etc.
 
-Now, if you want some custom options:
+Maintenant, si vous voulez des options personnalisées :
 
 ```jdl
 deployment {
@@ -416,15 +413,15 @@ deployment {
 }
 ```
 
-Those options are only a sample of what's available in the JDL.
-The complete list of options is available in the deployment page, [here](/jdl/deployments).
+TCes options ne sont qu'un échantillon de ce qui est disponible dans le JDL.
+La liste complète des options est disponible dans la page de déploiement, [ici](/jdl/deployments).
 
 ---
 
-## Constants
+## Constantes
 
-The JDL supports numerical constants.
-Here is an example:
+Le JDL supporte les constantes numériques.
+Voici un exemple :
 
 ```jdl
 DEFAULT_MIN_LENGTH = 1
@@ -443,13 +440,11 @@ entity A {
 
 ---
 
-## Exporting to a JDL file
+## Exporter vers un fichier JDL
 
-If you already have entities in your application and wish to have a JDL file, don't worry! You don't have to write it from
-scratch as there's a sub-generator that does that for you.
+Si vous avez déjà des entités dans votre application et souhaitez obtenir un fichier JDL, ne vous inquiétez pas ! Vous n'avez pas à l'écrire à partir de zéro car il existe un sous-générateur qui le fait pour vous.
 
-Run `jhipster export-jdl <FILE_NAME>` in your app's root folder and you'll have all your applications, entities,
-relationships and options exporting in a single JDL file.
+Exécutez `jhipster export-jdl <FILE_NAME>` dans le dossier racine de votre application et vous aurez toutes vos applications, entités,
+relations et options exportées dans un seul fichier JDL.
 
-Note: you can also not provide a file name to the sub-generator, the exported JDL file will be named after the app's
-base name. For instance, if your application's named 'mySuperApp' then your JDL file will be `mySuperApp.jdl`.
+Note : vous pouvez également ne pas fournir de nom de fichier au sous-générateur, le fichier JDL exporté sera nommé d'après le nom de base de l'application. Par exemple, si votre application s'appelle 'mySuperApp', alors votre fichier JDL sera  `mySuperApp.jdl`.

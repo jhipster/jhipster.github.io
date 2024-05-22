@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Langage de Domaine JHipster (JDL) - Entités & champs
+title: Langage de Domaine JHipster - Entités & champs
 permalink: /jdl/entities-fields
 sitemap:
     priority: 0.5

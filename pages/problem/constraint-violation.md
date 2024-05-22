@@ -1,28 +1,29 @@
 ---
 layout: default
-title: Error - constraint violation
+title: Erreur - violation de contrainte
 permalink: /problem/constraint-violation/
 sitemap:
-    priority: 0.7
+    priorité: 0.7
     lastmod: 2017-09-10T00:00:00-00:00
 ---
 
-# <i class="fa fa-map-signs"></i> Welcome to the JHipster website!
+# <i class="fa fa-map-signs"></i> Bienvenue sur le site de JHipster !
 
-You probably found this page by clicking on an error message in an application that was developed with JHipster.
+Vous avez probablement trouvé cette page en cliquant sur un message d'erreur dans une application développée avec JHipster.
 
-JHipster is an application generator, which was used to develop the application you are using. You can find more information about JHipster by going to our [home page]({{ site.url }}).
+JHipster est un générateur d'application, qui a été utilisé pour développer l'application que vous utilisez. Vous pouvez trouver plus d'informations sur JHipster en allant sur notre [page d'accueil]({{ site.url }}).
 
-Please find below some information on the error that happened.
+Veuillez trouver ci-dessous quelques informations sur l'erreur qui s'est produite.
 
-## <i class="fa fa-warning"></i> Error: constraint violation
+## <i class="fa fa-warning"></i> Erreur : violation de contrainte
 
-### Error description
+### Description de l'erreur
 
-This is a generic JHipster error, that is displayed when there is a validation error, typically using [Bean Validation](http://beanvalidation.org/). The error message should tell you which constraint has been violated, and for which reason.
+Il s'agit d'une erreur générique de JHipster, qui s'affiche lorsqu'il y a une erreur de validation, généralement avec [Bean Validation](http://beanvalidation.org/). Le message d'erreur devrait vous indiquer quelle contrainte a été violée et pour quelle raison.
 
-### How can this page be customized?
+### Comment personnaliser cette page ?
 
-Error pages are configured in each application's `ErrorConstants` class. If you want to provide your own error pages in your application, please modify this class accordingly.
+Les pages d'erreur sont configurées dans la classe `ErrorConstants` de chaque application. Si vous souhaitez fournir vos propres pages d'erreur dans votre application, veuillez modifier cette classe en conséquence.
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
