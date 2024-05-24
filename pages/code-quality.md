@@ -7,42 +7,42 @@ sitemap:
     lastmod: 2018-08-18T12:40:00-00:00
 ---
 
-# <i class="fa fa-diamond"></i> Code quality
+## Qualité du code
 
-Code quality can be analyzed using [SonarCloud](https://sonarcloud.io), which is automatically configured by JHipster.
+La qualité du code peut être analysée en utilisant [SonarCloud](https://sonarcloud.io), qui est automatiquement configuré par JHipster.
 
-## Using Sonar with JHipster
+## Utilisation de Sonar avec JHipster
 
-JHipster provides a specific Docker Compose configuration for Sonar ([here is the JHipster Docker Compose documentation]({{ site.url }}/docker-compose/)) that provides an out-of-the box Sonar instance. At the root of your project, please run:
+JHipster fournit une configuration Docker Compose spécifique pour Sonar ([voici la documentation Docker Compose de JHipster]({{ site.url }}/docker-compose/)) qui fournit une instance Sonar prête à l'emploi. À la racine de votre projet, veuillez exécuter :
 
-    docker-compose -f src/main/docker/sonar.yml up -d
+<pre>docker-compose -f src/main/docker/sonar.yml up -d</pre>
 
-If you use Maven, it has been automatically configured:
 
-    ./mvnw -Pprod clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001
+Si vous utilisez Maven, il a été automatiquement configuré :
 
-If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
+  <pre>  ./mvnw -Pprod clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001 </pre>
 
-    ./mvnw initialize sonar:sonar -Dsonar.host.url=http://localhost:9001
+Si vous devez relancer la phase Sonar, veuillez vous assurer de spécifier au moins la phase  `initialize` car les propriétés Sonar sont chargées à partir du fichier sonar-project.properties.
+   <pre> ./mvnw initialize sonar:sonar -Dsonar.host.url=http://localhost:9001</pre>
 
-If you use Gradle, it has also been automatically configured:
+Si vous utilisez Gradle, il a également été automatiquement configuré :
 
-    ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.host.url=http://localhost:9001
+ ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.host.url=http://localhost:9001 
 
-In every cases you can, now, run analysis with [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) if you already have installed it.
+
+Dans tous les cas, vous pouvez désormais exécuter l'analyse avec [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)si vous l'avez déjà installé.
 
     sonar-scanner
 
-Once the analysis completes, it will be available on the Sonar dashboard, which by default is available on [http://127.0.0.1:9001/](http://127.0.0.1:9001/).
+Une fois l'analyse terminée, elle sera disponible sur le tableau de bord Sonar, qui est disponible par défaut sur [http://127.0.0.1:9001/](http://127.0.0.1:9001/).
 
-## Excluding Files from Jacoco Analysis
+## Exclusion des fichiers de l'analyse Jacoco
 
-In case you would like to exclude certain classes from coverage analysis (e.g. generated classes or the application class) and would like to have the correct
-coverage in the default jacoco html report you have to exclude the classes from analysis and from reporting.
+Si vous souhaitez exclure certaines classes de l'analyse de couverture (par exemple, des classes générées ou la classe d'application) et que vous souhaitez avoir la couverture correcte dans le rapport html jacoco par défaut, vous devez exclure les classes de l'analyse et du rapport.
 
 ### Maven
 
-You need to add exclusions to the `prepare-agent` and `report` goal of both unit and integration tests:
+Vous devez ajouter des exclusions aux objectifs `prepare-agent` et `report` des tests unitaires et d'intégration :
 
 ```xml
 <plugin>
@@ -56,7 +56,7 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
                 <goal>prepare-agent</goal>
             </goals>
             <configuration>
-                <!-- Exclude any class named Application from instrumentation -->
+                <!-- Exclure toute classe nommée Application de l'instrumentation -->
                 <excludes>**/Application.*</excludes>
                 <destFile>${jacoco.utReportFile}</destFile>
             </configuration>
@@ -68,7 +68,7 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
                 <goal>report</goal>
             </goals>
             <configuration>
-                <!-- Exclude any class named Application from reporting-->
+                <!-- Exclure toute classe nommée Application du rapport -->
                 <excludes>**/Application.*</excludes>
                 <dataFile>${jacoco.utReportFile}</dataFile>
                 <outputDirectory>${jacoco.reportFolder}</outputDirectory>
@@ -80,7 +80,7 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
                 <goal>prepare-agent-integration</goal>
             </goals>
             <configuration>
-                <!-- Exclude any class named Application from instrumentation -->
+                <!-- Exclure toute classe nommée Application de l'instrumentation -->
                 <excludes>**/Application.*</excludes>
                 <destFile>${jacoco.itReportFile}</destFile>
             </configuration>
@@ -92,7 +92,7 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
                 <goal>report-integration</goal>
             </goals>
             <configuration>
-                <!-- Exclude any class named Application from reporting-->
+                <!-- Exclure toute classe nommée Application du rapport -->
                 <excludes>**/Application.*</excludes>
                 <dataFile>${jacoco.itReportFile}</dataFile>
                 <outputDirectory>${jacoco.reportFolder}</outputDirectory>
@@ -104,7 +104,7 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
 
 ### Gradle
 
-You can add the following to `sonar.gradle` file:
+Vous pouvez ajouter ce qui suit au fichier `sonar.gradle`:
 
 ```gradle
 test {
@@ -124,12 +124,12 @@ jacocoTestReport {
 }
 ```
 
-## Automatic analysis of the default generated project
+## Analyse automatique du projet généré par défaut
 
-The JHipster generator project publishes a sample project which is analyzed every time a new commit is merged in the "main" branch:
+Le projet générateur JHipster publie un projet d'exemple qui est analysé chaque fois qu'un nouveau commit est fusionné dans la branche "main" :
 
-[Analysis of the JHipster Sample Application](https://sonarcloud.io/dashboard?id=jhipster-sample-application) under the [JHipster Organization](https://sonarcloud.io/organizations/jhipster)
+[Analyse de l'application d'exemple JHipster ](https://sonarcloud.io/dashboard?id=jhipster-sample-application) sous [l'organisation JHipster](https://sonarcloud.io/organizations/jhipster)
 
-This allows the JHipster team to make sure that you will start developing your project on the cleanest code possible.
+Cela permet à l'équipe JHipster de s'assurer que vous commencerez à développer votre projet sur le code le plus propre possible.
 
-This analysis is provided for free by [SonarCloud](https://sonarcloud.io).
+Cette analyse est fournie gratuitement par  [SonarCloud](https://sonarcloud.io).

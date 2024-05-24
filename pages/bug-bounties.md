@@ -1,55 +1,54 @@
 ---
 layout: default
-title: Bug bounties
+title: Prime aux bugs
 permalink: /bug-bounties/
 sitemap:
     priority: 0.1
     lastmod: 2018-07-20T00:00:00-00:00
 ---
-# <i class="fa fa-usd"></i> Bug bounties
+# <i class="fa fa-usd"></i> Prime aux bugs
 
 ## Introduction
 
-Any ticket opened on the [JHipster bug tracker](https://github.com/jhipster/generator-jhipster/issues) can have a "\$\$ bug-bounty \$\$" label: the person who solves that ticket will get the money, either $100, $200, $300 or $500 depending on the ticket!
+Tout ticket ouvert sur le [suivi des bugs de JHipster](https://github.com/jhipster/generator-jhipster/issues) peut avoir une étiquette "\$\$ bug-bounty \$\$" : la personne qui résout ce ticket recevra de l'argent, soit 100 $, 200 $, 300 $ ou 500 $ en fonction du ticket !
 
-## Who can create bug bounties?
+## Qui peut créer des primes aux bugs ?
 
-- [Silver, gold and platinum sponsors]({{ site.url }}/sponsors/)
-- The [project leads]({{ site.url }}/team/#project-leads) and [governing body]({{ site.url }}/team/#governing-body).
+- [Les sponsors argent, or et platine]({{ site.url }}/sponsors/)
+- Les [responsables de projet]({{ site.url }}/team/#project-leads) et le [corps dirigeant]({{ site.url }}/team/#governing-body) du projet.
 
-## How much is a bug bounty?
+## Combien vaut une prime aux bugs ?
 
-Next to the "\$\$ bug-bounty \$\$" label, there should be a "$100", "$200", "$300" or "$500" label, that tells how the much the bug bounty is worth.
+À côté de l'étiquette "\$\$ bug-bounty \$\$", il devrait y avoir une étiquette "$100", "$200", "$300" ou "$500" indiquant combien vaut la prime aux bugs.
 
-## Where is the list of currently opened bug bounties?
+## Où se trouve la liste des primes aux bugs actuellement ouvertes ?
 
-Bug bounties are mostly available on the main project, but can also be opened on sub-projects under the JHipster organization on GitHub.
+Les primes aux bugs sont principalement disponibles sur le projet principal, mais peuvent également être ouvertes sur des sous-projets sous l'organisation JHipster sur GitHub.
 
-- [Opened bug bounties on all projects](https://github.com/search?l=&p=1&q=is%3Aissue+is%3Aopen+label%3A%22%24%24+bug-bounty+%24%24%22+user%3Ajhipster+state%3Aopen&ref=advsearch&type=Issues&utf8=%E2%9C%93)
-- [Opened bug bounties for the main project](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24)
-- [Opened bug bounties for the JHipster VueJS sub-project](https://github.com/jhipster/jhipster-vuejs/labels/%24%24%20bug-bounty%20%24%24)
+- [Primes aux bugs ouvertes sur tous les projets](https://github.com/search?l=&p=1&q=is%3Aissue+is%3Aopen+label%3A%22%24%24+bug-bounty+%24%24%22+user%3Ajhipster+state%3Aopen&ref=advsearch&type=Issues&utf8=%E2%9C%93)
+- [Primes aux bugs ouvertes pour le projet principal](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24)
+- [Primes aux bugs ouvertes pour le sous-projet JHipster VueJS](https://github.com/jhipster/jhipster-vuejs/labels/%24%24%20bug-bounty%20%24%24)
 
-Happy bug hunting :-)
+Bonne chasse aux bugs :-)
 
-## How bug bounties are created
+## Comment les primes aux bugs sont créées
 
-Once a ticket is created, it can get the bug bounty label by two actions:
+Une fois qu'un ticket est créé, il peut recevoir l'étiquette de prime aux bugs par deux actions :
 
-- a silver or gold sponsor adds a comment asking to add the bug bounty label and mentioning one of the [project leads]({{ site.url }}/team/#project-leads) on GitHub.
-- [project leads]({{ site.url }}/team/#project-leads) and [governing body]({{ site.url }}/team/#governing-body) directly add the bug bounty label, as they believe it is an important new feature, a critical bug, a long-standing issue, or a time-consuming task. If you are working on an issue and if you think it deserves a bounty don't hesitate to ask one of the project leads.
+- un sponsor argent ou or ajoute un commentaire demandant d'ajouter l'étiquette de prime aux bugs et mentionnant l'un des [responsables de projet]({{ site.url }}/team/#project-leads) sur GitHub.
+- les [responsables de projet]({{ site.url }}/team/#project-leads) et le [corps dirigeant]({{ site.url }}/team/#governing-body) ajoutent directement l'étiquette de prime aux bugs, car ils estiment qu'il s'agit d'une nouvelle fonctionnalité importante, d'un bogue critique, d'un problème de longue date ou d'une tâche longue. Si vous travaillez sur un problème et si vous pensez qu'il mérite une prime, n'hésitez pas à demander à l'un des responsables du projet.
 
-To be valid, the bug bounty should then have the [\$\$ bug-bounty \$\$](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24) label added by either
-[project leads]({{ site.url }}/team/#project-leads) or [governing body]({{ site.url }}/team/#governing-body). It should also have a "$100", "$200", "$300" or "$500" label to tell how much it is worth, but if that tag has been forgotten, it is by default worth "$100".
+Pour être valide, la prime aux bugs doit ensuite avoir l'étiquette [\$\$ bug-bounty \$\$](https://github.com/jhipster/generator-jhipster/labels/%24%24%20bug-bounty%20%24%24) ajoutée par les [responsables de projet]({{ site.url }}/team/#project-leads) ou le [corps dirigeant]({{ site.url }}/team/#governing-body). Il doit également avoir une étiquette "$100", "$200", "$300" ou "$500" pour indiquer sa valeur, mais si cette étiquette a été oubliée, sa valeur est par défaut de "$100".
 
-## How to get the money
+## Comment obtenir l'argent
 
-Once a bug bounty is created, anybody can propose a fix (even the [project leads]({{ site.url }}/team/#project-leads) and [governing body]({{ site.url }}/team/#governing-body)!). Our goal is to spend that money so that something is fixed as quickly as possible.
+Une fois qu'une prime aux bugs est créée, n'importe qui peut proposer une solution (même les [responsables de projet]({{ site.url }}/team/#project-leads) et le [corps dirigeant]({{ site.url }}/team/#governing-body) !). Notre objectif est de dépenser cet argent pour que quelque chose soit corrigé le plus rapidement possible.
 
-In order to claim the money, you must:
+Pour réclamer l'argent, vous devez :
 
-- Create a Pull Request that fixes a ticket with the "\$\$ bug-bounty \$\$" label.
-- In order to close the ticket automatically, you must have one commit message with the `Fix` keyword. For example, `Fix #1234` to close ticket `#1234`.
-- That Pull Request must be merged by someone from the core team. If there are several Pull Requests, the core team member either selects the most recent one or the best one - that's up to the team member to decide what is best for the project.
-- You can then [add a $100, $200, $300 or $500 expense on the JHipster OpenCollective](https://opencollective.com/generator-jhipster/expenses/new). You must add a link to your Pull Request in the description (for example: `$100 bug bounty claim for https://github.com/jhipster/generator-jhipster/pull/1234`).
-- Then, you must add a comment on your Pull Request, telling that you claimed the money, with a link to your OpenCollective expense. This is to be sure it is the same person who fixed the issue and claimed the money.
-- That expense will then be validated by the [project leads]({{ site.url }}/team/#project-leads) or [governing body]({{ site.url }}/team/#governing-body), and you will receive your money on your Paypal account.
+- Créer une demande de fusion qui corrige un ticket avec l'étiquette "\$\$ bug-bounty \$\$".
+- Afin de fermer automatiquement le ticket, vous devez avoir un message de commit avec le mot-clé `Fix`. Par exemple, `Fix #1234` pour fermer le ticket `#1234`.
+- Cette demande de fusion doit être fusionnée par l'un des membres de l'équipe principale. S'il y a plusieurs demandes de fusion, le membre de l'équipe principale sélectionne la plus récente ou la meilleure, c'est à lui de décider ce qui est le mieux pour le projet.
+- Vous pouvez ensuite [ajouter une dépense de 100 $, 200 $, 300 $ ou 500 $ sur OpenCollective de JHipster](https://opencollective.com/generator-jhipster/expenses/new). Vous devez ajouter un lien vers votre demande de fusion dans la description (par exemple : `Réclamation de prime de 100 $ pour https://github.com/jhipster/generator-jhipster/pull/1234`).
+- Ensuite, vous devez ajouter un commentaire sur votre demande de fusion, indiquant que vous avez réclamé l'argent, avec un lien vers votre dépense sur OpenCollective. Cela permet de s'assurer qu'il s'agit de la même personne qui a corrigé le problème et réclamé l'argent.
+- Cette dépense sera ensuite validée par les [responsables de projet]({{ site.url }}/team/#project-leads) ou le [corps dirigeant]({{ site.url }}/team/#governing-body), et vous recevrez votre argent sur votre compte Paypal.

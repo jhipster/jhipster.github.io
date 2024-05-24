@@ -11,83 +11,80 @@ sitemap:
     lastmod: 2022-01-21T00:00:00-00:00
 ---
 
-# Deploying to AWS with CloudCaptain
+## Déploiement sur AWS avec CloudCaptain
 
-This guide show how to deploy your JHipster application to AWS using [CloudCaptain](https://cloudcaptain.sh/).
+Ce guide montre comment déployer votre application JHipster sur AWS en utilisant [CloudCaptain](https://cloudcaptain.sh/).
 
-[![]({{ site.url }}/images/logo/logo-cloudcaptain.png)](https://cloudcaptain.sh/)
+[![Logo CloudCaptain]({{ site.url }}/images/logo/logo-cloudcaptain.png)](https://cloudcaptain.sh/)
 
-CloudCaptain comes with **first-class support for JHipster** and works by creating minimal immutable machine images for your application, which can then be deployed either on VirtualBox or on AWS.
+CloudCaptain offre un **support de premier ordre pour JHipster** et fonctionne en créant des images de machine minimales et immuables pour votre application, qui peuvent ensuite être déployées soit sur VirtualBox soit sur AWS.
 
-<div class="alert alert-info"><i>Tip: </i>
+<div class="alert alert-info"><i>Conseil : </i>
 
-As an alternative to CloudCaptain you can also deploy your JHipster application to AWS using <a href="{{ site.url }}/aws/">Elastic Beanstalk</a>.
+En alternative à CloudCaptain, vous pouvez également déployer votre application JHipster sur AWS en utilisant <a href="{{ site.url }}/aws/">Elastic Beanstalk</a>.
 
 </div>
 
-## Prerequisites
+## Prérequis
 
-To be able to deploy, you must first [create a CloudCaptain account](https://console.cloudcaptain.sh) and install the [CloudCaptain Client](https://cloudcaptain.sh/getstarted/download).
+Pour pouvoir déployer, vous devez d'abord [créer un compte CloudCaptain](https://console.cloudcaptain.sh) et installer le [Client CloudCaptain](https://cloudcaptain.sh/getstarted/download).
 
-You will also need to connect your AWS account in the [CloudCaptain Console](https://console.cloudcaptain.sh).
+Vous devrez également connecter votre compte AWS dans la [Console CloudCaptain](https://console.cloudcaptain.sh).
 
-## Preparing a deployment
+## Préparation du déploiement
 
-When your application is ready, you can prepare it for deployment by typing:
+Lorsque votre application est prête, vous pouvez la préparer pour le déploiement en tapant :
 
 `./mvnw package -Pprod -DskipTests`
 
-Or when using gradle:
+Ou lorsque vous utilisez Gradle :
 
 `./gradlew -Pprod bootJar -x test`
 
-## Deploying to AWS
+## Déploiement sur AWS
 
-To deploy your application to AWS type:
+Pour déployer votre application sur AWS, tapez :
 
 `boxfuse run -env=prod`
 
-CloudCaptain will then analyse your application, fuse a minimal machine image for it and automatically provision, configure and secure all necessary
-AWS infrastructure (instances, security groups, Elastic IPs, ELBs, MySQL or PostgreSQL RDS databases, ...)
+CloudCaptain analysera alors votre application, fusionnera une image minimale pour elle et provisionnera automatiquement, configurera et sécurisera toute l'infrastructure AWS nécessaire (instances, groupes de sécurité, IPs élastiques, ELBs, bases de données RDS MySQL ou PostgreSQL, ...)
 
-<pre>Creating jhipster ...
-Mapping jhipster-dev-myuser.boxfuse.io to 127.0.0.1 ...
-Created App jhipster (single-instance / postgresql)
-Fusing Image for jhipster-1.0.war (JHipster) ...
-Image fused in 00:05.036s (96301 K) -> myuser/jhipster:1.0
-Pushing myuser/jhipster:1.0 ...
-Verifying myuser/jhipster:1.0 ...
-Creating security group boxsg-db-myuser-prod-jhipster ...
-Creating RDS PostgreSQL database (db.t2.micro / 5 GB / single-az) => boxdb-myuser-prod-jhipster (this one-time action may take up to 10 minutes to complete) ...
-Waiting for AWS to create an AMI for myuser/jhipster:1.0 in eu-central-1 (this may take up to 50 seconds) ...
-AMI created in 00:35.564s in eu-central-1 -> ami-35fa0b5a
-Waiting for AWS to make RDS DB boxdb-myuser-prod-jhipster available ...
-DB boxdb-myuser-prod-jhipster [creating]
-DB boxdb-myuser-prod-jhipster [backing-up]
-DB boxdb-myuser-prod-jhipster [available]
-Creating security group boxsg-myuser-prod-jhipster ...
-Creating Elastic IP ...
-Mapping jhipster-myuser.boxfuse.io to 52.29.78.197 ...
-Creating security group boxsg-myuser-prod-jhipster-1.0 ...
-Launching t2.micro instance of myuser/jhipster:1.0 (ami-35fa0b5a) in prod (eu-central-1) ...
-Instance launched in 00:20.687s -> i-95d15028
-Creating Cloud Watch Alarm for Instance auto-recovery -> i-95d15028-auto-recovery-alarm
-Waiting for AWS to boot Instance i-95d15028 and Payload to start at http://54.93.63.207:8080/ ...
-Payload started in 01:29.685s -> http://54.93.63.207:8080/
-Remapping Elastic IP 52.29.78.197 to i-95d15028 ...
-Waiting 15s for AWS to complete Elastic IP Zero Downtime transition ...
-Deployment completed successfully. myuser/jhipster:1.0 is up and running at http://jhipster-myuser.boxfuse.io:8080/</pre>
+<pre>plaintext
+Création de jhipster ...
+Mapping jhipster-dev-myuser.boxfuse.io vers 127.0.0.1 ...
+App créée jhipster (single-instance / postgresql)
+Fusion de l'image pour jhipster-1.0.war (JHipster) ...
+Image fusionnée en 00:05.036s (96301 Ko) -> myuser/jhipster:1.0
+Poussée de myuser/jhipster:1.0 ...
+Vérification de myuser/jhipster:1.0 ...
+Création du groupe de sécurité boxsg-db-myuser-prod-jhipster ...
+Création de la base de données RDS PostgreSQL (db.t2.micro / 5 Go / single-az) => boxdb-myuser-prod-jhipster (cette action unique peut prendre jusqu'à 10 minutes pour se terminer) ...
+En attente de la création d'une AMI AWS pour myuser/jhipster:1.0 dans eu-central-1 (cela peut prendre jusqu'à 50 secondes) ...
+AMI créée en 00:35.564s dans eu-central-1 -> ami-35fa0b5a
+En attente de la disponibilité de la base de données RDS boxdb-myuser-prod-jhipster ...
+DB boxdb-myuser-prod-jhipster [création]
+DB boxdb-myuser-prod-jhipster [sauvegarde]
+DB boxdb-myuser-prod-jhipster [disponible]
+Création du groupe de sécurité boxsg-myuser-prod-jhipster ...
+Création d'une IP élastique ...
+Mapping jhipster-myuser.boxfuse.io vers 52.29.78.197 ...
+Création du groupe de sécurité boxsg-myuser-prod-jhipster-1.0 ...
+Lancement de l'instance t2.micro de myuser/jhipster:1.0 (ami-35fa0b5a) dans prod (eu-central-1) ...
+Instance lancée en 00:20.687s -> i-95d15028
+Création d'une alarme Cloud Watch pour le redémarrage automatique de l'instance -> i-95d15028-auto-recovery-alarm
+En attente du démarrage de l'instance i-95d15028 et du démarrage de la charge utile à l'adresse http://54.93.63.207:8080/ ...
+Charge utile démarrée en 01:29.685s -> http://54.93.63.207:8080/
+Remappage de l'IP élastique 52.29.78.197 vers i-95d15028 ...
+Attente de 15s pour que AWS termine la transition sans interruption de l'IP élastique ...
+Déploiement terminé avec succès. myuser/jhipster:1.0 est opérationnel et accessible à http://jhipster-myuser.boxfuse.io:8080/ </pre>
 
-Note that you didn't need to explicitly specify things like ports, healthcheck urls or database types. By default CloudCaptain auto-discovers those
-from your JHipster war based on your `application-prod.yml` file and the included jars. 
-You can override those auto-discovered settings if you want to, but in most cases you won't need to.
+Notez que vous n'avez pas besoin de spécifier explicitement des éléments comme les ports, les URLs de vérification de l'état ou les types de base de données. Par défaut, CloudCaptain les découvre automatiquement à partir de votre fichier `application-prod.yml` JHipster et des jars inclus. Vous pouvez remplacer ces paramètres découverts automatiquement si vous le souhaitez, mais dans la plupart des cas, ce ne sera pas nécessaire.
 
-## Deploying updates
+## Déploiement de mises à jour
 
-To deploy an update to an existing application follow the preparation and deploy steps outlined above. All updates
-are performed as zero downtime-blue deployments.
+Pour déployer une mise à jour vers une application existante, suivez les étapes de préparation et de déploiement décrites ci-dessus. Toutes les mises à jour sont effectuées comme des déploiements bleu-vert sans interruption.
 
-## More information
+## Plus d'informations
 
-*   [Get Started with CloudCaptain and JHipster](https://cloudcaptain.sh/getstarted/jhipster)
-*   [JHipster CloudCaptain documentation](https://cloudcaptain.sh/docs/payloads/jhipster)
+*   [Commencez avec CloudCaptain et JHipster](https://cloudcaptain.sh/getstarted/jhipster)
+*   [Documentation CloudCaptain JHipster](https://cloudcaptain.sh/docs/payloads/jhipster)

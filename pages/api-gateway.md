@@ -1,129 +1,131 @@
 ---
 layout: default
-title: API Gateway
+title: Passerelle API
 permalink: /api-gateway/
 sitemap:
     priority: 0.7
     lastmod: 2017-05-03T00:00:00-00:00
 ---
 
-# <i class="fa fa-exchange"></i> The JHipster API Gateway
+# <i class="fa fa-exchange"></i> La passerelle API JHipster
 
-JHipster can generate API gateways. A gateway is a normal JHipster application, so you can use the usual JHipster options and development workflows on that project, but it also acts as the entrance to your microservices. More specifically, it provides HTTP routing and load balancing, quality of service, security and API documentation for all microservices.
+JHipster peut générer des passerelles API. Une passerelle (`gateway`) est une application JHipster normale, donc vous pouvez utiliser les options habituelles de JHipster et les flux de travail de développement sur ce projet, mais elle agit également comme l'entrée de vos microservices. Plus précisément, elle fournit le routage HTTP et l'équilibrage de charge, la qualité de service, la sécurité et la documentation API pour tous les microservices.
 
-## Summary
+## Sommaire
 
-1. [Architecture diagram](#architecture_diagram)
-2. [HTTP routing](#http_routing)
-3. [Security](#security)
-4. [Automatic documentation](#documentation)
-5. [Rate limiting](#rate_limiting)
-6. [Access control policy](#acl)
+1. [Diagramme d'architecture](#architecture_diagram)
+2. [Routage HTTP](#http_routing)
+3. [Sécurité](#security)
+4. [Documentation automatique](#documentation)
+5. [Limitation de débit](#rate_limiting)
+6. [Politique de contrôle d'accès](#acl)
 
-<h2 id="architecture_diagram">Architecture diagram</h2>
+<h2 id="architecture_diagram">Diagramme d'architecture</h2>
 
 <img src="{{ site.url }}/images/microservices_architecture_detail.003.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
 
-<h2 id="http_routing">HTTP requests routing using the gateway</h2>
+<h2 id="http_routing">Routage des requêtes HTTP via la passerelle</h2>
 
-When the gateways and the microservices are launched, they will register themselves in the Consul service registry.
+Lorsque les passerelles et les microservices sont lancés, ils s'enregistreront dans le registre de services Consul.
 
-The gateway will automatically proxy all requests to the microservices, using their application name: for example, when microservices `app1` is registered, it is available on the gateway on the `/services/app1` URL.
+La passerelle proxyera automatiquement toutes les requêtes vers les microservices, en utilisant leur nom d'application : par exemple, lorsque le microservice `app1` est enregistré, il est disponible sur la passerelle à l'URL  `/services/app1`.
 
-For example, if your gateway is running on `localhost:8080`, you could point to [http://localhost:8080/services/app1/api/foos](http://localhost:8080/services/app1/api/foos) to
-get the `foos` resource served by microservice `app1`. If you're trying to do this with your Web browser, don't forget REST resources are secured by default in JHipster, so you need to send the correct JWT header (see the point on security below), or remove the security on those URLs in the microservice's `MicroserviceSecurityConfiguration` class.
+Par exemple, si votre passerelle fonctionne sur `localhost:8080`, vous pourriez pointer vers [http://localhost:8080/services/app1/api/foos](http://localhost:8080/services/app1/api/foos) Pour obtenir la `foos` ressource servie par le microservice `app1`. Si vous essayez de faire cela avec votre navigateur Web, n'oubliez pas que les ressources REST sont sécurisées par défaut dans JHipster, donc vous devez envoyer l'en-tête JWT correct (voir le point sur la sécurité ci-dessous), ou supprimer la sécurité sur ces URL dans la classe `MicroserviceSecurityConfiguration` du microservice.
 
-If there are several instances of the same service running, the gateway will get those instances from the Service Registry, and will load balance HTTP requests using [Consul](https://www.consul.io/use-cases/load-balancing).
+S'il y a plusieurs instances du même service en cours d'exécution, la passerelle obtiendra ces instances du registre de services, et équilibrera les requêtes HTTP en utilisant [Consul](https://www.consul.io/use-cases/load-balancing).
 
-Each gateway has a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.
+Chaque passerelle a un menu spécifique "admin > gateway", où les routes HTTP ouvertes et les instances de microservices peuvent être surveillées.
 
-<h2 id="security">Security</h2>
+## Sécurité
 
-Standard JHipster security options are detailed on [this security documentation page]({{ site.url }}/security/). However, securing a microservice architecture has some specific tunings and options, which are detailed here.
+Les options de sécurité standard de JHipster sont détaillées sur [cette page de documentation sur la sécurité]({{ site.url }}/security/). Cependant, sécuriser une architecture de microservices nécessite quelques réglages spécifiques, qui sont détaillés ici.
 
 ### JWT (JSON Web Token)
 
-JWT (JSON Web Token) is an industry standard, easy-to-use method for securing applications in a microservices architecture.
+JWT (JSON Web Token) est une méthode standard de l'industrie, facile à utiliser, pour sécuriser les applications dans une architecture de microservices.
 
-JHipster uses the [JJWT library](https://github.com/jwtk/jjwt), provided by Okta, for implementing JWT.
+JHipster utilise la bibliothèque [JJWT](https://github.com/jwtk/jjwt), fournie par Okta, pour implémenter JWT.
 
-Tokens are generated by the gateway, and sent to the underlying microservices: as they share a common secret key, microservices are able to validate the token, and authenticate users using that token.
+Les jetons sont générés par la passerelle et envoyés aux microservices sous-jacents : comme ils partagent une clé secrète commune, les microservices sont capables de valider le jeton et d'authentifier les utilisateurs en utilisant ce jeton.
 
-Those tokens are self-sufficient: they have both authentication and authorization information, so microservices do not need to query a database or an external system. This is important in order to ensure a scalable architecture.
+Ces jetons sont auto-suffisants : ils contiennent des informations d'authentification et d'autorisation, donc les microservices n'ont pas besoin d'interroger une base de données ou un système externe. C'est important pour garantir une architecture évolutive.
 
-For security to work, a JWT secret token must be shared between all applications.
+Pour que la sécurité fonctionne, un jeton secret JWT doit être partagé entre toutes les applications.
 
-- For each application the default token is unique, and generated by JHipster. It is stored in the `.yo-rc.json` file.
-- Tokens are configured with the `jhipster.security.authentication.jwt.secret` key in the `src/main/resources/config/application.yml` file.
-- To share this key between all your applications, copy the key from your gateway to all the microservices, or share it using [JHipster's specific configuration of the Consul K/V store]({{ site.url }}/consul/). This is one of the main reasons why people use those central configuration servers.
-- A good practice is to have a different key in development and production.
+- Pour chaque application, le jeton par défaut est unique et généré par JHipster. Il est stocké dans le fichier `.yo-rc.json`.
+- Les jetons sont configurés avec la clé `jhipster.security.authentication.jwt.secret` dans le fichier `src/main/resources/config/application.yml`.
+- Pour partager cette clé entre toutes vos applications, copiez la clé de votre passerelle à tous les microservices, ou partagez-la en utilisant [la configuration spécifique de JHipster du magasin Consul K/V]({{ site.url }}/consul/). C'est l'une des principales raisons pour lesquelles les gens utilisent ces serveurs de configuration centraux.
+- Une bonne pratique est d'avoir une clé différente en développement et en production.
+
 
 ### OpenID Connect
 
-JHipster provides OpenID Connect support, as detailed [in our OpenID Connect documentation]({{ site.url }}/security/#oauth2).
+JHipster propose un support OpenID Connect, comme détaillé [dans notre documentation OpenID Connect]({{ site.url }}/security/#oauth2).
 
-When selecting this option, you will use Keycloak by default, and you will probably want to run your complete microservice architecture using Docker Compose: be sure to read our [Docker Compose documentation]({{ site.url }}/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
+En choisissant cette option, vous utiliserez Keycloak par défaut, et vous voudrez probablement exécuter votre architecture de microservices complète en utilisant Docker Compose : assurez-vous de lire notre [documentation Docker Compose]({{ site.url }}/docker-compose/), et configurez correctement votre `/etc/hosts` pour Keycloak.
 
-When using OpenID Connect, the JHipster gateway will send OAuth2 tokens to microservices, which will accept those tokens as they are also connected to Keycloak.
+Lors de l'utilisation d'OpenID Connect, la passerelle JHipster enverra des jetons OAuth2 aux microservices, qui accepteront ces jetons car ils sont également connectés à Keycloak.
 
-Unlike JWT, those tokens are not self-sufficient, and should be stateful, which causes following issues:
+Contrairement à JWT, ces jetons ne sont pas auto-suffisants et doivent être étatiques, ce qui pose les problèmes suivants :
 
-- A performance issue in microservices: as it is very common to look for the current user's security information (otherwise we wouldn't be using any security option from the beginning), each microservice will call the OpenID Connect server to get that data. So in a normal setup, those calls will be made by each microservice, each time they get a request, and this will quickly cause a performance issue.
-  - If you have selected a caching option ([here is the "Using a cache" documentation]({{ site.url }}/using-cache/)) when generating your JHipster microservice, a specific `CachedUserInfoTokenServices` Spring Bean will be generated, which will cache those calls. When properly tuned, this will remove the performance issue.
-  - If you want more information on this "user info" request, it is configured using the standard Spring Boot configuration key `security.oauth2.resource.userInfoUri` in your `src/main/resources/application.yml` configuration file.
+- Un problème de performance dans les microservices : comme il est très courant de rechercher les informations de sécurité de l'utilisateur actuel (sinon nous n'utiliserions aucune option de sécurité dès le départ), chaque microservice appellera le serveur OpenID Connect pour obtenir ces données. Ainsi, dans une configuration normale, ces appels seront effectués par chaque microservice, à chaque fois qu'ils reçoivent une demande, et cela causera rapidement un problème de performance.
+  - Si vous avez sélectionné une option de mise en cache ([voici la documentation sur "L'utilisation d'une mise en cache"]({{ site.url }}/using-cache/)) lors de la génération de votre microservice JHipster, un Bean Spring spécifique `CachedUserInfoTokenServices` sera généré, qui mettra en cache ces appels. Lorsqu'il est correctement réglé, cela résoudra le problème de performance.
+  - Si vous souhaitez plus d'informations sur cette requête "user info", elle est configurée à l'aide de la clé de configuration standard de Spring Boot `security.oauth2.resource.userInfoUri` dans votre fichier de configuration `src/main/resources/application.yml`.
 
-<h2 id="documentation">Automatic documentation</h2>
+<h2 id="documentation">Documentation automatique</h2>
 
-The gateway exposes the Swagger API definitions of the services it proxifies so you can benefit from all useful tools like Swagger UI and swagger-codegen.
+La passerelle expose les définitions de l'API Swagger des services qu'elle proxifie afin que vous puissiez bénéficier de tous les outils utiles comme Swagger UI et swagger-codegen.
 
-The "admin > API" menu of a gateway has a specific drop-down list, showing the gateway's API and all the APIs from the registered microservices.
+Le menu "admin > API" d'une passerelle a une liste déroulante spécifique, montrant l'API de la passerelle et toutes les API des microservices enregistrés.
 
-Using this drop-down list, all microservices APIs are automatically documented, and testable from the gateway.
+En utilisant cette liste déroulante, toutes les API des microservices sont automatiquement documentées et testables depuis la passerelle.
 
-When using a secured API, security tokens are automatically added to the Swagger UI interface, so all requests work out-of-the-box.
+Lors de l'utilisation d'une API sécurisée, les jetons de sécurité sont automatiquement ajoutés à l'interface Swagger UI, de sorte que toutes les requêtes fonctionnent immédiatement.
 
-<h2 id="rate_limiting">Rate limiting</h2>
+<h2 id="rate_limiting">Limitation du débit</h2>
 
-This is an advanced feature that uses [Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j) and [Hazelcast](https://hazelcast.com/) to provide quality of service on microservices.
+Il s'agit d'une fonctionnalité avancée qui utilise [Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j) et [Hazelcast](https://hazelcast.com/) pour fournir une qualité de service sur les microservices.
 
-Gateways provide rate-limiting features, so the number of REST requests can be limited:
+Les passerelles fournissent des fonctionnalités de limitation du débit, de sorte que le nombre de requêtes REST peut être limité :
 
-- by IP address (for anonymous users)
-- by user login (for logged-in users)
+- par adresse IP (pour les utilisateurs anonymes)
+- par connexion utilisateur (pour les utilisateurs connectés)
 
-JHipster will then use [Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j) and [Hazelcast](https://hazelcast.com/) to calculate request counts, and will send HTTP 429 (too many requests) errors when the limit is exceeded. The default limit per user is 100,000 API calls per hour.
 
-This is an important feature, to protect a microservice architecture from being flooded by a specific user's requests.
+JHipster utilisera ensuite [Bucket4j](https://github.com/vladimir-bukhtoyarov/bucket4j) et [Hazelcast](https://hazelcast.com/) pour calculer le nombre de requêtes, et enverra des erreurs HTTP 429 (trop de requêtes) lorsque la limite est dépassée. La limite par défaut par utilisateur est de 100 000 appels d'API par heure.
 
-As the gateway secures the REST endpoints, it has full access to the user's security information, so it can be extended to provide specific rate limits depending on the user's security roles.
+Il s'agit d'une fonctionnalité importante pour protéger une architecture de microservices contre une saturation par les requêtes d'un utilisateur spécifique.
 
-To enable rate limiting, open up the `application-dev.yml` or `application-prod.yml` file and set `enabled` to `true`:
+Comme la passerelle sécurise les points de terminaison REST, elle a un accès complet aux informations de sécurité de l'utilisateur, il est donc possible de l'étendre pour fournir des limites de débit spécifiques en fonction des rôles de sécurité de l'utilisateur.
+
+Pour activer la limitation du débit, ouvrez le fichier `application-dev.yml` ou `application-prod.yml` et définissez `enabled` sur `true` :
 
     jhipster:
         gateway:
             rate-limiting:
                 enabled: true
 
-Data is stored in Hazelcast, so it is possible to scale gateways as long as the Hazelcast distributed cache is configured, which should work out-of-the-box:
+Les données sont stockées dans Hazelcast, il est donc possible de mettre à l'échelle les passerelles tant que le cache distribué Hazelcast est configuré, ce qui devrait fonctionner par défaut :
 
-- All gateways have Hazelcast configured by default
+- Toutes les passerelles ont Hazelcast configuré par défaut
 
-If you want to add more rules, or modify the existing rules, you need to code them in the `RateLimitingFilter` class. Examples of modifications could be:
+Si vous souhaitez ajouter d'autres règles ou modifier les règles existantes, vous devez les coder dans la classe `RateLimitingFilter`. Des exemples de modifications pourraient être :
 
-- Lowering the limit of HTTP calls
-- Adding limits per minute or per day
-- Removing all limits for "admin" users
+- Réduire la limite des appels HTTP
+- Ajouter des limites par minute ou par jour
+- Supprimer toutes les limites pour les utilisateurs "admin"
 
-<h2 id="acl">Access control policy</h2>
+<h2 id="acl">Politique de contrôle d'accès</h2>
 
-By default all registered microservices are available through the gateway. If you want to exclude a specific API from being exposed through the gateway, you can use the gateway's specific access control policy filter. It is configurable using the `jhipster.gateway.authorized-microservices-endpoints` key in the `application-*.yml` files:
+Par défaut, tous les microservices enregistrés sont disponibles via la passerelle. Si vous souhaitez exclure une API spécifique de l'exposition via la passerelle, vous pouvez utiliser le filtre de politique de contrôle d'accès spécifique à la passerelle. Il est configurable à l'aide de la clé `jhipster.gateway.authorized-microservices-endpoints` dans les fichiers `application-*.yml` :
 
     jhipster:
         gateway:
-            authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-                app1: /api,/v2/api-docs # recommended dev configuration
+            authorized-microservices-endpoints: # Politique de Contrôle d'Accès, si laissée vide pour une route, tous les points de terminaison seront accessibles
+                app1: /api,/v2/api-docs # configuration de développement recommandée
 
-For example, if you only want the `/api/foo` endpoint of microservice `bar` to be available:
+Par exemple, si vous ne voulez que le point de terminaison `/api/foo` du microservice `bar` soit disponible :
+
 
     jhipster:
         gateway:

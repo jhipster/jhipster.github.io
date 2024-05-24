@@ -9,55 +9,55 @@ sitemap:
     lastmod: 2020-10-09T00:00:00-00:00
 ---
 
-# Deploying to Clever Cloud
-[Clever cloud](https://www.clever-cloud.com/){:target="_blank" rel="noopener"} is an IT Automation platform
+# Déploiement sur Clever Cloud
+[Clever cloud](https://www.clever-cloud.com/){:target="_blank" rel="noopener"} est une plateforme d'automatisation informatique.
 
-[<img src="{{ site.url }}/images/logo/logo_clever_cloud.png" alt="Clever cloud logo" width="300px" />](https://www.clever-cloud.com/){:target="_blank" rel="noopener"}
+[<img src="{{ site.url }}/images/logo/logo_clever_cloud.png" alt="Logo de Clever Cloud" width="300px" />](https://www.clever-cloud.com/){:target="_blank" rel="noopener"}
 
-## Before you start
+## Avant de commencer
 
-You must install the [Clever cloud CLI](https://www.clever-cloud.com/doc/clever-tools/getting_started/){:target="_blank" rel="noopener"}.
+Vous devez installer le [CLI Clever cloud](https://www.clever-cloud.com/doc/clever-tools/getting_started/){:target="_blank" rel="noopener"}.
 
-You must also [create a Clever Cloud account](https://api.clever-cloud.com/v2/sessions/signup){:target="_blank" rel="noopener"} and log in with the CLI by running the following command `clever login`
+Vous devez également [créer un compte Clever Cloud](https://api.clever-cloud.com/v2/sessions/signup){:target="_blank" rel="noopener"} et vous connecter avec le CLI en exécutant la commande suivante `clever login`
 <pre>
-Opening https://console.clever-cloud.com/cli-oauth?cli_version=2.7.1&cli_token=XXX in your browser to log you in…
-Login successful as ...
+Ouverture de https://console.clever-cloud.com/cli-oauth?cli_version=2.7.1&cli_token=XXX dans votre navigateur pour vous connecter…
+Connexion réussie en tant que ...
 </pre>
 
 
-## Create your Clever Cloud application
+## Créer votre application Clever Cloud
 
-1. If you are using maven `clever create --type maven [your application name]` or using gradle `clever create --type gradle [your application name]`
+1. Si vous utilisez maven `clever create --type maven [nom de votre application]` ou en utilisant gradle `clever create --type gradle [nom de votre application]`
 
-2. Add a database addon to your application `clever addon create [addon provider] [your addon name] --link [your application name]`
+2. Ajoutez un addon de base de données à votre application `clever addon create [fournisseur d'addon] [nom de votre addon] --link [nom de votre application]`
 
-    List supported addon providers `clever addon providers`
+    Liste des fournisseurs d'addon pris en charge `clever addon providers`
     <pre>
-    cellar-addon      Cellar S3 storage       S3-like online file storage web service
-    config-provider   Configuration provider  Expose configuration to your applications  (via environment variables)
-    es-addon          Elastic Stack           Elasticsearch with Kibana and APM server as options
-    fs-bucket         FS Buckets              Persistent file system for your application
-    mongodb-addon     MongoDB                 A noSQL document-oriented database
-    mysql-addon       MySQL                   An open source relational database management system
-    postgresql-addon  PostgreSQL              A powerful, open source object-relational database system
-    redis-addon       Redis                   Redis by Clever Cloud is an in-memory key-value data store, powered by Clever Cloud
+    cellar-addon      Stockage S3 Cellar       Service de stockage de fichiers en ligne similaire à S3
+    config-provider   Fournisseur de configuration  Exposer la configuration à vos applications (via des variables d'environnement)
+    es-addon          Elastic Stack           Elasticsearch avec Kibana et APM server comme options
+    fs-bucket         FS Buckets              Système de fichiers persistant pour votre application
+    mongodb-addon     MongoDB                 Base de données orientée documents noSQL
+    mysql-addon       MySQL                   Système de gestion de base de données relationnelle open source
+    postgresql-addon  PostgreSQL              Système de gestion de base de données relationnelle objet puissant et open source
+    redis-addon       Redis                   Redis by Clever Cloud est un magasin de données clé-valeur en mémoire, propulsé par Clever Cloud
     </pre>
 
-    [see supported addons](https://www.clever-cloud.com/doc/addons/clever-cloud-addons/#available-add-ons)
+    [voir les addons pris en charge](https://www.clever-cloud.com/doc/addons/clever-cloud-addons/#available-add-ons)
 
-3. Setup env var `clever env set CC_PRE_RUN_HOOK "cp ./clevercloud/application-clevercloud.yml ./application-prod.yml"`
+3. Configurer la variable d'environnement `clever env set CC_PRE_RUN_HOOK "cp ./clevercloud/application-clevercloud.yml ./application-prod.yml"`
 
-4. Enable dedicated build `clever scale --build-flavor M`
+4. Activer la construction dédiée `clever scale --build-flavor M`
 
-    [see dedicated build](https://www.clever-cloud.com/doc/admin-console/apps-management/#dedicated-build)
+    [voir la construction dédiée](https://www.clever-cloud.com/doc/admin-console/apps-management/#dedicated-build)
 
 
-## Configure your JHipster application
-1. Add a `clevercloud/` folder in your project.
+## Configurer votre application JHipster
+1. Ajoutez un dossier `clevercloud/` dans votre projet.
 
-2. create `clevercloud/application-clevercloud.yml` for using predefined clever cloud addon env var
+2. créez `clevercloud/application-clevercloud.yml` pour utiliser les variables d'environnement d'addon Clever Cloud prédéfinies
 
-    For PostgreSQL
+    Pour PostgreSQL
     <pre>
     spring:
         datasource:
@@ -69,7 +69,7 @@ Login successful as ...
                 maximumPoolSize: 2
     </pre>
 
-    For MySQL
+    Pour MySQL
     <pre>
     spring:
         datasource:
@@ -81,7 +81,7 @@ Login successful as ...
                 maximumPoolSize: 2
     </pre>
 
-    For MongoDB
+    Pour MongoDB
     <pre>
     spring:
       data:
@@ -92,10 +92,10 @@ Login successful as ...
 
 
 
-3. add a json file that contain the goal field to indicate how to start your application
+3. ajoutez un fichier json contenant le champ goal pour indiquer comment démarrer votre application
 
-    For maven
-    create `clevercloud/maven.json` file and using your pom.xml **artifactId**
+    Pour maven
+    créez le fichier `clevercloud/maven.json` et utilisez votre pom.xml **artifactId**
     
     <pre>
     {
@@ -104,13 +104,13 @@ Login successful as ...
             "goal": "-Pprod package -DskipTests"
         },
         "deploy": {
-        "jarName": "./target/[REPLACE BY ARTIFACTID]-0.0.1-SNAPSHOT.jar"
+            "jarName": "./target/[REPLACE BY ARTIFACTID]-0.0.1-SNAPSHOT.jar"
         }
     }
     </pre>
 
-    For gradle
-    create `clevercloud/gradle.json` file  and using gradle.properties **rootProject.name**
+    Pour gradle
+    créez le fichier `clevercloud/gradle.json` et utilisez gradle.properties **rootProject.name**
 
     <pre>
     {
@@ -124,27 +124,27 @@ Login successful as ...
     }
     </pre>
 
-## Deploy your application
-### Using CLI
-You must commit before deploy
+## Déployer votre application
+### Utilisation de l'interface en ligne de commande (CLI)
+Vous devez d'abord effectuer une validation avant de déployer :
 
 `git commit -m "Clever deploy"`
 
-then run :
+Ensuite, exécutez :
 
 `clever deploy`
 
-### Using gitlab CI
+### Utilisation de GitLab CI
 
-define `$CLEVER_TOKEN` and `CLEVER_SECRET` to gitlab CI/CD environment variables
+Définissez `$CLEVER_TOKEN` et `CLEVER_SECRET` comme variables d'environnement dans GitLab CI/CD.
 
-add this stage to your `.gitlab-ci.yml`
+Ajoutez cette étape à votre fichier  `.gitlab-ci.yml`
 <pre>
 deploy-to-clever-env:
   stage: deploy
   variables:
-    APP_NAME: [clever cloud app name]
-    APP_ID: [clever cloud app id]
+    APP_NAME: [nom de l'application sur Clever Cloud]
+    APP_ID: [identifiant de l'application sur Clever Cloud]
   script:
     - wget https://clever-tools.cellar.services.clever-cloud.com/releases/latest/clever-tools-latest_linux.tar.gz
     - tar xvzf clever-tools-latest_linux.tar.gz
@@ -152,21 +152,22 @@ deploy-to-clever-env:
     - ./clever-tools-latest_linux/clever link ${APP_ID}
     - ./clever-tools-latest_linux/clever deploy -a ${APP_NAME}
   environment:
-    name: [env name]
+    name: [nom de l'environnement]
     url: https://${APP_NAME}.cleverapps.io
+
 </pre>
 
-## Using Github Action
+## Utilisation de l'action GitHub
 
-define `CLEVER_TOKEN` and `CLEVER_SECRET` to Github secret (Settings > Secret)
+Définissez `CLEVER_TOKEN` et `CLEVER_SECRET` comme secrets dans GitHub (Paramètres > Secrets).
 
-add this step to your `.github-action.yml`
+Ajoutez cette étape à votre fichier `.github-action.yml`
 <pre>
 - uses: actions/checkout@v2
-- name: Deploy on cc
+- name: Déploiement sur CC
   env:
-    APP_NAME:[clever cloud app name]
-    APP_ID: [clever cloud app id]
+    APP_NAME:[nom de l'application sur Clever Cloud]
+    APP_ID: [identifiant de l'application sur Clever Cloud]
   run: |
     git fetch --prune --unshallow
     wget https://clever-tools.cellar.services.clever-cloud.com/releases/latest/clever-tools-latest_linux.tar.gz
@@ -174,17 +175,18 @@ add this step to your `.github-action.yml`
     ./clever-tools-latest_linux/clever login --token ${{ secrets.CLEVER_TOKEN }} --secret ${{ secrets.CLEVER_SECRET }}
     ./clever-tools-latest_linux/clever link ${{ env.APP_ID }}
     ./clever-tools-latest_linux/clever deploy -f -a ${{ env.APP_NAME }}
+
 </pre>
 
-## Changing the Java version
+## Changer la version de Java
 
-You can select the Java version (Java 11 by default)
+Vous pouvez sélectionner la version de Java (Java 17 par défaut) :
 ```
-clever env set CC_JAVA_VERSION 12
+clever env set CC_JAVA_VERSION 21
 ```
 
-## More information
+## Plus d'informations
 
-*   [Clever Cloud documentation](https://www.clever-cloud.com/doc/)
-*   [Clever Cloud Java maven deployment](https://www.clever-cloud.com/doc/java/java-maven/)
-*   [Clever Cloud Java gradle deployment](https://www.clever-cloud.com/doc/java/java-gradle/)
+*   [Documentation Clever Cloud](https://www.clever-cloud.com/doc/)
+*   [Déploiement Java avec Maven sur Clever Cloud](https://www.clever-cloud.com/doc/java/java-maven/)
+*   [Déploiement Java avec Gradle sur Clever Cloud](https://www.clever-cloud.com/doc/java/java-gradle/)
