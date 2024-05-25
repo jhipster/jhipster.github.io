@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Creating an application
+title: Créer une application
 permalink: /creating-an-app/
 redirect_from:
   - /creating_an_app.html
@@ -9,253 +9,256 @@ sitemap:
     lastmod: 2018-03-18T18:20:00-00:00
 ---
 
-# <i class="fa fa-rocket"></i> Creating an application
+# <i class="fa fa-rocket"></i> Créer une application
 
-_**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
+_**Veuillez consulter notre [tutoriel vidéo]({{ site.url }}/video-tutorial/) sur la création d'une nouvelle application JHipster !**_
 
-1. [Quick start](#1)
-2. [Questions asked when generating an application](#2)
-3. [Using a blueprint](#5)
-4. [Command-line options](#3)
-5. [Tips](#4)
+1. [Démarrage rapide](#1)
+2. [Questions posées lors de la génération d'une application](#2)
+3. [Utilisation d'un blueprint](#5)
+4. [Options en ligne de commande](#3)
+5. [Astuces](#4)
 
-<h2 id="1">Quick start</h2>
+<h2 id="1">Démarrage rapide</h2>
 
-First of all, create an empty directory in which you will create your application:
+Tout d'abord, créez un répertoire vide dans lequel vous créerez votre application :
 
-`mkdir myapplication`
+`mkdir monapplication`
 
-Go to that directory:
+Allez dans ce répertoire :
 
-`cd myapplication/`
+`cd monapplication/`
 
-To generate your application, type:
+Pour générer votre application, tapez :
 
 `jhipster`
 
-Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#2).
+Répondez aux questions posées par le générateur pour créer une application adaptée à vos besoins. Ces options sont décrites dans [la section suivante](#2).
 
-Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd).
+Une fois l'application générée, vous pouvez la lancer en utilisant Maven (`./mvnw` sur Linux/MacOS/Windows PowerShell, `mvnw` sur Windows Cmd) ou Gradle (`./gradlew` sur Linux/MacOS/Windows PowerShell, `gradlew` sur Windows Cmd).
 
-**Note** if you are using Maven and changed front end files after first run of the `./mvnw` command then you must run `./mvnw -Pwebapp` to see the latest front end version (Gradle detects front end changes automatically and recompiles front end if needed).
+**Remarque** si vous utilisez Maven et que vous avez modifié des fichiers front-end après le premier lancement de la commande `./mvnw`, vous devez exécuter `./mvnw -Pwebapp` pour voir la dernière version front-end (Gradle détecte automatiquement les modifications front-end et recompile le front-end si nécessaire).
 
-The application will be available on [http://localhost:8080](http://localhost:8080)
+L'application sera disponible sur [http://localhost:8080](http://localhost:8080)
 
-**Important** if you want to have "live reload" of your JavaScript/TypeScript code, you will need run `npm start`. You can go to the [Using JHipster in development]({{ site.url }}/development/) page for more information.
+**Important** si vous souhaitez avoir un "rechargement à chaud" de votre code JavaScript/TypeScript, vous devrez exécuter `npm start`. Vous pouvez consulter la page [Utilisation de JHipster en développement]({{ site.url }}/development/) pour plus d'informations.
 
-If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webapp` or `./gradlew -x webapp`. It speeds up especially Gradle.
+Si vous utilisez le "rechargement à chaud", vous pouvez accélérer le démarrage du serveur en excluant les tâches côté client avec `./mvnw -P-webapp` ou `./gradlew -x webapp`. Cela accélère surtout Gradle.
 
-<h2 id="2">Questions asked when generating an application</h2>
+<h2 id="2">Questions posées lors de la génération d'une application</h2>
 
-_Some questions change depending on the previous choices you have made. For example, you won't need to configure an Hibernate cache if you didn't select an SQL database._
+_Certaines questions changent en fonction des choix précédents. Par exemple, vous n'aurez pas besoin de configurer un cache Hibernate si vous n'avez pas sélectionné une base de données SQL._
 
-### Which _type_ of application would you like to create?
+### Quel _type_ d'application souhaitez-vous créer ?
 
-Your type of application depends on whether you wish to use a microservices architecture or not. A full explanation on microservices is [available here]({{ site.url }}/microservices-architecture/), if unsure use the default "Monolithic application".
+Le type de votre application dépend de si vous souhaitez utiliser une architecture microservices ou non. Une explication complète sur les microservices est [disponible ici]({{ site.url }}/microservices-architecture/), si vous n'êtes pas sûr, utilisez l'option par défaut "Application monolithique".
 
-You can either use:
+Vous pouvez choisir :
 
-*   Monolithic application: this a classical, one-size-fits-all application. It's easier to use and develop, and is our recommended default.
-*   Microservice application: in a microservices architecture, this is one of the services.
-*   Microservice gateway: in a microservices architecture, this is an edge server that routes and secures requests.
+*   Application monolithique : c'est une application classique, tout-en-un. Elle est plus facile à utiliser et à développer, et c'est notre recommandation par défaut.
+*   Application microservice : dans une architecture microservices, c'est l'un des services.
+*   Passerelle microservice : dans une architecture microservices, c'est un serveur de bord qui route et sécurise les requêtes.
 
-### What is the base name of your application?
+### Quel est le nom de base de votre application ?
 
-This is the name of your application.
+C'est le nom de votre application.
 
-### What is your default Java package name?
+### Quel est votre package Java par défaut ?
 
-Your Java application will use this as its root package. This value is stored by Yeoman so that the next time you run the generator the last value will become default. 
-You can override it by providing a new value.
+Votre application Java utilisera ceci comme package racine. Cette valeur est stockée par Yeoman de sorte que la prochaine fois que vous exécuterez le générateur, la dernière valeur deviendra la valeur par défaut. 
+Vous pouvez la remplacer en fournissant une nouvelle valeur.
 
-### Which _type_ of authentication would you like to use?
+### Quel _type_ d'authentification souhaitez-vous utiliser ?
 
-Here are all the possible options:
+Voici toutes les options possibles :
 
-*   JWT authentication: use a [JSON Web Token (JWT)](https://jwt.io/), which is the default choice and what most people use.
-*   OAuth 2.0 / OIDC Authentication: this uses an OpenID Connect server, like [Keycloak](https://www.keycloak.org/), [Auth0](https://developer.auth0.com), or [Okta](https://developer.okta.com), which handles authentication outside the application. This is more secured than JWT, but it requires to set up an OpenID Connect server, so it's a bit more complex. Please note that by default JHipster will synchronize the user data from the OpenID Connect server, and for this it will need a database.
-*   HTTP Session Authentication: the classical session-based authentication mechanism, which is what people usually do with [Spring Security](http://docs.spring.io/spring-security/site/index.html).
+*   Authentification JWT : utilisez un [JSON Web Token (JWT)](https://jwt.io/), qui est le choix par défaut et ce que la plupart des gens utilisent.
+*   Authentification OAuth 2.0 / OIDC : utilise un serveur OpenID Connect, comme [Keycloak](https://www.keycloak.org/), [Auth0](https://developer.auth0.com), ou [Okta](https://developer.okta.com), qui gère l'authentification en dehors de l'application. C'est plus sécurisé que JWT, mais cela nécessite de configurer un serveur OpenID Connect, donc c'est un peu plus complexe. Veuillez noter que par défaut JHipster synchronisera les données utilisateur du serveur OpenID Connect, et pour cela, il aura besoin d'une base de données.
+*   Authentification par session HTTP : le mécanisme classique d'authentification basé sur la session, qui est ce que les gens font habituellement avec [Spring Security](http://docs.spring.io/spring-security/site/index.html).
 
-You can find more information on our [securing your application]({{ site.url }}/security/) page.
+Vous pouvez trouver plus d'informations sur notre page [sécuriser votre application]({{ site.url }}/security/).
 
-### Which _type_ of database would you like to use?
+### Quel _type_ de base de données souhaitez-vous utiliser ?
 
-You can choose between:
+Vous pouvez choisir entre :
 
-- An SQL database (H2, MySQL, MariaDB, PostgreSQL, MSSQL, Oracle), which you will access with Spring Data JPA
+- Une base de données SQL (H2, MySQL, MariaDB, PostgreSQL, MSSQL, Oracle), que vous accéderez avec Spring Data JPA
 - [MongoDB]({{ site.url }}/using-mongodb/)
 - [Cassandra]({{ site.url }}/using-cassandra/)
 - [Couchbase]({{ site.url }}/using-couchbase/)
 - [Neo4j]({{ site.url }}/using-neo4j/)
-- No database (only available when using a [microservice application]({{ site.url }}/microservices-architecture/) with JWT authentication)
+- Pas de base de données (disponible uniquement lors de l'utilisation d'une [application microservice]({{ site.url }}/microservices-architecture/) avec authentification JWT)
 
-### Which _production_ database would you like to use?
+### Quelle base de données _de production_ souhaitez-vous utiliser ?
 
-This is the database you will use with your "production" profile. To configure it, please modify your `src/main/resources/config/application-prod.yml` file.
+C'est la base de données que vous utiliserez avec votre profil "production". Pour la configurer, veuillez modifier votre fichier `src/main/resources/config/application-prod.yml`.
 
-If you want to use Oracle, you might need to be aware of current limitations when [using Oracle database]({{ site.url }}/using-oracle/).
+Si vous souhaitez utiliser Oracle, vous devrez peut-être être au courant des limitations actuelles lors de l'[utilisation de la base de données Oracle]({{ site.url }}/using-oracle/).
 
-### Which _development_ database would you like to use?
+### Quelle base de données _de développement_ souhaitez-vous utiliser ?
 
-This is the database you will use with your "development" profile. You can either use:
+C'est la base de données que vous utiliserez avec votre profil "développement". Vous pouvez soit utiliser :
 
-*   H2, running in-memory. This is the easiest way to use JHipster, but your data will be lost when you restart your server.
-*   H2, with its data stored on disk. This is a better option than running in-memory, as you won't lose your data upon application restart.
-*   The same database as the one you chose for production: it's a bit more complex to set up, but it should be better in the end to work on the same database as the one you will use in production. This is also the best way to use liquibase-hibernate as described in [the development guide]({{ site.url }}/development/).
+*   H2, fonctionnant en mémoire. C'est le moyen le plus simple d'utiliser JHipster, mais vos données seront perdues lorsque vous redémarrerez votre serveur.
+*   H2, avec ses données stockées sur disque. C'est une meilleure option que de fonctionner en mémoire, car vous ne perdrez pas vos données lors du redémarrage de l'application.
+*   La même base de données que celle que vous avez choisie pour la production : c'est un peu plus complexe à configurer, mais il devrait être mieux à la fin de travailler sur la même base de données que celle que vous utiliserez en production. C'est également le meilleur moyen d'utiliser liquibase-hibernate comme décrit dans [le guide de développement]({{ site.url }}/development/).
 
-To configure it, please modify your `src/main/resources/config/application-dev.yml` file.
+Pour la configurer, veuillez modifier votre fichier `src/main/resources/config/application-dev.yml`.
 
-### Do you want to use the Spring cache abstraction?
+### Souhaitez-vous utiliser l'abstraction de cache Spring ?
 
-The Spring cache abstraction allows to use different cache implementations: you can use [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [Hazelcast](http://www.hazelcast.com/) (distributed cache), [Infinispan](http://infinispan.org/) (distributed cache), [Memcached](https://memcached.org/) (another distributed cache) or [Redis](https://redis.io/) (configured as a single server cache). This can have a very positive impact on your application's performance, and hence it is a recommended option.
+L'abstraction de cache Spring permet d'utiliser différentes implémentations de cache : vous pouvez utiliser [ehcache](http://ehcache.org/) (cache local), [Caffeine](https://github.com/ben-manes/caffeine) (cache local), [Hazelcast](http://www.hazelcast.com/) (cache distribué), [Infinispan](http://infinispan.org/) (cache distribué), [Memcached](https://memcached.org/) (un autre cache distribué) ou [Redis](https://redis.io/) (configuré en tant que cache serveur unique). Cela peut avoir un impact très positif sur les performances de votre application, et c'est donc une option recommandée.
 
-### Do you want to use Hibernate 2nd level cache?
+### Souhaitez-vous utiliser le cache de deuxième niveau de Hibernate ?
 
-This option will only be available if you selected to use an SQL database (as JHipster will use Spring Data JPA to access it) and selected a cache provider in the previous question.
+Cette option ne sera disponible que si vous avez sélectionné d'utiliser une base de données SQL (car JHipster utilisera Spring Data JPA pour y accéder) et sélectionné un fournisseur de cache à la question précédente.
 
-[Hibernate](http://hibernate.org/) is the JPA provider used by JHipster, and it can use a cache provider to greatly improve its performance. As a result, we highly recommend you to use this option, and to tune your cache implementation according to your application's needs.
+[Hibernate](http://hibernate.org/) est le fournisseur JPA utilisé par JHipster, et il peut utiliser un fournisseur de cache pour améliorer considérablement ses performances. Par conséquent, nous vous recommandons vivement d'utiliser cette option et de régler votre implémentation de cache en fonction des besoins de votre application.
 
-### Would you like to use Maven or Gradle?
+### Souhaitez-vous utiliser Maven ou Gradle ?
 
-You can build your generated Java application either with [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/). Maven is more stable and more mature. Gradle is more flexible, easier to extend, and more hype.
+Vous pouvez construire votre application Java générée soit avec [Maven](http://maven.apache.org/) soit avec [Gradle](http://www.gradle.org/). Maven est plus stable et plus mature. Gradle est plus flexible, plus facile à étendre, et plus moderne.
 
-### Which other technologies would you like to use?
+### Quelles autres technologies souhaitez-vous utiliser ?
 
-This is a multi-select answer, to add one or several other technologies to the application. Available technologies are:
+C'est une réponse à choix multiples, pour ajouter une ou plusieurs autres technologies à l'application. Les technologies disponibles sont :
 
-#### API first development using swagger-codegen
+#### Développement API d'abord en utilisant swagger-codegen
 
-This option lets you do [API-first development]({{ site.url }}/doing-api-first-development) for your application by integrating the [Swagger-Codegen](https://github.com/swagger-api/swagger-codegen) into the build.
+Cette option vous permet de faire du [développement API-first]({{ site.url }}/doing-api-first-development) pour votre application en intégrant le [Swagger-Codegen](https://github.com/swagger-api/swagger-codegen) dans la construction.
 
-#### Search engine using ElasticSearch
 
-[Elasticsearch](https://github.com/elastic/elasticsearch) will be configured using Spring Data Elasticsearch. You can find more information on our [Elasticsearch guide]({{ site.url }}/using-elasticsearch/).
+#### Moteur de recherche utilisant Elasticsearch
 
-#### Clustered HTTP sessions using Hazelcast
+[Elasticsearch](https://github.com/elastic/elasticsearch) sera configuré en utilisant Spring Data Elasticsearch. Vous pouvez trouver plus d'informations sur notre [guide Elasticsearch]({{ site.url }}/using-elasticsearch/).
 
-By default, JHipster uses a HTTP session only for storing [Spring Security](http://docs.spring.io/spring-security/site/index.html)'s authentication and authorisation information. You can choose to put more data in your HTTP sessions.
-Using HTTP sessions will cause issues if you are running in a cluster, especially if you don't use a load balancer with "sticky sessions".
-If you want to replicate your sessions inside your cluster, choose this option to have [Hazelcast](http://www.hazelcast.com/) configured.
+#### Sessions HTTP en cluster utilisant Hazelcast
 
-#### WebSockets using Spring Websocket
+Par défaut, JHipster utilise une session HTTP uniquement pour stocker les informations d'authentification et d'autorisation de [Spring Security](http://docs.spring.io/spring-security/site/index.html). Vous pouvez choisir de mettre plus de données dans vos sessions HTTP.
+L'utilisation de sessions HTTP posera des problèmes si vous exécutez dans un cluster, surtout si vous n'utilisez pas de répartiteur de charge avec des "sessions persistantes".
+Si vous souhaitez répliquer vos sessions à l'intérieur de votre cluster, choisissez cette option pour avoir [Hazelcast](http://www.hazelcast.com/) configuré.
 
-Websockets can be enabled using Spring Websocket. We also provide a complete sample to show you how to use the framework efficiently.
+#### WebSockets utilisant Spring Websocket
 
-#### Asynchronous messages using Apache Kafka
+Les Websockets peuvent être activés en utilisant Spring Websocket. Nous fournissons également un exemple complet pour vous montrer comment utiliser efficacement le framework.
 
-Use [Apache Kafka]({{ site.url }}/using-kafka/) as a publish/subscribe message broker.
+#### Messages asynchrones en utilisant Apache Kafka
 
-#### Asynchronous messages using Apache Pulsar
+Utilisez [Apache Kafka]({{ site.url }}/using-kafka/) comme courtier de messagerie publish/subscribe.
 
-Use [Apache Pulsar]({{ site.url }}/using-pulsar/) as a publish/subscribe message broker.
+#### Messages asynchrones en utilisant Apache Pulsar
 
-### Which _Framework_ would you like to use for the client?
+Utilisez [Apache Pulsar]({{ site.url }}/using-pulsar/) comme courtier de messagerie publish/subscribe.
 
-The client-side framework to use.
+### Quel _Framework_ souhaitez-vous utiliser pour le client ?
 
-You can either use:
+Le framework côté client à utiliser.
+
+Vous pouvez choisir entre :
 
 *   Angular
 *   React
 *   Vue
 
-### Would you like to use a Bootswatch theme?
+### Souhaitez-vous utiliser un thème Bootswatch ?
 
-The client theme to use.
+Le thème client à utiliser.
 
-You can use any themes from [Bootswatch](https://bootswatch.com/) or keep the default one.
+Vous pouvez utiliser n'importe quel thème de [Bootswatch](https://bootswatch.com/) ou conserver celui par défaut.
 
-### Would you like to use the Sass stylesheet preprocessor for your CSS?
+### Souhaitez-vous utiliser le préprocesseur de feuilles de style Sass pour votre CSS ?
 
-[Sass](https://sass-lang.com/) a great solution to simplify designing CSS. To be used efficiently, you will need to run a [Webpack](https://webpack.js.org) dev server, which will be configured automatically.
+[Sass](https://sass-lang.com/) est une excellente solution pour simplifier la conception CSS. Pour être utilisé efficacement, vous devrez exécuter un serveur de développement [Webpack](https://webpack.js.org), qui sera configuré automatiquement.
 
-### Would you like to enable internationalization support?
+### Souhaitez-vous activer le support de l'internationalisation ?
 
-By default JHipster provides excellent internationalization support, both on the client side and on the server side. However, internationalization adds a little overhead, and is a little bit more complex to manage, so you can choose not to install this feature.
+Par défaut, JHipster offre un excellent support de l'internationalisation, à la fois côté client et côté serveur. Cependant, l'internationalisation ajoute un léger surcoût et est un peu plus complexe à gérer, vous pouvez donc choisir de ne pas installer cette fonctionnalité.
 
-Please note that JHipster covers only UI internationalization. For data internationalization, you will need to code it yourself in JPA/Hibernate layer.
+Veuillez noter que JHipster couvre uniquement l'internationalisation de l'interface utilisateur. Pour l'internationalisation des données, vous devrez la coder vous-même dans la couche JPA/Hibernate.
 
-### Which testing frameworks would you like to use?
+### Quels frameworks de tests souhaitez-vous utiliser ?
 
-By default JHipster provide Java unit/integration testing (using Spring's JUnit support) and JavaScript unit testing (using Jest). As an option, you can also add support for:
+Par défaut, JHipster fournit des tests unitaires/intégration Java (en utilisant le support JUnit de Spring) et des tests unitaires JavaScript (en utilisant Jest). En option, vous pouvez également ajouter le support pour :
 
-*   Performance tests using Gatling
-*   Behaviour tests using Cucumber
-*   Angular integration tests with Protractor
+*   Tests de performances en utilisant Gatling
+*   Tests de comportement en utilisant Cucumber
+*   Tests d'intégration Angular avec Protractor
 
-You can find more information on our ["Running tests" guide]({{ site.url }}/running-tests/).
+Vous pouvez trouver plus d'informations dans notre [guide "Exécution des tests"]({{ site.url }}/running-tests/).
 
-### Would you like to use incremental Liquibase changelogs?
+### Souhaitez-vous utiliser des changelogs Liquibase incrémentiels ?
 
-JHipster optionally creates incremental changelogs for you, so you don't need to recreate the database or to manually generate Liquibase diff.
+JHipster crée en option des changelogs incrémentiels pour vous, vous n'avez donc pas besoin de recréer la base de données ou de générer manuellement un diff Liquibase.
 
-Run JHipster using `--incremental-changelog` option anytime to enable it.
+Exécutez JHipster en utilisant l'option `--incremental-changelog` à tout moment pour l'activer.
 
-When executing JHipster, entities contain two states:
+Lors de l'exécution de JHipster, les entités contiennent deux états :
 
-*   The old state which is already saved to disk
-*   The new state, which is in the memory (generated from jdl or prompts)
+*   L'ancien état qui est déjà enregistré sur le disque
+*   Le nouvel état, qui est en mémoire (généré à partir de jdl ou de prompts)
 
-A diff is generated between them and changelogs are created.
+Un diff est généré entre eux et des changelogs sont créés.
 
-Supported features:
+Fonctionnalités prises en charge :
 
-*   Create/remove fields
-*   Create/remove relationships
-*   JDL and prompts
+*   Créer/supprimer des champs
+*   Créer/supprimer des relations
+*   JDL et invites
 
-Doesn't support attribute changes like type and constraints.
+Ne prend pas en charge les modifications d'attributs comme le type et les contraintes.
 
-Conflicts with:
+Conflits avec :
 
-*   `--fork` option, since it saves to disk overriding the old state.
+*   L'option `--fork`, car elle enregistre sur le disque en écrasant l'ancien état.
 
-### Would you like to install other generators from the JHipster Marketplace?
 
-The [JHipster Marketplace]({{ site.url }}/modules/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
+### Souhaitez-vous installer d'autres générateurs depuis le JHipster Marketplace?
 
-<h2 id="5">Using a blueprint</h2>
+Le [JHipster Marketplace]({{ site.url }}/modules/marketplace/) est l'endroit où vous pouvez installer des modules supplémentaires, écrits par des développeurs tiers, pour ajouter des fonctionnalités non officielles à votre projet.
 
-JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custom client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
+<h2 id="5">Utilisation d'un modèle</h2>
 
-For example, to use the Kotlin blueprint pass the name of the blueprint like below while generating an app.
+JHipster 5 introduit le concept d'un modèle. Les modèles sont des modules JHipster qui peuvent fournir des modèles personnalisés côté client/serveur qui remplaceront ceux de JHipster. Par exemple, le [modèle Kotlin](https://github.com/jhipster/jhipster-kotlin) remplace la plupart du code côté serveur Java par du Kotlin.
+
+Par exemple, pour utiliser le modèle Kotlin, passez le nom du modèle comme ci-dessous lors de la génération d'une application.
 
 ```bash
 jhipster --blueprint kotlin
 ```
 
-The name of the blueprint is saved in the `.yo-rc.json` and will be automatically used while executing sub-generators like `entity`, `spring-controller` and `spring-service`.
 
-If a blueprint doesn't implement a specific sub-generator, it will be skipped and the JHipster templates for the same sub-generator will be used.
+Le nom du modèle est enregistré dans le fichier `.yo-rc.json` et sera automatiquement utilisé lors de l'exécution des sous-générateurs comme `entity`, `spring-controller` et `spring-service`.
 
-**Note:** An application can use only one blueprint, multiple blueprints are not supported yet.
+Si un modèle n'implémente pas un sous-générateur spécifique, il sera ignoré et les modèles JHipster pour le même sous-générateur seront utilisés.
 
-<h2 id="3">Command-line options</h2>
+**Remarque :** Une application ne peut utiliser qu'un seul modèle, les modèles multiples ne sont pas encore pris en charge.
 
-You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `jhipster app --help`.
+<h2 id="3">Options en ligne de commande</h2>
 
-Here are the options you can pass:
+Vous pouvez également exécuter JHipster avec certaines options en ligne de commande facultatives. La référence pour ces options peut être trouvée en tapant `jhipster app --help`.
 
-* `--help` - Print the generator's options and usage
-* `--blueprint` - Specify a blueprint to use. For example `jhipster --blueprint kotlin`
-* `--skip-cache` - Do not remember prompt answers (Default: false)
-* `--skip-git` - Do not add the generated project to Git automatically (Default: false)
-* `--skip-install` - Do not automatically install dependencies (Default: false)
-* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false).
-* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false).
-* `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
-* `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
-* `--auth` - Specify the authentication type when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
-* `--db` - Specify the database when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
-* `--skip-checks` - Skip the check of the required tools (Default: false)
-* `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
-* `--entity-suffix` - Add suffix after entities class names (Default: empty string)
-* `--dto-suffix` - Add suffix after DTOs class names (Default: DTO)
-* `--prettier-java` - Use [prettier-java](https://github.com/jhipster/prettier-java) for formatting all Java classes (Default: false)
-* `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
-* `--skip-fake-data` - Skip generation of fake data for development
-* `--creation-timestamp` - Set a timestamp for reproducible build. Timestamp should be a parsable js date ex: 2019-01-01. Must be used with --with-entities or import-jdl (generator-jhipster > 6.5.1)
+Voici les options que vous pouvez passer :
 
-<h2 id="4">Tips</h2>
+* `--help` - Affiche les options et l'utilisation du générateur
+* `--blueprint` - Spécifie un modèle à utiliser. Par exemple `jhipster --blueprint kotlin`
+* `--skip-cache` - Ne pas se souvenir des réponses aux invites (Par défaut : false)
+* `--skip-git` - Ne pas ajouter le projet généré à Git automatiquement (Par défaut : false)
+* `--skip-install` - Ne pas installer automatiquement les dépendances (Par défaut : false)
+* `--skip-client` - Ignorer la génération de l'application côté client, vous n'aurez donc que le code back-end Spring Boot généré (Par défaut : false).
+* `--skip-server` - Ignorer la génération de l'application côté serveur, vous n'aurez donc que le code front-end généré (Par défaut : false).
+* `--skip-user-management` - Ignorer la génération de la gestion des utilisateurs, à la fois côté back-end et côté front-end (Par défaut : false)
+* `--i18n` - Activer ou désactiver l'internationalisation lors de l'ignorance de la génération côté client, sans effet autrement (Par défaut : true)
+* `--auth` - Spécifier le type d'authentification lors de l'ignorance de la génération côté serveur, sans effet autrement mais obligatoire lors de l'utilisation de `skip-server`
+* `--db` - Spécifier la base de données lors de l'ignorance de la génération côté serveur, sans effet autrement mais obligatoire lors de l'utilisation de `skip-server`
+* `--skip-checks` - Ignorer la vérification des outils requis (Par défaut : false)
+* `--jhi-prefix` - Ajouter un préfixe avant les services, composants et noms d'état/route (Par défaut : jhi)
+* `--entity-suffix` - Ajouter un suffixe après les noms de classe des entités (Par défaut : chaîne vide)
+* `--dto-suffix` - Ajouter un suffixe après les noms de classe des DTO (Par défaut : DTO)
+* `--prettier-java` - Utiliser [prettier-java](https://github.com/jhipster/prettier-java) pour le formatage de toutes les classes Java (Par défaut : false)
+* `--experimental` - Activer les fonctionnalités expérimentales. Veuillez noter que ces fonctionnalités peuvent être instables et peuvent subir des changements majeurs à tout moment
+* `--skip-fake-data` - Ignorer la génération de données factices pour le développement
+* `--creation-timestamp` - Définir un horodatage pour une construction reproductible. L'horodatage doit être une date JavaScript analysable, par exemple 2019-01-01. Doit être utilisé avec --with-entities ou import-jdl (generator-jhipster > 6.5.1)
 
-You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force`.
+<h2 id="4">Conseils</h2>
+
+Vous pouvez également utiliser les options en ligne de commande Yeoman, comme `--force` pour écraser automatiquement les fichiers existants. Donc, si vous voulez régénérer toute votre application, y compris ses entités, vous pouvez exécuter `jhipster --force`.

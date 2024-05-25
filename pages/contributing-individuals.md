@@ -1,28 +1,28 @@
 ---
 layout: default
-title: Contributing Individuals
+title:  Contributions individuelles
 permalink: /contributing-individuals/
 sitemap:
     priority: 0.1
     lastmod: 2017-11-29T00:00:00-00:00
 ---
-# <i class="fa fa-keyboard-o"></i> Individual contributions
+# <i class="fa fa-keyboard-o"></i> Contributions individuelles
 
-JHipster has a lot of [contributors](https://github.com/jhipster/generator-jhipster/graphs/contributors), and we make our best to help people contribute! We'd love to have you on board!
+JHipster a de nombreux [contributeurs](https://github.com/jhipster/generator-jhipster/graphs/contributors), et nous faisons de notre mieux pour aider les gens à contribuer ! Nous serions ravis de vous accueillir parmi nous !
 
-## Code of conduct
+## Code de conduite
 
-Before you contribute, please read our [Code of Conduct](https://github.com/jhipster/generator-jhipster/blob/main/CODE_OF_CONDUCT.md).
+Avant de contribuer, veuillez lire notre [Code de conduite](https://github.com/jhipster/generator-jhipster/blob/main/CODE_OF_CONDUCT.md).
 
-## Reaching for help
+## Demander de l'aide
 
-As anybody on the project, you can reach for help using our usual support channels, as listed on our [Help page]({{ site.url }}/help/).
+Comme tout le monde sur le projet, vous pouvez demander de l'aide en utilisant nos canaux de support habituels, comme listé sur notre [page d'aide]({{ site.url }}/help/).
 
-Whatever you do, the team will do its best to help you by:
+Quoi que vous fassiez, l'équipe fera de son mieux pour vous aider en :
 
-- Commenting your tickets
-- Reviewing your Pull Requests
+- Commentant vos tickets
+- Révisant vos Pull Requests
 
-## How to contribute
+## Comment contribuer
 
-Our [Contributing guide](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md) should give you all the pointers to get started and do your first Pull Request.
+Notre [guide de contribution](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md) devrait vous donner toutes les informations nécessaires pour commencer et faire votre première Pull Request.

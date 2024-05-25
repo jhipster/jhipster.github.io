@@ -1,141 +1,141 @@
 ---
 layout: default
-title: Common application properties
+title: Propriétés communes de l'application
 permalink: /common-application-properties/
 sitemap:
     priority: 0.7
     lastmod: 2018-03-18T18:20:00-00:00
 ---
 
-# <i class="fa fa-flask"></i> Common application properties
+# <i class="fa fa-flask"></i> Propriétés communes de l'application
 
-JHipster generates a Spring Boot application, and can be configured using the standard Spring Boot properties mechanism.
+JHipster génère une application Spring Boot, qui peut être configurée en utilisant le mécanisme standard des propriétés Spring Boot.
 
-Those properties are configured at generation-time by JHipster, and often have different values in development and production modes: learn more about this in our [Profiles documentation]({{ site.url }}/profiles/).
+Ces propriétés sont configurées lors de la génération par JHipster et ont souvent des valeurs différentes en mode développement et en mode production : en savoir plus à ce sujet dans notre [documentation sur les profils]({{ site.url }}/profiles/).
 
-In a JHipster application, there are three kinds of properties:
+Dans une application JHipster, il existe trois types de propriétés :
 
-1. [Spring Boot standard application properties](#1)
-2. [JHipster application properties](#2)
-3. [Application-specific properties](#3)
+1. [Propriétés standard des applications Spring Boot](#1)
+2. [Propriétés des applications JHipster](#2)
+3. [Propriétés spécifiques à l'application](#3)
 
-<h2 id="1">Spring Boot standard application properties</h2>
+<h2 id="1">Propriétés standard des applications Spring Boot</h2>
 
-Like any Spring Boot application, JHipster allows you to configure any standard [Spring Boot application property](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
+Comme toute application Spring Boot, JHipster vous permet de configurer n'importe quelle propriété standard des [applications Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
 
-<h2 id="2">JHipster application properties</h2>
+<h2 id="2">Propriétés des applications JHipster</h2>
 
-JHipster provides specific application properties, which come from the [JHipster server-side library](https://github.com/jhipster/jhipster). Those properties are standard for all JHipster projects, but some of them only work depending on what you selected when you built your application: for example the `jhipster.cache.hazelcast` key only works if you selected Hazelcast as your 2nd-level Hibernate cache.
+JHipster fournit des propriétés d'application spécifiques, qui proviennent de la [bibliothèque côté serveur JHipster](https://github.com/jhipster/jhipster). Ces propriétés sont standard pour tous les projets JHipster, mais certaines ne fonctionnent que selon ce que vous avez sélectionné lors de la création de votre application : par exemple, la clé `jhipster.cache.hazelcast` ne fonctionne que si vous avez sélectionné Hazelcast comme cache Hibernate de 2ème niveau.
 
-Those properties are configured using the `io.github.jhipster.config.JHipsterProperties` class.
+Ces propriétés sont configurées à l'aide de la classe `io.github.jhipster.config.JHipsterProperties`.
 
-Here is a documentation for those properties:
+Voici une documentation pour ces propriétés :
 
 ```YAML
     jhipster:
 
-        # Thread pool that will be used for asynchronous method calls in JHipster
+        # Pool de threads utilisé pour les appels de méthodes asynchrones dans JHipster
         async:
-            core-pool-size: 2 # Initial pool size
-            max-pool-size: 50 # Maximum pool size
-            queue-capacity: 10000 # Queue capacity of the pool
+            core-pool-size: 2 # Taille initiale du pool
+            max-pool-size: 50 # Taille maximale du pool
+            queue-capacity: 10000 # Capacité de la file d'attente du pool
 
-        # Specific configuration for JHipster gateways
-        # See https://www.jhipster.tech/api-gateway/ for more information on JHipster gateways
+        # Configuration spécifique pour les passerelles JHipster
+        # Voir https://www.jhipster.tech/api-gateway/ pour plus d'informations sur les passerelles JHipster
         gateway:
             rate-limiting:
-                enabled: false # Rate limiting is disabled by default
-                limit: 100_000L # By default we allow 100,000 API calls
-                duration-in-seconds: 3_600 # By default the rate limiting is reinitialized every hour
-            authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-                app1: /api # recommended prod configuration, it allows the access to all API calls from the "app1" microservice
+                enabled: false # Le contrôle de débit est désactivé par défaut
+                limit: 100_000L # Par défaut, nous autorisons 100 000 appels API
+                duration-in-seconds: 3_600 # Par défaut, le contrôle de débit est réinitialisé toutes les heures
+            authorized-microservices-endpoints: # Politique de contrôle d'accès, si laissée vide pour une route, tous les points de terminaison seront accessibles
+                app1: /api # Configuration recommandée en prod, elle permet l'accès à tous les appels API du microservice "app1"
 
-        # HTTP configuration
+        # Configuration HTTP
         http:
-            cache: # Used by io.github.jhipster.web.filter.CachingHttpHeadersFilter
-                timeToLiveInDays: 1461 # Static assets are cached for 4 years by default
+            cache: # Utilisé par io.github.jhipster.web.filter.CachingHttpHeadersFilter
+                timeToLiveInDays: 1461 # Les ressources statiques sont mises en cache pendant 4 ans par défaut
 
-        # Hibernate 2nd level cache, used by CacheConfiguration
+        # Cache de 2ème niveau Hibernate, utilisé par CacheConfiguration
         cache:
-            hazelcast: # Hazelcast configuration
-                time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
-                backup-count: 1 # Number of objects backups
-                # Configure the Hazelcast management center
-                # Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
+            hazelcast: # Configuration Hazelcast
+                time-to-live-seconds: 3600 # Par défaut, les objets restent 1 heure dans le cache
+                backup-count: 1 # Nombre de sauvegardes des objets
+                # Configurer le centre de gestion Hazelcast
+                # La référence complète est disponible à : http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
                 management-center:
-                    enabled: false # Hazelcast management center is disabled by default
-                    update-interval: 3 # Updates are sent to the Hazelcast management center every 3 seconds by default
-                    # Default URL for Hazelcast management center when using JHipster's Docker Compose configuration
-                    # See src/main/docker/hazelcast-management-center.yml
-                    # Warning, the default port is 8180 as port 8080 is already used by JHipster
+                    enabled: false # Le centre de gestion Hazelcast est désactivé par défaut
+                    update-interval: 3 # Les mises à jour sont envoyées au centre de gestion Hazelcast toutes les 3 secondes par défaut
+                    # URL par défaut pour le centre de gestion Hazelcast lors de l'utilisation de la configuration Docker Compose de JHipster
+                    # Voir src/main/docker/hazelcast-management-center.yml
+                    # Attention, le port par défaut est 8180 car le port 8080 est déjà utilisé par JHipster
                     url: http://localhost:8180/mancenter
-            ehcache: # Ehcache configuration
-                time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
-                max-entries: 100 # Number of objects in each cache entry
-            caffeine: # Caffeine configuration
-                time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
-                max-entries: 100 # Number of objects in each cache entry    
-            infinispan: #Infinispan configuration
+            ehcache: # Configuration Ehcache
+                time-to-live-seconds: 3600 # Par défaut, les objets restent 1 heure dans le cache
+                max-entries: 100 # Nombre d'objets dans chaque entrée de cache
+            caffeine: # Configuration Caffeine
+                time-to-live-seconds: 3600 # Par défaut, les objets restent 1 heure dans le cache
+                max-entries: 100 # Nombre d'objets dans chaque entrée de cache    
+            infinispan: # Configuration Infinispan
                 config-file: default-configs/default-jgroups-tcp.xml
-                # local app cache
+                # Cache local de l'application
                 local:
-                    time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
-                    max-entries: 100 # Number of objects in each cache entry
-                #distributed app cache
+                    time-to-live-seconds: 60 # Par défaut, les objets restent 1 heure (en minutes) dans le cache
+                    max-entries: 100 # Nombre d'objets dans chaque entrée de cache
+                # Cache distribué de l'application
                 distributed:
-                    time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
-                    max-entries: 100 # Number of objects in each cache entry
+                    time-to-live-seconds: 60 # Par défaut, les objets restent 1 heure (en minutes) dans le cache
+                    max-entries: 100 # Nombre d'objets dans chaque entrée de cache
                     instance-count: 1
-                #replicated app cache
+                # Cache répliqué de l'application
                 replicated:
-                    time-to-live-seconds: 60 # By default objects stay 1 hour (in minutes) in the cache
-                    max-entries: 100 # Number of objects in each cache entry
-            # Memcached configuration
-            # Uses the Xmemcached library, see https://github.com/killme2008/xmemcached
+                    time-to-live-seconds: 60 # Par défaut, les objets restent 1 heure (en minutes) dans le cache
+                    max-entries: 100 # Nombre d'objets dans chaque entrée de cache
+            # Configuration Memcached
+            # Utilise la bibliothèque Xmemcached, voir https://github.com/killme2008/xmemcached
             memcached:
-                # Disabled by default in dev mode, as it does not work with Spring Boot devtools
+                # Désactivé par défaut en mode dev, car il ne fonctionne pas avec Spring Boot devtools
                 enabled: true
-                servers: localhost:11211 # Comma or whitespace separated list of servers' addresses
-                expiration: 300 # Expiration time (in seconds) for the cache
-                use-binary-protocol: true # Binary protocol is recommended for performance (and security)
-                authentication: # if authentication is required you can set it with these parameters. Disabled by default
+                servers: localhost:11211 # Liste des adresses des serveurs, séparées par des virgules ou des espaces
+                expiration: 300 # Temps d'expiration (en secondes) du cache
+                use-binary-protocol: true # Le protocole binaire est recommandé pour les performances (et la sécurité)
+                authentication: # Si l'authentification est requise, vous pouvez la configurer avec ces paramètres. Désactivé par défaut
                     enabled: false,
-                    # username: unset by default
-                    # password: unset by default
-            redis: # Redis configuration
-                expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
-                server: redis://localhost:6379 # Server address
+                    # username: non défini par défaut
+                    # password: non défini par défaut
+            redis: # Configuration Redis
+                expiration: 3600 # Par défaut, les objets restent 1 heure (en secondes) dans le cache
+                server: redis://localhost:6379 # Adresse du serveur
                 cluster: false
                 connectionPoolSize: 64,
                 connectionMinimumIdleSize: 24,
                 subscriptionConnectionPoolSize: 50,
                 subscriptionConnectionMinimumIdleSize: 1
 
-        # E-mail properties
+        # Propriétés de l'e-mail
         mail:
-            enabled: false # If e-mail sending is enabled. The standard `spring.mail` keys will need to be configured
-            from: jhipster@localhost # The default "from" address for e-mails
-            base-url: http://127.0.0.1:8080 # URL to the application, used inside e-mails
+            enabled: false # Si l'envoi d'e-mails est activé. Les clés standard `spring.mail` devront être configurées
+            from: jhipster@localhost # Adresse "from" par défaut pour les e-mails
+            base-url: http://127.0.0.1:8080 # URL de l'application, utilisée dans les e-mails
 
-        # Spring Security specific configuration
+        # Configuration spécifique à Spring Security
         security:
-            remember-me: # JHipster secure implementation of the remember-me mechanism, for session-based authentication
-                # security key (this key should be unique for your application, and kept secret)
+            remember-me: # Implémentation sécurisée du mécanisme de remember-me de JHipster, pour l'authentification basée sur les sessions
+                # clé de sécurité (cette clé doit être unique pour votre application et gardée secrète)
                 key: 0b32a651e6a65d5731e869dc136fb301b0a8c0e4
             authentication:
-                jwt: # JHipster specific JWT implementation
-                    # The secret token should be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line).
-                    # If both properties are configured, the `secret` property has a higher priority than the `base64-secret` property.
-                    secret: # JWT secret key in clear text (not recommended)
-                    base64-secret:  # JWT secret key encoded in Base64 (recommended)
-                    token-validity-in-seconds: 86400 # Token is valid 24 hours
-                    token-validity-in-seconds-for-remember-me: 2592000 # Remember me token is valid 30 days
+                jwt: # Implémentation spécifique JWT de JHipster
+                    # Le token secret doit être encodé en Base64 (vous pouvez taper `echo 'secret-key'|base64` dans votre terminal).
+                    # Si les deux propriétés sont configurées, la propriété `secret` a une priorité plus élevée que la propriété `base64-secret`.
+                    secret: # Clé secrète JWT en clair (non recommandé)
+                    base64-secret:  # Clé secrète JWT encodée en Base64 (recommandé)
+                    token-validity-in-seconds: 86400 # Le token est valide 24 heures
+                    token-validity-in-seconds-for-remember-me: 2592000 # Le token remember me est valide 30 jours
 
-        # Swagger configuration
+        # Configuration Swagger
         swagger:
             default-include-pattern: /api/.*
             title: JHipster API
-            description: JHipster API documentation
+            description: Documentation de l'API JHipster
             version: 0.0.1
             terms-of-service-url:
             contact-name:
@@ -146,42 +146,42 @@ Here is a documentation for those properties:
             host:
             protocols:
 
-        # DropWizard Metrics configuration, used by MetricsConfiguration
+        # Configuration DropWizard Metrics, utilisée par MetricsConfiguration
         metrics:
-            jmx: # Export metrics as JMX beans
-                enabled: true # JMX is enabled by default
-            # Send metrics to a Graphite server
-            # Use the "graphite" Maven profile to have the Graphite dependencies
+            jmx: # Exporter les métriques en tant que beans JMX
+                enabled: true # JMX est activé par défaut
+            # Envoyer les métriques à un serveur Graphite
+            # Utilisez le profil Maven "graphite" pour avoir les dépendances Graphite
             graphite:
-                enabled: false # Graphite is disabled by default
+                enabled: false # Graphite est désactivé par défaut
                 host: localhost
                 port: 2003
                 prefix: jhipster
-            # Send metrics to a Prometheus server
+            # Envoyer les métriques à un serveur Prometheus
             prometheus:
-                enabled: false # Prometheus is disabled by default
+                enabled: false # Prometheus est désactivé par défaut
                 endpoint: /prometheusMetrics
-            logs: # Reports Dropwizard metrics in the logs
+            logs: # Rapporter les métriques Dropwizard dans les logs
                 enabled: false
-                reportFrequency: 60 # frequency of reports in seconds
+                reportFrequency: 60 # Fréquence des rapports en secondes
 
-        # Logging configuration, used by LoggingConfiguration
+        # Configuration de la journalisation, utilisée par LoggingConfiguration
         logging:
-            logstash: # Forward logs to Logstash over a socket
-                enabled: false # Logstash is disabled by default
-                host: localhost # Logstash server URL
-                port: 5000 # Logstash server port
-                queue-size: 512 # Queue for buffering logs
-            spectator-metrics: # Reports Netflix Spectator metrics in the logs
-                enabled: false # Spectator is disabled by default
+            logstash: # Transférer les logs à Logstash via une socket
+                enabled: false # Logstash est désactivé par défaut
+                host: localhost # URL du serveur Logstash
+                port: 5000 # Port du serveur Logstash
+                queue-size: 512 # File d'attente pour la mise en mémoire tampon des logs
+            spectator-metrics: # Rapporter les métriques Netflix Spectator dans les logs
+                enabled: false # Spectator est désactivé par défaut
 
-        # By default cross-origin resource sharing (CORS) is enabled in "dev" mode for
-        # monoliths and gateways.
-        # It is disabled by default in "prod" mode for security reasons, and for microservices
-        # (as you are supposed to use a gateway to access them).
-        # This configures a standard org.springframework.web.cors.CorsConfiguration
-        # Note that "exposed-headers" is mandatory for JWT-based security, which uses
-        # the "Authorization" header, and which is not a default exposed header.
+        # Par défaut, le partage de ressources cross-origin (CORS) est activé en mode "dev" pour
+        # les monolithes et les passerelles.
+        # Il est désactivé par défaut en mode "prod" pour des raisons de sécurité, et pour les microservices
+        # (car vous êtes censé utiliser une passerelle pour y accéder).
+        # Ceci configure un standard org.springframework.web.cors.CorsConfiguration
+        # Notez que "exposed-headers" est obligatoire pour la sécurité basée sur JWT, qui utilise
+        # l'en-tête "Authorization", qui n'est pas un en-tête exposé par défaut.
         cors:
             allowed-origins: "*"
             allowed-methods: "*"
@@ -190,14 +190,15 @@ Here is a documentation for those properties:
             allow-credentials: true
             max-age: 1800
 
-        # Ribbon displayed on the top left-hand side of JHipster applications
+        # Ruban affiché en haut à gauche des applications JHipster
         ribbon:
-            # Comma-separated list of profiles that display a ribbon
+            # Liste de profils séparés par des virgules qui affichent un ruban
             display-on-active-profiles: dev
+
 ```
 
-<h2 id="3">Application-specific properties</h2>
+<h2 id="3">Propriétés spécifiques à l'applications</h2>
 
-Your generated application can also have its own Spring Boot properties. This is highly recommended, as it allows type-safe configuration of the application, as well as auto-completion and documentation within an IDE.
+Votre application générée peut également avoir ses propres propriétés Spring Boot. Ceci est fortement recommandé, car cela permet une configuration type-safe de l'application, ainsi que l'auto-complétion et la documentation au sein d'un IDE.
 
-JHipster has generated a `ApplicationProperties` class in the `config` package, which is already preconfigured, and it is already documented at the bottom the `application.yml`, `application-dev.yml` and `application-prod.yml` files. All you need to do is code your own specific properties.
+JHipster a généré une classe `ApplicationProperties`  dans le package `config`, qui est déjà préconfigurée et documentée en bas des fichiers  `application.yml`, `application-dev.yml` et `application-prod.yml` . Il vous suffit de coder vos propres propriétés spécifiques.

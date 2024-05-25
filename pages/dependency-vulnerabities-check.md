@@ -1,49 +1,50 @@
 ---
 layout: default
-title: Dependency Vulnerabilities Check
+title: Vérification des vulnérabilités des dépendances
 permalink: /dependency-vulnerabities-check/
 sitemap:
     priority: 0.7
     lastmod: 2018-09-15T19:00:00-00:00
 ---
 
-# <i class="fa fa-check-circle-o"></i> Dependency Vulnerabilities Check
 
-## Why project dependencies should be checked
+# <i class="fa fa-check-circle-o"></i> Vérification des vulnérabilités des dépendances
 
-JHipster uses many technologies, and the project is very careful at selecting them. But maybe the project missed one vulnerability in those many dependencies, or maybe you added or updated one dependency that triggered a new vulnerability.
+## Pourquoi les dépendances du projet doivent être vérifiées
 
-According to [OWASP Top 10 Most Critical Web Application Security Risks](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), using Components (ie. dependencies) with known vulnerabilities is ranked 9th, and there are many known stories of security breaches provided by (malicious or not) third-party dependencies.
+JHipster utilise de nombreuses technologies, et le projet est très attentif lors de leur sélection. Mais peut-être que le projet a omis une vulnérabilité parmi ces nombreuses dépendances, ou peut-être avez-vous ajouté ou mis à jour une dépendance qui a déclenché une nouvelle vulnérabilité.
 
-## Why the dependency check is not provided by default by JHipster
+Selon [OWASP Top 10 Most Critical Web Application Security Risks](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), l'utilisation de composants (c'est-à-dire de dépendances) présentant des vulnérabilités connues est classée 9e, et il existe de nombreuses histoires connues de violations de sécurité causées par des dépendances tierces (malveillantes ou non).
 
-Proposing a dependency check by default in JHipster build has been discussed a couple of times ([#6329](https://github.com/jhipster/generator-jhipster/issues/6329), [#8191](https://github.com/jhipster/generator-jhipster/issues/8191)). To summarise, it is complicated to have a realistic report (removing false-positive) and context dependent (security is always a trade off between the actual risk/criticity and the effort to prevent it).
+## Pourquoi la vérification des dépendances n'est pas fournie par défaut par JHipster
 
-However we highly recommend using a dependency analysis tool such as [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) if you are using JHipster in production.  
+La proposition d'une vérification des dépendances par défaut dans la construction de JHipster a été discutée à plusieurs reprises ([#6329](https://github.com/jhipster/generator-jhipster/issues/6329), [#8191](https://github.com/jhipster/generator-jhipster/issues/8191)). En résumé, il est compliqué d'obtenir un rapport réaliste (en supprimant les faux positifs) et dépendant du contexte (la sécurité est toujours un compromis entre le risque/criticité réel et l'effort pour le prévenir).
 
-## What to do do if you detect a vulnerability in one of JHipster's dependencies
+Cependant, nous recommandons vivement d'utiliser un outil d'analyse des dépendances tel que [Dependabot](https://dependabot.com/) ou [Snyk](https://snyk.io/) si vous utilisez JHipster en production.
 
-If you found a vulnerability in one of JHipster's dependencies, please check if there is not an existing  [issue](https://github.com/jhipster/generator-jhipster/issues) already opened on that vulnerability.
+## Que faire si vous détectez une vulnérabilité dans l'une des dépendances de JHipster
 
-If nothing is mentioned, please send us a security vulnerability report privately. Please read our [security policy](https://github.com/jhipster/generator-jhipster/security/policy) on how to send one. Include steps to reproduce the exploit, security report, blog post, etc.
+Si vous trouvez une vulnérabilité dans l'une des dépendances de JHipster, veuillez d'abord vérifier s'il n'y a pas déjà un [problème](https://github.com/jhipster/generator-jhipster/issues) ouvert concernant cette vulnérabilité.
 
-Be sure that the JHipster team is committed to provide a high-quality, enterprise-ready and secure development stack and that this issue will be a top priority for us.
+Si rien n'est mentionné, veuillez nous envoyer un rapport de vulnérabilité de sécurité de manière privée. Veuillez lire notre [politique de sécurité](https://github.com/jhipster/generator-jhipster/security/policy) sur la manière de procéder. Incluez les étapes de reproduction de l'exploit, le rapport de sécurité, l'article de blog, etc.
 
-# How to check a JHipster project's dependencies
+Soyez assuré que l'équipe JHipster s'engage à fournir une pile de développement de haute qualité, prête pour l'entreprise et sécurisée, et que cette question sera une priorité absolue pour nous.
 
-## Checking on the Server side
+# Comment vérifier les dépendances d'un projet JHipster
 
-To check if a Java dependency has a known Common Vulnerabilities and Exposures (aka. CVE), visit the [NIST National Vulnerability Database](https://nvd.nist.gov/) which maintains an up-to-date list.
+## Vérification côté serveur
 
-The OWASP project provides Maven and Gradle plugins to check the whole dependency chain automatically, generate a report and even block a build (not recommended, it can be very aggressive when doing continuous integration).
+Pour vérifier si une dépendance Java a une vulnérabilité connue du Common Vulnerabilities and Exposures (CVE), visitez la [base de données nationale des vulnérabilités NIST](https://nvd.nist.gov/) qui maintient une liste à jour.
 
-[Here is the documentation explaining how to read the dependency check report](https://jeremylong.github.io/DependencyCheck/general/thereport.html).
+Le projet OWASP fournit des plugins Maven et Gradle pour vérifier automatiquement toute la chaîne de dépendances, générer un rapport et même bloquer une construction (non recommandé, cela peut être très agressif lors de l'intégration continue).
 
-### Using Maven
+[Voici la documentation expliquant comment lire le rapport de vérification des dépendances](https://jeremylong.github.io/DependencyCheck/general/thereport.html).
 
-See the [OWASP Maven Dependency Check plugin documentation](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html)
+### Utilisation de Maven
 
-Add the owasp dependency-check plugin:
+Voir la [documentation du plugin OWASP Maven Dependency Check](https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html)
+
+Ajoutez le plugin owasp dependency-check :
 ```
 <build>
 ...
@@ -66,12 +67,12 @@ Add the owasp dependency-check plugin:
   ...
 </build>
 ```
-Running `./mvnw verify` will generate a dependency check report under the `target` directory.
+Exécutez `./mvnw verify` pour générer un rapport de vérification des dépendances dans le répertoire `target`.
 
-### Using Gradle
-See the [OWASP Gradle Dependency Check plugin documentation](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html)
+### Utilisation de Gradle
+Voir la [documentation du plugin OWASP Gradle Dependency Check](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html)
 
-Update the `build.gradle` file to apply the [OWASP dependency-check-gradle plugin](https://plugins.gradle.org/plugin/org.owasp.dependencycheck).
+Mettez à jour le fichier `build.gradle` pour appliquer le  [plugin gradle OWASP dependency-check-gradle](https://plugins.gradle.org/plugin/org.owasp.dependencycheck).
 
 ```
 plugins {
@@ -85,11 +86,11 @@ if(project.hasProperty('strict-security')) {
 }
 ```
 
-Running `./gradlew dependencyCheckAnalyze` generates a dependency check report inside the `build/report` directory.
+Exécutez  `./gradlew dependencyCheckAnalyze` pour générer un rapport de vérification des dépendances dans le répertoire `build/report`.
 
-Updating continuous integration builds with a dependency check is done by running `./gradlew check -Pstrict-security`
+La mise à jour des constructions d'intégration continue avec une vérification des dépendances se fait en exécutant `./gradlew check -Pstrict-security`
 
-## Checking on the client side
+## Vérification côté client
 
-Since version 6, NPM includes a security audit by default for each dependency installation. Check the [About security audits
-](https://docs.npmjs.com/getting-started/running-a-security-audit) page for more information.
+Depuis la version 6, NPM inclut une vérification de sécurité par défaut pour chaque installation de dépendance. Consultez la page [About security audits
+](https://docs.npmjs.com/getting-started/running-a-security-audit) pour plus d'informations.

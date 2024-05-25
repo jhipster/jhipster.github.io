@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contributing Companies
+title: Entreprises contribuant à JHipster
 permalink: /contributing-companies/
 redirect_from:
   - /thanks/
@@ -9,41 +9,41 @@ sitemap:
     priority: 0.1
     lastmod: 2017-11-29T00:00:00-00:00
 ---
-# <i class="fa fa-building"></i> Companies contributing or helping the project
+# <i class="fa fa-building"></i> Entreprises contribuant ou aidant le projet
 
-## Companies contributing to JHipster
+## Entreprises contribuant à JHipster
 
-*   [Ippon Technologies](https://fr.ippon.tech/), which provides 1 day per month to contribute for everyone who is in the Ippon JHipster team.
-*   [Microsoft](https://www.microsoft.com/), which provides time and hardware to [@juliendubois](https://twitter.com/juliendubois) to improve the project.
-*   [Okta](https://developer.okta.com/), which provides time and hardware to [@mraible](https://twitter.com/mraible) to improve the project. They also contributed the [OIDC support]({{ site.url }}/security/#oauth2) and [Ionic module]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic).
-*   [Google](https://google.com) contributed the [Kubernetes sub-generator]({{ site.url }}/kubernetes/). It is maintained by [Ray Tsang](https://twitter.com/saturnism).
-*   [Heroku](https://www.heroku.com/) contributed the [Heroku sub-generator]({{ site.url }}/heroku/). It is maintained by [Joe Kutner](https://twitter.com/codefinger).
-*   [CloudCaptain](https://cloudcaptain.sh/) has added [specific support for JHipster]({{ site.url }}/cloudcaptain/). It is maintained by [Axel Fontaine](https://twitter.com/axelfontaine).
-*   [Software AG](http://www.softwareag.com/), which sponsors Ehcache, contributed to greatly improve our Ehcache support.
-*   [Hazelcast](https://hazelcast.com/) contributed to greatly improve our Hazelcast support.
-*   [Liquibase](http://www.liquibase.com/) has continuously helped us and corrected bugs for our Liquibase support.
-*   [Redhat](https://www.redhat.com/en) contributed the [Openshift sub-generator]({{ site.url }}/openshift/) and Infinispan support.
-*   [JFrog](https://jfrog.com/) which provides us with a free Artifactory instance, which is used for our builds and our releases.
+*   [Ippon Technologies](https://fr.ippon.tech/), qui offre une journée par mois pour contribuer à tous les membres de l'équipe JHipster d'Ippon.
+*   [Microsoft](https://www.microsoft.com/), qui fournit du temps et du matériel à [@juliendubois](https://twitter.com/juliendubois) pour améliorer le projet.
+*   [Okta](https://developer.okta.com/), qui fournit du temps et du matériel à [@mraible](https://twitter.com/mraible) pour améliorer le projet. Ils ont également contribué au [support OIDC]({{ site.url }}/security/#oauth2) et au [module Ionic]({{ site.url }}/modules/marketplace/#/details/generator-jhipster-ionic).
+*   [Google](https://google.com) a contribué au [sous-générateur Kubernetes]({{ site.url }}/kubernetes/). Il est maintenu par [Ray Tsang](https://twitter.com/saturnism).
+*   [Heroku](https://www.heroku.com/) a contribué au [sous-générateur Heroku]({{ site.url }}/heroku/). Il est maintenu par [Joe Kutner](https://twitter.com/codefinger).
+*   [CloudCaptain](https://cloudcaptain.sh/) a ajouté [un support spécifique pour JHipster]({{ site.url }}/cloudcaptain/). Il est maintenu par [Axel Fontaine](https://twitter.com/axelfontaine).
+*   [Software AG](http://www.softwareag.com/), qui sponsorise Ehcache, a contribué à améliorer considérablement notre support Ehcache.
+*   [Hazelcast](https://hazelcast.com/) a contribué à améliorer considérablement notre support Hazelcast.
+*   [Liquibase](http://www.liquibase.com/) nous a continuellement aidés et a corrigé des bugs pour notre support Liquibase.
+*   [Redhat](https://www.redhat.com/en) a contribué au [sous-générateur Openshift]({{ site.url }}/openshift/) et au support Infinispan.
+*   [JFrog](https://jfrog.com/) nous fournit une instance Artifactory gratuite, utilisée pour nos builds et nos releases.
 
-## Companies helping to develop JHipster
+## Entreprises aidant au développement de JHipster
 
-These companies help us to develop JHipster
+Ces entreprises nous aident à développer JHipster
 
-*   [Google](https://google.com), which has given the project $7,000 worth of "Google cloud credits" since 2016.
-*   Pivotal, which gives us free credits on their [Pivotal Web Services](http://run.pivotal.io/) cloud.
-*   [ElephantSQL](http://www.elephantsql.com/), which gives us several of their "Pretty Panda" Postgresql databases.
-*   YourKit, LLC, which gives us free licenses for the [YourKit Java profiler](http://www.yourkit.com/java/profiler/index.jsp).
-*   EJ Technologies, which gives us free licenses for the [JProfiler Java profiler](http://www.ej-technologies.com/products/jprofiler/overview.html).
+*   [Google](https://google.com), qui a donné au projet 7 000 $ de "Google cloud credits" depuis 2016.
+*   Pivotal, qui nous donne des crédits gratuits sur leur cloud [Pivotal Web Services](http://run.pivotal.io/).
+*   [ElephantSQL](http://www.elephantsql.com/), qui nous fournit plusieurs de leurs bases de données Postgresql "Pretty Panda".
+*   YourKit, LLC, qui nous offre des licences gratuites pour le [profiling Java YourKit](http://www.yourkit.com/java/profiler/index.jsp).
+*   EJ Technologies, qui nous offre des licences gratuites pour le [profiling Java JProfiler](http://www.ej-technologies.com/products/jprofiler/overview.html).
 
-## Projects and communities contributing to JHipster
+## Projets et communautés contribuant à JHipster
 
-JHipster works closely with other OSS communities, which often contributes code, advice and reviews to the project.  Important contributions have been made by:
+JHipster travaille en étroite collaboration avec d'autres communautés OSS, qui contribuent souvent du code, des conseils et des avis au projet. Des contributions importantes ont été faites par :
 
-*   [Webpack](https://webpack.github.io/), the module bundler that JHipster uses for its Angular and React support.
-*   [Gradle](https://gradle.org/), one of the build tools supported by JHipster.
+*   [Webpack](https://webpack.github.io/), le module bundler utilisé par JHipster pour son support Angular et React.
+*   [Gradle](https://gradle.org/), l'un des outils de build supportés par JHipster.
 *   [Angular](https://angular.io/).
-*   [UI Router](https://ui-router.github.io/), the Angular router used until JHipster 4.
+*   [UI Router](https://ui-router.github.io/), le routeur Angular utilisé jusqu'à JHipster 4.
 
-## Special thanks
+## Remerciements spéciaux
 
-And a very special thanks to the development team from [Galeries Lafayette](http://www.galerieslafayette.com/), which had the original idea of making Grunt work with Ant, and create a modern Web front-end on top of a more classical Spring MVC application.
+Et un merci tout particulier à l'équipe de développement des [Galeries Lafayette](http://www.galerieslafayette.com/), qui a eu l'idée originale de faire fonctionner Grunt avec Ant et de créer une interface Web moderne au-dessus d'une application Spring MVC plus classique.

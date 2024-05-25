@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring Eclipse with Maven
+title: Configurer Eclipse avec Maven
 permalink: /configuring-ide-eclipse/
 redirect_from:
   - /configuring_ide_eclipse.html
@@ -9,59 +9,57 @@ sitemap:
     lastmod: 2015-05-22T18:40:00-00:00
 ---
 
-# <i class="fa fa-keyboard-o"></i> Configuring Eclipse
+# <i class="fa fa-keyboard-o"></i> Configurer Eclipse
 
-Importing your JHipster application in Eclipse will require a few manual steps. You will need to do some configuration:
+L'importation de votre application JHipster dans Eclipse nécessitera quelques étapes manuelles. Vous devrez faire quelques configurations :
 
-- on the Maven side (for Maven users)
-- on the JavaScript side (so Eclipse can ignore a couple of folders for static files)
+- du côté Maven (pour les utilisateurs de Maven)
+- du côté JavaScript (pour qu'Eclipse puisse ignorer quelques dossiers pour les fichiers statiques)
 
-## 1. Import your project as a Maven project
+## 1. Importez votre projet en tant que projet Maven
 
-- Select File -> Import
-- Choose "Existing Maven Projects"
-- Select your project
-- Click on "Finish"
+- Sélectionnez File -> Import
+- Choisissez "Existing Maven Projects"
+- Sélectionnez votre projet
+- Cliquez sur "Finish"
 
 ![Import]({{ site.url }}/images/configuring_ide_eclipse_1.png)
 
 ![Select]({{ site.url }}/images/configuring_ide_eclipse_2.png)
 
+À la fin de la phase d'importation, vous pouvez vous attendre à voir la boîte de dialogue ci-dessous. Les "Maven plugin connectors" sont une extension pour m2eclipse. Celui-ci devrait être installé et Eclipse devra redémarrer après l'installation.
 
-At the end of the import phase, you can expect to see the below dialog.  "Maven plugin connectors" are an extension for m2eclipse. That one should be installed and Eclipse will need to restart after completion.
-
-If you have installed it already, you will be good to go and do not need to do anything.
+Si vous l'avez déjà installé, vous pouvez continuer sans rien faire.
 
 ![Select]({{ site.url }}/images/configuring_ide_eclipse_maven_processor.png)
 
-__Note__: if you already have an existing JHipster project and have not installed the corresponding connector, you should see the below error:
+__Remarque__: si vous avez déjà un projet JHipster existant et que vous n'avez pas installé le connecteur correspondant, vous devriez voir l'erreur ci-dessous :
 
 `Plugin execution not covered by lifecycle configuration: org.bsc.maven:maven-processor-plugin:2.2.4:process (execution: process, phase: generate-sources)`
 
-Select Quick Fix/Ctrl+1 (Cmd+1 on Mac) on the error marker and select "Discover new m2e connectors"
+Sélectionnez Quick Fix/Ctrl+1 (Cmd+1 sur Mac) sur le marqueur d'erreur et sélectionnez "Discover new m2e connectors"
 
-## 2. Excluding generated static folders
-At this stage you should not have any Java error but should still see some JavaScript errors. This is because you have some JavaScript files that Eclipse cannot parse properly. Those files are used at execution time only and do not need to be visible in your workspace. They should be excluded.
+## 2. Exclusion des dossiers statiques générés
 
+À ce stade, vous ne devriez avoir aucune erreur Java, mais vous pourriez encore voir des erreurs JavaScript. Cela est dû au fait que vous avez des fichiers JavaScript qu'Eclipse ne peut pas analyser correctement. Ces fichiers sont utilisés uniquement au moment de l'exécution et n'ont pas besoin d'être visibles dans votre espace de travail. Ils doivent être exclus.
 
-### Exclude the ‘node_modules’ folder
+### Exclure le dossier 'node_modules'
 
-- Right-click on Project -> Properties -> Resource -> Resource Filters
-- Select: Exclude all, Applies to folders, Name matches node_modules
-- Press "Ok"
+- Cliquez avec le bouton droit sur le projet -> Properties -> Resource -> Resource Filters
+- Sélectionnez: Exclude all, Applies to folders, Name matches node_modules
+- Appuyez sur "Ok"
 
 ![Right-click]({{ site.url }}/images/configuring_ide_eclipse_3.png)
 
 ![Exclude]({{ site.url }}/images/configuring_ide_eclipse_4.png)
 
+### Exclure 'app' de src/main/webapp
 
-### Exclude 'app' from src/main/webapp
-
-- Right click on Project -> Properties -> Javascript -> Include path
-- Click on the “source” tab and select your_project/src/main/webapp
-- Select “Excluded: (None) -> Edit -> Add multiple
-- Select  `app` and click “Ok”
-- The following folders should have been automatically excluded (if not, exclude them manually):
+- Cliquez avec le bouton droit sur le projet -> Properties -> Javascript -> Include path
+- Cliquez sur l’onglet “source” et sélectionnez your_project/src/main/webapp
+- Sélectionnez “Excluded: (None) -> Edit -> Add multiple
+- Sélectionnez `app` et cliquez sur “Ok”
+- Les dossiers suivants devraient avoir été automatiquement exclus (sinon, excluez-les manuellement) :
     - `bower_components`
     - `node_modules/`
 
@@ -71,19 +69,19 @@ At this stage you should not have any Java error but should still see some JavaS
 
 ![Multiple select]({{ site.url }}/images/configuring_ide_eclipse_7.png)
 
-### Maven IDE profile
+### Profil IDE Maven
 
-If you are using Maven, you need to activate the `IDE` profile in Eclipse. This is used for applying IDE-specific tweaks, which currently only includes applying the MapStruct annotation processor.
+Si vous utilisez Maven, vous devez activer le profil `IDE` dans Eclipse. Cela est utilisé pour appliquer des ajustements spécifiques à l'IDE, qui incluent actuellement l'application du processeur d'annotations MapStruct.
 
-- Right click on Project -> Properties -> Maven
-- In "Active Maven Profiles", type `dev,IDE`
+- Cliquez avec le bouton droit sur le projet -> Properties -> Maven
+- Dans "Active Maven Profiles", tapez `dev,IDE`
 
-With this configuration, you will be using both the JHipster `dev` and `IDE` profiles.
+Avec cette configuration, vous utiliserez à la fois les profils JHipster `dev` et `IDE`.
 
-### Configuring MapStruct plugins
+### Configuration des plugins MapStruct
 
-In case for the IDE correctly recognize the mapstruct code generator some more things needs to be done.
+Pour que l'IDE reconnaisse correctement le générateur de code MapStruct, quelques étapes supplémentaires sont nécessaires.
 
-You should use the plugin m2e-apt (https://marketplace.eclipse.org/content/m2e-apt). Installing the m2e-apt plugin, enable Eclipse to work along with mapstruct.
+Vous devriez utiliser le plugin m2e-apt (https://marketplace.eclipse.org/content/m2e-apt). L'installation du plugin m2e-apt permet à Eclipse de fonctionner avec MapStruct.
 
-Also you can install the plugin MapStruct Eclipse Plugin (https://marketplace.eclipse.org/content/mapstruct-eclipse-plugin) for help and tips from the IDE. 
+Vous pouvez également installer le plugin MapStruct Eclipse Plugin (https://marketplace.eclipse.org/content/mapstruct-eclipse-plugin) pour obtenir de l'aide et des conseils de l'IDE.

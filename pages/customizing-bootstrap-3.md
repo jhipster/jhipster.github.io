@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Customizing Bootstrap 3
+title: Personnalisation de Bootstrap 3
 permalink: /customizing-bootstrap-3/
 redirect_from:
   - /customizing_bootstrap.html
@@ -10,10 +10,10 @@ sitemap:
     lastmod: 2015-01-30T18:40:00-00:00
 ---
 
-# <i class="fa fa-css3"></i> Customizing Bootstrap 3
+# <i class="fa fa-css3"></i> Personnalisation de Bootstrap 3
 
-As of JHipster 5, AngularJS and Bootstrap 3 are not supported anymore with JHipster.
+À partir de JHipster 5, AngularJS et Bootstrap 3 ne sont plus pris en charge avec JHipster.
 
-We have great support for Angular and React, which are both more modern tools, we hope you will enjoy them!
+Nous offrons un excellent support pour Angular et React, qui sont tous deux des outils plus modernes, nous espérons que vous les apprécierez !
 
-If you still need to use AngularJS 1.x, please have a look at [our archives]({{ site.url }}/documentation-archive/).
+Si vous avez toujours besoin d'utiliser AngularJS 1.x, veuillez consulter [nos archives]({{ site.url }}/documentation-archive/).

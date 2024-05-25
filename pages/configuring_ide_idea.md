@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring Intellij IDEA
+title: Configurer Intellij IDEA
 permalink: /configuring-ide-idea/
 redirect_from:
   - /configuring_ide_idea.html
@@ -9,74 +9,71 @@ sitemap:
     lastmod: 2015-11-28T17:13:00-00:00
 ---
 
-# <i class="fa fa-keyboard-o"></i> Configuring Intellij IDEA
+# <i class="fa fa-keyboard-o"></i> Configurer Intellij IDEA
 
-## Open your project
+## Ouvrir votre projet
 
-- Open your project normally
-- Maven should be detected, and your project will build automatically
+- Ouvrez votre projet normalement
+- Maven devrait être détecté et votre projet se construira automatiquement
 
-If you want more control on your setup, you can also choose "Import project".
+Si vous souhaitez plus de contrôle sur votre configuration, vous pouvez également choisir "Importer le projet".
 
-## Exclude directories
+## Exclure les répertoires
 
-If you use Git, initialize your project (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
+Si vous utilisez Git, initialisez votre projet (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA exclura automatiquement les répertoires ignorés par Git (vous n'avez donc rien à faire).
 
-To exclude directories manually:
+Pour exclure les répertoires manuellement :
 
-- Right-click on the `node_modules/` folder
-- Select "Mark Directory As" and select "Excluded"
+- Cliquez avec le bouton droit sur le dossier `node_modules/`
+- Sélectionnez "Mark Directory As" et choisissez "Excluded"
 
 ![Exclude]({{ site.url }}/images/configuring_ide_idea_1.png)
 
-**Note:** If you are using Intellij IDEA Ultimate and would like to use IDEA to code the frontend you should **not** exclude `node_modules` folder. Otherwise
-you will not have any code assistance for the frontend code!
+**Remarque:** Si vous utilisez Intellij IDEA Ultimate et souhaitez utiliser IDEA pour coder le frontend, vous ne devez **pas** exclure le dossier `node_modules`. Sinon, vous n'aurez pas d'assistance au code pour le frontend !
 
-## Spring Support (not available in Community Edition)
+## Support de Spring (non disponible dans l'édition communautaire)
 
-To add Spring support to many of the JHipster modules from a new project first go to `File → Project Structure`.
+Pour ajouter le support de Spring à plusieurs modules JHipster à partir d'un nouveau projet, allez d'abord dans `File → Project Structure`.
 
 ![Project Structure]({{ site.url }}/images/configuring_ide_idea_2.png)
 
-Then go to the Modules tab, click on the `+` button, and then click on "Spring" to add Spring code assistance to your project.
+Ensuite, allez dans l'onglet Modules, cliquez sur le bouton `+`, puis sur "Spring" pour ajouter l'assistance au code Spring à votre projet.
 
 ![Spring]({{ site.url }}/images/configuring_ide_idea_3.png)
 
-It will tell you there are unmapped Spring configuration files, click on the `+` sign on the  bottom right (not the original one) and select all the Spring files that belong to your project, clicking the folder is enough to select everything.
+Il vous indiquera qu'il y a des fichiers de configuration Spring non mappés. Cliquez sur le signe `+` en bas à droite (pas celui d'origine) et sélectionnez tous les fichiers Spring appartenant à votre projet, cliquer sur le dossier suffit pour tout sélectionner.
 
 ![Spring Application Context]({{ site.url }}/images/configuring_ide_idea_4.png)
 
-After that click `OK`, and Spring should be configured with proper code assistance.
+Après cela, cliquez sur `OK` et Spring devrait être configuré avec une assistance au code appropriée.
 
-Now click on the original `+` button which you used to add Spring in the first place, and add Hibernate. 
-You do not need to add any files on this one, adding it there will give you Hibernate based code assistance. Remember to click `OK` on the Project structure dialog.
+Cliquez maintenant sur le bouton `+` d'origine que vous avez utilisé pour ajouter Spring et ajoutez Hibernate. Vous n'avez pas besoin d'ajouter de fichiers pour celui-ci, l'ajouter là vous donnera une assistance au code basée sur Hibernate. N'oubliez pas de cliquer sur `OK` dans la boîte de dialogue de la structure du projet.
 
-You should now have Spring support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
+Vous devriez maintenant avoir un support Spring pour la plupart de la base de code. Vous devez répéter cette étape chaque fois que vous démarrez un nouveau projet, car ces paramètres sont spécifiques au projet.
 
-## Application "hot restart" with Spring Boot devtools
+## Redémarrage à chaud de l'application avec Spring Boot devtools
 
-[Spring Boot devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) is configured by JHipster, and will "hot restart" your application when classes from your project are compiled. This is a must-have feature, as it makes your application updated on the fly.
+[Spring Boot devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) est configuré par JHipster et "redémarrera à chaud" votre application lorsque les classes de votre projet seront compilées. C'est une fonctionnalité indispensable, car elle met à jour votre application à la volée.
 
-By default IntelliJ IDEA does not automatically compile files when the application is running. To enable the "Compile on save" feature:
+Par défaut, IntelliJ IDEA ne compile pas automatiquement les fichiers lorsque l'application est en cours d'exécution. Pour activer la fonctionnalité "Compile on save" :
 
-* Go to `File -> Settings -> Build, Execution, Deployment -> Compiler` and enable "Make project automatically"
-* Open the Action window :
+* Allez dans `File -> Settings -> Build, Execution, Deployment -> Compiler` et activez "Make project automatically"
+* Ouvrez la fenêtre d'action :
   * Linux : `CTRL+SHIFT+A`
   * Mac OSX : `SHIFT+COMMAND+A`
   * Windows : `CTRL+ALT+SHIFT+/`
-* Enter `Registry...` and enable `compiler.automake.allow.when.app.running`
+* Entrez `Registry...` et activez `compiler.automake.allow.when.app.running`
 
-Note: For IntelliJ IDEA version 2021.2
-* Go to `File -> Settings -> Build, Execution, Deployment -> Compiler` and enable "Build project automatically"
-* Go to `File -> Advanced Settings -> Compiler` and enable "Allow auto-make to start even if developed application is currently running"
+Remarque : Pour IntelliJ IDEA version 2021.2
+* Allez dans `File -> Settings -> Build, Execution, Deployment -> Compiler` et activez "Build project automatically"
+* Allez dans `File -> Advanced Settings -> Compiler` et activez "Allow auto-make to start even if developed application is currently running"
 
-## Maven IDE profile
+## Profil IDE Maven
 
-If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
-which currently only includes applying the MapStruct annotation processor.
+Si vous utilisez Maven, vous devez activer le profil `IDE` dans IntelliJ. Cela est utilisé pour appliquer des ajustements spécifiques à l'IDE, qui incluent actuellement l'application du processeur d'annotations MapStruct.
 
-Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` maven profile to activate it.
+Ouvrez la fenêtre "Maven Projects" (View -> Tool Windows), cochez le profil `IDE` maven pour l'activer.
 
 ## Gradle
 
-In order to get the best out-of-the-box experience with Gradle you should delegate all [IDE build/run actions to Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing is automatically configured and you won't have duplicated classes when mixing IDE and cli builds. If you are using an older version ( < 2016.3) you have to enable annotation processing manually.
+Pour tirer le meilleur parti de l'expérience out-of-the-box avec Gradle, vous devez déléguer toutes les [actions de construction/exécution de l'IDE à Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directement. Avec ce paramètre, le traitement des annotations est automatiquement configuré et vous n'aurez pas de classes dupliquées lors de la combinaison des constructions IDE et CLI. Si vous utilisez une version antérieure ( < 2016.3), vous devez activer le traitement des annotations manuellement.

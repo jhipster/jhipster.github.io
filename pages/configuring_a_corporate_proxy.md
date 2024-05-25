@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring a corporate proxy
+title: Configurer un proxy d'entreprise
 permalink: /configuring-a-corporate-proxy/
 redirect_from:
   - /configuring_a_corporate_proxy.html
@@ -9,37 +9,38 @@ sitemap:
     lastmod: 2016-08-18T08:00:00-00:00
 ---
 
-# <i class="fa fa-exchange"></i> Configuring a corporate proxy
+# <i class="fa fa-exchange"></i> Configurer un proxy d'entreprise
 
-When JHipster is used in a company, you probably will need to configure all tools to bypass the corporate proxy.
+Lorsque JHipster est utilisé dans une entreprise, il est probable que vous devrez configurer tous les outils pour contourner le proxy d'entreprise.
 
-You can try to configure the `HTTP_PROXY` and `HTTPS_PROXY` environment variables or use a tool like [Cntlm](http://cntlm.sourceforge.net/).
+Vous pouvez essayer de configurer les variables d'environnement `HTTP_PROXY` et `HTTPS_PROXY` ou utiliser un outil comme [Cntlm](http://cntlm.sourceforge.net/).
 
-But this probably won't be enough, so you will need to configure separately all the tools that are used with JHipster.
+Mais cela ne sera probablement pas suffisant, donc vous devrez configurer séparément tous les outils utilisés avec JHipster.
 
 ## Introduction
 
-Supposing your proxy is defined with:
+En supposant que votre proxy soit défini avec :
 
-- username
-- password
-- host
+- nom d'utilisateur
+- mot de passe
+- hôte
 - port
 
-The resulting configuration is: `http://username:password@host:port`
+La configuration résultante est : `http://nom_utilisateur:mot_de_passe@hote:port`
 
-If you use [Cntlm](http://cntlm.sourceforge.net/), then your configuration would be: `127.0.0.1:3128`. Otherwise, follow the next steps to configure each tool individually.
+Si vous utilisez [Cntlm](http://cntlm.sourceforge.net/), alors votre configuration serait : `127.0.0.1:3128`. Sinon, suivez les étapes suivantes pour configurer chaque outil individuellement.
 
-## NPM configuration
+## Configuration de NPM
 
-Use these commands:
+Utilisez ces commandes :
+
 
 ```
 npm config set proxy http://username:password@host:port
 npm config set https-proxy http://username:password@host:port
 ```
 
-Or you can edit directly your `~/.npmrc` file:
+Ou vous pouvez éditer directement votre fichier `~/.npmrc`:
 
 ```
 proxy=http://username:password@host:port
@@ -47,25 +48,25 @@ https-proxy=http://username:password@host:port
 https_proxy=http://username:password@host:port
 ```
 
-## Npm configuration
+## Configuration de NPM
 
-Use these commands:
+Utilisez ces commandes :
 
 ```
 npm config set proxy http://username:password@host:port
 npm config set https-proxy http://username:password@host:port
 ```
 
-## Git configuration
+## Configuration de Git
 
-Use these commands:
+Utilisez ces commandes :
 
 ```
 git config --global http.proxy http://username:password@host:port
 git config --global https.proxy http://username:password@host:port
 ```
 
-Or you can edit directly your `~/.gitconfig` file:
+Ou vous pouvez éditer directement votre fichier `~/.gitconfig`:
 
 ```
 [http]
@@ -74,9 +75,9 @@ Or you can edit directly your `~/.gitconfig` file:
         proxy = http://username:password@host:port
 ```
 
-## Maven configuration
+## Configuration de Maven
 
-Edit the `proxies` session in your `~/.m2/settings.xml` file:
+Éditez la session `proxies` dans votre fichier `~/.m2/settings.xml` :
 
 ```
 <proxies>
@@ -95,7 +96,7 @@ Edit the `proxies` session in your `~/.m2/settings.xml` file:
 
 ### Maven Wrapper
 
-Create a new file `.mvn/jvm.config` inside the project folder and set the properties accordingly:
+Créez un nouveau fichier  `.mvn/jvm.config` dans le dossier du projet et définissez les propriétés en conséquence :
 
 ```
 -Dhttp.proxyHost=host 
@@ -106,51 +107,52 @@ Create a new file `.mvn/jvm.config` inside the project folder and set the proper
 -Dhttp.proxyPassword=password
 ```
 
-## Gradle configuration
+## Configuration de Gradle
 
-Add the below in your `gradle.properties` file and in your `gradle/wrapper/gradle-wrapper.properties` file if you are downloading the wrapper over a proxy
+Ajoutez ce qui suit dans votre fichier `gradle.properties` et dans votre fichier  `gradle/wrapper/gradle-wrapper.properties` si vous téléchargez le wrapper via un proxy.
 
-If you want to set these properties globally then add it in `USER_HOME/.gradle/gradle.properties` file
+Si vous souhaitez définir ces propriétés globalement, ajoutez-les dans le fichier  `USER_HOME/.gradle/gradle.properties`
 
 ```
-## Proxy setup
+## Configuration du proxy
 systemProp.proxySet="true"
 systemProp.http.keepAlive="true"
-systemProp.http.proxyHost=host
+systemProp.http.proxyHost=hote
 systemProp.http.proxyPort=port
-systemProp.http.proxyUser=username
-systemProp.http.proxyPassword=password
+systemProp.http.proxyUser=nom_utilisateur
+systemProp.http.proxyPassword=mot_de_passe
 systemProp.http.nonProxyHosts=local.net|some.host.com
 
 systemProp.https.keepAlive="true"
-systemProp.https.proxyHost=host
+systemProp.https.proxyHost=hote
 systemProp.https.proxyPort=port
-systemProp.https.proxyUser=username
-systemProp.https.proxyPassword=password
+systemProp.https.proxyUser=nom_utilisateur
+systemProp.https.proxyPassword=mot_de_passe
 systemProp.https.nonProxyHosts=local.net|some.host.com
-## end of proxy setup
+## fin de la configuration du proxy
 ```
 
 ## Docker
 
-### Native Docker
+### Docker natif
 
-Depending on your OS, you have to edit a specific file (`/etc/sysconfig/docker` or `/etc/default/docker`).
+En fonction de votre SE, vous devez éditer un fichier spécifique (`/etc/sysconfig/docker` ou `/etc/default/docker`).
 
-Then, you have to restart the docker service with: `sudo service docker restart`.
+Ensuite, vous devez redémarrer le service docker avec: `sudo service docker restart`.
 
-It will not apply to systemd. See this [page from docker](https://docs.docker.com/engine/admin/systemd/#http-proxy)
-to configure the proxy.
+Cela ne s'appliquera pas à systemd. Consultez cette [page de docker](https://docs.docker.com/engine/admin/systemd/#http-proxy)
+pour configurer le proxy.
 
-### Docker with docker-machine
+### Docker avec docker-machine
 
-You can create your docker-machine with:
+Vous pouvez créer votre docker-machine avec :
 
 ```
 docker-machine create -d virtualbox \
-    --engine-env HTTP_PROXY=http://username:password@host:port \
-    --engine-env HTTPS_PROXY=http://username:password@host:port \
+    --engine-env HTTP_PROXY=http://nom_utilisateur:mot_de_passe@hote:port \
+    --engine-env HTTPS_PROXY=http://nom_utilisateur:mot_de_passe@hote:port \
     default
+
 ```
 
-Or you can edit the file `~/.docker/machine/machines/default/config.json`.
+Ou vous pouvez éditer le fichier  `~/.docker/machine/machines/default/config.json`.

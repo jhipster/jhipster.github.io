@@ -1,65 +1,66 @@
 ---
 layout: default
-title: Creating microservices
+title: Création de microservices
 permalink: /creating-microservices/
 sitemap:
     priority: 0.7
     lastmod: 2017-05-03T00:00:00-00:00
 ---
 
-# <i class="fa fa-bolt"></i> Creating microservices
 
-Microservices are a type of JHipster application, that have no front-end (the Angular front-end must be generated on a [gateway]({{ site.url }}/api-gateway/)), and which work with the [Consul]({{ site.url }}/consul/) to be configured, discovered, and managed.
+# <i class="fa fa-bolt"></i> Création de microservices
 
-<h2 id="entities">Entities in a microservices architecture</h2>
+Les microservices sont un type d'application JHipster, qui n'ont pas d'interface utilisateur (l'interface Angular doit être générée sur une [passerelle]({{ site.url }}/api-gateway/)), et qui fonctionnent avec [Consul]({{ site.url }}/consul/) pour être configurés, découverts et gérés.
 
-The User entity is not generated in a microservice when using JWT or DTO. When OAuth 2.0 is used, there is a mechanism in the microservice to extract user data from the token and save it to the microservice's database. So for JWT and DTO you can not use and/or define a relationship with the User entity because it exists only in the gateway's database.
+<h2 id="entities">Entités dans une architecture de microservices</h2>
 
-Relationships between entities from different microservices are not supported.
+L'entité Utilisateur n'est pas générée dans un microservice lors de l'utilisation de JWT ou DTO. Lorsque OAuth 2.0 est utilisé, il existe un mécanisme dans le microservice pour extraire les données utilisateur du jeton et les sauvegarder dans la base de données du microservice. Donc pour JWT et DTO, vous ne pouvez pas utiliser et/ou définir une relation avec l'entité Utilisateur car elle n'existe que dans la base de données de la passerelle.
 
-<h2 id="generating_entities">Generating entities</h2>
+Les relations entre entités provenant de différents microservices ne sont pas prises en charge.
 
-For entities in a microfrontend see [Microfrontends](#microfrontends).
+<h2 id="generating_entities">Génération d'entités</h2>
 
-Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) works a little bit differently in a microservices architecture, as the front-end and the back-end codes are not located in the same application.
+Pour les entités dans un microfront, voir [Microfrontends](#microfrontends).
 
-First, generate the entities in the microservice applications: this works as usual, and you can also use [JHipster UML]({{ site.url }}/jhipster-uml/) or [JDL Studio](https://start.jhipster.tech/jdl-studio/) to help you generate complex entities and relationships. As microservices don't have a front-end, no UI code will be generated.
+L'utilisation du [sous-générateur d'entités]({{ site.url }}/creating-an-entity/) fonctionne un peu différemment dans une architecture de microservices, car les codes frontaux et backend ne sont pas situés dans la même application.
 
-Then, on the gateway(s), run the entity sub-generator again. A new question will appear at the beginning, which is specific to gateways:
+Tout d'abord, générez les entités dans les applications de microservice : cela fonctionne comme d'habitude, et vous pouvez également utiliser [JHipster UML]({{ site.url }}/jhipster-uml/) ou [JDL Studio](https://start.jhipster.tech/jdl-studio/) pour vous aider à générer des entités et des relations complexes. Comme les microservices n'ont pas d'interface utilisateur, aucun code d'interface utilisateur ne sera généré.
 
-- You will have the choice either to generate a new entity normally (a gateway is also a standard JHipster application, so this would work like for a monolith application), or use an existing JHipster configuration from a microservice.
-- If you choose to generate the entity from a microservice, you will need to enter the path to this microservice on your local computer, and then JHipster will generate the front-end code on the gateway.
+Ensuite, sur la(les) passerelle(s), exécutez à nouveau le sous-générateur d'entités. Une nouvelle question apparaîtra au début, qui est spécifique aux passerelles :
+
+- Vous aurez le choix de générer une nouvelle entité normalement (une passerelle est également une application JHipster standard, donc cela fonctionnerait comme pour une application monolithique), ou d'utiliser une configuration JHipster existante à partir d'un microservice.
+- Si vous choisissez de générer l'entité à partir d'un microservice, vous devrez entrer le chemin de ce microservice sur votre ordinateur local, et ensuite JHipster générera le code frontend sur la passerelle.
 
 ## Microfrontends
 
-Microfrontend support is a work in progress. Implementation is subject to change and varies between frameworks. Refer to [Microfrontend Support](https://github.com/jhipster/generator-jhipster/issues/17031) for the latest status.
+Le support des microfrontends est en cours de développement. L'implémentation est sujette à changement et varie selon les frameworks. Consultez [Microfrontend Support](https://github.com/jhipster/generator-jhipster/issues/17031) pour obtenir le dernier état.
 
-JHipster's microfrontends implementation uses [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/) and allows frontend entities implementation to be located in the microservice instead of in the gateway.
+L'implémentation des microfrontends de JHipster utilise [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/) et permet à l'implémentation des entités frontend d'être située dans le microservice plutôt que dans la passerelle.
 
-A gateway is still required to be running in development due to the authentication process.
+Une passerelle est toujours nécessaire pour fonctionner en développement en raison du processus d'authentification.
 
-You can find more information about starting microfrontends using gateway or alone in the generated README.
+Vous pouvez trouver plus d'informations sur le démarrage des microfrontends en utilisant une passerelle ou seul dans le README généré.
 
-<h2 id="hazelcast">Distributed caching with Hazelcast</h2>
+<h2 id="hazelcast">Mise en cache distribuée avec Hazelcast</h2>
 
-If your application uses an SQL database, JHipster proposes a different 2nd-level caching solution with microservices:
+Si votre application utilise une base de données SQL, JHipster propose une solution de mise en cache de niveau 2 différente avec les microservices :
 
-- JHipster's default caching solution with microservices is Hazelcast
-- You can still choose Ehcache (the default solution with monolith applications) or Caffeine or choose not to use a cache at all
+- La solution de mise en cache par défaut de JHipster avec les microservices est Hazelcast
+- Vous pouvez toujours choisir Ehcache (la solution par défaut avec les applications monolithiques) ou Caffeine ou choisir de ne pas utiliser de cache du tout
 
-This solution is the default with microservices, as in this architecture the idea is that you will scale your services:
+Cette solution est la solution par défaut avec les microservices, car dans cette architecture, l'idée est que vous allez mettre à l'échelle vos services :
 
-- with a local cache, your service instances won't have a synchronized cache, resulting in incorrect data
-- without any cache, the burden of scaling will be pushed to the database, which won't be very good at it (unless you use our Cassandra option)
+- avec un cache local, vos instances de service n'auront pas de cache synchronisé, ce qui entraînera des données incorrectes
+- sans aucun cache, le fardeau de la mise à l'échelle sera poussé vers la base de données, ce qui ne sera pas très efficace (à moins d'utiliser notre option Cassandra)
 
-Using Hazelcast with microservices will result in a specific configuration:
+L'utilisation de Hazelcast avec les microservices entraînera une configuration spécifique :
 
-- At start-up, your application will connect to the Service Registry to find if other instances of the same service are running
-- With the `dev` profile, JHipster will create a cluster of those instances on localhost (`127.0.0.1`),  using a different port per instance. By default, the Hazelcast port is `your application's port + 5701` (so if your application's port is `8081`, Hazelcast will use port `13782`)
-- With the `prod` profile, JHipster will create a cluster with all the other nodes it finds, using the default Hazelcast port (`5701`)
+- Au démarrage, votre application se connectera au registre de services pour savoir si d'autres instances du même service sont en cours d'exécution
+- Avec le profil `dev`, JHipster créera un cluster de ces instances sur localhost (`127.0.0.1`), en utilisant un port différent par instance. Par défaut, le port Hazelcast est `le port de votre application + 5701` (donc si le port de votre application est `8081`, Hazelcast utilisera le port `13782`)
+- Avec le profil `prod`, JHipster créera un cluster avec tous les autres nœuds qu'il trouve, en utilisant le port Hazelcast par défaut (`5701`)
 
-<h2 id="no_database">Microservices with no database</h2>
+<h2 id="no_database">Microservices sans base de données</h2>
 
-Only microservices applications can be created without a database. This is because microservices are small and do not have user-management code.
+Seules les applications de microservices peuvent être créées sans base de données. C'est parce que les microservices sont petits et n'ont pas de code de gestion des utilisateurs.
 
-A microservice without a database is very small, and could be used to connect to a specific back-end like a legacy system.
+Un microservice sans base de données est très petit et pourrait être utilisé pour se connecter à un back-end spécifique comme un système hérité.

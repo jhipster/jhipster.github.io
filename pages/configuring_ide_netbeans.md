@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configuring Netbeans
+title:  Configurer Apache Netbeans
 permalink: /configuring-ide-netbeans/
 redirect_from:
   - /configuring_ide_netbeans.html
@@ -9,17 +9,17 @@ sitemap:
     lastmod: 2016-08-20T18:40:00-00:00
 ---
 
-# <i class="fa fa-keyboard-o"></i> Configuring Apache Netbeans
+# <i class="fa fa-keyboard-o"></i> Configurer Apache Netbeans
 
-Importing your JHipster application in NetBeans is straightforward.
+L'importation de votre application JHipster dans NetBeans est simple.
 
-## 1. Open your project
+## 1. Ouvrez votre projet
 
-- Select File -> Open Project
-- Browse and select your project's folder
+- Sélectionnez `File -> Open Project`
+- Parcourez et sélectionnez le dossier de votre projet
 
 ![Open]({{ site.url }}/images/configuring_ide_netbeans_1.png)
 
-**That's All** : To run your project, do a right-click on the Application class (at the root of the package hierarchy) and select "Run File".
+**C'est tout** : Pour exécuter votre projet, faites un clic droit sur la classe Application (à la racine de la hiérarchie des packages) et sélectionnez "Run File".
 
-![Open]({{ site.url }}/images/configuring_ide_netbeans_2.png)
+![Run File]({{ site.url }}/images/configuring_ide_netbeans_2.png)

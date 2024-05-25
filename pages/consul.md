@@ -9,37 +9,37 @@ sitemap:
 
 # <i class="fa fa-bullseye"></i> Consul
 
-## Consul overview
+## Aperçu de Consul
 
-[Consul](https://www.consul.io/) is used as the default service registry solution.
-Compared to Eureka it has a number of advantages:
+[Consul](https://www.consul.io/) est utilisé comme solution par défaut pour le registre de services.
+Comparé à Eureka, il présente plusieurs avantages :
 
-- It is easier to operate in a multi-node cluster than Eureka.
-- It favors consistency over availability so changes in the state of your cluster are propagated more quickly.
-- Consul service discovery can interoperate with existing applications through its [DNS interface](https://www.consul.io/docs/agent/dns.html) or [HTTP API](https://www.consul.io/docs/agent/http.html).
+- Il est plus facile à utiliser dans un cluster multi-nœuds qu'Eureka.
+- Il favorise la cohérence par rapport à la disponibilité, de sorte que les changements dans l'état de votre cluster sont propagés plus rapidement.
+- La découverte de services Consul peut interagir avec les applications existantes via son [interface DNS](https://www.consul.io/docs/agent/dns.html) ou son [API HTTP](https://www.consul.io/docs/agent/http.html).
 
-## Architecture diagram
+## Diagramme d'architecture
 
-<img src="{{ site.url }}/images/microservices_architecture_detail.003.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
+<img src="{{ site.url }}/images/microservices_architecture_detail.003.png" alt="Diagramme" style="width: 800; height: 600" class="img-responsive"/>
 
-## Getting started
+## Commencer
 
-To get started with developing applications that rely on a Consul registry, you can start a Consul instance in a docker container:
+Pour commencer à développer des applications qui reposent sur un registre Consul, vous pouvez démarrer une instance Consul dans un conteneur Docker :
 
-- run `docker-compose -f src/main/docker/consul.yml up` to start a Consul server in `dev` mode. Consul will then be available on port `8500` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8500/](http://127.0.0.1:8500/).
+- exécutez `docker-compose -f src/main/docker/consul.yml up` pour démarrer un serveur Consul en mode `dev`. Consul sera alors disponible sur le port `8500` de votre hôte Docker, donc s'il s'exécute sur votre machine, il devrait être accessible à [http://127.0.0.1:8500/](http://127.0.0.1:8500/).
 
-You can also use the [Docker Compose subgenerator]({{ site.url }}/docker-compose/#docker-compose-subgen) to generate a docker configuration for several consul-enabled applications.
+Vous pouvez également utiliser le [sous-générateur Docker Compose]({{ site.url }}/docker-compose/#docker-compose-subgen) pour générer une configuration Docker pour plusieurs applications compatibles avec Consul.
 
-## Application configuration with Consul
+## Configuration de l'application avec Consul
 
-If you have chosen the Consul option when generating your JHipster microservice or gateway app, they will be automatically configured to retrieve their configuration from Consul's **Key/Value store**.
+Si vous avez choisi l'option Consul lors de la génération de votre microservice ou application gateway JHipster, ils seront automatiquement configurés pour récupérer leur configuration à partir du **Key/Value store** de Consul.
 
-The Key/Value (K/V) store can be modified using either its UI available at [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) or its [REST API](https://www.consul.io/intro/getting-started/kv.html). However changes made this way are temporary and will be lost on Consul server/cluster shutdown.
-So, in order to help you interact with the Key/Value store and manage your configuration as YAML files, the JHipster Team has developed a small tool: the [consul-config-loader](https://github.com/jhipster/consul-config-loader). 
-The **consul-config-loader** is automatically configured when starting Consul from the `consul.yml` docker-compose file but it can also be run as a standalone tool.
-It can be run in two modes:
+Le Key/Value (K/V) store peut être modifié soit via son interface utilisateur disponible à [http://localhost:8500/v1/kv/](http://localhost:8500/v1/kv/) soit via son [API REST](https://www.consul.io/intro/getting-started/kv.html). Cependant, les modifications apportées de cette manière sont temporaires et seront perdues à l'arrêt du serveur/cluster Consul.
+Ainsi, afin de vous aider à interagir avec le Key/Value store et gérer votre configuration sous forme de fichiers YAML, l'équipe JHipster a développé un petit outil : le [consul-config-loader](https://github.com/jhipster/consul-config-loader).
+Le **consul-config-loader** est automatiquement configuré lors du démarrage de Consul à partir du fichier `consul.yml` docker-compose, mais il peut également être exécuté en tant qu'outil autonome.
+Il peut être exécuté en deux modes :
 
-- a **dev** mode, where YAML files from the `central-server-config` directory are automatically loaded into Consul. Moreover any change to this directory will be immediately synchronized with Consul.
-- a **prod** mode, that uses Git2Consul to setup the YAML files contained in a Git repository as a configuration source for the Key/Value store.
+- un mode **dev**, où les fichiers YAML du répertoire `central-server-config` sont automatiquement chargés dans Consul. De plus, toute modification apportée à ce répertoire sera immédiatement synchronisée avec Consul.
+- un mode **prod**, qui utilise Git2Consul pour configurer les fichiers YAML contenus dans un dépôt Git comme source de configuration pour le Key/Value store.
 
-Note that as with the JHipster Registry, your configuration files will need to be named `appname-profile.yml` where appname and profile correspond to the application’s name and profile of the service that you want to configure. For example, adding properties in a `consulapp-prod.yml` file will set those properties only for the application named `consulapp` started with a `prod` profile. Moreover, properties defined in `application.yml` will be set for all your applications.
+Notez que, comme avec le JHipster Registry, vos fichiers de configuration devront être nommés `appname-profile.yml` où appname et profile correspondent au nom et au profil de l'application que vous souhaitez configurer. Par exemple, l'ajout de propriétés dans un fichier `consulapp-prod.yml` définira ces propriétés uniquement pour l'application nommée `consulapp` démarrée avec un profil `prod`. De plus, les propriétés définies dans `application.yml` seront définies pour toutes vos applications.

@@ -1,19 +1,19 @@
 ---
 layout: default
-title: Common ports
+title: Ports communs
 permalink: /common-ports/
 sitemap:
     priority: 0.7
     lastmod: 2021-03-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-plug"></i> Common ports
+# <i class="fa fa-plug"></i> Ports communs
 
-JHipster configures many tools and services, and each of them will likely use one or several ports. Here is a documentation to help understand what each port does, and help in case of a port conflict.
+JHipster configure de nombreux outils et services, et chacun d'eux utilisera probablement un ou plusieurs ports. Voici une documentation pour aider à comprendre à quoi sert chaque port et aider en cas de conflit de ports.
 
-Please note that as per the JHipster [Policy 1]({{ site.url }}/policies/), the standard port for each technology is used, unless that causes a problem (that should be explained here).
+Veuillez noter que selon la [politique 1]({{ site.url }}/policies/) de JHipster, le port standard pour chaque technologie est utilisé, sauf si cela pose un problème (qui devrait être expliqué ici).
 
-The ports here are listed in order, but the most common questions are for ports `8080`, `9000` and `9060`.
+Les ports sont listés ici dans l'ordre, mais les questions les plus courantes concernent les ports `8080`, `9000` et `9060`.
 
 <table class="table table-striped table-responsive">
   <tr>
@@ -22,7 +22,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>2181</td>
-    <td>Zookeeper (used with Kafka)</td>
+    <td>Zookeeper (utilisé avec Kafka)</td>
   </tr>
   <tr>
     <td>3000</td>
@@ -30,7 +30,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>3306</td>
-    <td>MySQL and MariaDB</td>
+    <td>MySQL et MariaDB</td>
   </tr>
   <tr>
     <td>5000</td>
@@ -46,7 +46,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>6650</td>
-    <td>Pulsar - Service port</td>
+    <td>Pulsar - Port du service</td>
   </tr>
   <tr>
     <td>7742</td>
@@ -54,39 +54,39 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>8080</td>
-    <td>JHipster application back-end development port (Spring Boot server)</td>
+    <td>Port de développement du back-end de l'application JHipster (serveur Spring Boot)</td>
   </tr>
   <tr>
     <td>8081</td>
-    <td>JHipster microservice default port</td>
+    <td>Port par défaut du microservice JHipster</td>
   </tr>
   <tr>
     <td>8091</td>
-    <td>Couchbase - Web administration port</td>
+    <td>Couchbase - Port d'administration web</td>
   </tr>
   <tr>
     <td>8092</td>
-    <td>Couchbase - API port</td>
+    <td>Couchbase - Port de l'API</td>
   </tr>
   <tr>
     <td>8093</td>
-    <td>Couchbase - used by query services for REST/HTTP traffic</td>
+    <td>Couchbase - Utilisé par les services de requête pour le trafic REST/HTTP</td>
   </tr>
   <tr>
     <td>8180</td>
-    <td>Hazelcast management center</td>
+    <td>Centre de gestion Hazelcast</td>
   </tr>
   <tr>
     <td>8301</td>
-    <td>Consul - serflan-tcp and serflan-udp</td>
+    <td>Consul - serflan-tcp et serflan-udp</td>
   </tr>
   <tr>
     <td>8302</td>
-    <td>Consul - serfwan-tcp and serfwan-udp</td>
+    <td>Consul - serfwan-tcp et serfwan-udp</td>
   </tr>
   <tr>
     <td>8300</td>
-    <td>Consul - server</td>
+    <td>Consul - serveur</td>
   </tr>
   <tr>
     <td>8400</td>
@@ -94,7 +94,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>8500</td>
-    <td>Consul - HTTP port with the Web UI</td>
+    <td>Consul - Port HTTP avec l'interface web</td>
   </tr>
   <tr>
     <td>8600</td>
@@ -106,7 +106,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>9000</td>
-    <td>JHipster front-end development port with BrowserSync</td>
+    <td>Port de développement du front-end JHipster avec BrowserSync</td>
   </tr>
   <tr>
     <td>9001</td>
@@ -118,7 +118,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>9060</td>
-    <td>JHipster front-end development port with Webpack hot-reload</td>
+    <td>Port de développement du front-end JHipster avec Webpack hot-reload</td>
   </tr>
   <tr>
     <td>9090</td>
@@ -130,7 +130,7 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>9093</td>
-    <td>Prometheus alert manager</td>
+    <td>Gestionnaire d'alertes Prometheus</td>
   </tr>
   <tr>
     <td>9160</td>
@@ -138,11 +138,11 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>9200</td>
-    <td>Elasticsearch - HTTP connections (REST API)</td>
+    <td>Elasticsearch - Connexions HTTP (API REST)</td>
   </tr>
   <tr>
     <td>9300</td>
-    <td>Elasticsearch - transport connections (native API)</td>
+    <td>Elasticsearch - Connexions de transport (API native)</td>
   </tr>
   <tr>
     <td>9411</td>
@@ -150,15 +150,15 @@ The ports here are listed in order, but the most common questions are for ports 
   </tr>
   <tr>
     <td>11210</td>
-    <td>Couchbase - Internal/external bucket port</td>
+    <td>Couchbase - Port de bucket interne/externe</td>
   </tr>
   <tr>
     <td>18080</td>
-    <td>H2 (embedded database) running inside a monolith. Default port is normally 9092 but this would cause a conflict with Kafka, so it is fixed as "1" + "Spring Boot port"</td>
+    <td>H2 (base de données intégrée) fonctionnant à l'intérieur d'un monolithe. Le port par défaut est normalement 9092, mais cela causerait un conflit avec Kafka, donc il est fixé comme "1" + "port Spring Boot"</td>
   </tr>
   <tr>
     <td>18081</td>
-    <td>H2 (embedded database) running inside a microservice. See line above for more information</td>
+    <td>H2 (base de données intégrée) fonctionnant à l'intérieur d'un microservice. Voir la ligne ci-dessus pour plus d'informations</td>
   </tr>
   <tr>
     <td>27017</td>
