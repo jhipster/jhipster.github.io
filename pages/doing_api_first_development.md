@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Doing API-First development
+title: Faire du développement API-First
 permalink: /doing-api-first-development/
 redirect_from:
   - /doing-api-first-development.html
@@ -9,98 +9,101 @@ sitemap:
     lastmod: 2018-06-11T00:00:00-00:00
 ---
 
-# <i class="fa fa-search"></i> Doing API-First development
+# <i class="fa fa-search"></i> Faire du développement API-First
 
-When generating a JHipster application, you can choose the `API first development using OpenAPI-generator` option when prompted for additional technologies.
-This option will configure your build tool to use [OpenAPI-generator](https://github.com/OpenAPITools/openapi-generator) to generate API code from an OpenAPI (Swagger) definition file.
-Both Swagger v2 and OpenAPI v3 formats are supported.
+Lors de la génération d'une application JHipster, vous pouvez choisir l'option `API first development using OpenAPI-generator` lorsqu'il vous est demandé de sélectionner des technologies supplémentaires.
+Cette option configurera votre outil de build pour utiliser [OpenAPI-generator](https://github.com/OpenAPITools/openapi-generator) afin de générer du code API à partir d'un fichier de définition OpenAPI (Swagger).
+Les formats Swagger v2 et OpenAPI v3 sont tous deux supportés.
 
-### Rationale for API-First development
+### Raisons de l'approche API-First
 
-In API first development, instead of generating the documentation from the code, you need to write the specification first and then generate code from it.
-This has the following advantages:
+Dans le développement API-First, au lieu de générer la documentation à partir du code, vous devez écrire la spécification en premier puis générer le code à partir de celle-ci.
+Cela présente les avantages suivants :
 
-- You can design your API for the consumers and not as a consequence of your implementation.
-- You can use the specification file to mock your new server endpoints before they are released so you can more decouple frontend and backend development.
-- You don't need a live server to use your OpenAPI documentation.
+- Vous pouvez concevoir votre API pour les consommateurs et non comme une conséquence de votre implémentation.
+- Vous pouvez utiliser le fichier de spécification pour simuler vos nouveaux points de terminaison serveur avant leur sortie, ce qui permet de découpler davantage le développement frontend et backend.
+- Vous n'avez pas besoin d'un serveur en direct pour utiliser votre documentation OpenAPI.
 
-### Using the OpenAPI-generator plugins
+### Utilisation des plugins OpenAPI-generator
 
-The OpenAPI specification file will be located at src/main/resources/swagger/api.yml and is used to generate endpoint interfaces that you can implement. 
-Those interfaces have default methods which answer with a `501 Not implemented` HTTP status and an empty body.
-Write your specification using a tool such as [swagger-editor](http://editor.swagger.io), put it in `src/main/resources/swagger/api.yml`, then run:
-```bash
-./mvnw generate-sources
-```
-Or for gradle:
-```bash
-./gradlew openApiGenerate
-```
-Then implement the "Delegate" interfaces generated in `${buildDirectory}/generated-sources/openapi/src/main/java/${package}/web/api/` with `@Service` classes.
+Le fichier de spécification OpenAPI se trouvera dans `src/main/resources/swagger/api.yml` et sera utilisé pour générer des interfaces de point de terminaison que vous pourrez implémenter.
+Ces interfaces ont des méthodes par défaut qui répondent avec un statut HTTP `501 Not implemented` et un corps vide.
+Écrivez votre spécification en utilisant un outil tel que [swagger-editor](http://editor.swagger.io), placez-la dans `src/main/resources/swagger/api.yml`, puis exécutez :
+<pre>bash
+    ./mvnw generate-sources
+</pre>
+Ou pour gradle :
+<pre>bash
+    ./gradlew openApiGenerate
+</pre>
+Ensuite, implémentez les interfaces "Delegate" générées dans `${buildDirectory}/generated-sources/openapi/src/main/java/${package}/web/api/` avec des classes `@Service`.
 
-Example of code to write yourself for the famous [petstore](http://petstore.swagger.io):
-```java
-@Service
-public class PetApiDelegateImpl implements PetApiDelegate {
+Exemple de code à écrire vous-même pour le célèbre [petstore](http://petstore.swagger.io) :
 
-    @Override
-    public ResponseEntity<List<Pet>> findPetsByStatus(List<String> status) {
-        return ResponseEntity.ok(
-            status.stream()
-                .distinct()
-                .map(Pet.StatusEnum::fromValue)
-                .map(statusEnum -> new Pet().id(RandomUtils.nextLong()).status(statusEnum))
-                .collect(Collectors.toList())
-        );
-    }
-}
-```
-If you provide the `NativeWebRequest` bean to the delegate interface, then basic example bodies will be returned for the methods that have not been overridden (still with a 501 HTTP status code).
-This is useful to mock your endpoints before providing the actual implementation.
-```java
-@Service
-public class PetApiDelegateImpl implements PetApiDelegate {
 
-    private final NativeWebRequest request;
 
-    public PetApiDelegateImpl(NativeWebRequest request) {
-        this.request = request;
+    @Service
+    public class PetApiDelegateImpl implements PetApiDelegate {
+
+        @Override
+        public ResponseEntity<List<Pet>> findPetsByStatus(List<String> status) {
+            return ResponseEntity.ok(
+                status.stream()
+                    .distinct()
+                    .map(Pet.StatusEnum::fromValue)
+                    .map(statusEnum -> new Pet().id(RandomUtils.nextLong()).status(statusEnum))
+                    .collect(Collectors.toList())
+            );
+        }
     }
 
-    @Override
-    public Optional<NativeWebRequest> getRequest() {
-        return Optional.ofNullable(request);
-    }
-}
-```
-Then you can get the examples
-```sh
-$ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
-{  "photoUrls" : [ "photoUrls", "photoUrls" ],  "name" : "doggie",  "id" : 0,  "category" : {    "name" : "name",    "id" : 6  },  "tags" : [ {    "name" : "name",    "id" : 1  }, {    "name" : "name",    "id" : 1  } ],  "status" : "available"}%
-$ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
-<Pet>  <id>123456789</id>  <name>doggie</name>  <photoUrls>    <photoUrls>aeiou</photoUrls>  </photoUrls>  <tags>  </tags>  <status>aeiou</status></Pet>%
-```
 
-Probably that your IDE exclude, from sources, the output folder. Be sure to reload the configuration to detect the generated classes.
-It can be done through your IDE UI or through command.
 
-When using Eclipse or VSCode
+Si vous fournissez le bean `NativeWebRequest` à l'interface déléguée, alors des exemples de corps de réponse de base seront retournés pour les méthodes qui n'ont pas été remplacées (toujours avec un code HTTP 501).
+Cela est utile pour simuler vos points de terminaison avant de fournir l'implémentation réelle.
 
-* With maven
-```bash
-./mvnw eclipse:clean eclipse:eclipse
-```
-When using IntelliJ
-* With maven
-```bash
-./mvnw idea:idea
-```
 
-### Using the `openapi-client` Sub-Generator
+    @Service
+    public class PetApiDelegateImpl implements PetApiDelegate {
 
-JHipster also provides support for generation of client code using [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/) or Spring Webclient for reactive apps using an OpenAPI/Swagger specification.
-The generated Client can be used in both Monolithic and Micro-service applications and supports Swagger v2 and OpenAPI v3 definitions. To invoke this sub-generator run `jhipster openapi-client`.
+        private final NativeWebRequest request;
 
+        public PetApiDelegateImpl(NativeWebRequest request) {
+            this.request = request;
+        }
+
+        @Override
+        public Optional<NativeWebRequest> getRequest() {
+            return Optional.ofNullable(request);
+        }
+
+Vous pouvez alors obtenir les exemples
+<pre>sh
+    $ curl -X GET --header 'Accept: application/json' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
+    {  "photoUrls" : [ "photoUrls", "photoUrls" ],  "name" : "doggie",  "id" : 0,  "category" : {    "name" : "name",    "id" : 6  },  "tags" : [ {    "name" : "name",    "id" : 1  }, {    "name" : "name",    "id" : 1  } ],  "status" : "available"}%
+    $ curl -X GET --header 'Accept: application/xml' 'http://localhost:8080/v2/pet/findByStatus?status=pending'
+    <Pet>  <id>123456789</id>  <name>doggie</name>  <photoUrls>    <photoUrls>aeiou</photoUrls>  </photoUrls>  <tags>  </tags>  <status>aeiou</status></Pet>%
+</pre>
+
+Il est probable que votre IDE exclue, des sources, le dossier de sortie. Assurez-vous de recharger la configuration pour détecter les classes générées.
+Cela peut être fait via l'interface utilisateur de votre IDE ou via une commande.
+
+Lorsque vous utilisez Eclipse ou VSCode
+
+* Avec maven
+<pre> bash
+    ./mvnw eclipse:clean eclipse:eclipse
+</pre>
+Lorsque vous utilisez IntelliJ
+* Avec maven
+<pre> bash
+    ./mvnw idea:idea
+</pre>
+
+### Utilisation du sous-générateur `openapi-client`
+
+JHipster prend également en charge la génération de code client en utilisant [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/) ou Spring Webclient pour les applications réactives en utilisant une spécification OpenAPI/Swagger.
+Le client généré peut être utilisé dans les applications monolithiques et microservices et prend en charge les définitions Swagger v2 et OpenAPI v3. Pour invoquer ce sous-générateur, exécutez `jhipster openapi-client`.
 
 
 

@@ -11,207 +11,198 @@ sitemap:
 
 # <i class="fa fa-cloud-upload"></i> Docker Hub
 
-## Summary
+## Sommaire
 
 [![]({{ site.url }}/images/logo/docker-hub.png)](https://hub.docker.com/u/jhipster/)
 
-JHipster has its own [organization] at Docker Hub and provides different Docker images.
+JHipster dispose de sa propre [organisation] sur Docker Hub et fournit différentes images Docker.
 
+Le projet [jhipster-docker-hub] fournit tous les fichiers docker-compose pour lancer ces images.
+Pour utiliser les commandes docker-compose, vous devez :
 
-The [jhipster-docker-hub] project provides all docker-compose files to launch these images.
-To use the docker-compose commands, you have to:
+- cloner le projet : `git clone https://github.com/jhipster/jhipster-docker-hub`
+- entrer dans le projet : `cd jhipster-docker-hub`
 
-- clone the project: `git clone https://github.com/jhipster/jhipster-docker-hub`
-- go inside project: `cd jhipster-docker-hub`
+<div class="alert alert-warning"><i>Avertissement : </i>
 
-
-<div class="alert alert-warning"><i>Warning: </i>
-
-Based on your OS, your <code>DOCKER_HOST</code> will differ. On Linux, it will be <code>localhost</code>.
-For Mac/Windows, you will have to obtain the IP using following command: <code>docker-machine ip default</code>
+En fonction de votre système d'exploitation, votre <code>DOCKER_HOST</code> sera différent. Sous Linux, ce sera <code>localhost</code>.
+Pour Mac/Windows, vous devrez obtenir l'IP en utilisant la commande suivante : <code>docker-machine ip default</code>
 
 </div>
 
+## [jhipster/jhipster](https://hub.docker.com/r/jhipster/jhipster) : une installation alternative de JHipster
 
-## [jhipster/jhipster](https://hub.docker.com/r/jhipster/jhipster) : an alternative installation of JHipster
+Voir la page [installation]({{ site.url }}/installation/) pour des instructions complètes.
 
-See the [installation]({{ site.url }}/installation/) page for full instructions.
+Les commandes suivantes peuvent être utilisées dans des cas spécifiques.
 
-These following commands can be used in specific use cases.
+### Utiliser la dernière version de JHipster
 
-### Use the latest release of JHipster
+Lancer `jhipster` dans le dossier actuel, avec la dernière version
 
-Launch `jhipster` in the current folder, with the latest release
-
-```
+<pre>
 docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster jhipster
-```
+</pre>
 
-### Use JHipster v3.0.0
+### Utiliser JHipster v3.0.0
 
-Launch `jhipster` in the current folder, with an older release:
+Lancer `jhipster` dans le dossier actuel, avec une version plus ancienne :
 
-```
+<pre>
 docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 jhipster
-```
+</pre>
 
-You can see all tags available [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
+Vous pouvez voir toutes les tags disponibles [ici](https://hub.docker.com/r/jhipster/jhipster/tags/)
 
+## [jhipster/jdl-studio](https://hub.docker.com/r/jhipster/jdl-studio) : JDL-Studio hors ligne
 
-## [jhipster/jdl-studio](https://hub.docker.com/r/jhipster/jdl-studio) : JDL-Studio offline
+Vous pouvez utiliser JDL-Studio hors ligne et y accéder à [http://localhost:18080](http://localhost:18080)
 
-You can use JDL-Studio offline and access to it at [http://localhost:18080](http://localhost:18080)
-
-```
+<pre>
 docker container run -d -p 18080:80 jhipster/jdl-studio
-```
+</pre>
 
 ## [jhipster/jhipster-sample-app](https://hub.docker.com/r/jhipster/jhipster-sample-app)
 
-It is a sample application with H2 or MySQL.
+Il s'agit d'une application exemple avec H2 ou MySQL.
 
-### Quick launch
+### Lancement rapide
 
-Run a jhipster application directly with Docker, in development profile
+Lancer une application JHipster directement avec Docker, en profil développement
 
-```
+<pre>
 docker container run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=dev jhipster/jhipster-sample-app
-```
+</pre>
 
-Then, you can access to the application at [http://localhost:8080](http://localhost:8080)
+Vous pouvez alors accéder à l'application à [http://localhost:8080](http://localhost:8080)
 
-### Development profile
+### Profil développement
 
-Run the application in development profile
+Lancer l'application en profil développement
 
-```
+<pre>
 docker-compose -f jhipster-sample-app/dev.yml up
-```
+</pre>
 
-### Production profile
+### Profil production
 
-Run the application in production profile, with MySQL database
+Lancer l'application en profil production, avec la base de données MySQL
 
-```
+<pre>
 docker-compose -f jhipster-sample-app/prod.yml up
-```
+</pre>
 
-### Production profile and monitoring with ELK stack
+### Profil production et monitoring avec la pile ELK
 
-Run the application in production profile, with MySQL database and ELK stack
+Lancer l'application en profil production, avec la base de données MySQL et la pile ELK
 
-```
+<pre>
 docker-compose -f jhipster-sample-app/prod-elk.yml up
-```
+</pre>
 
-Access to the running application at [http://localhost:8080](http://localhost:8080)
+Accéder à l'application en cours d'exécution à [http://localhost:8080](http://localhost:8080)
 
-Access to the Kibana dashboard at [http://localhost:5601](http://localhost:5601)
-
+Accéder au tableau de bord Kibana à [http://localhost:5601](http://localhost:5601)
 
 ## [jhipster/jhipster-sample-app-elasticsearch](https://hub.docker.com/r/jhipster/jhipster-sample-app-elasticsearch)
 
-It is a sample application with MySQL and Elasticsearch.
+Il s'agit d'une application exemple avec MySQL et Elasticsearch.
 
-### Development profile
+### Profil développement
 
-Run the application in development profile
+Lancer l'application en profil développement
 
-```
+<pre>
 docker-compose -f jhipster-sample-app-elasticsearch/dev.yml up
-```
+</pre>
 
-### Production profile
+### Profil production
 
-Run the application in production profile, with MySQL database and Elasticsearch
+Lancer l'application en profil production, avec la base de données MySQL et Elasticsearch
 
-```
+<pre>
 docker-compose -f jhipster-sample-app-elasticsearch/prod.yml up
-```
+</pre>
 
 ## [jhipster/jhipster-sample-app-mongodb](https://hub.docker.com/r/jhipster/jhipster-sample-app-mongodb)
 
-It is a sample application with MongoDB.
+Il s'agit d'une application exemple avec MongoDB.
 
-### Production profile
+### Profil production
 
-Run the application in production profile, with MongoDB database
+Lancer l'application en profil production, avec la base de données MongoDB
 
-```
+<pre>
 docker-compose -f jhipster-sample-app-mongodb/prod.yml up
-```
-
+</pre>
 
 ## [jhipster/jhipster-sample-app-cassandra](https://hub.docker.com/r/jhipster/jhipster-sample-app-cassandra)
 
-It is a sample application with a Cassandra cluster.
+Il s'agit d'une application exemple avec un cluster Cassandra.
 
-### Production profile
+### Profil production
 
-Run the application in production profile, with Cassandra cluster
+Lancer l'application en profil production, avec le cluster Cassandra
 
-```
+<pre>
 docker-compose -f jhipster-sample-app-cassandra/prod.yml up
-```
+</pre>
 
-Scale a Cassandra node
+Scaler un nœud Cassandra
 
-```
+<pre>
 docker-compose -f jhipster-sample-app-cassandra/prod.yml scale sample-cassandra-node=2
-```
+</pre>
 
-
-[organization]: https://hub.docker.com/u/jhipster/
+[organisation]: https://hub.docker.com/u/jhipster/
 [jhipster-docker-hub]: https://github.com/jhipster/jhipster-docker-hub
 
+## Architecture microservices
 
-## Microservices architecture
-
-The images used here are:
+Les images utilisées ici sont :
 
 - [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry)
 - [jhipster/jhipster-sample-app-gateway](https://hub.docker.com/r/jhipster/jhipster-sample-app-gateway)
 - [jhipster/jhipster-sample-app-microservice](https://hub.docker.com/r/jhipster/jhipster-sample-app-microservice)
 
-### Production profile
+### Profil production
 
-Run the full stack in production profile
+Lancer toute la stack en profil production
 
-```
+<pre>
 docker-compose -f jhipster-sample-microservices/prod/prod.yml up
-```
+</pre>
 
-It will start:
+Cela va démarrer :
 
-- Consul or the JHipster Registry
-- the gateway
-- a MySQL database
-- the microservice
-- a PostgreSQL database
+- Consul ou le JHipster Registry
+- la passerelle (gateway)
+- une base de données MySQL
+- le microservice
+- une base de données PostgreSQL
 
+Scaler le microservice
 
-Scale the microservice
-
-```
+<pre>
 docker-compose -f jhipster-sample-microservices/prod/prod.yml scale jhipstersamplemicroservice-app=2
-```
+</pre>
 
-### Production profile and monitoring with ELK stack
+### Profil production et monitoring avec la pile ELK
 
-Run the full stack in production profile, with ELK stack
+Lancer toute la stack en profil production, avec la pile ELK
 
-```
+<pre>
 docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml up
-```
+</pre>
 
-Scale the microservice
+Scaler le microservice
 
-```
+<pre>
 docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml scale jhipstersamplemicroservice-app=2
-```
+</pre>
 
-Access to the registry at: [http://localhost:8761](http://localhost:8761)
+Accéder au registre à : [http://localhost:8761](http://localhost:8761)
 
-Access to the gateway at: [http://localhost:8080](http://localhost:8080)
+Accéder à la passerelle à : [http://localhost:8080](http://localhost:8080)
 
-Access to the Kibana dashboard at: [http://localhost:5601](http://localhost:5601)
+Accéder au tableau de bord Kibana à : [http://localhost:5601](http://localhost:5601)

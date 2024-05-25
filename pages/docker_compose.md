@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Docker and Docker Compose
+title: Docker et Docker Compose
 permalink: /docker-compose/
 redirect_from:
   - /docker_compose.html
@@ -9,261 +9,259 @@ sitemap:
     lastmod: 2016-12-01T00:00:00-00:00
 ---
 
-# <i class="fa fa-music"></i> Docker and Docker Compose
+# <i class="fa fa-music"></i> Docker et Docker Compose
 
-## Summary
+## Sommaire
 
-Using Docker and Docker Compose is highly recommended in development, and is also a good solution in production.
+L'utilisation de Docker et Docker Compose est fortement recommandée en développement, et est également une bonne solution en production.
 
 1. [Description](#1)
-2. [Prerequisites](#2)
-3. [Building a Docker image of your application](#3)
-4. [Generating a custom Docker-Compose configuration for multiple applications](#docker-compose-subgen)
-5. [Working with databases](#4)
+2. [Prérequis](#2)
+3. [Construction d'une image Docker de votre application](#3)
+4. [Génération d'une configuration Docker-Compose personnalisée pour plusieurs applications](#docker-compose-subgen)
+5. [Travailler avec des bases de données](#4)
 6. [Elasticsearch](#5)
 7. [Sonar](#6)
 7. [Keycloak](#7)
-8. [Common commands](#8)
-9. [Memory Tweaking](#9)
+8. [Commandes courantes](#8)
+9. [Ajustement de la mémoire](#9)
 
 <h2 id="1">Description</h2>
 
-_Please note: this Docker configuration is used to run your generated application(s) inside a container image. It's completely different from the [Docker setup]({{ site.url }}/installation/) that JHipster also provides, which is for running the JHipster generator inside a container_
+_Remarque : cette configuration Docker est utilisée pour exécuter votre (vos) application(s) générée(s) dans une image de conteneur. Elle est complètement différente de la [configuration Docker]({{ site.url }}/installation/) que JHipster propose également, qui est destinée à exécuter le générateur JHipster dans un conteneur._
 
-JHipster provides a complete Docker support, in order to:
+JHipster fournit un support complet de Docker afin de :
 
-- Facilitate development, as you can start a full infrastructure with a single command, even when using a complex microservices architecture
-- For people using Docker Swarm, deploying to production directly, as it uses the same Docker Compose configuration
+- Faciliter le développement, car vous pouvez démarrer une infrastructure complète avec une seule commande, même lorsque vous utilisez une architecture de microservices complexe.
+- Pour les personnes utilisant Docker Swarm, déployer directement en production, car il utilise la même configuration Docker Compose.
 
-One great feature of using Docker Compose is that you can scale your containers, using the `docker-compose scale` command. This is very interesting if you use JHipster with [a microservices architecture](#3).
+Une fonctionnalité intéressante de l'utilisation de Docker Compose est que vous pouvez faire évoluer vos conteneurs en utilisant la commande `docker-compose scale`. Cela est très intéressant si vous utilisez JHipster avec [une architecture de microservices](#3).
 
-When generating your application, JHipster generates for you several Docker Compose configurations to help you run your application with third-party services, for example a database. Those files are located inside folder `src/main/docker/`.
+Lors de la génération de votre application, JHipster génère pour vous plusieurs configurations Docker Compose pour vous aider à exécuter votre application avec des services tiers, par exemple une base de données. Ces fichiers sont situés dans le dossier `src/main/docker/`.
 
-<h2 id="2">Prerequisites</h2>
+<h2 id="2">Prérequis</h2>
 
-You have to install Docker and Docker Compose:
+Vous devez installer Docker et Docker Compose :
 
 - [Docker](https://docs.docker.com/installation/#installation)
 - [Docker Compose](https://docs.docker.com/compose/install)
 
-Docker now requires creating an account to the docker store to download Docker for Mac and Docker for Windows. To bypass this
+Docker nécessite désormais de créer un compte sur le store Docker pour télécharger Docker pour Mac et Docker pour Windows. Pour contourner cela :
 
-<div class="alert alert-info"><i>Tip: </i>
+<div class="alert alert-info"><i>Conseil : </i>
 
-On Windows and Mac OS X, Kitematic is an easy-to-use graphical interface provided with the Docker Toolbox, which will makes using Docker a lot easier.
-
-</div>
-
-<div class="alert alert-warning"><i>Warning: </i>
-
-If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under this directory to avoid any issues.
+Sur Windows et Mac OS X, Kitematic est une interface graphique facile à utiliser fournie avec le Docker Toolbox, ce qui facilitera grandement l'utilisation de Docker.
 
 </div>
 
+<div class="alert alert-warning"><i>Attention : </i>
 
-If you encounter the error `npm ERR! Error: EACCES: permission denied` when installing JHipster UML (or any unbundled package), your container may not have `sudo` installed (for instance, sudo isn't bundled with Ubuntu Xenial).
+Si vous utilisez Docker Machine sur Mac ou Windows, votre démon Docker a un accès limité à votre système de fichiers OS X ou Windows. Docker Machine essaie de partager automatiquement votre répertoire /Users (OS X) ou C:\Users\&lt;username&gt; (Windows). Vous devez donc créer le dossier de votre projet sous ce répertoire pour éviter tout problème.
+
+</div>
+
+Si vous rencontrez l'erreur `npm ERR! Error: EACCES: permission denied` lors de l'installation de JHipster UML (ou de tout autre package non intégré), votre conteneur peut ne pas avoir `sudo` installé (par exemple, sudo n'est pas inclus avec Ubuntu Xenial).
 
 __Solution 1__
 
-The NPM documentation recommends not installing any NPM package as root. Follow the [official documentation](https://docs.npmjs.com/getting-started/fixing-npm-permissions) to fix this.
+La documentation NPM recommande de ne pas installer de package NPM en tant que root. Suivez la [documentation officielle](https://docs.npmjs.com/getting-started/fixing-npm-permissions) pour résoudre ce problème.
 
 __Solution 2__
 
   - `docker container exec -u root -it jhipster bash`,
   - `npm install -g YOUR_PACKAGE`,
-  - then exit and log into the container normally: `docker container exec -it jhipster bash`
+  - puis sortez et connectez-vous normalement au conteneur : `docker container exec -it jhipster bash`
 
-<h2 id="3">Building and running a Docker image of your application</h2>
+<h2 id="3">Construire et exécuter une image Docker de votre application</h2>
 
-To build a Docker image of your application using [Jib](https://github.com/GoogleContainerTools/jib) connecting to the local Docker daemon:
+Pour construire une image Docker de votre application en utilisant [Jib](https://github.com/GoogleContainerTools/jib) en se connectant au démon Docker local :
 
-- NPM: `npm run java:docker`, on Apple Silicon: `npm run java:docker:arm64`
-- Maven: `./mvnw package -Pprod verify jib:dockerBuild`
-- Gradle: `./gradlew -Pprod bootJar jibDockerBuild`
+- NPM : `npm run java:docker`, sur Apple Silicon : `npm run java:docker:arm64`
+- Maven : `./mvnw package -Pprod verify jib:dockerBuild`
+- Gradle : `./gradlew -Pprod bootJar jibDockerBuild`
 
-To build a Docker image of your application without Docker and push it directly into your Docker registry, run:
+Pour construire une image Docker de votre application sans Docker et la pousser directement dans votre registre Docker, exécutez :
 
-- Maven: `./mvnw package -Pprod verify jib:build -Djib.to.image=<dockerhub-username>/<artifact-id>`
-- Gradle: `./gradlew -Pprod bootJar jib -Djib.to.image=<dockerhub-username>/<artifact-id>`
+- Maven : `./mvnw package -Pprod verify jib:build -Djib.to.image=<dockerhub-username>/<artifact-id>`
+- Gradle : `./gradlew -Pprod bootJar jib -Djib.to.image=<dockerhub-username>/<artifact-id>`
 
-If this doesn't work out of the box for you, refer to the Jib documentation for configurations details, specifically regarding how to set up authentication to a Docker registry:
+Si cela ne fonctionne pas directement pour vous, consultez la documentation de Jib pour les détails de configuration, notamment concernant la configuration de l'authentification à un registre Docker :
 
-- [Jib maven plugin documentation](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration)
-- [Jib gradle plugin documentation](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin#configuration)
+- [Documentation du plugin Jib Maven](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration)
+- [Documentation du plugin Jib Gradle](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin#configuration)
 
-<div id="3-warning" class="alert alert-warning"><i>Warning: </i>
+<div id="3-warning" class="alert alert-warning"><i>Attention : </i>
 <p>
-Due to the way Jib works, it will first try to pull the latest version of the base Docker image from the configured Docker registry. This is on purpose as in a CI environment you must ensure that you always build on top of the latest patched base image.
+En raison de la manière dont Jib fonctionne, il essaiera d'abord de récupérer la dernière version de l'image Docker de base à partir du registre Docker configuré. Cela est intentionnel car dans un environnement CI, vous devez vous assurer de toujours construire sur la dernière image de base mise à jour.
 </p>
 <p>
-However in a local environment, this might fail your build if jib cannot access the Docker registry. A workaround for this is to use the `--offline` flag and will fix the issue as long as jib has already pulled the base Docker image in its cache.
+Cependant, dans un environnement local, cela peut échouer si jib ne peut pas accéder au registre Docker. Une solution de contournement consiste à utiliser le drapeau `--offline` et cela résoudra le problème tant que jib aura déjà récupéré l'image Docker de base dans son cache.
 </p>
 <p>
-With Maven, type: <pre>./mvnw -Pprod package verify jib:dockerBuild --offline</pre>
-With Gradle, type: <pre>./gradlew -Pprod bootJar jibDockerBuild --offline</pre>
+Avec Maven, tapez : <pre>./mvnw -Pprod package verify jib:dockerBuild --offline</pre>
+Avec Gradle, tapez : <pre>./gradlew -Pprod bootJar jibDockerBuild --offline</pre>
 </p>
 <p>
-If jib has not already pulled the base Docker image in its cache, to do it, you need to modify the pom.xml (in case of Maven) or the docker.gradle (in case of Gradle) by adding `docker://` as prefix of your base image (at the "image" tag, nested in the "from" tag).
+Si jib n'a pas déjà récupéré l'image Docker de base dans son cache, pour ce faire, vous devez modifier le pom.xml (dans le cas de Maven) ou le docker.gradle (dans le cas de Gradle) en ajoutant `docker://` comme préfixe de votre image de base (à la balise "image", imbriquée dans la balise "from").
 </p>
 <p>
-Example: <pre>docker://imagename:latest</pre>
-In this way jib puts the image present in your local docker daemon in its cache.
+Exemple : <pre>docker://imagename:latest</pre>
+De cette manière, jib met l'image présente dans votre démon docker local dans son cache.
 </p>
 </div>
 
-To run this image, use the Docker Compose configuration located in the `src/main/docker` folder of your application:
+Pour exécuter cette image, utilisez la configuration Docker Compose située dans le dossier `src/main/docker` de votre application :
 
 - `docker-compose -f src/main/docker/app.yml up`
 
-This command will start up your application and the services it relies on (database, search engine, Consul, JHipster Registry...).
+Cette commande démarrera votre application et les services dont elle dépend (base de données, moteur de recherche, Consul, JHipster Registry...).
 
-If you chose OAuth 2.0 for authentication, be sure to read our [Keycloak section on this documentation](#7).
+Si vous avez choisi OAuth 2.0 pour l'authentification, assurez-vous de lire notre [section Keycloak sur cette documentation](#7).
 
-<h2 id="docker-compose-subgen">Generating a custom Docker-Compose configuration for multiple applications</h2>
+<h2 id="docker-compose-subgen">Génération d'une configuration Docker-Compose personnalisée pour plusieurs applications</h2>
 
-If your architecture is composed of several JHipster applications, you can use the specific `docker-compose` sub-generator, which will generate a global Docker Compose configuration for all selected applications. This will allow you to deploy and scale your complete architecture with one command.
-To use the `docker-compose` subgenerator:
+Si votre architecture est composée de plusieurs applications JHipster, vous pouvez utiliser le sous-générateur spécifique `docker-compose`, qui générera une configuration Docker Compose globale pour toutes les applications sélectionnées. Cela vous permettra de déployer et de faire évoluer votre architecture complète avec une seule commande.
+Pour utiliser le sous-générateur `docker-compose` :
 
-- You need to have all your monolith(s), gateway(s) and microservices in the same directory.
-- Create another directory, for example `mkdir docker-compose`.
-- Go into that directory: `cd docker-compose`.
-- Run the sub-generator: `jhipster docker-compose`.
-- The sub-generator will ask you which application you want to have in your architecture, and if you want to setup monitoring with ELK or Prometheus.
+- Vous devez avoir tous vos monolithes, passerelles et microservices dans le même répertoire.
+- Créez un autre répertoire, par exemple `mkdir docker-compose`.
+- Allez dans ce répertoire : `cd docker-compose`.
+- Exécutez le sous-générateur : `jhipster docker-compose`.
+- Le sous-générateur vous demandera quelles applications vous souhaitez avoir dans votre architecture, et si vous souhaitez configurer la surveillance avec ELK ou Prometheus.
 
-This will generate a global Docker Compose configuration, type `docker-compose up` to run it, and have all your services running at once.
+Cela générera une configuration Docker Compose globale, tapez `docker-compose up` pour l'exécuter, et avoir tous vos services en cours d'exécution en même temps.
 
-In the case of a microservice architecture, this configuration will also pre-configure Consul or JHipster Registry, that will configure your services automatically:
+Dans le cas d'une architecture microservices, cette configuration pré-configurera également Consul ou JHipster Registry, qui configurera automatiquement vos services :
 
-- Those services will wait until the Consul (or JHipster Registry) is running to start. This can be configured in your `bootstrap-prod.yml` file using the `spring.cloud[.consul].config.fail-fast` and `spring.cloud[.consul].config.retry` keys.
-- The registry will configure your applications, for example it will share the JWT secret token between all services.
-- Scaling each service is done using Docker Compose, for example type `docker-compose scale test-app=4` to have 4 instances of application "test" running. Those instances will be automatically load-balanced by the gateway(s), and will automatically join the same Hazelcast cluster (if Hazelcast is your Hibernate 2nd-level cache).
+- Ces services attendront que Consul (ou JHipster Registry) soit en cours d'exécution pour démarrer. Cela peut être configuré dans votre fichier `bootstrap-prod.yml` en utilisant les clés `spring.cloud[.consul].config.fail-fast` et `spring.cloud[.consul].config.retry`.
+- Le registre configurera vos applications, par exemple il partagera le jeton secret JWT entre tous les services.
+- La mise à l'échelle de chaque service se fait à l'aide de Docker Compose, par exemple tapez `docker-compose scale test-app=4` pour avoir 4 instances de l'application "test" en cours d'exécution. Ces instances seront automatiquement équilibrées par les passerelles et rejoindront automatiquement le même cluster Hazelcast (si Hazelcast est votre cache de deuxième niveau Hibernate).
 
+<h2 id="4">Travailler avec des bases de données</h2>
 
-<h2 id="4">Working with databases</h2>
+### MySQL, MariaDB, PostgreSQL, Oracle, MongoDB, Couchbase, Neo4j ou Cassandra
 
-### MySQL, MariaDB, PostgreSQL, Oracle, MongoDB, Couchbase, Neo4j or Cassandra
+Exécuter `docker-compose -f src/main/docker/app.yml up` démarre déjà automatiquement votre base de données.
 
-Running `docker-compose -f src/main/docker/app.yml up` already starts up your database automatically.
+Si vous ne souhaitez démarrer que votre base de données, et non les autres services, utilisez la configuration Docker Compose de votre base de données :
 
-If you only want to start your database, and not the other services, use the Docker Compose configuration of your database:
+- Avec MySQL : `docker-compose -f src/main/docker/mysql.yml up`
+- Avec MariaDB : `docker-compose -f src/main/docker/mariadb.yml up`
+- Avec PostgreSQL : `docker-compose -f src/main/docker/postgresql.yml up`
+- Avec Oracle : `docker-compose -f src/main/docker/oracle.yml up`
+- Avec MongoDB : `docker-compose -f src/main/docker/mongodb.yml up`
+- Avec Cassandra : `docker-compose -f src/main/docker/cassandra.yml up`
+- Avec Couchbase : `docker-compose -f src/main/docker/couchbase.yml up`
+- Avec Neo4j : `docker-compose -f src/main/docker/neo4j.yml up`
 
-- With MySQL: `docker-compose -f src/main/docker/mysql.yml up`
-- With MariaDB: `docker-compose -f src/main/docker/mariadb.yml up`
-- With PostgreSQL: `docker-compose -f src/main/docker/postgresql.yml up`
-- With Oracle: `docker-compose -f src/main/docker/oracle.yml up`
-- With MongoDB: `docker-compose -f src/main/docker/mongodb.yml up`
-- With Cassandra: `docker-compose -f src/main/docker/cassandra.yml up`
-- With Couchbase: `docker-compose -f src/main/docker/couchbase.yml up`
-- With Neo4j: `docker-compose -f src/main/docker/neo4j.yml up`
+### Mode Cluster MongoDB
 
-### MongoDB Cluster Mode
+Si vous souhaitez utiliser MongoDB avec un jeu de réplicas ou des shards et une configuration partagée entre eux, vous devez construire et configurer manuellement les images MongoDB.
+Suivez ces étapes pour ce faire :
 
-If you want to use MongoDB with a replica set or shards and a shared configuration between them, you need to build and set up manually MongoDB images.
-Follow these steps to do so:
+- Construisez l'image : `docker-compose -f src/main/docker/mongodb-cluster.yml build`
+- Exécutez la base de données : `docker-compose -f src/main/docker/mongodb-cluster.yml up -d`
+- Mettez à l'échelle le service de nœud MongoDB (vous devez choisir un nombre impair de nœuds) : `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=<X>`
+- Initialisez la réplique pour le serveur de configuration mongo : `docker exec -it <name_of_your_app>-mongodb-config mongo --port 27019 --eval 'rs.initiate();'`
+- Initialisez le jeu de réplicas (le paramètre X est le nombre de nœuds que vous avez entré à l'étape précédente, le dossier est le dossier où se trouve le fichier YML, il est `docker` par défaut) : `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --port 27018 --eval 'var param=<X>, folder="<yml_folder_name>"' init_replicaset.js`
+- Initialisez le shard : `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb_1 mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27018")'`
+- Construisez une image Docker de votre application : `./mvnw -Pprod clean verify jib:dockerBuild` ou `./gradlew -Pprod clean bootJar jibDockerBuild`
+- Démarrez votre application : `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
 
-- Build the image: `docker-compose -f src/main/docker/mongodb-cluster.yml build`
-- Run the database: `docker-compose -f src/main/docker/mongodb-cluster.yml up -d`
-- Scale the MongoDB node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/mongodb-cluster.yml scale <name_of_your_app>-mongodb-node=<X>`
-- Init the replica for mongo config server: `docker exec -it <name_of_your_app>-mongodb-config mongo  --port 27019 --eval 'rs.initiate();'`
-- Init the replica set (parameter X is the number of nodes you input in the previous step, folder is the folder where the YML file is located, it's `docker` by default): `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb-node_1 mongo --port 27018 --eval 'var param=<X>, folder="<yml_folder_name>"' init_replicaset.js`
-- Init the shard: `docker container exec -it <yml_folder_name>_<name_of_your_app>-mongodb_1 mongo --eval 'sh.addShard("rs1/<yml_folder_name>_<name_of_your_app>-mongodb-node_1:27018")'`
-- Build a Docker image of your application: `./mvnw -Pprod clean verify jib:dockerBuild` or `./gradlew -Pprod clean bootJar jibDockerBuild`
-- Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
+Si vous souhaitez ajouter ou supprimer des nœuds MongoDB, répétez les étapes 3 et 4.
 
-If you want to add or remove some MongoDB nodes, repeat step 3 and 4.
+### Mode Cluster de Couchbase
 
-### Couchbase Cluster Mode
+Si vous souhaitez utiliser Couchbase avec plusieurs nœuds, vous devez construire et configurer manuellement les images Couchbase.
+Suivez ces étapes pour le faire :
 
-If you want to use Couchbase with multiple nodes, you need to build and set up manually Couchbase images.
-Follow these steps to do so:
-
-- Build the image: `docker-compose -f src/main/docker/couchbase-cluster.yml build`
-- Run the database: `docker-compose -f src/main/docker/couchbase-cluster.yml up -d`
-- Scale the Couchbase node service (you have to choose an odd number of nodes): `docker-compose -f src/main/docker/couchbase-cluster.yml scale <name_of_your_app>-couchbase-node=<X>`
-- Build a Docker image of your application: `./mvnw -Pprod clean verify jib:dockerBuild` or `./gradlew -Pprod clean bootJar jibDockerBuild`
-- Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
+- Construire l'image : `docker-compose -f src/main/docker/couchbase-cluster.yml build`
+- Démarrer la base de données : `docker-compose -f src/main/docker/couchbase-cluster.yml up -d`
+- Scaler le service de nœud Couchbase (vous devez choisir un nombre impair de nœuds) : `docker-compose -f src/main/docker/couchbase-cluster.yml scale <nom_de_votre_app>-couchbase-node=<X>`
+- Construire une image Docker de votre application : `./mvnw -Pprod clean verify jib:dockerBuild` ou `./gradlew -Pprod clean bootJar jibDockerBuild`
+- Démarrer votre application : `docker-compose -f src/main/docker/app.yml up -d <nom_de_votre_app>-app`
 
 ### Cassandra
 
-Unlike the other databases, where the schema migrations are applied by the application itself, Cassandra schema migrations are applied by a dedicated Docker container.
+Contrairement aux autres bases de données, où les migrations de schéma sont appliquées par l'application elle-même, les migrations de schéma Cassandra sont appliquées par un conteneur Docker dédié.
 
-<h4 id="cassandra-in-development">Cassandra in development</h4>
-To start a Cassandra cluster to run your application locally, you can use the docker_compose file for development use:
+<h4 id="cassandra-en-developpement">Cassandra en développement</h4>
+Pour démarrer un cluster Cassandra pour exécuter votre application localement, vous pouvez utiliser le fichier docker_compose pour le développement :
 `docker-compose -f src/main/docker/cassandra.yml up -d`
 
-Docker-compose will start 2 services:
+Docker-compose démarrera 2 services :
 
-- `<name_of_your_app>-cassandra`:  a container with the Cassandra node contact point
-- `<name_of_your_app>-cassandra-migration`: a container to automatically apply all CQL migrations scripts (create the Keyspace, create the tables, all data migrations, ...)
+- `<nom_de_votre_app>-cassandra` : un conteneur avec le point de contact du nœud Cassandra
+- `<nom_de_votre_app>-cassandra-migration` : un conteneur pour appliquer automatiquement tous les scripts de migration CQL (créer le Keyspace, créer les tables, toutes les migrations de données, ...)
 
-See the [Cassandra page]({{ site.url }}/using-cassandra/) for more information on how to add new CQL scripts without restarting the local cluster.
+Voir la [page Cassandra]({{ site.url }}/using-cassandra/) pour plus d'informations sur la façon d'ajouter de nouveaux scripts CQL sans redémarrer le cluster local.
 
-#### Cassandra in production:
-The `app.yml` docker-compose file uses `cassandra-cluster.yml` to configure the cluster.
-The application starts after few seconds (see _JHIPSTER_SLEEP_ variable) to gives the time to the cluster to start and the migrations to be applied.
+#### Cassandra en production:
+Le fichier `app.yml` docker-compose utilise `cassandra-cluster.yml` pour configurer le cluster.
+L'application démarre après quelques secondes (voir la variable _JHIPSTER_SLEEP_) pour laisser le temps au cluster de démarrer et aux migrations d'être appliquées.
 
-One big difference between Cassandra and the other databases, is that you can scale your cluster with Docker Compose. To have X+1 nodes in your cluster, run:
+Une grande différence entre Cassandra et les autres bases de données est que vous pouvez scaler votre cluster avec Docker Compose. Pour avoir X+1 nœuds dans votre cluster, exécutez :
 
-- `docker-compose -f src/main/docker/cassandra-cluster.yml scale <name_of_your_app>-cassandra-node=X`
+- `docker-compose -f src/main/docker/cassandra-cluster.yml scale <nom_de_votre_app>-cassandra-node=X`
 
 ### Microsoft SQL Server
 
-If you want to use the MSSQL Docker image with JHipster, there are a few steps to follow:
+Si vous souhaitez utiliser l'image Docker MSSQL avec JHipster, voici quelques étapes à suivre :
 
-- Increase the RAM available to Docker to at least 3.25GB
-- Run the database: `docker-compose -f src/main/docker/mssql.yml up -d`
-- Create the database with a MSSQL client of your choice
-- Start your application: `docker-compose -f src/main/docker/app.yml up -d <name_of_your_app>-app`
+- Augmentez la RAM disponible pour Docker à au moins 3,25 Go
+- Démarrez la base de données : `docker-compose -f src/main/docker/mssql.yml up -d`
+- Créez la base de données avec un client MSSQL de votre choix
+- Démarrez votre application : `docker-compose -f src/main/docker/app.yml up -d <nom_de_votre_app>-app`
 
 <h2 id="5">Elasticsearch</h2>
 
-Running `docker-compose -f src/main/docker/app.yml up` already starts up your search engine automatically.
+L'exécution de `docker-compose -f src/main/docker/app.yml up` démarre déjà votre moteur de recherche automatiquement.
 
-If you only want to start your Elasticsearch node, and not the other services, use its specific Docker Compose configuration:
+Si vous souhaitez seulement démarrer votre nœud Elasticsearch, et non les autres services, utilisez sa configuration Docker Compose spécifique :
 
 - `docker-compose -f src/main/docker/elasticsearch.yml up`
 
 <h2 id="6">Sonar</h2>
 
-A Docker Compose configuration is generated for running Sonar:
+Une configuration Docker Compose est générée pour exécuter Sonar :
 
 - `docker-compose -f src/main/docker/sonar.yml up`
 
-To analyze your code, run Sonar on your project:
+Pour analyser votre code, exécutez Sonar sur votre projet :
 
-- With Maven: `./mvnw initialize sonar:sonar`
-- With Gradle: `./gradlew sonar`
+- Avec Maven : `./mvnw initialize sonar:sonar`
+- Avec Gradle : `./gradlew sonar`
 
-The Sonar reports will be available at: [http://localhost:9000](http://localhost:9000)
+Les rapports Sonar seront disponibles à l'adresse suivante : [http://localhost:9000](http://localhost:9000)
 
 <h2 id="7">Keycloak</h2>
 
-If you chose OAuth 2.0 as your authentication, Keycloak is used as the default identity provider. Running `docker-compose -f src/main/docker/app.yml up` starts up Keycloak automatically.
+Si vous avez choisi OAuth 2.0 comme méthode d'authentification, Keycloak est utilisé comme fournisseur d'identité par défaut. L'exécution de `docker-compose -f src/main/docker/app.yml up` démarre automatiquement Keycloak.
 
-To make Keycloak work, you need to add the following line to your hosts file (`/etc/hosts` on Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` on Windows).
+Pour faire fonctionner Keycloak, vous devez ajouter la ligne suivante à votre fichier hosts (`/etc/hosts` sur Mac/Linux, `c:\Windows\System32\Drivers\etc\hosts` sur Windows).
 
-```
+<pre>
 127.0.0.1	keycloak
-```
+</pre>
 
-This is because you will access your application with a browser on your machine (which name is localhost, or `127.0.0.1`), but inside Docker it will run in its own container, which name is `keycloak`.
+Ceci est nécessaire car vous accéderez à votre application avec un navigateur sur votre machine (dont le nom est localhost, ou `127.0.0.1`), mais à l'intérieur de Docker, elle fonctionnera dans son propre conteneur, dont le nom est `keycloak`.
 
-If you only want to start Keycloak, and not the other services, use its specific Docker Compose configuration:
+Si vous souhaitez uniquement démarrer Keycloak, et non les autres services, utilisez sa configuration Docker Compose spécifique :
 
 - `docker-compose -f src/main/docker/keycloak.yml up`
 
-<h2 id="8">Common commands</h2>
+<h2 id="8">Commandes courantes</h2>
 
-### List the containers
+### Lister les conteneurs
 
-You can use `docker container ps -a` to list all the containers
+Vous pouvez utiliser `docker container ps -a` pour lister tous les conteneurs
 
     $ docker container ps -a
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
     fc35e1090021        mysql               "/entrypoint.sh mysql"   4 seconds ago       Up 4 seconds        0.0.0.0:3306->3306/tcp   sampleApplication-mysql
 
-### Docker stats for containers
-`docker container stats` or {% raw %}`docker container stats $(docker container ps --format={{.Names}})`{% endraw %} to list all running containers with CPU, Memory, Networking I/O and Block I/O stats.
+### Statistiques Docker pour les conteneurs
+`docker container stats` ou {% raw %}`docker container stats $(docker container ps --format={{.Names}})`{% endraw %} pour lister tous les conteneurs en cours d'exécution avec les statistiques de CPU, de mémoire, de réseau I/O et de Block I/O.
 
     $ docker container stats {% raw %}$(docker container ps --format={{.Names}}){% endraw %}
     CONTAINER                 CPU %               MEM USAGE / LIMIT     MEM %               NET I/O               BLOCK I/O             PIDS
@@ -276,53 +274,52 @@ You can use `docker container ps -a` to list all the containers
     msmongo-mongodb           0.34%               44.8 MB / 7.966 GB    0.56%               49.72 kB / 48.08 kB   33.97 MB / 811 kB     18
     gateway-mysql             0.03%               202.7 MB / 7.966 GB   2.54%               60.84 kB / 31.22 kB   27.03 MB / 297 MB     37
 
-### Scale a container
+### Scaler un conteneur
 
-Run `docker-compose scale test-app=4` to have 4 instances of application "test" running.
+Exécutez `docker-compose scale test-app=4` pour avoir 4 instances de l'application "test" en cours d'exécution.
 
-### Stop containers
+### Arrêter les conteneurs
 
 `docker-compose -f src/main/docker/app.yml stop`
 
-You can also use directly Docker:
+Vous pouvez également utiliser directement Docker :
 
 `docker container stop <container_id>`
 
-When you stop a container, the data is not deleted, unless you delete the container.
+Lorsque vous arrêtez un conteneur, les données ne sont pas supprimées, sauf si vous supprimez le conteneur.
 
-### Delete a container
+### Supprimer un conteneur
 
-Be careful! All data will be deleted:
+Attention ! Toutes les données seront supprimées :
 
 `docker container rm <container_id>`
 
+<h2 id="9">Ajustement de la mémoire</h2>
 
-<h2 id="9">Memory Tweaking</h2>
+Afin d'optimiser l'utilisation de la mémoire pour les applications fonctionnant dans le conteneur, vous pouvez configurer les paramètres de mémoire Java dans le `Dockerfile` ou le `docker-compose.yml`.
 
-In order to optimize memory usage for applications running in the container, you can setup Java memory parameters on `Dockerfile` or `docker-compose.yml`
+### Ajouter des paramètres de mémoire au Dockerfile
 
-### Adding memory parameters to Dockerfile
-
-Set the environment variable.
+Définir la variable d'environnement.
 
     ENV JAVA_OPTS=-Xmx512m -Xms256m
 
-### Adding memory parameters to docker-compose.yml
+### Ajouter des paramètres de mémoire au docker-compose.yml
 
-This solution is desired over Dockerfile. In this way, you have a single control point for your memory configuration on all containers that compose your application.
+Cette solution est préférable par rapport au Dockerfile. De cette manière, vous avez un point de contrôle unique pour la configuration de la mémoire sur tous les conteneurs qui composent votre application.
 
-Add the `JAVA_OPTS` into `environment` section.
+Ajoutez `JAVA_OPTS` dans la section `environment`.
 
-```
+<pre>
     environment:
       - (...)
       - JAVA_OPTS=-Xmx512m -Xms256m
-```
+</pre>
 
-Depending on the Docker base image, `JAVA_OPTS` won't work. In this case, try to use `_JAVA_OPTIONS` instead:
+Selon l'image de base Docker, `JAVA_OPTS` ne fonctionnera pas. Dans ce cas, essayez d'utiliser `_JAVA_OPTIONS` à la place :
 
-```
+<pre>
     environment:
       - (...)
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
-```
+</pre>

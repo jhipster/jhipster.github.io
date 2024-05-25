@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using JHipster in development
+title: Utilisation de JHipster en développement
 permalink: /development/
 redirect_from:
   - /development.html
@@ -9,232 +9,232 @@ sitemap:
     lastmod: 2023-01-05T00:00:00-00:00
 ---
 
-# <i class="fa fa-code"></i> Using JHipster in development
+# <i class="fa fa-code"></i> Utilisation de JHipster en développement
 
-_**Please check our [video tutorial]({{ site.url }}/video-tutorial/) on creating a new JHipster application!**_
+_**Veuillez consulter notre [tutoriel vidéo]({{ site.url }}/video-tutorial/) sur la création d'une nouvelle application JHipster !**_
 
-## Summary
+## Sommaire
 
-1.  [General configuration](#general-configuration)
-2.  [Running the Java server](#running-java-server)
-3.  [Working with Angular/React](#working-with-angular)
-4.  [Using a database](#using-a-database)
-5.  [Internationalization](#internationalization)
+1.  [Configuration générale](#configuration-generale)
+2.  [Exécution du serveur Java](#execution-du-serveur-java)
+3.  [Travailler avec Angular/React](#travailler-avec-angular-react)
+4.  [Utilisation d'une base de données](#utilisation-d-une-base-de-donnees)
+5.  [Internationalisation](#internationalisation)
 
-<h2 id="general-configuration">General configuration</h2>
+<h2 id="configuration-generale">Configuration générale</h2>
 
-### IDE configuration
+### Configuration de l'IDE
 
-If you haven't configured your IDE yet, please go to the [Configuring your IDE]({{ site.url }}/configuring-ide/) page.
+Si vous n'avez pas encore configuré votre IDE, veuillez consulter la page [Configurer votre IDE]({{ site.url }}/configuring-ide/).
 
-### Application configuration
+### Configuration de l'application
 
-By default, JHipster uses the "development" profile, so you don't have to configure anything.
+Par défaut, JHipster utilise le profil "development", vous n'avez donc rien à configurer.
 
-If you want more information on the available profiles, please go the section titled "[Profiles]({{ site.url }}/profiles/)".
+Si vous souhaitez obtenir plus d'informations sur les profils disponibles, consultez la section intitulée "[Profils]({{ site.url }}/profiles/)".
 
-If you want to configure some specific JHipster properties, have a look at the [common application properties]({{ site.url }}/common-application-properties/) page.
+Si vous souhaitez configurer certaines propriétés spécifiques de JHipster, consultez la page [propriétés communes de l'application]({{ site.url }}/common-application-properties/).
 
-<h2 id="running-java-server">Running the Java server</h2>
+<h2 id="execution-du-serveur-java">Exécution du serveur Java</h2>
 
-### As a "main" Java class
+### En tant que classe Java "main"
 
-From your IDE, right-click on the "Application" class at the root of your Java package hierarchy, and run it directly. You should also be able to debug it from your IDE.
+Depuis votre IDE, faites un clic droit sur la classe "Application" à la racine de la hiérarchie de votre package Java, et exécutez-la directement. Vous devriez également pouvoir la déboguer depuis votre IDE.
 
-The application will be available on [http://localhost:8080](http://localhost:8080).
+L'application sera disponible sur [http://localhost:8080](http://localhost:8080).
 
-This application will have "hot reload" enabled by default, so if you compile a class, the Spring application context should refresh itself automatically, without the need to restart the server.
+Cette application aura le "hot reload" activé par défaut, donc si vous compilez une classe, le contexte de l'application Spring devrait se rafraîchir automatiquement, sans avoir besoin de redémarrer le serveur.
 
-### As a Maven project
+### En tant que projet Maven
 
-You can launch the Java server with Maven. JHipster provides a Maven wrapper, so you don't need to install Maven, and you have the guarantee that all project users have the same Maven version:
+Vous pouvez lancer le serveur Java avec Maven. JHipster fournit un wrapper Maven, donc vous n'avez pas besoin d'installer Maven, et vous avez la garantie que tous les utilisateurs du projet ont la même version de Maven :
 
-`./mvnw` (on Mac OS X/Linux) of `mvnw` (on Windows)
+`./mvnw` (sur Mac OS X/Linux) ou `mvnw` (sur Windows)
 
-(this will run our default Maven task, `spring-boot:run`)
+(cela exécutera notre tâche Maven par défaut, `spring-boot:run`)
 
-The application will be available on [http://localhost:8080](http://localhost:8080).
+L'application sera disponible sur [http://localhost:8080](http://localhost:8080).
 
-If you will use live reload with `npm start` then you can speed up server start up by excluding webpack tasks by:
+Si vous utilisez le rechargement en direct avec `npm start`, vous pouvez accélérer le démarrage du serveur en excluant les tâches webpack :
 
 `./mvnw -P-webapp`
 
-Alternatively, if you have installed Maven, you can launch the Java server with Maven:
+Alternativement, si vous avez installé Maven, vous pouvez lancer le serveur Java avec Maven :
 
 `mvn`
 
-If you want more information on using Maven, please go to [http://maven.apache.org](http://maven.apache.org)
+Pour plus d'informations sur l'utilisation de Maven, veuillez consulter [http://maven.apache.org](http://maven.apache.org)
 
-### (Optional) As a Gradle project
+### (Optionnel) En tant que projet Gradle
 
-If you selected the Gradle option, JHipster provides a Gradle wrapper, so you don't need to install Gradle, and you have the guarantee that all project users have the same Gradle version:
+Si vous avez sélectionné l'option Gradle, JHipster fournit un wrapper Gradle, donc vous n'avez pas besoin d'installer Gradle, et vous avez la garantie que tous les utilisateurs du projet ont la même version de Gradle :
 
-`./gradlew` (on Mac OS X/Linux) of `gradlew` (on Windows)
+`./gradlew` (sur Mac OS X/Linux) ou `gradlew` (sur Windows)
 
-(this will run our default Gradle task, `bootRun`)
+(cela exécutera notre tâche Gradle par défaut, `bootRun`)
 
-The application will be available on [http://localhost:8080](http://localhost:8080).
+L'application sera disponible sur [http://localhost:8080](http://localhost:8080).
 
-If you will use live reload with `npm start` then you can speed up server start up by excluding webpack tasks by:
+Si vous utilisez le rechargement en direct avec `npm start`, vous pouvez accélérer le démarrage du serveur en excluant les tâches webpack :
 
 `./gradlew -x webapp`
 
-Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
+Alternativement, si vous avez installé Gradle, vous pouvez lancer le serveur Java avec Gradle :
 
 `gradle`
 
-If you want more information on using Gradle, please go to [https://gradle.org](https://gradle.org)
+Pour plus d'informations sur l'utilisation de Gradle, veuillez consulter [https://gradle.org](https://gradle.org)
 
-<h2 id="working-with-angular">Working with Angular/React</h2>
+<h2 id="travailler-avec-angular-react">Travailler avec Angular/React</h2>
 
-### Running Webpack
+### Exécution de Webpack
 
-_This step is required to see changes in your TypeScript code and have live reloading of your client-side code._
+_Cette étape est nécessaire pour voir les changements dans votre code TypeScript et avoir le rechargement en direct de votre code côté client._
 
-Running Webpack is the default task in the `package.json` file, so it is enough to run:
+L'exécution de Webpack est la tâche par défaut dans le fichier `package.json`, il suffit donc de lancer :
 
 `npm start`
 
-This provides very impressive features:
+Cela offre des fonctionnalités très impressionnantes :
 
-*   As soon as you modify one of your HTML/CSS/TypeScript file, your browser will refresh itself automatically
-*   When you test your application on several different browsers or devices, all your clicks/scrolls/inputs should be automatically synchronized on all screens
+*   Dès que vous modifiez un de vos fichiers HTML/CSS/TypeScript, votre navigateur se rafraîchit automatiquement
+*   Lorsque vous testez votre application sur plusieurs navigateurs ou appareils différents, tous vos clics/défilements/saisies doivent être automatiquement synchronisés sur tous les écrans
 
-This will launch:
+Cela lancera :
 
-- A Webpack task that will automatically compile TypeScript code into JavaScript
-- A Webpack "hot module reload" server that will run on [http://localhost:9060/](http://localhost:9060/) (and has a proxy to [http://127.0.0.1:8080/api](http://127.0.0.1:8080/api) to access the Java back-end)
-- A BrowserSync task that will run on [http://localhost:9000/](http://localhost:9000/), which has a proxy to [http://localhost:9060/](http://localhost:9060/) (the Webpack "hot module reload" server), and which will synchronize the user's clicks/scrolls/inputs
-- The BrowserSync UI, which will be available on [http://localhost:3001/](http://localhost:3001/)
+- Une tâche Webpack qui compilera automatiquement le code TypeScript en JavaScript
+- Un serveur Webpack "hot module reload" qui fonctionnera sur [http://localhost:9060/](http://localhost:9060/) (et dispose d'un proxy vers [http://127.0.0.1:8080/api](http://127.0.0.1:8080/api) pour accéder au back-end Java)
+- Une tâche BrowserSync qui fonctionnera sur [http://localhost:9000/](http://localhost:9000/), qui a un proxy vers [http://localhost:9060/](http://localhost:9060/) (le serveur Webpack "hot module reload"), et qui synchronisera les clics/défilements/saisies de l'utilisateur
+- L'interface utilisateur de BrowserSync, qui sera disponible sur [http://localhost:3001/](http://localhost:3001/)
 
-**NOTE:** BrowserSync by default enables [ghostMode](https://browsersync.io/docs/options#option-ghostMode) which can create some confusion
-especially [when using multiple browser tabs](https://github.com/jhipster/generator-jhipster/issues/11116#issuecomment-589362814). To avoid
-this you can always turn off ghostMode. Some commented code is provided in `webpack.dev.js` for easy disabling of ghostMode. 
+**REMARQUE :** BrowserSync active par défaut le [ghostMode](https://browsersync.io/docs/options#option-ghostMode), ce qui peut créer de la confusion
+surtout [lors de l'utilisation de plusieurs onglets de navigateur](https://github.com/jhipster/generator-jhipster/issues/11116#issuecomment-589362814). Pour éviter
+cela, vous pouvez toujours désactiver ghostMode. Du code commenté est fourni dans `webpack.dev.js` pour désactiver facilement ghostMode.
 
-### Running NPM
+### Exécution de NPM
 
-Direct project dependencies are configured into `package.json`, but transitive dependencies are defined into the `package-lock.json` file, that get generated when `npm install` is run.
+Les dépendances directes du projet sont configurées dans `package.json`, mais les dépendances transitives sont définies dans le fichier `package-lock.json`, qui est généré lorsque `npm install` est exécuté.
 
-It is advised to check [`package-lock.json`](https://docs.npmjs.com/files/package-lock.json) into source control, so that all team members of a project have the same versions of all dependencies. Running `npm install` again will regenerate the `package-lock.json` with the latest versions of transitive dependencies.
+Il est conseillé de vérifier [`package-lock.json`](https://docs.npmjs.com/files/package-lock.json) dans le contrôle de version, afin que tous les membres de l'équipe d'un projet aient les mêmes versions de toutes les dépendances. L'exécution de `npm install` à nouveau régénérera le `package-lock.json` avec les dernières versions des dépendances transitives.
 
-### Other NPM tasks
+### Autres tâches NPM
 
-Some `npm` commands used as an example.
+Quelques commandes `npm` utilisées en exemple.
 
-- `npm run lint`: check for code style issues in the TypeScript code
-- `npm run lint:fix`: try to automatically correct TypeScript lint issues
-- `npm run tsc`: compile the TypeScript code
-- `npm run test`: run unit tests with Jest
-- `npm run test:watch`: keep the Jest unit tests running, for live feedback when code is changed
-- `npm run e2e`: run "end to end" tests with Protractor (only works if the Protractor option has been selected when the project was generated)
+- `npm run lint` : vérifie les problèmes de style de code dans le code TypeScript
+- `npm run lint:fix` : tente de corriger automatiquement les problèmes de lint TypeScript
+- `npm run tsc` : compile le code TypeScript
+- `npm run test` : exécute les tests unitaires avec Jest
+- `npm run test:watch` : garde les tests unitaires Jest en cours d'exécution, pour un retour en direct lorsque le code est modifié
+- `npm run e2e` : exécute les tests "end to end" avec Protractor (fonctionne uniquement si l'option Protractor a été sélectionnée lors de la génération du projet)
 
-<h2 id="using-a-database">Using a database</h2>
+<h2 id="utilisation-d-une-base-de-donnees">Utilisation d'une base de données</h2>
 
-### Running a database
+### Exécution d'une base de données
 
-If you use a non-embedded database, like MySQL, MariaDB, PostgreSQL, MSSQL, MongoDB, Cassandra or Couchbase, you will need to install and configure that database.
+Si vous utilisez une base de données non embarquée, comme MySQL, MariaDB, PostgreSQL, MSSQL, MongoDB, Cassandra ou Couchbase, vous devrez installer et configurer cette base de données.
 
-The easiest and recommended way with JHipster is to use Docker Compose. [Follow our Docker Compose guide here.]({{ site.url }}/docker-compose/)
+La méthode la plus simple et recommandée avec JHipster est d'utiliser Docker Compose. [Suivez notre guide Docker Compose ici.]({{ site.url }}/docker-compose/)
 
-If you prefer to install and configure your database manually, you must create the schema and its user because Liquibase only creates the objects (tables, indexes, ...) in an existing schema. Then don't forget to configure your Spring Boot properties accordingly in your `src/main/resources/config/application-*.yml` files (for example your database URL, login and password).
+Si vous préférez installer et configurer votre base de données manuellement, vous devez créer le schéma et son utilisateur car Liquibase ne crée que les objets (tables, index, ...) dans un schéma existant. Ensuite, n'oubliez pas de configurer vos propriétés Spring Boot en conséquence dans vos fichiers `src/main/resources/config/application-*.yml` (par exemple votre URL de base de données, identifiant et mot de passe).
 
-### Using the H2 database in development
+### Utilisation de la base de données H2 en développement
 
-If you choose the H2 database, you will have an in-memory database running inside your application, and you can access its console at [http://localhost:8080/h2-console](http://localhost:8080/h2-console) by default.
+Si vous choisissez la base de données H2, vous aurez une base de données en mémoire fonctionnant à l'intérieur de votre application, et vous pouvez accéder à sa console à [http://localhost:8080/h2-console](http://localhost:8080/h2-console) par défaut.
 
-To connect to the database, select the pre-configured options:
+Pour vous connecter à la base de données, sélectionnez les options préconfigurées :
 
-*   Driver Class: org.h2.Driver
-*   JDBC URL: jdbc:h2:mem:jhipster
-*   User name: <blank>
-*   Password: <blank>
+*   Classe de pilote : org.h2.Driver
+*   URL JDBC : jdbc:h2:mem:jhipster
+*   Nom d'utilisateur : <vide>
+*   Mot de passe : <vide>
 
 ![]({{ site.url }}/images/h2.png)
 
-### Using MySQL, MariaDB or PostgreSQL in development
+### Utilisation de MySQL, MariaDB ou PostgreSQL en développement
 
-This option is bit more complex than using H2, but you have a some important benefits:
+Cette option est un peu plus complexe que l'utilisation de H2, mais elle offre des avantages importants :
 
-*   Your data is kept across application restarts
-*   Your application starts a little bit faster
-*   You can use the great `./mvnw liquibase:diff` goal (see below)
+*   Vos données sont conservées lors des redémarrages de l'application
+*   Votre application démarre un peu plus rapidement
+*   Vous pouvez utiliser le grand objectif `./mvnw liquibase:diff` (voir ci-dessous)
 
-**Note**: for MySQL, you probably need to start your database with these options:
+**Remarque** : pour MySQL, vous devrez probablement démarrer votre base de données avec ces options :
 
-*   `--lower_case_table_names=1`: see the [MySQL Schema Object Names documentation](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html)
-*   `--skip-ssl`: see the [MySQL Server Options documentation](https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_ssl)
-*   `--character_set_server=utf8`: see the [MySQL Server System Variables documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_character_set_server)
-*   `--explicit_defaults_for_timestamp` : see the [MySQL Server System Variables documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp)
+*   `--lower_case_table_names=1` : voir la documentation [MySQL Schema Object Names](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html)
+*   `--skip-ssl` : voir la documentation [MySQL Server Options](https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_ssl)
+*   `--character_set_server=utf8` : voir la documentation [MySQL Server System Variables](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_character_set_server)
+*   `--explicit_defaults_for_timestamp` : voir la documentation [MySQL Server System Variables](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp)
 
-The command is:
+La commande est :
 
     mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8 --explicit_defaults_for_timestamp
 
-## Database updates
+## Mises à jour de la base de données
 
-If you add or modify a JPA entity, you will need to update your database schema.
+Si vous ajoutez ou modifiez une entité JPA, vous devrez mettre à jour le schéma de votre base de données.
 
-JHipster uses [Liquibase](http://www.liquibase.org) to manage the database updates, and stores its configuration in the `/src/main/resources/config/liquibase/` directory. 
+JHipster utilise [Liquibase](http://www.liquibase.org) pour gérer les mises à jour de la base de données, et stocke sa configuration dans le répertoire `/src/main/resources/config/liquibase/`.
 
-There are 3 ways to work with Liquibase: 
-*   use the entity sub-generator
-*   use the liquibase plugin 
-*   update the configuration files manually
+Il existe 3 façons de travailler avec Liquibase :
+*   utiliser le sous-générateur d'entité
+*   utiliser le plugin liquibase
+*   mettre à jour les fichiers de configuration manuellement
 
-### Database updates with the entity sub-generator
+### Mises à jour de la base de données avec le sous-générateur d'entité
 
-If you use the [entity sub-generator]({{ site.url }}/creating-an-entity/), here is the development workflow:
+Si vous utilisez le [sous-générateur d'entité]({{ site.url }}/creating-an-entity/), voici le flux de développement :
 
-*   Run the [entity sub-generator]({{ site.url }}/creating-an-entity/)
-*   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory, and has been automatically added to your `src/main/resources/config/liquibase/master.xml` file
-*   Review this change log, it will be applied the next time you run your application
+*   Exécutez le [sous-générateur d'entité]({{ site.url }}/creating-an-entity/)
+*   Un nouveau "change log" est créé dans votre répertoire `src/main/resources/config/liquibase/changelog`, et a été automatiquement ajouté à votre fichier `src/main/resources/config/liquibase/master.xml`
+*   Révisez ce change log, il sera appliqué la prochaine fois que vous exécuterez votre application
 
-### Database updates with the liquibase plugin
+### Mises à jour de la base de données avec le plugin liquibase
 
-If you have chosen to use H2, MySQL, MariaDB or PostgreSQL in development, you can follow this section to automatically generate a changelog.
+Si vous avez choisi d'utiliser H2, MySQL, MariaDB ou PostgreSQL en développement, vous pouvez suivre cette section pour générer automatiquement un changelog.
 
-*Note: If you are running H2 with in-memory persistence, you need to startup your application before running the liquibase commands.*
+*Remarque : Si vous exécutez H2 avec une persistance en mémoire, vous devez démarrer votre application avant d'exécuter les commandes liquibase.*
 
 #### Maven
 
-[Liquibase Hibernate](https://github.com/liquibase/liquibase-hibernate) is a Maven plugin that is configured in your `pom.xml`, and is independent from your Spring `application.yml` file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
+[Liquibase Hibernate](https://github.com/liquibase/liquibase-hibernate) est un plugin Maven configuré dans votre `pom.xml`, et est indépendant de votre fichier Spring `application.yml`, donc si vous avez modifié les paramètres par défaut (par exemple, changé le mot de passe de la base de données), vous devez modifier les deux fichiers.
 
-Here is the development workflow:
+Voici le flux de développement :
 
-1.   Modify your JPA entity (add a field, a relationship, etc.)
-2.   Skip changes in the regenerated liquibase file for that entity `config/liquibase/changelog/DATE_added_entity_ENTITY_NAME.xml` to avoid conflict with the soon to be generated changelog file bellow
-3.   Compile your application (this works on the compiled Java code, so don't forget to compile!)
-4.   Run `./mvnw liquibase:diff` (or `./mvnw compile liquibase:diff` to compile before)
-5.   A new "change log" is created in your `src/main/resources/config/liquibase/changelog` directory
-6.   Review this change log and add it to your `src/main/resources/config/liquibase/master.xml` file, so it is applied the next time you run your application
+1.   Modifiez votre entité JPA (ajoutez un champ, une relation, etc.)
+2.   Ignorez les modifications dans le fichier liquibase régénéré pour cette entité `config/liquibase/changelog/DATE_added_entity_ENTITY_NAME.xml` pour éviter les conflits avec le fichier de changelog qui sera bientôt généré ci-dessous
+3.   Compilez votre application (cela fonctionne sur le code Java compilé, donc n'oubliez pas de compiler !)
+4.   Exécutez `./mvnw liquibase:diff` (ou `./mvnw compile liquibase:diff` pour compiler avant)
+5.   Un nouveau "change log" est créé dans votre répertoire `src/main/resources/config/liquibase/changelog`
+6.   Révisez ce change log et ajoutez-le à votre fichier `src/main/resources/config/liquibase/master.xml`, afin qu'il soit appliqué la prochaine fois que vous exécuterez votre application
 
 #### Gradle
 
-[Liquibase gradle plugin](https://github.com/liquibase/liquibase-gradle-plugin) is a Gradle plugin that is configured in your `build.gradle`, and is independent from your Spring `application.yml` file, so if you have changed the default settings (for example, changed the database password), you need to modify both files.
+[Liquibase gradle plugin](https://github.com/liquibase/liquibase-gradle-plugin) est un plugin Gradle configuré dans votre `build.gradle`, et est indépendant de votre fichier Spring `application.yml`, donc si vous avez modifié les paramètres par défaut (par exemple, changé le mot de passe de la base de données), vous devez modifier les deux fichiers.
 
-You can use the same workflow as for Maven except for the 4th step where you need to run `./gradlew liquibaseDiffChangelog -PrunList=diffLog`.
+Vous pouvez utiliser le même flux de travail que pour Maven, sauf pour la 4ème étape où vous devez exécuter `./gradlew liquibaseDiffChangelog -PrunList=diffLog`.
 
-### Database updates by manually editing the change log
+### Mises à jour de la base de données en modifiant manuellement le change log
 
-If you prefer (or need) to do a database update manually, here is the development workflow:
+Si vous préférez (ou devez) effectuer une mise à jour de la base de données manuellement, voici le flux de développement :
 
-*   Modify your JPA entity (add a field, a relationship, etc.)
-*   Create a new "change log" in your `src/main/resources/config/liquibase/changelog` directory. The files in that directory are prefixed by their creation date (in yyyyMMddHHmmss format), and then have a title describing what they do. For example, `20141006152300_added_price_to_product.xml` is a good name.
-*   Add this "change log" file in your `src/main/resources/config/liquibase/master.xml` file, so it is applied the next time you run your application
+*   Modifiez votre entité JPA (ajoutez un champ, une relation, etc.)
+*   Créez un nouveau "change log" dans votre répertoire `src/main/resources/config/liquibase/changelog`. Les fichiers de ce répertoire sont préfixés par leur date de création (au format yyyyMMddHHmmss), puis ont un titre décrivant ce qu'ils font. Par exemple, `20141006152300_added_price_to_product.xml` est un bon nom.
+*   Ajoutez ce fichier "change log" dans votre fichier `src/main/resources/config/liquibase/master.xml`, afin qu'il soit appliqué la prochaine fois que vous exécuterez votre application
 
-If you want more information on using Liquibase, please go to [http://www.liquibase.org](http://www.liquibase.org).
+Si vous souhaitez plus d'informations sur l'utilisation de Liquibase, veuillez consulter [http://www.liquibase.org](http://www.liquibase.org).
 
-<h2 id="internationalization">Internationalization</h2>
+<h2 id="internationalisation">Internationalisation</h2>
 
-Internationalization (or i18n) is a first-class citizen in JHipster, as we believe it should be set up at the beginning of your project (and not as an afterthought).
+L'internationalisation (ou i18n) est un élément de premier ordre dans JHipster, car nous pensons qu'elle doit être mise en place dès le début de votre projet (et non après coup).
 
-Usage is as follows:
+L'utilisation est la suivante :
 
-- With Angular, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which uses JSON files for translation
-- With React, thanks to a specific JHipster component, which works the same way as the Angular component, and uses the same files
+- Avec Angular, grâce à [NG2 translate](https://github.com/ocombe/ng2-translate) et à un composant JHipster spécifique, qui utilise des fichiers JSON pour la traduction
+- Avec React, grâce à un composant JHipster spécifique, qui fonctionne de la même manière que le composant Angular, et utilise les mêmes fichiers
 
-For example, to add a translation to the "First Name" field, add a "translate" attribute with a key: `<label jhiTranslate="settings.form.firstname">First Name</label>`
+Par exemple, pour ajouter une traduction au champ "First Name", ajoutez un attribut "translate" avec une clé : `<label jhiTranslate="settings.form.firstname">First Name</label>`
 
-This key references a JSON document, which will return the translated string. Angular/React will then replace the "First Name" string with the translated version.
+Cette clé référence un document JSON, qui renverra la chaîne traduite. Angular/React remplacera alors la chaîne "First Name" par la version traduite.
 
-If you want more information on using languages, read our [Installing new languages documentation]({{ site.url }}/installing-new-languages/).
+Si vous souhaitez plus d'informations sur l'utilisation des langues, lisez notre documentation [Installation de nouvelles langues]({{ site.url }}/installing-new-languages/).

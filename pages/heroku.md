@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Deploying to Heroku
+title: Déploiement sur Heroku
 permalink: /heroku/
 redirect_from:
   - /heroku.html
@@ -9,289 +9,297 @@ sitemap:
     lastmod: 2023-12-19T00:00:00-00:00
 ---
 
-# Deploying to Heroku
 
-This sub-generator allows deployment of your JHipster application to the [Heroku cloud](https://www.heroku.com/){:target="_blank" rel="noopener"}.
+# Déploiement sur Heroku
 
-[![]({{ site.url }}/images/logo/logo-heroku.png)](https://www.heroku.com/){:target="_blank" rel="noopener"}
+Ce sous-générateur permet le déploiement de votre application JHipster sur le [cloud Heroku](https://www.heroku.com/).
+
+[![]({{ site.url }}/images/logo/logo-heroku.png)](https://www.heroku.com/)
 
 
-## Running the sub-generator
+## Exécution du sous-générateur
 
-Before running the sub-generator, you must install the [Heroku CLI](https://cli.heroku.com/){:target="_blank" rel="noopener"}.
+Avant d'exécuter le sous-générateur, vous devez installer le [Heroku CLI](https://cli.heroku.com/).
 
-You must also [create a Heroku account](http://signup.heroku.com/){:target="_blank" rel="noopener"} and log in with the CLI by running the following command:
+Vous devez également [créer un compte Heroku](http://signup.heroku.com/) et vous connecter avec la CLI en exécutant la commande suivante :
 
-<pre>**$ heroku login**
-Enter your Heroku credentials.
-Email: YOUR_EMAIL
-Password (typing will be hidden): YOUR_PASSWORD
-Authentication successful.
-</pre>
+**$ heroku login**
+Entrez vos identifiants Heroku.
+E-mail : VOTRE_EMAIL
+Mot de passe (la saisie sera masquée) : VOTRE_MOT_DE_PASSE
+Authentification réussie.
+
 
 <div class="alert alert-warning"><i class="fa fa-money" aria-hidden="true"></i>
-As of <a href="https://blog.heroku.com/next-chapter" target="_blank" rel="noopener">>November 2022 Heroku does not offer a completely free tier</a> anymore.
-This means you will need a properly <a href="https://devcenter.heroku.com/articles/account-verification" target="_blank" rel="noopener">verified Heroku account</a>
-and deploying an application using the smallest dyno options and the smallest Postgres size will cost you around <b>$12 per month</b>.
+Depuis <a href="https://blog.heroku.com/next-chapter" target="_blank" rel="noopener">novembre 2022, Heroku ne propose plus de niveau totalement gratuit</a>.
+Cela signifie que vous aurez besoin d'un compte Heroku correctement <a href="https://devcenter.heroku.com/articles/account-verification" target="_blank" rel="noopener">vérifié</a>
+et que le déploiement d'une application avec les options de dyno les plus petites et la taille de base de données la plus petite vous coûtera environ <b>12 $ par mois</b>.
 </div>
 
-The Heroku sub-generator creates an application using [free dynos](https://devcenter.heroku.com/articles/dyno-types){:target="_blank" rel="noopener"} with add-ons matching your selected configuration.
+Le sous-générateur Heroku crée une application en utilisant des [dynos gratuits](https://devcenter.heroku.com/articles/dyno-types){:target="_blank" rel="noopener"} avec des add-ons correspondant à votre configuration sélectionnée.
 
-We support the following addons:
+Nous prenons en charge les add-ons suivants :
 
-* [Heroku Postgres](https://www.heroku.com/postgres){:target="_blank" rel="noopener"} when using PostgreSQL
-* [JawsDB](https://elements.heroku.com/addons/jawsdb){:target="_blank" rel="noopener"} when using MySQL or MariaDB
-* [Heroku Redis](https://elements.heroku.com/addons/heroku-redis){:target="_blank" rel="noopener"} when [using Redis](/using-cache/#caching-with-redis)
-* [MemCachier](https://elements.heroku.com/addons/memcachier){:target="_blank" rel="noopener"} when [using Memcached](/using-cache/#caching-with-memcached)
-* [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai){:target="_blank" rel="noopener"} when [using Elasticsearch](/using-elasticsearch/)
-* [Okta](https://elements.heroku.com/addons/okta){:target="_blank" rel="noopener"} when [using OAuth2/OIDC (optional)](/security/#oauth2)
+* [Heroku Postgres](https://www.heroku.com/postgres){:target="_blank" rel="noopener"} lors de l'utilisation de PostgreSQL
+* [JawsDB](https://elements.heroku.com/addons/jawsdb){:target="_blank" rel="noopener"} lors de l'utilisation de MySQL ou MariaDB
+* [Heroku Redis](https://elements.heroku.com/addons/heroku-redis){:target="_blank" rel="noopener"} lors de l'utilisation de [Redis](/using-cache/#caching-with-redis)
+* [MemCachier](https://elements.heroku.com/addons/memcachier){:target="_blank" rel="noopener"} lors de l'utilisation de [Memcached](/using-cache/#caching-with-memcached)
+* [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai){:target="_blank" rel="noopener"} lors de l'utilisation d'[Elasticsearch](/using-elasticsearch/)
+* [Okta](https://elements.heroku.com/addons/okta){:target="_blank" rel="noopener"} lors de l'utilisation d'OAuth2/OIDC (facultatif) (/security/#oauth2)
 
-
-To deploy your application to Heroku, run this command:
+Pour déployer votre application sur Heroku, exécutez cette commande :
 
 `jhipster heroku`
 
-This should package your application in "production" mode, create an Heroku application with a database, upload your code, and start the application.
+Cela devrait empaqueter votre application en mode "production", créer une application Heroku avec une base de données, télécharger votre code et démarrer l'application.
 
 <div class="alert alert-info"><i class="fa fa-info-circle" aria-hidden="true"></i>
-Note that if your application is a microservice, you will be prompted to provide a registry URL. Scroll down to learn how to do this.
+Notez que si votre application est une microservice, vous serez invité à fournir une URL de registre. Faites défiler vers le bas pour apprendre comment faire cela.
 </div>
 
 <div class="alert alert-warning"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-Please be aware that your application must start under 90 seconds, or it will be shutdown.
-Depending on the platform load, starting under 90 seconds is not guaranteed!
+Veuillez noter que votre application doit démarrer en moins de 90 secondes, sinon elle sera arrêtée.
+En fonction de la charge de la plateforme, le démarrage en moins de 90 secondes n'est pas garanti !
 </div>
 
-## Changing the Java version
+## Modification de la version Java
 
-You can select the Java version when executing the Heroku sub-generator.
-By default this will be Java 11.
-You can find all on Heroku [supported Java version in the official documentation](https://devcenter.heroku.com/articles/java-support#supported-java-versions){:target="_blank" rel="noopener"}.
+Vous pouvez sélectionner la version Java lors de l'exécution du sous-générateur Heroku.
+Par défaut, il s'agira de Java 11.
+Vous pouvez trouver toutes les versions Java prises en charge par Heroku dans la [documentation officielle](https://devcenter.heroku.com/articles/java-support#supported-java-versions){:target="_blank" rel="noopener"}.
 
-If you want to change the Java version e.g. from `11` to `14` later you need to change it in `system.properties` in your projects root folder:
+Si vous souhaitez changer la version Java, par exemple de `11` à `14`, plus tard, vous devez le faire dans `system.properties` dans le dossier racine de votre projet :
 
-```
+
 java.runtime.version=14
-```
 
-When you redeploy your application it will use Java 14.
 
-## Deploying your application
+Lorsque vous redéployez votre application, elle utilisera Java 14.
 
-By default the application will be [deployed via git](https://devcenter.heroku.com/articles/git){:target="_blank" rel="noopener"}.
-This means you push your code and Heroku will build and deploy it on their servers.
-If you can't or don't want to push code to someone else's server you can use the jar option and [deploy an executable jar](https://devcenter.heroku.com/articles/deploying-executable-jar-files){:target="_blank" rel="noopener"}.
-Heroku also supports [deploying a docker image](https://devcenter.heroku.com/articles/container-registry-and-runtime){:target="_blank" rel="noopener"}, but the sub-generator does not support this option yet.
+## Déploiement de votre application
 
-### Updating your deployed application
+Par défaut, l'application sera [déployée via git](https://devcenter.heroku.com/articles/git){:target="_blank" rel="noopener"}.
+Cela signifie que vous poussez votre code et Heroku le construit et le déploie sur leurs serveurs.
+Si vous ne pouvez pas ou ne voulez pas pousser de code sur le serveur de quelqu'un d'autre, vous pouvez utiliser l'option jar et [déployer un jar exécutable](https://devcenter.heroku.com/articles/deploying-executable-jar-files){:target="_blank" rel="noopener"}.
+Heroku prend également en charge [le déploiement d'une image Docker](https://devcenter.heroku.com/articles/container-registry-and-runtime){:target="_blank" rel="noopener"}, mais le sous-générateur ne prend pas encore en charge cette option.
 
-#### Using git option
+### Mise à jour de votre application déployée
 
-When deploying via git a new remote has been created called heroku.
-To deploy new code you need to push the changes to the heroku remote:
+#### Utilisation de l'option git
+
+Lorsque vous déployez via git, un nouveau remote appelé heroku a été créé.
+Pour déployer un nouveau code, vous devez pousser les modifications vers le remote heroku :
 
 `git push heroku master`
 
 <div class="alert alert-info"><i class="fa fa-info-circle" aria-hidden="true"></i>
-This assumes you have run the generator on the machine you are executing this command from.
-If you have not, you will need to follow the <a href="https://devcenter.heroku.com/articles/git#for-an-existing-heroku-app" target="_blank" rel="noopener">instructions for creating a Heroku remote</a>.
+Cela suppose que vous avez exécuté le générateur sur la machine à partir de laquelle vous exécutez cette commande.
+Si ce n'est pas le cas, vous devrez suivre les <a href="https://devcenter.heroku.com/articles/git#for-an-existing-heroku-app" target="_blank" rel="noopener">instructions pour créer un remote Heroku</a>.
 </div>
 
-#### Using jar option
+#### Utilisation de l'option jar
 
-When you selected to deploy an executable jar you need to create the updated jar and deploy the new file to Heroku.
+Lorsque vous avez sélectionné le déploiement d'un jar exécutable, vous devez créer le jar mis à jour et déployer le nouveau fichier sur Heroku.
 
-##### Preparing a new jar
 
-When your application is already deployed, you can prepare a new deployment with:
+##### Préparation d'un nouveau jar
+
+Lorsque votre application est déjà déployée, vous pouvez préparer un nouveau déploiement avec :
 
 `./mvnw package -Pprod -DskipTests`
 
-Or when using gradle:
+Ou avec Gradle :
 
 `./gradlew -Pprod bootJar -x test`
 
-##### Pushing to production
+##### Déploiement en production
 
 <div class="alert alert-info"><i class="fa fa-info-circle" aria-hidden="true"></i>
-This assumes you have run the generator on the machine you are executing this command from.
-If you have not, you will need to follow the instructions for installing the <a href="https://devcenter.heroku.com/articles/deploying-executable-jar-files" target="_blank" rel="noopener">Heroku Java CLI</a>.
+Cela suppose que vous avez exécuté le générateur sur la machine à partir de laquelle vous exécutez cette commande.
+Si ce n'est pas le cas, vous devrez suivre les instructions pour installer le <a href="https://devcenter.heroku.com/articles/deploying-executable-jar-files" target="_blank" rel="noopener">CLI Java Heroku</a>.
 </div>
 
-To push to production, type:
+Pour déployer en production, tapez :
 
 `heroku deploy:jar target/*.jar`
 
-Or when using gradle:
+Ou avec Gradle :
 
 `heroku deploy:jar build/libs/*jar`
 
-## Deploying Docker to Heroku
+## Déploiement de Docker sur Heroku
 
-You can deploy your app as a Docker container to Heroku too. While this works, there's no Heroku setup and configuration that happens, so you have to do that manually. This documentation assumes you've already run `jhipster heroku` to deploy your app and therefore leverages the integration and add-on provisioning that this process performs.
+Vous pouvez déployer votre application en tant que conteneur Docker sur Heroku également. Bien que cela fonctionne, aucune configuration Heroku n'est effectuée automatiquement, vous devez donc le faire manuellement. Cette documentation suppose que vous avez déjà exécuté `jhipster heroku` pour déployer votre application et utilise donc l'intégration et la configuration que ce processus effectue.
 
-**NOTE**: If you're using a version of JHipster that's prior to v6.10.2, you'll need to add the following to `src/main/resources/config/application-heroku.yml`:
+**NOTE** : Si vous utilisez une version de JHipster antérieure à v6.10.2, vous devrez ajouter ce qui suit à `src/main/resources/config/application-heroku.yml` :
 
-```yaml
+yaml
 server:
   port: ${PORT:8080}
-```
 
-Build your Docker image:
 
-```
+Construisez votre image Docker :
+
+
 ./mvnw package -Pprod verify jib:dockerBuild
-```
 
-If you're using Gradle:
 
-```
+Si vous utilisez Gradle :
+
+
 ./gradlew -Pprod bootJar jibDockerBuild
-```
 
-You can test it out locally using Docker Compose.
 
-```shell
+Vous pouvez le tester localement en utilisant Docker Compose.
+
+shell
 docker-compose -f src/main/docker/app.yml up
+
+
+Une fois que vous avez confirmé que tout fonctionne, créez une nouvelle application sur Heroku et ajoutez-la en tant que remote.
+
 ```
-
-Once you've confirmed everything works, create a new app on Heroku, and add it as a remote.
-
-```shell
+shell
 heroku apps:create
 git remote add docker https://git.heroku.com/<your-new-app>.git
 ```
 
-Then run the commands below to deploy your JHipster app as a Docker image. Be sure to replace the `<...>` placeholders with your Heroku app name. If you don't know your app name, run `heroku apps`.
+Ensuite, exécutez les commandes ci-dessous pour déployer votre application JHipster en tant qu'image Docker. Assurez-vous de remplacer les espaces réservés `<...>` par le nom de votre application Heroku. Si vous ne connaissez pas le nom de votre application, exécutez `heroku apps`.
 
-```shell
+```
+shell
 heroku container:login
 docker tag space registry.heroku.com/<heroku-app>/web
 docker push registry.heroku.com/<heroku-app>/web
 ```
 
-For example:
+Par exemple :
 
-```shell
+```
+shell
 heroku container:login
 docker tag space registry.heroku.com/fast-peak-70014/web
 docker push registry.heroku.com/fast-peak-70014/web
 ```
 
-At this point, you can use the PostgreSQL and Okta add-ons you've already configured. Run the following command to get the identifiers of the add-ons from the `heroku` remote that you first deployed to.
+À ce stade, vous pouvez utiliser les add-ons PostgreSQL et Okta que vous avez déjà configurés. Exécutez la commande suivante pour obtenir les identifiants des add-ons à partir du remote `heroku` sur lequel vous avez d'abord déployé.
 
-```shell
+```
+shell
 heroku addons --remote heroku
 ```
 
-Then you can attach these instances to your new application.
+Ensuite, vous pouvez attacher ces instances à votre nouvelle application.
 
-```shell
+```
+shell
 heroku addons:attach <postgresql-addon-name> --remote docker
 heroku addons:attach <okta-addon-name> --remote docker
 ```
 
-When you use `jhipster heroku` to deploy your application, it properly configures the database for you. However, when deploying it as a Docker container, none of that happens. Therefore, you need to set a few configuration variables so your Docker container can talk to PostgreSQL. First, run the following command to get the PostgreSQL URL.
+
+Lorsque vous utilisez `jhipster heroku` pour déployer votre application, il configure correctement la base de données pour vous. Cependant, lorsque vous le déployez en tant que conteneur Docker, rien de tout cela ne se produit. Par conséquent, vous devez définir quelques variables de configuration pour que votre conteneur Docker puisse communiquer avec PostgreSQL. Tout d'abord, exécutez la commande suivante pour obtenir l'URL PostgreSQL.
 
 ```
 heroku config:get DATABASE_URL --remote docker
 ```
 
-This command will retrieve a value with the following syntax:
+Cette commande récupérera une valeur avec la syntaxe suivante :
 
 ```
 postgres://username:password@address
 ```
 
-Then, set the database environment variables to match the keys that are in `application-heroku.yml`:
-
-```shell
+Ensuite, définissez les variables d'environnement de la base de données pour correspondre aux clés qui se trouvent dans `application-heroku.yml` :
+```
+shell
 heroku config:set JDBC_DATABASE_URL=jdbc:postgresql://<address> --remote docker
 heroku config:set JDBC_DATABASE_USERNAME=<username> --remote docker
 heroku config:set JDBC_DATABASE_PASSWORD=<password> --remote docker
 ```
 
-Set the max amount of Java memory to use and specify the Spring profiles.
-
-```shell
+Définissez la quantité maximale de mémoire Java à utiliser et spécifiez les profils Spring.
+```
+shell
 heroku config:set JAVA_OPTS=-Xmx256m
 heroku config:set SPRING_PROFILES_ACTIVE=prod,heroku
 ```
 
-Run the command below to open your browser and navigate to your app.
+Exécutez la commande ci-dessous pour ouvrir votre navigateur et accéder à votre application.
 
 ```
 heroku open --remote docker
 ```
 
-Copy the URL of your app and log in to your Okta developer account. Go to **Applications** > **Web** > **General** and add the URL to Login and Logout redirect URIs. Make sure the login redirect URI ends with `/login/oauth2/code/oidc`.
+Copiez l'URL de votre application et connectez-vous à votre compte développeur Okta. Allez à **Applications** > **Web** > **Général** et ajoutez l'URL aux URI de redirection de connexion et de déconnexion. Assurez-vous que l'URI de redirection de connexion se termine par `/login/oauth2/code/oidc`.
 
-Now you should be able to release your container and start the app.
+Maintenant, vous devriez pouvoir libérer votre conteneur et démarrer l'application.
 
 ```
 heroku container:release web --remote docker
 ```
 
-You can watch the logs to see if your container started successfully.
+Vous pouvez regarder les journaux pour voir si votre conteneur a démarré avec succès.
 
 ```
 heroku logs --tail --remote docker
 ```
 
-Now you should be able to open your app, click the **sign in** link, and authenticate!
+Maintenant, vous devriez pouvoir ouvrir votre application, cliquer sur le lien **se connecter** et vous authentifier !
 
 ```
 heroku open --remote docker
 ```
 
-**NOTE**: You will **NOT** be able to login to your JHipster app using the admin account the Okta add-on provisions. To make sure you're not logged in with that account, we suggest you use a new private window to log in.
+**REMARQUE** : Vous ne pourrez **PAS** vous connecter à votre application JHipster en utilisant le compte administrateur fourni par l'add-on Okta. Pour vous assurer de ne pas être connecté avec ce compte, nous vous suggérons d'utiliser une nouvelle fenêtre privée pour vous connecter.
 
-If you test your Dockerized JHipster app on [securityheaders.com](https://securityheaders.com), you'll see it scores an **A**!
+Si vous testez votre application JHipster Dockerisée sur [securityheaders.com](https://securityheaders.com), vous verrez qu'elle obtient un **A** !
 
-## Deploying Microservices
+## Déploiement de Microservices
 
-JHipster microservices require Consul or JHipster Registry as described in the [Doing microservices with JHipster](/microservices-architecture/) documentation. You can deploy a JHipster registry to Heroku by clicking this button:
+Les microservices JHipster nécessitent Consul ou JHipster Registry comme décrit dans la [documentation sur les microservices avec JHipster](/microservices-architecture/). Vous pouvez déployer un registre JHipster sur Heroku en cliquant sur ce bouton :
 
-[![Deploy to Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
+[![Déployer sur Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
 
-Once the registry is deployed, you can run the `jhipster heroku` command against your microservice or gateway. The Heroku sub-generator will prompt you for the URL of your registry, which will be in the form `https://[appname].herokuapp.com`.
+Une fois le registre déployé, vous pouvez exécuter la commande `jhipster heroku` sur votre microservice ou passerelle. Le sous-générateur Heroku vous demandera l'URL de votre registre, qui sera sous la forme `https://[appname].herokuapp.com`.
 
-A registry running on Heroku has a few limitations, including:
+Un registre fonctionnant sur Heroku présente quelques limitations, notamment :
 
-*   The registry will only work with native configuration (and not Git config).
-*   The registry service cannot be scaled up to multiple dynos to provide redundancy. You must deploy multiple applications (i.e. click the button more than once). This is because Eureka requires distinct URLs to synchronize in-memory state between instances.
+*   Le registre ne fonctionnera qu'avec une configuration native (et non pas Git config).
+*   Le service de registre ne peut pas être mis à l'échelle vers plusieurs dynos pour fournir de la redondance. Vous devez déployer plusieurs applications (c'est-à-dire cliquer sur le bouton plusieurs fois). Cela est dû au fait qu'Eureka nécessite des URL distinctes pour synchroniser l'état en mémoire entre les instances.
 
-### Using security with your JHipster Registry on Heroku
+### Utilisation de la sécurité avec votre registre JHipster sur Heroku
 
-To get the automatically-generated admin password on the JHipster Registry, type:
+Pour obtenir le mot de passe administrateur généré automatiquement sur le registre JHipster, tapez :
 
 `heroku config:get JHIPSTER_PASSWORD`
 
-To use this password, update all of your microservices and your gateway to use the credentials for the registry by running this command:
+Pour utiliser ce mot de passe, mettez à jour tous vos microservices et votre passerelle pour utiliser les identifiants du registre en exécutant cette commande :
 
 `heroku config:set JHIPSTER_REGISTRY_URL="https://admin:[password]@[appname].herokuapp.com"`
 
-## Troubleshooting
+## Dépannage
 
-If your application is stopped by Heroku when your Liquibase changelog is being applied, your database will be marked as "locked" by Liquibase. You will need to manually clean the lock table. On Postgres, you make sure you have a [local Postgres client installed](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup){:target="_blank" rel="noopener"} and run the following command:
+Si votre application est arrêtée par Heroku lorsque votre changelog Liquibase est appliqué, votre base de données sera marquée comme "verrouillée" par Liquibase. Vous devrez nettoyer manuellement la table de verrouillage. Sur Postgres, assurez-vous d'avoir un [client Postgres local installé](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup) et exécutez la commande suivante :
 
 `heroku pg:psql -c "update databasechangeloglock set locked=false;"`
 
-Heroku has a default boot-timeout limit of 90 seconds. If your app takes longer than this, Heroku will stop the process, which may leave the database in a locked state. If the problem is persistent, try contacting [Heroku Support](http://help.heroku.com){:target="_blank" rel="noopener"} to request a longer boot limit for your app.
+Heroku a une limite de temps de démarrage par défaut de 90 secondes. Si votre application prend plus de temps que cela, Heroku arrêtera le processus, ce qui peut laisser la base de données dans un état verrouillé. Si le problème persiste, essayez de contacter [le support Heroku](http://help.heroku.com) pour demander une limite de démarrage plus longue pour votre application.
 
-### Using Elasticsearch
 
-The Bonsai used addon with the free sandbox plan does [only support Elasticsearch 7.10.x](https://docs.bonsai.io/article/139-which-versions-bonsai-supports){:target="_blank" rel="noopener"}.
-This might lead to some [incompatibilities](https://github.com/jhipster/generator-jhipster/issues/10003){:target="_blank" rel="noopener"} depending in the Spring Data and [JHipster versions you are using](https://github.com/jhipster/generator-jhipster/issues/18650){:target="_blank" rel="noopener"}. 
-JHipster [enforces bonsai compatible Elasticsearch](https://github.com/jhipster/generator-jhipster/pull/18774){:target="_blank" rel="noopener"} dependencies (e.g. clients) when deploying to Heroku. 
+### Utilisation d'Elasticsearch
+
+L'addon Bonsai utilisé avec le plan gratuit sandbox ne [prend en charge que Elasticsearch 7.10.x](https://docs.bonsai.io/article/139-which-versions-bonsai-supports){:target="_blank" rel="noopener"}.
+Cela pourrait entraîner [des incompatibilités](https://github.com/jhipster/generator-jhipster/issues/10003){:target="_blank" rel="noopener"} en fonction des versions de Spring Data et [de JHipster que vous utilisez](https://github.com/jhipster/generator-jhipster/issues/18650){:target="_blank" rel="noopener"}. 
+JHipster [impose des dépendances Elasticsearch compatibles avec Bonsai](https://github.com/jhipster/generator-jhipster/pull/18774){:target="_blank" rel="noopener"} (par exemple, clients) lors du déploiement sur Heroku. 
 
 <div class="alert alert-warning"><i class="fa fa-money" aria-hidden="true"></i>
-If you are willing to use a <b>paid</b> addon you can use the <a href="https://devcenter.heroku.com/articles/foundelasticsearch" target="_blank" rel="noopener">official Elastic Cloud integration</a> to get access to the latest Elasticsearch version and features.
+Si vous êtes prêt à utiliser un addon <b>payant</b>, vous pouvez utiliser l' <a href="https://devcenter.heroku.com/articles/foundelasticsearch" target="_blank" rel="noopener">intégration officielle Elastic Cloud</a> pour accéder à la dernière version et aux fonctionnalités d'Elasticsearch.
 </div>
 
-## More information
+## Plus d'informations
 
-*   [Example Application](https://github.com/kissaten/jhipster-example){:target="_blank" rel="noopener"}
-*   [Spring Boot Heroku documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#cloud-deployment-heroku){:target="_blank" rel="noopener"}
-*   [Heroku free dyno documentation](https://devcenter.heroku.com/articles/free-dyno-hours){:target="_blank" rel="noopener"}
-*   [Heroku Java support documentation](https://devcenter.heroku.com/articles/java-support#supported-java-versions){:target="_blank" rel="noopener"}
+*   [Application exemple](https://github.com/kissaten/jhipster-example){:target="_blank" rel="noopener"}
+*   [Documentation Spring Boot Heroku](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#cloud-deployment-heroku){:target="_blank" rel="noopener"}
+*   [Documentation sur les dynos gratuits Heroku](https://devcenter.heroku.com/articles/free-dyno-hours){:target="_blank" rel="noopener"}
+*   [Documentation sur le support Java Heroku](https://devcenter.heroku.com/articles/java-support#supported-java-versions){:target="_blank" rel="noopener"}

@@ -1,91 +1,91 @@
 ---
 layout: default
-title: Filtering
+title: Filtrer vos entités
 permalink: /entities-filtering/
 sitemap:
     priority: 0.7
     lastmod: 2017-08-22T00:00:00-00:00
 ---
 
-# <i class="fa fa-filter"></i> Filtering your entities
+# <i class="fa fa-filter"></i> Filtrer vos entités
 
 ## Introduction
 
-After the basic CRUD functionalities are implemented for an entity, there is a very common request to create various filters for the attributes of the entity,
-so the server could be used more effectively. These filters should be sent as the request parameters, so any client - and any browser - could use it.
-Additionally, these filters should follow a reasonable, and concise pattern, and they must be allowed combining them freely.
+Après avoir implémenté les fonctionnalités CRUD de base pour une entité, il est très courant de recevoir une demande de création de divers filtres pour les attributs de l'entité,
+afin que le serveur puisse être utilisé de manière plus efficace. Ces filtres doivent être envoyés en tant que paramètres de requête, afin que tout client - et tout navigateur - puisse les utiliser.
+De plus, ces filtres doivent suivre un modèle raisonnable et concis, et ils doivent pouvoir être combinés librement.
 
-## How to activate
+## Comment activer
 
-_Note_: `filter` is not compatible with `reactive`.
-When generating an entity with `jhipster entity` command, select services or service implementation to enable filtering on this entity. 
+_Remarque_: `filter` n'est pas compatible avec `reactive`.
+Lors de la génération d'une entité avec la commande `jhipster entity`, sélectionnez les services ou l'implémentation du service pour activer le filtrage sur cette entité.
 
-If you want to enable filtering for existing entities, you can modify the entity configuration in your projects `.jhipster` directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true` and then re-generate with `jhipster entity <entity name>`.
+Si vous souhaitez activer le filtrage pour des entités existantes, vous pouvez modifier la configuration de l'entité dans le répertoire `.jhipster` de votre projet, en définissant `service` sur `serviceClass` ou `serviceImpl` à partir de `no`, et `jpaMetamodelFiltering` sur `true` puis régénérez avec `jhipster entity <nom de l'entité>`.
 
-When using JDL, add a line `filter <entity name>` to your JDL file and re-import the definitions with `jhipster jdl` command.
+Lors de l'utilisation de JDL, ajoutez une ligne `filter <nom de l'entité>` à votre fichier JDL et réimportez les définitions avec la commande `jhipster jdl`.
 
-## Public interface
+## Interface publique
 
-For each entity, you can enable filtering in the entity generator, and after, you can call your `/api/my-entity` GET endpoint with the following parameters :
+Pour chaque entité, vous pouvez activer le filtrage dans le générateur d'entités, et ensuite, vous pouvez appeler votre point d'extrémité GET `/api/my-entity` avec les paramètres suivants :
 
-* For each *xyz* field
+* Pour chaque champ *xyz*
     * *xyz.equals=someValue*
-        - To list all the entities, where xyz equals to 'someValue'
+        - Pour lister toutes les entités où xyz est égal à 'someValue'
     * *xyz.in=someValue,otherValue*
-        - To list all the entities, where xyz equals to 'someValue' or 'otherValue'
+        - Pour lister toutes les entités où xyz est égal à 'someValue' ou 'otherValue'
     * *xyz.specified=true*
-        - To list all the entities, where xyz is not null, specified.
+        - Pour lister toutes les entités où xyz n'est pas nul, spécifié.
     * *xyz.specified=false*
-        - To list all the entities, where xyz is null, unspecified.
-* If *xyz*'s type is string:
+        - Pour lister toutes les entités où xyz est nul, non spécifié.
+* Si le type de *xyz* est une chaîne de caractères :
     * *xyz.contains=something*
-        - To list all the entities, where xyz contains 'something'.
-* If *xyz*'s is either any of the number types, or the date types.
+        - Pour lister toutes les entités où xyz contient 'something'.
+* Si le type de *xyz* est l'un des types numériques ou de date.
     * *xyz.greaterThan=someValue*
-        - To list all the entities, where xyz is greater than 'someValue'.
+        - Pour lister toutes les entités où xyz est supérieur à 'someValue'.
     * *xyz.lessThan=someValue*
-        - To list all the entities, where xyz is less than 'someValue'.
+        - Pour lister toutes les entités où xyz est inférieur à 'someValue'.
     * *xyz.greaterThanOrEqual=someValue*
-        - To list all the entities, where xyz is greater than or equal to 'someValue'.
+        - Pour lister toutes les entités où xyz est supérieur ou égal à 'someValue'.
     * *xyz.lessThanOrEqual=someValue*
-        - To list all the entities, where xyz is less than or equal to 'someValue'.
+        - Pour lister toutes les entités où xyz est inférieur ou égal à 'someValue'.
 
-They can be combined freely.
+Ils peuvent être combinés librement.
 
-A good way to experience the expressiveness of this filter API is to use it from swagger-ui in the API docs page of your JHipster application.
+Une bonne façon de découvrir l'expressivité de cette API de filtrage est de l'utiliser depuis swagger-ui dans la page de documentation de l'API de votre application JHipster.
 
 ![]({{ site.url }}/images/entities_filtering_swagger.png)
 
-## Implementation
+## Implémentation
 
-When this feature is enabled, a new service named as `EntityQueryService` and an `EntityCriteria` is generated. Spring will convert the request parameters into the fields of the `EntityCriteria` class.
+Lorsque cette fonctionnalité est activée, un nouveau service nommé `EntityQueryService` et une `EntityCriteria` sont générés. Spring convertira les paramètres de requête en champs de la classe `EntityCriteria`.
 
-In the `EntityQueryService`, we convert the criteria object into a static, and type safe, JPA query object. For this, it is **required** that the **static metamodel generation is enabled** in the build. See the [JPA Static Metamodel Generator documentation](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#tooling-modelgen) for details.
+Dans le `EntityQueryService`, nous convertissons l'objet de critères en un objet de requête JPA statique, et de type sûr. Pour cela, il est **obligatoire** que la **génération statique du métamodèle soit activée** dans la construction. Voir la [documentation de génération statique du métamodèle JPA](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#tooling-modelgen) pour plus de détails.
 
-To prove that the generated criteria is working, and Spring is well configured, the `EntityResourceIntTest` is extended with lots of test cases, one for each individual filter.
+Pour prouver que les critères générés fonctionnent et que Spring est bien configuré, le `EntityResourceIntTest` est étendu avec de nombreux cas de test, un pour chaque filtre individuel.
 
 ### Angular
 
-When using Angular, the proper way to take advantage of this useful feature would look like this:
+Lors de l'utilisation d'Angular, la manière appropriée de tirer parti de cette fonctionnalité utile ressemblerait à ceci :
 
-* Equals (same applies for `contains` and `notEquals`)
-```javascript
+* Égal (la même chose s'applique pour `contains` et `notEquals`)
+<pre>javascript
 this.bookService.query({'title.equals':someValue}).subscribe(...);
-```
-* greaterThan (same applies for `lessThan`, `greaterThanOrEqual` and `lessThanOrEqual` when using `date` and `number` data types)
-```javascript
+</pre>
+* supérieur À (la même chose s'applique pour `lessThan`, `greaterThanOrEqual` et `lessThanOrEqual`  lors de l'utilisation des types de données`date` et `number`)
+<pre>javascript
 this.bookService.query({'id.greaterThan':value}).subscribe(...);
 this.bookService.query({'birthday.lessThanOrEqual':value}).subscribe(...);
-```
-* In (same applies for `notIn`)
-```javascript
+</pre>
+* Dans (la même chose s'applique pour `notIn`)
+<pre>javascript
 this.bookService.query({'id.in':[value1, value2]}).subscribe(...);
-```
-* Specified
-```javascript
+</pre>
+* Spécifié
+<pre>javascript
 this.bookService.query({'author.specified':true}).subscribe(...);
-```
+</pre>
 
 ## Limitations
 
-Currently only SQL databases (with JPA) is supported, with the separate service or separate service implementation/interface combination.
+Actuellement, seules les bases de données SQL (avec JPA) sont prises en charge, avec la combinaison d'un service séparé ou d'une implémentation/interface de service séparée.

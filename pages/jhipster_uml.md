@@ -11,69 +11,81 @@ sitemap:
 
 # <i class="fa fa-magic"></i> JHipster-UML
 
-Please note that this project is deprecated and shouldn't be used anymore.
+Veuillez noter que ce projet est obsolète et ne devrait plus être utilisé.
 
-Instead, we suggest you use the JDL export feature of this project to export your XMI files to a JDL file that you can use and make models of your entities with JDL Studio.
+Au lieu de cela, nous vous suggérons d'utiliser la fonction d'exportation JDL de ce projet pour exporter vos fichiers XMI vers un fichier JDL que vous pouvez utiliser et créer des modèles de vos entités avec JDL Studio.
 
-To learn more about the JDL, head [here]({{ site.url }}/jdl/).
+Pour en savoir plus sur le JDL, rendez-vous [ici]({{ site.url }}/jdl/).
 
 ***
 
-JHipster-UML is a JHipster sub-project that can be used as a replacement to using the [entity sub-generator]({{ site.url }}/creating-an-entity/). The idea is that it is much easier to [manage relationships]({{ site.url }}/managing-relationships/) using a visual tool than with the classical Yeoman questions and answers.
+JHipster-UML est un sous-projet de JHipster qui peut être utilisé en remplacement de l'utilisation du [sous-générateur d'entités]({{ site.url }}/creating-an-entity/). L'idée est qu'il est beaucoup plus facile de [gérer les relations]({{ site.url }}/managing-relationships/) à l'aide d'un outil visuel que avec les questions et réponses classiques de Yeoman.
 
-The JHipster-UML project is [available on GitHub](https://github.com/jhipster/jhipster-uml/), it is an Open Source project like JHipster (Apache 2.0 licence). If you like this project, don't forget to give us a star on GitHub!
+Le projet JHipster-UML est [disponible sur GitHub](https://github.com/jhipster/jhipster-uml/), c'est un projet Open Source comme JHipster (licence Apache 2.0). Si vous aimez ce projet, n'oubliez pas de nous donner une étoile sur GitHub!
 
-Here's what's covered on this page:
+Voici ce qui est couvert sur cette page :
 
 1. [Introduction](#introduction)
-2. [Issues and bugs](#issues)
+2. [Problèmes et bogues](#issues)
 3. [Installation](#install)
-4. [How to use JHipster-UML](#howtouse)  
-    4.1. [The UML file](#umlfile)  
-    4.2. [Use JHipster-UML](#usejuml)  
-    4.3. [What's generated](#whatsgenerated)  
-    4.4. [JHipster notes](#jhipsternotes)  
-    4.5. [Reserved words](#reservedwords)  
-5. [Examples](#examples)  
+4. [Comment utiliser JHipster-UML](#howtouse)  
+    4.1. [Le fichier UML](#umlfile)  
+    4.2. [Utiliser JHipster-UML](#usejuml)  
+    4.3. [Ce qui est généré](#whatsgenerated)  
+    4.4. [Notes JHipster](#jhipsternotes)  
+    4.5. [Mots réservés](#reservedwords)  
+5. [Exemples](#examples)  
     5.1. [Modelio](#modelioexample)  
     5.2. [UML Designer](#umldesignerexample)  
     5.3. [GenMyModel](#genmymodelexample)  
-    5.4. [Other editors](#othereditors)  
-    5.5. [Enumerations](#enumerationexamples)  
-    5.6. [Table names](#tablenames)  
-    5.7. [Required relationships](#requiredrels)  
-6. [Testing](#testing-juml)
-7. [Contributing: issues and enhancements](#contributing)  
-    7.1. [Parser modifications](#parsermodifications)
+    5.4. [Autres éditeurs](#othereditors)  
+    5.5. [Énumérations](#enumerationexamples)  
+    5.6. [Noms de table](#tablenames)  
+    5.7. [Relations requises](#requiredrels)  
+6. [Tests](#testing-juml)
+7. [Contributions : problèmes et améliorations](#contributing)  
+    7.1. [Modifications du parseur](#parsermodifications)
 8. [Annexes](#annexes)
 
 ***
 
 # Introduction
 
-JHipster-UML is an alternative to the usual Q&A as it offers you the possibility to use a UML editor to create a diagram that will be parsed by JHipster-UML.
+JHipster-UML est une alternative aux questions-réponses habituelles car elle vous offre la possibilité d'utiliser un éditeur UML pour créer un diagramme qui sera analysé par JHipster-UML.
 
-Here is a list of the editors we support:
+Voici une liste des éditeurs que nous supportons :
 
   - [Modelio](https://www.modeliosoft.com/);
   - [UML Designer](http://www.umldesigner.org/);
-  - [GenMyModel](https://www.genmymodel.com/) (not free, but online).
+  - [GenMyModel](https://www.genmymodel.com/) (non gratuit, mais en ligne).
 
 ***
 
-<h1 id="issues">Issues and bugs</h1>
+<h1 id="issues">Problèmes et bogues</h1>
 
-JHipster-UML is [available on GitHub](https://github.com/jhipster/jhipster-uml), and follows the same [contributing guidelines as JHipster](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
+JHipster-UML est [disponible sur GitHub](https://github.com/jhipster/jhipster-uml), et suit les mêmes [directives de contribution que JHipster](https://github.com/jhipster/generator-jhipster/blob/main/CONTRIBUTING.md).
 
-Please use our project for submitting issues and Pull Requests:
+Veuillez utiliser notre projet pour soumettre des problèmes et des Pull Requests :
 
-- [JHipster-UML issue tracker](https://github.com/jhipster/jhipster-uml/issues)
-- [JHipster-UML Pull Requests](https://github.com/jhipster/jhipster-uml/pulls)
+- [Suivi des problèmes de JHipster-UML](https://github.com/jhipster/jhipster-uml/issues)
+- [Pull Requests de JHipster-UML](https://github.com/jhipster/jhipster-uml/pulls)
 
-When submitting anything, you must be as precise as possible:
-  - **One posted issue must only have one problem** (or one demand/question);
-  - Pull requests are welcome, but the commits must be 'atomic' to really be understandable.
+Lors de la soumission de quoi que ce soit, vous devez être aussi précis que possible :
+  - **Un problème publié ne doit avoir qu'un seul problème** (ou une seule demande/question);
+  - Les Pull Requests sont les bienvenues, mais les commits doivent être "atomiques" pour vraiment être compréhensibles.
 
+
+
+---
+layout: default
+title: JHipster-UML
+permalink: /jhipster-uml/
+redirect_from:
+  - /jhipster_uml.html
+sitemap:
+    priority: 0.5
+    lastmod: 2017-11-27T12:00:00-00:00
+---
 
 Please note that using JHipster-UML (or JHipster) might be troublesome (one has to install some tools to really be able to use the Node environment without any issue). This [link](https://gist.github.com/nullivex/7115612) may help if you encounter an issue on Windows.
 
@@ -86,15 +98,15 @@ Finally, an issue has been reported from a Windows user using Git Bash. The JHip
 <h1 id="install">Installation</h1>
 To install JHipster UML use the command:
 
- ```
+ <dev>
    npm install -g jhipster-uml
- ```
+ </dev>
 
 If, however, you don't want to install the latest version globally because it doesn't match your version of the generator (see below) or if you want it contained locally, use this command instead:
 
-  ```
+  <dev>
     npm install jhipster-uml --save-dev
-  ```
+  </dev>
 
 If you want the 'bleeding edge' (almost perfectly safe to use) version, you can clone our git repo from [our GitHub project](https://github.com/jhipster/jhipster-uml):
 

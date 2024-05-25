@@ -1,45 +1,45 @@
 ---
 layout: default
-title:
+title: Gestion des erreurs serveur
 permalink: /managing-server-errors/
 sitemap:
     priority: 0.7
     lastmod: 2018-03-07T00:00:00-00:00
 ---
 
-# <i class="fa fa-fire-extinguisher"></i> Managing server errors
+# <i class="fa fa-fire-extinguisher"></i> Gestion des erreurs serveur
 
-JHipster has first-class support for error handling: it provides error pages and custom mechanisms to handle both business and technical errors on the server-side.
+JHipster offre une prise en charge de premier ordre pour la gestion des erreurs : il fournit des pages d'erreur et des mécanismes personnalisés pour gérer à la fois les erreurs métier et techniques côté serveur.
 
-## Error pages
+## Pages d'erreur
 
-JHipster generates a Single-Page Application (SPA), but it still requires custom error pages for people who do not (or cannot) access the application.
+JHipster génère une application à page unique (SPA), mais il nécessite toujours des pages d'erreur personnalisées pour les personnes qui n'ont pas (ou ne peuvent pas) accéder à l'application.
 
-### Dynamic error pages
+### Pages d'erreur dynamiques
 
-JHipster provides a generic error page, which is a [Thymeleaf](https://www.thymeleaf.org/) template, located at `src/main/resources/templates/error.html`.
+JHipster fournit une page d'erreur générique, qui est un modèle Thymeleaf, situé à `src/main/resources/templates/error.html`.
 
-This page will display the server-side error message, for example if the user tried to access a non-existing page, it will display a 404 error, telling the user that the page wasn't found.
+Cette page affichera le message d'erreur côté serveur, par exemple si l'utilisateur a essayé d'accéder à une page qui n'existe pas, elle affichera une erreur 404, indiquant à l'utilisateur que la page n'a pas été trouvée.
 
-### Static 404 error page
+### Page d'erreur 404 statique
 
-JHipster provides a specific, static 404 error page located at `src/main/webapp/404.html`. By default, this page isn't used by JHipster: it is here for projects using a proxy before JHipster (Apache/NGinx/etc.), so that the proxy can also display a 404 error page, even if the JHipster application isn't available.
+JHipster fournit une page d'erreur 404 spécifique et statique située à `src/main/webapp/404.html`. Par défaut, cette page n'est pas utilisée par JHipster : elle est là pour les projets utilisant un proxy avant JHipster (Apache/NGinx/etc.), afin que le proxy puisse également afficher une page d'erreur 404, même si l'application JHipster n'est pas disponible.
 
-It needs to be specifically configured on the front-end proxy.
+Elle doit être spécifiquement configurée sur le proxy frontal.
 
-## API errors
+## Erreurs d'API
 
-To handle Spring MVC REST errors, JHipster uses [Zalando's Problem Spring Web  library](https://github.com/zalando/problem-spring-web), in order to provide rich, JSON-based error messages.
+Pour gérer les erreurs REST Spring MVC, JHipster utilise la bibliothèque [Zalando's Problem Spring Web](https://github.com/zalando/problem-spring-web), afin de fournir des messages d'erreur riches basés sur JSON.
 
-In order to help the end-user, for each known problem this library will provide a link to a specific error page, that will give more details. Those links are configured in the `ErrorConstants` class, and point by default to this website. In your application, you should customize those links, and point them to your own API documentation.
+Pour aider l'utilisateur final, pour chaque problème connu, cette bibliothèque fournira un lien vers une page d'erreur spécifique, qui donnera plus de détails. Ces liens sont configurés dans la classe `ErrorConstants`, et pointent par défaut vers ce site web. Dans votre application, vous devez personnaliser ces liens, et les pointer vers votre propre documentation API.
 
-Here are the available error links:
+Voici les liens d'erreur disponibles :
 
-- [Problem with message]({{ site.url }}/problem/problem-with-message)
-- [Constraint violation]({{ site.url }}/problem/constraint-violation)
-- [Problem with a parameterized message]({{ site.url }}/problem/parameterized)
-- [Entity not found]({{ site.url }}/problem/entity-not-found)
-- [Invalid password]({{ site.url }}/problem/invalid-password)
-- [E-mail already used]({{ site.url }}/problem/email-already-used)
-- [Login already used]({{ site.url }}/problem/login-already-used)
-- [E-mail not found]({{ site.url }}/problem/email-not-found)
+- [Problème avec un message]({{ site.url }}/problem/problem-with-message)
+- [Violation de contrainte]({{ site.url }}/problem/constraint-violation)
+- [Problème avec un message paramétré]({{ site.url }}/problem/parameterized)
+- [Entité non trouvée]({{ site.url }}/problem/entity-not-found)
+- [Mot de passe invalide]({{ site.url }}/problem/invalid-password)
+- [E-mail déjà utilisé]({{ site.url }}/problem/email-already-used)
+- [Login déjà utilisé]({{ site.url }}/problem/login-already-used)
+- [E-mail non trouvé]({{ site.url }}/problem/email-not-found)
