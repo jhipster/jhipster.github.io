@@ -111,14 +111,14 @@ You also won’t be able to use the `jhipster upgrade` sub-generator, as it won�
 You can look at [v7 upgrade tips]({{ site.url }}/tips/033_tip_v7_upgrade.html) page for v7 upgrade hints.
 
 
-Help and bugs
---------------
+## Aide et bugs
 
-If you find any issue with this release, don't hesitate to:
+Si vous rencontrez un problème avec cette version, n'hésitez pas à :
 
-- Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
-- Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- Ajouter un bug sur notre [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Poser une question sur [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- Créer une nouvelle discussion sur [GitHub](https://github.com/jhipster/generator-jhipster/discussions)
 
-If the issue you have is an urgent bug or security issue, please:
+Si le problème que vous avez est un bug urgent ou un problème de sécurité, veuillez :
 
-- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
+- Contacter [@jhipster](https://twitter.com/jhipster) sur Twitter

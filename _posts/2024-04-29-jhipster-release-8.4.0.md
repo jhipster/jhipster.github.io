@@ -1,102 +1,104 @@
 ---
 layout: default
-title: Release 8.4.0
+title: Version 8.4.0
 ---
 
-# JHipster release v8.4.0
+# Sortie de JHipster v8.4.0
 
-This is a minor release for JHipster v8. 
+Ceci est une version mineure de JHipster v8.
 
-It includes [224 closed issues and pull requests on the main branch](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.4.0) after the 8.3.0 release.
+Elle inclut [224 problèmes résolus et pull requests fermées sur la branche principale](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.4.0) depuis la version 8.3.0.
 
-## What's new?
+## Quoi de neuf ?
 
-- Upgrade to Spring Boot 3.2.5 ([#25902](https://github.com/jhipster/generator-jhipster/pull/25902))
-- Update Codec for Redis to fix `LazyInitializationException` ([#25988](https://github.com/jhipster/generator-jhipster/pull/25988))
-- Use custom CSRF handler to provide BREACH protection ([#25907](https://github.com/jhipster/generator-jhipster/pull/25907))
-- Fix Spring Boot profiles to inherit from Spring Boot parent ([#25980](https://github.com/jhipster/generator-jhipster/pull/25980))
-- Add support for homepage customizations in blueprints ([#25943](https://github.com/jhipster/generator-jhipster/pull/25943))
+- Mise à jour vers Spring Boot 3.2.5 ([#25902](https://github.com/jhipster/generator-jhipster/pull/25902))
+- Mise à jour du Codec pour Redis pour corriger `LazyInitializationException` ([#25988](https://github.com/jhipster/generator-jhipster/pull/25988))
+- Utilisation d'un gestionnaire CSRF personnalisé pour fournir une protection BREACH ([#25907](https://github.com/jhipster/generator-jhipster/pull/25907))
+- Correction des profils Spring Boot pour hériter du parent Spring Boot ([#25980](https://github.com/jhipster/generator-jhipster/pull/25980))
+- Ajout du support des personnalisations de la page d'accueil dans les blueprints ([#25943](https://github.com/jhipster/generator-jhipster/pull/25943))
 
 ### :computer: Frontend
 
-- [Angular] Remove `LocaleConfiguration` that's no longer needed ([#23818](https://github.com/jhipster/generator-jhipster/pull/23818))
-- [Node] Upgrade to Node 20.12.2 ([#25801](https://github.com/jhipster/generator-jhipster/pull/25801))
+- [Angular] Suppression de `LocaleConfiguration` qui n'est plus nécessaire ([#23818](https://github.com/jhipster/generator-jhipster/pull/23818))
+- [Node] Mise à jour vers Node 20.12.2 ([#25801](https://github.com/jhipster/generator-jhipster/pull/25801))
 
-### :scroll: Others
+### :scroll: Autres
 
-- Several improvements, library upgrades, and bug fixes
+- Plusieurs améliorations, mises à jour de bibliothèques et corrections de bugs
 
-## Closed tickets and merged pull requests
+## Tickets fermés et pull requests fusionnées
 
-As always, **[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.4.0)**.
+Comme toujours, **[vous pouvez consulter tous les tickets fermés et les pull requests fusionnées ici](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.4.0)**.
 
-## How to install
+## Comment installer
 
-To install JHipster v8.4.0:
+Pour installer JHipster v8.4.0 :
 
     npm install -g generator-jhipster
 
-It is also available using the JHipster Docker image, as it is automatically built from our source code.
+Il est également disponible en utilisant l'image Docker de JHipster, car elle est automatiquement construite à partir de notre code source.
 
 - [JHipster Online](https://start.jhipster.tech)
 - [JHipster Devbox](https://github.com/jhipster/jhipster-devbox)
 
-## How to upgrade
+## Comment mettre à niveau
 
-**Automatic upgrade**
+**Mise à niveau automatique**
 
-For an automatic upgrade, use the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/) on an existing application:
+Pour une mise à niveau automatique, utilisez le [sous-générateur de mise à niveau de JHipster]({{ site.url }}/upgrading-an-application/) sur une application existante :
 
-Upgrade your version of JHipster:
+Mettez à jour votre version de JHipster :
 
 ```
 npm update -g generator-jhipster
 ```
 
-And then run the upgrade sub-generator:
+
+Et exécutez ensuite le sous-générateur de mise à niveau :
+
 
 ```
 jhipster upgrade
 ```
 
-You can also use the [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) for more advanced upgrade features. 
+Vous pouvez également utiliser le [blueprint de migration](https://github.com/jhipster/generator-jhipster-migrate) pour des fonctionnalités de mise à niveau plus avancées.
 
 ```
 npm i -g generator-jhipster-migrate
 jhipster-migrate
 ```
 
-**Manual upgrades**
+**Mises à niveau manuelles**
 
-For a manual upgrade, first upgrade your version of JHipster with:
+Pour une mise à niveau manuelle, mettez d'abord à jour votre version de JHipster avec :
 
 ```
 npm update -g generator-jhipster
 ```
 
-If you have an existing project, it will still use the JHipster version with which it was generated.
-To upgrade your project, you must first delete its `node_modules` folder and then run:
+Si vous avez un projet existant, il utilisera toujours la version de JHipster avec laquelle il a été généré.
+Pour mettre à niveau votre projet, vous devez d'abord supprimer son dossier `node_modules` puis exécuter :
 
 ```
 jhipster
 ```
 
-Since JHipster 8.0, this command will update your project and all its entities. 
+Depuis JHipster 8.0, cette commande mettra à jour votre projet et toutes ses entités.
 
-You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_, use:
+Vous pouvez également mettre à jour vos entités une par une en exécutant à nouveau le sous-générateur d'entités, par exemple si votre entité s'appelle _Foo_, utilisez :
 
 ```
 jhipster entity Foo
 ```
 
-## Help and bugs
+## Aide et bugs
 
-If you find any issue with this release, don't hesitate to:
+Si vous rencontrez un problème avec cette version, n'hésitez pas à :
 
-- Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
-- Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
-- Create a new discussion on [GitHub](https://github.com/jhipster/generator-jhipster/discussions)
+- Ajouter un bug sur notre [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Poser une question sur [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- Créer une nouvelle discussion sur [GitHub](https://github.com/jhipster/generator-jhipster/discussions)
 
-If the issue you have is an urgent bug or security issue, please:
+Si le problème que vous avez est un bug urgent ou un problème de sécurité, veuillez :
 
-- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
+- Contacter [@jhipster](https://twitter.com/jhipster) sur Twitter

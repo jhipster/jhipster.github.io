@@ -1,4 +1,4 @@
-# C'est la source du site Web public de JHipster en version Francaise disponible sur [https://www.jhipster.tech/](https://www.jhipster.tech/fr).
+#code source du site Web public de JHipster en version Francaise disponible sur [https://www.jhipster.tech/](https://www.jhipster.tech/fr).
 
 **Remarque**: Lorsque vous modifiez les styles, veuillez mettre à jour les fichiers `.scss` sous `css/scss` et exécuter `npm run sass` pour générer le CSS. NE METTEZ PAS À JOUR LE CSS directement.
 
