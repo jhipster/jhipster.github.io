@@ -1,80 +1,79 @@
 ---
 layout: default
-title: Separating the front-end and the API server
+title: Séparation du front-end et du serveur API
 permalink: /separating-front-end-and-api/
 sitemap:
     priority: 0.7
     lastmod: 2021-03-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-unlink"></i> Separating the front-end and the API server
+# <i class="fa fa-unlink"></i> Séparation du front-end et du serveur API
 
 ## Introduction
 
-JHipster is a "full-stack" development tool, and its goal is to make you work efficiently with your front-end code (Angular/React) and your back-end code (Spring Boot).
+JHipster est un outil de développement "full-stack" dont le but est de vous faire travailler efficacement avec votre code front-end (Angular/React) et votre code back-end (Spring Boot).
 
-However, it is a common requirement to separate the front-end and the back-end codes, typically because they are developed by different teams and have a different lifecycle.
+Cependant, il est courant de séparer les codes front-end et back-end, généralement parce qu'ils sont développés par des équipes différentes et ont un cycle de vie différent.
 
-**Please note** that this isn't the default JHipster way of working: this isn't complex to do, and works well, but this is an advanced topic. If you are getting started with JHipster, we recommend that you begin by using our standard way of working.
+**Veuillez noter** que ce n'est pas la façon de travailler par défaut de JHipster : ce n'est pas complexe à faire, et fonctionne bien, mais c'est un sujet avancé. Si vous débutez avec JHipster, nous vous recommandons de commencer par utiliser notre façon de travailler standard.
 
-## Generating only a front-end or a back-end application
+## Génération d'une seule application front-end ou back-end
 
-You can choose to generate only a JHipster back-end or JHipster front-end application. At generation time, this is only a matter of choosing flags which are described in our [application generation documentation]({{ site.url }}/creating-an-app/):
+Vous pouvez choisir de générer uniquement une application back-end JHipster ou une application front-end JHipster. Au moment de la génération, il suffit de choisir les indicateurs qui sont décrits dans notre [documentation sur la génération d'application]({{ site.url }}/creation-dune-application/):
 
-- `jhipster --skip-client` will only generate a back-end application (this is typically what JHipster microservices are)
-- `jhipster --skip-server [options]` will only generate a front-end application (e.g. `jhipster --skip-server --db=sql --auth=jwt`)
+- `jhipster --skip-client` générera uniquement une application back-end (c'est généralement ce que sont les microservices JHipster)
+- `jhipster --skip-server [options]` générera uniquement une application front-end (par exemple, `jhipster --skip-server --db=sql --auth=jwt`)
 
-This should only work well for monoliths, as this doesn't make much sense for microservices (which have no front-end anyway) and gateways (which are monoliths with the Spring Cloud Gateway service enabled).
+Cela devrait fonctionner correctement pour les monolithes, car cela n'a pas beaucoup de sens pour les microservices (qui n'ont de toute façon pas de front-end) et les passerelles (qui sont des monolithes avec le service Spring Cloud Gateway activé).
 
-## Directory layout
+## Organisation des répertoires
 
-JHipster uses the standard Maven directory layout. When working on the back-end, you can read the [Maven standard directory layout documentation](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
+JHipster utilise la structure de répertoires standard de Maven. Lorsque vous travaillez sur le back-end, vous pouvez consulter la [documentation sur la structure de répertoire standard de Maven](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
 
-When working on the front-end, there are 2 directories you need to know:
+Lorsque vous travaillez sur le front-end, il y a 2 répertoires que vous devez connaître :
 
-- `src/main/webapp` is where the client application will be developed
-- `target/classes/static` is where your client application will be packaged
+- `src/main/webapp` est l'endroit où l'application cliente sera développée
+- `target/classes/static` est l'endroit où votre application cliente sera empaquetée
 
-If you have separate teams working on the front-end and back-end, you have two solutions:
+Si vous avez des équipes distinctes travaillant sur le front-end et le back-end, vous avez deux solutions :
 
-- Both teams can work on the same project. As the directories are separated, there won't have much conflicts between teams. To make things even cleaner, both teams could work on separate branches.
-- The front-end code can be stored in a specific Git project, and then imported into the main back-end project as a Git sub-module. This would require to move the client-side build scripts.
+- Les deux équipes peuvent travailler sur le même projet. Comme les répertoires sont séparés, il n'y aura pas beaucoup de conflits entre les équipes. Pour rendre les choses encore plus propres, les deux équipes pourraient travailler sur des branches séparées.
+- Le code front-end peut être stocké dans un projet Git spécifique, puis importé dans le projet principal back-end en tant que sous-module Git. Cela nécessiterait de déplacer les scripts de construction côté client.
 
-## HTTP requests routing and caching
+## Routage et mise en cache des requêtes HTTP
 
-Once the front-end and back-end have been separated, the issue will be how to handle HTTP requests:
+Une fois que le front-end et le back-end ont été séparés, la question sera de savoir comment gérer les requêtes HTTP :
 
-- All API calls will use a `/api` prefix. If you are using Angular, there is also a specific `SERVER_API_URL` constant, defined in the `webpack.common.js` configuration, that can enrich this prefix. For example, you can use `"http://api.jhipster.tech:8081/"` as a back-end API server (If you do this, please read our documentation on CORS below).
-- `/index.html` should not be cached by the browser or server.
-- Calls to `/` that serve static assets (from the front-end) `/app` (which contains the client-side application) and `/content` (which contains the static content, like images and CSS) should be cached in production, as those assets are hashed.
-- Calls to `/i18n` can be cached but files itsefs not are hashed, url query string are used
-- Calls to a non-existent route should forward the request to `index.html`. This is normally handled in the backend through `ClientForwardController`. When deploying the client separately, this needs to be configured.  See the [Angular](https://angular.io/guide/deployment#server-configuration) or [React](https://facebook.github.io/create-react-app/docs/deployment) documentation for several examples.
+- Tous les appels API utiliseront un préfixe `/api`. Si vous utilisez Angular, il existe également une constante spécifique `SERVER_API_URL`, définie dans la configuration `webpack.common.js`, qui peut enrichir ce préfixe. Par exemple, vous pouvez utiliser `"http://api.jhipster.tech:8081/"` comme serveur API back-end (Si vous faites cela, veuillez lire notre documentation sur CORS ci-dessous).
+- `/index.html` ne doit pas être mis en cache par le navigateur ou le serveur.
+- Les appels à `/` qui servent des ressources statiques (du front-end) `/app` (qui contient l'application côté client) et `/content` (qui contient le contenu statique, comme les images et le CSS) doivent être mis en cache en production, car ces ressources sont hachées.
+- Les appels à `/i18n` peuvent être mis en cache mais les fichiers eux-mêmes ne sont pas hachés, des chaînes de requête d'URL sont utilisées
+- Les appels à une route inexistante doivent rediriger la requête vers `index.html`. Cela est normalement géré dans le backend via `ClientForwardController`. Lors du déploiement du client séparément, cela doit être configuré. Voir la documentation [Angular](https://angular.io/guide/deployment#server-configuration) ou [React](https://facebook.github.io/create-react-app/docs/deployment) pour plusieurs exemples.
 
-# Using BrowserSync
+# Utilisation de BrowserSync
+En mode `dev`, JHipster utilise BrowserSync pour le rechargement à chaud de l'application front-end. BrowserSync a un proxy ([voici sa documentation](https://www.browsersync.io/docs/options#option-proxy)) qui redirigera les requêtes de `/api` vers un serveur back-end (par défaut, `http://127.0.0.1:8080`).
 
-In `dev` mode, JHipster uses BrowserSync for hot-reload of the front-end application. BrowserSync has a proxy ([here is its documentation](https://www.browsersync.io/docs/options#option-proxy)) that will route requests from `/api` to a back-end server (by default, `http://127.0.0.1:8080`).
+Cela ne fonctionne qu'en mode `dev`, mais c'est un moyen très puissant d'accéder à différents serveurs API depuis le front-end.
 
-This only works in `dev` mode, but this is a very powerful way of accessing different API servers from the front-end.
+## Utilisation de CORS
 
-## Using CORS
+CORS ([Cross-origin request sharing](https://wikipedia.org/wiki/Cross-origin_resource_sharing)) permet d'accéder à différents serveurs back-end avec le même front-end, sans configurer de proxy.
 
-CORS ([Cross-origin request sharing](https://wikipedia.org/wiki/Cross-origin_resource_sharing)) allow to access different back-end servers with the same front-end, without configuring a proxy.
+C'est une solution facile à utiliser, mais elle peut être moins sécurisée en production.
 
-This is an easy-to-use solution, but it can be less secure in production.
+JHipster fournit une configuration CORS prête à l'emploi :
 
-JHipster provides out-of-the-box a CORS configuration:
+- CORS peut être configuré en utilisant la propriété `jhipster.cors`, comme défini dans [les propriétés d'application communes de JHipster]({{ site.url }}/common-application-properties/)
+- Il est activé par défaut en mode `dev` pour les monolithes et les passerelles. Il est désactivé par défaut pour les microservices car vous êtes censé y accéder via une passerelle.
+- Il est désactivé par défaut en mode `prod`, pour des raisons de sécurité.
 
-- CORS can be configured using the `jhipster.cors` property, as defined in [the JHipster common application properties]({{ site.url }}/common-application-properties/)
-- It is enabled by default in `dev` mode for monoliths and gateways. It is turned off by default for microservices as you are supposed to access them through a gateway.
-- It is turned off by default in `prod` mode, for security reasons.
+## Utilisation de NGinx
 
-## Using NGinx
+Une autre solution pour séparer les codes front-end et back-end est d'utiliser un serveur proxy. C'est très courant en production, et certaines équipes utilisent également cette technique en développement.
 
-Another solution to separate the front-end and back-end codes is to use a proxy server. This is very common in production, and some teams also use this technique in development.
+Cette configuration changera en fonction de votre cas d'utilisation spécifique, elle ne peut donc pas être automatisée par le générateur, voici ci-dessous une configuration de base.
 
-This configuration will change depending on your specific use-case, so this cannot be automated by the generator, here is below a working configuration.
-
-Create a `src/main/docker/nginx.yml` Docker Compose file:
+Créez un fichier Docker Compose `src/main/docker/nginx.yml` :
 
     version: '2'
     services:
@@ -86,11 +85,11 @@ Create a `src/main/docker/nginx.yml` Docker Compose file:
         ports:
         - "8000:80"
 
-This Docker image will configure an NGinx server, that reads the static assets from `target/static`: this is where the JHipster front-end application is generated by default. In production, you will probably have a specific folder for this.
+Cette image Docker configurera un serveur NGinx, qui lira les ressources statiques à partir de `target/static` : c'est là que l'application front-end JHipster est générée par défaut. En production, vous aurez probablement un dossier spécifique pour cela.
 
-It also reads a `./nginx/site.conf` file: this is a NGinx-specific configuration file.
+Elle lit également un fichier `./nginx/site.conf` : il s'agit d'un fichier de configuration spécifique à NGinx.
 ### configuration lambda
-Here is a sample `site.conf`:
+Voici un exemple de `site.conf` :
 
     server {
         listen 80;
@@ -121,11 +120,11 @@ Here is a sample `site.conf`:
         }
     }
 
-This configuration means that:
+Cette configuration signifie que :
 
-- NGinx will run on port `80`
-- It will read the static assets in folder `/usr/share/nginx/html`, and
-- It will act as a proxy from `/api` to `http://api.jhipster.tech:8081/api`
-- Any unhandled requests will forward to `index.html`
+- NGinx fonctionnera sur le port `80`
+- Il lira les ressources statiques dans le dossier `/usr/share/nginx/html`, et
+- Il agira comme un proxy de `/api` vers `http://api.jhipster.tech:8081/api`
+- Toute requête non traitée sera redirigée vers `index.html`
 
-This configuration will require some tuning depending on your specific needs, but should be a good enough starting point for most applications.
+Cette configuration nécessitera quelques ajustements en fonction de vos besoins spécifiques, mais devrait être un bon point de départ pour la plupart des applications.

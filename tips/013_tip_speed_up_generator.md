@@ -6,71 +6,73 @@ priority: 0.5
 lastmod: 2016-05-15T22:22:00-00:00
 ---
 
-# Speed up the generator-jhipster
+# Accélérer le générateur JHipster
 
-__Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
+__Conseil proposé par [@pascalgrimaud](https://github.com/pascalgrimaud)__
 
-**Warning!** Those tips don't work for npm 3+ because it uses symlink.
+**Attention !** Ces conseils ne fonctionnent pas pour npm 3+ car il utilise des liens symboliques.
 
-When using the generator-jhipster, the command `npm install` may take several minutes, depending on your connection speed.
+Lors de l'utilisation du générateur JHipster, la commande `npm install` peut prendre plusieurs minutes, en fonction de la vitesse de votre connexion.
 
-This tip can be used in many cases:
+Ce conseil peut être utilisé dans de nombreux cas :
 
-- for demo of JHipster, to improve your experience
-- for dev team, to regenerate faster a project with `.yo-rc.json`
-- for continuous integration
+- pour la démo de JHipster, afin d'améliorer votre expérience
+- pour l'équipe de développement, pour régénérer plus rapidement un projet avec `.yo-rc.json`
+- pour l'intégration continue
 
-## Create a new project for node_modules
+## Créer un nouveau projet pour les node_modules
 
-Create a directory which will contain all `node_modules` libraries, and go into it:
+Créez un répertoire qui contiendra toutes les bibliothèques `node_modules`, et allez-y :
 
 ```
 mkdir jhipster-speedup
 cd jhipster-speedup
 ```
 
-Create the directory `node_modules`:
+Créez le répertoire `node_modules`:
 
 ```
 mkdir -p node_modules
 ```
 
-The project structure is :
+La structure du projet est la suivante :
 
     jhipster-speedup
     ├── node_modules
 
 
-**Warning!** Use this next command only if your are a developer on JHipster. It will link to your fork project of generator-jhipster:
+**Attention!** Utilisez la commande suivante uniquement si vous êtes un développeur sur JHipster. Elle permettra de lier votre projet de générateur-jhipster :
 
 ```
 npm link generator-jhipster
 ```
 
-## Generating projects
+## Génération de projets
 
-Create a directory which will contain your new JHipster project, and go into it:
+Créez un répertoire qui contiendra votre nouveau projet JHipster, et allez-y :
 
 ```
 mkdir jhipster
 cd jhipster
 ```
 
-Create a link to the directory `node_modules`:
+Créez un lien vers le répertoire `node_modules` :
 
 ```
-ln -s <your path>/jhipster-speedup/node_modules
+ln -s <votre chemin>/jhipster-speedup/node_modules
 ```
 
-Generate a new project, and answer to all questions:
+
+Générez un nouveau projet, et répondez à toutes les questions :
+
 
 ```
 jhipster
 ```
 
-The first time, it will take several minutes.
+La première fois, cela prendra plusieurs minutes.
 
-The next times, it will use the existing `node_modules` directory, so npm won't download all libraries.
+Les fois suivantes, il utilisera le répertoire `node_modules` existant, donc npm ne téléchargera pas toutes les bibliothèques.
 
-**Warning!** If you use specific libraries and modify your package.json, you should copy the `node_modules`
-from jhipster-speedup to your folder project, instead of using a link.
+**Attention !** Si vous utilisez des bibliothèques spécifiques et que vous modifiez votre package.json, vous devriez copier les `node_modules`
+de jhipster-speedup vers votre dossier de projet, au lieu d'utiliser un lien.

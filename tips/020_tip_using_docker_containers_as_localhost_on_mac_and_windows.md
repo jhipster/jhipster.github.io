@@ -1,20 +1,20 @@
 ---
 layout: default
-title: Using Docker containers as localhost on Mac/Windows
+title: Utiliser des conteneurs Docker comme localhost sur Mac/Windows
 sitemap:
 priority: 0.5
 lastmod: 2016-11-15T16:00:00-00:00
 ---
 
-# Using Docker containers as localhost on Mac/Windows
+# Utiliser des conteneurs Docker comme localhost sur Mac/Windows
 
-__Tip submitted by [@Akuka](https://github.com/Akuka)__
+__Conseil soumis par [@Akuka](https://github.com/Akuka)__
 
-## Difference between Docker on Linux and Docker on Mac/Windows environments
+## Différence entre Docker sur Linux et Docker sur Mac/Windows
 
-Based on your OS, your <code>DOCKER_HOST</code> is different.
-On Linux, it will simply be your localhost.
-For Mac/Windows, you should obtain the appropriate IP using the following command:
+Selon votre système d'exploitation, votre <code>DOCKER_HOST</code> est différent.
+Sur Linux, ce sera simplement votre localhost.
+Pour Mac/Windows, vous devriez obtenir l'IP appropriée en utilisant la commande suivante :
 
 ```
 docker-machine ip default
@@ -22,40 +22,39 @@ docker-machine ip default
 
 ## Motivation
 
-When you generate a new JHipster application, the host address of all the connections configurations (for example: database connection string) is localhost by default.
-This means that if you are using Docker to run services (such as a database / elastic search / SMTP server / etc...), you will need to edit your application configuration file and replace the database IP address from localhost to your <code>DOCKER_HOST</code>.
+Lorsque vous générez une nouvelle application JHipster, l'adresse hôte de toutes les configurations de connexion (par exemple : chaîne de connexion de la base de données) est localhost par défaut.
+Cela signifie que si vous utilisez Docker pour exécuter des services (comme une base de données / Elasticsearch / serveur SMTP / etc...), vous devrez modifier le fichier de configuration de votre application et remplacer l'adresse IP de la base de données par votre <code>DOCKER_HOST</code>.
 
-## Port Forwarding
+## Redirection de port
 
-A Docker Machine is a virtual machine running under VirtualBox in your host machine.
-We can use the Port Forwarding feature of VirtualBox in order to access the Docker VM as localhost.
+Une machine Docker est une machine virtuelle fonctionnant sous VirtualBox sur votre machine hôte.
+Nous pouvons utiliser la fonctionnalité de redirection de port de VirtualBox afin d'accéder à la machine Docker en tant que localhost.
 
-To achieve this do the following:
+Pour cela, suivez les étapes suivantes :
 
-
-First of all, make sure your Docker Machine is stopped by executing the following:
+Tout d'abord, assurez-vous que votre machine Docker est arrêtée en exécutant la commande suivante :
 
 ```
-docker-machine stop default     # Your Docker machine name may not be default, in this case change the name accordingly
+docker-machine stop default    # Le nom de votre machine Docker peut ne pas être default, dans ce cas, changez le nom en conséquence
 ```
 
-Then:
+Ensuite:
 
-* Open VirtualBox Manager
-* Select your Docker Machine VirtualBox image (e.g.: default)
-* Open Settings -> Network -> Advanced -> Port Forwarding
-* Add your app name, the desired host port and your guest port
+* Ouvrez VirtualBox Manager
+* Sélectionnez l'image VirtualBox de votre machine Docker (par exemple : default)
+* Ouvrez Paramètres -> Réseau -> Avancé -> Redirection de port
+* Ajoutez le nom de votre application, le port hôte désiré et le port invité
 
-The following is a screenshot with a MySQL Port Forwarding example:
+Voici une capture d'écran avec un exemple de redirection de port MySQL :
 
-![MySQL Port Forwarding Example](../images/020_tip_using_docker_containers_as_localhost_on_mac_and_windows_01.png)
+![Exemple de redirection de port MySQL](../images/020_tip_using_docker_containers_as_localhost_on_mac_and_windows_01.png)
 
-
-Now you're ready to start your Docker Machine by executing the following:
+Maintenant, vous êtes prêt à démarrer votre machine Docker en exécutant la commande suivante :
 
 ```
 docker-machine start default
 eval $(docker-machine env default)
 ```
 
-Then just start your Docker container and you will be able to access it via localhost.
+Ensuite, lancez simplement votre conteneur Docker et vous pourrez y accéder via localhost.
+

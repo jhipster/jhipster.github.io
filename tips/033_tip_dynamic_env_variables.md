@@ -1,49 +1,52 @@
 ---
 layout: default
-title: Dynamic environment variables in the front end
+title: Variables d'environnement dynamiques dans le front-end
 sitemap:
 priority: 0.1
 lastmod: 2020-07-01T10:50:00-00:00
 ---
-# Dynamic environment variables in the front end
+# Variables d'environnement dynamiques dans le front-end
 
-__Tip submitted by [@yelhouti](https://github.com/yelhouti)__
+**Astuce soumise par [@yelhouti](https://github.com/yelhouti)**
 
-Let's say you need to update the value of a variable in the front end after your code have been compiled. (ex: your IdP Url, the email to use for contacts...)
+Imaginons que vous deviez mettre à jour la valeur d'une variable dans le front-end après que votre code a été compilé (par exemple, l'URL de votre IdP, l'email à utiliser pour les contacts...).
 
-One way is to have it as part of your application.yml and have the backend return it to the front using a new custom endpoint, the same way we do in: `AuthInfoResource.java` when using OAuth2.
+Une manière de faire est de l'avoir comme partie de votre `application.yml` et de faire en sorte que le backend la renvoie au front-end via un nouveau point de terminaison personnalisé, de la même manière que nous le faisons dans `AuthInfoResource.java` lorsque nous utilisons OAuth2.
 
-Another way that removes the need for this endpoint and offers better flexibility and less code is to have a new file called `env.js` that looks like this:
+Une autre méthode, qui élimine le besoin de ce point de terminaison et offre une meilleure flexibilité et moins de code, est d'avoir un nouveau fichier appelé `env.js` qui ressemble à ceci :
 
 ```javascript
 window.__env = window.__env || {};
 window.__env.myDynamicVariable = 'http://127.0.0.1:8090';
 ```
 
-The code below creates a global `__env` variable if not already declared.
+Le code ci-dessus crée une variable globale `__env`  si elle n'est pas déjà déclarée.
 
-it can be accessed in your angular files but we recommend exposing it through constants.ts like this:
+Elle peut être accessible dans vos fichiers Angular, mais nous recommandons de l'exposer via `constants.ts` comme ceci 
+
 ```typescript
 @ts-ignore
 export const MY_DYNAMIC_VARIABLE = window.__env.myDynamicVariable;
 ```
-When using kubernetes, a file with this format can be mounted as a configMap, this is why we keep such a simple key value syntax.
+Lors de l'utilisation de Kubernetes, un fichier avec ce format peut être monté en tant que configMap, c'est pourquoi nous conservons une syntaxe de clé-valeur aussi simple.
 
-Now we need to make sure that `index.html` loads it by adding the script tag in the `<head>` like this:
+Maintenant, nous devons nous assurer que `index.html` le charge en ajoutant la balise script dans la `<head>` comme ceci :
+
 ```html
     ...
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
     <script src="env.js"></script>
 ```
-and we tell webpack to copy it, as is, with the packaged code:
+Et nous disons à webpack de le copier tel quel avec le code packagé :
+
 ```javascript
 // jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
 { from: './<%= MAIN_SRC_DIR %>env.js', to: 'env.js' },
 ```
 
-We recommend adding the file to the `.eslintignore.ejs` for the clean syntax:
+Nous recommandons d'ajouter le fichier à  `.eslintignore.ejs` pour une syntaxe propre :
 ```
 src/main/webapp/env.js
 ```
 
-Next step is to work on a blueprint that does all of this.
+La prochaine étape consiste à travailler sur un blueprint qui fait tout cela.

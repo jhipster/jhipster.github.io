@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Couchbase
+title: Utilisation de Couchbase
 permalink: /using-couchbase/
 redirect_from:
   - /using_couchbase.html
@@ -9,15 +9,15 @@ sitemap:
     lastmod: 2015-02-24T00:00:00-00:00
 ---
 
-# <i class="fa fa-database"></i> Using Couchbase
+# <i class="fa fa-database"></i> Utilisation de Couchbase
 
-Couchbase is one of the supported databases that can be selected when your application is being generated.
+Couchbase est l'une des bases de données prises en charge qui peuvent être sélectionnées lors de la génération de votre application.
 
-When Couchbase is selected:
+Lorsque Couchbase est sélectionné :
 
-*   Spring Data Couchbase will be used to access the database. This is very close to Spring Data JPA, and this is why Couchbase support is very close to the (default) JPA support
-*   [Couchmove](https://github.com/differentway/couchmove) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes
-*   The [entity sub-generator]({{ site.url }}/creating-an-entity/) will not ask you for entity relationships, as you can't have relationships with a NoSQL database (at least not in the way you have relationships with JPA)
-*   [Couchbase Testcontainers](https://github.com/differentway/testcontainers-java-module-couchbase) is used to launch a containerized version of the database for running unit tests.
+*   Spring Data Couchbase sera utilisé pour accéder à la base de données. C'est très similaire à Spring Data JPA, et c'est pourquoi le support de Couchbase est très proche du support (par défaut) de JPA.
+*   [Couchmove](https://github.com/differentway/couchmove) est utilisé à la place de [Liquibase](http://www.liquibase.org/) pour gérer les modifications de la base de données.
+*   Le [sous-générateur d'entité]({{ site.url }}/creating-an-entity/) ne vous demandera pas de relations d'entité, car vous ne pouvez pas avoir de relations avec une base de données NoSQL (du moins pas de la même manière que vous avez des relations avec JPA).
+*   [Couchbase Testcontainers](https://github.com/differentway/testcontainers-java-module-couchbase) est utilisé pour lancer une version conteneurisée de la base de données pour exécuter des tests unitaires.
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

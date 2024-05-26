@@ -1,23 +1,23 @@
 ---
 layout: default
-title: Release 0.2.0
+title: Version 0.2.0 publiée
 ---
 
-JHipster release 0.2.0
+Sortie de JHipster version 0.2.0
 ==================
 
-*JHipster gives you Yeoman + Maven + Spring + AngularJS all working together in one handy generator.*
+*JHipster vous offre Yeoman + Maven + Spring + AngularJS, tout fonctionnant ensemble dans un générateur pratique.*
 
-A few days after our v0.1.0 release, we are already releasing JHipster v0.2.0!
+Quelques jours après notre sortie v0.1.0, nous publions déjà JHipster v0.2.0 !
 
-This release contains several bug fixes and small improvements, but the really big news is the full internationalization support in AngularJS, which is a major change in the generated application.
+Cette version contient plusieurs corrections de bugs et petites améliorations, mais la grande nouvelle est le support complet de l'internationalisation dans AngularJS, ce qui constitue un changement majeur dans l'application générée.
 
-- All AngularJS views are now fully internationalized!
-- We use the great ["Angular Translate"](https://github.com/PascalPrecht/angular-translate) library
-- Of course, usage of i18n is documented on this Website, in the ["development" section](/development/)
+- Toutes les vues AngularJS sont désormais entièrement internationalisées !
+- Nous utilisons la superbe bibliothèque ["Angular Translate"](https://github.com/PascalPrecht/angular-translate)
+- Bien sûr, l'utilisation de l'i18n est documentée sur ce site Web, dans la section ["développement"](//development/)
 
-We haven't seen this implemented in other Yeoman generators, so once again JHipster is ahead of the pack in "enterprise" features!
+Nous n'avons pas vu cela mis en œuvre dans d'autres générateurs Yeoman, donc une fois de plus, JHipster est en avance sur le peloton en matière de fonctionnalités "entreprise" !
 
-*What still needs to be done*: in "production" mode we haven't find a way to minimize and cache the localized JSON files. The only solution at the moment would be to use ETags (with Spring's ShallowEtagHeaderFilter), but this is not an optimal solution. If you have any idea, feel free to join us!
+*Ce qui reste à faire* : en mode "production", nous n'avons pas trouvé de moyen de minimiser et de mettre en cache les fichiers JSON localisés. La seule solution pour le moment serait d'utiliser les ETags (avec le filtre ShallowEtagHeaderFilter de Spring), mais ce n'est pas une solution optimale. Si vous avez une idée, n'hésitez pas à nous rejoindre !
 
-Many thanks to [Jerome Mirc](https://twitter.com/JeromeMirc) who had the idea and coded everything.
+Un grand merci à [Jerome Mirc](https://twitter.com/JeromeMirc) qui a eu l'idée et a codé tout cela.

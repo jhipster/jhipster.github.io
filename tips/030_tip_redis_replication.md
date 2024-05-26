@@ -6,18 +6,19 @@ priority: 0.1
 lastmod: 2020-03-23T12:30:00-00:00
 ---
 
-# Configure Redis leader follower(master-slave) replication
+# Configurer la réplication maître-esclave (leader follower) Redis
 
-**Tip submitted by [@zhx828](https://github.com/zhx828)**
+**Astuce soumise par [@zhx828](https://github.com/zhx828)**
 
-In the latest JHipster generator, it provides a redis cluster setting for production deployment. But oftentimes, that might be overkill for small projects. This document provides a solution to configure Redis leader follower (master-slave) replication. For more information about Redis Replication, please see [**here**](https://redis.io/topics/replication).
+Dans le dernier générateur JHipster, il fournit un paramétrage de cluster Redis pour le déploiement en production. Mais souvent, cela peut être excessif pour de petits projets. Ce document fournit une solution pour configurer la réplication maître-esclave Redis. Pour plus d'informations sur la réplication Redis, veuillez consulter [ici](https://redis.io/topics/replication).
 
-The following changes are based on my own project set up. I assume you have modified your application properties to setup Redis password, so you can adjust your own accordingly.
+Les changements suivants sont basés sur ma propre configuration de projet. Je suppose que vous avez modifié vos propriétés d'application pour configurer le mot de passe Redis, vous pouvez donc ajuster le vôtre en conséquence.
 
 
-## Step 1
+## Étape 1
 
-Add file `RedisProperties.java`:
+Ajoutez le fichier `RedisProperties.java` :
+
 ```
 public class RedisProperties {
     String type;
@@ -59,8 +60,9 @@ public class RedisProperties {
 }
 ```
 
-## Step 2
-Add RedisProperties to `ApplicationProperties.java`
+## Étape 2
+
+Mettez à jour le fichier  `ApplicationProperties.java`
 ```
 public class ApplicationProperties {
     ...
@@ -78,8 +80,8 @@ public class ApplicationProperties {
 }
 ```
 
-## Step 3
-Update the file `CacheConfiguration.java`, method `jcacheConfiguration`. These changes have to be combined with the current cluster setup.
+## Étape 3
+Mettez à jour la méthode jcacheConfiguration dans CacheConfiguration.java. Ces modifications doivent être combinées avec la configuration actuelle du cluster.
 
 ```
 if (applicationProperties.getRedis().getType().equals(RedisType.SINGLE.getType())) {
@@ -96,8 +98,9 @@ if (applicationProperties.getRedis().getType().equals(RedisType.SINGLE.getType()
 }
 ```
 
-## Step 4
-Update `application-dev.yml` to use single server
+## Étape 4
+Mettez à jour application-dev.yml pour utiliser un serveur unique
+
 ```
 application:
   profile: dev
@@ -109,8 +112,8 @@ application:
 
 ```
 
-## Step 5
-Update `application-prod.yml` to use master-slave servers
+## Étape 5
+Mettez à jour application-prod.yml pour utiliser des serveurs maître-esclave
 ```
 application:
   profile: prod

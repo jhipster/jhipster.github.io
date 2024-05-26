@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using MongoDB
+title: Utilisation de MongoDB
 permalink: /using-mongodb/
 redirect_from:
   - /using_mongodb.html
@@ -9,15 +9,14 @@ sitemap:
     lastmod: 2015-02-24T00:00:00-00:00
 ---
 
-# <i class="fa fa-leaf"></i> Using MongoDB
+# <i class="fa fa-leaf"></i> Utilisation de MongoDB
 
-MongoDB is one of the supported databases that can be selected when your application is being generated.
+MongoDB est l'une des bases de données prises en charge qui peuvent être sélectionnées lors de la génération de votre application.
 
-When MongoDB is selected:
+Lorsque MongoDB est sélectionné :
 
-*   Spring Data MongoDB will be used to access the database. This is very close to Spring Data JPA, and this is why MongoDB support is very close to the (default) JPA support
-*   [Mongock](https://www.mongock.io) is used instead of [Liquibase](http://www.liquibase.org/) to manage database changes
-*   [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) is used to run an in-memory version of the database for running unit tests.
-
+*   Spring Data MongoDB sera utilisé pour accéder à la base de données. Cela ressemble beaucoup à Spring Data JPA, et c'est pourquoi le support de MongoDB est très proche du support JPA (par défaut).
+*   [Mongock](https://www.mongock.io) est utilisé à la place de [Liquibase](http://www.liquibase.org/) pour gérer les changements de base de données.
+*   [de.flapdoodle.embed.mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) est utilisé pour exécuter une version en mémoire de la base de données pour les tests unitaires.
 
 <br/><br/><br/><br/><br/>

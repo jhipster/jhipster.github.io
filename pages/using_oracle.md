@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Oracle
+title:  Utilisation d'Oracle
 permalink: /using-oracle/
 redirect_from:
   - /using_oracle.html
@@ -9,33 +9,31 @@ sitemap:
     lastmod: 2021-01-08T09:40:00-00:00
 ---
 
-# <i class="fa fa-database"></i> Using Oracle
+# <i class="fa fa-database"></i> Utilisation d'Oracle
 
-When using JPA, you have the option to use the Oracle database.
+Lorsque vous utilisez JPA, vous avez la possibilité d'utiliser la base de données Oracle.
 
-_This option is only supported with Oracle 12cR1 and upwards (e.g. 19c, 18c and 12cR2)._
+_Cette option est uniquement prise en charge avec Oracle 12cR1 et ultérieur (par exemple, 19c, 18c et 12cR2)._
 
-When using Oracle with JHipster, the following limitations will be applicable according to the Oracle database version.
+Lorsque vous utilisez Oracle avec JHipster, les limitations suivantes s'appliqueront en fonction de la version de la base de données Oracle.
 
-For version 19c, 18c and 12cR2:
-- Entity names cannot be more than 124 characters, this is due to Oracle's 128 character limitation for object names, and we reserve 4 characters to generate primary key sequence for the generated tables.
-- Entity field names cannot be more than 128 characters.
-- When doing relationships, foreign key names cannot be more than 128 characters, so they will be truncated if they are too long.
-- When doing many-to-many relationships, the join table name will follow the JPA specification (in the form "firstTable_secondTable"): if it is more than 128 characters long, it will be truncated.
+Pour les versions 19c, 18c et 12cR2 :
+- Les noms d'entité ne peuvent pas dépasser 124 caractères, cela est dû à la limitation de 128 caractères d'Oracle pour les noms d'objet, et nous réservons 4 caractères pour générer la séquence de clé primaire pour les tables générées.
+- Les noms de champ d'entité ne peuvent pas dépasser 128 caractères.
+- Lorsque vous créez des relations, les noms de clé étrangère ne peuvent pas dépasser 128 caractères, ils seront donc tronqués s'ils sont trop longs.
+- Lorsque vous créez des relations many-to-many, le nom de la table de jointure suivra la spécification JPA (sous la forme "premièreTable_deuxièmeTable") : s'il dépasse 128 caractères, il sera tronqué.
 
-For version 12cR1:
-- Entity names cannot be more than 26 characters, this is due to Oracle's 30 character limitation for object names, and we reserve 4 characters to generate primary key sequence for the generated tables.
-- Entity field names cannot be more than 30 characters.
-- When doing relationships, foreign key names cannot be more than 30 characters, so they will be truncated if they are too long.
-- When doing many-to-many relationships, the join table name will follow the JPA specification (in the form "firstTable_secondTable"): if it is more than 30 characters long, it will be truncated.
+Pour la version 12cR1 :
+- Les noms d'entité ne peuvent pas dépasser 26 caractères, cela est dû à la limitation de 30 caractères d'Oracle pour les noms d'objet, et nous réservons 4 caractères pour générer la séquence de clé primaire pour les tables générées.
+- Les noms de champ d'entité ne peuvent pas dépasser 30 caractères.
+- Lorsque vous créez des relations, les noms de clé étrangère ne peuvent pas dépasser 30 caractères, ils seront donc tronqués s'ils sont trop longs.
+- Lorsque vous créez des relations many-to-many, le nom de la table de jointure suivra la spécification JPA (sous la forme "premièreTable_deuxièmeTable") : s'il dépasse 30 caractères, il sera tronqué.
 
-- Oracle reserved keywords cannot be used as Entity names or Field names.
+- Les mots clés réservés d'Oracle ne peuvent pas être utilisés comme noms d'entité ou noms de champ.
 
-- Oracle database 19c (EE, SE2, Single Instance and RAC) Docker images can be found here: https://container-registry.oracle.com
-- Oracle database 19c Docker build files can be found here: https://github.com/oracle/docker-images/tree/master/OracleDatabase
+- Les images Docker de la base de données Oracle 19c (EE, SE2, instance unique et RAC) peuvent être trouvées ici : https://container-registry.oracle.com
+- Les fichiers de construction Docker de la base de données Oracle 19c peuvent être trouvés ici : https://github.com/oracle/docker-images/tree/master/OracleDatabase
 
-
-Note that version 19c is highly recommended because it has Long Term Support (ending in 2027).
-
+Notez que la version 19c est fortement recommandée car elle bénéficie d'une assistance à long terme (jusqu'en 2027).
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

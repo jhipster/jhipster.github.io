@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Shell plugins
+title: Extensions Shell
 permalink: /shell-plugins/
 redirect_from:
   - /shell-plugins.html
@@ -9,11 +9,11 @@ sitemap:
     lastmod: 2016-08-14T18:40:00-00:00
 ---
 
-# <i class="fa fa-terminal"></i> JHipster Shell Plugins
+# <i class="fa fa-terminal"></i> Extensions Shell de JHipster
 
-Shell plugins bring additional shortcuts for using JHipster, which makes it faster and easier to use. If you've seen people having a beautiful shell, with nice auto-completion and ultra-fast shortcuts, the magic comes from here!
+Les extensions Shell apportent des raccourcis supplémentaires pour utiliser JHipster, ce qui le rend plus rapide et plus facile à utiliser. Si vous avez vu des gens ayant un shell magnifique, avec une belle auto-complétion et des raccourcis ultra-rapides, la magie vient d'ici !
 
-Currently there are two shell plugins:
+Actuellement, il existe deux extensions Shell :
 
-* [Oh-My-Zsh JHipster plugin]({{ site.url }}/oh-my-zsh/) for [Oh-My-Zsh](https://ohmyz.sh/)
-* [Fisher JHipster plugin]({{ site.url }}/fisher/) for [Fisher](https://github.com/jorgebucaran/fisher)
+* [Plugin Oh-My-Zsh pour JHipster]({{ site.url }}/oh-my-zsh/) pour [Oh-My-Zsh](https://ohmyz.sh/)
+* [Plugin Fisher pour JHipster]({{ site.url }}/fisher/) pour [Fisher](https://github.com/jorgebucaran/fisher)

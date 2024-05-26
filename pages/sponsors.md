@@ -8,71 +8,71 @@ sitemap:
 ---
 # <i class="fa fa-usd"></i> Sponsors
 
-JHipster uses [OpenCollective](https://opencollective.com/generator-jhipster) to gather money. This money is used to cover project expenses (like running this website) in a transparent way ([See the OpenCollective documentation](https://opencollective.com/how-it-works)), and your donation will help the project live and grow successfully.
+JHipster utilise [OpenCollective](https://opencollective.com/generator-jhipster) pour collecter de l'argent. Cet argent est utilisé pour couvrir les dépenses du projet (comme l'hébergement de ce site Web) de manière transparente ([Consultez la documentation OpenCollective](https://opencollective.com/how-it-works)), et votre donation aidera le projet à vivre et à croître avec succès.
 
-Please go to our [OpenCollective page](https://opencollective.com/generator-jhipster) to become a backer or a sponsor.
+Veuillez vous rendre sur notre [page OpenCollective](https://opencollective.com/generator-jhipster) pour devenir un soutien ou un sponsor.
 
-## Benefits of being a backer
+## Avantages d'être un soutien
 
-Backers donate $2 per month to the project, and get the following benefits:
+Les soutiens donnent 2 $ par mois au projet et bénéficient des avantages suivants :
 
-- Visibility on the front page of [https://www.jhipster.tech](https://www.jhipster.tech) in the "backers" section (about 110,000 views/month on January, 2018).
-- Visibility on the GitHub main project page in the "backers" section (about 15,000 views/month on January, 2018).
+- Visibilité sur la page d'accueil de [https://www.jhipster.tech](https://www.jhipster.tech) dans la section "soutiens" (environ 110 000 vues par mois en janvier 2018).
+- Visibilité sur la page principale du projet GitHub dans la section "soutiens" (environ 15 000 vues par mois en janvier 2018).
 
-## Benefits of being a bronze sponsor
+## Avantages d'être un sponsor bronze
 
-Bronze sponsors donate $100 per month to the project, and get the following benefits:
+Les sponsors bronze donnent 100 $ par mois au projet et bénéficient des avantages suivants :
 
-- Visibility on the front page of [https://www.jhipster.tech](https://www.jhipster.tech) in the "sponsors" section (about 110,000 views/month on January, 2018).
-- Visibility on the GitHub main project page in the "sponsors" section (about 15,000 views/month on January, 2018).
+- Visibilité sur la page d'accueil de [https://www.jhipster.tech](https://www.jhipster.tech) dans la section "sponsors" (environ 110 000 vues par mois en janvier 2018).
+- Visibilité sur la page principale du projet GitHub dans la section "sponsors" (environ 15 000 vues par mois en janvier 2018).
 
-## Benefits of being a silver sponsor
+## Avantages d'être un sponsor argent
 
-There is a limit to 10 silver sponsors.
+Il y a une limite de 10 sponsors argent.
 
-Silver sponsors donate $500 per month to the project, and get the following benefits:
+Les sponsors argent donnent 500 $ par mois au projet et bénéficient des avantages suivants :
 
-- Same benefits as bronze sponsors (visibility on main pages).
-- "Thank you" tweet from [@jhipster](https://twitter.com/jhipster).
-- The ability to create 1 "[bug bounty]({{ site.url }}/bug-bounties/)" every month, non transferable. If that bug bounty is not created by the end of the month, it is lost.
+- Mêmes avantages que les sponsors bronze (visibilité sur les pages principales).
+- Tweet de remerciement de [@jhipster](https://twitter.com/jhipster).
+- La possibilité de créer 1 "[bug bounty]({{ site.url }}/bug-bounties/)" chaque mois, non transférable. Si ce bug bounty n'est pas créé d'ici la fin du mois, il est perdu.
 
-## Benefits of being a gold sponsor
+## Avantages d'être un sponsor or
 
-There is a limit to 3 gold sponsors.
+Il y a une limite de 3 sponsors or.
 
-Gold sponsors donate $1,000 per month to the project, and get the following benefits:
+Les sponsors or donnent 1 000 $ par mois au projet et bénéficient des avantages suivants :
 
-- Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
-- The ability to create 3 "[bug bounties]({{ site.url }}/bug-bounties/)" every month, non transferable. If all bug bounties are not created by the end of the month, the remaining ones are lost.
-- Company logos on all [https://www.jhipster.tech](https://www.jhipster.tech) page footers (about 550,000 views/month on January, 2018).
+- Mêmes avantages que les sponsors argent (visibilité sur les pages principales et tweet de remerciement).
+- La possibilité de créer 3 "[bug bounties]({{ site.url }}/bug-bounties/)" chaque mois, non transférables. Si tous les bug bounties ne sont pas créés d'ici la fin du mois, ceux restants sont perdus.
+- Logos de l'entreprise sur tous les pieds de page de [https://www.jhipster.tech](https://www.jhipster.tech) (environ 550 000 vues par mois en janvier 2018).
 
-## Benefits of being a platinum sponsor
+## Avantages d'être un sponsor platine
 
-There is a limit to only 1 platinum sponsor.
+Il y a une limite à seulement 1 sponsor platine.
 
-The Platinum sponsor donates $2,500 per month to the project, and gets the following benefits:
+Le sponsor platine donne 2 500 $ par mois au projet et bénéficie des avantages suivants :
 
-- Same benefits as gold sponsors (visibility on all pages, thank you tweet, 3 bug bounties).
-- Visibility on JHipster Online, with a logo on the welcome page, and on the main page to generate applications.
-- A message to add at the end of each generation. This message will need to be submitted as a PR by the sponsor and will be on each release published during the sponsorship period.
-- The option to add a custom JHipster logo in the official logo list. This logo will be submitted as a PR by the sponsor and will be in the JHipster official logo list. It will need to comply with JHipster's code of conduct.
-- A reserved slot for each JHipster conference organized by the JHipster Developers Association. For organizational reasons, those slots will be reserved starting 3 months after the initial sponsorship payment, and will be available until 3 months after the last sponsorship payment.
+- Mêmes avantages que les sponsors or (visibilité sur toutes les pages, tweet de remerciement, 3 bug bounties).
+- Visibilité sur JHipster Online, avec un logo sur la page d'accueil et sur la page principale pour générer des applications.
+- Un message à ajouter à la fin de chaque génération. Ce message devra être soumis sous forme de PR par le sponsor et figurera dans chaque version publiée pendant la période de parrainage.
+- La possibilité d'ajouter un logo JHipster personnalisé dans la liste officielle des logos. Ce logo sera soumis sous forme de PR par le sponsor et figurera dans la liste officielle des logos JHipster. Il devra être conforme au code de conduite de JHipster.
+- Une place réservée pour chaque conférence JHipster organisée par l'Association des développeurs JHipster. Pour des raisons organisationnelles, ces places seront réservées à partir de 3 mois après le paiement initial de parrainage et seront disponibles jusqu'à 3 mois après le dernier paiement de parrainage.
 
-## What will the project do with the money?
+## Que fera le projet avec l'argent ?
 
-As you can read in [the OpenCollective documentation](https://docs.opencollective.com), the way your money will be used will be public and totally transparent.
+Comme vous pouvez le lire dans [la documentation OpenCollective](https://docs.opencollective.com), la manière dont votre argent sera utilisé sera publique et totalement transparente.
 
-Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
+N'importe qui peut soumettre une dépense. Si la dépense a du sens pour le développement de la communauté, elle sera "fusionnée" dans le grand livre de notre collectif ouvert par les contributeurs principaux et la personne ayant soumis la dépense sera remboursée.
 
-Money will first be used to cover direct project costs:
+L'argent sera d'abord utilisé pour couvrir les coûts directs du projet :
 
 - [Bug bounties]({{ site.url }}/bug-bounties/)
-- Website hosting
-- Developer tooling
-- Legal protection
+- Hébergement du site Web
+- Outils de développement
+- Protection légale
 
-Then, money will be used to:
+Ensuite, l'argent sera utilisé pour :
 
-- Pay for project goodies
-- Pay Meetup fees
-- Pay expenses for developer gatherings: travel & food expenses for core team meetings
+- Payer les goodies du projet
+- Payer les frais de Meetup
+- Payer les dépenses des rencontres de développeurs : frais de déplacement et de nourriture pour les réunions de l'équipe principale

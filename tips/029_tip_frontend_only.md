@@ -1,38 +1,39 @@
 ---
 layout: default
-title: Improve developer experience if opening only front end in the IDE
+title:  Améliorer l'expérience des développeurs en ouvrant uniquement le front-end dans l'IDE
 sitemap:
 priority: 0.1
 lastmod: 2019-10-14T12:35:00-00:00
 ---
 
-# Improve developer experience if opening only front end in the IDE
+# Améliorer l'expérience des développeurs en ouvrant uniquement le front-end dans l'IDE
 
-**Tip submitted by [@kaidohallik](https://github.com/kaidohallik)**
+**Astuce soumise par [@kaidohallik](https://github.com/kaidohallik)**
 
-The following behaviour occurs at least in Visual Studio Code.
+Le comportement suivant se produit au moins dans Visual Studio Code.
 
-If generating a full stack app (not skipping server nor client) and front end developer wants to see as few files as possible and opens only folder `src/main/webapp/app` in the IDE then IDE doesn't recognize imports starting with `app`. These imports are red and developer can't see these imported classes content and can't jump with one click into these imported classes. Path `app` is defined in the `tsconfig.json` file which is located in the root folder of the generated app and therefore this information is missing if opening some subfolder.
+Si vous générez une application full stack (sans ignorer le serveur ni le client) et que le développeur front-end veut voir le moins de fichiers possible et ouvre uniquement le dossier `src/main/webapp/app` dans l'IDE, alors l'IDE ne reconnaît pas les imports commençant par `app`. Ces imports sont en rouge et le développeur ne peut pas voir le contenu de ces classes importées et ne peut pas y accéder en un clic. Le chemin `app` est défini dans le fichier `tsconfig.json` qui se trouve dans le dossier racine de l'application générée et donc cette information manque si on ouvre un sous-dossier.
 
-## Possible solution 1
+## Solution possible 1
 
-Add file `src/main/webapp/app/tsconfig.json` with the following content:
+Ajoutez le fichier `src/main/webapp/app/tsconfig.json` avec le contenu suivant :
+
 ```
 {
     "extends": "../../../../tsconfig.json"
 }
 ```
-And for tests add file `src/test/javascript/spec/tsconfig.json` with the same content:
+Et pour les tests, ajoutez le fichier `src/test/javascript/spec/tsconfig.json` avec le même contenu :
 ```
 {
     "extends": "../../../../tsconfig.json"
 }
 ```
-After that Visual Studio Code resolves path `app` if opening only folder `src/main/webapp/app` or `src/test/javascript/spec`.
+Après cela, Visual Studio Code résout le chemin `app`  si vous ouvrez uniquement le dossier  `src/main/webapp/app` ou `src/test/javascript/spec`.
 
-## Possible solution 2
+## Solution possible 2
 
-* add node script `remove-import-alias.js` to app root folder which replaces import aliases with relative paths:
+* Ajoutez un script node `remove-import-alias.js` au dossier racine de l'application qui remplace les alias d'importation par des chemins relatifs :
 
 ```
 const fs = require('fs');
@@ -69,8 +70,8 @@ removeImportAlias(`./src/main/webapp/app/`, 0);
 removeImportAlias(`./src/test/javascript/spec/`, 0, '../../../main/webapp/app/');
 ```
 
-* add `remove-import-alias.js` to `.eslintignore`
+* Ajoutez `remove-import-alias.js` à `.eslintignore`
 
-* run added script: `node remove-import-alias.js`
+* Exécutez le script ajouté : `node remove-import-alias.js`
 
-* delete `app/*` from the file `tsconfig.json` from the section `compilerOptions.paths`
+* Supprimez `app/*` du fichier `tsconfig.json` de la section  `compilerOptions.paths`

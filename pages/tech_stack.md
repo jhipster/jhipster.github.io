@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Technology stack
+title: Stack technologique
 permalink: /tech-stack/
 redirect_from:
   - /tech_stack.html
@@ -9,61 +9,61 @@ sitemap:
     lastmod: 2021-03-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-stack-overflow"></i> Technology stack
+# <i class="fa fa-stack-overflow"></i> Stack technologique
 
-## Technology stack on the client side
+## Stack technologique côté client
 
-Single Web page application:
+Application Web monopage :
 
-*   [Angular](https://angular.io/) or [React](https://reactjs.org/) or [Vue](https://vuejs.org/)
-*   Responsive Web Design with [Twitter Bootstrap](http://getbootstrap.com/)
+*   [Angular](https://angular.io/) ou [React](https://reactjs.org/) ou [Vue](https://vuejs.org/)
+*   Conception Web adaptative avec [Twitter Bootstrap](http://getbootstrap.com/)
 *   [HTML5 Boilerplate](http://html5boilerplate.com/)
-*   Compatible with modern browsers (Chrome, FireFox, Microsoft Edge...)
-*   Full internationalization support
-*   Optional [Sass](https://www.npmjs.com/package/node-sass) support for CSS design
-*   Optional WebSocket support with Spring Websocket
+*   Compatible avec les navigateurs modernes (Chrome, FireFox, Microsoft Edge...)
+*   Support complet de l'internationalisation
+*   Support optionnel de [Sass](https://www.npmjs.com/package/node-sass) pour la conception CSS
+*   Support optionnel de WebSocket avec Spring Websocket
 
-With the great development workflow:
+Avec un excellent flux de travail de développement :
 
-*   Installation of new JavaScript libraries with [NPM](https://www.npmjs.com/get-npm)
-*   Build, optimization and live reload with [Webpack](https://webpack.js.org/)
-*   Testing with [Jest](https://facebook.github.io/jest/) and [Protractor](http://www.protractortest.org)
+*   Installation de nouvelles bibliothèques JavaScript avec [NPM](https://www.npmjs.com/get-npm)
+*   Compilation, optimisation et rechargement en direct avec [Webpack](https://webpack.js.org/)
+*   Tests avec [Jest](https://facebook.github.io/jest/) et [Protractor](http://www.protractortest.org)
 
-And what if a single Web page application isn't enough for your needs?
+Et si une application Web monopage ne suffit pas à vos besoins ?
 
-*   Support for the [Thymeleaf](http://www.thymeleaf.org/) template engine, to generate Web pages on the server side
+*   Prise en charge du moteur de modèle [Thymeleaf](http://www.thymeleaf.org/), pour générer des pages Web côté serveur
 
-## Technology stack on the server side
+## Stack technologique côté serveur
 
-A complete [Spring application](http://spring.io/):
+Une application [Spring complète](http://spring.io/):
 
-*   [Spring Boot](http://projects.spring.io/spring-boot/) for application configuration
-*   [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/) configuration for building, testing and running the application
-*   ["development" and "production" profiles]({{ site.url }}/profiles/) (both for Maven and Gradle)
+*   [Spring Boot](http://projects.spring.io/spring-boot/) pour la configuration de l'application
+*   Configuration [Maven](http://maven.apache.org/) ou [Gradle](http://www.gradle.org/) pour la construction, les tests et l'exécution de l'application
+*   [Profils "développement" et "production"]({{ site.url }}/profiles/) (à la fois pour Maven et Gradle)
 *   [Spring Security](http://docs.spring.io/spring-security/site/index.html)
 *   [Spring MVC REST](http://spring.io/guides/gs/rest-service/) + [Jackson](https://github.com/FasterXML/jackson)
-*   Optional WebSocket support with Spring Websocket
-*   [Spring Data JPA](http://projects.spring.io/spring-data-jpa/) + Bean Validation
-*   Database updates with [Liquibase](http://www.liquibase.org/)
-*   [Elasticsearch](https://github.com/elastic/elasticsearch) support if you want to have search capabilities on top of your database
-*   [MongoDB](http://www.mongodb.org) and [Couchbase](https://www.couchbase.com) support if you'd rather use a document-oriented NoSQL database instead of JPA
-*   [Cassandra](http://cassandra.apache.org/) support if you'd rather use a column-oriented NoSQL database instead of JPA
-*   [Kafka](http://kafka.apache.org/) and [Pulsar](http://pulsar.apache.org/) support if you want to use a publish-subscribe messaging system
+*   Support optionnel de WebSocket avec Spring Websocket
+*   [Spring Data JPA](http://projects.spring.io/spring-data-jpa/) + Validation des beans
+*   Mises à jour de la base de données avec [Liquibase](http://www.liquibase.org/)
+*   Support d'[Elasticsearch](https://github.com/elastic/elasticsearch) si vous souhaitez avoir des capacités de recherche sur votre base de données
+*   Prise en charge de [MongoDB](http://www.mongodb.org) et [Couchbase](https://www.couchbase.com) si vous préférez utiliser une base de données NoSQL orientée documents au lieu de JPA
+*   Prise en charge de [Cassandra](http://cassandra.apache.org/) si vous préférez utiliser une base de données NoSQL orientée colonnes au lieu de JPA
+*   Prise en charge de [Kafka](http://kafka.apache.org/) et [Pulsar](http://pulsar.apache.org/) si vous souhaitez utiliser un système de messagerie pub-sub
 
-## Technology stack for microservices
+## Stack technologique pour les microservices
 
-Microservices are optional, and fully supported:
+Les microservices sont facultatifs et entièrement pris en charge :
 
-* HTTP routing using [Spring Cloud Gateway](https://github.com/spring-cloud/spring-cloud-gateway)
-* Service discovery using [HashiCorp Consul](https://www.consul.io/) or [Netflix Eureka](https://github.com/Netflix/eureka)
+* Routage HTTP à l'aide de [Spring Cloud Gateway](https://github.com/spring-cloud/spring-cloud-gateway)
+* Découverte de services à l'aide de [HashiCorp Consul](https://www.consul.io/) ou [Netflix Eureka](https://github.com/Netflix/eureka)
 
-## Ready to go into production:
+## Prêt à être mis en production :
 
-*   Monitoring with [Metrics](http://metrics.dropwizard.io/) and [the ELK Stack](https://www.elastic.co/products)
-*   Caching with [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [Hazelcast](http://www.hazelcast.com/), [Infinispan](http://infinispan.org/), [Memcached](https://memcached.org/) or [Redis](https://redis.io/)
-*   Optimized static resources (gzip filter, HTTP cache headers)
-*   Log management with [Logback](http://logback.qos.ch/), configurable at runtime
-*   Connection pooling with [HikariCP](https://github.com/brettwooldridge/HikariCP) for optimum performance
-*   Builds a standard WAR file or an executable JAR file
-*   Full Docker and Docker Compose support
-*   Support for all major cloud providers: AWS, Cloud Foundry, GCP, Heroku, Kubernetes, OpenShift, Azure, Docker...
+*   Surveillance avec [Metrics](http://metrics.dropwizard.io/) et [la pile ELK](https://www.elastic.co/products)
+*   Mise en cache avec [ehcache](http://ehcache.org/) (cache local), [Caffeine](https://github.com/ben-manes/caffeine) (cache local), [Hazelcast](http://www.hazelcast.com/), [Infinispan](http://infinispan.org/), [Memcached](https://memcached.org/) ou [Redis](https://redis.io/)
+*   Ressources statiques optimisées (filtre gzip, en-têtes de cache HTTP)
+*   Gestion des journaux avec [Logback](http://logback.qos.ch/), configurable en temps réel
+*   Pool de connexions avec [HikariCP](https://github.com/brettwooldridge/HikariCP) pour des performances optimales
+*   Crée un fichier WAR standard ou un fichier JAR exécutable
+*   Support complet de Docker et Docker Compose
+*   Support pour tous les principaux fournisseurs de cloud : AWS, Cloud Foundry, GCP, Heroku, Kubernetes, OpenShift, Azure, Docker...

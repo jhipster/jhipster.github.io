@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Elasticsearch
+title:  Utilisation d'Elasticsearch
 permalink: /using-elasticsearch/
 redirect_from:
   - /using_elasticsearch.html
@@ -9,60 +9,60 @@ sitemap:
     lastmod: 2023-07-12T00:00:00-00:00
 ---
 
-# <i class="fa fa-search"></i> Using Elasticsearch
+# <i class="fa fa-search"></i> Utilisation d'Elasticsearch
 
-Elasticsearch is an option that adds search capabilities on top of your database.
+Elasticsearch est une option qui ajoute des capacités de recherche sur votre base de données.
 
-This option has some limitations:
+Cette option présente certaines limitations :
 
-*   It only works with SQL databases and MongoDB. Cassandra and Couchbase support will be added in the future (help is welcome!).
-*   There is no automatic replication mechanism between your database and Elasticsearch, so you might have out-of-sync data. As a result, you will probably need to write some specific code to synchronize your data, for example using the Spring `@Scheduled` annotation, to run every evening.
-    *   This also means if your database is changed outside of your application, your search indexes will be out-of-sync. The [Elasticsearch Reindexer](https://www.jhipster.tech/modules/marketplace/#/details/generator-jhipster-elasticsearch-reindexer) JHipster module can help in these situations.
+*   Elle ne fonctionne qu'avec des bases de données SQL et MongoDB. Le support de Cassandra et Couchbase sera ajouté ultérieurement (toute aide est la bienvenue !).
+*   Il n'y a pas de mécanisme de réplication automatique entre votre base de données et Elasticsearch, vous pourriez donc avoir des données désynchronisées. En conséquence, vous devrez probablement écrire un code spécifique pour synchroniser vos données, par exemple en utilisant l'annotation `@Scheduled` de Spring, pour s'exécuter tous les soirs.
+    *   Cela signifie également que si votre base de données est modifiée en dehors de votre application, vos index de recherche seront désynchronisés. Le module [Elasticsearch Reindexer](https://www.jhipster.tech/modules/marketplace/#/details/generator-jhipster-elasticsearch-reindexer) de JHipster peut aider dans ces situations.
 
-When the Elasticsearch option is selected:
+Lorsque l'option Elasticsearch est sélectionnée :
 
-*   Spring Data Elasticsearch is used with Spring Boot's autoconfiguration. It can be configured using `spring.elasticsearch.*` configuration properties.
-*   The "repository" package has a new subpackage, called "search", that holds all Elasticsearch repositories.
-*   The "User" entity gets indexed in Elasticsearch, and you can query it using the `/api/_search/users/:query` REST endpoint.
-*   When the [entity sub-generator]({{ site.url }}/creating-an-entity/) is used, the generated entity gets automatically indexed by Elasticsearch, and is used in the REST endpoint. Search capabilities are also added to the UI, so you can search your entity in the main CRUD screen.
+*   Spring Data Elasticsearch est utilisé avec l'autoconfiguration de Spring Boot. Il peut être configuré à l'aide des propriétés de configuration `spring.elasticsearch.*`.
+*   Le package "repository" a un nouveau sous-package, appelé "search", qui contient tous les dépôts Elasticsearch.
+*   L'entité "User" est indexée dans Elasticsearch, et vous pouvez la interroger en utilisant le point de terminaison REST `/api/_search/users/:query`.
+*   Lorsque le [sous-générateur d'entité]({{ site.url }}/creating-an-entity/) est utilisé, l'entité générée est automatiquement indexée par Elasticsearch et utilisée dans le point de terminaison REST. Les fonctionnalités de recherche sont également ajoutées à l'interface utilisateur, vous pouvez donc rechercher votre entité dans l'écran principal CRUD.
 
-### Using in Development
+### Utilisation en développement
 
-In development, JHipster runs with an embedded Elasticsearch instance. You can also use an external Elasticsearch instance if you set a `SPRING_DATA_URIS` environment variable (or add a `spring.elasticsearch.uris` property to your `application-dev.yml`).
+En développement, JHipster fonctionne avec une instance Elasticsearch intégrée. Vous pouvez également utiliser une instance Elasticsearch externe si vous définissez une variable d'environnement `SPRING_DATA_URIS` (ou ajoutez une propriété `spring.elasticsearch.uris` à votre `application-dev.yml`).
 
-The easiest way to run an external Elasticsearch instance is to use the provided Docker Compose configuration:
+La manière la plus simple de démarrer une instance Elasticsearch externe est d'utiliser la configuration Docker Compose fournie :
 
     docker-compose -f src/main/docker/elasticsearch.yml up -d
 
-Then set an environment variable to point to it:
+Ensuite, définissez une variable d'environnement pour pointer vers celle-ci :
 
     export SPRING_DATA_URIS=http://localhost:9200
 
-### Using in Production
+### Utilisation en production
 
-In production, JHipster expects an external Elasticsearch instance. By default, the application looks for an Elasticsearch instance running on localhost. This can be configured by using the standard Spring Boot properties, in the `application-prod.yml` file.
+En production, JHipster s'attend à ce qu'une instance Elasticsearch externe soit disponible. Par défaut, l'application recherche une instance Elasticsearch en cours d'exécution sur localhost. Cela peut être configuré en utilisant les propriétés standard de Spring Boot, dans le fichier `application-prod.yml`.
 
-### Using on Heroku
+### Utilisation sur Heroku
 
-On Heroku, the [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai) is configured as an add-on. JHipster is automatically configured to talk to it. 
+Sur Heroku, le [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai) est configuré en tant qu'add-on. JHipster est automatiquement configuré pour communiquer avec lui.
 
-Unfortunately, as of JHipster 7.9.3, Elasticsearch [doesn't work out of the box with Heroku](https://github.com/jhipster/generator-jhipster/issues/20315). To solve this, you can create a Docker image with Elasticsearch and deploy it to somewhere that can run it, or you can use Elastic Cloud. We don't automatically configure the [Elasticsearch Add-on](https://elements.heroku.com/addons/foundelasticsearch) because its cheapest plan is 67 USD/month and that seems a little expensive.
+Malheureusement, jusqu'à JHipster 7.9.3, Elasticsearch [ne fonctionne pas immédiatement avec Heroku](https://github.com/jhipster/generator-jhipster/issues/20315). Pour résoudre ce problème, vous pouvez créer une image Docker avec Elasticsearch et la déployer quelque part où vous pouvez l'exécuter, ou vous pouvez utiliser Elastic Cloud. Nous ne configurons pas automatiquement l'[Add-on Elasticsearch](https://elements.heroku.com/addons/foundelasticsearch) car son plan le moins cher est de 67 USD/mois et cela semble un peu cher.
 
-### Using Elastic Cloud
+### Utilisation d'Elastic Cloud
 
-You can [start a free trial](https://cloud.elastic.co/registration) on Elastic Cloud. After logging in, create a deployment. Use the default settings, select **7.17.7** as the version, and press **Create deployment**.
+Vous pouvez [démarrer un essai gratuit](https://cloud.elastic.co/registration) sur Elastic Cloud. Après vous être connecté, créez un déploiement. Utilisez les paramètres par défaut, sélectionnez **7.17.7** comme version, et appuyez sur **Create deployment**.
 
-**WARNING**: Using the latest version will result in an "Unable to parse response body" error.
+**ATTENTION** : Utiliser la dernière version entraînera une erreur "Unable to parse response body".
 
-Download your credentials from the next screen and click **Continue**. Then, select **Manage this deployment** from the menu and copy the Elasticsearch endpoint. 
+Téléchargez vos informations d'identification à partir de l'écran suivant et cliquez sur **Continue**. Ensuite, sélectionnez **Gérer ce déploiement** dans le menu et copiez l'URL de point de terminaison Elasticsearch.
 
-Set the credentials and endpoint URL as a new `ELASTIC_URL` environment variable on Heroku.
+Définissez les informations d'identification et l'URL de point de terminaison en tant que nouvelle variable d'environnement `ELASTIC_URL` sur Heroku.
 
 ```shell
 heroku config:set ELASTIC_URL=https://elastic:<password>@<endpoint-url>
 ```
 
-Then, modify `heroku.gradle` to remove the workaround for Bonsai (that no longer works) and update `application-heroku.yml` to use `ELASTIC_URL`:
+Ensuite, modifiez `heroku.gradle` pour supprimer la solution de contournement pour Bonsai (qui ne fonctionne plus) et mettez à jour `application-heroku.yml` pour utiliser `ELASTIC_URL` :
 
 ```yaml
 spring:
@@ -71,4 +71,4 @@ spring:
     uris: ${ELASTIC_URL}
 ```
 
-Redeploy your application to Heroku and everything should work as expected.
+Redéployez votre application sur Heroku et tout devrait fonctionner comme prévu.

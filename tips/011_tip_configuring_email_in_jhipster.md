@@ -1,37 +1,37 @@
 ---
 layout: default
-title: Configuring Email with - Gmail and more
+title: Configuration de l'e-mail avec - Gmail et plus encore
 sitemap:
 priority: 0.5
 lastmod: 2021-03-18T19:48:00-00:00
 ---
-# Configuring Email with - Gmail and more...
+# Configuration de l'e-mail avec - Gmail et plus...
 
-__Tip submitted by [@RawSanj](https://github.com/RawSanj)__
+__Conseil proposé par [@RawSanj](https://github.com/RawSanj)__
 
-_Goal:_ By the using below mail settings you will have the default JHipster application configured to send emails from Gmail, Outlook or Yahoo.
+_Objectif:_ En utilisant les paramètres de messagerie ci-dessous, vous aurez l'application JHipster par défaut configurée pour envoyer des e-mails depuis Gmail, Outlook ou Yahoo.
 
-Start by running JHipster with `jhipster` to create a new application or use an existing JHipster generated application.
+Commencez par exécuter JHipster avec `jhipster` pour créer une nouvelle application ou utilisez une application JHipster existante générée.
 
-## Configure 'from' address
+## Configurer l'adresse 'from'
 
-Open `src\main\resources\config\application.yml`, edit `jhipster.mail.from` property:
+Ouvrez `src\main\resources\config\application.yml`, éditez la propriété `jhipster.mail.from` :
 
 _application.yml_
     
     jhipster:
         [...]
         mail:
-            from: username@service_provider #Replace this field with the value that will be used for spring.mail.username
+            from: username@service_provider #Remplacez ce champ par la valeur qui sera utilisée pour spring.mail.username
         [...]
 
-Skipping this step will likely to result in your email is marked as spam.
+Omettre cette étape risque de faire en sorte que votre e-mail soit marqué comme spam.
 
-## Choose any of below Email Service for your Application :
+## Choisissez l'un des services de messagerie ci-dessous pour votre application :
 
-### 1. Email Config - Gmail
+### 1. Configuration de messagerie - Gmail
 
-Go into `src\main\resources\config\application-dev.yml` and change your application to use the below Gmail configuration:
+Allez dans `src\main\resources\config\application-dev.yml` et configurez votre application pour utiliser la configuration Gmail ci-dessous :
 
 _application-dev.yml_
 
@@ -41,8 +41,8 @@ _application-dev.yml_
         mail:
             host: smtp.gmail.com
             port: 587
-            username: gmailuserid@gmail.com  #Replace this field with your Gmail username.
-            password: ************           #Replace this field with your Gmail password/App password.
+            username: gmailuserid@gmail.com  #Remplacez ce champ par votre nom d'utilisateur Gmail.
+            password: ************           #Remplacez ce champ par votre mot de passe Gmail/mot de passe d'application.
             protocol: smtp
             tls: true
             properties.mail.smtp:
@@ -51,23 +51,23 @@ _application-dev.yml_
                 ssl.trust: smtp.gmail.com
             [...]
 
-If you use the above configuration with your Gmail password, you might need to [allow less secure apps](https://support.google.com/accounts/answer/6010255?hl=en). 
-The configuration is simpler but less secure. Also by allowing less secure apps you won't have the ability to use two factor
-authentication with Gmail. 
+Si vous utilisez la configuration ci-dessus avec votre mot de passe Gmail, vous devrez peut-être [autoriser les applications moins sécurisées](https://support.google.com/accounts/answer/6010255?hl=fr). 
+La configuration est plus simple mais moins sécurisée. De plus, en autorisant les applications moins sécurisées, vous ne pourrez pas utiliser l'authentification à deux facteurs
+avec Gmail. 
 
-Therefore we highly recommend you use an app password instead of the Gmail password. Please refer to the following Gmail
-configuration document for more information on how to set this up. 
+Nous vous recommandons donc vivement d'utiliser un mot de passe d'application au lieu du mot de passe Gmail. Veuillez vous référer au document de configuration Gmail suivant
+pour plus d'informations sur la configuration de cela. 
 
 [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833)
 
-This way you will be able to use two factor authentication as well as keep the "allow less secure apps" option off. You can also 
-use OAuth2 with Gmail and the configuration method is highlighted in the following document.
+De cette manière, vous pourrez utiliser l'authentification à deux facteurs ainsi que garder l'option "autoriser les applications moins sécurisées" désactivée. Vous pouvez également 
+utiliser OAuth2 avec Gmail et la méthode de configuration est mise en évidence dans le document suivant.
 
 [https://javaee.github.io/javamail/OAuth2](https://javaee.github.io/javamail/OAuth2)     
 
-### 2. Email Config - Outlook.com
+### 2. Configuration de messagerie - Outlook.com
 
-Go into `src\main\resources\config\application-dev.yml` and change your application to use the below Outlook configuration:
+Allez dans `src\main\resources\config\application-dev.yml` et configurez votre application pour utiliser la configuration Outlook ci-dessous :
 
 _application-dev.yml_
 
@@ -77,8 +77,8 @@ _application-dev.yml_
         mail:
             host: smtp-mail.outlook.com
             port: 587
-            username: outlookuserid@outlook.com  #Replace this field with your Outlook username.
-            password: ************               #Replace this field with your Outlook password.
+            username: outlookuserid@outlook.com  #Remplacez ce champ par votre nom d'utilisateur Outlook.
+            password: ************               #Remplacez ce champ par votre mot de passe Outlook.
             protocol: smtp
             tls: true
             properties.mail.smtp:
@@ -86,15 +86,15 @@ _application-dev.yml_
                 starttls.enable: true
                 ssl.trust: smtp-mail.outlook.com
             [...]
-__Note__ : If you want to send Email from a Corporate Outlook account then set `host` as the Microsoft Exchange Server of your company, for e.g. `emea.mycompany.com`. Also set `username` as Standard Id of the system provided by the company (Domain/Username) and `password` as your system password.
-For Corporate Outlook, `username` property in **spring.mail** must match the `from` property in **jhipster.mail**.
+__Note__ : Si vous souhaitez envoyer des e-mails depuis un compte professionnel Outlook, définissez `host` comme le serveur Microsoft Exchange de votre entreprise, par exemple `emea.monentreprise.com`. Définissez également `username` comme l'identifiant standard du système fourni par l'entreprise (Domaine/Identifiant) et `password` comme votre mot de passe système.
+Pour Outlook professionnel, la propriété `username` dans **spring.mail** doit correspondre à la propriété `from` dans **jhipster.mail**.
 
-___Tip___ : To find your `Microsoft Exchange Server` : Open Outlook > Click Tools > Click Account Settings... > Double Click on Microsoft Exchange (under Email tab) and copy the Microsoft Exchange Server address.
+___Conseil___ : Pour trouver votre `serveur Microsoft Exchange` : Ouvrez Outlook > Cliquez sur Outils > Cliquez sur Paramètres du compte... > Double-cliquez sur Microsoft Exchange (sous l'onglet Courrier) et copiez l'adresse du serveur Microsoft Exchange.
 
 
-### 3. Email Config - Yahoo
+### 3. Configuration de messagerie - Yahoo
 
-Go into `src\main\resources\config\application-dev.yml` and change your application to use the below Yahoo configuration:
+Allez dans `src\main\resources\config\application-dev.yml` et configurez votre application pour utiliser la configuration Yahoo ci-dessous :
 
 _application-dev.yml_
 
@@ -104,8 +104,8 @@ _application-dev.yml_
         mail:
             host: smtp.mail.yahoo.com
             port: 587
-            username: yahoouserid@yahoo.com  #Replace this field with your Yahoo username.
-            password: ************           #Replace this field with your Yahoo password.
+            username: yahoouserid@yahoo.com  #Remplacez ce champ par votre nom d'utilisateur Yahoo.
+            password: ************           #Remplacez ce champ par votre mot de passe Yahoo.
             protocol: smtp
             tls: true
             properties.mail.smtp:
@@ -116,14 +116,14 @@ _application-dev.yml_
 
     jhipster:       
         mail:
-            from: yahoouserid@gmail.com  #Replace this field with your Gmail username.
+            from: yahoouserid@gmail.com  #Remplacez ce champ par votre nom d'utilisateur Gmail.
             [...]
-__Note__ : For Yahoo Mail, `username` property in **spring.mail** must match the `from` property in **jhipster.mail**.
+__Note__ : Pour Yahoo Mail, la propriété `username` dans **spring.mail** doit correspondre à la propriété `from` dans **jhipster.mail**.
 
 
-### 4. Email Config - Zoho
+### 4. Configuration de messagerie - Zoho
 
-Go into `src\main\resources\config\application-dev.yml` and change your application to use the below Zoho configuration:
+Allez dans `src\main\resources\config\application-dev.yml` et configurez votre application pour utiliser la configuration Zoho ci-dessous :
 
 _application-dev.yml_
 
@@ -133,8 +133,8 @@ _application-dev.yml_
         mail:
             host: smtp.zoho.eu
             port: 587
-            username: zohouserid@zoho.com   #Replace this field with your Zoho username.
-            password: ************          #Replace this field with your Zoho password.
+            username: zohouserid@zoho.com   #Remplacez ce champ par votre nom d'utilisateur Zoho.
+            password: ************          #Remplacez ce champ par votre mot de passe Zoho.
             protocol: smtp
             tls: true
             properties.mail.smtp:
@@ -143,10 +143,9 @@ _application-dev.yml_
                 ssl.trust: smtp.zoho.eu
             [...]
 
+### 4. Configuration de messagerie - AWS SES
 
-### 4. Email Config - AWS SES
-
-Go into `src\main\resources\config\application-dev.yml` and change your application to use the below AWS SES configuration:
+Allez dans `src\main\resources\config\application-dev.yml` et configurez votre application pour utiliser la configuration AWS SES ci-dessous :
 
 _application-dev.yml_
 
@@ -168,8 +167,8 @@ _application-dev.yml_
                 auth: true
 
 
-*Similarly you can configure any other email service. Just check the SMTP Mail Server and Server Port of your Email Service and change the above fields accordingly*
+*De la même manière, vous pouvez configurer n'importe quel autre service de messagerie. Il vous suffit de vérifier le serveur de messagerie SMTP et le port de serveur de votre service de messagerie, puis de modifier les champs ci-dessus en conséquence.*
 
-___Now run your application! Go to Register Page, submit the form with a valid Email address and you should receive an Activation Email from the above configured Email Address.___
+___Exécutez maintenant votre application ! Accédez à la page d'inscription, soumettez le formulaire avec une adresse e-mail valide et vous devriez recevoir un e-mail d'activation de l'adresse e-mail configurée ci-dessus.___
 
-__Note__ : You can try sending test Emails with your credentials using [these examples](https://github.com/RawSanj/java-mail-clients).
+__Remarque__ : Vous pouvez essayer d'envoyer des e-mails de test avec vos identifiants en utilisant [ces exemples](https://github.com/RawSanj/java-mail-clients).

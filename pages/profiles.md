@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Profiles
+title: Profils
 permalink: /profiles/
 redirect_from:
   - /profiles.html
@@ -9,73 +9,73 @@ sitemap:
     lastmod: 2014-11-26T00:00:00-00:00
 ---
 
-# <i class="fa fa-group"></i> Profiles
+# <i class="fa fa-group"></i> Profils
 
-JHipster comes with two [Spring profiles](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html):
+JHipster est livré avec deux [profils Spring](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html):
 
-*   `dev` for development: it focuses on ease of development and productivity
-*   `prod` for production: it focuses on performance and scalability
+*   `dev` pour le développement : il se concentre sur la facilité de développement et la productivité
+*   `prod` pour la production : il se concentre sur les performances et la scalabilité
 
-Those profiles come in two different configurations:
+Ces profils se déclinent en deux configurations différentes :
 
-*   The Maven/Gradle profiles are used at build time. For example `./mvnw -Pprod package` or `./gradlew -Pprod bootJar` will package a production application.
-*   The Spring profiles work at run time. Some Spring beans will behave differently, depending on the profile.
+*   Les profils Maven/Gradle sont utilisés au moment de la construction. Par exemple, `./mvnw -Pprod package` ou `./gradlew -Pprod bootJar` empaquetera une application de production.
+*   Les profils Spring fonctionnent au moment de l'exécution. Certains beans Spring se comporteront différemment en fonction du profil.
 
-Spring profiles are set by Maven/Gradle, so we have a consistency between the two methods: you will have a `prod` profile on Maven/Gradle and Spring at the same time.
+Les profils Spring sont définis par Maven/Gradle, donc nous avons une cohérence entre les deux méthodes : vous aurez un profil `prod` sur Maven/Gradle et Spring en même temps.
 
-_Note:_ Spring profiles are used to configure the JHipster application properties, so you should be interested in reading our [common application properties documentation]({{ site.url }}/common-application-properties/).
+_Remarque :_ Les profils Spring sont utilisés pour configurer les propriétés de l'application JHipster, donc vous devriez être intéressé par la lecture de notre [documentation sur les propriétés d'application communes]({{ site.url }}/common-application-properties/).
 
-## By default, JHipster will use the `dev` profile
+## Par défaut, JHipster utilisera le profil `dev`
 
-If you run the application without Maven/Gradle, launch the "Application" class (you can probably run it directly from your IDE by right-clicking on it).
+Si vous exécutez l'application sans Maven/Gradle, lancez la classe "Application" (vous pouvez probablement l'exécuter directement depuis votre IDE en cliquant avec le bouton droit dessus).
 
-If you run the application with Maven, run `./mvnw` to use our Maven Wrapper, or `mvn` to use your own Maven installation.
+Si vous exécutez l'application avec Maven, exécutez `./mvnw` pour utiliser notre Maven Wrapper, ou `mvn` pour utiliser votre propre installation Maven.
 
-If you run the application with Gradle, run `./gradlew` to use our Gradle Wrapper, or `gradle` to use your own Gradle installation.
+Si vous exécutez l'application avec Gradle, exécutez `./gradlew` pour utiliser notre Gradle Wrapper, ou `gradle` pour utiliser votre propre installation Gradle.
 
-When using Angular 2+ and Maven if you need to do a clean run with webpack compilation enabled for `dev` profile you can pass the `webapp` param as below
+Lorsque vous utilisez Angular 2+ et Maven si vous avez besoin d'exécuter proprement avec la compilation webpack activée pour le profil `dev`, vous pouvez passer le paramètre `webapp` comme ci-dessous
 
   `./mvnw -Pdev,webapp`
 
-**Note** Gradle automatically runs webpack compilation in `dev` profile if front end has changed (only at start up, for live reload use `npm start`).
+**Notez** que Gradle lance automatiquement la compilation webpack en profil `dev` si le frontend a changé (uniquement au démarrage, pour le rechargement en direct utilisez `npm start`).
 
-## In production, JHipster has to run with the `prod` profile
+## En production, JHipster doit être exécuté avec le profil `prod`
 
-You can run JHipster in production directly using Maven or Gradle:
+Vous pouvez exécuter JHipster en production directement avec Maven ou Gradle :
 
-*   With Maven, run `./mvnw -Pprod` (or `mvn -Pprod`)
-*   With Gradle, run `./gradlew -Pprod` (or `gradle -Pprod`)
+*   Avec Maven, exécutez `./mvnw -Pprod` (ou `mvn -Pprod`)
+*   Avec Gradle, exécutez `./gradlew -Pprod` (ou `gradle -Pprod`)
 
-If you want to package your application as an executable WAR file, you should provide Maven or Gradle with a profile. E.g.,:
+Si vous souhaitez empaqueter votre application en tant que fichier WAR exécutable, vous devez fournir à Maven ou Gradle un profil. Par exemple :
 
-*   With Maven, run `./mvnw -Pprod package` (or `mvn -Pprod package`)
-*   With Gradle, run `./gradlew -Pprod bootJar` (or `gradle -Pprod bootJar`)
+*   Avec Maven, exécutez `./mvnw -Pprod package` (ou `mvn -Pprod package`)
+*   Avec Gradle, exécutez `./gradlew -Pprod bootJar` (ou `gradle -Pprod bootJar`)
 
-When you run your production application from a WAR file, the default is to use the same profile(s) as used during packaging. If you want to override this, you can explicitly provide an alternative in VM argument:
+Lorsque vous exécutez votre application de production à partir d'un fichier WAR, par défaut, vous utilisez les mêmes profil(s) que ceux utilisés lors de l'emballage. Si vous souhaitez remplacer cela, vous pouvez fournir explicitement une alternative en argument VM :
 
 *   `java -jar jhipster-0.0.1-SNAPSHOT.jar --spring.profiles.active=...`
 
-## Spring profiles switches
+## Commutateurs de profils Spring
 
-JHipster comes with three additional profiles used as switches:
+JHipster est livré avec trois profils supplémentaires utilisés comme commutateurs :
 
-*   `api-docs` to enable swagger
-*   `no-liquibase` to disable liquibase
-*   `tls` to enable TLS security and use the HTTP/2 protocol (see [the TLS and HTTP/2 documentation]({{ site.url }}/tls/))
+*   `api-docs` pour activer Swagger
+*   `no-liquibase` pour désactiver Liquibase
+*   `tls` pour activer la sécurité TLS et utiliser le protocole HTTP/2 (voir [la documentation sur le TLS et le HTTP/2]({{ site.url }}/tls/))
 
-These can be used along with both the `dev` and `prod` profiles. Please note that by default, the `api-docs` profile is not enabled in `prod` and enabled in `dev` by setting the `spring.profiles.group.dev` profile group property in `application.yml`.
+Ceux-ci peuvent être utilisés avec les profils `dev` et `prod`. Veuillez noter que par défaut, le profil `api-docs` n'est pas activé en `prod` et activé en `dev` en définissant la propriété de groupe de profil `spring.profiles.group.dev` dans `application.yml`.
 
-`api-docs`, `no-liquibase`, `tls` are only used at runtime:
+`api-docs`, `no-liquibase`, `tls` ne sont utilisés qu'au moment de l'exécution :
 
-*   In your IDE, run your main application class with `spring.profiles.active=dev,no-liquibase` (please note you need to include the `dev` or `prod` profile explicitly)
-*   With a packaged application: `./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod,no-liquibase`
+*   Dans votre IDE, exécutez votre classe d'application principale avec `spring.profiles.active=dev,no-liquibase` (veuillez noter que vous devez inclure explicitement le profil `dev` ou `prod`)
+*   Avec une application empaquetée : `./java -jar jhipster-0.0.1-SNAPSHOT.war --spring.profiles.active=prod,no-liquibase`
 
-With Maven, you can also use those profiles directly:
+Avec Maven, vous pouvez également utiliser ces profils directement :
 
 *   `./mvnw -Pprod,api-docs,no-liquibase`
 *   `./mvnw -Pdev,no-liquibase`
 
-With Gradle, you can also use those profiles directly:
+Avec Gradle, vous pouvez également utiliser ces profils directement :
 
 *   `./gradlew -Pprod -Papi-docs -Pno-liquibase`
 *   `./gradlew -Pno-liquibase`

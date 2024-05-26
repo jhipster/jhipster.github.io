@@ -1,18 +1,18 @@
 ---
 layout: default
-title: Release 0.0.28
+title: Version 0.0.28 publiée
 ---
 
-JHipster release 0.0.28
+Sortie de JHipster version 0.0.28
 ==================
 
 
-The Maven profiles named "development" and "production" have been renamed "dev" and "prod" so they are quicker to type.
+Les profils Maven nommés "development" et "production" ont été renommés "dev" et "prod" pour qu'ils soient plus rapides à taper.
 
-In "dev" mode, there shouldn't be anything new.
+En mode "dev", il ne devrait y avoir rien de nouveau.
 
-In "prod" mode, there are many new things:
+En mode "prod", il y a beaucoup de nouveautés :
 
-- A full "grunt build" is automatically triggered when you package the application
-- This will put a minified, optimized version of the static resources in "src/main/webapp/dist"
-- 2 new Servlet filters are activated: one is just used to serve the static content from the "/dist" directory, and the other adds HTTP headers so this content is cached
+- Un "grunt build" complet est automatiquement déclenché lors de l'emballage de l'application
+- Cela mettra une version minifiée et optimisée des ressources statiques dans "src/main/webapp/dist"
+- 2 nouveaux filtres Servlet sont activés : l'un est simplement utilisé pour servir le contenu statique du répertoire "/dist", et l'autre ajoute des en-têtes HTTP afin que ce contenu soit mis en cache

@@ -1,34 +1,35 @@
 ---
 layout: default
-title: JHipster v7 upgrade tips
+title: Conseils de mise à niveau vers JHipster v7
 sitemap:
 priority: 0.1
 lastmod: 2020-12-19T08:30:00-00:00
 ---
 
-# JHipster v7 upgrade tips
+# Conseils de mise à niveau vers JHipster v7
 
-**Tip submitted by [@kaidohallik](https://github.com/kaidohallik)**
+**Astuce soumise par [@kaidohallik](https://github.com/kaidohallik)**
 
-## **Prettier for HTML**
+## **Prettier pour HTML**
 
-We have enabled Prettier for HTML. You can run Prettier with html enabled before upgrading and commit changes to Git to see real changes in HTML files after upgrade.
+Nous avons activé Prettier pour HTML. Vous pouvez exécuter Prettier avec HTML activé avant de mettre à niveau et valider les modifications dans Git pour voir les véritables changements dans les fichiers HTML après la mise à niveau.
 
-## **Translation directive change in Angular client**
+## **Changement de directive de traduction dans le client Angular**
 
-We have moved `jhiTranslate` directive from [ng-jhipster](https://github.com/jhipster/ng-jhipster/blob/main/src/language/jhi-translate.directive.ts) to generated application. If you have different `jhiPrefix` than `jhi` then you may want to replace all `jhiTranslate` with `yourprefixTranslate` and commit changes to Git before upgrade to reduce changes shown after upgrade.
+Nous avons déplacé la directive `jhiTranslate` de [ng-jhipster](https://github.com/jhipster/ng-jhipster/blob/main/src/language/jhi-translate.directive.ts) vers l'application générée. Si vous avez un `jhiPrefix` différent de `jhi`, vous pouvez remplacer tous les `jhiTranslate` par `yourprefixTranslate` et valider les changements dans Git avant la mise à niveau pour réduire les modifications affichées après la mise à niveau.
 
-## **Files renamed in Angular client**
+## **Fichiers renommés dans le client Angular**
 
-In Angular client a lot of files renamed and tests moved next to files they are testing.
+Dans le client Angular, de nombreux fichiers ont été renommés et les tests ont été déplacés à côté des fichiers qu'ils testent.
 
-In [manual upgrade]({{ site.url }}/upgrading-an-application/#manual_upgrade) instructions page is section **Hints about renamed files** - this can help in upgrading.
+Dans la page des instructions de [mise à niveau manuelle]({{ site.url }}/upgrading-an-application/#manual_upgrade), il y a une section **Conseils sur les fichiers renommés** - cela peut aider à la mise à niveau.
 
-If the previous hint did not give a satisfactory result then you can do before upgrade:
-* move renamed files to their final location
-* commit changes after that
+Si le conseil précédent n'a pas donné un résultat satisfaisant, vous pouvez effectuer les étapes suivantes avant la mise à niveau :
+* Déplacer les fichiers renommés vers leur emplacement final
+* Valider les modifications après cela
 
-### Helper node script for moving entity files
+
+### Script NodeJS d'aide pour déplacer les fichiers d'entité
 ```node
 const fs = require('fs');
 const path = require('path');
@@ -99,7 +100,7 @@ moveEntityFilesToV7Location('appPath');
 // moveEntityFilesToV7Location(folder);
 ```
 
-### Helper node script for moving main files
+### Script NodeJS d'aide pour déplacer les fichiers principaux
 ```node
 const fs = require('fs');
 const path = require('path');
@@ -185,7 +186,7 @@ moveMainFilesToV7Location('appPath');
 // moveMainFilesToV7Location(folder);
 ```
 
-### Helper script to copy tests next to files they test
+### Script d'aide pour copier les tests à côté des fichiers qu'ils testent
 
 ```node
 const fs = require('fs');

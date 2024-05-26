@@ -1,21 +1,21 @@
 ---
 layout: default
-title: Release 0.1.0
+title: Version 0.1.0 publiée
 ---
 
-JHipster release 0.1.0
+Sortie de JHipster version 0.1.0
 ==================
 
-JHipster now has a new home on [{{ site.url }}/]({{ site.url }}/)!
+JHipster a maintenant un nouveau domicile sur [{{ site.url }}/]({{ site.url }}/) !
 
-We have also moved the JHipster github repository to the newly created JHipster GitHub organization:
+Nous avons également déplacé le dépôt GitHub de JHipster vers la toute nouvelle organisation GitHub JHipster créée :
 
 [https://github.com/jhipster](https://github.com/jhipster)
 
-So please:
+Alors, veuillez :
 
-- Update your bookmarks
-- If you have forked JHipster, update your remote origin:
+- Mettre à jour vos favoris
+- Si vous avez forké JHipster, mettez à jour votre origine distante :
 
 ```
 git remote set-url origin https://github.com/jhipster/generator-jhipster.git

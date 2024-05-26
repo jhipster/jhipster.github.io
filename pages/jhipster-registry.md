@@ -1,189 +1,189 @@
 ---
 layout: default
-title: JHipster Registry
+title: Registre JHipster
 permalink: /jhipster-registry/
 sitemap:
     priority: 0.7
     lastmod: 2019-02-01T00:00:00-00:00
 ---
 
-# <i class="fa fa-dashboard"></i> The JHipster Registry (**deprecated** - Use Consul instead)
+# <i class="fa fa-dashboard"></i> Le registre JHipster (**obsolète** - Utilisez Consul à la place)
 
-## Overview
+## Aperçu
 
-The JHipster Registry is a runtime application, provided by the JHipster team. Like the JHipster generator, it is an Open Source, Apache 2-licensed application, and its source code is available on GitHub under the JHipster organization at [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry).
+Le registre JHipster est une application en cours d'exécution, fournie par l'équipe JHipster. Comme le générateur JHipster, c'est une application Open Source, sous licence Apache 2, et son code source est disponible sur GitHub sous l'organisation JHipster à l'adresse [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry).
 
-The JHipster Registry has three main purposes:
+Le registre JHipster a trois objectifs principaux :
 
-- It is a [Eureka server](https://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html), that provides as a discovery server for applications. This server maintains and distributes a dynamic list of available application instances that are then used by the microservices to do HTTP requests routing and load balancing.
-- It is a [Spring Cloud Config server](https://cloud.spring.io/spring-cloud-config/spring-cloud-config.html), that provide runtime configuration to all applications.
-- It is an administration server, with dashboards to monitor and manage applications.
+- Il s'agit d'un serveur [Eureka](https://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html) qui sert de serveur de découverte pour les applications. Ce serveur maintient et distribue une liste dynamique des instances d'application disponibles, utilisées ensuite par les microservices pour le routage des requêtes HTTP et l'équilibrage de charge.
+- Il s'agit d'un serveur de configuration Spring Cloud Config, qui fournit une configuration à toutes les applications.
+- Il s'agit d'un serveur d'administration, avec des tableaux de bord pour surveiller et gérer les applications.
 
-All those features are packaged into one convenient application with a modern Angular-based user interface.
+Toutes ces fonctionnalités sont regroupées dans une application pratique avec une interface utilisateur moderne basée sur Angular.
 
 ![]({{ site.url }}/images/jhipster-registry-animation.gif)
 
-## Summary
+## Sommaire
 
 1. [Installation](#installation)
-2. [Service discovery with Eureka](#eureka)
-3. [Application configuration with Spring Cloud Config](#spring-cloud-config)
-4. [Administration dashboards](#dashboards)
-5. [Securing the JHipster Registry](#security)
+2. [Découverte de service avec Eureka](#eureka)
+3. [Configuration d'application avec Spring Cloud Config](#spring-cloud-config)
+4. [Tableaux de bord d'administration](#dashboards)
+5. [Sécurisation du registre JHipster](#security)
 
 <h2 id="installation">Installation</h2>
 
-### Spring profiles
+### Profils Spring
 
-The JHipster Registry uses the usual JHipster `dev` and `prod` Spring profiles, as well as the standard `composite` from Spring Cloud Config (See [official documentation](https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_server.html#composite-environment-repositories)).
+Le registre JHipster utilise les profils Spring `dev` et `prod` habituels, ainsi que le profil `composite` standard de Spring Cloud Config (Voir [documentation officielle](https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_server.html#composite-environment-repositories)).
 
-As a result:
+En conséquence :
 
-- Using the `dev` profile will run the JHipster Registry with the `dev` and the `composite` profiles. The `dev` profile will load the Spring Cloud configuration from the filesystem, looking for the `central-config` directory, which is relative to the running directory, defined in `src/main/resources/config/bootstrap.yml` file.
-- Using the `prod` profile will run the JHipster Registry with the `prod` and the `composite` profiles. The `prod` profile will load the Spring Cloud configuration from a Git repository, which is by default [https://github.com/jhipster/jhipster-registry-sample-config](https://github.com/jhipster/jhipster-registry-sample-config). In a real-world usage, this repository should be changed, either by reconfiguring it in the `src/main/resources/config/bootstrap-prod.yml` file, or by reconfiguring the `spring.cloud.config.server.composite` Spring property.
+- L'utilisation du profil `dev` exécutera le registre JHipster avec les profils `dev` et `composite`. Le profil `dev` chargera la configuration Spring Cloud à partir du système de fichiers, en recherchant le répertoire `central-config`, qui est relatif au répertoire en cours d'exécution, défini dans le fichier `src/main/resources/config/bootstrap.yml`.
+- L'utilisation du profil `prod` exécutera le registre JHipster avec les profils `prod` et `composite`. Le profil `prod` chargera la configuration Spring Cloud à partir d'un dépôt Git, qui est par défaut [https://github.com/jhipster/jhipster-registry-sample-config](https://github.com/jhipster/jhipster-registry-sample-config). Dans une utilisation réelle, ce dépôt devrait être modifié, soit en le reconfigurant dans le fichier `src/main/resources/config/bootstrap-prod.yml`, soit en reconfigurant la propriété Spring `spring.cloud.config.server.composite`.
 
-Once the JHipster Registry is running, you can check its configuration in the `Configuration > Cloud Config` menu. Please note that if you can't log in, it might be because the JWT signature key is not correctly set up, which is a sign that your configuration isn't good.
+Une fois le registre JHipster en cours d'exécution, vous pouvez vérifier sa configuration dans le menu `Configuration > Cloud Config`. Veuillez noter que si vous ne pouvez pas vous connecter, cela peut être dû à une configuration incorrecte de la clé de signature JWT, ce qui est un signe que votre configuration n'est pas bonne.
 
-### Using the pre-packaged JAR file
+### Utilisation du fichier JAR pré-emballé
 
-The JHipster Registry is available as an executable JAR file on our [Releases page](https://github.com/jhipster/jhipster-registry/releases).
+Le registre JHipster est disponible sous forme de fichier JAR exécutable sur notre [page des versions](https://github.com/jhipster/jhipster-registry/releases).
 
-Download the JAR file, and run it as a usual JHipster application, using the profile you want to use (see the previous section about profiles). For example, to run it using a Spring Cloud Config configuration stored in the `central-config` directory:
+Téléchargez le fichier JAR et exécutez-le comme une application JHipster habituelle, en utilisant le profil que vous souhaitez utiliser (voir la section précédente sur les profils). Par exemple, pour l'exécuter en utilisant une configuration Spring Cloud Config stockée dans le répertoire `central-config` :
 
     java -jar jhipster-registry-<version>.jar --spring.security.user.password=admin --jhipster.security.authentication.jwt.secret=my-secret-key-which-should-be-changed-in-production-and-be-base64-encoded --spring.cloud.config.server.composite.0.type=native --spring.cloud.config.server.composite.0.search-locations=file:./central-config
 
-Note that it is important to provide a JWT secret key to the registry on startup, either via the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_SECRET` environment variable or with arguments as shown above. Another possible way is to set this value in the `application.yml` file of your centralized configuration source (which is loaded on startup by all your applications including the registry).
+Veuillez noter qu'il est important de fournir une clé secrète JWT au registre au démarrage, soit via la variable d'environnement `JHIPSTER_SECURITY_AUTHENTICATION_JWT_SECRET`, soit avec des arguments comme indiqué ci-dessus. Une autre façon possible est de définir cette valeur dans le fichier `application.yml` de votre source de configuration centralisée (qui est chargée au démarrage par toutes vos applications, y compris le registre).
 
-Please note that since JHipster 5.3.0 we have a new `jhipster.security.authentication.jwt.base64-secret` property, which is more secure, but as you might still use older releases
-we use `jhipster.security.authentication.jwt.secret` in this documentation. More information on those properties is available in our [security documentation]({{ site.url }}/security/).
+Veuillez noter que depuis JHipster 5.3.0, nous avons une nouvelle propriété `jhipster.security.authentication.jwt.base64-secret`, qui est plus sécurisée, mais comme vous pourriez encore utiliser des versions plus anciennes
+nous utilisons `jhipster.security.authentication.jwt.secret` dans cette documentation. Plus d'informations sur ces propriétés sont disponibles dans notre [documentation sur la sécurité]({{ site.url }}/security/).
 
-Similarly, to run the registry with the `prod` profile, adapt the arguments to your setup, for example:
+De même, pour exécuter le registre avec le profil `prod`, adaptez les arguments à votre configuration, par exemple :
 
     java -jar jhipster-registry-<version>.jar --spring.profiles.active=prod --spring.security.user.password=admin --jhipster.security.authentication.jwt.secret=my-secret-key-which-should-be-changed-in-production-and-be-base64-encoded --spring.cloud.config.server.composite.0.type=git --spring.cloud.config.server.composite.0.uri=https://github.com/jhipster/jhipster-registry-sample-config
 
     java -jar jhipster-registry-<version>.jar --spring.profiles.active=prod --spring.security.user.password=admin --jhipster.security.authentication.jwt.secret=my-secret-key-which-should-be-changed-in-production-and-be-base64-encoded --spring.cloud.config.server.composite.0.type=git --spring.cloud.config.server.composite.0.uri=https://github.com/jhipster/jhipster-registry --spring.cloud.config.server.composite.0.search-paths=central-config
 
-### Building from source
+### Compilation à partir des sources
 
-The JHipster Registry can be cloned/forked/downloaded directly from [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry). As the JHipster Registry is also a JHipster-generated application, you can run it like any other JHipster application:
+Le registre JHipster peut être cloné/forké/téléchargé directement depuis [jhipster/jhipster-registry](https://github.com/jhipster/jhipster-registry). Comme le registre JHipster est également une application générée par JHipster, vous pouvez l'exécuter comme n'importe quelle autre application JHipster :
 
-- run it in development with `./mvnw` (for the Java server) and `npm start` (for managing the front-end), it will use by default the `dev` profile and it will be available at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
-- use `./mvnw -Pprod package` to package it in production, and generate the usual JHipster executable JAR file. You can then run the JAR file using the `dev` or `prod` Spring profile, for example: `java -jar jhipster-registry-<version>.jar --spring.profiles.active=prod`
+- exécutez-le en développement avec `./mvnw` (pour le serveur Java) et `npm start` (pour gérer l'interface frontale), il utilisera par défaut le profil `dev` et sera disponible à [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
+- utilisez `./mvnw -Pprod package` pour le mettre en production et générer le fichier JAR exécutable JHipster habituel. Vous pouvez ensuite exécuter le fichier JAR en utilisant le profil Spring `dev` ou `prod`, par exemple : `java -jar jhipster-registry-<version>.jar --spring.profiles.active=prod`
 
-Please note that to use the `dev` and `composite` profile, you need to have a `central-config` directory with your configuration, so if you run `java -jar jhipster-registry-<version>.jar --spring.profiles.active=dev`, you need to have that directory set up.
+Veuillez noter que pour utiliser les profils `dev` et `composite`, vous devez avoir un répertoire `central-config` avec votre configuration, donc si vous exécutez `java -jar jhipster-registry-<version>.jar --spring.profiles.active=dev`, vous devez avoir ce répertoire configuré.
 
-### Using Docker
+### Utilisation de Docker
 
-If you'd rather run the JHipster Registry from a Docker image, it is available on Docker Hub at [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry/). A docker-compose file to run this image is already present within each microservice `src/main/docker` directory:
+Si vous préférez exécuter le Registre JHipster à partir d'une image Docker, elle est disponible sur Docker Hub à [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry/). Un fichier docker-compose pour exécuter cette image est déjà présent dans le répertoire `src/main/docker` de chaque microservice :
 
-- run `docker-compose -f src/main/docker/jhipster-registry.yml up` to start the JHipster Registry. It will be available on port `8761` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
+- exécutez `docker-compose -f src/main/docker/jhipster-registry.yml up` pour démarrer le Registre JHipster. Il sera disponible sur le port `8761` de votre hôte Docker, donc s'il s'exécute sur votre machine, il devrait être à [http://127.0.0.1:8761/](http://127.0.0.1:8761/).
 
-Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/) for more information on using the JHipster Registry with Docker Compose.
+Veuillez lire notre [documentation sur Docker Compose]({{ site.url }}/docker-compose/) pour plus d'informations sur l'utilisation du Registre JHipster avec Docker Compose.
 
-### Running in the cloud
+### Exécution dans le cloud
 
-You can run a JHipster Registry instance in the cloud. This is mandatory in production, but this can also be useful in development (there is no need to run it on your laptop).
+Vous pouvez exécuter une instance du Registre JHipster dans le cloud. C'est obligatoire en production, mais cela peut également être utile en développement (il n'est pas nécessaire de l'exécuter sur votre ordinateur portable).
 
-Please read [the "microservices in production" documentation]({{ site.url }}/microservices-in-production/) to learn how to deploy the JHipster Registry to Cloud Foundry or to Heroku.
+Veuillez lire [la documentation sur les "microservices en production"]({{ site.url }}/microservices-in-production/) pour apprendre comment déployer le Registre JHipster sur Cloud Foundry ou sur Heroku.
 
-<h2 id="eureka">Service discovery with Eureka</h2>
+<h2 id="eureka">Découverte de services avec Eureka</h2>
 
 ![]({{ site.url }}/images/jhipster-registry-eureka.png)
 
-The JHipster Registry is a [Netflix Eureka server](https://github.com/Netflix/eureka), that provides service discovery for all applications.
+Le Registre JHipster est un [serveur Eureka de Netflix](https://github.com/Netflix/eureka), qui fournit la découverte de services pour toutes les applications.
 
-- This is very useful for microservices architectures: this is how the gateways know which microservices are available, and which instances are up
-- For all applications, including monoliths, this is how the Hazelcast distributed cache can automatically scale, see [the Hazelcast cache documentation]({{ site.url }}/using-cache/)
+- Ceci est très utile pour les architectures de microservices : c'est ainsi que les passerelles savent quels microservices sont disponibles et quels sont les instances en cours
+- Pour toutes les applications, y compris les monolithes, c'est ainsi que le cache distribué Hazelcast peut s'adapter automatiquement, voir [la documentation sur le cache Hazelcast]({{ site.url }}/using-cache/)
 
-<h2 id="spring-cloud-config">Application configuration with Spring Cloud Config</h2>
+<h2 id="spring-cloud-config">Configuration d'application avec Spring Cloud Config</h2>
 
 ![]({{ site.url }}/images/jhipster-registry-spring-cloud-config.png)
 
-The JHipster Registry is a [Spring Config Server](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html): when applications are launched they will first connect to the JHipster Registry to get their configuration. This is true for both gateways and microservices.
+Le Registre JHipster est un [Serveur de configuration Spring Config](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html) : lorsque les applications sont lancées, elles se connectent d'abord au Registre JHipster pour obtenir leur configuration. Cela est vrai à la fois pour les passerelles et les microservices.
 
-This configuration is a Spring Boot configuration, like the one found in the JHipster `application-*.yml` files, but it is stored in a central server, so it is easier to manage.
+Cette configuration est une configuration Spring Boot, comme celle trouvée dans les fichiers `application-*.yml` de JHipster, mais elle est stockée dans un serveur central, ce qui la rend plus facile à gérer.
 
-On startup, your gateways and microservices app will query the Registry's config server and overwrite their local properties with the ones defined there.
+Au démarrage, vos applications de passerelle et de microservices interrogeront le serveur de configuration du Registre et écraseront leurs propriétés locales par celles définies là-bas.
 
-Two kinds of configurations sources are available (defined by the `spring.cloud.config.server.composite` property):
+Deux types de sources de configuration sont disponibles (définies par la propriété `spring.cloud.config.server.composite`):
 
-- A `native` configuration, which is used by default in development (using the JHipster `dev` profile), and which uses the local filesystem.
-- A `Git` configuration, which is used by default in production (using the JHipster `prod` profile), and which stores the configuration in a Git server. This allows to tag, branch or rollback configurations using the usual Git tools, which are very powerful in this use-case.
+- Une configuration `native`, qui est utilisée par défaut en développement (en utilisant le profil `dev` de JHipster), et qui utilise le système de fichiers local.
+- Une configuration `Git`, qui est utilisée par défaut en production (en utilisant le profil `prod` de JHipster), et qui stocke la configuration dans un serveur Git. Cela permet de marquer, brancher ou annuler les configurations en utilisant les outils Git habituels, qui sont très puissants dans ce cas d'utilisation.
 
-To manage your centralized configuration you need to add `appname-profile.yml` files in your configuration source where **appname** and **profile** correspond to the application's name and current profile of the service that you want to configure.
-For example, adding properties in a `gateway-prod.yml` file will set those properties only for the application named **gateway** started with a **prod** profile. Moreover, properties defined in `application[-dev|prod].yml` will be set for all your applications.
+Pour gérer votre configuration centralisée, vous devez ajouter des fichiers `appname-profile.yml` dans votre source de configuration où **appname** et **profile** correspondent au nom de l'application et au profil actuel du service que vous souhaitez configurer.
+Par exemple, en ajoutant des propriétés dans un fichier `gateway-prod.yml` définira ces propriétés uniquement pour l'application nommée **gateway** démarrée avec un profil **prod**. De plus, les propriétés définies dans `application[-dev|prod].yml` seront définies pour toutes vos applications.
 
-As the Gateway routes are configured using Spring Boot, they can also be managed using the Spring Config Server, for example you could map application `app1-v1` to the `/app1` URL in your `v1` branch, and map application `app1-v2` to the `/app1` URL in your `v2` branch. This is a good way of upgrading microservices without any downtime for end-users.
+Comme les routes de la passerelle sont configurées à l'aide de Spring Boot, elles peuvent également être gérées à l'aide du Serveur de configuration Spring, par exemple vous pourriez mapper l'application `app1-v1` sur l'URL `/app1` dans votre branche `v1`, et mapper l'application `app1-v2` sur l'URL `/app1` dans votre branche `v2`. C'est une bonne façon de mettre à niveau les microservices sans aucune interruption pour les utilisateurs finaux.
 
-<h2 id="encryption">Using encrypted configuration values</h2>
+<h2 id="encryption">Utilisation de valeurs de configuration chiffrées</h2>
 
-The JHipster Registry has a specific `configuration > encryption` page to allow encryption and decryption of configuration values.
+Le Registre JHipster dispose d'une page spécifique de `configuration > encryption` pour permettre le chiffrement et le déchiffrement des valeurs de configuration.
 
-To encrypt configuration values (for example, database passwords) you need to:
+Pour chiffrer les valeurs de configuration (par exemple, les mots de passe de base de données), vous devez :
 
-- download the [JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) and install it by following the instructions in the downloaded files (this is only required if you are using the Oracle JDK).
-- set the `encrypt.key` property in `bootstrap.yml` (not `application.yml`) or use the `ENCRYPT_KEY` environment variable with your symmetric key passphrase.
+- téléchargez le [JCE](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) et installez-le en suivant les instructions figurant dans les fichiers téléchargés (ceci est uniquement nécessaire si vous utilisez le JDK Oracle).
+- définissez la propriété `encrypt.key` dans `bootstrap.yml` (et non pas dans `application.yml`) ou utilisez la variable d'environnement `ENCRYPT_KEY` avec votre phrase secrète de clé symétrique.
 
-If everything is setup correctly, you should be able to use the specific `Configuration > Encryption` page, and also send POST requests to `/config/encrypt` and `/config/decrypt` endpoints with the text you want to manipulate in the `body` of the requests.
+Si tout est configuré correctement, vous devriez pouvoir utiliser la page spécifique `Configuration > Encryption` et également envoyer des requêtes POST aux points de terminaison `/config/encrypt` et `/config/decrypt` avec le texte que vous souhaitez manipuler dans le `corps` des requêtes.
 
-For example: `curl localhost:8761/config/encrypt -d mypassword`
+Par exemple : `curl localhost:8761/config/encrypt -d mypassword`
 
-The cipher text must be placed in any `*.yml` configuration file, in the form `password= '{cipher}myciphertextafterencryotion'` and it will be decrypted by the config server before sending it to its clients. This way your configuration files (stored in Git or stored "natively" on your filesystem) do not have plain text values.
+Le texte chiffré doit être placé dans n'importe quel fichier de configuration `*.yml`, sous la forme `password= '{cipher}myciphertextafterencryotion'` et il sera déchiffré par le serveur de configuration avant d'être envoyé à ses clients. De cette façon, vos fichiers de configuration (stockés dans Git ou stockés "nativement" sur votre système de fichiers) n'auront pas de valeurs en texte brut.
 
-For more information, please refer to Spring Cloud Config's [Encryption and Decryption documentation](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html#_encryption_and_decryption).
+Pour plus d'informations, veuillez vous référer à la [documentation sur le chiffrement et le déchiffrement](http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html#_encryption_and_decryption) de Spring Cloud Config.
 
-<h2 id="dashboards">Administration dashboards</h2>
+<h2 id="dashboards">Tableaux de bord d'administration</h2>
 
-The JHipster Registry provides administration dashboards, which are used for all application types. As soon as an application registers on the Eureka server, it will become available in the dashboards.
+Le Registre JHipster fournit des tableaux de bord d'administration, qui sont utilisés pour tous les types d'applications. Dès qu'une application s'enregistre sur le serveur Eureka, elle devient disponible dans les tableaux de bord.
 
-In order to access sensitive information from the applications, the JHipster Registry will use a JWT token (this is why the JHipster Registry only works for applications using JWT). The JWT key used to sign the request should be the same for the applications and the JHipster Registry: as by default the JHipster Registry configures applications through Spring Cloud Config, this should work out-of-the-box, as it will send the same key to all applications.
+Pour accéder aux informations sensibles des applications, le Registre JHipster utilisera un jeton JWT (c'est pourquoi le Registre JHipster ne fonctionne que pour les applications utilisant JWT). La clé JWT utilisée pour signer la requête doit être la même pour les applications et le Registre JHipster : comme par défaut le Registre JHipster configure les applications via Spring Cloud Config, cela devrait fonctionner directement, car il enverra la même clé à toutes les applications.
 
-### The metrics dashboard
+### Le tableau de bord des métriques
 
 ![]({{ site.url }}/images/jhipster-registry-metrics.png)
 
-The metrics dashboard uses Micrometer to give a detailed view of the application performance.
+Le tableau de bord des métriques utilise Micrometer pour donner une vue détaillée des performances de l'application.
 
-It gives metrics on:
+Il fournit des métriques sur :
 
-- the JVM
-- HTTP requests
-- cache usage
-- database connection pool
+- le JVM
+- les requêtes HTTP
+- l'utilisation du cache
+- le pool de connexions de base de données
 
-By clicking on the Expand button next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
+En cliquant sur le bouton d'extension à côté des métriques des threads JVM, vous obtiendrez une trace de la pile de l'application en cours d'exécution, ce qui est très utile pour identifier les threads bloqués.
 
-Note: As we switched the JHipster Registry to monitor metrics coming from Micrometer instead of Dropwizard metrics, it implies that all JHipster application generated with version 5.7.2 or older should be migrated to Micrometer to be monitored with the JHipster Registry. If you don't want to migrate your applications, please use JHipster Registry v4.0.6 or older.
+Remarque : Comme nous avons basculé le Registre JHipster pour surveiller les métriques provenant de Micrometer au lieu des métriques Dropwizard, cela implique que toutes les applications JHipster générées avec la version 5.7.2 ou antérieure doivent être migrées vers Micrometer pour être surveillées avec le Registre JHipster. Si vous ne souhaitez pas migrer vos applications, veuillez utiliser le Registre JHipster v4.0.6 ou une version antérieure.
 
-To migrate your applications, you can use the [JHipster upgrade sub-generator]({{ site.url }}/upgrading-an-application/).
+Pour migrer vos applications, vous pouvez utiliser le [sous-générateur de mise à niveau de JHipster]({{ site.url }}/upgrading-an-application/).
 
-### The health dashboard
+### Le tableau de bord de santé
 
 ![]({{ site.url }}/images/jhipster-registry-health.png)
 
-The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. 
-Many health checks are provided out-of-the-box by Spring Boot Actuator, and you can add application-specific health checks.
+Le tableau de bord de santé utilise le point de terminaison de santé de Spring Boot Actuator pour fournir des informations sur l'état de santé de diverses parties de l'application. 
+De nombreux contrôles de santé sont fournis en standard par Spring Boot Actuator, et vous pouvez ajouter des contrôles de santé spécifiques à l'application.
 
-### The configuration dashboard
+### Le tableau de bord de configuration
 
 ![]({{ site.url }}/images/jhipster-registry-configuration.png)
 
-The configuration dashboard uses Spring Boot Actuator's configuration endpoint to give a full view of the Spring configuration of the current application.
+Le tableau de bord de configuration utilise le point de terminaison de configuration de Spring Boot Actuator pour donner une vue complète de la configuration Spring de l'application actuelle.
 
-### The logs dashboard
+### Le tableau de bord des journaux
 
 ![]({{ site.url }}/images/jhipster-registry-logs.png)
 
-The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
-You can change the log level of Java package by clicking on a button, which is very convenient both in development and in production.
+Le tableau de bord des journaux permet de gérer à l'exécution la configuration Logback de l'application en cours d'exécution. 
+Vous pouvez changer le niveau de journalisation du package Java en cliquant sur un bouton, ce qui est très pratique aussi bien en développement qu'en production.
 
-<h2 id="security">Securing the JHipster Registry</h2>
+<h2 id="security">Sécurisation du Registre JHipster</h2>
 
-The JHipster Registry is secured by default. You can login using the usual "admin/admin" login and password that are used in normal JHipster applications.
+Le Registre JHipster est sécurisé par défaut. Vous pouvez vous connecter en utilisant les identifiants habituels "admin/admin" qui sont utilisés dans les applications JHipster normales.
 
-Applications also connect to the JHipster Registry using that same "admin" user, but use HTTP Basic authentication. So if your microservices cannot access the registry, and you see some "401 authentication error" messages, it is because you have misconfigured those applications.
+Les applications se connectent également au Registre JHipster en utilisant le même utilisateur "admin", mais utilisent l'authentification de base HTTP. Donc si vos microservices ne peuvent pas accéder au registre et que vous voyez des messages d'erreur "401 authentication error", c'est parce que vous avez mal configuré ces applications.
 
-In order to secure your JHipster Registry:
+Pour sécuriser votre Registre JHipster :
 
-- You must change the default "admin" password. This password is set using the standard Spring Boot property `spring.security.user.password`, so you can use the usual Spring Boot mechanisms to modify it: you could modify the project's `application-*.yml` files, or add a `SPRING_SECURITY_USER_PASSWORD` environment variable. The [Docker Compose sub-generator]({{ site.url }}/docker-compose/) uses the environment variable method.
-- As your applications will connect to the registry using HTTP, it is very important to secure that connection channel. There are many ways to do it, and the easiest one is probably to use HTTPS.
+- Vous devez changer le mot de passe "admin" par défaut. Ce mot de passe est défini en utilisant la propriété standard de Spring Boot `spring.security.user.password`, donc vous pouvez utiliser les mécanismes standard de Spring Boot pour le modifier : vous pourriez modifier les fichiers `application-*.yml` du projet, ou ajouter une variable d'environnement `SPRING_SECURITY_USER_PASSWORD`. Le [sous-générateur de Docker Compose]({{ site.url }}/docker-compose/) utilise la méthode de la variable d'environnement.
+- Comme vos applications se connecteront au registre en utilisant HTTP, il est très important de sécuriser ce canal de connexion. Il existe de nombreuses façons de le faire, et la plus simple est probablement d'utiliser HTTPS.

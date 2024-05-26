@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Kafka
+title: Utilisation de Kafka
 permalink: /using-kafka/
 redirect_from:
   - /using_kafka.html
@@ -9,32 +9,32 @@ sitemap:
     lastmod: 2019-10-30T00:00:00-00:00
 ---
 
-# <i class="fa fa-envelope"></i> Using Kafka
+# <i class="fa fa-envelope"></i> Utilisation de Kafka
 
-## Features
+## Fonctionnalités
 
-[Kafka](http://kafka.apache.org/) is a popular publish-subscribe messaging system. JHipster has an optional support for Kafka, that will:
+[Kafka](http://kafka.apache.org/) est un système de messagerie de type publier-souscrire très populaire. JHipster propose un support optionnel pour Kafka, qui va :
 
-- Configure [Kafka clients](https://docs.confluent.io/5.3.1/clients/consumer.html#java-client) with JHipster.
-- Add the necessary configuration in the `application-*.yml`
-- Generate a Docker Compose configuration file, so Kafka is usable by typing `docker-compose -f src/main/docker/kafka.yml up -d`.
+- Configurer les [clients Kafka](https://docs.confluent.io/5.3.1/clients/consumer.html#java-client) avec JHipster.
+- Ajouter la configuration nécessaire dans les fichiers `application-*.yml`.
+- Générer un fichier de configuration Docker Compose, afin que Kafka soit utilisable en tapant `docker-compose -f src/main/docker/kafka.yml up -d`.
 
-## Prerequisite
+## Prérequis
 
-Generate a new application and make sure to select `Asynchronous messages using Apache Kafka` when prompted for technologies you would like to use. A Docker Compose configuration file is generated and you can start Kafka with the command:
+Générez une nouvelle application et assurez-vous de sélectionner `Asynchronous messages using Apache Kafka` lorsque vous êtes invité à choisir les technologies que vous souhaitez utiliser. Un fichier de configuration Docker Compose est généré et vous pouvez démarrer Kafka avec la commande :
 
 `docker-compose -f src/main/docker/kafka.yml up -d`
 
-## Consumer and Producer
+## Consommateur et Producteur
 
-A consumer (`<appName>KafkaConsumer` class) is running and can be adapted to your needs.
+Un consommateur (classe `<nomApplication>KafkaConsumer`) est en cours d'exécution et peut être adapté à vos besoins.
 
-A producer (`<appName>KafkaProducer` class) is also available and can be called through a REST endpoint (`<appName>KafkaResource class`).
+Un producteur (classe `<nomApplication>KafkaProducer`) est également disponible et peut être appelé via un point de terminaison REST (classe `<nomApplication>KafkaResource`).
 
-## Running the app
+## Exécution de l'application
 
-Allow access to the endpoint in `SecurityConfiguration.java`:
+Autorisez l'accès au point de terminaison dans `SecurityConfiguration.java` :
 
-`.antMatchers("/api/<appName>-kafka/publish").permitAll()`
+`.antMatchers("/api/<nomApplication>-kafka/publish").permitAll()`
 
-If you invoke the endpoint `http://localhost:8080/api/<appName>-kafka/publish?message=...`, you should see the message logged to the console.
+Si vous invoquez le point de terminaison `http://localhost:8080/api/<nomApplication>-kafka/publish?message=...`, vous devriez voir le message enregistré dans la console.

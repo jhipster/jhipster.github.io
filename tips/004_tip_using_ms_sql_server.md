@@ -5,28 +5,29 @@ sitemap:
     priority: 0.1
     lastmod: 2016-12-01T00:00:00-00:00
 ---
-# How to use JHipster with MS SQL Server
 
-__Tip submitted by [@Zyst](https://github.com/Zyst)__
+# Comment utiliser JHipster avec MS SQL Server
 
-#### MSSQL Support has been added to the generator since this [pull request #4589](https://github.com/jhipster/generator-jhipster/pull/4589), so you don't need to do any specific configuration anymore!
+__Conseil soumis par [@Zyst](https://github.com/Zyst)__
 
-_Goal:_ By the end of this tutorial you will have the default JHipster application running on your SQL Server, with everything being functional.
+#### La prise en charge de MSSQL a été ajoutée au générateur depuis cette [pull request #4589](https://github.com/jhipster/generator-jhipster/pull/4589), donc vous n'avez plus besoin de faire de configuration spécifique !
 
-Start by running JHipster normally with `jhipster`, select the options to use token based authentication, SQL, MySQL as the dev. database, MySQL as the prod. database, Yes with ehcache, No Elasticsearch, No clustered HTTP, No Websockets, Maven, Grunt, and no Sass.
+_Objectif :_ À la fin de ce tutoriel, vous aurez l'application JHipster par défaut fonctionnant sur votre SQL Server, avec tout fonctionnel.
 
-We then add the MS SQL Server JDBC dependency to the project `pom.xml` file.
+Commencez par exécuter JHipster normalement avec `jhipster`, sélectionnez les options pour utiliser l'authentification basée sur le token, SQL, MySQL comme base de données de développement, MySQL comme base de données de production, Oui avec ehcache, Non Elasticsearch, Non HTTP clusterisé, Non Websockets, Maven, Grunt, et pas de Sass.
+
+Nous ajoutons ensuite la dépendance JDBC MS SQL Server au fichier `pom.xml` du projet.
 
 _pom.xml_
 
     [...]
-    <!-- Microsoft JDBC -->
+    <!-- JDBC Microsoft -->
     <dependency>
         <groupId>com.microsoft.sqlserver</groupId>
         <artifactId>sqljdbc41</artifactId>
         <version>4.1</version>
     </dependency>
-    <!-- Liquibase MS SQL Server extensions -->
+    <!-- Extensions Liquibase MS SQL Server -->
     <dependency>
         <groupId>com.github.sabomichal</groupId>
         <artifactId>liquibase-mssql</artifactId>
@@ -34,13 +35,13 @@ _pom.xml_
     </dependency>
     [...]
 
-I am using Sql JDBC 4.1, and already have it installed to my personal repository, but if you do not this will not work without some further configuration, check out [this](https://stackoverflow.com/questions/30207842/add-external-library-jar-to-spring-boot-jar-internal-lib) stackoverflow question for further reference.
+J'utilise Sql JDBC 4.1, et je l'ai déjà installé dans mon dépôt personnel, mais si vous ne l'avez pas, cela ne fonctionnera pas sans une configuration supplémentaire, consultez [cette](https://stackoverflow.com/questions/30207842/add-external-library-jar-to-spring-boot-jar-internal-lib) question stackoverflow pour plus de références.
 
-The Liquibase MS SQL Server extension allows you to do some neat stuff we will be using later on in this tutorial.
+L'extension Liquibase MS SQL Server vous permet de faire des choses intéressantes que nous utiliserons plus tard dans ce tutoriel.
 
-##Database modification
+## Modification de la base de données
 
-Go into `src\main\resources\config\application-dev.yml` and change your application to use the new datasource, and your Hibernate configuration to use the SQL Server dialect as seen below:
+Allez dans `src\main\resources\config\application-dev.yml` et changez votre application pour utiliser la nouvelle source de données, et votre configuration Hibernate pour utiliser le dialecte SQL Server comme ci-dessous :
 
 _application-dev.yml_
 
@@ -67,9 +68,9 @@ _application-dev.yml_
             generate-ddl: false
             [...]
 
-This assuming your database is called `test`, change your connection url as necessary.
+Cela suppose que votre base de données s'appelle `test`, changez votre URL de connexion si nécessaire.
 
-Now go into `*\src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml` and at the top of the file change the following properties:
+Maintenant, allez dans `*\src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml` et en haut du fichier, changez les propriétés suivantes :
 
 _00000000000000_initial_schema.xml_
 
@@ -89,7 +90,7 @@ _00000000000000_initial_schema.xml_
         </changeSet>
         [...]
 
-First, make sure you changed your xml databaseChangeLog property to include the ext. Now inside `src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml` find the data entries and change them:
+Assurez-vous d'avoir modifié la propriété xml databaseChangeLog pour inclure ext. Maintenant, à l'intérieur de `src\main\resources\config\liquibase\changelog\00000000000000_initial_schema.xml`, trouvez les entrées de données et changez-les :
 
 _00000000000000_initial_schema.xml_
 
@@ -114,6 +115,6 @@ _00000000000000_initial_schema.xml_
                   tableName="JHI_USER_AUTHORITY"
                   identityInsertEnabled="true" />
 
-Adding the `identityInsertEnabled="true"` is the same as wrapping your Inserts with `IDENTITY_INSERT ON` and `IDENTITY_INSERT OFF` which will allow you to insert the project autogenerated identities directly. This is why we are using the MS SQL Server Liquibase for.
+Ajouter `identityInsertEnabled="true"` est la même chose que d'envelopper vos Inserts avec `IDENTITY_INSERT ON` et `IDENTITY_INSERT OFF` ce qui vous permettra d'insérer directement les identités générées par le projet. C'est pourquoi nous utilisons Liquibase MS SQL Server.
 
-Now try running your application! Everything should be working and you should be on your way to continue using your JHipster application with SQL Server.
+Maintenant, essayez de lancer votre application ! Tout devrait fonctionner et vous devriez être sur la bonne voie pour continuer à utiliser votre application JHipster avec SQL Server.

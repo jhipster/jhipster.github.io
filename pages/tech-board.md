@@ -1,42 +1,42 @@
 ---
 layout: default
-title: JHipster Tech board
+title: Conseil technologique de JHipster
 permalink: /tech-board/
 sitemap:
     priority: 0.7
     lastmod: 2021-03-31T00:00:00-00:00
 ---
 
-# Technology Advisory Board
+# Conseil Technologique
 
-JHipster is supported by a technical board that ensures the platform continues to reflect and serve its diverse and growing user community. 
-The Board discusses and makes recommendations regarding the roadmap and technical directions.
+JHipster est soutenu par un conseil technique qui veille à ce que la plateforme continue de refléter et de servir sa communauté d'utilisateurs diversifiée et croissante.
+Le Conseil discute et fait des recommandations concernant la feuille de route et les orientations techniques.
 
-The meetings review and advise on industry trends, market strategy, project strategy and roadmap, ecosystem development.
+Les réunions examinent et conseillent sur les tendances de l'industrie, la stratégie de marché, la stratégie et la feuille de route du projet, le développement de l'écosystème.
 
-This board helps the project by giving advice and feedback on how the project and the related technologies are going.
-For the same reason, the board helps target incoming technologies and help to build the future of the project.
+Ce conseil aide le projet en donnant des conseils et des retours d'expérience sur la manière dont le projet et les technologies connexes évoluent.
+Pour la même raison, le conseil aide à cibler les technologies entrantes et contribue à construire l'avenir du projet.
 
-In the end, this should help the project to raise resources to make those choices real by focusing on specific features, helps on finding new contributors, and advertise on the next project decisions…
+En fin de compte, cela devrait aider le projet à mobiliser des ressources pour concrétiser ces choix en se concentrant sur des fonctionnalités spécifiques, en aidant à trouver de nouveaux contributeurs et en faisant de la publicité sur les prochaines décisions du projet...
 
-The decisions and materials produced by the committee are public and used to benefit the community rather than private interests.
+Les décisions et les documents produits par le comité sont publics et utilisés au bénéfice de la communauté plutôt que des intérêts privés.
 
-The board meets quarterly, with the ability to meet more frequently if needed.
+Le conseil se réunit tous les trimestres, avec la possibilité de se réunir plus fréquemment si nécessaire.
 
-## Board Membership
+## Composition du Conseil
 
-Current members:
+Membres actuels :
 * Julien Dubois (Microsoft)
 * Deepu K Sasidharan (Okta)
 * Matt Raible
 * Paul Hinz
 * Alina Yurenko (Oracle)
 
-The members are chosen by the project leaders and should come from:
-* representative industry companies and leaders
-* representative organisations that use JHipster
-* open-source project leaders
-* community and technology leaders
-* people from academia
+Les membres sont choisis par les leaders du projet et devraient provenir de :
+* entreprises et leaders de l'industrie représentatifs
+* organisations représentatives qui utilisent JHipster
+* leaders de projets open-source
+* leaders communautaires et technologiques
+* personnes issues du monde académique
 
-If you are interested to be part of this technical board, please contact us.
+Si vous êtes intéressé à faire partie de ce conseil technique, veuillez nous contacter.

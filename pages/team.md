@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Team
+title: Equipe
 permalink: /team/
 redirect_from:
   - /team.html
@@ -9,22 +9,22 @@ sitemap:
   lastmod: 2023-12-19T17:10:00-00:00
 ---
 
-# <i class="fa fa-coffee"></i> Team
+# <i class="fa fa-coffee"></i> Equipe
 
-JHipster is developed by a team of people around the world. We have a lot of contributors ([top 100 list here](https://github.com/jhipster/generator-jhipster/graphs/contributors)), but members of the core team are listed here.
+JHipster est développé par une équipe de personnes du monde entier. Nous avons de nombreux contributeurs ([liste des 100 principaux ici](https://github.com/jhipster/generator-jhipster/graphs/contributors)), mais les membres de l'équipe principale sont listés ici.
 
-If you want to join the team, or see how we work, our community rules are at the end of this page.
+Si vous souhaitez rejoindre l'équipe ou voir comment nous travaillons, nos règles communautaires se trouvent à la fin de cette page.
 
-## JHipster Governance Structure
+## Structure de gouvernance de JHipster
 
-JHipster is an open-source project, and we have a governance structure to ensure that the project is well maintained and that the community is well served. The governance structure is as follows:
+JHipster est un projet open source, et nous avons une structure de gouvernance pour garantir que le projet est bien maintenu et que la communauté est bien servie. La structure de gouvernance est la suivante :
 
-- **[JHipster Developer Association](https://www.jhipster.tech/association/#-jhipster-developers-association)**: A French non-profit association (“Association loi 1901”) which serves as a legal entity for JHipster events and services.
-- **Governing Body**: Advisory body overseeing all projects under the JHipster organizations and JHipster Developer Association. The Governing Body is responsible for the overall direction of the project.
-- **Project Leads**: Leads are responsible for the day-to-day management of the project. Leads have admin rights and are responsible for releases.
-- **Board of Developers**: The core team of developers who have write access to the main repository and have voting rights when it comes to project decisions.
+- **[Association des développeurs JHipster](https://www.jhipster.tech/association/#-jhipster-developers-association)** : Une association à but non lucratif française (« Association loi 1901 ») qui sert d'entité légale pour les événements et services JHipster.
+- **Organe directeur** : Organe consultatif supervisant tous les projets sous les organisations JHipster et l'Association des développeurs JHipster. L'organe directeur est responsable de l'orientation générale du projet.
+- **Chefs de projet** : Les chefs de projet sont responsables de la gestion quotidienne du projet. Ils ont des droits d'administration et sont responsables des publications.
+- **Conseil des développeurs** : L'équipe principale de développeurs qui ont accès en écriture au dépôt principal et ont des droits de vote lorsqu'il s'agit de décisions relatives au projet.
 
-## Governing Body
+## Organe directeur
 
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -32,7 +32,7 @@ JHipster is an open-source project, and we have a governance structure to ensure
             <img src="https://avatars.githubusercontent.com/u/316835?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Julien Dubois</h3>
-                <p>Founder and Chair, President of JHipster Developer Association</p>
+                <p>Fondateur et président, président de l'Association des développeurs JHipster</p>
                 <p><a href="https://twitter.com/juliendubois"><i>@juliendubois</i></a></p>
             </div>
         </div>
@@ -42,7 +42,7 @@ JHipster is an open-source project, and we have a governance structure to ensure
             <img src="https://avatars.githubusercontent.com/u/1107223?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Deepu K Sasidharan</h3>
-                <p>Co-Chair, Vice President of JHipster Developer Association</p>
+                <p>Co-président, vice-président de l'Association des développeurs JHipster</p>
                 <p><a href="https://twitter.com/deepu105"><i>@deepu105</i></a></p>
             </div>
         </div>
@@ -52,14 +52,14 @@ JHipster is an open-source project, and we have a governance structure to ensure
             <img src="https://avatars.githubusercontent.com/u/9156882?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Pascal Grimaud</h3>
-                <p>Co-Chair, Vice President of JHipster Developer Association</p>
+                <p>Co-président, vice-président de l'Association des développeurs JHipster</p>
                 <p><a href="https://twitter.com/pascalgrimaud"><i>@pascalgrimaud</i></a></p>
             </div>
         </div>
     </div>
 </div>
 
-## Project leads
+## Chefs de projet
 
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -94,7 +94,7 @@ JHipster is an open-source project, and we have a governance structure to ensure
     </div>
 </div>
 
-## Board of developers
+## Conseil d'administration des développeurs
 
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -345,9 +345,10 @@ JHipster is an open-source project, and we have a governance structure to ensure
 
 ## JHipster streams
 
-JHipster supports a wide range of technology choices for your application and as it keeps growing we have come up with technology streams with specific leads to ensure smooth maintenance of the particular technology. Everything else will be lead by project leads.
+JHipster prend en charge un large éventail de choix technologiques pour votre application et à mesure qu'il continue de croître, nous avons mis en place des flux de technologie avec des responsables spécifiques pour garantir la maintenance fluide de la technologie particulière. Tout le reste sera dirigé par les chefs de projet.
 
-The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/1fac4Uxv3bKr0rNmgg1WXv67CE_6nfHEPIuCp-_iU-uA/edit?usp=sharing)
+La feuille de calcul mise à jour peut être trouvée [ici](https://docs.google.com/spreadsheets/d/1fac4Uxv3bKr0rNmgg1WXv67CE_6nfHEPIuCp-_iU-uA/edit?usp=sharing)
+
 
 | Stream                              | Leader             |
 | ----------------------------------- | ------------------ |
@@ -378,7 +379,7 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
 | Cassandra                           | Cedrick Lunven     |
 | OpenAPI                             | Christophe Bornet  |
 
-## Retired members of the board of developers
+## Membres retraités du conseil d'administration des développeurs
 
 <div class="row">
     <div class="col-xs-3 team-member">
@@ -491,52 +492,52 @@ The updated spreadsheet can be found [here](https://docs.google.com/spreadsheets
     </div>
 </div>
 
-# Where does the development team work?
+# Où travaille l'équipe de développement ?
 
-We do most of our work on [the project's GitHub page](https://github.com/jhipster/generator-jhipster).
+Nous effectuons la plupart de notre travail sur [la page GitHub du projet](https://github.com/jhipster/generator-jhipster).
 
-Internal team discussions happen in the following channels:
+Les discussions internes de l'équipe se déroulent dans les canaux suivants :
 
-- The [jhipster-dev mailing list](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)
-- The [jhipster-dev-team Gitter chat](https://gitter.im/jhipster/jhipster-dev-team)
+- La [liste de diffusion jhipster-dev](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev)
+- Le [chat Gitter de l'équipe de développement jhipster-dev-team](https://gitter.im/jhipster/jhipster-dev-team)
 
-Those discussion channels are publicly viewable, as everything we do in JHipster is public, but only the board of developers can participate. The mailing list archives can be found on the [Google groups page](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev) and the [chat archives](https://gitter.im/jhipster/jhipster-dev-team/archives/all) are available on Gitter.
+Ces canaux de discussion sont consultables publiquement, car tout ce que nous faisons dans JHipster est public, mais seuls les membres du conseil des développeurs peuvent y participer. Les archives de la liste de diffusion peuvent être consultées sur la [page des groupes Google](https://groups.google.com/forum/?hl=en#!forum/jhipster-dev) et les [archives de discussion](https://gitter.im/jhipster/jhipster-dev-team/archives/all) sont disponibles sur Gitter.
 
-# How to join the board of developers?
+# Comment rejoindre le conseil des développeurs ?
 
-- Participate regularly in the project (commits, PRs, etc)
-- Ask someone from the current board, with some bio and background information, and that person will submit a vote on the dev mailing list
-- Everybody on the dev mailing list can vote (+1 if they agree, -1 if they don’t)
-  - One “-1” vote will decline adding the new member, but the person who votes “-1” will need to explain why
+- Participer régulièrement au projet (commits, PR, etc.)
+- Demander à quelqu'un du conseil actuel, avec une biographie et des informations de base, et cette personne soumettra un vote sur la liste de diffusion des développeurs
+- Tout le monde sur la liste de diffusion des développeurs peut voter (+1 s'ils sont d'accord, -1 s'ils ne le sont pas)
+  - Un vote "-1" refusera l'ajout du nouveau membre, mais la personne qui vote "-1" devra expliquer pourquoi
 
-# What do people in the board of developers gain?
+# Que gagnent les membres du conseil des développeurs ?
 
-- Write access to the main repository, and to most of the projects under the [JHipster organization](https://github.com/jhipster).
-- Costs associated with the project (for example travel costs to come to a JHipster conference) can be paid by [our OpenCollective account](https://opencollective.com/generator-jhipster). This depends on the money available on the account,
-  and this is decided and validated by the project leads.
-- Free licenses and free quotas that the project regularly gets from friendly companies.
+- Accès en écriture au dépôt principal et à la plupart des projets sous [l'organisation JHipster](https://github.com/jhipster).
+- Les coûts associés au projet (par exemple, les frais de déplacement pour venir à une conférence JHipster) peuvent être payés par [notre compte OpenCollective](https://opencollective.com/generator-jhipster). Cela dépend de l'argent disponible sur le compte,
+  et cela est décidé et validé par les chefs de projet.
+- Licences gratuites et quotas gratuits que le projet reçoit régulièrement de sociétés amies.
 
-# Who are the "retired members of the board of developers"?
+# Qui sont les "membres retraités du conseil des développeurs" ?
 
-JHipster is an Open Source project, we don't ask anything from our members: they can leave the project or stop contributing at any time. But as members of the board have more rights than other people (including write access to the project), we need them to be active.
+JHipster est un projet open source, nous ne demandons rien à nos membres : ils peuvent quitter le projet ou cesser de contribuer à tout moment. Mais comme les membres du conseil ont plus de droits que les autres personnes (y compris l'accès en écriture au projet), nous avons besoin qu'ils soient actifs.
 
-Board members will therefore become "retired" if:
+Les membres du conseil deviendront donc "retraités" si :
 
-- They tell us they want to leave the project
-- They don't contribute to the project for 2 years
+- Ils nous disent qu'ils veulent quitter le projet
+- Ils ne contribuent pas au projet pendant 2 ans
 
-Contributions are across the entire `jhipter` and `hipster-labs` organizations, and include:
+Les contributions concernent l'ensemble des organisations `jhipter` et `hipster-labs`, et comprennent :
 
 - Commits
-- Comments on issues/PR, responses to mailing list questions, activity on social media (Twitter, Gitter, Stack Overflow, Reddit, etc) related to JHipster
-- Project maintenance (triage, PR reviews & merge, cleanup of issues, releases, project planning)
+- Commentaires sur les problèmes/PR, réponses aux questions de la liste de diffusion, activité sur les médias sociaux (Twitter, Gitter, Stack Overflow, Reddit, etc.) liée à JHipster
+- Maintenance du projet (triage, revues de PR & merge, nettoyage des problèmes, versions, planification du projet)
 - CI/CD
-- Marketing & advocacy (Promoting a JHipster project on social media, conference talks, blogs, books, trainings, etc)
+- Marketing et plaidoyer (Promotion d'un projet JHipster sur les médias sociaux, conférences, blogs, livres, formations, etc.)
 
-Every year the team leads make a list of "inactive members" and send an official email to ask them if they want to retire. Then 3 cases can happen:
+Chaque année, les chefs d'équipe établissent une liste des "membres inactifs" et envoient un e-mail officiel pour leur demander s'ils veulent prendre leur retraite. Ensuite, 3 cas peuvent se produire :
 
-1. The contributor agrees to retire.
-2. The contributor wants to stay in the team and tries to participate in any capacity possible. If the same person comes up in the inactive list twice in a row (inactive for 2 years) then that person is retired.
-3. The contributor doesn't reply for 5 weeks, then this person is retired.
+1. Le contributeur accepte de prendre sa retraite.
+2. Le contributeur souhaite rester dans l'équipe et tente de participer dans la mesure du possible. Si la même personne apparaît dans la liste inactive deux fois de suite (inactive pendant 2 ans), cette personne est retirée.
+3. Le contributeur ne répond pas pendant 5 semaines, alors cette personne est retirée.
 
-"Retired" member can become active members again, if they contribute back to the project and get elected again. They will have an advantage over other contributors, as they already know the team.
+Le membre "retraité" peut redevenir membre actif, s'il contribue de nouveau au projet et est élu à nouveau. Ils auront un avantage sur les autres contributeurs, car ils connaissent déjà l'équipe.

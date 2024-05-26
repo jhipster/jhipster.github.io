@@ -1,25 +1,24 @@
 ---
 layout: default
-title: Static API documentation
+title: Documentation API statique
 sitemap:
 priority: 0.5
 lastmod: 2015-07-31T18:40:00-00:00
 ---
 
-# Static API documentation with Swagger2Markup
+# Documentation API statique avec Swagger2Markup
 
-__Tip submitted by [@atomfrede](https://github.com/atomfrede)__
+__Conseil soumis par [@atomfrede](https://github.com/atomfrede)__
 
-> You should use the new [swagger2markup](https://github.com/atomfrede/generator-jhipster-swagger2markup) module instead of following this tip! See the [JHipster Marketplace](https://www.jhipster.tech/modules/marketplace/) for details about the module system.
+> Vous devriez utiliser le nouveau module [swagger2markup](https://github.com/atomfrede/generator-jhipster-swagger2markup) au lieu de suivre ce conseil ! Consultez le [Marketplace JHipster](https://www.jhipster.tech/modules/marketplace/) pour plus de détails sur le système de modules.
 
-If you want to generate static API documentation (and combine it with hand-written documentation), [Swagger2Markup](https://swagger2markup.readme.io/) provides an easy way to combine auto-generated API documentation produced by
-Swagger with hand-written documentation into an up-to-date, easy-to-read, on- and offline user guide in HTML, PDF and EPUB.
+Si vous souhaitez générer une documentation API statique (et la combiner avec une documentation écrite à la main), [Swagger2Markup](https://swagger2markup.readme.io/) fournit un moyen facile de combiner la documentation API auto-générée produite par Swagger avec une documentation écrite à la main dans un guide utilisateur à jour, facile à lire, en ligne et hors ligne, en HTML, PDF et EPUB.
 
-## Add required dependencies, plugins and test class
+## Ajouter les dépendances, plugins et classe de test requis
 
 ### Maven
 
-Add the following to your project dependencies:
+Ajoutez ce qui suit aux dépendances de votre projet :
 
     <dependency>
         <groupId>io.springfox</groupId>
@@ -28,7 +27,7 @@ Add the following to your project dependencies:
         <scope>test</scope>
     </dependency>
 
-Add the following to the plugin section:
+Ajoutez ce qui suit à la section des plugins :
 
     <plugin>
       <groupId>org.asciidoctor</groupId>
@@ -77,7 +76,7 @@ Add the following to the plugin section:
       </configuration>
     </plugin>
 
-In `src/test/rest` create a new class called `Swagger2MarkupTest`:
+Dans `src/test/rest`, créez une nouvelle classe appelée `Swagger2MarkupTest` :
 
     @RunWith(SpringJUnit4ClassRunner.class)
     @SpringApplicationConfiguration(classes = Application.class)
@@ -119,20 +118,20 @@ In `src/test/rest` create a new class called `Swagger2MarkupTest`:
 
 ### Gradle
 
-Add the following dependency to your project dependencies:
+Ajoutez la dépendance suivante aux dépendances de votre projet :
 
     testCompile group: 'io.springfox', name:'springfox-staticdocs', version: springfox_version
 
-Add the following to your build script dependencies:
+Ajoutez ce qui suit aux dépendances de votre script de construction :
 
     classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.2'
     classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.8'
 
-Apply the `asciidoctor convert` plugin:
+Appliquez le plugin `asciidoctor convert` :
 
     apply plugin: 'org.asciidoctor.convert'
 
-Add the following to generate HTML and PDF:
+Ajoutez ce qui suit pour générer HTML et PDF :
 
     ext {
         generatedAsciidoc = file("${buildDir}/docs/asciidoc/generated")
@@ -156,7 +155,8 @@ Add the following to generate HTML and PDF:
         ]
     }
 
-In `src/test/rest` create a new class called `Swagger2MarkupTest`:
+
+Dans `src/test/rest` créez une nouvelle classe appelée `Swagger2MarkupTest`:
 
     @RunWith(SpringJUnit4ClassRunner.class)
     @SpringApplicationConfiguration(classes = Application.class)
@@ -196,20 +196,20 @@ In `src/test/rest` create a new class called `Swagger2MarkupTest`:
         }
     }
 
-## Create index.adoc file
+## Créez le fichier index.adoc
 
-Create `index.adoc` in `src/docs/asciidoc` with following content:
+Créez `index.adoc` dans `src/docs/asciidoc` avec le contenu suivant :
 
     include::{generated}/overview.adoc[]
     include::{generated}/paths.adoc[]
     include::{generated}/definitions.adoc[]
 
-## Generate static documentation
+## Générez la documentation statique
 
-Your static documentation is generated during the test phase of your project. You find it in `src/target/docs/html` or `build/asciidoc/html5`.
+Votre documentation statique est générée pendant la phase de test de votre projet. Vous la trouverez dans  `src/target/docs/html` ou `build/asciidoc/html5`.
 
-![Example documentation](../images/008_tips_static_swagger_docs_01.png)
+![Exemple de documentation](../images/008_tips_static_swagger_docs_01.png)
 
-## More
+## Plus
 
-For more information (e.g. how to add hand-written documentation) see the [official reference documentation](https://swagger2markup.readme.io/).
+Pour plus d'informations (par exemple, comment ajouter une documentation écrite à la main), consultez la [documentation de référence officielle](https://swagger2markup.readme.io/).

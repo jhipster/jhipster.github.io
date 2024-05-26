@@ -1,25 +1,25 @@
 ---
 layout: default
-title: How to connect PGAdmin (PostgreSQL) to Heroku
+title: Comment connecter PGAdmin (PostgreSQL) à Heroku
 sitemap:
 priority: 0.1
 lastmod: 2018-10-15T18:20:00-00:00
 ---
-# How to connect PGAdmin (PostgreSQL) to Heroku
+# Comment connecter PGAdmin (PostgreSQL) à Heroku
 
-__Tip submitted by [@Tonterias](https://github.com/Tonterias)__
+__Astuce soumise par [@Tonterias](https://github.com/Tonterias)__
 
-May be you need to use PGAdmin to load your Heroku database with test data.
+Vous aurez peut-être besoin d'utiliser PGAdmin pour charger votre base de données Heroku avec des données de test.
 
-Follow the steps:
+Suivez les étapes :
 
-First, use the data from your Database Credentials at your Heroku Account to fill the Create a New Server PGAdmin's form:
+Tout d'abord, utilisez les données de vos identifiants de base de données dans votre compte Heroku pour remplir le formulaire Créer un nouveau serveur de PGAdmin :
 
-![Example documentation](../images/028_tip_pgadmin_heroku_01.png)
+![Exemple de documentation](../images/028_tip_pgadmin_heroku_01.png)
 
-![Example documentation](../images/028_tip_pgadmin_heroku_02.png)
+![Exemple de documentation](../images/028_tip_pgadmin_heroku_02.png)
 
-Then, you will have to configure that information in your application-prod.yml:
+Ensuite, vous devrez configurer ces informations dans votre fichier application-prod.yml :
 
 /src/main/resources/config/application-prod.yml
 
@@ -37,7 +37,7 @@ Then, you will have to configure that information in your application-prod.yml:
             hikari:
                 auto-commit: false
 
-You will get the data from the Database Credentials of your Heroku Account (as in this other example):
+Vous obtiendrez les données des identifiants de base de données de votre compte Heroku (comme dans cet autre exemple) :
 
     Host : ec2-50-17-250-38.compute-1.amazonaws.com
     Database : d5u8osf3cgtlg
@@ -48,6 +48,6 @@ You will get the data from the Database Credentials of your Heroku Account (as i
     @ec2-50-17-250-38.compute-1.amazonaws.com:5432/d5u8osf3cgtlg
     Heroku CLI : heroku pg:psql postgresql-trapezoidal-20780 --app jhipster-press-08
 
-You just have to connect to your database and test it with a sql command at the PGAdmin query window.
+Il vous suffit de vous connecter à votre base de données et de la tester avec une commande SQL dans la fenêtre de requête de PGAdmin.
 
-NOTE: Here is a video that shows this process: https://www.youtube.com/watch?v=GAHsl0AfK-0
+REMARQUE : Voici une vidéo qui montre ce processus : https://www.youtube.com/watch?v=GAHsl0AfK-0

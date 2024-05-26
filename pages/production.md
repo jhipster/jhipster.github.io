@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using JHipster in production
+title:  Utiliser JHipster en production
 permalink: /production/
 redirect_from:
   - /production.html
@@ -9,55 +9,54 @@ sitemap:
     lastmod: 2021-03-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-play-circle"></i> Using JHipster in production
+# <i class="fa fa-play-circle"></i> Utiliser JHipster en production
 
-JHipster generates a fully production-ready, optimized and secured application. This section describes the more important options - if you are in hurry, run a normal production build, but don't forget to read the security section!
+JHipster génère une application entièrement prête pour la production, optimisée et sécurisée. Cette section décrit les options les plus importantes - si vous êtes pressé, exécutez une construction de production normale, mais n'oubliez pas de lire la section sur la sécurité !
 
-1. [Building a production package](#build)
-2. [Running in production](#run)
-3. [Performance optimizations](#performance)
-4. [Security](#security)
-5. [Monitoring](#monitoring)
+1. [Construction d'un package de production](#build)
+2. [Exécution en production](#run)
+3. [Optimisations des performances](#performance)
+4. [Sécurité](#security)
+5. [Surveillance](#monitoring)
 
-<h2 id="build">Building a production package</h2>
+<h2 id="build">Construction d'un package de production</h2>
 
-### Testing a production build
+### Tester une construction de production
 
-This allows to test a production build from Maven, without building a real package.
+Cela permet de tester une construction de production à partir de Maven, sans construire un package réel.
 
-To use JHipster in "production" mode, use the pre-configured `prod` profile. With Maven, please run:
+Pour utiliser JHipster en mode "production", utilisez le profil préconfiguré `prod`. Avec Maven, veuillez exécuter :
 
 `./mvnw -Pprod`
 
-When using Gradle, please run:
+Lorsque vous utilisez Gradle, veuillez exécuter :
 
 `./gradlew -Pprod`
 
-This profile will compile, test and package your application with all productions settings.
+Ce profil compilera, testera et emballera votre application avec tous les paramètres de production.
 
-If you want more information on the available profiles, please go the section titled "[Development and Production profiles]({{ site.url }}/profiles/)".
+Si vous souhaitez plus d'informations sur les profils disponibles, veuillez consulter la section intitulée "[Profils de développement et de production]({{ site.url }}/profiles/)".
 
-### Building an executable JAR / WAR file
+### Construction d'un fichier JAR / WAR exécutable
 
-#### With Maven
+#### Avec Maven
 
-- To package the application as a "production" JAR, please type:
+- Pour empaqueter l'application en tant que JAR "production", veuillez taper :
 
     `./mvnw -Pprod clean verify`
 
-    This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
+    Cela générera un fichier `target/jhipster-0.0.1-SNAPSHOT.jar` (si votre application s'appelle "jhipster").
 
+- Pour empaqueter l'application en tant que WAR "production" :
 
-- To package the application as a "production" WAR:
-
-    - Modify the `pom.xml` to change the application packaging to `war` like:
+    - Modifiez le `pom.xml` pour changer l'emballage de l'application en `war` comme suit :
 
     ```diff
     -    <packaging>jar</packaging>
     +    <packaging>war</packaging>
     ``` 
     
-    - Modify the `pom.xml` to change the scope of `spring-boot-starter-undertow` dependency to `provided` like:
+    - Modifiez le `pom.xml` pour changer la portée de la dépendance `spring-boot-starter-undertow` en `provided` comme suit :
 
     ```diff
         <id>prod</id>
@@ -69,57 +68,57 @@ If you want more information on the available profiles, please go the section ti
             </dependency>
         </dependencies>
     ``` 
-    - To generate an executable `war` along the original `war`, type command: 
+    - Pour générer un `war` exécutable avec le `war` d'origine, tapez la commande : 
     
     ```bash
     ./mvnw -Pprod clean verify
     ```
-  - This will generate these files (if your application is called "jhipster"): 
+  - Cela générera ces fichiers (si votre application s'appelle "jhipster"): 
    
     * `target/jhipster-0.0.1-SNAPSHOT.war`
     * `target/jhipster-0.0.1-SNAPSHOT.war.original` 
 
-**Please note** that when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
+**Veuillez noter** que lors de la construction d'un fichier JAR ou WAR avec le profil `prod`, l'archive générée n'inclura pas les ressources `dev`.
 
 
-#### With Gradle
-To package the application as a "production" JAR, please type:
+#### Avec Gradle
+Pour empaqueter l'application en tant que JAR "production", veuillez taper :
 
 `./gradlew -Pprod clean bootJar`
 
-This will generate a file `build/libs/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
+Cela générera un fichier `build/libs/jhipster-0.0.1-SNAPSHOT.jar` (si votre application s'appelle "jhipster").
 
 
-To package the application as a "production" WAR, please type:
+Pour empaqueter l'application en tant que WAR "production", veuillez taper :
 
 `./gradlew -Pprod -Pwar clean bootWar`
 
 
-<h2 id="run">Running in production</h2>
+<h2 id="run">Exécution en production</h2>
 
-### Executing the JAR file without an application server
+### Exécution du fichier JAR sans serveur d'application
 
-Instead of deploying to an application server, many people find it easier to have a single executable JAR file.
+Au lieu de déployer sur un serveur d'application, beaucoup de gens trouvent plus facile d'avoir un seul fichier JAR exécutable.
 
-With the JAR file generated in the previous step, you can run it in "production" mode by typing (on Mac OS X or Linux):
+Avec le fichier JAR généré à l'étape précédente, vous pouvez l'exécuter en mode "production" en tapant (sur Mac OS X ou Linux) :
 
 `./jhipster-0.0.1-SNAPSHOT.jar`
 
-If you are on Windows, use:
+Si vous êtes sous Windows, utilisez :
 
 `java -jar jhipster-0.0.1-SNAPSHOT.jar`
 
-**Please note** that this JAR file uses the profile we selected when building it. As it was built using the `prod` file in the previous section, it will therefore run with the `prod` profile.
+**Veuillez noter** que ce fichier JAR utilise le profil que nous avons sélectionné lors de sa construction. Comme il a été construit avec le fichier `prod` dans la section précédente, il fonctionnera donc avec le profil `prod`.
 
-### Running the application in a Docker container
+### Exécution de l'application dans un conteneur Docker
 
-JHipster has first-class support for Docker: it bundles your executable JAR file in a Docker image, and run it inside Docker.
+JHipster offre une prise en charge de premier ordre pour Docker : il regroupe votre fichier JAR exécutable dans une image Docker et l'exécute à l'intérieur de Docker.
 
-To learn how to package your application with Docker, please read our [Docker Compose documentation]({{ site.url }}/docker-compose/).
+Pour apprendre à empaqueter votre application avec Docker, veuillez lire notre [documentation Docker Compose]({{ site.url }}/docker-compose/).
 
-### Run as a service
+### Exécution en tant que service
 
-It is also possible to run the Jar as a Linux service, and you may want to force in your `pom.xml` file before packaging. To do it, add the following property inside `<configuration>` of `spring-boot-maven-plugin` plugin.
+Il est également possible d'exécuter le Jar en tant que service Linux, et vous pouvez vouloir forcer dans votre fichier `pom.xml` avant l'emballage. Pour ce faire, ajoutez la propriété suivante à l'intérieur de `<configuration>` du plugin `spring-boot-maven-plugin`.
 
 ```
 <embeddedLaunchScriptProperties>
@@ -127,136 +126,136 @@ It is also possible to run the Jar as a Linux service, and you may want to force
 </embeddedLaunchScriptProperties>
 ```
 
-Next, setup your init.d with: 
+Ensuite, configurez votre init.d avec : 
 
 `ln -s jhipster-0.0.1-SNAPSHOT.jar /etc/init.d/jhipster`
 
-Secure your application with:
+Sécurisez votre application avec :
 
 `chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.jar
 sudo chattr +i your-app.jar`
 
-Considering `jhuser` a non-root OS account that will run the application, then the application can be run this way:
+Considérant `jhuser` un compte OS non-root qui exécutera l'application, alors l'application peut être exécutée de cette manière :
 
 `service jhipster start|stop|restart`
 
-There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
+Il existe de nombreuses autres options que vous pouvez trouver dans la [documentation Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), y compris plus d'étapes de sécurité et de service Windows.
 
-<h2 id="performance">Performance optimizations</h2>
+<h2 id="performance">Optimisations des performances</h2>
 
-### Cache tuning
+### Optimisation du cache
 
-If you selected a cache provider when generating your application, it has been automatically configured for you by JHipster.
+Si vous avez sélectionné un fournisseur de cache lors de la génération de votre application, il a été automatiquement configuré pour vous par JHipster.
 
-However, the default cache values are quite low, so the application can run on modest hardware, and as those values should be tuned depending on your application's specific business requirements.
+Cependant, les valeurs par défaut du cache sont assez basses, de sorte que l'application peut s'exécuter sur un matériel modeste, et ces valeurs doivent être ajustées en fonction des besoins spécifiques de votre application.
 
-Please read:
+Veuillez lire :
 
-- [The JHipster "using cache" documentation]({{ site.url }}/using-cache/) to learn more about the caching provider you have selected, and how it can be tuned
-- The [last section on monitoring](#monitoring), so you can fine-tune your cache according to your application's real-world usage
+- [La documentation JHipster "utilisation du cache"]({{ site.url }}/using-cache/) pour en savoir plus sur le fournisseur de cache que vous avez sélectionné, et comment il peut être ajusté
+- La [dernière section sur la surveillance](#monitoring), pour pouvoir ajuster votre cache en fonction de l'utilisation réelle de votre application
 
-### HTTP/2 support
+### Support HTTP/2
 
-JHipster supports HTTP/2 using the `jhipster.http.version` property, which is configured in the `application-prod.yml` file.
+JHipster prend en charge HTTP/2 en utilisant la propriété `jhipster.http.version`, qui est configurée dans le fichier `application-prod.yml`.
 
-To enable HTTP/2, you need to:
+Pour activer HTTP/2, vous devez :
 
-- Set `jhipster.http.version: V_2_0`
-- Configure HTTPS (see this documentation's [security section](#security)), as browsers force to use HTTPS with HTTP/2
+- Définir `jhipster.http.version: V_2_0`
+- Configurer HTTPS (voir la [section sécurité](#security) de cette documentation), car les navigateurs imposent l'utilisation de HTTPS avec HTTP/2
 
-### GZipping
+### Compression GZip
 
-Within an executable JAR file, which uses the `prod` profile, JHipster configures GZip compression on your Web resources.
+Dans un fichier JAR exécutable, qui utilise le profil `prod`, JHipster configure la compression GZip sur vos ressources Web.
 
-By default, compression will work on all static resources (HTML, CSS, JavaScript) and on all REST requests. You can have more information on this configuration by looking at the `server.compression.*` keys in the Spring Boot application properties, configured in the `application-prod.yml` file.
+Par défaut, la compression fonctionnera sur toutes les ressources statiques (HTML, CSS, JavaScript) et sur toutes les requêtes REST. Vous pouvez obtenir plus d'informations sur cette configuration en consultant les clés `server.compression.*` dans les propriétés de l'application Spring Boot, configurées dans le fichier `application-prod.yml`.
 
-**Please note** that GZipping is done by the application server, so this section only applies if you use the "executable JAR" option described above. If you run your application in an external application server, you will need to configure it separately.
+**Veuillez noter** que la compression GZip est effectuée par le serveur d'application, donc cette section s'applique uniquement si vous utilisez l'option "JAR exécutable" décrite ci-dessus. Si vous exécutez votre application dans un serveur d'application externe, vous devrez le configurer séparément.
 
-### Cache headers
+### En-têtes de cache
 
-With the `prod` profile, JHipster configures a Servlet filter that puts specific HTTP cache headers on your static resources (JavaScript, CSS, fonts...) so they are cached by browsers and proxies.
+Avec le profil `prod`, JHipster configure un filtre Servlet qui place des en-têtes de cache HTTP spécifiques sur vos ressources statiques (JavaScript, CSS, polices...) afin qu'elles soient mises en cache par les navigateurs et les proxies.
 
-### Generating an optimized JavaScript application with Webpack
+### Génération d'une application JavaScript optimisée avec Webpack
 
-This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, please run:
+Cette étape est automatiquement déclenchée lors de la construction de votre projet avec le profil `prod`. Si vous voulez l'exécuter sans lancer une construction Maven, veuillez exécuter :
 
 `npm run build`
 
-This will use [Webpack](https://webpack.github.io/) to process all your static resources (CSS, TypeScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
+Cela utilisera [Webpack](https://webpack.github.io/) pour traiter toutes vos ressources statiques (CSS, TypeScript, HTML, JavaScript, images...) afin de générer une application côté client optimisée.
 
-During this process, Webpack will compile the TypeScript code into JavaScript code, and will also generate source maps, so the client-side application can still be debugged.
+Pendant ce processus, Webpack compilera le code TypeScript en code JavaScript, et générera également des cartes source, afin que l'application côté client puisse toujours être déboguée.
 
-Those optimized assets will be generated in `target/classes/static` for Maven or `build/resources/main/static` for Gradle, and will be included in your final production JAR.
+Ces ressources optimisées seront générées dans `target/classes/static` pour Maven ou `build/resources/main/static` pour Gradle, et seront incluses dans votre fichier JAR de production final.
 
-This code will be served when you run the application with the `prod` profile.
+Ce code sera servi lorsque vous exécutez l'application avec le profil `prod`.
 
-<h2 id="security">Security</h2>
+<h2 id="security">Sécurité</h2>
 
-### Securing the default user and admin accounts
+### Sécurisation des comptes utilisateur et administrateur par défaut
 
-JHipster comes with some default users generated for you. In production, you **should** change those default passwords!
+JHipster est livré avec certains utilisateurs par défaut générés pour vous. En production, vous **devriez** changer ces mots de passe par défaut !
 
-Please follow our [security documentation]({{ site.url }}/security/) to learn how to change those passwords, and secure your application.
+Veuillez suivre notre [documentation sur la sécurité]({{ site.url }}/security/) pour apprendre comment changer ces mots de passe, et sécuriser votre application.
 
-### HTTPS support
+### Support HTTPS
 
-HTTPS can be configured directly in your JHipster application, or using a specific front-end proxy.
+HTTPS peut être configuré directement dans votre application JHipster, ou en utilisant un proxy frontal spécifique.
 
-#### HTTPS configuration with JHipster
+#### Configuration HTTPS avec JHipster
 
-HTTPS is configured using Spring Security's standard `server.ssl` configuration keys in your `application-prod.yml` file.
+HTTPS est configuré en utilisant les clés de configuration `server.ssl` standard de Spring Security dans votre fichier `application-prod.yml`.
 
-To enable SSL, generate a certificate using:
+Pour activer SSL, générez un certificat en utilisant :
 
-    keytool -genkey -alias <your-application> -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+    keytool -genkey -alias <votre-application> -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 
-You can also use Let's Encrypt using [this tutorial](https://community.letsencrypt.org/t/tutorial-java-keystores-jks-with-lets-encrypt/34754).
+Vous pouvez également utiliser Let's Encrypt en suivant [ce tutoriel](https://community.letsencrypt.org/t/tutorial-java-keystores-jks-with-lets-encrypt/34754).
 
-Then, modify the `server.ssl` properties so your `application-prod.yml` configuration looks like:
+Ensuite, modifiez les propriétés `server.ssl` pour que votre configuration `application-prod.yml` ressemble à :
 
     server:
         port: 443
         ssl:
             key-store: keystore.p12
-            key-store-password: <your-password>
+            key-store-password: <votre-mot-de-passe>
             keyStoreType: PKCS12
-            keyAlias: <your-application>
+            keyAlias: <votre-application>
             ciphers: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
             enabled-protocols: TLSv1.2
 
-The ciphers suite enforce the security by deactivating some old and deprecated SSL ciphers, this list was tested against [SSL Labs](https://www.ssllabs.com/ssltest/)
+La suite de chiffrement renforce la sécurité en désactivant certains anciens chiffrements SSL obsolètes, cette liste a été testée avec [SSL Labs](https://www.ssllabs.com/ssltest/)
 
-Once `server.ssl.ciphers` property is enabled JHipster will force the order on Undertow with this property (true by default) : `jhipster.http.useUndertowUserCipherSuitesOrder`
+Une fois que la propriété `server.ssl.ciphers` est activée, JHipster forcera l'ordre sur Undertow avec cette propriété (vrai par défaut) : `jhipster.http.useUndertowUserCipherSuitesOrder`
 
-The `enabled-protocols` deactivate old SSL protocols.
+Les `enabled-protocols` désactivent les anciens protocoles SSL.
 
-Then, the final touch for achieving the perfect forward secrecy. Add the following flag at the JVM startup :
+Ensuite, la touche finale pour atteindre le secret parfait. Ajoutez le drapeau suivant au démarrage de la JVM :
 
     -Djdk.tls.ephemeralDHKeySize=2048
 
-For testing your configuration you can go to [SSL Labs](https://www.ssllabs.com/ssltest/).
+Pour tester votre configuration, vous pouvez aller sur [SSL Labs](https://www.ssllabs.com/ssltest/).
 
-If everything is OK, you will get A+
+Si tout est OK, vous obtiendrez un A+
 
-#### HTTPS configuration with a front-end proxy
+#### Configuration HTTPS avec un proxy frontal
 
-There are many solutions to setup a front-end HTTPS proxy in front of a JHipster application.
+Il existe de nombreuses solutions pour configurer un proxy frontal HTTPS devant une application JHipster.
 
-One of the most common solution would be to use the Apache HTTP server, you can set it up with Let's Encrypt:
+L'une des solutions les plus courantes consiste à utiliser le serveur Apache HTTP, que vous pouvez configurer avec Let's Encrypt :
 
-- Install Apache and Let's Encrypt: `apt-get install -y apache2 python-certbot-apache`
-- Configure Let's Encrypt: `certbot --apache -d <your-domain.com> --agree-tos -m <your-email> --redirect`
-- Configure auto-renewal of SSL certificates: add `10 3 * * * /usr/bin/certbot renew --quiet` in your crontab
+- Installer Apache et Let's Encrypt : `apt-get install -y apache2 python-certbot-apache`
+- Configurer Let's Encrypt : `certbot --apache -d <votre-domaine.com> --agree-tos -m <votre-email> --redirect`
+- Configurer le renouvellement automatique des certificats SSL : ajoutez `10 3 * * * /usr/bin/certbot renew --quiet` dans votre crontab
 
-### Custom Context Path
+### Chemin de contexte personnalisé
 
-You can specify a context path for your Spring Boot backend by passing in a `server.servlet.context-path` parameter and value:
+Vous pouvez spécifier un chemin de contexte pour votre backend Spring Boot en passant un paramètre `server.servlet.context-path` et une valeur :
 
 ```bash
 java -jar jhipster.jar --server.servlet.context-path=/jhipster/
 ```
 
-Or, you can add this configuration to `application.yml`:
+Ou, vous pouvez ajouter cette configuration à `application.yml` :
 
 ```
 ---
@@ -265,16 +264,16 @@ server:
     context-path: /jhipster/
 ```
 
-For frontend bundlers, the context path is a build-time configuration.
+Pour les bundlers frontend, le chemin de contexte est une configuration de construction.
 
-**Angular** frontends can be configured using:
-- `angular.json`: `projects -> * your project name -> architect -> build -> options -> baseHref : '/jhipster/'`
+Les frontaux **Angular** peuvent être configurés en utilisant :
+- `angular.json` : `projects -> * nom de votre projet -> architect -> build -> options -> baseHref : '/jhipster/'`
 - `ng build --base-href '/jhipster/'`
-- Use [APP_BASE_HREF](https://angular.io/api/common/APP_BASE_HREF)
+- Utilisez [APP_BASE_HREF](https://angular.io/api/common/APP_BASE_HREF)
 
-For **Webpack-based** frontends, you can configure using:
+Pour les frontaux **Webpack-based**, vous pouvez configurer en utilisant :
 
-- Webpack configuration file:
+- Fichier de configuration Webpack :
 ```
 new HtmlWebpackPlugin({
     ...
@@ -282,14 +281,14 @@ new HtmlWebpackPlugin({
 })
 ```
 
-Others modifications may be necessary, like configuring your development server and adjusting iframes in pages like swagger-ui.
+D'autres modifications peuvent être nécessaires, comme la configuration de votre serveur de développement et l'ajustement des iframes dans des pages comme swagger-ui.
 
-**Please note** that using a relative base path like `./` is possible, but you must adjust other configurations to be compatible with it.
+**Veuillez noter** qu'utiliser un chemin de base relatif comme `./` est possible, mais vous devez ajuster d'autres configurations pour être compatible avec cela.
 
-<h2 id="monitoring">Monitoring</h2>
+<h2 id="monitoring">Surveillance</h2>
 
-JHipster comes with full monitoring support from [Micrometer](https://micrometer.io/).
+JHipster est livré avec une prise en charge complète de la surveillance avec [Micrometer](https://micrometer.io/).
 
-In development, Metrics data will be available through JMX: launch your JConsole and you will be able to access it
+En développement, les données de métriques seront disponibles via JMX : lancez votre JConsole et vous pourrez y accéder
 
-In production, your application expose its metrics data on an endpoint that a [Prometheus server](https://prometheus.io/docs/introduction/overview/) can scrape at regular intervals, depending on what you have configured.
+En production, votre application expose ses données de métriques sur un point de terminaison qu'un [serveur Prometheus](https://prometheus.io/docs/introduction/overview/) peut scraper à intervalles réguliers, en fonction de ce que vous avez configuré.

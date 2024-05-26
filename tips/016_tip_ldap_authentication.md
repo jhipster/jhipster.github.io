@@ -1,24 +1,24 @@
 ---
 layout: default
-title: LDAP Authentication
+title: Authentification LDAP
 sitemap:
 priority: 0.5
 lastmod: 2019-11-11T22:22:00-00:00
 ---
 
-# LDAP Authentication
+# Authentification LDAP
 
-__Tip submitted by [@mleneveut](https://github.com/mleneveut)__ updated by [@patrickjp93](https://github.com/patrickjp93)__
+__Conseil soumis par [@mleneveut](https://github.com/mleneveut)__ mis à jour par [@patrickjp93](https://github.com/patrickjp93)__
 
-To add an LDAP authentication to your JHipster application, follow these steps :
+Pour ajouter une authentification LDAP à votre application JHipster, suivez ces étapes :
 
-  * Add the dependencies spring-ldap-core and spring-security-ldap. Example for gradle in build.gradle :
+  * Ajoutez les dépendances spring-ldap-core et spring-security-ldap. Exemple pour Gradle dans build.gradle :
 
 ```
     compile group: 'org.springframework.security', name: 'spring-security-ldap', version: spring_security_version
 ```
-  * Modify the SecurityConfiguration.java, add method configureGlobal(AuthenticationManagerBuilder auth) and getContextSource()
-  * The following query strings should ideally be [encapsulated in environment variables](https://github.com/eugenp/tutorials/blob/master/spring-ldap/src/main/java/com/baeldung/ldap/javaconfig/AppConfig.java), or at the very least properties/yml files 
+  * Modifiez SecurityConfiguration.java, ajoutez la méthode configureGlobal(AuthenticationManagerBuilder auth) et getContextSource()
+  * Les chaînes de requête suivantes devraient idéalement être [encapsulées dans des variables d'environnement](https://github.com/eugenp/tutorials/blob/master/spring-ldap/src/main/java/com/baeldung/ldap/javaconfig/AppConfig.java), ou au moins dans des fichiers de propriétés/yml
 
 ```
     @Inject
@@ -43,7 +43,7 @@ To add an LDAP authentication to your JHipster application, follow these steps :
     }
 
 ```
-  * Modify the SecurityUtils.java, method getCurrentUserLogin()
+  * Modifiez SecurityUtils.java, méthode getCurrentUserLogin()
 
 ```
     } else if (authentication.getPrincipal() instanceof LdapUserDetails) {
@@ -51,7 +51,7 @@ To add an LDAP authentication to your JHipster application, follow these steps :
     	return ldapUser.getUsername();
     }
 ```
-  * Add a new CustomAuthenticationManager class which implements the AuthenticationManager interface and override the authentication method in order to force the authentication process to authenticate the user through LDAP.
+  * Ajoutez une nouvelle classe CustomAuthenticationManager qui implémente l'interface AuthenticationManager et remplacez la méthode d'authentification afin de forcer le processus d'authentification à authentifier l'utilisateur via LDAP.
 
 ```
 
@@ -114,8 +114,9 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 
 ```
 
-  * For some LDAP servers, the below authenticate implementation has been more successful, but requires more effort to map user authenticated users into the Users table and set authorities based on AD Groups
-  * Credit to [@eugenp](https://github.com/eugenp/tutorials/tree/master/spring-ldap) and [Michael Kostewicz](http://code-addict.pl/active-directory-spring-security/) for their stable reference implementations
+  * Pour certains serveurs LDAP, l'implémentation d'authentification ci-dessous a été plus efficace, mais nécessite plus d'efforts pour mapper les utilisateurs authentifiés dans la table Utilisateurs et définir les autorités en fonction des groupes Active Directory.
+  * Un grand merci à [@eugenp](https://github.com/eugenp/tutorials/tree/master/spring-ldap) et [Michael Kostewicz](http://code-addict.pl/active-directory-spring-security/) pour leurs implémentations de référence stables.
+
 ```  
   public Authentication authenticate(Authentication authentication) {
         log.info("Authorizing active directory ldap ....");

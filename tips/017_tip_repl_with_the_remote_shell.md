@@ -1,46 +1,45 @@
 ---
 layout: default
-title: REPL with the remote shell
+title: REPL avec le shell distant
 sitemap:
 priority: 0.5
 lastmod: 2016-09-22T22:22:00-00:00
 ---
 
-# REPL with the remote shell
+# REPL avec le shell distant
 
-__Tip submitted by [@cbornet](https://github.com/cbornet)__
+__Conseil soumis par [@cbornet](https://github.com/cbornet)__
 
-**As the Spring Boot remote shell will be removed in Spring Boot 2.0, this tip is deprecated**
+**Comme le shell distant de Spring Boot sera supprimé dans Spring Boot 2.0, ce conseil est obsolète**
 
-Since v3.8, JHipster has a `shell` Maven/Gradle profile that will include the [Spring Boot remote shell](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-remote-shell.html).
-If your project was generated with JHipster < 3.8, you'll need to add the `spring-boot-starter-remote-shell` dependency manually.
+Depuis la version 3.8, JHipster dispose d'un profil Maven/Gradle `shell` qui inclura le [shell distant de Spring Boot](http://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-remote-shell.html).
+Si votre projet a été généré avec JHipster < 3.8, vous devrez ajouter manuellement la dépendance `spring-boot-starter-remote-shell`.
 
-This brings some useful commands that can help debugging a live application and you can also write your own.
+Cela apporte quelques commandes utiles qui peuvent aider au débogage d'une application en direct et vous pouvez également écrire les vôtres.
 
-Another nice feature which is not documented in Spring Boot docs is that you can execute Groovy script code on a live app in a [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) way.
-For this:
+Une autre fonctionnalité intéressante qui n'est pas documentée dans la documentation de Spring Boot est que vous pouvez exécuter du code de script Groovy sur une application en direct de manière [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
+Pour cela :
 
-  * Start your app
+  * Démarrez votre application
 
-  * Open an ssh session in a terminal (here for user admin, password: admin):
-
+  * Ouvrez une session ssh dans un terminal (ici pour l'utilisateur admin, mot de passe : admin) :
 ```
 ssh -p2000 admin@localhost
 ```
 
-  * Once connected, switch to Groovy REPL mode:
+  * Une fois connecté, passez en mode REPL Groovy :
 
 ```
 > repl groovy
 ```
 
-  * Get the BeanFactory:
+  * Obtenez le BeanFactory :
 
 ```
 > bf = context.attributes['spring.beanfactory']
 ```
 
-  * Now you can use the BeanFactory to get Spring beans and call their methods:
+  * Maintenant, vous pouvez utiliser le BeanFactory pour obtenir des beans Spring et appeler leurs méthodes :
 
 ```
 > bf.getBean('userRepository').findAll().login

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Oh-My-Zsh
+title: Utilisation de Oh-My-Zsh
 permalink: /oh-my-zsh/
 redirect_from:
   - /oh-my-zsh.html
@@ -9,48 +9,48 @@ sitemap:
     lastmod: 2016-07-25T18:40:00-00:00
 ---
 
-# <i class="fa fa-terminal"></i> Using Oh-My-Zsh
+# <i class="fa fa-terminal"></i> Utilisation de Oh-My-Zsh
 
-If you are using Linux or Mac OS X, [Oh-My-Zsh](http://ohmyz.sh/) is a great tool to manage your ZSH configuration.
+Si vous utilisez Linux ou Mac OS X, [Oh-My-Zsh](http://ohmyz.sh/) est un excellent outil pour gérer votre configuration ZSH.
 
-Most of the JHipster development team uses Oh-My-Zsh, and if you see people using shortcuts in their terminal, the magic comes from here!
+La plupart de l'équipe de développement de JHipster utilise Oh-My-Zsh, et si vous voyez des raccourcis dans leur terminal, c'est grâce à cela !
 
-## Oh-My-Zsh JHipster plugin
+## Plugin Oh-My-Zsh JHipster
 
-The JHipster Oh-My-Zsh plugin is available on GitHub at [https://github.com/jhipster/jhipster-oh-my-zsh-plugin](https://github.com/jhipster/jhipster-oh-my-zsh-plugin).
+Le plugin Oh-My-Zsh JHipster est disponible sur GitHub à l'adresse [https://github.com/jhipster/jhipster-oh-my-zsh-plugin](https://github.com/jhipster/jhipster-oh-my-zsh-plugin).
 
-Currently it only adds shortcuts (full list [here](https://github.com/jhipster/jhipster-oh-my-zsh-plugin/blob/main/jhipster.plugin.zsh)), but we welcome contributions to have better auto-completion!
+Actuellement, il n'ajoute que des raccourcis (liste complète [ici](https://github.com/jhipster/jhipster-oh-my-zsh-plugin/blob/main/jhipster.plugin.zsh)), mais nous accueillons les contributions pour avoir une meilleure auto-complétion !
 
-It is not part (yet) of the official plugin list, so you need to install it manually:
+Il ne fait pas (encore) partie de la liste officielle des plugins, donc vous devez l'installer manuellement :
 
-1. Edit your `~/.zshrc` and add `jhipster` to the list of plugins to enable:
+1. Modifiez votre `~/.zshrc` et ajoutez `jhipster` à la liste des plugins à activer :
 
     `plugins=( ... jhipster )`
 
-2. In the command line, change to _oh-my-zsh_'s custom plugin directory and clone the repository:
+2. En ligne de commande, changez vers le répertoire de plugins personnalisé d'_oh-my-zsh_ et clonez le dépôt :
 
     `cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/jhipster/jhipster-oh-my-zsh-plugin.git jhipster && cd && . ~/.zshrc`
 
-## Recommended plugins
+## Plugins recommandés
 
-The `git`, `docker` and `docker-compose` plugins are usually useful with JHipster.
+Les plugins `git`, `docker` et `docker-compose` sont généralement utiles avec JHipster.
 
-So your plugins section in your `.zshrc` file would be:
+Ainsi, la section de vos plugins dans votre fichier `.zshrc` serait :
 
     plugins=(git docker docker-compose jhipster)
 
-## Other installation methods
+## Autres méthodes d'installation
 
 ### Antigen
 
-If you're using [Antigen](https://github.com/zsh-users/antigen):
+Si vous utilisez [Antigen](https://github.com/zsh-users/antigen) :
 
-1. Add `antigen bundle jhipster/jhipster-oh-my-zsh-plugin` to your `.zshrc` where you've listed your other plugins.
-2. Close and reopen your Terminal/iTerm window to **refresh context** and use the plugin. Alternatively, you can run `antigen bundle jhipster/jhipster-oh-my-zsh-plugin` in a running shell to have antigen clone and load *jhipster*.
+1. Ajoutez `antigen bundle jhipster/jhipster-oh-my-zsh-plugin` à votre fichier `.zshrc` où vous avez listé vos autres plugins.
+2. Fermez et rouvrez votre fenêtre Terminal/iTerm pour **rafraîchir le contexte** et utiliser le plugin. Alternativement, vous pouvez exécuter `antigen bundle jhipster/jhipster-oh-my-zsh-plugin` dans un shell en cours d'exécution pour que antigen clone et charge *jhipster*.
 
 ### zgen
 
-If you're using [zgen](https://github.com/tarjoilija/zgen):
+Si vous utilisez [zgen](https://github.com/tarjoilija/zgen) :
 
-1. Add `zgen load jhipster/jhipster-oh-my-zsh-plugin` to your `.zshrc` along with your other `zgen load` commands.
+1. Ajoutez `zgen load jhipster/jhipster-oh-my-zsh-plugin` à votre fichier `.zshrc` avec vos autres commandes `zgen load`.
 2. `rm ${ZGEN_INIT}/init.zsh && zgen save`

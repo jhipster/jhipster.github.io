@@ -9,366 +9,365 @@ sitemap:
     lastmod: 2020-11-25T09:07:00-00:00
 ---
 
-# <i class="fa fa-sitemap"></i> Managing relationships
+# <i class="fa fa-sitemap"></i> Gestion des relations
 
-When JPA is used, the [entity sub-generator]({{ site.url }}/creating-an-entity/) can create relationships between entities.
+Lorsque JPA est utilisé, le [sous-générateur d'entités]({{ site.url }}/création-dune-entité/) peut créer des relations entre les entités.
 
-## Presentation
+## Présentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra]({{ site.url }}/using-cassandra/) they won't be available. In case you use [MongoDB]({{ site.url }}/using-mongodb/), [Couchbase]({{ site.url }}/using-couchbase/) or [Neo4j]({{ site.url }}/using-neo4j) relations have a different semantics, but they are all available to be used. For more information about Couchbase and MongoDB relationships please refer to [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb).
+Les relations ne fonctionnent que lorsque JPA est utilisé. Si vous choisissez d'utiliser [Cassandra]({{ site.url }}/utilisation-de-cassandra/), elles ne seront pas disponibles. Dans le cas où vous utilisez [MongoDB]({{ site.url }}/utilisation-de-mongodb/), [Couchbase]({{ site.url }}/utilisation-de-couchbase/) ou [Neo4j]({{ site.url }}/utilisation-de-neo4j), les relations ont une sémantique différente, mais elles sont toutes disponibles à être utilisées. Pour plus d'informations sur les relations Couchbase et MongoDB, veuillez vous référer à [Entités incorporées pour Couchbase et MongoDB](#entités-incorporées-pour-couchbase-et-mongodb).
 
-A relationship works between two entities, and JHipster will generate the code for:
+Une relation fonctionne entre deux entités, et JHipster générera le code pour :
 
-- Managing this relationship with JPA in the generated entities
-- Creating the correct Liquibase changelog, in order for the relationship to exist in the database
-- Generating the Angular/React front-end so you can manage this relationship graphically in the user interface
+- Gérer cette relation avec JPA dans les entités générées
+- Créer le changelog Liquibase correct, afin que la relation existe dans la base de données
+- Générer le front-end Angular/React pour que vous puissiez gérer cette relation graphiquement dans l'interface utilisateur
 
-## JHipster UML and JDL Studio
+## JHipster UML et JDL Studio
 
-This page describes how to create relationships with JHipster using the standard command-line interface.  If you want to create many entities and relationships, you might prefer to use a graphical tool.
+Cette page décrit comment créer des relations avec JHipster en utilisant l'interface de ligne de commande standard. Si vous souhaitez créer de nombreuses entités et relations, vous préférerez peut-être utiliser un outil graphique.
 
-In that case, three options are available:
+Dans ce cas, trois options sont disponibles :
 
-- [JDL Studio](https://start.jhipster.tech/jdl-studio/), our online tool to create entities and relationships using our domain-specific language.
-- [JHipster IDE]({{ site.url }}/jhipster-ide/), a plugin that provides textual editing support of JDL files for popular IDEs.
-- Deprecated: _[JHipster UML]({{ site.url }}/jhipster-uml/), which allows you to use an UML editor._
+- [JDL Studio](https://start.jhipster.tech/jdl-studio/), notre outil en ligne pour créer des entités et des relations en utilisant notre langage spécifique au domaine.
+- [JHipster IDE]({{ site.url }}/jhipster-ide/), un plugin qui fournit une prise en charge de l'édition textuelle des fichiers JDL pour les IDE populaires.
+- Déprécié : _[JHipster UML]({{ site.url }}/jhipster-uml/), qui vous permet d'utiliser un éditeur UML._
 
-You can generate entities with relationships from a JDL file using the `jdl` sub-generator, by running `jhipster jdl your-jdl-file.jh`.
+Vous pouvez générer des entités avec des relations à partir d'un fichier JDL en utilisant le sous-générateur `jdl`, en exécutant `jhipster jdl votre-fichier-jdl.jh`.
 
-## Available relationships
+## Relations disponibles
 
-As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available:
+Comme nous utilisons JPA, les relations usuels un-à-plusieurs, plusieurs-à-un, plusieurs-à-plusieurs et un-à-un sont disponibles :
 
-- [<i class="fa fa-sitemap"></i> Managing relationships](#i-classfa-fa-sitemapi-managing-relationships)
-  - [Presentation](#presentation)
-  - [JHipster UML and JDL Studio](#jhipster-uml-and-jdl-studio)
-  - [Available relationships](#available-relationships)
-  - [A bidirectional one-to-many relationship](#a-bidirectional-one-to-many-relationship)
-  - [A bidirectional many-to-one relationship](#a-bidirectional-many-to-one-relationship)
-  - [A unidirectional many-to-one relationship](#a-unidirectional-many-to-one-relationship)
-  - [A unidirectional one-to-many relationship](#a-unidirectional-one-to-many-relationship)
-  - [Two one-to-many relationships on the same two entities](#two-one-to-many-relationships-on-the-same-two-entities)
-  - [A many-to-many relationship](#a-many-to-many-relationship)
-  - [A one-to-one relationship](#a-one-to-one-relationship)
-  - [A unidirectional one-to-one relationship](#a-unidirectional-one-to-one-relationship)
-    - [Using JPA Derived Identifiers(@MapsId) for one-to-one relationship](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
-    - [Setting fetching data strategy to eager (FetchType.EAGER)](#setting-fetching-data-strategy-to-eager-fetchtypeeager)
-  - [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb)
 
-_Tip: the `User` entity_
+- [<i class="fa fa-sitemap"></i> Gestion des relations](#i-classfa-fa-sitemapi-gestion-des-relations)
+  - [Présentation](#présentation)
+  - [JHipster UML et JDL Studio](#jhipster-uml-et-jdl-studio)
+  - [Relations disponibles](#relations-disponibles)
+  - [Une relation unidirectionnelle un-à-plusieurs](#une-relation-unidirectionnelle-un-à-plusieurs)
+  - [Une relation bidirectionnelle plusieurs-à-un](#une-relation-bidirectionnelle-plusieurs-à-un)
+  - [Une relation bidirectionnelle un-à-plusieurs](#une-relation-bidirectionnelle-un-à-plusieurs)
+  - [Une relation unidirectionnelle plusieurs-à-un](#une-relation-unidirectionnelle-plusieurs-à-un)
+  - [Deux relations un-à-plusieurs sur les mêmes entités](#deux-relations-un-à-plusieurs-sur-les-mêmes-entités)
+  - [Une relation plusieurs-à-plusieurs](#une-relation-plusieurs-à-plusieurs)
+  - [Une relation un-à-un](#une-relation-un-à-un)
+  - [Une relation unidirectionnelle un-à-un](#une-relation-unidirectionnelle-un-à-un)
+    - [Utilisation d'identifiants dérivés JPA (@MapsId) pour la relation un-à-un](#utilisation-didentifiants-dérivés-jpa-mapsid-pour-la-relation-un-à-un)
+    - [Définition de la stratégie de récupération des données sur demande (FetchType.EAGER)](#définition-de-la-stratégie-de-récupération-des-données-sur-demande-fetchtypeeager)
+  - [Entités imbriquées pour Couchbase et MongoDB](#entités-imbriquées-pour-couchbase-et-mongodb)
 
-Information about it is located [here]({{ site.url }}/user-entity/).
+_Conseil : l'entité `User`_
 
-**A small warning about entity & relationship generation**: in the following examples, you'll notice that compilation
-_may_ fail in some cases because destination entities aren't generated and that's normal (this warning can be ignored).
-There are two ways to avoid that:
-  - Generate the entities first, then the relationships
-  - Use the JDL
+Les informations à ce sujet se trouvent [ici]({{ site.url }}/entite-utilisateur/).
+
+**Un petit avertissement sur la génération d'entités et de relations** : dans les exemples suivants, vous remarquerez que la compilation
+_peut_ échouer dans certains cas parce que les entités de destination ne sont pas générées, et c'est normal (cet avertissement peut être ignoré).
+Il existe deux façons d'éviter cela :
+  - Générer d'abord les entités, puis les relations
+  - Utiliser le JDL
 
 ---
 
-## A bidirectional one-to-many relationship
+## Une relation unidirectionnelle un-à-plusieurs
 
-Let's start with two entities, a `Owner` and a `Car`. A owner can have many cars, and a car can have only one owner.
+Commençons par deux entités, un `Propriétaire` et une `Voiture`. Un propriétaire peut avoir plusieurs voitures, et une voiture peut avoir un seul propriétaire.
 
-So this is a one-to-many relationship (one owner has many cars) on one side, and a many-to-one relationship (many cars have one owner) on the other side:
+Il s'agit donc d'une relation un-à-plusieurs (un propriétaire a plusieurs voitures) d'un côté, et d'une relation plusieurs-à-un (plusieurs voitures ont un seul propriétaire) de l'autre côté :
 
-    Owner (1) <-----> (*) Car
+    Propriétaire (1) <-----> (*) Voiture
 
-Note that after generating the entity, the generator will inform you that some errors occurred while generating
-the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
+Notez qu'après la génération de l'entité, le générateur vous informera que des erreurs se sont produites lors de la génération des fichiers.
+C'est normal car l'entité de destination n'a pas encore été générée, vous pouvez donc ignorer en toute sécurité cet avertissement.
 
-We will create the `Owner` first. Here are the relevant JHipster questions for the `Owner`:
+Nous allons d'abord créer le `Propriétaire`. Voici les questions pertinentes de JHipster pour le `Propriétaire` :
 
-    jhipster entity Owner
+    jhipster entity Propriétaire
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Car
-    ? What is the name of the relationship? car
-    ? What is the type of the relationship? one-to-many
-    ? What is the name of this relationship in the other entity? owner
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Voiture
+    ? Quel est le nom de la relation ? voiture
+    ? Quel est le type de la relation ? un-à-plusieurs
+    ? Quel est le nom de cette relation dans l'autre entité ? propriétaire
 
-Please note that we selected the default options concerning the names of the relationships.
+Veuillez noter que nous avons sélectionné les options par défaut concernant les noms des relations.
 
-Now we can generate the `Car`:
+Maintenant, nous pouvons générer la `Voiture` :
 
-    jhipster entity Car
+    jhipster entity Voiture
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Owner
-    ? What is the name of the relationship? owner
-    ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with Angular, which field from 'Owner' do you want to use? id
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Propriétaire
+    ? Quel est le nom de la relation ? propriétaire
+    ? Quel est le type de la relation ? many-to-one
+    ? Lorsque vous affichez cette relation avec Angular, quel champ de 'Propriétaire' souhaitez-vous utiliser ? id
 
 
-The same can be achieved using the below JDL as well
+La même chose peut être réalisée en utilisant le JDL ci-dessous également
 
-    entity Owner
-    entity Car
+    entité Propriétaire
+    entity Voiture
 
     relationship OneToMany {
-      Owner{car} to Car{owner}
+      Propriétaire{voiture} to Voiture{propriétaire}
     }
 
-That's it, you now have a one-to-many relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
+C'est tout, vous avez maintenant une relation un-à-plusieurs entre ces deux entités ! Sur l'interface client Angular/React générée, vous aurez une liste déroulante dans `Voiture` pour sélectionner un `Propriétaire`.
 
-## A bidirectional many-to-one relationship
+## Une relation bidirectionnelle plusieurs-à-un
 
-This is equivalent to the bidirectional one-to-many relationship after inversing the sides in the JDL file:
+Cela équivaut à la relation bidirectionnelle un-à-plusieurs après inversion des côtés dans le fichier JDL :
 
-
-    entity Owner
-    entity Car
+    entité Propriétaire
+    entity Voiture
 
     relationship ManyToOne {
-      Car{owner} to Owner{car}
+      Voiture{propriétaire} to Propriétaire{voiture}
     }
 
+## Une relation unidirectionnelle plusieurs-à-un
 
-## A unidirectional many-to-one relationship
+Dans l'exemple précédent, nous avions une relation bidirectionnelle : à partir d'une instance `Voiture`, vous pouviez trouver son propriétaire, et à partir d'une instance `Propriétaire`, vous pouviez obtenir toutes ses voitures.
 
-In the previous example we had a bidirectional relationship: from a `Car` instance you could find its owner, and from a `Owner` instance you could get all of its cars.
+Une relation plusieurs-à-un unidirectionnelle signifie que les voitures connaissent leur propriétaire, mais pas l'inverse.
 
-A many-to-one unidirectional relationship means that the cars know their owner, but not the opposite.
+    Propriétaire (1) <----- (*) Voiture
 
-    Owner (1) <----- (*) Car
+Vous feriez cette relation pour deux raisons :
 
-You would do that relationship for two reasons:
+- Du point de vue métier, vous n'utilisez vos entités que de cette manière. Vous ne voulez donc pas avoir une API qui permet aux développeurs de faire quelque chose qui n'a pas de sens.
+- Vous avez un petit gain de performance lorsque vous utilisez l'entité `Propriétaire` (car elle n'aura pas à gérer la collection de voitures).
 
-- From a business point of view, you only use your entities in this way. So you don't want to have an API that allows developers to do something which doesn't make sense.
-- You have a small performance gain when using the `Owner` entity (as it won't have to manage the collection of cars).
+Dans ce cas, vous créeriez toujours d'abord le `Propriétaire`, cette fois sans relation :
 
-In that case, you would still create the `Owner` first, this time with no relationship:
-
-    jhipster entity Owner
+    jhipster entity Propriétaire
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? No
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Non
 
-And then the `Car` entity, as in the previous example:
+Puis l'entité `Voiture`, comme dans l'exemple précédent :
 
-    jhipster entity Car
+    jhipster entity Voiture
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Owner
-    ? What is the name of the relationship? owner
-    ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with Angular, which field from 'Owner' do you want to use? id
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Propriétaire
+    ? Quel est le nom de la relation ? propriétaire
+    ? Quel est le type de la relation ? many-to-one
+    ? Lorsque vous affichez cette relation avec Angular, quel champ de 'Propriétaire' souhaitez-vous utiliser ? id
 
-This will work as in the previous example, but you won't be able to add or remove cars from the `Owner` entity. On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
-This is the corresponding JDL:
+Cela fonctionnera comme dans l'exemple précédent, mais vous ne pourrez pas ajouter ou supprimer de voitures de l'entité `Propriétaire`. Sur l'interface client Angular/React générée, vous aurez une liste déroulante dans `Voiture` pour sélectionner un `Propriétaire`.
+Voici le JDL correspondant :
 
-    entity Owner
-    entity Car
+    entité Propriétaire
+    entity Voiture
 
     relationship ManyToOne {
-      Car{owner} to Owner
+      Voiture{propriétaire} to Propriétaire
     }
 
+## Une relation unidirectionnelle un-à-plusieurs
 
-## A unidirectional one-to-many relationship
+Une relation un-à-plusieurs unidirectionnelle signifie que l'instance `Propriétaire` peut obtenir sa collection de voitures, mais pas l'inverse. C'est l'opposé de l'exemple précédent.
 
-A one-to-many unidirectional relationship means that the `Owner` instance can get its collection of cars, but not the opposite. It is the opposite from the previous example.
+    Propriétaire (1) -----> (*) Voiture
 
-    Owner (1) -----> (*) Car
+Ce type de relation n'est pas fourni par défaut dans JHipster pour le moment, voir [#1569](https://github.com/jhipster/generator-jhipster/issues/1569) pour plus d'informations.
 
-This type of relationship is not provided by default in JHipster at the moment, see [#1569](https://github.com/jhipster/generator-jhipster/issues/1569) for more information.
+Vous avez deux solutions pour cela :
 
-You have two solutions for this:
+- Faire une correspondance bidirectionnelle, et l'utiliser sans modification : c'est notre approche recommandée, car elle est beaucoup plus simple
+- Faire une correspondance bidirectionnelle, puis la modifier pour la transformer en correspondance unidirectionnelle :
+    - Supprimez l'attribut "mappedBy" sur votre annotation `@OneToMany`
+    - Générez la table de jointure requise : vous pouvez faire un `mvn liquibase:diff` pour générer cette table, voir la [documentation sur l'utilisation de Liquibase diff]({{ site.url }}/development/)
 
-- Do a bidirectional mapping, and use it without modification: this is our recommended approach, as it is much simpler
-- Do a bidirectional mapping, and then modify it to transform it into a unidirectional mapping:
-    - Remove the "mappedBy" attribute on your `@OneToMany` annotation
-    - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff]({{ site.url }}/development/)
+Cela n'est pas pris en charge avec JDL car ce n'est pas dans JHipster.
 
-This is not supported with JDL as it isn't in JHipster.
+## Deux relations un-à-plusieurs sur les mêmes deux entités
 
-## Two one-to-many relationships on the same two entities
+Pour cet exemple, une `Personne` peut être le propriétaire de plusieurs voitures et peut également être le conducteur de plusieurs voitures :
 
-For this example, a `Person` can be the owner of many cars and can also be the driver of many cars:
+    Personne (1) <---possède---> (*) Voiture
+    Personne (1) <---conduit---> (*) Voiture
 
-    Person (1) <---owns-----> (*) Car
-    Person (1) <---drives---> (*) Car
 
-For this we need to use the relationship names, which we have left with their default values in the previous examples.
 
-Generate the `Person` entity, which has two one-to-many relationships to the `Car` entity:
+Pour cela, nous devons utiliser les noms de relation, que nous avons laissés avec leurs valeurs par défaut dans les exemples précédents.
 
-    jhipster entity Person
+Générez l'entité `Personne`, qui a deux relations un-à-plusieurs avec l'entité `Voiture` :
+
+    jhipster entity Personne
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Car
-    ? What is the name of the relationship? ownedCar
-    ? What is the type of the relationship? one-to-many
-    ? What is the name of this relationship in the other entity? owner
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Voiture
+    ? Quel est le nom de la relation ? ownedCar
+    ? Quel est le type de la relation ? one-to-many
+    ? Quel est le nom de cette relation dans l'autre entité ? owner
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Car
-    ? What is the name of the relationship? drivenCar
-    ? What is the type of the relationship? one-to-many
-    ? What is the name of this relationship in the other entity? driver
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Voiture
+    ? Quel est le nom de la relation ? drivenCar
+    ? Quel est le type de la relation ? one-to-many
+    ? Quel est le nom de cette relation dans l'autre entité ? driver
 
-Generate the `Car` entity, which use the same relationship name has was configured in the `Person` entity:
+Générez maintenant l'entité `Voiture`, qui utilise le même nom de relation configuré dans l'entité `Personne` :
 
-    jhipster entity Car
+    jhipster entity Voiture
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Person
-    ? What is the name of the relationship? owner
-    ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with Angular, which field from 'Person' do you want to use? id
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Personne
+    ? Quel est le nom de la relation ? owner
+    ? Quel est le type de la relation ? many-to-one
+    ? Lorsque vous affichez cette relation avec Angular, quel champ de 'Personne' souhaitez-vous utiliser ? id
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Person
-    ? What is the name of the relationship? driver
-    ? What is the type of the relationship? many-to-one
-    ? When you display this relationship with Angular, which field from 'Person' do you want to use? id
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Personne
+    ? Quel est le nom de la relation ? driver
+    ? Quel est le type de la relation ? many-to-one
+    ? Lorsque vous affichez cette relation avec Angular, quel champ de 'Personne' souhaitez-vous utiliser ? id
 
-The same can be achieved using the below JDL as well
+La même chose peut être réalisée en utilisant le JDL ci-dessous également :
 
-    entity Person
-    entity Car
+    entité Personne
+    entity Voiture
 
     relationship OneToMany {
-      Person{ownedCar} to Car{owner}
+      Personne{ownedCar} to Voiture{owner}
     }
 
     relationship OneToMany {
-      Person{drivenCar} to Car{driver}
+      Personne{drivenCar} to Voiture{driver}
     }
 
-A `Car` can now have a driver and a owner, which are both `Person` entities. On the generated Angular/React client UI you will dropdowns in `Car` to select a `Person` for `owner` field and `driver` field.
+Une `Voiture` peut désormais avoir un propriétaire et un conducteur, qui sont tous deux des entités `Personne`. Sur l'interface client Angular/React générée, vous aurez des listes déroulantes dans `Voiture` pour sélectionner une `Personne` pour le champ `owner` et le champ `driver`.
 
-## A many-to-many relationship
+## Une relation plusieurs-à-plusieurs
 
-A `Driver` can drive many cars, but a `Car` can also have many drivers.
+Un `Conducteur` peut conduire plusieurs voitures, mais une `Voiture` peut également avoir plusieurs conducteurs.
 
-    Driver (*) <-----> (*) Car
+    Conducteur (*) <-----> (*) Voiture
 
-At the database level, this means we will have a join table between the `Driver` and the `Car` tables.
+Au niveau de la base de données, cela signifie que nous aurons une table de jonction entre les tables `Conducteur` et `Voiture`.
 
-For JPA, one of those two entities will need to manage the relationship: in our case, that would be the `Car` entity, which will be responsible to add or remove drivers.
+Pour JPA, l'une de ces deux entités devra gérer la relation : dans notre cas, ce serait l'entité `Voiture`, qui sera responsable d'ajouter ou de supprimer des conducteurs.
 
-Please note that, after generating the entity, the generator will inform you that some errors occurred while generating
-the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
+Veuillez noter qu'après avoir généré l'entité, le générateur vous informera que des erreurs se sont produites lors de la génération
+des fichiers. C'est normal car l'entité de destination n'a pas encore été générée, vous pouvez donc ignorer en toute sécurité cet avertissement.
 
-Let us generate the non-owning side of the relationship, the `Driver`, with a many-to-many relationship:
+Générez maintenant le côté non propriétaire de la relation, le `Conducteur`, avec une relation plusieurs-à-plusieurs :
 
-    jhipster entity Driver
+    jhipster entity Conducteur
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Car
-    ? What is the name of the relationship? car
-    ? What is the type of the relationship? many-to-many
-    ? Is this entity the owner of the relationship? No
-    ? What is the name of this relationship in the other entity? driver
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Voiture
+    ? Quel est le nom de la relation ? voiture
+    ? Quel est le type de la relation ? many-to-many
+    ? Cette entité est-elle propriétaire de la relation ? Non
+    ? Quel est le nom de cette relation dans l'autre entité ? conducteur
 
-Then generate the `Car`, with the owning side of the many-to-many relationship:
+Puis générer la `Voiture`, avec le côté propriétaire de la relation plusieurs-à-plusieurs :
 
-    jhipster entity Car
+    jhipster entity Voiture
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Driver
-    ? What is the name of the relationship? driver
-    ? What is the type of the relationship? many-to-many
-    ? Is this entity the owner of the relationship? Yes
-    ? What is the name of this relationship in the other entity? car
-    ? When you display this relationship on client-side, which field from 'Driver' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Conducteur
+    ? Quel est le nom de la relation ? conducteur
+    ? Quel est le type de la relation ? many-to-many
+    ? Cette entité est-elle propriétaire de la relation ? Oui
+    ? Quel est le nom de cette relation dans l'autre entité ? voiture
+    ? Lorsque vous affichez cette relation côté client, quel champ de 'Conducteur' souhaitez-vous utiliser ? Ce champ sera affiché comme une chaîne de caractères, il ne peut donc pas être un id Blob
 
-The same can be achieved using the below JDL as well
+La même chose peut être réalisée en utilisant le JDL ci-dessous également
 
-    entity Driver
-    entity Car
+    entity Conducteur
+    entity Voiture
 
     relationship ManyToMany {
-      Car{driver} to Driver{car}
+      Voiture{conducteur} à Conducteur{voiture}
     }
 
-That's it, you now have a many-to-many relationship between those two entities! On the generated Angular/React client UI you will have a multi-select dropdown in `Car` to select multiple `Driver` since `Car` is the owning side.
+C'est tout, vous avez maintenant une relationship many-to-many entre ces deux entités ! Sur l'interface client Angular/React générée, vous aurez une liste déroulante multi-sélection dans `Voiture` pour sélectionner plusieurs `Conducteur` puisque `Voiture` est le côté propriétaire.
 
-## A one-to-one relationship
+## Une relation un-à-un
 
-Following our example, a one-to-one relationship would mean that a `Driver` can drive only one `Car`, and a `Car` can only have one `Driver`.
+Suivant notre exemple, une relation un-à-un signifierait qu'un `Conducteur` ne peut conduire qu'une `Voiture`, et qu'une `Voiture` ne peut avoir qu'un seul `Conducteur`.
 
-    Driver (1) <-----> (1) Car
+    Conducteur (1) <-----> (1) Voiture
 
-Let us create the non-owning side of the relationship, in our case the `Driver`:
+Créez d'abord le côté non propriétaire de la relation, dans notre cas le `Conducteur` :
 
-    jhipster entity Driver
+    jhipster entity Conducteur
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Car
-    ? What is the name of the relationship? car
-    ? What is the type of the relationship? one-to-one
-    ? Is this entity the owner of the relationship? No
-    ? What is the name of this relationship in the other entity? driver
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Voiture
+    ? Quel est le nom de la relation ? voiture
+    ? Quel est le type de la relation ? one-to-one
+    ? Cette entité est-elle propriétaire de la relation ? Non
+    ? Quel est le nom de cette relation dans l'autre entité ? conducteur
 
-Then generate the `Car`, which owns the relationship:
+Ensuite, générez la `Voiture`, qui possède la relation :
 
-    jhipster entity Car
+    jhipster entity Voiture
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Driver
-    ? What is the name of the relationship? driver
-    ? What is the type of the relationship? one-to-one
-    ? Is this entity the owner of the relationship? Yes
-    ? Do you want to use JPA Derived Identifier - @MapsId? No
-    ? What is the name of this relationship in the other entity? car
-    ? When you display this relationship on client-side, which field from 'Driver' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Conducteur
+    ? Quel est le nom de la relation ? conducteur
+    ? Quel est le type de la relation ? one-to-one
+    ? Cette entité est-elle propriétaire de la relation ? Oui
+    ? Voulez-vous utiliser un identifiant dérivé JPA - @MapsId ? Non
+    ? Quel est le nom de cette relation dans l'autre entité ? voiture
+    ? Lorsque vous affichez cette relation côté client, quel champ de 'Conducteur' souhaitez-vous utiliser ? Ce champ sera affiché comme une chaîne de caractères, il ne peut donc pas être un id Blob
 
-The same can be achieved using the below JDL as well
+La même chose peut être réalisée en utilisant le JDL ci-dessous également :
 
-    entity Driver
-    entity Car
+    entity Conducteur
+    entity Voiture
 
     relationship OneToOne {
-      Car{driver} to Driver{car}
+      Voiture{conducteur} à Conducteur{voiture}
     }
 
-That's it, you now have a one-to-one relationship between those two entities! On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Driver` since `Car` is the owning side.
+C'est tout, vous avez maintenant une relation un-à-un entre ces deux entités ! Sur l'interface client Angular/React générée, vous aurez une liste déroulante dans `Voiture` pour sélectionner un `Conducteur` puisque `Voiture` est le côté propriétaire.
 
-[More information on using one-to-one with JPA Derived Identifiers](#using-jpa-derived-identifiersmapsid-for-one-to-one-relationship)
+[Plus d'informations sur l'utilisation du one-to-one avec les identifiants dérivés JPA](#utilisation-d-identifiants-dériver-jpa-mapsid-pour-la-relation-one-to-one)
 
-## A unidirectional one-to-one relationship
+## Une relation unidirectionnelle un-à-un
 
-A unidirectional one-to-one relationship means that the `citizen` instance can get its passport, but the `passport` instance can't get to its owner.
+Une relation unidirectionnelle un-à-un signifie que l'instance `citoyen` peut obtenir son passeport, mais l'instance `passeport` ne peut pas obtenir son propriétaire.
 
-    Citizen (1) -----> (1) Passport
+    Citoyen (1) -----> (1) Passeport
 
-Generate the `Passport` entity first, without any relationship to its owner:
+Générez d'abord l'entité `Passeport`, sans aucune relation avec son propriétaire :
 
-    jhipster entity Passport
+    jhipster entity Passeport
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? No
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Non
 
-Then, generate the `Citizen` entity:
+Ensuite, générez l'entité `Citoyen` :
 
-    jhipster entity Citizen
+    jhipster entity Citoyen
     ...
-    Generating relationships to other entities
-    ? Do you want to add a relationship to another entity? Yes
-    ? What is the name of the other entity? Passport
-    ? What is the name of the relationship? passport
-    ? What is the type of the relationship? one-to-one
-    ? Is this entity the owner of the relationship? Yes
-    ? Do you want to use JPA Derived Identifier - @MapsId? No
-    ? What is the name of this relationship in the other entity? citizen
-    ? When you display this relationship with Angular, which field from 'Passport' do you want to use? id
+    Génération des relations avec d'autres entités
+    ? Voulez-vous ajouter une relation vers une autre entité ? Oui
+    ? Quel est le nom de l'autre entité ? Passeport
+    ? Quel est le nom de la relation ? passeport
+    ? Quel est le type de la relation ? one-to-one
+    ? Cette entité est-elle propriétaire de la relation ? Oui
+    ? Voulez-vous utiliser un identifiant dérivé JPA - @MapsId ? Non
+    ? Quel est le nom de cette relation dans l'autre entité ? citoyen
+    ? Lorsque vous affichez cette relation avec Angular, quel champ de 'Passeport' souhaitez-vous utiliser ? id
 
-After doing this, a `Citizen` possesses a passport, but no `Citizen` instance is defined in `Passport`. On the generated Angular/React client UI you will have a dropdown in `Citizen` to select a `Passport` since `Citizen` is the owning side.
-This is the corresponding JDL:
+Après cela, un `Citoyen` possède un passeport, mais aucune instance de `Citoyen` n'est définie dans `Passeport`. Sur l'interface client Angular/React générée, vous aurez une liste déroulante dans `Citoyen` pour sélectionner un `Passeport` puisque `Citoyen` est le côté propriétaire.
 
 
     entity Citizen
@@ -378,91 +377,91 @@ This is the corresponding JDL:
       Citizen{passport} to Passport
     }
 
-### Using JPA Derived Identifiers(@MapsId) for one-to-one relationship
 
-[JPA Derived Identifiers](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/MapsId.html) can be used to have [the most efficient mapping](https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate/).
+### Utilisation des identifiants dérivés JPA (@MapsId) pour les relations one-to-one
 
-This is the corresponding JDL for previous uni-directional one-to-one example:
+[Les identifiants dérivés JPA](https://javaee.github.io/javaee-spec/javadocs/javax/persistence/MapsId.html) peuvent être utilisés pour avoir [le mappage le plus efficace](https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate/).
 
+Voici le JDL correspondant à l'exemple précédent de relation unidirectionnelle one-to-one :
 
-    entity Citizen
-    entity Passport
-
-    relationship OneToOne {
-      Citizen{passport} to @Id Passport
-    }
-
-This is the corresponding JDL for previous bi-directional one-to-one example:
-
-    entity Driver
-    entity Car
+    entity Citoyen
+    entité Passeport
 
     relationship OneToOne {
-      Car{driver} to @Id Driver{car}
+      Citoyen{passeport} à @Id Passeport
     }
 
- However, based on business requirements, there might be cases where this should be avoided because it has following constraint:
-**Once the id(primary key) is set at owning side, it is not changeable using JPA/Hibernate. You should not change it anyway.**
+Voici le JDL correspondant à l'exemple précédent de relation bidirectionnelle one-to-one :
 
-**Here are a few suggestions regarding usage:**
+    entity Conducteur
+    entity Voiture
 
-Use `@MapsId` when:
-* Dependent - if the owning side (child entity) seems tightly dependent on the non-owning (parent entity).
-* Association value is never meant to be changed - if you are never going to change the id(primary key) of the child entity once it is set.
+    relationship OneToOne {
+      Voiture{conducteur} à @Id Conducteur{voiture}
+    }
 
-    For example:
+Cependant, en fonction des besoins métier, il peut y avoir des cas où cela devrait être évité car cela présente la contrainte suivante :
+**Une fois que l'identifiant (clé primaire) est défini côté propriétaire, il n'est pas modifiable en utilisant JPA/Hibernate. De toute façon, vous ne devriez pas le changer.**
 
-    ```
-    class User{}
-    class Profile{ @OneToOne @MapsId private User user; } // profile is only meant for that user
-    class Preferences{ @OneToOne @MapsId private User user; } // preference is only meant for that user
-    ```
+**Voici quelques suggestions concernant l'utilisation :**
 
-    Once a profile or a preference is created for a user, it will never change to refer to another user.
+Utilisez `@MapsId` lorsque :
+* Dépendant - si le côté propriétaire (entité enfant) semble étroitement dépendant du non-propriétaire (entité parent).
+* La valeur d'association ne doit jamais être modifiée - si vous ne prévoyez jamais de modifier l'identifiant (clé primaire) de l'entité enfant une fois qu'il est défini.
 
-Do not use  `@MapsId` when:
-* Not dependent - If the owning side (child entity) seems not dependent on the non-owning (parent entity)
-* Association value is meant to be changed - if you think that the child entity is going to refer to another parent entity in future.
+    Par exemple :
 
-    For example:
+    <pre>
+    class Utilisateur{}
+    class Profil{ @OneToOne @MapsId private Utilisateur utilisateur; } // le profil est uniquement destiné à cet utilisateur
+    class Préférences{ @OneToOne @MapsId private Utilisateur utilisateur; } // les préférences sont uniquement destinées à cet utilisateur
+    </pre>
 
-    ```
-    class Car{ @OneToOne @JoinColumn(name="current_driver_id") Driver currentDriver} // car can be drived by another driver in future
-    class Driver{@OneToOne(mappedBy = "currentDriver") Car drivingCar} // driver drives another car in future
-    ```
-    Both car and driver association value may change in future.
+    Une fois qu'un profil ou des préférences sont créés pour un utilisateur, ils ne changeront jamais pour se référer à un autre utilisateur.
 
-**Note: There is [a known issue regarding using `@OneToOne` with `@MapsId` and how to avoid it](https://www.jhipster.tech/tips/026_tip_issue_of_onetoone_with_mapsid_how_to_avoid_it.html)**.
+N'utilisez pas `@MapsId` lorsque :
+* Non dépendant - si le côté propriétaire (entité enfant) semble ne pas dépendre du non-propriétaire (entité parent).
+* La valeur d'association est censée changer - si vous pensez que l'entité enfant va se référer à une autre entité parent à l'avenir.
+
+    Par exemple :
+
+    <pre>
+    class Voiture{ @OneToOne @JoinColumn(name="current_driver_id") Conducteur conducteurActuel} // la voiture peut être conduite par un autre conducteur à l'avenir
+    class Conducteur{@OneToOne(mappedBy = "conducteurActuel") Voiture voitureConduite} // le conducteur conduit une autre voiture à l'avenir
+    </pre>
+    À la fois la voiture et l'association du conducteur peuvent changer à l'avenir.
+
+**Remarque : Il y a [un problème connu concernant l'utilisation de `@OneToOne` avec `@MapsId` et comment l'éviter](https://www.jhipster.tech/tips/026_tip_issue_of_onetoone_with_mapsid_how_to_avoid_it.html)**.
 
 
-### Setting fetching data strategy to eager (FetchType.EAGER)
+### Définir la stratégie de récupération des données sur eager (FetchType.EAGER)
 
-All the relationships use the default JPA FetchType:
-- OneToMany: LAZY
-- ManyToOne: EAGER
-- ManyToMany: LAZY
-- OneToOne: EAGER
+Toutes les relations utilisent le FetchType JPA par défaut :
+- OneToMany : LAZY
+- ManyToOne : EAGER
+- ManyToMany : LAZY
+- OneToOne : EAGER
 
-There is [a known issue of NPE during JSON deserialization](https://github.com/jhipster/generator-jhipster/issues/10981) due to eager fetch type. If you would like to set either `OneToMany` or `ManyToMany` relationship to `FetchType.EAGER`, you can use one of the following solutions:
-- Use ```@JsonInclude(JsonInclude.Include.NON_EMPTY)``` on the relationship
+Il existe [un problème connu de NPE lors de la désérialisation JSON](https://github.com/jhipster/generator-jhipster/issues/10981) en raison du type de récupération eager. Si vous souhaitez définir la relation `OneToMany` ou `ManyToMany` sur `FetchType.EAGER`, vous pouvez utiliser l'une des solutions suivantes :
+- Utilisez <pre>@JsonInclude(JsonInclude.Include.NON_EMPTY)</pre> sur la relation
 
-    For example:
+    Par exemple :
 
-    ```
+    <pre>
     @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Set<Child> child = new HashSet<>();
-    ```
-- Return null if the collection is empty when fetching the resource in the backend
-- Using DTO and handle the edge case of empty collection
+    </pre>
+- Retournez null si la collection est vide lors de la récupération de la ressource dans le backend
+- Utiliser DTO et gérer le cas particulier de collection vide
 
-### Embedded Entities for Couchbase and MongoDB
+### Entités intégrées pour Couchbase et MongoDB
 
-Couchbase and MongoDB supports relationships through embedded documents. For more information regarding embedded documents in MongoDB refer to [https://docs.mongodb.com/manual/applications/data-models-relationships/](https://docs.mongodb.com/manual/applications/data-models-relationships/) and for Couchbase refer to [https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html](https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html).
+Couchbase et MongoDB prennent en charge les relations via des documents intégrés. Pour plus d'informations sur les documents intégrés dans MongoDB, consultez [https://docs.mongodb.com/manual/applications/data-models-relationships/](https://docs.mongodb.com/manual/applications/data-models-relationships/) et pour Couchbase, consultez [https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html](https://docs.couchbase.com/server/5.1/data-modeling/modeling-relationships.html).
 
-You can define embedded documents simply by using `@embedded`. For example to define a one-to-one relationship;
+Vous pouvez définir des documents intégrés simplement en utilisant `@embedded`. Par exemple, pour définir une relationship one-to-one ;
 
-```
+<pre>
 entity Country {
   countryName String
 }
@@ -476,11 +475,11 @@ entity Region {
 relationship OneToOne {
   Country to Region
 }
-```
+</pre>
 
-Similarly, for a one-to-many relationship,
+De même, pour une relationship one-to-many,
 
-```
+<pre>
 entity Country {
   countryName String
 }
@@ -494,11 +493,11 @@ entity Region {
 relationship OneToMany {
   Country to Region
 }
-```
+</pre>
 
-For a many-to-many relationship you can simply use the `@embedded` keyword in both directions;
+Pour une relationship many-to-many, vous pouvez simplement utiliser le mot-clé`@embedded` dans les deux directions ;
 
-```
+<pre>
 @embedded
   entity Country {
   countryName String
@@ -513,4 +512,4 @@ entity Region {
 relationship ManyToMany {
   Country to Region
 }
-```
+</pre>

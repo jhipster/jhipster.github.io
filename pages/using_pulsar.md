@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Pulsar
+title: Utilisation de Pulsar
 permalink: /using-pulsar/
 redirect_from:
   - /using_pulsar.html
@@ -9,28 +9,28 @@ sitemap:
     lastmod: 2019-10-30T00:00:00-00:00
 ---
 
-# <i class="fa fa-envelope"></i> Using Pulsar
+# <i class="fa fa-envelope"></i> Utilisation de Pulsar
 
-## Features
+## Fonctionnalités
 
-[Pulsar](http://pulsar.apache.org/) is a popular publish-subscribe messaging system that supports both streaming and queueing use-cases. JHipster has an optional support for Pulsar, that will:
+[Pulsar](http://pulsar.apache.org/) est un système de messagerie pub-sub populaire qui prend en charge à la fois les cas d'utilisation en streaming et en file d'attente. JHipster prend en charge de manière facultative Pulsar, ce qui permet de :
 
-- Configure [Pulsar clients](https://pulsar.apache.org/docs/2.11.x/client-libraries-java/) with JHipster.
-- Generate a Docker Compose configuration file, so Pulsar is usable by typing `docker-compose -f src/main/docker/pulsar.yml up -d`.
-- Generate an integration test using the [Spring Cloud Stream](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/) Pulsar binder and [Testcontainers](https://www.testcontainers.org/).
+- Configurer les [clients Pulsar](https://pulsar.apache.org/docs/2.11.x/client-libraries-java/) avec JHipster.
+- Générer un fichier de configuration Docker Compose, de sorte que Pulsar soit utilisable en tapant `docker-compose -f src/main/docker/pulsar.yml up -d`.
+- Générer un test d'intégration en utilisant le binder Pulsar de [Spring Cloud Stream](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/) et [Testcontainers](https://www.testcontainers.org/).
 
-## Prerequisite
+## Prérequis
 
-Generate a new application and make sure to select `Asynchronous messages using Apache Pulsar` when prompted for technologies you would like to use. A Docker Compose configuration file is generated and you can start Pulsar with the command:
+Générez une nouvelle application et assurez-vous de sélectionner `Messages asynchrones en utilisant Apache Pulsar` lorsqu'on vous demande les technologies que vous souhaitez utiliser. Un fichier de configuration Docker Compose est généré et vous pouvez démarrer Pulsar avec la commande suivante :
 
 ```sh
 docker-compose -f src/main/docker/pulsar.yml up -d
 ```
 
-## Usage
+## Utilisation
 
-Check the [Spring for Apache Pulsar documentation](https://docs.spring.io/spring-pulsar/docs/current/reference/html/) (prefer the versioned pulsar documentation link generated in your application's README.md) for how to use Pulsar in JHipster.
-There are several ways to interact with Pulsar from lowest to highest level of abstraction:
-* Generate Producer/Consumer/Reader from respectively PulsarProducerFactory/PulsarConsumerFactory/PulsarReaderFactory
-* Inject PulsarTemplate and create PulsarListener beans
-* Configure Spring Cloud Streams binders in `application.yml` and Supplier/Consumer/Function beans (see the generated test for an example).
+Consultez la [documentation Spring pour Apache Pulsar](https://docs.spring.io/spring-pulsar/docs/current/reference/html/) (préférez le lien vers la documentation pulsar versionnée généré dans le fichier README.md de votre application) pour savoir comment utiliser Pulsar dans JHipster.
+Il existe plusieurs façons d'interagir avec Pulsar, du plus bas au plus haut niveau d'abstraction :
+* Générer des producteurs/consommateurs/lecteurs à partir respectivement de PulsarProducerFactory/PulsarConsumerFactory/PulsarReaderFactory
+* Injecter PulsarTemplate et créer des beans PulsarListener
+* Configurer les binders Spring Cloud Streams dans `application.yml` et les beans Supplier/Consumer/Function (consultez le test généré pour un exemple).

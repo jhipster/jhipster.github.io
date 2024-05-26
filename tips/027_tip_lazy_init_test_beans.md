@@ -1,20 +1,18 @@
 ---
 layout: default
-title: Increase integration test performance by lazy bean initialization
+title: Augmenter les performances des tests d'intégration en initialisant les beans de manière paresseuse
 sitemap:
 priority: 0.1
 lastmod: 2019-10-01T18:20:00-00:00
 ---
 
-# Increase integration test performance by lazy bean initialization
+# Augmenter les performances des tests d'intégration en initialisant les beans de manière paresseuse
 
-__Tip submitted by [@atomfrede](https://github.com/atomfrede)__
+__Conseil soumis par [@atomfrede](https://github.com/atomfrede)__
 
-In many spring integration tests you don't need all beans, therefore initialization 
-of all beans in the context for e.g. a repository test is not required and consumes precious time.
+Dans de nombreux tests d'intégration Spring, vous n'avez pas besoin de tous les beans. Par conséquent, l'initialisation de tous les beans dans le contexte pour, par exemple, un test de repository n'est pas nécessaire et consomme un temps précieux.
 
-You can configure your tests to initialize beans lazy, such that only required beans are create by creating
-a class `TestLazyBeanInitConfiguration` in `src/test/java/YOUR-PACKAGE/config` with the following content:
+Vous pouvez configurer vos tests pour initialiser les beans de manière paresseuse, de sorte que seuls les beans requis soient créés en créant une classe `TestLazyBeanInitConfiguration` dans `src/test/java/VOTRE-PACKAGE/config` avec le contenu suivant :
 
 ```java
 import org.springframework.beans.BeansException;
@@ -39,12 +37,11 @@ public class TestLazyBeanInitConfiguration implements BeanFactoryPostProcessor {
 }
 ```
 
-If you want/need a test to initialize all beans eagerly you need to annotate this test with `@ActiveProfiles(TestLazyBeanInitConfiguration.EAGER_BEAN_INIT)`.
+Si vous voulez / avez besoin qu'un test initialise tous les beans de manière proactive, vous devez annoter ce test avec `@ActiveProfiles(TestLazyBeanInitConfiguration.EAGER_BEAN_INIT)`.
 
-For reference look at [spring boot blog](https://spring.io/blog/2019/03/14/lazy-initialization-in-spring-boot-2-2) and the
-[related pull request](https://github.com/jhipster/generator-jhipster/pull/10241).
+Pour plus de détails, consultez le [blog de Spring Boot](https://spring.io/blog/2019/03/14/lazy-initialization-in-spring-boot-2-2) et le [pull request associé](https://github.com/jhipster/generator-jhipster/pull/10241).
 
-Thanks to [@rabiori](https://github.com/rabiori) for the implementation.
+Merci à [@rabiori](https://github.com/rabiori) pour l'implémentation.
 
 
 

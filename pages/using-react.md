@@ -1,89 +1,88 @@
 ---
 layout: default
-title: Using React
+title: Utilisation de React
 permalink: /using-react/
 sitemap:
     priority: 0.7
     lastmod: 2018-04-02T23:41:00-00:00
 ---
 
-# <i class="fa fa-html5"></i> Using React (with Redux)
-This section refers to the JavaScript library **React** used with **Redux**.
+# <i class="fa fa-html5"></i> Utilisation de React (avec Redux)
 
-## Project Structure
+Cette section concerne la bibliothèque JavaScript **React** utilisée avec **Redux**.
 
-The JHipster client code can be found under `src/main/webapp`, and follows closely the [Piotr Witek React style guide](https://github.com/piotrwitek/react-redux-typescript-guide/blob/master/README.md).
+## Structure du projet
 
- Please read this guide first if you have any question on our application structure, file names, TypeScript conventions...
+Le code client de JHipster se trouve sous `src/main/webapp` et suit étroitement le [guide de style React de Piotr Witek](https://github.com/piotrwitek/react-redux-typescript-guide/blob/master/README.md).
 
-For React routes we follow a dash cased naming convention so that the URLs are clean and consistent.
-When you generate an entity the route names, route URLs and REST API endpoint URLs are generated according to this convention, also entity names are automatically pluralized where required.
+Veuillez lire ce guide en premier si vous avez des questions sur la structure de notre application, les noms de fichiers, les conventions TypeScript...
 
-Here is the main project structure:
+Pour les routes React, nous suivons une convention de nommage en kebab case afin que les URL soient propres et cohérentes.
+Lorsque vous générez une entité, les noms de route, les URL de route et les URL de point de terminaison de l'API REST sont générés selon cette convention, et les noms d'entité sont automatiquement pluriels lorsque nécessaire.
+
+Voici la structure principale du projet :
+
+```plaintext
+webapp
+├── app                             - Votre application
+│   ├── config                      - Configuration générale (store Redux, middleware, etc.)
+│   ├── entities                    - Entités générées
+│   ├── modules                     - Répertoire principal des composants
+│   │   ├── account                 - Composants liés au compte
+│   │   ├── administration          - Composants liés à l'administration
+│   │   ├── home                    - Page d'accueil de l'application
+│   │   └── login                   - Composants liés à la connexion
+│   ├── shared                      - Éléments partagés tels que votre en-tête, pied de page, réducteurs, modèles et classes utilitaires
+│   ├── app.scss                    - Votre feuille de style globale de l'application si vous avez choisi l'option Sass
+│   ├── app.css                     - Votre feuille de style globale de l'application
+│   ├── app.tsx                     - La classe principale de l'application
+│   ├── index.tsx                   - Script d'index
+│   ├── routes.tsx                  - Routes principales de l'application
+│   └── typings.d.ts                -
+├── i18n                            - Fichiers de traduction
+├── static                          - Contient vos fichiers statiques tels que des images et des polices
+├── swagger-ui                      - Interface utilisateur Swagger
+├── 404.html                        - Page 404
+├── favicon.ico                     - Icône de favori
+├── index.html                      - Page d'index
+├── manifest.webapp                 - Manifeste de l'application
+└── robots.txt                      - Configuration pour les robots et les robots d'indexation Web
+```
+
+
+En utilisant le [sous-générateur d'entités]({{ site.url }}/creating-an-entity/) pour créer une nouvelle entité appelée `Foo`, les fichiers frontaux suivants sont générés sous  `src/main/webapp`:
 
 ```
 webapp
-├── app                             - Your application
-│   ├── config                      - General configuration (redux store, middleware, etc.)
-│   ├── entities                    - Generated entities
-│   ├── modules                     - Main components directory
-│   │   ├── account                 - Account related components
-│   │   ├── administration          - Administration related components
-│   │   ├── home                    - Application homepage
-│   │   └── login                   - Login related components
-│   ├── shared                      - Shared elements such as your header, footer, reducers, models and util classes
-│   ├── app.scss                    - Your global application stylesheet if you choose the Sass option
-│   ├── app.css                     - Your global application stylesheet
-│   ├── app.tsx                     - The application main class
-│   ├── index.tsx                   - Index script
-│   ├── routes.tsx                  - Application main routes
-│   └── typings.d.ts                -
-├── i18n                            - Translation files
-├── static                          - Contains your static files such as images and fonts
-├── swagger-ui                      - Swagger UI front-end
-├── 404.html                        - 404 page
-├── favicon.ico                     - Fav icon
-├── index.html                      - Index page
-├── manifest.webapp                 - Application manifest
-└── robots.txt                      - Configuration for bots and Web crawlers
-```
-
-Using the [entity sub-generator]({{ site.url }}/creating-an-entity/) to create a new entity called `Foo` generates the following front-end files under `src/main/webapp`:
-
-```
 webapp
 ├── app                                        
 │   └── entities
-│       ├── foo                           - CRUD front-end for the Foo entity
-│       │   ├── foo-delete-dialog.tsx     - Delete dialog component
-│       │   ├── foo-detail.tsx            - Detail page component
-│       │   ├── foo-dialog.tsx            - Creation dialog component
-│       │   ├── foo.reducer.ts            - Foo entity reducer
-│       │   ├── foo.tsx                   - Entity main component
-│       │   └── index.tsx                 - Entity main routes
-│       └── index.tsx                     - Entities routes    
-└── i18n                                  - Translation files
-     ├── en                               - English translations
-     │   ├── foo.json                     - English translation of Foo name, fields, ...
-     └── fr                               - French translations
-         └── foo.json                     - French translation of Foo name, fields, ...
+│       ├── foo                           - Interface utilisateur CRUD pour l'entité Foo
+│       │   ├── foo-delete-dialog.tsx     - Composant de boîte de dialogue de suppression
+│       │   ├── foo-detail.tsx            - Composant de page de détails
+│       │   ├── foo-dialog.tsx            - Composant de boîte de dialogue de création
+│       │   ├── foo.reducer.ts            - Réducteur de l'entité Foo
+│       │   ├── foo.tsx                   - Composant principal de l'entité
+│       │   └── index.tsx                 - Routes principales de l'entité
+│       └── index.tsx                     - Routes des entités    
+└── i18n                                  - Fichiers de traduction
+     ├── en                               - Traductions en anglais
+     │   ├── foo.json                     - Traduction anglaise du nom de Foo, des champs, ...
+     └── fr                               - Traductions en français
+         └── foo.json                     - Traduction française du nom de Foo, des champs, ...
 ```
 
-Please note that the default language translations would be based on what you have chosen during app generation. 'en' and 'fr' are shown here only for demonstration.
+Veuillez noter que les traductions par défaut seraient basées sur ce que vous avez choisi lors de la génération de l'application. 'en' et 'fr' sont affichés ici uniquement à des fins de démonstration.
 
 ## Redux
 
-[Redux](https://redux.js.org/) is a predictable state container for JavaScript. It is used
-together with React to manage the state of your React components.
+[Redux](https://redux.js.org/) est un conteneur d'état prévisible pour JavaScript. Il est utilisé avec React pour gérer l'état de vos composants React.
 
-Redux provides an object **store** used to store the whole state of your application.
-To access this store and therefore update your state components, the only way is to dispatch
-**actions** which describe the fact that an update is requested, then the **reducers** will
-define how the state is updated in response to these actions.
+Redux fournit un objet **store** utilisé pour stocker l'intégralité de l'état de votre application. Pour accéder à ce magasin et donc mettre à jour vos composants d'état, le seul moyen est de dispatcher **actions** qui décrivent le fait qu'une mise à jour est demandée, puis les **reducers** définiront comment l'état est mis à jour en réponse à ces actions.
 
-Here is an example of a reducer:
+Voici un exemple de réducteur :
 
-``` typescript
+```typescript
 export const ACTION_TYPES = {
   FETCH_FOOS: 'foo/FETCH_FOOS',
 };
@@ -126,12 +125,9 @@ export default (state = initialState, action) => {
 };
 ```
 
-In order to access your store and update the current application state, you need to dispatch
-actions to the store as mentioned previously. Actions are JavaScript objects and must have a **type**, which describe what
-the action is going to perform and a usually they have also a **payload** which corresponds to
-data you want to pass to the store.
+Pour accéder à votre magasin et mettre à jour l'état de l'application actuelle, vous devez envoyer des actions au magasin comme mqui correspond aux données que vous voulez passer au magasin.
 
-Here is an action to access the store:
+Voici une action pour accéder au magasin :
 
 ``` typescript
 const apiUrl = SERVER_API_URL + '/api/foos';
@@ -143,18 +139,90 @@ export const getFoos = () => ({
 });
 ```
 
-The action described above indicates that we want to retrieve all the Foo objects by
-sending a GET request. The action type will match
-Notice that the **export** keyword is used to able the connected component to use that action
-when necessary (for instance, everytime the component is updated).
+markdown
 
-## Authorizations
+layout: default
+title: Utilisation de React
+permalink: /utilisation-de-react/
+sitemap:
+    priority: 0.7
+    lastmod: 2018-04-02T23:41:00-00:00
+---
+Veuillez noter que les traductions par défaut seraient basées sur ce que vous avez choisi lors de la génération de l'application. 'en' et 'fr' sont affichés ici uniquement à des fins de démonstration.
 
-Jhipster uses the [React router](https://github.com/ReactTraining/react-router) to organize the differents parts of your application.
+## Redux
 
-When it comes to routes that require authentication, the `PrivateRoute` component generated is used. This component will prevent any unauthenticated user from accessing a route.
+[Redux](https://redux.js.org/) est un conteneur d'état prévisible pour JavaScript. Il est utilisé avec React pour gérer l'état de vos composants React.
 
-Here is an example of PrivateRoute usage:
+Redux fournit un objet **store** utilisé pour stocker l'intégralité de l'état de votre application. Pour accéder à ce magasin et donc mettre à jour vos composants d'état, le seul moyen est de dispatcher **actions** qui décrivent le fait qu'une mise à jour est demandée, puis les **reducers** définiront comment l'état est mis à jour en réponse à ces actions.
+
+Voici un exemple de réducteur :
+
+```typescript
+export const ACTION_TYPES = {
+  FETCH_FOOS: 'foo/FETCH_FOOS',
+};
+
+const initialState = {
+  loading: false,
+  foos: [],
+  updateSuccess: false,
+  updateFailure: false
+};
+
+// Reducer
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case REQUEST(ACTION_TYPES.FETCH_FOOS):
+      return {
+        ...state,
+        updateSuccess: false,
+        updateFailure: false,
+        loading: true
+      };
+    case FAILURE(ACTION_TYPES.FETCH_FOOS):
+      return {
+        ...state,
+        loading: false,
+        updateSuccess: false,
+        updateFailure: true
+      };
+    case SUCCESS(ACTION_TYPES.FETCH_FOOS):
+      return {
+        ...state,
+        loading: false,
+        updateSuccess: true,
+        updateFailure: false,
+        foos: action.payload.data
+      };
+    default:
+      return state;
+  }
+};
+
+Pour accéder à votre magasin et mettre à jour l'état de l'application actuelle, vous devez envoyer des actions au magasin comme mentionné précédemment. Les actions sont des objets JavaScript et doivent avoir un type, qui décrit ce que l'action va effectuer et généralement elles ont aussi un payload qui correspond aux données que vous voulez passer au magasin.
+
+Voici une action pour accéder au magasin :
+
+typescript
+
+const apiUrl = SERVER_API_URL + '/api/foos';
+
+// Action
+export const getFoos = () => ({
+  type: ACTION_TYPES.FETCH_FOOS,
+  payload: axios.get(apiUrl)
+});
+
+L'action décrite ci-dessus indique que nous voulons récupérer tous les objets Foo en envoyant une requête GET. Le type d'action correspondra. Notez que le mot-clé export est utilisé pour permettre au composant connecté d'utiliser cette action lorsque nécessaire (par exemple, à chaque mise à jour du composant).
+
+## Autorisations
+
+JHipster utilise [React router](https://github.com/ReactTraining/react-router) pour organiser les différentes parties de votre application.
+
+En ce qui concerne les routes nécessitant une authentification, le composant `PrivateRoute` généré est utilisé. Ce composant empêchera tout utilisateur non authentifié d'accéder à une route.
+
+Voici un exemple d'utilisation de PrivateRoute :
 
 ``` typescript
 const Routes = () => (
@@ -166,17 +234,14 @@ const Routes = () => (
 );
 ```
 
-As you can see, unauthenticated user can access `/` and `/login` but accessing `/account` requires to be logged in.
+Comme vous pouvez le voir, l'utilisateur non authentifié peut accéder à `/` et `/login` mais l'accès à `/account` nécessite d'être connecté.
 
-Please note that PrivateRoute uses the `authentication.isAuthenticated` store value to know if the user is authenticated.
+Veuillez noter que PrivateRoute utilise la valeur de magasin `authentication.isAuthenticated` pour savoir si l'utilisateur est authentifié.
 
-## Notification System
+## Système de notification
 
-JHipster uses [react-toastify](https://github.com/fkhadra/react-toastify) alerts for the notification system.
+JHipster utilise des alertes [react-toastify](https://github.com/fkhadra/react-toastify) pour le système de notification. Par défaut, JHipster affichera des notifications de réussite chaque fois qu'une entité est créée/mise à jour/supprimée et des notifications d'erreur lorsqu'une erreur est capturée dans la réponse.
 
-By default JHipster will show success notifications whenever an entity is created/updated/deleted
-and error notifications when there is an error caught from the response.
+## Bibliothèque React JHipster
 
-## React JHipster library
-
-The [react-jhipster](https://github.com/jhipster/react-jhipster) lib provides utilities and generic services for a generated application. It handles i18n as well.
+La librairie [react-jhipster](https://github.com/jhipster/react-jhipster) fournit des utilitaires et des services génériques pour une application générée. Elle gère également i18n.

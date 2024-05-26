@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Creating a module
+title: Création d'un Blueprint autonome (alias module)
 permalink: /modules/creating-a-module/
 redirect_from:
   - /creating_a_module.html
@@ -10,28 +10,28 @@ sitemap:
     lastmod: 2015-12-05T18:40:00-00:00
 ---
 
-# <i class="fa fa-cube"></i> Creating a stand alone Blueprint (aka module)
+# <i class="fa fa-cube"></i> Création d'un Blueprint autonome (alias module)
 
-As of JHipster v7.9.0, module support was merged into blueprint support. So the same rules apply.
+À partir de JHipster v7.9.0, le support des modules a été fusionné avec le support des blueprints. Ainsi, les mêmes règles s'appliquent.
 
-Before creating a Blueprint, make sure you have read [Blueprint Basics](/modules/extending-and-customizing/#-blueprint-basics)
+Avant de créer un Blueprint, assurez-vous d'avoir lu [Principes de base des Blueprint](/modules/extending-and-customizing/#-blueprint-basics).
 
-## Example
+## Exemple
 
-[JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) was converted from a module to a blueprint.
+[JHipster Ionic](https://github.com/jhipster/generator-jhipster-ionic) a été converti d'un module en blueprint.
 
 ## Migration
 
-- Rename your module app and entity generators (if they exist) to something else like app-module and entity-module
+- Renommez vos générateurs d'application et d'entité de module (s'ils existent) en quelque chose comme app-module et entity-module
 
 ```sh
 mv generators/app generators/app-module
 mv generators/entity generators/entity-module
 ```
 
-- Rename every other generator that matches a generator-jhipster generator (otherwise they will be called as a blueprint).
-And update referentes.
-- Add a custom cli (`cli/cli.mjs`)
+- Renommez tous les autres générateurs qui correspondent à un générateur-jhipster (sinon, ils seront appelés comme un blueprint).
+Et mettez à jour les références.
+- Ajoutez un CLI personnalisé  (`cli/cli.mjs`)
 
 ```javascript
 #!/usr/bin/env node
@@ -67,7 +67,7 @@ process.on('unhandledRejection', up => {
 });
 ```
 
-- Add the cli to `package.json`
+- Ajoutez le CLI à `package.json`
 
 ```json
 {
@@ -79,11 +79,11 @@ process.on('unhandledRejection', up => {
 
 ### Hooks
 
-Hooks support will be removed for JHipster 8. For migration, you can use the following side-by-side blueprints to simulate hooks.
+Le support des hooks sera supprimé pour JHipster 8. Pour la migration, vous pouvez utiliser les blueprints côte-à-côte suivants pour simuler des hooks.
 
-- Add the following generators.
+- Ajoutez les générateurs suivants.
 
-App generator (`generators/app/index.mjs`) for post app hooks:
+Générateur d'application (`generators/app/index.mjs`) pour les hooks post-app:
 
 ```javascript
 import chalk from 'chalk';
@@ -115,7 +115,7 @@ export default class extends GeneratorBaseApplication {
 }
 ```
 
-Entity generator (`generators/entity/index.mjs`) for post entity hooks:
+Générateur d'entité  (`generators/entity/index.mjs`) pour les hooks post-entité :
 
 ```javascript
 import chalk from 'chalk';

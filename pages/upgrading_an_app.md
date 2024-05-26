@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Updating an application
+title:  Mise à jour d'une application
 permalink: /upgrading-an-application/
 sitemap:
     priority: 0.7
@@ -8,179 +8,173 @@ sitemap:
 gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 ---
 
-# <i class="fa fa-refresh"></i> Upgrading an application
+# <i class="fa fa-refresh"></i> Mise à jour d'une application
 
-## Summary
+## Sommaire
 
-1. [Option 1 - automatic upgrade](#automatic_upgrade)
-2. [Option 2 - manual upgrade](#manual_upgrade)
+1. [Option 1 - mise à jour automatique](#automatic_upgrade)
+2. [Option 2 - mise à jour manuelle](#manual_upgrade)
 
-<h2 id="automatic_upgrade">Option 1 - automatic upgrade</h2>
+<h2 id="automatic_upgrade">Option 1 - mise à jour automatique</h2>
 
-When a new version of JHipster is released, the JHipster upgrade sub-generator helps upgrade an existing application to this new version, without erasing your changes.
+Lorsqu'une nouvelle version de JHipster est publiée, le sous-générateur de mise à jour de JHipster permet de mettre à jour une application existante vers cette nouvelle version, sans effacer vos modifications.
 
-This is helpful to:
+Cela est utile pour :
 
-- Have the latest JHipster features in an existing application
-- Get the changes when there is an important bug fix or security update
-- Retain your changes in your codebase, and merge them with newly generated code
+- Avoir les dernières fonctionnalités de JHipster dans une application existante
+- Obtenir les modifications lorsqu'il y a une correction de bogue importante ou une mise à jour de sécurité
+- Conserver vos modifications dans votre base de code et les fusionner avec le nouveau code généré
 
-_Please read this page carefully before doing an upgrade, to understand how the upgrade process works_
+_Veuillez lire attentivement cette page avant de procéder à une mise à jour, pour comprendre comment fonctionne le processus de mise à jour_
 
-### Requirements
+### Exigences
 
-For this sub-generator to work you need to have `git` installed from [http://git-scm.com](http://git-scm.com/).
+Pour que ce sous-générateur fonctionne, vous devez avoir `git` installé à partir de [http://git-scm.com](http://git-scm.com/).
 
-### Running the upgrade sub-generator
+### Exécution du sous-générateur de mise à jour
 
-Go into the application's root directory:
+Accédez au répertoire racine de l'application :
 
-`cd myapplication/`
+`cd monapplication/`
 
-To upgrade your application, type:
+Pour mettre à jour votre application, saisissez :
 
 `npx generator-jhipster@latest upgrade`
 
-An alternative is to use global installation:
+Une alternative est d'utiliser l'installation globale :
 
 ```
 npm install -g generator-jhipster@latest
 jhipster upgrade
 ```
 
-Here are the options you can pass:
+Voici les options que vous pouvez passer :
 
-* `--skip-checks` - Disable checks during project regeneration
-* `--silent` - Hides output of the generation process
+* `--skip-checks` - Désactive les vérifications lors de la régénération du projet
+* `--silent` - Masque la sortie du processus de génération
 
-### Upgrading from JHipster 7 and previous versions
+### Mise à niveau depuis JHipster 7 et les versions précédentes
 
-The [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) is an advanced version of the upgrade sub-generator. If you need to upgrade a JHipster 7 app, it's recommended you use the migrate blueprint. For example, let's assume you have a 7.9.3 app.
+Le [blueprint de migration](https://github.com/jhipster/generator-jhipster-migrate) est une version avancée du sous-générateur de mise à jour. Si vous devez mettre à niveau une application JHipster 7, il est recommandé d'utiliser le blueprint de migration. Par exemple, supposons que vous ayez une application 7.9.3.
 
-Run `jhipster-migrate` to upgrade to the latest version. Resolve conflicts, commit, and celebrate!
+Exécutez `jhipster-migrate` pour passer à la dernière version. Résolvez les conflits, validez et célébrez !
 
-For a working example, see the following pull requests from the 21-Points Health project.
+Pour un exemple concret, consultez les demandes de tirage suivantes du projet 21-Points Health.
 
-- [Upgrade to JHipster 7.9.4](https://github.com/mraible/21-points/pull/248)
-- [Upgrade to JHipster 8.2.1](https://github.com/mraible/21-points/pull/249)
+- [Mise à jour vers JHipster 7.9.4](https://github.com/mraible/21-points/pull/248)
+- [Mise à jour vers JHipster 8.2.1](https://github.com/mraible/21-points/pull/249)
 
-### Graphical view of the upgrade process
+### Vue graphique du processus de mise à jour
 
-Here is how the upgrade process works graphically (read the sections below to have a textual explanation):
+Voici comment fonctionne le processus de mise à jour graphiquement (lisez les sections ci-dessous pour avoir une explication textuelle) :
 
 ![GitGraph]({{ site.url }}/images/upgrade_gitgraph.png)
 
-(this image comes from [JSFiddle](http://jsfiddle.net/lordlothar99/tqp9gyu3/) )
+(cette image provient de [JSFiddle](http://jsfiddle.net/lordlothar99/tqp9gyu3/) )
 
-Please note that the `jhipster_upgrade` branch will be created orphan on your project, although it doesn't display correctly on the above graph.
+Veuillez noter que la branche `jhipster_upgrade` sera créée orpheline sur votre projet, bien qu'elle ne s'affiche pas correctement sur le graphique ci-dessus.
 
-### Step-by-step explanation of the upgrade process
+### Explication étape par étape du processus de mise à jour
 
-Below are the steps processed by the JHipster upgrade sub-generator:
+Voici les étapes traitées par le sous-générateur de mise à jour de JHipster :
 
-1. Check if there is a new version of JHipster available (not applicable if you are using `--force`).
-2. Check if the application is already initialized as a `git` repository, or else JHipster will initialize one for you and commit the current codebase to the master branch.
-3. Check to ensure that there are no un-committed local changes in the repository. The process will exit if there are un-committed changes found.
-4. Check if a `jhipster_upgrade` branch exists. If not, a branch is created: details about this step is provided in the "Specific steps on first upgrade" section.
-5. Checkout the `jhipster_upgrade` branch.
-6. Upgrade JHipster to the latest available version globally.
-7. Clean the current project directory.
-8. Re-generate the application using the `jhipster --force` command.
-9. Commit the generated code to the `jhipster_upgrade` branch.
-10. Merge the `jhipster_upgrade` branch back to the original branch from where the `npx jhipster upgrade` command was launched.
-11. Now you need to proceed with resolving merge conflicts if there are any.
+1. Vérifier s'il existe une nouvelle version de JHipster disponible (non applicable si vous utilisez `--force`).
+2. Vérifier si l'application est déjà initialisée en tant que dépôt `git`, sinon JHipster en initialisera un pour vous et validera la base de code actuelle sur la branche principale.
+3. Vérifier pour s'assurer qu'il n'y a pas de modifications locales non validées dans le dépôt. Le processus se terminera si des modifications non validées sont trouvées.
+4. Vérifier si une branche `jhipster_upgrade` existe. Si ce n'est pas le cas, une branche est créée : des détails sur cette étape sont fournis dans la section "Étapes spécifiques lors de la première mise à jour".
+5. Vérifier la branche `jhipster_upgrade`.
+6. Mettre à jour JHipster vers la dernière version disponible globalement.
+7. Nettoyer le répertoire du projet actuel.
+8. Régénérer l'application en utilisant la commande `jhipster --force`.
+9. Valider le code généré sur la branche `jhipster_upgrade`.
+10. Fusionner la branche `jhipster_upgrade` avec la branche d'origine à partir de laquelle la commande `npx jhipster upgrade` a été lancée.
+11. Vous devez maintenant procéder à la résolution des conflits de fusion s'il y en a.
 
-Congratulations, your application is now upgraded with the latest version of JHipster!
+Félicitations, votre application est désormais mise à jour avec la dernière version de JHipster !
 
-### Specific steps on first upgrade
+### Étapes spécifiques lors de la première mise à jour
 
-On the first run of the JHipster upgrade sub-generator, in order to avoid erasing all your changes, some additional steps are run:
 
-1. A `jhipster_upgrade` branch is created orphan (it has no parent).
-2. The whole application is generated (using your current JHipster version).
-3. A block-merge commit is made on the `master` branch: no alteration is made on your codebase on the `master` branch; this is a practical way to record in Git that the HEAD of `master` is up-to-date with the current JHipster version.
+Lors du premier lancement du sous-générateur de mise à jour de JHipster, afin d'éviter d'effacer toutes vos modifications, quelques étapes supplémentaires sont exécutées :
 
-#### Advice
+1. Une branche `jhipster_upgrade` est créée orpheline (elle n'a pas de parent).
+2. L'ensemble de l'application est généré (en utilisant votre version actuelle de JHipster).
+3. Un commit de fusion de bloc est effectué sur la branche `master` : aucune altération n'est apportée à votre base de code sur la branche `master`; il s'agit d'une manière pratique d'enregistrer dans Git que HEAD de `master` est à jour avec la version actuelle de JHipster.
 
-- Don't commit anything on the `jhipster_upgrade` branch. This branch is dedicated to the JHipster upgrade sub-generator: each time the sub-generator is run, a new commit will be created.
+#### Conseil
 
-- If you are updating from a very old version (example from 5.0.0 to latest) we suggest updating gradually between each minor/patch version and performing tests to make sure the application works as expected. 
+- Ne commitez rien sur la branche `jhipster_upgrade`. Cette branche est dédiée au sous-générateur de mise à jour de JHipster : à chaque fois que le sous-générateur est exécuté, un nouveau commit sera créé.
 
-- There are some helpful approaches from the JHipster community around designing the application in such a way that makes the update process easier, and reduces the amount of merge conflicts. We recommend using [JHipster Side-by-Side approach](https://www.youtube.com/watch?v=Gg5CYoBdpVo).  
+- Si vous mettez à jour à partir d'une version très ancienne (par exemple de 5.0.0 à la dernière version), nous vous recommandons de procéder progressivement entre chaque version mineure/patch et de réaliser des tests pour vous assurer que l'application fonctionne comme prévu.
 
-<h2 id="manual_upgrade">Option 2 - manual upgrade</h2>
+- Il existe quelques approches utiles de la communauté JHipster pour concevoir l'application de manière à rendre le processus de mise à jour plus facile et à réduire le nombre de conflits de fusion. Nous recommandons d'utiliser [l'approche côte à côte de JHipster](https://www.youtube.com/watch?v=Gg5CYoBdpVo).
 
-For a manual upgrade, first upgrade your version of JHipster with:
+<h2 id="manual_upgrade">Option 2 - mise à jour manuelle</h2>
+
+Pour une mise à jour manuelle, commencez par mettre à jour votre version de JHipster avec :
 
 ```
 npm install -g generator-jhipster
 ```
 
-Delete your project `node_modules` folder and then run:
+Supprimez le dossier `node_modules` de votre projet, puis exécutez :
 
 ```
 jhipster
 ```
 
-You can also update your project and all its entities by running
+Vous pouvez également mettre à jour votre projet et toutes ses entités en exécutant
 
 ```
 jhipster --force
 ```
 
-You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_
+Vous pouvez également mettre à jour vos entités une par une en exécutant à nouveau le sous-générateur d'entité, par exemple si votre entité s'appelle _Foo_
 
 ```
 jhipster entity Foo
 ```
 
-### Hints about renamed files
+### Conseils sur les fichiers renommés
 
-Sometimes files may be renamed in the generator. If you want to see Git rename detection result then you can run `git add` (`git add .` stages all) and view changes after that with your favorite Git client.
+Parfois, des fichiers peuvent être renommés dans le générateur. Si vous souhaitez voir le résultat de la détection de renommage de Git, vous pouvez exécuter `git add` (`git add .` met en stage tout) et afficher les modifications après avec votre client Git préféré.
 
-If many files are renamed then you may want to increase `diff.renameLimit` in Git config to make Git rename detection work as expected. For example `git config --replace-all diff.renameLimit 10000`.
+Si de nombreux fichiers sont renommés, vous voudrez peut-être augmenter `diff.renameLimit` dans la configuration Git pour que la détection de renommage de Git fonctionne comme prévu. Par exemple `git config --replace-all diff.renameLimit 10000`.
 
-By default Git rename detection uses similarity threshold 50%. To see less similar files as renamed, you can use option `--find-renames=<n>` in Git commands. For example `git diff --staged --find-renames=30`.
+Par défaut, la détection de renommage de Git utilise un seuil de similarité de 50%. Pour voir les fichiers moins similaires comme renommés, vous pouvez utiliser l'option `--find-renames=<n>` dans les commandes Git. Par exemple `git diff --staged --find-renames=30`.
 
-### See your own changes
+### Voir vos propres modifications
 
-If you would like to see changes you have done after generating project you can follow the steps described below.
+Si vous souhaitez voir les modifications que vous avez apportées après la génération du projet, vous pouvez suivre les étapes décrites ci-dessous.
 
-Clone your project into the new folder with `git clone`.
+Clonez votre projet dans le nouveau dossier avec `git clone`.
 
-Delete all files and folders from cloned project except `.git`, `.jhipster` and `.yo-rc.json`.
+Supprimez tous les fichiers et dossiers du projet cloné sauf `.git`, `.jhipster` et `.yo-rc.json`.
 
-Find out what JHipster version you used last time to generate your project: look at the `.yo-rc.json` in the project root folder, find out the value of the `jhipsterVersion`.
+Découvrez quelle version de JHipster vous avez utilisée la dernière fois pour générer votre projet : regardez le `.yo-rc.json` dans le dossier racine du projet, découvrez la valeur de `jhipsterVersion`.
 
-Install JHipster version you used last time you generated your project:
+Installez la version de JHipster que vous avez utilisée la dernière fois pour générer votre projet :
 
 ```
 npm install -g generator-jhipster@jhipsterVersionYouUsedLastTime
 ```
 
-Regenerate your project:
+Regénérez votre projet :
 
 ```
 jhipster --force --skip-install
 ```
 
-With `git diff` you can now see all your changes as reverted. If you would like to see all your changes as added then you can commit all to Git and then revert the last commit.
+Avec `git diff`, vous pouvez maintenant voir toutes vos modifications comme annulées. Si vous souhaitez voir toutes vos modifications comme ajoutées, vous pouvez tout valider dans Git, puis annuler le dernier commit.
 
-### See JHipster changes
+### Voir les modifications de JHipster
 
-If you would like to see changes done by JHipster you can follow the steps described below.
+Si vous souhaitez voir les modifications apportées par JHipster, vous pouvez suivre les étapes décrites ci-dessous.
 
-Generate project with JHipster version you used last time to generate your project:
-* create a new folder
-* copy your project `.yo-rc.json` file and `.jhipster` folder into this new folder
-* find out what JHipster version you used last time to generate your project: look at the `.yo-rc.json`, find out the value of the `jhipsterVersion`
-* install JHipster version you used last time to generate your project: `npm install -g generator-jhipster@jhipsterVersionYouUsedLastTime`
-* in the created folder run: `jhipster --skip-install`
+Générez le projet avec la version de JHipster que vous avez utilisée la dernière fois pour générer votre projet :
+* créez un nouveau dossier
+* copiez le fichier `.yo-rc.json` de votre projet et le dossier `.jhipster` dans ce nouveau dossier
+* installez la dernière version de JHipster : `npm install -g generator-jhipster`
+* dans le dossier créé, exécutez : `jhipster --skip-install`
 
-Generate project with the latest JHipster:
-* create a new folder
-* copy your project `.yo-rc.json` file and `.jhipster` folder into this new folder
-* install the latest JHipster version: `npm install -g generator-jhipster`
-* in the created folder run: `jhipster --skip-install`
-
-Compare those 2 folders with your favorite file and folder compare tool to see changes done by JHipster.
+Comparez ces 2 dossiers avec votre outil de comparaison de fichiers et de dossiers préféré pour voir les modifications apportées par JHipster.

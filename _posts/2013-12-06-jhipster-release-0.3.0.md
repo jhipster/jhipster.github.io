@@ -1,47 +1,48 @@
 ---
 layout: default
-title: Release 0.3.0
+title: Version 0.3.0 publiée
 ---
 
-JHipster release 0.3.0
+Sortie de JHipster version 0.3.0
 ==================
 
-*JHipster gives you Yeoman + Maven + Spring + AngularJS all working together in one handy generator.*
+*JHipster vous offre Yeoman + Maven + Spring + AngularJS, tout fonctionnant ensemble dans un générateur pratique.*
 
-What's new
+Nouveautés
 ----------
 
-- JDK 7 is now a required minimum (if you use JDK 6, don't call yourself a hipster!)
-- Spring configuration is now XML-less! The only XML configuration file we have left belongs to Spring Security. We need to wait until the next version of Spring Security to replace this file.
-- The connection pool has changed: we now use [HikariCP](https://github.com/brettwooldridge/HikariCP)
-- For users who have chosen to use Spring 4, updated the application to Spring 4.0.0.RC2
+- JDK 7 est désormais un minimum requis (si vous utilisez JDK 6, ne vous appelez pas un hipster!)
+- La configuration Spring est désormais sans XML ! Le seul fichier de configuration XML restant appartient à Spring Security. Nous devons attendre la prochaine version de Spring Security pour remplacer ce fichier.
+- Le pool de connexions a changé : nous utilisons maintenant [HikariCP](https://github.com/brettwooldridge/HikariCP)
+- Pour les utilisateurs qui ont choisi d'utiliser Spring 4, mise à jour de l'application vers Spring 4.0.0.RC2
 
 
-How to upgrade
+Comment mettre à jour
 ------------
 
-Update your version of JHipster with:
+Mettez à jour votre version de JHipster avec :
+
 
 ```
 npm update -g generator-jhipster
 ```
 
-You can suppress the now useless XML files:
+Vous pouvez supprimer les fichiers XML désormais inutiles :
 
 - src/main/resources/META-INF/persistence.xml
 - src/main/resources/META-INF/spring/applicationContext-database.xml
 - src/test/resources/META-INF/spring/applicationContext-database.xml
 
-And then you can update your project when you run again
+Et ensuite, vous pouvez mettre à jour votre projet lorsque vous exécutez à nouveau
 
 ```
 yo jhipster
 ```
 
-Help and bugs
+Aide et bugs
 --------------
 
-If you find any issue with this release, don't hesitate to:
+Si vous rencontrez des problèmes avec cette version, n'hésitez pas à :
 
-- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
-- Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Contacter [@jhipster](https://twitter.com/jhipster) sur Twitter
+- Ajouter un bug sur notre [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)

@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Allowing Common Web Fonts in Security Configuration
+title: # Autoriser les polices web courantes dans la configuration de sécurité
 sitemap:
 priority: 0.1
 lastmod: 2023-08-17T00:00:00-00:00
 ---
-# Allowing Common Web Fonts in Security Configuration
+# Autoriser les polices web courantes dans la configuration de sécurité
 
-__Tip submitted by [@dinu0000](https://github.com/dinu0000)__
+__Astuce soumise par [@dinu0000](https://github.com/dinu0000)__
 
-When developing a JHipster web application, you might encounter issues with web fonts not loading properly due to security configurations. To allow common web fonts to load seamlessly, follow these steps:
+Lors du développement d'une application web JHipster, vous pouvez rencontrer des problèmes avec le chargement incorrect des polices web en raison des configurations de sécurité. Pour permettre le chargement sans heurts des polices web courantes, suivez ces étapes :
 
-In your `SecurityConfiguration.java` file, update the `filterChain` method to permit requests for web fonts:
+Dans votre fichier `SecurityConfiguration.java`, mettez à jour la méthode `filterChain` pour autoriser les requêtes de polices web :
 
 ```java
 @Bean
@@ -29,4 +29,4 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 }
 ```
 
-With these adjustments, your JHipster app's security configuration will allow the loading of common web fonts without encountering security restrictions.
+Avec ces ajustements, la configuration de sécurité de votre application JHipster autorisera le chargement des polices web courantes sans rencontrer de restrictions de sécurité.

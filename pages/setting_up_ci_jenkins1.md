@@ -1,36 +1,36 @@
 ---
 layout: default
-title: Setting up Jenkins 1
+title: Configuration de Jenkins 1
 permalink: /setting-up-ci-jenkins1/
 sitemap:
     priority: 0.7
     lastmod: 2016-11-03T12:40:00-00:00
 ---
 
-# <i class="fa fa-wrench"></i> Setting up a Jenkins server
+# <i class="fa fa-wrench"></i> Configuration d'un serveur Jenkins
 
-To configure a Jenkins server for JHipster, refer to the following guides:
+Pour configurer un serveur Jenkins pour JHipster, consultez les guides suivants :
 
-- [Setting up Jenkins 1 on Linux]({{ site.url }}/setting-up-ci-linux/)
-- [Setting up Jenkins 1 on Windows]({{ site.url }}/setting-up-ci-windows/)
+- [Configuration de Jenkins 1 sur Linux]({{ site.url }}/configuration-ci-linux/)
+- [Configuration de Jenkins 1 sur Windows]({{ site.url }}/configuration-ci-windows/)
 
-# <i class="fa fa-sliders"></i> Jenkins Configuration
+# <i class="fa fa-sliders"></i> Configuration de Jenkins
 
-To setup a JHipster project in Jenkins, use the following configuration:
+Pour configurer un projet JHipster dans Jenkins, utilisez la configuration suivante :
 
-## For Maven:
+## Pour Maven :
 
 ```
-* Project name: `yourApplicationName`
-* Source Code Management
-    * Git Repository: `git@github.com:xxxx/yourApplicationName.git`
-    * Branches to build: `*/main`
-    * Additional Behaviours: `Wipe out repository & force clone`
-* Build Triggers
+* Nom du projet : `nomDeVotreApplication`
+* Gestion du code source
+    * Référentiel Git : `git@github.com:xxxx/nomDeVotreApplication.git`
+    * Branches à construire : `*/main`
+    * Comportements supplémentaires : `Effacer le référentiel et forcer le clonage`
+* Déclencheurs de construction
     * Poll SCM / Schedule: `H/5 * * * *`
-* Build<% if (buildTool == 'maven') { %>
-    * Invoke Maven / Tasks: `-Pprod clean package`
-    * Execute Shell / Command:
+* Construction<% if (buildTool == 'maven') { %>
+    * Invoker Maven / Tâches : `-Pprod clean package`
+    * Exécuter un shell / Commande :
         ````
         mvn spring-boot:run &
         bootPid=$!
@@ -38,22 +38,23 @@ To setup a JHipster project in Jenkins, use the following configuration:
         gulp itest
         kill $bootPid
         ````
-* Post-build Actions
-    * Publish JUnit test result report / Test Report XMLs: `build/test-results/*.xml`
+* Actions post-construction
+    * Publier le rapport de résultats de test JUnit / Fichiers XML du rapport de test : `build/test-results/*.xml`
 ```
 
-## For Gradle:
+## Pour Gradle :
+
 ```
-* Project name: `yourApplicationName`
-* Source Code Management
-    * Git Repository: `git@github.com:xxxx/yourApplicationName.git`
-    * Branches to build: `*/main`
-    * Additional Behaviours: `Wipe out repository & force clone`
-* Build Triggers
+* Nom du projet : `nomDeVotreApplication`
+* Gestion du code source
+    * Référentiel Git : `git@github.com:xxxx/nomDeVotreApplication.git`
+    * Branches à construire : `*/main`
+    * Comportements supplémentaires : `Effacer le référentiel et forcer le clonage`
+* Déclencheurs de construction
     * Poll SCM / Schedule: `H/5 * * * *`
-* Build
-    * Invoke Gradle script / Use Gradle Wrapper / Tasks: `-Pprod clean test bootWar`
-    * Execute Shell / Command:
+* Construction
+    * Invoker le script Gradle / Utiliser le Wrapper Gradle / Tâches : `-Pprod clean test bootWar`
+    * Exécuter un shell / Commande :
         ````
         ./gradlew bootRun &
         bootPid=$!
@@ -61,7 +62,6 @@ To setup a JHipster project in Jenkins, use the following configuration:
         gulp itest
         kill $bootPid
         ````
-* Post-build Actions
-    * Publish JUnit test result report / Test Report XMLs: `build/test-results/*.xml`
+* Actions post-construction
+    * Publier le rapport de résultats de test JUnit / Fichiers XML du rapport de test : `build/test-results/*.xml`
 ```
-

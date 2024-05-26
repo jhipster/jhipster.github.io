@@ -1,26 +1,26 @@
 ---
 layout: default
-title: Using Bootswatch themes
+title: Utiliser les thèmes Bootswatch
 sitemap:
 priority: 0.5
 lastmod: 2015-08-01T22:28:00-00:00
 ---
 
-# Using Bootswatch themes with theme switcher
+# Utiliser les thèmes Bootswatch avec un sélecteur de thèmes
 
-__Tip submitted by [@deepu105](https://github.com/deepu105)__
+__Conseil proposé par [@deepu105](https://github.com/deepu105)__
 
-This is now available as a [JHipster module](https://github.com/deepu105/generator-jhipster-bootswatch) requires JHipster version greater than 2.26.2
+Cela est désormais disponible sous forme de [module JHipster](https://github.com/deepu105/generator-jhipster-bootswatch) et nécessite une version JHipster supérieure à 2.26.2.
 
-To have [Bootswatch](https://bootswatch.com/) themes instead of the default theme you just need to override the bootstrap css with the css from bootswatch theme. However if you want a cool theme switcher to switch between Bootswatch themes dynamically then follow this tip.
+Pour utiliser des thèmes [Bootswatch](https://bootswatch.com/) à la place du thème par défaut, vous devez simplement remplacer le CSS de Bootstrap par le CSS du thème Bootswatch. Cependant, si vous souhaitez un sélecteur de thèmes dynamique pour basculer entre les thèmes Bootswatch, suivez ce conseil.
 
-Make the following changes in the generated app.
+Effectuez les modifications suivantes dans l'application générée.
 
-**Note:** replace 'yourApp' with the generated name of your application.
+**Remarque :** Remplacez 'yourApp' par le nom généré de votre application.
 
-## Add Files
+## Ajouter des fichiers
 
-Add the below service as `bootswatch.service.js` under `webapp/app/components/bootswatch`
+Ajoutez le service suivant en tant que `bootswatch.service.js` sous `webapp/app/components/bootswatch`
 
     'use strict';
 
@@ -35,7 +35,7 @@ Add the below service as `bootswatch.service.js` under `webapp/app/components/bo
             };
         });
 
-Add the below directive as `bootswatch.directive.js` under `webapp/app/components/bootswatch`
+Ajoutez la directive suivante en tant que `bootswatch.directive.js` sous `webapp/app/components/bootswatch`
 
 
     'use strict';
@@ -63,7 +63,7 @@ Add the below directive as `bootswatch.directive.js` under `webapp/app/component
             };
         });
 
-Add the below controller as `bootswatch.controller.js` under `webapp/app/components/bootswatch`
+Ajoutez le contrôleur suivant en tant que `bootswatch.controller.js` sous `webapp/app/components/bootswatch`
 
     'use strict';
 
@@ -78,7 +78,7 @@ Add the below controller as `bootswatch.controller.js` under `webapp/app/compone
 
 ## index.html
 
-Add the below to the `index.html` file after the CSS vendor.css build task so that these are not minified and compacted by build task
+Ajoutez ce qui suit dans le fichier  `index.html` après la tâche de construction CSS vendor.css pour éviter qu'ils ne soient minifiés et compactés par la tâche de construction
 
     <!-- build:css content/css/vendor.css -->
 
@@ -94,7 +94,7 @@ Add the below to the `index.html` file after the CSS vendor.css build task so th
     <!-- endbuild -->
 
 
-Add the below in footer
+Ajoutez ceci dans le pied de page
 
     <div class="footer">
         <p translate="footer" class="pull-left">This is your footer</p>
@@ -114,8 +114,7 @@ Add the below in footer
         </div>
     </div>
 
-Add script tags in your index.html file manually if 'gulp inject' fails and you receive angular errors
-
+Ajoutez les balises de script dans votre fichier index.html manuellement si 'gulp inject' échoue et que vous recevez des erreurs angulaires
     <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
 
     ...
@@ -124,9 +123,9 @@ Add script tags in your index.html file manually if 'gulp inject' fails and you 
     <script src="scripts/components/util/bootswatch.directive.js"></script>
     <script src="scripts/components/util/bootswatch.service.js"></script>
 
-# app.js (only for oAuth/xAuth)
+# app.js (uniquement pour    oAuth/xAuth)
 
-Add exclusion to the bootswatch url in authInterceptor in `app/blocks/interceptor/auth.interceptor.js` if you are using OAuth or XAuth
+Ajoutez l'exclusion de l'URL Bootswatch à l'intercepteur d'authentification dans`app/blocks/interceptor/auth.interceptor.js` si vous utilisez OAuth ou XAuth
 
     .factory('authInterceptor', function ($rootScope, $q, $location, localStorageService) {
         return {
@@ -142,16 +141,16 @@ Add exclusion to the bootswatch url in authInterceptor in `app/blocks/intercepto
             }
         };
 
-# Screenshots
+# Captures d'écran
 
-![Screenshot 1](../images/009_tips_using_bootswatch_themes_01.png)
+![Capture d'écran 1](../images/009_tips_using_bootswatch_themes_01.png)
 
-![Screenshot 2](../images/009_tips_using_bootswatch_themes_02.png)
+![Capture d'écran 2](../images/009_tips_using_bootswatch_themes_02.png)
 
-![Screenshot 3](../images/009_tips_using_bootswatch_themes_03.png)
+![Capture d'écran 3](../images/009_tips_using_bootswatch_themes_03.png)
 
-![Screenshot 4](../images/009_tips_using_bootswatch_themes_04.png)
+![Capture d'écran 4](../images/009_tips_using_bootswatch_themes_04.png)
 
-![Screenshot 5](../images/009_tips_using_bootswatch_themes_05.png)
+![Capture d'écran 5](../images/009_tips_using_bootswatch_themes_05.png)
 
-![Screenshot 6](../images/009_tips_using_bootswatch_themes_06.png)
+![Capture d'écran 6](../images/009_tips_using_bootswatch_themes_06.png)

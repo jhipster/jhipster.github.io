@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Setting up Jenkins 1 on Windows
+title: Configuration de Jenkins 1 sur Windows
 permalink: /setting-up-ci-windows/
 redirect_from:
   - /setting_up_ci_windows.html
@@ -9,62 +9,63 @@ sitemap:
     lastmod: 2015-01-09T12:40:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> Setting up Jenkins 1 on Windows
 
-## Installing Jenkins
+# <i class="fa fa-stethoscope"></i> Configuration de Jenkins 1 sur Windows
 
-Download the Jenkins Windows Installer from [https://jenkins.io/](https://jenkins.io/)
+## Installation de Jenkins
 
-The installer configures Jenkins to run as a service using the SYSTEM user which can be dangerous, it's safer to change the user's service to a non privileged one:
+Téléchargez l'installateur Windows de Jenkins depuis [https://jenkins.io/](https://jenkins.io/)
+
+L'installateur configure Jenkins pour s'exécuter en tant que service en utilisant l'utilisateur SYSTEM, ce qui peut être dangereux. Il est plus sûr de changer le service de l'utilisateur en un utilisateur non privilégié:
 
 [http://antagonisticpleiotropy.blogspot.fr/2012/08/running-jenkins-in-windows-with-regular.html](http://antagonisticpleiotropy.blogspot.fr/2012/08/running-jenkins-in-windows-with-regular.html)
 
-## Configuring Jenkins
+## Configuration de Jenkins
 
-### Installing JDK 8
+### Installation de JDK 17
 
-Through Jenkins administration, add a JDK 8 automatic installer.
+À travers l'administration de Jenkins, ajoutez un installateur automatique JDK 17.
 
-### Installing Maven
+### Installation de Maven
 
-Through Jenkins administration, add a Maven automatic installer from Apache's site.
+À travers l'administration de Jenkins, ajoutez un installateur automatique Maven depuis le site Apache.
 
-### Installing PhantomJS
+### Installation de PhantomJS
 
-Install binaries from [http://phantomjs.org/download.html](http://phantomjs.org/download.html)
+Installez les binaires depuis [http://phantomjs.org/download.html](http://phantomjs.org/download.html)
 
-Check that the executable is included in PATH:
+Vérifiez que l'exécutable est inclus dans le PATH :
 
 ~~~
 phantomjs --version
 2.1.1
 ~~~
 
-## Installing NodeJS
+## Installation de NodeJS
 
-Jenkins NodeJS plugin does not work on Windows, so we'll do a manual installation.
+Le plugin Jenkins NodeJS ne fonctionne pas sur Windows, donc nous ferons une installation manuelle.
 
-Download latest LTS (Long Term Support) 64-bit version from [http://nodejs.org/](http://nodejs.org/)
+Téléchargez la dernière version LTS (Long Term Support) 64 bits depuis [http://nodejs.org/](http://nodejs.org/)
 
-Don't install NodeJS to the default directory `C:\Program Files\nodejs` as it requires administration rights, prefer a simpler path like `c:\nodejs`.
+N'installez pas NodeJS dans le répertoire par défaut `C:\Program Files\nodejs` car cela nécessite des droits d'administration, préférez un chemin plus simple comme `c:\nodejs`.
 
-Edit `C:\nodejs\node_modules\npm\npmrc` to replace
+Modifiez `C:\nodejs\node_modules\npm\npmrc` pour remplacer
 
 ~~~
 prefix=${APPDATA}\npm
 ~~~
 
-by
+par
 
 ~~~
 prefix=C:\nodejs\node_modules\npm
 ~~~
 
-Add the 'C:\nodejs\node_modules\npm' folder to the PATH environment variable, remove the one that was added by the installer: 'C:\Users\<user>\AppData\Roaming\npm'
+Ajoutez le dossier 'C:\nodejs\node_modules\npm' à la variable d'environnement PATH, supprimez celui qui a été ajouté par l'installateur : 'C:\Users\<user>\AppData\Roaming\npm'
 
-npm may require Git, install it from [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
+npm peut nécessiter Git, installez-le depuis [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
 
-Add Bower and Gulp:
+Ajoutez Bower et Gulp :
 
 ~~~
 npm install -g bower gulp
@@ -72,4 +73,4 @@ bower --version
 gulp --version
 ~~~
 
-It can be useful to have multiple versions of NodeJS on the same machine but `nvm` equivalents on Windows focus more on development environment than continuous integration. So if a job requires another version of NodeJS, change its PATH variable.
+Il peut être utile d'avoir plusieurs versions de NodeJS sur la même machine mais les équivalents de `nvm` sur Windows se concentrent davantage sur l'environnement de développement que sur l'intégration continue. Donc, si un job nécessite une autre version de NodeJS, modifiez sa variable PATH.

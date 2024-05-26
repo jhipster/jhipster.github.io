@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Setting up Continuous Integration
+title: Configuration de l'intégration continue
 permalink: /setting-up-ci/
 redirect_from:
   - /setting_up_ci.html
@@ -9,151 +9,148 @@ sitemap:
     lastmod: 2018-08-03T14:40:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> Setting up Continuous Integration
 
-Setting up Continuous Integration (CI) for a JHipster application is more complex than for a classic typical Spring MVC application because of the complexity associated with maintaining a build composed of 2 software stacks:
+# <i class="fa fa-stethoscope"></i> Configuration de l'intégration continue
 
-- the Java back-end code with Maven or Gradle
-- the JavaScript front-end with NodeJS, NPM
+Configurer l'intégration continue (CI) pour une application JHipster est plus complexe que pour une application Spring MVC typique en raison de la complexité associée à la maintenance d'une construction composée de deux piles logicielles :
 
-Each stack comes with its own dependency management (Maven artifacts, NPM packages) with potential conflicts to solve.
+- le code back-end Java avec Maven ou Gradle
+- le front-end JavaScript avec NodeJS, NPM
 
-JHipster should support the following CI systems out of the box:
+Chaque pile est livrée avec sa propre gestion des dépendances (artefacts Maven, paquets NPM) avec des conflits potentiels à résoudre.
 
-- Jenkins:
-    - [Setting up Jenkins 1]({{ site.url }}/setting-up-ci-jenkins1/)
-    - [Setting up Jenkins 2]({{ site.url }}/setting-up-ci-jenkins2/) (recommended)
-- Travis: refer to the [Travis Documentation](https://docs.travis-ci.com/user/getting-started/)
-- GitLab CI: refer to the [GitLab CI Documentation](https://about.gitlab.com/gitlab-ci/)
-- Azure Pipelines: refer to the [Azure Pipelines Documentation](https://docs.microsoft.com/fr-fr/azure/devops/pipelines/?view=vsts)
-- GitHub Actions: refer to [GitHub Actions Documentation](https://github.com/features/actions)
-- CircleCI: refer to [CircleCI Documentation](https://circleci.com/docs/)
+JHipster devrait prendre en charge les systèmes CI suivants dès le départ :
 
-## Running the sub-generator
+- Jenkins :
+    - [Configurer Jenkins 1]({{ site.url }}/configuration-ci-jenkins1/)
+    - [Configurer Jenkins 2]({{ site.url }}/configuration-ci-jenkins2/) (recommandé)
+- Travis : consultez la [documentation Travis](https://docs.travis-ci.com/user/getting-started/)
+- GitLab CI : consultez la [documentation GitLab CI](https://about.gitlab.com/gitlab-ci/)
+- Azure Pipelines : consultez la [documentation Azure Pipelines](https://docs.microsoft.com/fr-fr/azure/devops/pipelines/?view=vsts)
+- GitHub Actions : consultez la [documentation GitHub Actions](https://github.com/features/actions)
+- CircleCI : consultez la [documentation CircleCI](https://circleci.com/docs/)
 
-To generate these config files, run this command in your project folder:
+## Exécution du sous-générateur
+
+Pour générer ces fichiers de configuration, exécutez cette commande dans le dossier de votre projet :
 
 `jhipster ci-cd`
 
-Then answer all the questions.
+Puis répondez à toutes les questions.
 
+### Quel pipeline CI/CD voulez-vous générer ?
 
-### What CI/CD pipeline do you want to generate ?
+Le pipeline CI/CD que vous souhaitez générer :
 
-The CI/CD pipeline you want to generate:
-
-- Jenkins pipeline
+- Pipeline Jenkins
 - Azure Pipelines
 - GitLab CI
 - GitHub Actions
 - Travis CI
 - CircleCI
 
-**Note**: when you select Jenkins pipeline, a new `src/main/docker/jenkins.yml` file will be generated.
-So you can test Jenkins locally by running:
+**Remarque** : lorsque vous sélectionnez le pipeline Jenkins, un nouveau fichier `src/main/docker/jenkins.yml` sera généré.
+Ainsi, vous pouvez tester Jenkins localement en exécutant :
 
 ```
 docker-compose -f src/main/docker/jenkins.yml up -d
 ```
 
-### Would you like to perform the build in a Docker container ? (Jenkins / GitLab)
+### Souhaitez-vous effectuer la construction dans un conteneur Docker ? (Jenkins / GitLab)
 
-If Docker is installed, you can perform the build inside a Docker container.
+Si Docker est installé, vous pouvez effectuer la construction à l'intérieur d'un conteneur Docker.
 
-### In GitLab CI, perform the build in a docker container (hint: GitLab.com uses Docker container) ? (GitLab)
+### Dans GitLab CI, effectuez-vous la construction dans un conteneur docker (indice : GitLab.com utilise un conteneur Docker) ? (GitLab)
 
-If you use a private GitLab CI, you can use directly the runners.
+Si vous utilisez un GitLab CI privé, vous pouvez utiliser directement les runners.
 
-If you use official GitLab.com pipeline, you need to use Docker container.
+Si vous utilisez le pipeline officiel GitLab.com, vous devez utiliser un conteneur Docker.
 
-### Would you like to send build status to GitLab ? (Jenkins)
+### Souhaitez-vous envoyer le statut de la construction à GitLab ? (Jenkins)
 
-If your Jenkins relies to a GitLab repository, you can send build status to GitLab. Your Jenkins must be correctly configured.
+Si votre Jenkins dépend d'un dépôt GitLab, vous pouvez envoyer le statut de la construction à GitLab. Votre Jenkins doit être correctement configuré.
 
-### What tasks/integrations do you want to include ?
+### Quelles tâches/intégrations souhaitez-vous inclure ?
 
-- Deploy your application to an *Artifactory*
-- Analyze your code with *Sonar*
-- Build and publish a *Docker* image
-- *Snyk*: dependency scanning for security vulnerabilities (requires SNYK_TOKEN)
-- Deploy to *Heroku* (requires HEROKU_API_KEY set on CI service)
-- Would you like to enable the Cypress Dashboard (requires both CYPRESS_PROJECT_ID and CYPRESS_RECORD_KEY set on CI service)
+- Déployer votre application vers un *Artifactory*
+- Analyser votre code avec *Sonar*
+- Construire et publier une image *Docker*
+- *Snyk* : analyse des dépendances pour les vulnérabilités de sécurité (nécessite SNYK_TOKEN)
+- Déployer vers *Heroku* (nécessite HEROKU_API_KEY défini sur le service CI)
+- Souhaitez-vous activer le tableau de bord Cypress (nécessite à la fois CYPRESS_PROJECT_ID et CYPRESS_RECORD_KEY définis sur le service CI)
 
-### Deploy your application to an *Artifactory* (Jenkins / GitLab)
+### Déployer votre application vers un *Artifactory* (Jenkins / GitLab)
 
-- *Artifactory*: what is the ID of distributionManagement for snapshots ?
-- *Artifactory*: what is the URL of distributionManagement for snapshots ?
-- *Artifactory*: what is the ID of distributionManagement for releases ?
-- *Artifactory*: what is the URL of distributionManagement for releases ?
+- *Artifactory* : quel est l'ID de distributionManagement pour les snapshots ?
+- *Artifactory* : quelle est l'URL de distributionManagement pour les snapshots ?
+- *Artifactory* : quel est l'ID de distributionManagement pour les versions ?
+- *Artifactory* : quelle est l'URL de distributionManagement pour les versions ?
 
-### Analyze your code with *Sonar*
+### Analyser votre code avec *Sonar*
 
-- *Sonar*: what is the name of the Sonar server ?
+- *Sonar* : quel est le nom du serveur Sonar ?
 
-Choose the name of the Sonar server, defined in your Jenkins Configuration.
+Choisissez le nom du serveur Sonar, défini dans votre configuration Jenkins.
 
-- *Sonar*: what is the URL of the Sonar server ?
-- *Sonar*: what is the Organization of the Sonar server ? 
+- *Sonar* : quelle est l'URL du serveur Sonar ?
+- *Sonar* : quelle est l'organisation du serveur Sonar ?
 
-Here, you can choose to push your Sonar Analyze to [SonarCloud.io](https://sonarcloud.io).
-In this case, you have to add the `SONAR_TOKEN` environment variable.
+Ici, vous pouvez choisir de pousser votre analyse Sonar vers [SonarCloud.io](https://sonarcloud.io).
+Dans ce cas, vous devez ajouter la variable d'environnement `SONAR_TOKEN`.
 
-### Build and publish a *Docker* image
+### Construire et publier une image *Docker*
 
-- *Docker*: what is the URL of the Docker registry ?
+- *Docker* : quelle est l'URL du registre Docker ?
 
-By default, you can use Docker Hub: [https://registry.hub.docker.com](https://registry.hub.docker.com)
+Par défaut, vous pouvez utiliser Docker Hub : [https://registry.hub.docker.com](https://registry.hub.docker.com)
 
-- *Docker*: what is the Jenkins Credentials ID for the Docker registry ?
+- *Docker* : quel est l'identifiant des crédits Jenkins pour le registre Docker ?
 
-By default, you can use: `docker login`
+Par défaut, vous pouvez utiliser : `docker login`
+- *Docker*: quel est le nom de l'organisation pour le registre Docker ?
 
-- *Docker*: what is the Organization Name for the Docker registry ?
+### Snyk : analyse des dépendances pour les vulnérabilités de sécurité
 
-### Snyk: dependency scanning for security vulnerabilities
+Vous devez ajouter la variable d'environnement `SNYK_TOKEN` (vérifiez votre [compte Snyk](https://app.snyk.io/account))
 
-You have to add the `SNYK_TOKEN` environment variable (check your [Snyk account](https://app.snyk.io/account))
+Consultez la documentation complète sur [https://snyk.io/](https://snyk.io/)
 
-See full documentation at [https://snyk.io/](https://snyk.io/)
+### Tableau de bord Cypress : enregistrez vos tests dans une application Web fournie par Cypress
 
-### Cypress Dashboard: record your tests in a web application provided by Cypress
+Vous devez ajouter les variables d'environnement `CYPRESS_PROJECT_ID` et `CYPRESS_RECORD_KEY` (vérifiez votre [projet Dashboard](https://dashboard.cypress.io/))
 
-You have to add the `CYPRESS_PROJECT_ID` and the `CYPRESS_RECORD_KEY` environment variables (check your [Dashboard project](https://dashboard.cypress.io/))
+Vous pouvez désactiver l'enregistrement en changeant la valeur de la variable d'environnement `CYPRESS_ENABLE_RECORD` en false.
 
-You can disable the record by changing `CYPRESS_ENABLE_RECORD` environment variable value to false.
+Consultez la documentation complète sur [cypress.io/dashboard](https://www.cypress.io/dashboard/)
 
-See full the documentation at [cypress.io/dashboard](https://www.cypress.io/dashboard/)
+### Déploiement vers *Heroku*
 
-### Deploy to *Heroku*
+- *Heroku* : nom de votre application Heroku ?
 
-- *Heroku: name of your Heroku Application ?
+Vous devez ajouter la variable d'environnement `HEROKU_API_KEY`.
 
-You have to add the `HEROKU_API_KEY` environment variable.
+Remarque : avant d'utiliser le déploiement vers Heroku, vous devez utiliser le [sous-générateur Heroku]({{ site.url }}/heroku) localement.
+Il créera tous les fichiers nécessaires à votre outil d'intégration continue.
 
-Note: before using the deployment to Heroku, you need to use the [Heroku sub-generator]({{ site.url }}/heroku) locally.
-It will create all files needed by your Continuous Integration Tool.
+## Informations supplémentaires
 
+En fonction de votre système d'exploitation et de l'endroit où vous avez poussé votre projet, vous devrez probablement rendre l'enveloppe exécutable avant d'utiliser une CI/CD.
 
-## Additional information
-
-Depending on your OS and where you pushed your project, you will probably need to make the wrapper executable before using a CI/CD.
-
-If you use Maven:
+Si vous utilisez Maven :
 
 - `chmod +x mvnw`
 - `git update-index --chmod=+x mvnw`
 
-If you use Gradle:
+Si vous utilisez Gradle :
 
 - `chmod +x gradlew`
 - `git update-index --chmod=+x gradlew`
 
+## Documentation sur les variables d'environnement :
 
-## Documentation about environment variables:
-
-- Jenkins pipeline: you should use the [Credentials plugin](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
-- GitLab CI: read the [documentation about secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
-- Travis CI: read the [environment variables](https://docs.travis-ci.com/user/environment-variables/)
-- GitHub Actions: read the [documentation about environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables)
-- Azure Pipelines: read the [documentation about predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml)
-- CircleCI: read the [documentation about environment variables](https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables)
+- Pipeline Jenkins : vous devriez utiliser le [plugin Credentials](https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin)
+- GitLab CI : consultez la [documentation sur les variables secrètes](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
+- Travis CI : lisez les [variables d'environnement](https://docs.travis-ci.com/user/environment-variables/)
+- GitHub Actions : consultez la [documentation sur les variables d'environnement](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables)
+- Azure Pipelines : lisez la [documentation sur les variables prédéfinies](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml)
+- CircleCI : consultez la [documentation sur les variables d'environnement](https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables)

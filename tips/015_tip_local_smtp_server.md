@@ -1,20 +1,20 @@
 ---
 layout: default
-title: Local SMTP Server
+title: Serveur SMTP local
 sitemap:
 priority: 0.5
 lastmod: 2016-05-21T22:22:00-00:00
 ---
 
-# Local SMTP Server
+# Serveur SMTP local
 
-__Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
+__Conseil soumis par [@pascalgrimaud](https://github.com/pascalgrimaud)__
 
-**Warning!** This tip depends on another project which is not supported directly by JHipster.
+**Attention !** Ce conseil dépend d'un autre projet qui n'est pas directement pris en charge par JHipster.
 
-The project [djfarrelly/maildev](https://github.com/djfarrelly/MailDev) is a simple way to test your project's generated emails during development with an easy to use web interface.
+Le projet [djfarrelly/maildev](https://github.com/djfarrelly/MailDev) est un moyen simple de tester les e-mails générés par votre projet lors du développement avec une interface web facile à utiliser.
 
-To start locally the SMTP server with Docker:
+Pour démarrer localement le serveur SMTP avec Docker :
 
 ```
 docker container run -d -p 1080:80 -p 25:25 djfarrelly/maildev

@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Release 0.2.1
+title: Version 0.2.1 publiée
 ---
 
-JHipster release 0.2.1
+Sortie de JHipster version 0.2.1
 ==================
 
-*JHipster gives you Yeoman + Maven + Spring + AngularJS all working together in one handy generator.*
+*JHipster vous offre Yeoman + Maven + Spring + AngularJS, tout fonctionnant ensemble dans un générateur pratique.*
 
-This is mostly a bug-fix release, which corrects an error occurring when using Grunt on Windows, due to a bug in the grunt-contrib-imagemin NPM package.
+Il s'agit principalement d'une version de correction de bugs, qui corrige une erreur survenue lors de l'utilisation de Grunt sur Windows, due à un bogue dans le package NPM grunt-contrib-imagemin.

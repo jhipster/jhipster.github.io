@@ -75,122 +75,104 @@ Lors de la soumission de quoi que ce soit, vous devez être aussi précis que po
   - Les Pull Requests sont les bienvenues, mais les commits doivent être "atomiques" pour vraiment être compréhensibles.
 
 
+Veuillez noter que l'utilisation de JHipster-UML (ou JHipster) peut être problématique (il faut installer certains outils pour utiliser correctement l'environnement Node sans problème). Ce [lien](https://gist.github.com/nullivex/7115612) peut vous aider si vous rencontrez un problème sous Windows.
 
----
-layout: default
-title: JHipster-UML
-permalink: /jhipster-uml/
-redirect_from:
-  - /jhipster_uml.html
-sitemap:
-    priority: 0.5
-    lastmod: 2017-11-27T12:00:00-00:00
----
+Un autre problème pouvant être rencontré sous Windows est [celui-ci](https://stackoverflow.com/questions/30344858/node-script-executable-not-working-on-mac-env-node-r-no-such-file-or-directo#answer-30349952). Le lien fournit une solution pour résoudre ce problème si cela se produit.
 
-Please note that using JHipster-UML (or JHipster) might be troublesome (one has to install some tools to really be able to use the Node environment without any issue). This [link](https://gist.github.com/nullivex/7115612) may help if you encounter an issue on Windows.
-
-Another issue that can be encountered on Windows is [this one](https://stackoverflow.com/questions/30344858/node-script-executable-not-working-on-mac-env-node-r-no-such-file-or-directo#answer-30349952). The link provides a solution to fix that if such a thing happens.
-
-Finally, an issue has been reported from a Windows user using Git Bash. The JHipster generator's questions (from InquirerJS) could not work (the user is stuck when answering the questions). You might want to use Powershell or another shell when using JHipster UML (or JHipster).
+Enfin, un problème a été signalé par un utilisateur Windows utilisant Git Bash. Les questions du générateur JHipster (d'InquirerJS) ne fonctionnaient pas (l'utilisateur était bloqué lors de la réponse aux questions). Vous pourriez utiliser Powershell ou un autre shell lors de l'utilisation de JHipster UML (ou JHipster).
 
 ***
 
 <h1 id="install">Installation</h1>
-To install JHipster UML use the command:
+Pour installer JHipster UML, utilisez la commande :
 
- <dev>
+<dev>
    npm install -g jhipster-uml
- </dev>
+</dev>
 
-If, however, you don't want to install the latest version globally because it doesn't match your version of the generator (see below) or if you want it contained locally, use this command instead:
+Cependant, si vous ne souhaitez pas installer la dernière version globalement parce qu'elle ne correspond pas à votre version du générateur (voir ci-dessous) ou si vous voulez qu'elle soit contenue localement, utilisez cette commande à la place :
 
-  <dev>
+<dev>
     npm install jhipster-uml --save-dev
-  </dev>
+</dev>
 
-If you want the 'bleeding edge' (almost perfectly safe to use) version, you can clone our git repo from [our GitHub project](https://github.com/jhipster/jhipster-uml):
+Si vous souhaitez la version 'à la pointe' (presque parfaitement sûre à utiliser), vous pouvez cloner notre dépôt git depuis [notre projet GitHub](https://github.com/jhipster/jhipster-uml) :
 
-  `git clone https://github.com/jhipster/jhipster-uml.git` for HTTPS
+`git clone https://github.com/jhipster/jhipster-uml.git` pour HTTPS
 
-  `git clone git@github.com:jhipster/jhipster-uml.git` for SSH
+`git clone git@github.com:jhipster/jhipster-uml.git` pour SSH
 
-
-JHipster UML is a tool that _can_ be used with the JHipster's generator. If you're using the generator before v3.0.0, then you must use JHipster UML v1.6.5 (latest patch release). Otherwise, using v2.0.0+ is the choice for v3.0.0+ of the generator.
+JHipster UML est un outil qui _peut_ être utilisé avec le générateur de JHipster. Si vous utilisez le générateur avant la version v3.0.0, alors vous devez utiliser JHipster UML v1.6.5 (dernière version corrective). Sinon, utiliser v2.0.0+ est le choix pour la version v3.0.0+ du générateur.
 
 ***
 
-<h1 id="howtouse">How to use it</h1>
+<h1 id="howtouse">Comment l'utiliser</h1>
 
-To use JHipster-UML, you need a class diagram exported in XMI and JHipster-UML will parse it to create your entities.
+Pour utiliser JHipster-UML, vous avez besoin d'un diagramme de classes exporté en XMI et JHipster-UML le parse pour créer vos entités.
 
+<h2 id="umlfile">Le fichier UML</h2>
 
-<h2 id="umlfile">The UML file</h2>
+Le diagramme de classes doit modéliser les entités de votre domaine d'application JHipster, vous avez donc des restrictions à suivre.
 
-The class diagram should modelize the entities of your JHipster application domain, thus you have restrictions, you have to follow the methodology.
-
-
-### Entities
-Each entity is represented by a class, its fields are the class' attributes. An attribute must have a type supported by JHipster, otherwise it won't work. To have JHipster supported types like “BigDecimal”, “LocalDate”..., you can create a _PrimitiveType_ or a _DataType_ for it.
-You can look at the tables with all the types supported by JHipster and the validations you can use for each [here](#annexes).
+### Entités
+Chaque entité est représentée par une classe, ses champs sont les attributs de la classe. Un attribut doit avoir un type supporté par JHipster, sinon cela ne fonctionnera pas. Pour avoir des types supportés par JHipster comme “BigDecimal”, “LocalDate”..., vous pouvez créer un _PrimitiveType_ ou un _DataType_ pour cela.
+Vous pouvez consulter les tableaux avec tous les types supportés par JHipster et les validations que vous pouvez utiliser pour chacun [ici](#annexes).
 
 ![Book Entity]({{ site.url }}/images/jhipsteruml_book_datatype.png)
 
-Here is an example of a properly created class for JHipster. We have the attributes _publicationDate_ and price set with the types _BigDecimal_ and _LocalDate_ we created as _DataType._
+Voici un exemple de classe correctement créée pour JHipster. Nous avons les attributs _publicationDate_ et price définis avec les types _BigDecimal_ et _LocalDate_ que nous avons créés comme _DataType._
 
-Note that you don't need to capitalize type names (**except for composed names like BigDecimal**, JHipster-UML capitalizes names).
+Notez que vous n'avez pas besoin de capitaliser les noms de types (**sauf pour les noms composés comme BigDecimal**, JHipster-UML capitalise les noms).
 
+### Relations
+Nous utilisons les exemples de JHipster pour montrer comment le faire avec un éditeur.
+Veuillez noter que nous **supportons uniquement** les relations listées sur la page [Gestion des relations]({{ site.url }}/managing-relationships/).
 
-### Relationships
-We use the examples from JHipster in order to show how to do it with an editor.
-Please note that we **only** support the relationships listed in the [Managing relationships]({{ site.url }}/managing-relationships/) page.
+#### Un-à-Un
+![Un-à-Un]({{ site.url }}/images/jhipsteruml_bi_oto.png)
 
+Ici, nous avons une relation bidirectionnelle un-à-un entre Driver et Car, avec Driver comme propriétaire de la relation.
 
-#### One-to-One
-![One-to-One]({{ site.url }}/images/jhipsteruml_bi_oto.png)
+Si vous cherchez une relation unidirectionnelle :
 
-Here, we have a bidirectional one-to-one relationship between Driver and Car, with Driver as the owner of the relationship.
+![Un-à-Un2]({{ site.url }}/images/jhipsteruml_uni_oto.png)
 
-If you're looking for a unidirectional relationship:
+Remarquez que pour obtenir une relation unidirectionnelle, nous avons supprimé le label `citizen` afin que `Passport` ne l'ait pas.
 
-![One-to-One2]({{ site.url }}/images/jhipsteruml_uni_oto.png)
+#### Un-à-Plusieurs
+![Un-à-Plusieurs]({{ site.url }}/images/jhipsteruml_bi_otm.png)
 
-Notice that in order to achieve a unidirectional relationship we removed the `citizen` label so that `Passport` doesn't have it.
+Dans cette relation bidirectionnelle, un Owner peut avoir plusieurs cars, et une Car ne peut avoir qu'un seul owner.
 
+Les relations unidirectionnelles pour les relations un-à-plusieurs ne sont pas (encore) supportées par JHipster (voir [cette page]({{ site.url }}/managing-relationships/#3) pour plus d'informations à ce sujet).
+Voici un exemple d'une telle association :
 
-#### One-to-Many
-![One-to-Many]({{ site.url }}/images/jhipsteruml_bi_otm.png)
+![Un-à-Plusieurs2]({{ site.url }}/images/jhipsteruml_uni_otm.png)
 
-In this bidirectional relationship, an Owner can have many cars, and a Car can have only one owner.
+#### Plusieurs-à-Un
+Comme montré précédemment, l'équivalent d'une relation un-à-plusieurs est une relation plusieurs-à-un :
 
-Unidirectional relationships for One-to-Many relationships are not (yet) supported by JHipster (see [this]({{ site.url }}/managing-relationships/#3) page for more information about this).
-This is an example of such an association:
+![Plusieurs-à-Un]({{ site.url }}/images/jhipsteruml_uni_mto.png)
 
-![One-to-Many2]({{ site.url }}/images/jhipsteruml_uni_otm.png)
+Maintenant, les cars connaissent leur owner, mais pas l'inverse.
 
+#### Plusieurs-à-Plusieurs
+![Plusieurs-à-Plusieurs]({{ site.url }}/images/jhipsteruml_bi_mtm.png)
 
-#### Many-to-One
+Ici, nous avons une relation plusieurs-à-plusieurs entre Car (le propriétaire) et Driver.
 
-As showed previously, the equivalent of a One-to-Many relationship is a Many-to-One:
+#### Déclarer le champ que vous souhaitez utiliser pour afficher une relation dans Angular
+Pour ce faire, vous devez ajouter le nom du champ entre `(``)` après le nom du champ injecté.
 
-![One-to-Many2]({{ site.url }}/images/jhipsteruml_uni_mto.png)
-
-Now the cars know their owner, but not the opposite.
-
-
-#### Many-to-Many
-![Many-to-Many]({{ site.url }}/images/jhipsteruml_bi_mtm.png)
-
-Here, we have a many-to-many relationship between Car (the owner) and Driver.
-
-
-#### Declare the field you want to use to display a relationship in Angular
-To do that you must add the field name between `(``)` after the injected field name.
-
-In a One-to-Many relationship you can add it in the 'Many' side of the relationship:
+Dans une relation un-à-plusieurs, vous pouvez l'ajouter dans le côté 'Plusieurs' de la relation :
 
 - UML
 
-![otherEntityField One-to-Many]({{ site.url }}/images/jhipsteruml_otherEntityFieldOM.jpeg)
+![otherEntityField Un-à-Plusieurs]({{ site.url }}/images/jhipsteruml_otherEntityFieldOM.jpeg)
+
+- JDL
+
+![otherEntityField Un-à-Plusieurs]({{ site.url }}/images/jhipsteruml_otherEntityFieldOM.jpeg)
 
 - JDL
 
@@ -198,11 +180,11 @@ In a One-to-Many relationship you can add it in the 'Many' side of the relations
         One{many} to Many{one(<otherEntityField>)}
       }
 
-In a Many-to-Many relationship you can add it in the owner side of the entity:
+Dans une relation plusieurs-à-plusieurs, vous pouvez l'ajouter dans le côté propriétaire de l'entité :
 
 - UML
 
-![otherEntityField Many-to-Many]({{ site.url }}/images/jhipsteruml_otherEntityFieldMM.jpeg)
+![otherEntityField Plusieurs-à-Plusieurs]({{ site.url }}/images/jhipsteruml_otherEntityFieldMM.jpeg)
 
 - JDL
 
@@ -211,440 +193,435 @@ In a Many-to-Many relationship you can add it in the owner side of the entity:
       }
 
 
-#### Reflexivity cases
-![Reflexivity]({{ site.url }}/images/jhipsteruml_reflexivity.png)
 
-As you can see, there are 3 types of reflexivity. JHipster-UML only supports the first two (one-to-one and one-to-many). The many-to-many case is **not** supported because:
+#### Cas de réflexivité
+![Réflexivité]({{ site.url }}/images/jhipsteruml_reflexivity.png)
 
-  - It can lead to over-complexified and wrong models;
+Comme vous pouvez le voir, il existe 3 types de réflexivité. JHipster-UML ne supporte que les deux premiers (un-à-un et un-à-plusieurs). Le cas plusieurs-à-plusieurs n'est **pas** supporté parce que :
 
-  - JHipster doesn't support it (this is a good thing).
+- Cela peut conduire à des modèles trop complexes et erronés;
+- JHipster ne le supporte pas (c'est une bonne chose).
 
+### Un exemple complet
+Nous utilisons un diagramme de l'exemple HR d'Oracle disponible [ici](https://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
 
-### A complete example
-We use a diagram from the Oracle HR example available [here](https://docs.oracle.com/cd/B28359_01/server.111/b28328/diagrams.htm#G5482).
+Voici une capture d'écran d'un tel diagramme (de Modelio) :
+![Diagramme UML HR]({{ site.url }}/images/jhipsteruml_overviewdiagram.png)
 
-Here's a screenshot of such a diagram (from Modelio):  
-![HR UML diagram]({{ site.url }}/images/jhipsteruml_overviewdiagram.png)
+Comme vous pouvez le voir, nous l'avons modifié pour le rendre un peu plus intéressant.
+JHipster peut générer des entités et des associations entre elles (un-à-un, un-à-plusieurs, etc.), et dans cet exemple, nous avons ajouté tous les types d'associations (même la réflexivité et l'héritage). JHipster ne supporte pas encore l'héritage (mais la réflexivité est supportée par JHipster, avec un avertissement), mais nous avons décidé de l'inclure dans l'exemple afin d'avoir une base solide pour travailler.
 
-As you can see, we changed it as to make it a bit more interesting.
-JHipster can generate entities and associations between them (one-to-one, one-to-many, etc.), and in this example we added every type of association (even the reflexive and the inheritance). JHipster doesn't support inheritance yet (but reflexivity is supported by JHipster, with a warning), but we decided to include it in the example so as to have a solid base to work with.
+<h2 id="usejuml">Utiliser JHipster-UML</h2>
 
+Une fois que vous avez configuré votre application JHipster et votre diagramme de classes dans un éditeur UML, suivez ces étapes :
 
-<h2 id="usejuml">Use JHipster-UML</h2>
+- étape 1 - exportez votre diagramme de classes au format de fichier XMI
 
-Once you have your JHipster application set up and your class diagram in a UML editor, follow these steps:
-
-- step 1 - export your class diagram to the XMI file format
-
-- step 2 - in your JHipster application root folder, run the command
+- étape 2 - dans le dossier racine de votre application JHipster, exécutez la commande
 
  `jhipster-uml <your_file.xmi>`
 
-Note that you don't need to supply the database type (sql, mongodb, or cassandra), as JHipster-UML detects the type for you (from the _.yo-rc.json_ file).
+Notez que vous n'avez pas besoin de fournir le type de base de données (sql, mongodb, ou cassandra), car JHipster-UML détecte le type pour vous (à partir du fichier _.yo-rc.json_).
 
-If, however, you wish to run JHipster-UML outside a JHipster app, you need to pass an extra argument: the database type name.
-Here is the command to run:
+Si, cependant, vous souhaitez exécuter JHipster-UML en dehors d'une application JHipster, vous devez passer un argument supplémentaire : le nom du type de base de données.
+Voici la commande à exécuter :
 
  `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)]`
 
-The JHipster DTOs can be generated too, pass the `--dto` arg to enable this feature.
+Les DTOs JHipster peuvent également être générés, passez l'argument `--dto` pour activer cette fonctionnalité.
 
  `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--dto]`
 
-You can choose the pagination for your entities using `--paginate`.
+Vous pouvez choisir la pagination pour vos entités en utilisant `--paginate`.
 
  `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--paginate]`
 
-Finally, you can choose the service for your entities using `--service`.
+Enfin, vous pouvez choisir le service pour vos entités en utilisant `--service`.
 
  `jhipster-uml <your_file.xmi> [--db (sql | mongodb | cassandra)] [--service]`
 
-**Please note that using the `paginate` option and not selecting any entity to generate the pagination for cancels your choice of using this option.**
+**Veuillez noter que l'utilisation de l'option `paginate` et de ne sélectionner aucune entité pour générer la pagination annule votre choix d'utiliser cette option.**
 
-Finally, if you need help, there's a command for that too:
+Enfin, si vous avez besoin d'aide, il y a une commande pour cela aussi :
 
  `jhipster-uml --help`
 
+* étape 3 - c'est tout !
 
-* step 3 - that's it!
+**Remarque : Si vous souhaitez utiliser les classes et méthodes disponibles, le point d'entrée préféré de JHipster-UML est le ParserFactory (de sorte que vous n'ouvrez pas le fichier, ne le lisez pas, ne trouvez pas l'élément racine, etc.).**
+
+<h2 id="jumlfile">Fichier JHipster-UML</h2>
+
+JHipster-UML peut être configuré par la ligne de commande et/ou par un fichier de configuration basé sur JSON, le `jumlfile`.
+Les options décrites dans l'aide peuvent être utilisées dans les deux, mais la ligne de commande prend le pas sur le `jumlfile`.
 
 
-**Note: If you want to use the classes and methods available, the preferred entry point of JHipster-UML is the ParserFactory (so that you don't open the file, read it, find the root element, etc.).**
 
-<h2 id="jumlfile">JHipster-UML file</h2>
 
-JHipster-UML can be configured by the command line and / or by a JSON based configuration file, the `jumlfile`.
-The options described in the help can be used in the both but the command line take precedence over the `jumlfile`.
+### Un Exemple Concret
 
-### A concrete example
-
-jumlfile content:
+Contenu du fichier jumlfile :
 ```json
 {
   "db": "sql",
   "force": "true"
 }
 ```
-Call:
+Appel:
 ```
 jhipster-uml --no-force
 ```
-You Will have the following options:
+Vous aurez les options suivantes :
 - db : sql
-- force : false (without force)
+- force : false (sans force)
 
+<h2 id="whatsgenerated">Ce qui est généré</h2>
 
-<h2 id="whatsgenerated">What's generated</h2>
+Après l'exécution de JHipster-UML, le dossier _.jhipster_ sera créé (s'il n'existait pas auparavant) et rempli avec les entités présentes dans le fichier XMI au format JSON.
 
-After executing JHipster-UML, the _.jhipster_ folder will be created (if it didn't exist before) and filled with the entities present in the XMI file in the JSON format.
+Veuillez noter qu'au moins une entité peut ne pas être générée : l'entité User. Elle est en fait scaffolée par JHipster lors de la création d'une nouvelle application (et un message d'avertissement est affiché par JHipster-UML).
 
-Please note that one entity may, at least, not be generated: the User entity. It is actually scaffolded by JHipster when creating a new app (and a warning message is displayed by JHipster-UML).
+Ensuite, c'est assez simple : exécutez votre application !
 
-Next, it's pretty straightforward: run your app!
+<h2 id="jhipsternotes">Notes sur JHipster</h2>
 
+JHipster est un excellent outil de scaffolding avec de nombreuses conventions, certaines d'entre elles méritent d'être mentionnées lors de la génération d'entités avec JHipster-UML :
 
-<h2 id="jhipsternotes">JHipster notes</h2>
+  - Vous n'avez pas à utiliser un champ `id` dans vos entités car JHipster en génère un par défaut, et JHipster-UML supprime tout champ s'il est détecté comme un ID ;
+  - Vous n'avez pas à utiliser la forme plurielle dans vos relations, JHipster ajoute un `s` lorsque c'est nécessaire. Par exemple, s'il y a une relation many-to-many entre l'entité A et l'entité B, vous n'avez pas à nommer l'extrémité de la relation `as` ou `bs` car JHipster le fera pour vous.
 
-JHipster is a great scaffolding tool with many conventions, some of them are worth mentioning when generating entities with JHipster-UML:
+<h2 id="reservedwords">Mots réservés</h2>
 
-  - You don't have to use an `id` field in your entities because JHipster generates one by default, and JHipster-UML removes any field if it is detected as an ID;
-  - You don't have to use the plural form in your relationships, JHipster adds an `s` when needed. For instance, if there's a many-to-many relationship between entity A and entity B, you don't have to name the relationship's end `as` or `bs` because JHipster will do that for you.
+JHipster maintient une liste de mots interdits (*dans certaines conditions*).
+Par exemple, si vous voulez générer des entités pour votre application, et si cette application utilise Cassandra, vous ne pouvez pas utiliser les mots `BATCH` dans un nom de champ ou de table.
 
-
-<h2 id="reservedwords">Reserved words</h2>
-
-JHipster maintains a list of forbidden (*under some conditions*) words.
-For instance, if you want to generate entities for your app, and if this app uses Cassandra, you can't use the words `BATCH` in either a field name or a table name.
-
-As of v2.0.0, JHipster UML detects such words and immediately throws an exception if it encounters such a case. However, JHipster UML can't assert with 100% accuracy when a reserved word can or can't be used. That's why it warns the user with a yellow message when there could be a risk of using such a keyword.
-
+À partir de la version 2.0.0, JHipster UML détecte de tels mots et lance immédiatement une exception s'il rencontre un tel cas. Cependant, JHipster UML ne peut pas garantir avec 100% d'exactitude quand un mot réservé peut ou ne peut pas être utilisé. C'est pourquoi il avertit l'utilisateur avec un message jaune lorsqu'il pourrait y avoir un risque d'utiliser un tel mot-clé.
 
 ***
 
-<h1 id="examples">Examples</h1>
+<h1 id="examples">Exemples</h1>
 
-Each editor will be discussed here, so that you know how to get a good XMI file.
+Chaque éditeur sera discuté ici, afin que vous sachiez comment obtenir un bon fichier XMI.
 
-**Note : JHipster-UML can detect faulty XMI files, it will display the first error it finds and exit right away (fail-fast behavior).**
+**Note : JHipster-UML peut détecter les fichiers XMI défectueux, il affichera la première erreur qu'il trouve et quittera immédiatement (comportement de type "fail-fast").**
 
-In JHipster-UML, each editor has been tested with the Oracle example. If you wish to see the examples in a "dummy project", you have to download these files for each editor, and test JHipster and JHipster-UML:
-  - For Modelio: [modelio.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi);
-  - For UML Designer: [umldesigner.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml);
-  - For GenMyModel: [genmymodel_evolve.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
-
+Dans JHipster-UML, chaque éditeur a été testé avec l'exemple Oracle. Si vous souhaitez voir les exemples dans un "projet factice", vous devez télécharger ces fichiers pour chaque éditeur, et tester JHipster et JHipster-UML :
+  - Pour Modelio : [modelio.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi) ;
+  - Pour UML Designer : [umldesigner.uml](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml) ;
+  - Pour GenMyModel : [genmymodel_evolve.xmi](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
 
 <h2 id="modelioexample">Modelio</h2>
 
-**Note for Mac users: Modelio is behaving weirdly on Mac (the GUI), it may be caused by the graphics and window manager on Mac, as it has not been diagnosed on Linux Ubuntu. It works, but the interaction may not be pleasant.**
+**Remarque pour les utilisateurs Mac : Modelio se comporte étrangement sur Mac (l'interface graphique), cela peut être causé par les graphiques et le gestionnaire de fenêtres sur Mac, car cela n'a pas été diagnostiqué sur Linux Ubuntu. Cela fonctionne, mais l'interaction peut ne pas être agréable.**
 
-**Important version notes:**  
-  - Modelio v3.3 is tested and working, however a bug exists in v3.4 preventing the user from exporting the diagram. This bug is fixed as of v3.4.1.
-  - Modelio v3.5.X introduces a bug when dealing with bidirectional Many-to-Many relationships (the error when JHipster UML parses the XMI is `Cannot read property '0' of undefined`). This problem seems to have been fixed in later version (v3.6.X).
-
-
-Modelio can be downloaded for free [here](https://www.modelio.org/). Make sure you have Java 8 if you're downloading any of the 3.3+ versions (it won't work otherwise).
-
-The example file is [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi).
-
-Once launched, create a project and you'll be seeing this view:
-
-![Empty Modelio project]({{ site.url }}/images/jhipsteruml_modelio_1.png)
-
-Notice the left panel entitled 'Class Model'. You only need the 'Class', 'Attributes', 'Aggregation', 'Composition' and 'Data Type' objects.
-You can already guess why you need the first 2. The 'Aggregation' object is used to defined aggregations:
-B is aggregated to A means that A has 0, 1 or more (n) instances of B. A doesn't create (and destroy) B instances.
-Composition means that if A is composed of B (0, 1, or n instances), then it creates, manages and destroys B instances.
-
-You can use either of them, the parser will only see the two as associations anyway.
-
-In both situations, cardinalities and association names are important.
+**Notes de version importantes :**
+  - Modelio v3.3 est testé et fonctionne, cependant, un bogue existe dans v3.4 empêchant l'utilisateur d'exporter le diagramme. Ce bogue est corrigé à partir de v3.4.1.
+  - Modelio v3.5.X introduit un bogue lors de la manipulation des relations many-to-many bidirectionnelles (l'erreur lorsque JHipster UML analyse le XMI est `Cannot read property '0' of undefined`). Ce problème semble avoir été résolu dans les versions ultérieures (v3.6.X).
 
 
-Finally, 'Data Types' objects enables you to create custom types (types that are not proposed by Modelio), like `BigDecimal`, or `LocalDate`.
 
-In this example, we'll explain how to connect two classes:
+Modelio peut être téléchargé gratuitement [ici](https://www.modelio.org/). Assurez-vous d'avoir Java 8 si vous téléchargez l'une des versions 3.3+ (sinon cela ne fonctionnera pas).
 
-![Modelio composition example]({{ site.url }}/images/jhipsteruml_modelio_2.png)
+Le fichier exemple est [ici](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/modelio.xmi).
 
-As you can see, employee has a job (but also can have no job at all). The parser will notice a few things:
+Une fois lancé, créez un projet et vous verrez cette vue :
 
-  - Two classes (Employee and Job);
+![Projet Modelio vide]({{ site.url }}/images/jhipsteruml_modelio_1.png)
 
-  - Two fields (email and title), their type, which class they belong (each class contains its fields). Their visibility is not taken into account;
+Remarquez le panneau de gauche intitulé 'Modèle de classe'. Vous n'avez besoin que des objets 'Classe', 'Attributs', 'Agrégation', 'Composition' et 'Type de données'.
+Vous pouvez déjà deviner pourquoi vous avez besoin des deux premiers. L'objet 'Agrégation' est utilisé pour définir des agrégations :
+B est agrégé à A signifie que A a 0, 1 ou plusieurs (n) instances de B. A ne crée pas (et ne détruit pas) les instances de B.
+La composition signifie que si A est composé de B (0, 1, ou n instances), alors il crée, gère et détruit les instances de B.
 
-  - The association linking them and the **direction** of the association (it matters!);
+Vous pouvez utiliser l'un ou l'autre, le parseur verra les deux comme des associations de toute façon.
 
-  - The cardinalities (1 and 0..1) mean that an employee can have a job (0 or 1), and a job isn't shared by two employees (only one, for this example's sake);
+Dans les deux situations, les cardinalités et les noms d'association sont importants.
 
-  - There is one **injected field**: job, in employee.
+Enfin, les objets 'Types de données' vous permettent de créer des types personnalisés (des types qui ne sont pas proposés par Modelio), comme `BigDecimal`, ou `LocalDate`.
 
-This association is called a one-to-one. Go back a few sections to see the other types of associations.
+Dans cet exemple, nous expliquerons comment connecter deux classes :
 
-Modelio supports constraints. Double-click on a field, go to the 'Notes and constraints' tab, the first icon should then be 'Add a constraint', then select 'Constraint', double-click on the constraint, and give it a name (it should be one of the JHipster constraints). For the constraint value, enter it the 'Body' field.
+![Exemple de composition dans Modelio]({{ site.url }}/images/jhipsteruml_modelio_2.png)
 
-Finally, once your diagram is finished, you have to export it.
+Comme vous pouvez le voir, l'employé a un emploi (mais peut aussi ne pas avoir d'emploi du tout). Le parseur remarquera quelques choses :
 
-![Export to XMI Modelio]({{ site.url }}/images/jhipsteruml_modelio_3.png)
+  - Deux classes (Employé et Emploi) ;
 
-Check the Model perspective, once you locate your project, get down one level and right click the last element (you lower-cased project's name), XMI, Export XMI. A window should pop up, select the output path, change the compatibility to OMG UML2.4.1, leave the extension to XMI and you're ready to go.
+  - Deux champs (email et titre), leur type, à quelle classe ils appartiennent (chaque classe contient ses champs). Leur visibilité n'est pas prise en compte ;
+
+  - L'association les reliant et la **direction** de l'association (c'est important !) ;
+
+  - Les cardinalités (1 et 0..1) signifient qu'un employé peut avoir un emploi (0 ou 1), et un emploi n'est pas partagé par deux employés (uniquement un, pour l'exemple) ;
+
+  - Il y a un **champ injecté** : emploi, dans employé.
+
+Cette association est appelée une relation un à un. Revenez quelques sections en arrière pour voir les autres types d'associations.
+
+Modelio prend en charge les contraintes. Double-cliquez sur un champ, allez dans l'onglet 'Notes et contraintes', le premier icône devrait alors être 'Ajouter une contrainte', puis sélectionnez 'Contrainte', double-cliquez sur la contrainte, et donnez-lui un nom (ce devrait être l'une des contraintes JHipster). Pour la valeur de la contrainte, entrez-la dans le champ 'Corps'.
+
+Enfin, une fois votre diagramme terminé, vous devez l'exporter.
+
+![Exporter vers XMI dans Modelio]({{ site.url }}/images/jhipsteruml_modelio_3.png)
+
+Vérifiez la perspective Modèle, une fois que vous avez localisé votre projet, descendez d'un niveau et cliquez avec le bouton droit sur le dernier élément (le nom du projet en minuscules), XMI, Exporter XMI. Une fenêtre devrait s'ouvrir, sélectionnez le chemin de sortie, changez la compatibilité en OMG UML2.4.1, laissez l'extension en XMI et vous êtes prêt à partir.
 
 
-### Commenting
+### Commenter
 
-To comment a class (or an attribute), double-click on the element, select the `Notes and constraints` tab, and add a `note`.
+Pour commenter une classe (ou un attribut), double-cliquez sur l'élément, sélectionnez l'onglet `Notes et contraintes`, et ajoutez une `note`.
 
-![Modelio, commenting]({{ site.url }}/images/jhipsteruml_modelio_commenting.png)
+![Commenter dans Modelio]({{ site.url }}/images/jhipsteruml_modelio_commenting.png)
 
-Please note that commenting relationships is not possible with this editor.
+Veuillez noter qu'il n'est pas possible de commenter les relations avec cet éditeur.
 
 
 <h2 id="umldesignerexample">UML Designer</h2>
 
-UML Designer can be downloaded [here](http://www.umldesigner.org/).
-It works the same way as Eclipse.
-To create an empty project, click on File -> New -> Modeling Project. Enter the name, and validate.
-If no file.uml is created, right-click on your project, and New -> Other -> UML Designer -> UML Model, and enter any name you want.
+UML Designer peut être téléchargé [ici](http://www.umldesigner.org/).
+Il fonctionne de la même manière qu'Eclipse.
+Pour créer un projet vide, cliquez sur Fichier -> Nouveau -> Projet de modélisation. Entrez le nom, et validez.
+Si aucun fichier.uml n'est créé, cliquez avec le bouton droit sur votre projet, puis Nouveau -> Autre -> UML Designer -> Modèle UML, et entrez le nom que vous voulez.
 
-The example XMI file is available [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml).
+Le fichier XMI exemple est disponible [ici](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/umldesigner.uml).
 
-You'll then be presented by a view like this one:
+Vous serez alors présenté par une vue comme celle-ci :
 
-![UML Designer, dashboard]({{ site.url }}/images/jhipsteruml_umldesigner_1.png)
+![Tableau de bord UML Designer]({{ site.url }}/images/jhipsteruml_umldesigner_1.png)
 
-Double-click on 'Class diagram' under 'Design' category.
-You can now see on the right the 'Palette'. You only need these objects: 'Class', 'PrimitiveType', 'DataType' (both under 'Enumeration'), 'Composition' and 'Aggregation' (both under 'Association').
+Double-cliquez sur 'Diagramme de classe' sous la catégorie 'Conception'.
+Vous pouvez maintenant voir sur la droite la 'Palette'. Vous n'avez besoin que de ces objets : 'Classe', 'Type primitif', 'Type de données' (tous deux sous 'Énumération'), 'Composition' et 'Agrégation' (tous deux sous 'Association').
 
-With UML Designer, you can create custom types by either using a DataType or a PrimitiveType (the parser recognizes both).
+Avec UML Designer, vous pouvez créer des types personnalisés en utilisant soit un Type de données, soit un Type primitif (le parseur reconnaît les deux).
 
-Here is an example using this editor:
+Voici un exemple utilisant cet éditeur :
 
-![Employee and Job with UML Designer]({{ site.url }}/images/jhipsteruml_umldesigner_2.png)
+![Employé et Emploi avec UML Designer]({{ site.url }}/images/jhipsteruml_umldesigner_2.png)
 
-To create attributes, double-click on the class, and add your attribute. You can import types by right-clicking somewhere on the diagram (in the white-space), then import Primitive Types, then select UML and Java.
-This will spare you the _chore_ of creating types manually (with DataTypes or PrimitiveTypes).
+Pour créer des attributs, double-cliquez sur la classe et ajoutez votre attribut. Vous pouvez importer des types en cliquant avec le bouton droit quelque part sur le diagramme (dans l'espace blanc), puis importer des Types primitifs, puis sélectionnez UML et Java.
+Cela vous évitera la _corvée_ de créer des types manuellement (avec des Types de données ou des Types primitifs).
 
-Unfortunately, UML Designer doesn't support constraints yet.
-
-One of the nice things UML Designer provides is that you don't need to export to XMI, go to your workspace, and you'll see that the saved project is already in the right format, so that's pretty cool.
-
-## Unidirectional relationships
-
-This editor supports unidirectional relationships. To do that, create the relationship you want between your two classes, double-click on the relationship and tweak it.
+Malheureusement, UML Designer ne prend pas encore en charge les contraintes.
 
 
-### Commenting
+Une des choses agréables que UML Designer offre, c'est que vous n'avez pas besoin d'exporter vers XMI. Allez dans votre espace de travail et vous verrez que le projet enregistré est déjà dans le bon format, donc c'est plutôt cool.
 
-Commenting is possible for classes and attributes (not relationships): click on an element, and select `comment` to add your own.
+## Relations unidirectionnelles
 
-![Uml Designer, commenting]({{ site.url }}/images/jhipsteruml_umldesigner_commenting.png)
+Cet éditeur prend en charge les relations unidirectionnelles. Pour cela, créez la relation que vous souhaitez entre vos deux classes, double-cliquez sur la relation et ajustez-la.
+
+
+### Commenter
+
+Il est possible de commenter les classes et les attributs (pas les relations) : cliquez sur un élément, et sélectionnez `comment` pour ajouter le vôtre.
+
+![Uml Designer, commenter]({{ site.url }}/images/jhipsteruml_umldesigner_commenting.png)
 
 
 <h2 id="genmymodelexample">GenMyModel</h2>
 
-GenMyModel is an in-browser UML editor that can be found [here](https://dashboard.genmymodel.com/). You can use it for free but with restrictions, we hope that this editor will enable users to fiddle around with JHipster-UML without the constraint of downloading an application.
+GenMyModel est un éditeur UML en ligne que vous pouvez trouver [ici](https://dashboard.genmymodel.com/). Vous pouvez l'utiliser gratuitement mais avec des restrictions, nous espérons que cet éditeur permettra aux utilisateurs de manipuler JHipster-UML sans contrainte de téléchargement d'une application.
 
-The XMI file example is located [here](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
+L'exemple de fichier XMI se trouve [ici](https://github.com/jhipster/jhipster-uml/blob/master/test/xmi/genmymodel_evolve.xmi).
 
-After signing up go in Projects ->  New Projects, give a it name, in Model Type choose UML, in default diagram choose Class Diagram and then click on Create project.
-Then this screen will be displayed:
+Après vous être inscrit, allez dans Projets -> Nouveaux projets, donnez lui un nom, choisissez UML comme type de modèle, choisissez Diagramme de classe comme diagramme par défaut, puis cliquez sur Créer projet.
+Ensuite, cet écran s'affichera :
 
 ![GenMyModel dashbord]({{ site.url }}/images/jhipsteruml_genmymodel_empty_diagram.png)
 
-On the panel on the left of the grid, is all the elements possible to make a diagram. We will need only the elements 'Class', 'DataType', 'Attribute', 'Aggregation' and 'Composition'. You can use either 'Aggregation' or 'Composition', the parser will only see the association between two classes and its cardinality.
+Sur le panneau à gauche de la grille, se trouvent tous les éléments possibles pour créer un diagramme. Nous aurons seulement besoin des éléments 'Class', 'DataType', 'Attribute', 'Aggregation' et 'Composition'. Vous pouvez utiliser soit 'Aggregation' soit 'Composition', l'analyseur ne verra que l'association entre deux classes et sa cardinalité.
 
-Here is an example on how to create two entities with a one-to-many relationship between them and the declaration of the JHipster types through 'DataType':
+Voici un exemple de création de deux entités avec une relation de un-à-plusieurs entre elles et la déclaration des types JHipster à travers 'DataType':
 
 ![GenMyModel diagram]({{ site.url }}/images/jhipsteruml_genmymodel_relation.png)
 
-The parser will notice a few things:
+L'analyseur remarquera quelques choses :
 
-  - Two classes, 'Author' and 'Book'.
+  - Deux classes, 'Author' et 'Book'.
 
-  - Two DataTypes, 'LocalDate' and 'BigDecimal'.
+  - Deux DataTypes, 'LocalDate' et 'BigDecimal'.
 
-  - Attributes, you can set the type with the default ones, or with the declared DataTypes.
+  - Attributs, vous pouvez définir le type avec les types par défaut, ou avec les DataTypes déclarés.
 
-  - An Aggregation between 'Author' and 'Book' (the direction matters!).
+  - Une agrégation entre 'Author' et 'Book' (la direction compte !).
 
-  - Two injected field 'author' in Book and 'book' in Author.
+  - Deux champs injectés 'author' dans Book et 'book' dans Author.
 
-  - The cardinalities (1 and 0..\*) mean that a Book can have one author and an Author can have several books, which correspond to a one-to-many relationship between Author and Book.
+  - Les cardinalités (1 et 0..\*) signifient qu'un Book peut avoir un auteur et qu'un Author peut avoir plusieurs livres, ce qui correspond à une relation de un-à-plusieurs entre Author et Book.
 
-Unfortunately, you can not create custom constraints for attributes to fit the JHipster ones.
+Malheureusement, vous ne pouvez pas créer de contraintes personnalisées pour les attributs pour correspondre aux contraintes JHipster.
 
-Once the diagram is done, you can export it to XMI. To do it, click on Tool -> Export as UML (XMI)
+Une fois le diagramme terminé, vous pouvez l'exporter vers XMI. Pour cela, cliquez sur Outil -> Exporter comme UML (XMI)
 
 
-### Unidirectional relationships
+### Relations unidirectionnelles
 
-In GenMyModel, creating unidirectional relationships is pretty straightforward: remove the name from the field you don't want and you're good to go.
+Dans GenMyModel, créer des relations unidirectionnelles est assez simple : supprimez le nom du champ que vous ne voulez pas et vous êtes prêt à partir.
 
-For instance, take this case:
+Par exemple, prenez ce cas :
 
 ![GenMyModel, unidirectional]({{ site.url }}/images/jhipsteruml_genmymodel_unidirectional.png)
 
-Here, `MyClass` will have a `myClass2` attribute, but `MyClass2` won't have a `myClass` field.
+Ici, `MyClass` aura un attribut `myClass2`, mais `MyClass2` n'aura pas de champ `myClass`.
 
 
-### Commenting
+### Commenter
 
-Commenting is available for classes, attributes and relationship fields.
+La possibilité de commenter est disponible pour les classes, les attributs et les champs de relation.
 
-Click on an element and write a comment in the description field.
+Cliquez sur un élément et écrivez un commentaire dans le champ de description.
 
 ![GenMyModel, commenting]({{ site.url }}/images/jhipsteruml_genmymodel_commenting.png)
 
 
-<h2 id="#othereditors">Other editors</h2>
+<h2 id="#othereditors">Autres éditeurs</h2>
 
 ### Sparx EA
 
-Support for dealing with this editor has been added by Guillaume Finance.
-Here is the [repo](https://github.com/guillaumefinance/MDG-Sparx-EA-UML-JHipster), and you can read the presentation [here](http://www.umlchannel.com/en/enterprise-architect/item/204-mdg-viseo-ea-uml-to-jhipster-generator-jdl-uml-model-sparx-enterprise-architect).
+Le support pour cet éditeur a été ajouté par Guillaume Finance.
+Voici le [repo](https://github.com/guillaumefinance/MDG-Sparx-EA-UML-JHipster), et vous pouvez lire la présentation [ici](http://www.umlchannel.com/en/enterprise-architect/item/204-mdg-viseo-ea-uml-to-jhipster-generator-jdl-uml-model-sparx-enterprise-architect).
 
 
-<h2 id="enumerationexamples">Enumerations</h2>
+<h2 id="enumerationexamples">Énumérations</h2>
 
-JHipster and JHipster UML support both support enumerations.
-Here's how you define them:
-  - For Modelio, drag and drop the `Enumeration` object and place it somewhere. Finally, add the `Enumeration Literal` object to the enum to add it;
-  - For UML Designer, there is the `Enumeration` object that can be placed and used. However, the literal is not called `Enumeration Literal` but only `Literal`;
-  - GenMyModel possess the objects needed: `Enum` and `Enum Literal` in the main object panel (on the left hand side of the screen).
+JHipster et JHipster UML supportent tous deux les énumérations.
+Voici comment les définir :
+  - Pour Modelio, faites glisser et déposez l'objet `Enumeration` quelque part. Enfin, ajoutez l'objet `Enumeration Literal` à l'énumération pour l'ajouter ;
+  - Pour UML Designer, il y a l'objet `Enumeration` qui peut être placé et utilisé. Cependant, le littéral ne s'appelle pas `Enumeration Literal` mais seulement `Literal`;
+  - GenMyModel possède les objets nécessaires : `Enum` et `Enum Literal` dans le panneau d'objets principal (sur le côté gauche de l'écran).
 
-<h2 id="tablenames">Table names</h2>
+<h2 id="tablenames">Noms de tables</h2>
 
-Since v1.6.2, it is now possible to specify table names for entities.
+Depuis la version 1.6.2, il est maintenant possible de spécifier des noms de table pour les entités.
 
-To do that, one has to specify the table name along with the class name like that:
+Pour cela, il faut spécifier le nom de la table avec le nom de la classe comme ceci :
 
 ![tablenameimage](https://i.imgur.com/ECdb1bx.png)
 
-The convention `<ENTITY_NAME>\s*(<TABLE_NAME>)` is universal no matter the editor.
+La convention `<NOM_ENTITÉ>\s*(<NOM_TABLE>)` est universelle quel que soit l'éditeur.
 
-However, if you don't want to pick a dedicated table name, you can write the class name. JHipster UML will take care of converting it to an appropriate table name. For instance, if you class name is `MyClass`, then your table name would be `my_class`.
+Cependant, si vous ne voulez pas choisir un nom de table dédié, vous pouvez écrire le nom de la classe. JHipster UML se chargera de le convertir en un nom de table approprié. Par exemple, si le nom de votre classe est `MyClass`, alors votre nom de table serait `my_class`.
 
-Note that this feature is available for UML editors since v1.6.2.
+Notez que cette fonctionnalité est disponible pour les éditeurs UML depuis la v1.6.2
 
-<h2 id="requiredrels">Required relationships</h2>
+<h2 id="requiredrels">Relations requises</h2>
 
-As of v2.0.0, required relationships are possible to make.
-To specify one, make sure the end of the relationship to make required isn't "0" ("1", or "*" will do the trick).
-To see an example of that, remember the complete HR example from Oracle, and notice that the JobHistory class has 3 required relationships.
-
-***
-
-<h1 id="testing-juml">Testing JHipster-UML</h1>
-
-The tests are available in the test folder and can be run via `npm test`.
-We use Mocha for testing (along with chai and expect from chai).
-
-If you want, an alternative command to run the tests, or run only the tests you want, is: `mocha`.
-Please note that you need to be in the root directory for this command to work, and you also may need to install globally mocha with `npm install -g mocha` (or use the file in the node_modules folder, which is available to you provided you do `npm install` in JHipster-UML's directory).
-If, however, you don't want to install everything globally, run:
-  - `npm install` to install the mocha dependency,
-  - `./node_modules/mocha/bin/mocha` to run the tests, please note that you may need to use the `\` on some "exotic" operating system/s.
+À partir de la version 2.0.0, il est possible de créer des relations requises.
+Pour en spécifier une, assurez-vous que la fin de la relation à rendre requise n'est pas "0" ("1" ou "*" feront l'affaire).
+Pour voir un exemple, souvenez-vous de l'exemple complet de HR d'Oracle, et remarquez que la classe JobHistory a 3 relations requises.
 
 ***
 
-<h1 id="contributing">Contributing: issues and enhancements</h1>
+<h1 id="testing-juml">Test de JHipster-UML</h1>
 
-Because our tool isn't perfect (_yet_), you may notice some irregularities. GitHub provides a pretty nice issue tracker so that everyone can post about an issue.
-We follow the same guidelines as JHipster, with a few additions:
+Les tests sont disponibles dans le dossier de test et peuvent être exécutés via `npm test`.
+Nous utilisons Mocha pour les tests (ainsi que chai et expect de chai).
 
-  - Bugs found internally (by the JHipster-UML team) may be posted in the issue tracker, except for bugs regarding the supported UML editors.
+Si vous le souhaitez, une commande alternative pour exécuter les tests, ou exécuter uniquement les tests que vous souhaitez, est : `mocha`.
+Veuillez noter que vous devez être dans le répertoire racine pour que cette commande fonctionne, et vous devrez peut-être installer globalement mocha avec `npm install -g mocha` (ou utiliser le fichier dans le dossier node_modules, qui est disponible si vous faites `npm install` dans le répertoire de JHipster-UML).
+Si, cependant, vous ne voulez pas tout installer globalement, exécutez :
 
-  - The same goes for enhancements.
+- `npm install` pour installer la dépendance mocha,
+- `./node_modules/mocha/bin/mocha` pour exécuter les tests, veuillez noter que vous devrez peut-être utiliser le `\` sur certains systèmes d'exploitation "exotiques".
 
-<b>Note: Post PRs and Issues on JHipster-UML's github page, [here](https://github.com/jhipster/jhipster-uml). Not on the main JHipster page.</b>
+***
 
-<h2 id="parsermodifications">Parser modifications</h2>
+<h1 id="contributing">Contribuer : problèmes et améliorations</h1>
 
-The 1.0.0 release brings a new parser system making any change (parser creation, update, deletion) hassle-free, provided the XMI can be parsed.
+Parce que notre outil n'est pas encore parfait, vous pouvez remarquer quelques irrégularités. GitHub propose un tracker de problèmes assez sympa pour que tout le monde puisse signaler un problème.
+Nous suivons les mêmes directives que JHipster, avec quelques ajouts :
 
+  - Les bugs trouvés en interne (par l'équipe JHipster-UML) peuvent être signalés dans le tracker de problèmes, sauf pour les bugs concernant les éditeurs UML pris en charge.
 
-### Adding a parser
+  - Il en va de même pour les améliorations.
 
-#### Parser implementation
+<b>Note : Postez des PR et des problèmes sur la page github de JHipster-UML, [ici](https://github.com/jhipster/jhipster-uml). Pas sur la page principale de JHipster.</b>
 
-If you're a Java dev, you're probably quite familiar with OOP principles (we hope so anyway). When developing JHipster-UML, we thought of its architecture as we'd _normally_ do in Java.
+<h2 id="parsermodifications">Modifications du parseur</h2>
 
-You have to "extend" our abstract parser ([AbstractParser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/abstract_parser.js)), or implement our interface ([Parser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js)) to add your concrete implementation of a parser.
-
-You should notice that some methods of the Parser interface throw an _UnimplementedOperationException_. This idea is taken from Java, and you can implement this methods in your concrete parser.
-
-Some methods don't throw any exception, but only call other methods. If you're familiar with Java 8, we copied its awesome default methods, and did the same (so that you don't manually implement them).
-
-Like in Java, you can override any method you want, and create your own. You're not limited (except if you want to overload).
-
-The AbstractParser class provides some fields, a default constructor and some methods so that you don't have to create or implement them later.
-
-You _should_ implement each of these methods (or override the [#parse](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L13) or [#findElements](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L25) methods).
-
-The getters are not mandatory, but serve as a way of getting some important fields and provide a way to modify them before sending those fields.
+La version 1.0.0 apporte un nouveau système de parseur rendant toute modification (création de parseur, mise à jour, suppression) sans problème, à condition que le XMI puisse être analysé.
 
 
-#### Editor detection
+### Ajout d'un parseur
 
-When you're done creating your shiny new parser, you should add it to the "list" of available editors:
+#### Implémentation du parseur
 
-- Require it first just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L3);
+Si vous êtes un développeur Java, vous êtes probablement assez familier avec les principes de la POO (nous l'espérons en tout cas). Lors du développement de JHipster-UML, nous avons pensé à son architecture comme nous le ferions normalement en Java.
 
-- Make it available just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L9);
+Vous devez "étendre" notre parseur abstrait ([AbstractParser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/abstract_parser.js)), ou implémenter notre interface ([Parser](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js)) pour ajouter votre implémentation concrète d'un parseur.
 
-- Add it to the list just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L16).
+Vous remarquerez que certaines méthodes de l'interface Parser lancent une _UnimplementedOperationException_. Cette idée est reprise de Java, et vous pouvez implémenter ces méthodes dans votre parseur concret.
 
-However, a few guidelines must be respected:
+Certaines méthodes ne lancent aucune exception, mais appellent seulement d'autres méthodes. Si vous êtes familier avec Java 8, nous avons copié ses superbes méthodes par défaut, et fait de même (pour que vous ne les implémentiez pas manuellement).
 
-- Your parser's name must be \<editor_parser\>;
+Comme en Java, vous pouvez substituer n'importe quelle méthode que vous voulez, et créer les vôtres. Vous n'êtes pas limité (sauf si vous voulez surcharger).
 
-- The editor's JS file must not be upper-cased, and must not contain any whitespace, (Modelio -> `modelio_parser.js`, UML Designer -> `umldesigner_parser.js`);
+La classe AbstractParser fournit certains champs, un constructeur par défaut et quelques méthodes pour que vous n'ayez pas à les créer ou à les implémenter plus tard.
 
-- The editor's class name must be capitalized (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
+Vous devriez implémenter chacune de ces méthodes (ou substituer les méthodes [#parse](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L13) ou [#findElements](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/parser.js#L25)).
 
-Concerning the EditorDetector, it can detect the editor that created your XMI file. For that to happen, you must first locate where the editor is mentioned in the XMI file, and then add the code that returns your editor just like [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L23). If your editor can't be detected, add it [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), and indicate its name just like it has been done for UML Designer [here](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
-
-
-#### Testing
-
-Finally, the next thing you'll need to do before committing your super parser is test it.
-Because we believe in testing, but really like good testing (with BDD), our tests are done with Mocha and chai. If you don't know what it's all about yet, we recommend you visit the [ChaiJS](http://chaijs.com/) page, and see [one](https://github.com/jhipster/jhipster-uml/blob/master/test/editors/modelio_parser_test.js) of our test file to get acquainted with it.
-
-You should probably wonder what form of testing you should use. The answer is: it's up to you! Whether it's [should](http://chaijs.com/guide/styles/#should), or [expect](http://chaijs.com/guide/styles/#expect) (à la RSpec), we don't enforce any rule here. We, however, recommend using Expect because we do, and it should keep the tests
-better to understand.
-
-We just want you to test everything that is 'test-worthy':
-
-  - The interface's methods (the _public_ methods not an interface class!);
-
-  - You're not obliged to test the other methods (_private_ ones, because they are supposed to be safe and ever-changing in the short/long term), but as visibility is not implemented in JS (to our knowledge), you may want to test them (it's up to you).
-
-The general guidelines for names and files:
-
-- Your test file's name should respect the same rules as previously mentioned. For instance, if your parser's name is "Modelio", then your test file should be `modelio_parser_test.js`.
-
-- The same goes for XMI files used for testing. If your parser's name is UMLDesigner, then one of your test XMI file's name can be `umldesigner_parser_problem_test.[...]` (the file extension is not static).
+Les getters ne sont pas obligatoires, mais servent à obtenir certains champs importants et fournissent un moyen de les modifier avant de les envoyer.
 
 
-### Modifying a parser
+#### Détection de l'éditeur
 
-Changing a parser (and then committing the change) is pretty straightforward: do the change and test it (create tests if need be).
+Lorsque vous avez terminé de créer votre nouveau parseur brillant, vous devez l'ajouter à la "liste" des éditeurs disponibles :
 
-You can make an XMI file if you need a test to pass (exception throwing, or not, etc.).
+- Requiert d'abord comme [ici](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L3);
 
-Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js) if you change any name.
+- Rendez-le disponible comme [ici](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L9);
 
-### Deleting a parser
+- Ajoutez-le à la liste comme [ici](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L16).
 
-First, remove it from the editors (`editors/editors.js`) and then remove it from the EditorDetector (`editors/editor_detector.js`). Finally, remove the parser file and the test created for it.
+Cependant, quelques directives doivent être respectées :
 
-Don't forget to modify the [editor detector](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) if you delete any parser.
+- Le nom de votre parseur doit être \<éditeur_parser\>;
+
+- Le fichier JS de l'éditeur ne doit pas être en majuscules, et ne doit pas contenir d'espaces blancs, (Modelio -> `modelio_parser.js`, UML Designer -> `umldesigner_parser.js`);
+
+- Le nom de classe de l'éditeur doit être en majuscule (Modelio -> `ModelioParser`, UML Designer -> `UMLDesignerParser`).
+En ce qui concerne le détecteur d'éditeur, il peut détecter l'éditeur qui a créé votre fichier XMI. Pour que cela se produise, vous devez d'abord localiser où l'éditeur est mentionné dans le fichier XMI, puis ajouter le code qui retourne votre éditeur comme [ici](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L23). Si votre éditeur ne peut pas être détecté, ajoutez-le [ici](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editors.js#L23), et indiquez son nom comme cela a été fait pour UML Designer [ici](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L56).
+
+
+#### Test
+
+Enfin, la prochaine chose que vous devrez faire avant de commettre votre super parseur est de le tester.
+Parce que nous croyons au test, mais nous aimons vraiment les bons tests (avec BDD), nos tests sont réalisés avec Mocha et chai. Si vous ne savez pas de quoi il s'agit, nous vous recommandons de visiter la page [ChaiJS](http://chaijs.com/) et de voir [l'un](https://github.com/jhipster/jhipster-uml/blob/master/test/editors/modelio_parser_test.js) de nos fichiers de test pour vous familiariser avec cela.
+
+Vous vous demandez probablement quelle forme de test vous devriez utiliser. La réponse est : c'est à vous de choisir ! Que ce soit [should](http://chaijs.com/guide/styles/#should) ou [expect](http://chaijs.com/guide/styles/#expect) (à la RSpec), nous n'imposons aucune règle ici. Nous recommandons cependant d'utiliser Expect parce que nous le faisons, et cela devrait rendre les tests plus faciles à comprendre.
+
+Nous voulons simplement que vous testiez tout ce qui est "digne de test" :
+
+  - Les méthodes de l'interface (les méthodes _public_ pas une classe d'interface !);
+
+  - Vous n'êtes pas obligé de tester les autres méthodes (_privées_), car elles sont censées être sûres et changer à court/long terme, mais comme la visibilité n'est pas implémentée en JS (à notre connaissance), vous pouvez vouloir les tester (c'est à vous de voir).
+
+Les directives générales pour les noms et les fichiers :
+
+  - Le nom de votre fichier de test doit respecter les mêmes règles que celles précédemment mentionnées. Par exemple, si le nom de votre parseur est "Modelio", alors votre fichier de test doit être `modelio_parser_test.js`.
+
+  - Il en va de même pour les fichiers XMI utilisés pour les tests. Si le nom de votre parseur est UMLDesigner, alors l'un de vos fichiers XMI de test peut s'appeler `umldesigner_parser_problem_test.[...]` (l'extension de fichier n'est pas statique).
+
+
+### Modification d'un parseur
+
+Modifier un parseur (et ensuite commettre le changement) est assez simple : faites le changement et testez-le (créez des tests si nécessaire).
+
+Vous pouvez créer un fichier XMI si vous avez besoin qu'un test réussisse (lancer une exception ou non, etc.).
+
+N'oubliez pas de modifier le [détecteur d'éditeur](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js) si vous changez un nom.
+
+
+### Suppression d'un parseur
+
+Tout d'abord, supprimez-le des éditeurs (`editors/editors.js`) puis supprimez-le du détecteur d'éditeur (`editors/editor_detector.js`). Enfin, supprimez le fichier du parseur et le test créé pour celui-ci.
+
+N'oubliez pas de modifier le [détecteur d'éditeur](https://github.com/jhipster/jhipster-uml/blob/master/lib/editors/editor_detector.js#L38) si vous supprimez un parseur.
 
 ***
 
 <h1 id="annexes">Annexes</h1>
 
-Here is the types supported by this project:
+Voici les types pris en charge par ce projet :
 
 <table class="table table-striped table-responsive">
   <tr>

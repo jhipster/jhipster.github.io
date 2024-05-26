@@ -1,37 +1,38 @@
 ---
 layout: default
-title: How to remove the register account service
+title: Comment supprimer le service d'inscription de compte
 sitemap:
 priority: 0.1
 lastmod: 2021-03-19T21:22:00-00:00
 ---
-# How to remove the register account service
+# Comment supprimer le service d'inscription de compte
 
-__Tip submitted by [@apuntandoanulo](https://github.com/apuntandoanulo)__
+__Astuce soumise par [@apuntandoanulo](https://github.com/apuntandoanulo)__
 
-_Goal:_ If you want to eliminate the possibility that users can create accounts and let only a previously registered user do it, remove the following fragments and lines of code that are indicated below:
+_Objectif:_ Si vous souhaitez éliminer la possibilité pour les utilisateurs de créer des comptes et permettre uniquement à un utilisateur préalablement enregistré de le faire, supprimez les fragments et les lignes de code suivants qui sont indiqués ci-dessous :
 
-## 1. On the back-end side
+## 1. Du côté du back-end
 
 * ___1.1___  src\main\java\ ... \service\UserService.java
-  - Remove the entire method `public User registerUser(...)`
+  - Supprimez la méthode entière `public User registerUser(...)`
 * ___1.2___ src\main\java\ ... \rest\AccountResource.java
-  - Remove the entire method `@PostMapping("/register")   public void registerAccount(...)`
+  - Supprimez la méthode entière `@PostMapping("/register")   public void registerAccount(...)`
 
-## 2. On the front-end side
+## 2. Du côté du front-end
 
 * ___2.1___ src\main\webapp\app\account\
-  - Remove the entire folder `register` that contains: `register.component.html`, `register.component.ts`, `register.route.ts`, `register.service.ts`
+  - Supprimez le dossier entier `register` qui contient : `register.component.html`, `register.component.ts`, `register.route.ts`, `register.service.ts`
 
-* ___2.2___ Go into `src\main\webapp\app\account\account.module.ts` and remove the following lines:
+* ___2.2___ Accédez à `src\main\webapp\app\account\account.module.ts` et supprimez les lignes suivantes :
   - ``` import { RegisterComponent } from './register/register.component'; ```
-  - _declarations_ array -> ```  RegisterComponent, ```
+  - tableau _declarations_ -> ```  RegisterComponent, ```
 
-* ___2.3___ Go into `src\main\webapp\app\account\account.route.ts` and remove the following lines:
+* ___2.3___ Accédez à `src\main\webapp\app\account\account.route.ts` et supprimez les lignes suivantes :
   - ``` import { registerRoute } from './register/register.route'; ```
-  - _ACCOUNT_ROUTES_ array -> ```  registerRoute ```
+  - tableau _ACCOUNT_ROUTES_ -> ```  registerRoute ```
 
-* ___2.4___ Go into `src\main\webapp\app\home\home.component.html` and remove the following block:
+* ___2.4___ Accédez à `src\main\webapp\app\home\home.component.html` et supprimez le bloc suivant :
+
   ```
   <div class="alert alert-warning" *ngSwitchCase="false">
     <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
@@ -39,7 +40,7 @@ _Goal:_ If you want to eliminate the possibility that users can create accounts 
   </div>
   ```
 
-* ___2.5___ Go into `src\main\webapp\app\layouts\navbar\navbar.component.html` and remove the following block:
+* ___2.5___ Accédez à `src\main\webapp\app\layouts\navbar\navbar.component.html` et supprimez le bloc suivant :
   ```
   <li *ngSwitchCase="false">
     <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
@@ -49,7 +50,7 @@ _Goal:_ If you want to eliminate the possibility that users can create accounts 
   </li>
   ```
 
-* ___2.6___ Go into `src\main\webapp\app\shared\login\login.component.html` and remove the following block:
+* ___2.6___ Accédez à `src\main\webapp\app\shared\login\login.component.html` et supprimez le bloc suivant :
   ```
   <div class="alert alert-warning">
     <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
@@ -57,7 +58,7 @@ _Goal:_ If you want to eliminate the possibility that users can create accounts 
   </div>
   ```
 
-* ___2.7___ Go into `src\main\webapp\app\shared\login\login.component.ts` and remove the following block:
+* ___2.7___ Accédez à `src\main\webapp\app\shared\login\login.component.ts` et supprimez le bloc suivant :
   ```
   register(): void {
     this.activeModal.dismiss('to state register');
@@ -65,7 +66,7 @@ _Goal:_ If you want to eliminate the possibility that users can create accounts 
   }
   ```
 
-* ___2.8___ Remove the messages files: ``` src\main\webapp\i18n\ ... \register.json ```
+* ___2.8___ Supprimez les fichiers de messages :  ``` src\main\webapp\i18n\ ... \register.json ```
 
 * ___2.9___ src\test\javascript\spec\app\account
-  - Remove the entire folder `register` that contains: `register.component.spec.ts`
+  - Supprimez le dossier entier `register` qui contient :  `register.component.spec.ts`

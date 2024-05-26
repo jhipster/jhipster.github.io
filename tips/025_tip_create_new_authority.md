@@ -1,17 +1,17 @@
 ---
 layout: default
-title: How to create a new Authority
+title: Comment créer une nouvelle autorité
 sitemap:
 priority: 0.1
 lastmod: 2018-10-05T18:20:00-00:00
 ---
-# How to create a new Authority
+# Comment créer une nouvelle autorité
 
-__Tip submitted by [@Tonterias](https://github.com/Tonterias)__
+__Conseil soumis par [@Tonterias](https://github.com/Tonterias)__
 
-Let's say that you need a new authority besides the given ones of ADMIN and USER. Let the new authority be called `ROLE_EXAMPLE_AUTHORITY`.
+Disons que vous avez besoin d'une nouvelle autorité en plus de celles données ADMIN et USER. Appelons cette nouvelle autorité `ROLE_EXAMPLE_AUTHORITY`.
 
-Modify AuthoritiesConstants.java file to include your new authority/authorities:
+Modifiez le fichier AuthoritiesConstants.java pour inclure votre nouvelle autorité/autorisations :
 
 	/**
 	 * Constants for Spring Security authorities.
@@ -30,7 +30,7 @@ Modify AuthoritiesConstants.java file to include your new authority/authorities:
 	    }
 	}
 
-Do not forget to include your new role in your `authority.csv`:
+N'oubliez pas d'inclure votre nouveau rôle dans votre `authority.csv`:
 
 	name
 	ROLE_ADMIN
@@ -39,7 +39,7 @@ Do not forget to include your new role in your `authority.csv`:
 	ROLE_EXAMPLE_AUTHORITY
 
 
-With that, you will be able to use it in your SecurityConfiguration.java:
+Avec cela, vous pourrez l'utiliser dans votre SecurityConfiguration.java :
 
 ```
 @Override
@@ -56,7 +56,7 @@ With that, you will be able to use it in your SecurityConfiguration.java:
             .antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.ROLE_EXAMPLE_AUTHORITY)
 ```
 
-And in your Controller layer (e.g. `FrontPageConfigResource.java`):
+Et dans votre couche de contrôleur (par exemple `FrontPageConfigResource.java`):
 	
 	@DeleteMapping("/order-items/{id}")
 	@Timed
@@ -65,9 +65,9 @@ And in your Controller layer (e.g. `FrontPageConfigResource.java`):
 	    ...
 	}
 
-And in your Angular html files: `jhiHasAnyAuthority=[‘ROLE_ADMIN’, ‘ROLE_EXAMPLE_AUTHORITY’ ...]` 
+Et dans vos fichiers html Angular :  `jhiHasAnyAuthority=[‘ROLE_ADMIN’, ‘ROLE_EXAMPLE_AUTHORITY’ ...]` 
 
-And in your Angular routes:
+Et dans vos routes Angular :
 
 	export const messageRoute: Routes = [
 	    {
@@ -81,4 +81,4 @@ And in your Angular routes:
 	    }
 	];
 	
-The open-source example is at JhipsterPress: https://github.com/Tonterias/JhipsterPress
+L'exemple open-source est disponible sur JhipsterPress: https://github.com/Tonterias/JhipsterPress

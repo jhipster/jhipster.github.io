@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Video tutorial
+title: Tutoriel vidéo
 permalink: /video-tutorial/
 redirect_from:
   - /video_tutorial.html
@@ -9,7 +9,7 @@ sitemap:
     lastmod: 2014-10-18T00:00:00-00:00
 ---
 
-# <i class="fa fa-film"> Video tutorial
+# <i class="fa fa-film"></i> Tutoriel vidéo
 
 <div class="row">
     <div class="col-md-6 col-sm-12">
@@ -18,18 +18,16 @@ sitemap:
                 <iframe width="420" height="315" src="https://www.youtube.com/embed/6lf64CctDAQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">JHipster Blog Demo<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>This 15-minute tutorial shows how to create a JHipster 7 application, work with
-                the provided tools, use the JDL Studio to create several entities with their relationships, 
-                and deploy the end result to the cloud.</p>
-                <p>Presented by Matt Raible (<a href="https://twitter.com/mraible">@mraible</a>)</p>
-                <p>Published on 30 Apr 2021</p>
+                <h3 id="thumbnail-label">Démonstration du blog JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>Ce tutoriel de 15 minutes montre comment créer une application JHipster 7, utiliser les outils fournis, utiliser le JDL Studio pour créer plusieurs entités avec leurs relations, et déployer le résultat final dans le cloud.</p>
+                <p>Présenté par Matt Raible (<a href="https://twitter.com/mraible">@mraible</a>)</p>
+                <p>Publié le 30 avril 2021</p>
             </div>
         </div>
     </div>
 </div>
 
-## <i class="fa fa-film"> Other recent JHipster videos
+## <i class="fa fa-film"></i> Autres vidéos récentes sur JHipster
 
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
@@ -38,9 +36,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/haTQ1xJKQQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Micro Frontends for Java Microservices<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/mraible">Matt Raible</a> explains what micro frontends are and shows how you can use them with React, Spring Boot, and JHipster microservices.</p>
-              <p>Published on Jan 1, 2023 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+                <h3 id="thumbnail-label">Micro Frontends pour les microservices Java<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/mraible">Matt Raible</a> explique ce que sont les micro frontends et montre comment les utiliser avec React, Spring Boot et les microservices JHipster.</p>
+                <p>Publié le 1er janvier 2023 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
             </div>
         </div>
     </div>
@@ -50,9 +48,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/RnLGnY-vzLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">What is JHipster Lite and why should you care?<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/juliendubois">Julien Dubois</a> compares JHipster and JHipster Lite and shows how JHipster Lite works.</p>
-              <p>Published on Oct 14, 2022 | <a href="https://www.youtube.com/@DevoxxForever">Devoxx YouTube</a></p>
+                <h3 id="thumbnail-label">Qu'est-ce que JHipster Lite et pourquoi devriez-vous vous en soucier?<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/juliendubois">Julien Dubois</a> compare JHipster et JHipster Lite et montre comment fonctionne JHipster Lite.</p>
+                <p>Publié le 14 octobre 2022 | <a href="https://www.youtube.com/@DevoxxForever">Devoxx YouTube</a></p>
             </div>
         </div>
     </div>
@@ -62,9 +60,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/NucXvPL1z5o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Build and deploy cloud native Java microservices on Kubernetes with Istio service mesh<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/deepu105">Deepu K Sasidharan</a> shows how to build and deploy Java microservices to the cloud using Istio, Kubernetes, JHipster, and Spring Cloud.</p>
-              <p>Published on Oct 11, 2022 | <a href="https://www.youtube.com/@DevoxxForever">Devoxx YouTube</a></p>
+                <h3 id="thumbnail-label">Créer et déployer des microservices Java natifs pour le cloud sur Kubernetes avec le maillage de services Istio<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/deepu105">Deepu K Sasidharan</a> montre comment créer et déployer des microservices Java dans le cloud en utilisant Istio, Kubernetes, JHipster et Spring Cloud.</p>
+                <p>Publié le 11 octobre 2022 | <a href="https://www.youtube.com/@DevoxxForever">Devoxx YouTube</a></p>
             </div>
         </div>
     </div>
@@ -76,9 +74,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/3kGrkVUZ_Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Scaling Secure Applications with Spring Session and Redis<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/mraible">Matt Raible</a> shows how to configure a Spring Boot application to store sessions in Redis with Spring Session. The session will be shared among multiple nodes and preserved when a node failure happens.</p>
-              <p>Published on Apr 5, 2022 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+                <h3 id="thumbnail-label">Évoluer des applications sécurisées avec Spring Session et Redis<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/mraible">Matt Raible</a> montre comment configurer une application Spring Boot pour stocker les sessions dans Redis avec Spring Session. La session sera partagée entre plusieurs nœuds et préservée en cas de défaillance d'un nœud.</p>
+                <p>Publié le 5 avril 2022 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
             </div>
         </div>
     </div>
@@ -88,9 +86,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/PECnQs5bVbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Full Stack Java with React, Spring Boot, and JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/mraible">Matt Raible</a> shows how to create a slick-looking, full-stack, secure Java application using React, Spring Boot, and JHipster.</p>
-              <p>Published on Jan 26, 2022 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+                <h3 id="thumbnail-label">Full Stack Java avec React, Spring Boot et JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/mraible">Matt Raible</a> montre comment créer une application Java full stack sécurisée avec une interface élégante en utilisant React, Spring Boot et JHipster.</p>
+                <p>Publié le 26 janvier 2022 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
             </div>
         </div>
     </div>
@@ -100,23 +98,23 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/SQFl7ggNYIE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Kubernetes to the Cloud with Spring Boot and JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/mraible">Matt Raible</a> shows how to deploy a microservices architecture to Minikube and Google Cloud with Kubernetes. The architecture is developed with Spring Cloud Gateway, Spring Boot, and JHipster. </p>
-              <p>Published on Aug 23, 2021 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+                <h3 id="thumbnail-label">Kubernetes vers le cloud avec Spring Boot et JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/mraible">Matt Raible</a> montre comment déployer une architecture de microservices sur Minikube et Google Cloud avec Kubernetes. L'architecture est développée avec Spring Cloud Gateway, Spring Boot et JHipster.</p>
+                <p>Publié le 23 août 2021 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
             </div>
         </div>
     </div>
 </div>
 <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="thumbnail no-margin-bottom">
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/V1g0aZtPAkw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Generating Fullstack Springboot & Angular 12 Application with JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/bloch_gaetan">Gaëtan Bloch</a> shows how to generate a fullstack application with JHipster and explore the different features: tests (JUnit, Jest, Integration with Testcontainers, e2e with Cypress, performance with Gatling), security (JWT), i18n, API documentation (OAS/Swagger), QA (SonarQube, OWASP vulnerabilities check) and CI/CD pipeline (GitHub Actions) and cloud deployment to Heroku.</p>
-              <p>Streamed live on Aug 04, 2021 | <a href="https://geekle.us/software_architecture">Geekle.us Worldwide Architecture Summit Vol.2</a></p>
+                <h3 id="thumbnail-label">Générer une application fullstack Springboot & Angular 12 avec JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/bloch_gaetan">Gaëtan Bloch</a> montre comment générer une application fullstack avec JHipster et explorer les différentes fonctionnalités : tests (JUnit, Jest, intégration avec Testcontainers, e2e avec Cypress, performance avec Gatling), sécurité (JWT), i18n, documentation API (OAS/Swagger), QA (SonarQube, vérification des vulnérabilités OWASP) et pipeline CI/CD (GitHub Actions) et déploiement dans le cloud sur Heroku.</p>
+                <p>Diffusé en direct le 4 août 2021 | <a href="https://geekle.us/software_architecture">Geekle.us Worldwide Architecture Summit Vol.2</a></p>
             </div>
         </div>
     </div>
@@ -126,9 +124,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/clkEUHWT9-M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Build Reactive Java Microservices with Spring Boot and JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/mraible">Matt Raible</a> shows how to create a reactive microservices architecture with Spring Boot and JHipster.</p>
-                <p>Published on 13 May 2021 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+                <h3 id="thumbnail-label">Construire des microservices réactifs Java avec Spring Boot et JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/mraible">Matt Raible</a> montre comment créer une architecture de microservices réactifs avec Spring Boot et JHipster.</p>
+                <p>Publié le 13 mai 2021 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
             </div>
         </div>
     </div>
@@ -138,9 +136,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/hfIIGc5lkME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Introduction to JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/juliendubois">Julien Dubois</a> presents about JHipster at <a href="https://www.dawsoncollege.qc.ca/dawscon/">DawsCon</a>.</p>
-                <p>Streamed live on Jan 15, 2021</p>
+                <h3 id="thumbnail-label">Introduction à JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/juliendubois">Julien Dubois</a> présente JHipster à <a href="https://www.dawsoncollege.qc.ca/dawscon/">DawsCon</a>.</p>
+                <p>Diffusé en direct le 15 janvier 2021</p>
             </div>
         </div>
     </div>
@@ -152,9 +150,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/AG4z18qePEw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Choose Your Own Adventure with JHipster and Kubernetes<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p><a href="https://twitter.com/saturnism">Ray Tsang</a> and <a href="https://twitter.com/mraible">Matt Raible</a> show how to build a microservices architecture with JHipster, configure it to use Okta, and deploy it with Kubernetes.</p>
-                <p>Streamed live on Jan 13, 2021 | <a href="https://www.youtube.com/channel/UChJ6IHM_uy6dWLBiDAwYkpw">JChampions Conf YouTube</a></p>
+                <h3 id="thumbnail-label">Choisissez votre propre aventure avec JHipster et Kubernetes<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p><a href="https://twitter.com/saturnism">Ray Tsang</a> et <a href="https://twitter.com/mraible">Matt Raible</a> montrent comment construire une architecture de microservices avec JHipster, la configurer pour utiliser Okta, et la déployer avec Kubernetes.</p>
+                <p>Diffusé en direct le 13 janvier 2021 | <a href="https://www.youtube.com/channel/UChJ6IHM_uy6dWLBiDAwYkpw">JChampions Conf YouTube</a></p>
             </div>
         </div>
     </div>
@@ -164,9 +162,9 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/zg2UtuD3-RE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Build a Secure Micronaut and Angular App with JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>Learn how to create a secure Micronaut and Angular app with Java + JHipster and deploy it to Heroku. By <a href="https://twitter.com/mraible">Matt Raible</a>.</p>
-                <p>Published on Sep 17, 2020 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+                <h3 id="thumbnail-label">Construire une application Micronaut et Angular sécurisée avec JHipster<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>Apprenez comment créer une application Micronaut et Angular sécurisée avec Java + JHipster et la déployer sur Heroku. Par <a href="https://twitter.com/mraible">Matt Raible</a>.</p>
+                <p>Publié le 17 septembre 2020 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
             </div>
         </div>
     </div>
@@ -176,10 +174,11 @@ sitemap:
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/YIRjgd_3sMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="caption">
-                <h3 id="thumbnail-label">Convert JHipster from JWT Authentication to OAuth 2.0 / OIDC Authentication in 10 Minutes<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <p>This screencast shows you how to convert a JHipster app from using JWT for authentication to using OAuth 2.0 / OIDC. By <a href="https://twitter.com/mraible">@mraible</a></p>
-                <p>Published on 20 Sep 2019 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
+                <h3 id="thumbnail-label">Convertir JHipster de l'authentification JWT à l'authentification OAuth 2.0 / OIDC en 10 minutes<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+                <p>Ce screencast vous montre comment convertir une application JHipster de l'utilisation de JWT pour l'authentification à l'utilisation d'OAuth 2.0 / OIDC. Par <a href="https://twitter.com/mraible">@mraible</a></p>
+                <p>Publié le 20 septembre 2019 | <a href="https://youtube.com/oktadev">OktaDev YouTube</a></p>
             </div>
         </div>
     </div>
 </div>
+

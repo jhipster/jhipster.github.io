@@ -1,73 +1,73 @@
 ---
 layout: default
-title: Using a cache
+title: Utilisation d'un cache
 permalink: /using-cache/
 sitemap:
     priority: 0.7
     lastmod: 2017-02-10T18:40:00-00:00
 ---
 
-# <i class="fa fa-line-chart"></i> Using a cache
+# <i class="fa fa-line-chart"></i> Utilisation d'un cache
 
-A cache can be used at two levels in JHipster:
+Un cache peut être utilisé à deux niveaux dans JHipster :
 
-- With the Spring Cache abstraction, which is a specific question when your application is generated, and which uses the Spring Boot `@EnableCaching` annotation. This needs to be tuned according to your specific business needs, and works at a higher level than the Hibernate 2nd-level cache.
-- As an Hibernate 2nd-level cache, a caching solution can give a huge performance boost to your application, and this is what people usually do with JHipster. Please note that this option is only available for SQL databases, and if you have selected to use Spring Cache.
+- Avec l'abstraction Spring Cache, qui est une question spécifique lors de la génération de votre application, et qui utilise l'annotation Spring Boot `@EnableCaching`. Cela doit être ajusté en fonction de vos besoins métier spécifiques, et fonctionne à un niveau supérieur que le cache de deuxième niveau Hibernate.
+- Comme un cache de deuxième niveau Hibernate, une solution de mise en cache peut donner un énorme coup de pouce aux performances de votre application, et c'est ce que font généralement les gens avec JHipster. Veuillez noter que cette option n'est disponible que pour les bases de données SQL, et si vous avez sélectionné l'utilisation de Spring Cache.
 
-Spring Cache and the Hibernate 2nd-level cache will use the same caching solution, but do not work at the same level: we do not recommend to use both for the same objects, as this will make cache invalidation issues even more complex. Instead, we recommend you use:
+Spring Cache et le cache de deuxième niveau Hibernate utiliseront la même solution de mise en cache, mais ne fonctionnent pas au même niveau : nous ne recommandons pas d'utiliser les deux pour les mêmes objets, car cela rendra les problèmes d'invalidation de cache encore plus complexes. Au lieu de cela, nous vous recommandons d'utiliser :
 
-- Spring Cache for higher-level or aggregate objects, like you typically have with DTOs
-- The Hibernate 2nd-level cache for entities mapped to the database, in order to reduce the number of SQL requests
+- Spring Cache pour les objets de niveau supérieur ou agrégés, comme vous en avez généralement avec les DTO
+- Le cache de deuxième niveau Hibernate pour les entités mappées à la base de données, afin de réduire le nombre de requêtes SQL
 
-JHipster supports the following cache implementations: 
+JHipster prend en charge les implémentations de cache suivantes :
 1. Ehcache,
-2. Caffeine, 
-3. Hazelcast, 
-4. Infinispan, 
+2. Caffeine,
+3. Hazelcast,
+4. Infinispan,
 5. Memcached,
 6. Redis.
 
-They are all detailed below.
+Ils sont tous détaillés ci-dessous.
 
-## Common configuration
+## Configuration commune
 
-Caches are configured in the `CacheConfiguration` class, and can also be tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/).
+Les caches sont configurés dans la classe `CacheConfiguration`, et peuvent également être ajustés en utilisant les [propriétés d'application communes de JHipster]({{ site.url }}/propriétés-d-application-communes/).
 
-## Caching with Ehcache
+## Mise en cache avec Ehcache
 
-[Ehcache](http://www.ehcache.org/) is the default cache with monoliths in JHipster. Ehcache starts up very fast, so it's a perfect solution for "normal" monoliths.
+[Ehcache](http://www.ehcache.org/) est le cache par défaut avec les monolithes dans JHipster. Ehcache démarre très rapidement, c'est donc une solution parfaite pour les monolithes "normaux".
 
-With JHipster, Ehcache cannot work as a distributed cache, as it doesn't have an API allowing to add new nodes programmatically
+Avec JHipster, Ehcache ne peut pas fonctionner comme un cache distribué, car il n'a pas d'API permettant d'ajouter de nouveaux nœuds de manière programmatique.
 
-Ehcache is configured in the `CacheConfiguration` Spring configuration bean, which defines 2 properties (`time-to-live-seconds` and `max-entries`) in the JHipster [common application properties]({{ site.url }}/common-application-properties/). More properties can be added in your application's specific `ApplicationProperties` Spring configuration bean.
+Ehcache est configuré dans la configuration Spring `CacheConfiguration`, qui définit 2 propriétés (`time-to-live-seconds` et `max-entries`) dans les [propriétés d'application communes de JHipster]({{ site.url }}/propriétés-d-application-communes/). Plus de propriétés peuvent être ajoutées dans la configuration Spring spécifique de votre application `ApplicationProperties`.
 
-By default, `time-to-live-seconds` has a default value of 3600 seconds (1 hour) both in `dev` and in `prod` mode, and `max-entries` has a default value of 100 entries in `dev` mode and 1,000 entries in `prod` mode.
+Par défaut, `time-to-live-seconds` a une valeur par défaut de 3600 secondes (1 heure) à la fois en mode `dev` et en mode `prod`, et `max-entries` a une valeur par défaut de 100 entrées en mode `dev` et 1 000 entrées en mode `prod`.
 
-Those values should be tuned depending on your specific business needs, and the JHipster monitoring screen can help you better understand cache usage in your application. Please also refer to the Ehcache documentation to fine-tune those values.
+Ces valeurs doivent être ajustées en fonction de vos besoins métier spécifiques, et l'écran de surveillance de JHipster peut vous aider à mieux comprendre l'utilisation du cache dans votre application. Veuillez également vous référer à la documentation Ehcache pour affiner ces valeurs.
 
-## Caching with Caffeine
+## Mise en cache avec Caffeine
 
-[Caffeine](https://github.com/ben-manes/caffeine) is a [high performance](https://github.com/ben-manes/caffeine/wiki/Benchmarks), [near optimal](https://github.com/ben-manes/caffeine/wiki/Efficiency) caching library and is an alternative to Ehcache for use with monoliths in JHipster. 
+[Caffeine](https://github.com/ben-manes/caffeine) est une bibliothèque de mise en cache [hautes performances](https://github.com/ben-manes/caffeine/wiki/Benchmarks), [quasi optimale](https://github.com/ben-manes/caffeine/wiki/Efficiency) et est une alternative à Ehcache pour une utilisation avec des monolithes dans JHipster.
 
-Similar to Ehcache, Caffeine cannot work as a distributed cache.
+Tout comme Ehcache, Caffeine ne peut pas fonctionner comme un cache distribué.
 
-Jhipster generates a default configuration for Caffeine which is identical to Ehcache. However you may wish to add additional options to fine tune it to your needs. Caffeine cache configuration is done in `CacheConfiguration` Spring configuration bean whereas your application specific properties can be added to `ApplicationProperties` bean. You might find the following three files useful in defining your own Caffeine configuration.
+Jhipster génère une configuration par défaut pour Caffeine qui est identique à Ehcache. Cependant, vous pouvez souhaiter ajouter des options supplémentaires pour l'ajuster à vos besoins. La configuration du cache Caffeine se fait dans la configuration Spring `CacheConfiguration`, tandis que vos propriétés spécifiques à l'application peuvent être ajoutées à la configuration Spring `ApplicationProperties`. Vous pourriez trouver les trois fichiers suivants utiles pour définir votre propre configuration Caffeine.
 
-- We use the [`CaffeineConfiguration`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/CaffeineConfiguration.java) class within the `CacheConfiguration` bean to add Caffeine properties.
+- Nous utilisons la classe [`CaffeineConfiguration`](https://github.com/benmanes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/CaffeineConfiguration.java) dans le bean de configuration Spring `CacheConfiguration` pour ajouter des propriétés Caffeine.
 
-- You might find [`TypesafeConfigurator`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/TypesafeConfigurator.java) along with [`reference.conf`](https://github.com/ben-manes/caffeine/blob/master/jcache/src/main/resources/reference.conf) as a reference to all supported Caffeine properties.
+- Vous pourriez trouver [`TypesafeConfigurator`](https://github.com/benmanes/caffeine/blob/master/jcache/src/main/java/com/github/benmanes/caffeine/jcache/configuration/TypesafeConfigurator.java) ainsi que [`reference.conf`](https://github.com/benmanes/caffeine/blob/master/jcache/src/main/resources/reference.conf) comme référence à toutes les propriétés Caffeine prises en charge.
 
-## Caching with Hazelcast
+## Mise en cache avec Hazelcast
 
-[Hazelcast](https://hazelcast.com/) can work as a local cache (like Ehcache), but can also work as a distributed cache. As a result:
+[Hazelcast](https://hazelcast.com/) peut fonctionner comme un cache local (comme Ehcache), mais peut également fonctionner comme un cache distribué. En conséquence :
 
-- It is the default option for microservices, as we expect microservices to scale
-- It is the default option for gateways, as we expect them to scale, and as Hazelcast is used to distribute the [gateway rate-limiting information]({{ site.url }}/api-gateway/#rate_limiting)
-- When used within a monolith, Hazelcast needs to have the [JHipster Registry]({{ site.url }}/jhipster-registry/) configured manually in order to scale
+- C'est l'option par défaut pour les microservices, car nous nous attendons à ce que les microservices se mettent à l'échelle.
+- C'est l'option par défaut pour les passerelles, car nous nous attendons à ce qu'elles se mettent à l'échelle, et comme Hazelcast est utilisé pour distribuer les informations de [limitation du débit de la passerelle]({{ site.url }}/api-gateway/#rate_limiting)
+- Lorsqu'il est utilisé dans un monolithe, Hazelcast doit avoir le [JHipster Registry]({{ site.url }}/jhipster-registry/) configuré manuellement pour se mettre à l'échelle.
 
-For scaling applications, Hazelcast will use the configured service discovery in order to find new nodes, and scale horizontally. With microservices and gateways, this will work both with the JHipster Registry and Consul, and for monoliths this will only work when you manually configure the JHipster Registry.
+Pour les applications à mise à l'échelle, Hazelcast utilisera la découverte de services configurée pour trouver de nouveaux nœuds et se mettre à l'échelle horizontalement. Avec les microservices et les passerelles, cela fonctionnera à la fois avec le registre JHipster et Consul, et pour les monolithes, cela ne fonctionnera que lorsque vous configurerez manuellement le registre JHipster.
 
-When a new node is added, it will register itself to the service discovery (for instance, it will be available in the JHipster Registry), and look for other nodes of the same type. If it finds one or several nodes of the same type, it will create a clustered cache with them: you should see in the logs of each node a message, like in the following example:
+Lorsqu'un nouveau nœud est ajouté, il s'enregistre auprès de la découverte de service (par exemple, il est disponible dans le registre JHipster) et recherche d'autres nœuds du même type. S'il trouve un ou plusieurs nœuds du même type, il créera un cache clusterisé avec eux : vous devriez voir dans les journaux de chaque nœud un message, comme dans l'exemple suivant :
 
     [172.18.0.10]:5701 [dev] [3.7]
     Members [4] {
@@ -77,62 +77,62 @@ When a new node is added, it will register itself to the service discovery (for 
     Member [172.18.0.11]:5701 - 6114ae28-56cd-4840-a575-4d73a6003744
     }
 
-To work better with Hazelcast, JHipster includes support for the Hazelcast Management Center:
+Pour mieux fonctionner avec Hazelcast, JHipster inclut le support du centre de gestion Hazelcast :
 
-- Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing your application.
-- It is configured using JHipster [common application properties]({{ site.url }}/common-application-properties/), using the key `jhipster.cache.hazelcast.management-center`, in your `application-dev.yml` and `application-prod.yml` files. Please note that it is turned off by default.
-- JHipster generates a Docker Compose configuration to run the Hazelcast Management Center. Please read our [Docker Compose documentation]({{ site.url }}/docker-compose/), and run the application using `docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`.
+- Veuillez noter que vous ne pouvez surveiller que 2 nœuds gratuitement, car il s'agit d'un produit propriétaire. Mais c'est déjà suffisant pour tester votre application.
+- Il est configuré en utilisant les [propriétés d'application communes de JHipster]({{ site.url }}/propriétés-d-application-communes/), en utilisant la clé `jhipster.cache.hazelcast.management-center`, dans vos fichiers `application-dev.yml` et `application-prod.yml`. Veuillez noter qu'il est désactivé par défaut.
+- JHipster génère une configuration Docker Compose pour exécuter le centre de gestion Hazelcast. Veuillez lire notre [documentation Docker Compose]({{ site.url }}/docker-compose/) et exécuter l'application en utilisant `docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`.
 
-## Caching with Infinispan
+## Mise en cache avec Infinispan
 
-[Infinispan](http://infinispan.org/) is a highly performant caching solution that can work as an in-memory local cache as well as clustered cache. It offers support for multiple cache modes:
+[Infinispan](http://infinispan.org/) est une solution de mise en cache très performante qui peut fonctionner comme un cache local en mémoire ainsi qu'un cache clusterisé. Il offre une prise en charge de plusieurs modes de cache :
   - [Local](https://infinispan.org/docs/9.4.x/user_guide/user_guide.html#local_mode)
   - [Invalidation](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#invalidation_mode)
-  - [Distributed](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#replicated_mode)
-  - [Replicated](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#distribution_mode)
-  - [Scattered](https://infinispan.org/docs/9.4.x/user_guide/user_guide.html#scattered_mode)
+  - [Distribué](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#replicated_mode)
+  - [Répliqué](http://infinispan.org/docs/9.4.x/user_guide/user_guide.html#distribution_mode)
+  - [Dispersé](https://infinispan.org/docs/9.4.x/user_guide/user_guide.html#scattered_mode)
 
-With JHipster, Infinispan can be used:
+Avec JHipster, Infinispan peut être utilisé :
 
-- As an implementation of the Spring Cache abstraction
-- As an Hibernate 2nd level cache
+- Comme implémentation de l'abstraction Spring Cache
+- Comme cache de deuxième niveau Hibernate
 
-Following is the pre-configured default configuration:
+Voici la configuration par défaut préconfigurée :
 
-- Entities operate in invalidation cache mode
-- For application-specific caching, three caching configurations are pre-defined
-  - **local-app-data** for caching data local to the nodes
-  - **dist-app-data** for distributed caching of data across nodes (number of copies determined by the distributed replica count)
-  - **repl-app-data** for replicating data across nodes
+- Les entités opèrent en mode de cache d'invalidation
+- Pour la mise en cache spécifique à l'application, trois configurations de mise en cache sont prédéfinies
+  - **local-app-data** pour la mise en cache de données locale aux nœuds
+  - **dist-app-data** pour la mise en cache distribuée des données entre les nœuds (nombre de copies déterminé par le compteur de réplicas distribuées)
+  - **repl-app-data** pour la réplication des données entre les nœuds
 
-Eviction, time-to-live and max-entries for each of the individual operation mode in the cache and the replica count for the distributed mode can be fine-tuned using the JHipster [common application properties]({{ site.url }}/common-application-properties/). Fine tune the properties in `jhipster.cache.infinispan` for application-specific caching and `spring.jpa.properties` for Hibernate's 2nd level cache.
+L'éviction, le temps de vie et le nombre maximal d'entrées pour chacun des modes d'opération individuels dans le cache et le nombre de réplicas pour le mode distribué peuvent être ajustés en utilisant les [propriétés d'application communes de JHipster]({{ site.url }}/propriétés-d-application-communes/). Ajustez les propriétés dans `jhipster.cache.infinispan` pour la mise en cache spécifique à l'application et `spring.jpa.properties` pour le cache de deuxième niveau Hibernate.
 
-If the JHipster Registry is enabled, then the node list will be populated from the registry. If the JHipster Registry is not enabled, node discovery will be based on the default transport settings defined in the `config-file` packaged within the Infinispan Jar. Infinispan supports discovery natively for most of the platforms like Kubernets/OpenShift, AWS, Azure and Google.
+Si le registre JHipster est activé, la liste des nœuds sera remplie à partir du registre. Si le registre JHipster n'est pas activé, la découverte des nœuds se fera en fonction des paramètres de transport par défaut définis dans le `config-file` empaqueté dans le Jar Infinispan. Infinispan prend en charge la découverte de manière native pour la plupart des plates-formes comme Kubernets/OpenShift, AWS, Azure et Google.
 
-Though Infinispan 9.0.0.Final GA and later releases added support to run Infinispan embedded caching applications on Kubernetes and OpenShift by making use of native KUBE_PING discovery, Hibernate dependency is not yet updated to 9.x releases and hence native discovery is not supported on Kubernetes and OpenShift. However you can run the applications by making use of JHipster Registry for instances discovery.
+Bien qu'Infinispan 9.0.0.Final GA et les versions ultérieures aient ajouté la prise en charge de l'exécution des applications de mise en cache embarquées Infinispan sur Kubernetes et OpenShift en utilisant la découverte native KUBE_PING, la dépendance Hibernate n'est pas encore mise à jour vers les versions 9.x et donc la découverte native n'est pas prise en charge sur Kubernetes et OpenShift. Cependant, vous pouvez exécuter les applications en utilisant le registre JHipster pour la découverte des instances.
 
-## Caching with Memcached
+## Mise en cache avec Memcached
 
-[Memcached](https://memcached.org/) is an Open Source distributed cache. It is quite different from the other cache implementations supported by JHipster:
+[Memcached](https://memcached.org/) est un cache distribué Open Source. Il est assez différent des autres implémentations de cache prises en charge par JHipster :
 
-- Memcached cannot work as an Hibernate 2nd level cache, it only supports the Spring Cache abstraction.
-- Memcached only works with a remote server, there is no local cache. As such, your objects are always serialized/deserialized and go through the network, which means it is probably less efficient if you have a small set of objects that could fit in memory.
-- It scales, and is cheap to operate. Most big cloud providers like Heroku, GCP or AWS have support for Memcached. As such, it is a lot easier to have a distributed (and cheap) Memcached cluster, than with the other caching implementations.
+- Memcached ne peut pas fonctionner comme un cache de deuxième niveau Hibernate, il prend uniquement en charge l'abstraction Spring Cache.
+- Memcached fonctionne uniquement avec un serveur distant, il n'y a pas de cache local. En tant que tel, vos objets sont toujours sérialisés/désérialisés et passent par le réseau, ce qui signifie qu'il est probablement moins efficace si vous avez un petit ensemble d'objets qui pourraient tenir en mémoire.
+- Il est scalable et peu coûteux à exploiter. La plupart des grands fournisseurs de cloud comme Heroku, GCP ou AWS prennent en charge Memcached. En tant que tel, il est beaucoup plus facile d'avoir un cluster Memcached distribué (et bon marché) qu'avec les autres implémentations de mise en cache.
 
-JHipster uses the popular [Xmemcached](https://github.com/killme2008/xmemcached) Java client for Memcached, and configures its most important properties using the usual JHipster [common application properties]({{ site.url }}/common-application-properties/).
+JHipster utilise le client Java populaire [Xmemcached](https://github.com/killme2008/xmemcached) pour Memcached, et configure ses propriétés les plus importantes en utilisant les [propriétés d'application communes]({{ site.url }}/propriétés-d-application-communes) habituelles de JHipster.
 
-Please note that each cache must be configured as a specific Spring bean inside the `CacheConfiguration` configuration bean.
+Veuillez noter que chaque cache doit être configuré comme un bean Spring spécifique à l'intérieur du bean de configuration `CacheConfiguration`.
 
-As Memcached needs to serialize/deserialize objects in its classloader, it doesn't work when using the Spring Boot devtools (which uses a specific classloader to do hot reload of application classes). This is why Memcached is turned off by default in dev mode.
+Comme Memcached doit sérialiser/désérialiser des objets dans son chargeur de classes, il ne fonctionne pas lors de l'utilisation des outils de développement Spring Boot (qui utilisent un chargeur de classes spécifique pour effectuer un rechargement à chaud des classes d'application). C'est pourquoi Memcached est désactivé par défaut en mode développement.
 
-As always with JHipster, a Docker Compose configuration is provided so you can start a Memcached server on your machine. In order to use it, please run `docker-compose -f src/main/docker/memcached.yml up -d`.
+Comme toujours avec JHipster, une configuration Docker Compose est fournie afin que vous puissiez démarrer un serveur Memcached sur votre machine. Pour l'utiliser, veuillez exécuter `docker-compose -f src/main/docker/memcached.yml up -d`.
 
-## Caching with Redis
+## Mise en cache avec Redis
 
-[Redis](https://redis.io/) is an Open Source, in-memory data structure store that can be used as a performant caching solution. Depending on your configuration, you can choose to use Redis as a single server node or as a distributed cache.
+[Redis](https://redis.io/) est un magasin de données en mémoire Open Source qui peut être utilisé comme une solution de mise en cache performante. Selon votre configuration, vous pouvez choisir d'utiliser Redis comme un nœud serveur unique ou comme un cache distribué.
 
-JHipster uses [Redisson](https://redisson.org/) as the redis Java client mainly for 2 reasons:
-- It is highly recommended by Redis
-- It offers a JCache (JSR-107) implementation
+JHipster utilise [Redisson](https://redisson.org/) comme client Java pour Redis principalement pour 2 raisons :
+- Il est fortement recommandé par Redis
+- Il offre une implémentation JCache (JSR-107)
 
-It allows both to stay consistent with the other caches since we are using JCache implementation when available and to share the same redis connection between Spring cache and the Hibernate 2nd level cache.
+Cela permet à la fois de rester cohérent avec les autres caches puisque nous utilisons l'implémentation JCache lorsque disponible et de partager la même connexion redis entre le cache Spring et le cache de deuxième niveau Hibernate.

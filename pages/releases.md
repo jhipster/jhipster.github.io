@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Release notes
+title: Notes de version
 permalink: /releases/
 redirect_from:
   - /releases.html
@@ -9,9 +9,9 @@ sitemap:
     lastmod: 2014-02-17T00:00:00-00:00
 ---
 
-# <i class="fa fa-file-text-o"></i> Release notes
+# <i class="fa fa-file-text-o"></i> Notes de version
 
-To get the latest JHipster news, please follow us on Twitter: [@jhipster](https://twitter.com/jhipster)
+Pour obtenir les dernières actualités de JHipster, veuillez nous suivre sur Twitter : [@jhipster](https://twitter.com/jhipster)
 
 {% for post in site.posts %}
   {% assign split_post_title = post.title | split: "Release " %}

@@ -1,40 +1,40 @@
 ---
 layout: default
-title: Using TLS and HTTP/2
+title: Utilisation de TLS et HTTP/2
 permalink: /tls/
 sitemap:
     priority: 0.7
     lastmod: 2018-10-04T00:00:00-00:00
 ---
 
-# <i class="fa fa-lock"></i> Using TLS and HTTP/2 in development
+# <i class="fa fa-lock"></i> Utilisation de TLS et HTTP/2 en développement
 
 ## Introduction
 
-This page is for using TLS and HTTP/2 in development (mainly for testing purposes). For production configuration, please read the [security section in the production documentation]({{ site.url }}/production/#security).
+Cette page concerne l'utilisation de TLS et HTTP/2 en développement (principalement à des fins de test). Pour la configuration en production, veuillez consulter la [section sécurité de la documentation de production]({{ site.url }}/production/#security).
 
-TLS is the protocol used when having an `https://` URL, and it is required in order to use HTTP/2 on modern browsers.
+TLS est le protocole utilisé lorsque l'URL commence par `https://`, et il est nécessaire pour utiliser HTTP/2 sur les navigateurs modernes.
 
-It is useful to use those protocols when testing an application, mainly for performance reasons.
+Il est utile d'utiliser ces protocoles lors du test d'une application, principalement pour des raisons de performance.
 
-## Using TLS and HTTP/2 with Spring Boot
+## Utilisation de TLS et HTTP/2 avec Spring Boot
 
-JHipster has a specific configuration for configuring both TLS and HTTP/2 (see the [common application properties documentation]({{ site.url }}/common-application-properties/)), and in order to make things even simpler:
+JHipster dispose d'une configuration spécifique pour configurer à la fois TLS et HTTP/2 (voir la [documentation des propriétés d'application communes]({{ site.url }}/common-application-properties/)), et afin de simplifier davantage les choses :
 
-- JHipster generates a self-signed certificate at application generation
-- A specific `tls` profile is provided (see the [profiles documentation]({{ site.url }}/profiles/))
+- JHipster génère un certificat auto-signé lors de la génération de l'application
+- Un profil spécifique `tls` est fourni (voir la [documentation des profils]({{ site.url }}/profiles/))
 
-In order to run JHipster with the provided self-signed certificate, with TLS and HTTP/2 enabled, you need to use the `tls` profile:
+Pour exécuter JHipster avec le certificat auto-signé fourni, avec TLS et HTTP/2 activés, vous devez utiliser le profil `tls` :
 
-*   with Maven: `./mvnw -Pdev,tls`
-*   with Gradle: `./gradlew -Ptls`
+*   avec Maven : `./mvnw -Pdev,tls`
+*   avec Gradle : `./gradlew -Ptls`
 
-The application will be available on `https://localhost:8080/`.
+L'application sera disponible sur `https://localhost:8080/`.
 
-As the certificate is self-signed, your browser will issue a warning, and you will need to ignore it (or import it) in order to access the application.
+Comme le certificat est auto-signé, votre navigateur émettra un avertissement, et vous devrez l'ignorer (ou l'importer) pour accéder à l'application.
 
-## Using TLS and HTTP/2 with Angular or React or Vue.js
+## Utilisation de TLS et HTTP/2 avec Angular, React ou Vue.js
 
-Instead of using `npm start` in order to run the front-end (with Webpack and BrowserSync), run `npm run start-tls`, and it will connect to the back-end running on `https://localhost:8080/`.
+Au lieu d'utiliser `npm start` pour exécuter le front-end (avec Webpack et BrowserSync), exécutez `npm run start-tls`, et il se connectera au back-end fonctionnant sur `https://localhost:8080/`.
 
-Everything should then work the same as without TLS and HTTP/2.
+Tout devrait alors fonctionner de la même manière qu'avec TLS et HTTP/2.

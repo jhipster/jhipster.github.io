@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Setting up Continuous Integration on Jenkins 2
+title: Configurer l'intégration continue sur Jenkins 2
 permalink: /setting-up-ci-jenkins2/
 redirect_from:
   - /setting_up_ci_jenkins2.html
@@ -9,44 +9,45 @@ sitemap:
     lastmod: 2017-01-19T14:15:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> Setting up Continuous Integration on Jenkins 2
+# <i class="fa fa-stethoscope"></i> Configurer l'intégration continue sur Jenkins 2
 
-## Installing Jenkins 2
+## Installer Jenkins 2
 
 ### Standard
 
-Install JDK 8 on your machine.
+Installez JDK 17  sur votre machine.
 
-Go to the official site [https://jenkins.io/2.0/](https://jenkins.io/2.0/)
+Rendez-vous sur le site officiel [https://jenkins.io/2.0/](https://jenkins.io/2.0/)
 
-Download the `jenkins.war`
+Téléchargez le `jenkins.war`
 
-### With Docker
+### Avec Docker
 
-Launch the [Docker image](https://hub.docker.com/r/jenkins/jenkins) 
-(_the default port has been changed to 18080 since the JHipster app is configured to run on 8080_)
+Lancez l'[image Docker](https://hub.docker.com/r/jenkins/jenkins) 
+(_le port par défaut a été changé en 18080 car l'application JHipster est configurée pour fonctionner sur le port 8080_)
 
 `docker container run -d --name jenkins2 -p 18080:8080 -p 50000:50000 jenkins/jenkins`
 
-You can then access the Jenkins dashboard on 
-- http://localhost:18080 (on MacOS & Linux)
-- http://192.168.99.100:18080 (on Windows)
-  - If this doesn't work replace `192.168.99.100` with your docker's default ip address: `docker-machine ip default`
+Vous pouvez ensuite accéder au tableau de bord de Jenkins sur 
+- http://localhost:18080 (sur MacOS & Linux)
+- http://192.168.99.100:18080 (sur Windows)
+  - Si cela ne fonctionne pas, remplacez `192.168.99.100` par l'adresse IP par défaut de votre docker : `docker-machine ip default`
 
-Note: You'll be asked for an `initialAdminPassword` which you'll find in the logs during your container startup.
-You can also access it via `docker logs jenkins2`
-e.g.
+Note : Il vous sera demandé un `initialAdminPassword` que vous trouverez dans les journaux lors du démarrage de votre conteneur.
+Vous pouvez également y accéder via `docker logs jenkins2`
+ex. :
+
 ```
 *************************************************************
 *************************************************************
 *************************************************************
 
-Jenkins initial setup is required. An admin user has been created and a password generated.
-Please use the following password to proceed to installation:
+La configuration initiale de Jenkins est requise. Un utilisateur administrateur a été créé et un mot de passe généré.
+Veuillez utiliser le mot de passe suivant pour procéder à l'installation :
 
 6707db8735be4ee29xy056f65af6ea13
 
-This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+Ceci peut également être trouvé dans : /var/jenkins_home/secrets/initialAdminPassword
 
 *************************************************************
 *************************************************************
@@ -55,17 +56,20 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
 
 ## Create a new Job
 
-- Add New Item
-    - Enter an item name
-    - Select pipeline
-    - Click OK
+
+## Créer un nouveau Job
+
+- Ajouter un nouvel élément
+    - Entrez un nom d'élément
+    - Sélectionnez pipeline
+    - Cliquez sur OK
 
 ![Jenkins2 item]({{ site.url }}/images/jenkins2_add_item.png)
 
-- Definition: Pipeline script from SCM
-- SCM: Git
-- Repositories
-    - Repository URL: select your repository here
+- Définition : Script pipeline depuis SCM
+- SCM : Git
+- Dépôts
+    - URL du dépôt : sélectionnez votre dépôt ici
 
 ![Jenkins2 pipeline]({{ site.url }}/images/jenkins2_pipeline.png)
 

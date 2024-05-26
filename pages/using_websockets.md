@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Using Websockets
+title: Utilisation des WebSockets
 permalink: /using-websockets/
 redirect_from:
   - /using_websockets.html
@@ -9,20 +9,20 @@ sitemap:
     lastmod: 2015-08-31T18:40:00-00:00
 ---
 
-# <i class="fa fa-envelope"></i> Using WebSockets
+# <i class="fa fa-envelope"></i> Utilisation des WebSockets
 
-WebSockets are useful for having a very dynamic application, where data is shared in near real-time between the server and its clients.
+Les WebSockets sont utiles pour avoir une application très dynamique, où les données sont partagées en quasi temps réel entre le serveur et ses clients.
 
-JHipster currently uses Spring WebSockets as its implementation, so you will find a lot more information on this feature on the [Spring WebSockets website](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html).
+Actuellement, JHipster utilise Spring WebSockets comme implémentation, vous trouverez donc beaucoup plus d'informations sur cette fonctionnalité sur le [site Web de Spring WebSockets](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html).
 
-This option has a few limitations:
+Cette option présente quelques limitations :
 
-- By default, we use the dispatcher provided by Spring Websockets, which is an in-memory implementation. It will not scale if you want to use several servers. If you want to do so, have a look at the [Spring WebSockets documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html) which explains how to configure an external broker.
+- Par défaut, nous utilisons le dispatcher fourni par Spring Websockets, qui est une implémentation en mémoire. Il ne sera pas mis à l'échelle si vous voulez utiliser plusieurs serveurs. Si tel est le cas, consultez la [documentation de Spring WebSockets](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html) qui explique comment configurer un courtier externe.
 
-## The "Tracker" example
+## L'exemple "Tracker"
 
-JHipster provides a "tracker" example out-of-the-box. Located in the `admin` menu, it will track the other users' behavior: you will see their login and IP, and which page they are currently viewing.
+JHipster fournit un exemple de "tracker" prêt à l'emploi. Situé dans le menu `admin`, il suivra le comportement des autres utilisateurs : vous verrez leur login et IP, ainsi que la page qu'ils consultent actuellement.
 
-- This is provided as an example so you can get started using WebSockets, not as a "production-ready" user tracker, but it works quite well.
-- It will show you how to integrate WebSockets with Spring Security, which is quite a complex topic
-- This works because JHipster is a Single-Page Web Application, so the WebSockets connections are not reinitialized between each page: this is where you get one of the big benefits of JHipster's architecture
+- Ceci est fourni comme exemple pour vous aider à démarrer l'utilisation des WebSockets, et non comme un tracker d'utilisateurs "prêt pour la production", mais cela fonctionne assez bien.
+- Il vous montrera comment intégrer les WebSockets avec Spring Security, ce qui est un sujet assez complexe.
+- Cela fonctionne car JHipster est une application Web monopage, donc les connexions WebSocket ne sont pas réinitialisées entre chaque page : c'est là que vous obtenez l'un des grands avantages de l'architecture de JHipster.

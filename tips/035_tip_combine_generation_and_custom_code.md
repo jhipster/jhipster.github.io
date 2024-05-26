@@ -1,68 +1,69 @@
 ---
 layout: default
-title: Combining generation and custom code
+title: Combinaison de génération et de code personnalisé
 sitemap:
 priority: 0.1
 lastmod: 2021-09-09T21:22:00-00:00
 ---
 
-__Tip submitted by [@tcharl](https://github.com/tcharl)__
+__Astuce soumise par [@tcharl](https://github.com/tcharl)__
 
-# Combining generation and custom code
+# Combinaison de génération et de code personnalisé
 
+_Objectif:_ JHipster est très utile pour gérer vos entités de modèle grâce à son puissant langage spécifique au domaine.
+Mais obtenir le meilleur des deux mondes, entre le code personnalisé et le monde génératif, est toujours une tâche difficile.
+Voici les différents schémas que vous pouvez adopter pour y parvenir.
 
-_Goal:_ Jhipster is very good for managing your model entities, thanks to its powerful Domain Specific language.
-But getting the best both custom code and generative world is  always a hard task.
-Here are the different pattern you can adopt in order to make it real. 
+## Schéma 1 - Générer une fois
 
-## Pattern 1 - Generate once
+Cette approche est la plus simple et est utilisée dans la plupart des cas d'utilisation.
+Elle consiste à modéliser vos entités une fois, générer le premier modèle, puis remplacer ce que vous voulez après ce premier tir.
+Si un jour vous voulez resynchroniser, vous pouvez toujours régénérer dans une autre branche, puis comparer les deux codes via votre IDE.
+Cependant, ce processus ultérieur est toujours laborieux et vous pouvez passer des jours pour une mise à niveau majeure.
 
-This approach is the simplest one, and used in most of the use case.
-It consists in modeling your entities once, generate the first model, then override what you want after this first shot.
-If one day you want to resync, you can always regen in another branch, the compare both codes through your IDE.
-However, that later process is always painful and you can spend days for a major upgrade.
+### Avantages
 
-### Pro
+- Faites ce que vous voulez
 
- - Do what you want
+### Inconvénients
 
-### Con
- 
- - You'll tend do not benefit from JHipster new features
+- Vous avez tendance à ne pas bénéficier des nouvelles fonctionnalités de JHipster
 
-## Pattern 2 - Split generated code and custom code
+## Schéma 2 - Diviser le code généré et le code personnalisé
 
-With this one, you'll try to avoid modifying generated class and to host your custom code in dedicated ones.
-Here, you can use the --with-generated-flag jhipster cli option in order to easily differentiate the generated classes from your custom ones.
-Finally, you'll only modify the main router on frontend part in order to route to your custom home page instead of the generated one.
+Avec cette approche, vous essayerez d'éviter de modifier les classes générées et de héberger votre code personnalisé dans des classes dédiées.
+Ici, vous pouvez utiliser l'option --with-generated-flag de la CLI JHipster pour différencier facilement les classes générées de vos propres classes.
+Enfin, vous ne modifierez que le routeur principal de la partie frontend pour router vers votre page d'accueil personnalisée au lieu de celle générée.
 
-In order to avoid your router file being overridden at each generation, you can create a `.yo-resolve` file at the root of your project and tell to yeoman the expected behavior.
+Pour éviter que votre fichier de routage ne soit remplacé à chaque génération, vous pouvez créer un fichier `.yo-resolve` à la racine de votre projet et indiquer à Yeoman le comportement attendu.
 
-Example:
+Exemple :
+
 ```
 src/main/resources/swagger/api.yml skip
 src/main/webapp/app/modules/home/home.tsx skip
 ```
 
-### Pro
+### Avantages
 
-- Can combine generation and custom code without so much hassle
+- Peut combiner génération et code personnalisé sans trop de tracas
 
-### Con
+### Inconvénients
 
-- Dead code
-- Custom classes that have different names or package than your model (can be considered as a DDD best practice but still).
+- Code mort
+- Classes personnalisées avec des noms ou des packages différents de votre modèle (peut être considéré comme une meilleure pratique de DDD mais néanmoins).
 
-## Pattern 3 - Side by side
+## Schéma 3 - Côte à côte
 
-Here, the goal is to use classes extensions and beans precedence in order to inject your custom code instead of the generated one.
+Ici, l'objectif est d'utiliser des extensions de classes et la prépondérance des beans pour injecter votre code personnalisé à la place de celui généré.
 
-Let's take an example with a `Customer` jhipster entity.
+Prenons un exemple avec une entité jhipster `Customer`.
 
 ### Repository
 
-At the repository level, you'll annotate jhipster generated repository using `NoRepositoryBean` annotation in order to disable discovery.
-You can then create your custom repository class
+Au niveau du repository, vous annoterez le repository généré par jhipster en utilisant l'annotation `NoRepositoryBean` afin de désactiver la découverte.
+Vous pouvez ensuite créer votre classe de repository personnalisée
+
 ```
 @Repository
 @Primary
@@ -71,16 +72,17 @@ MemberRepositoryPrimary extends MemberRepository
 
 ### Service
 
-Here, you'll use the `serviceImpl` option in order to be able to inject your custom Bean in your Controller.
-Then, you can simply extends the generated service and annotate your bean with `@Primary` in order to get precedence.
+Ici, vous utiliserez l'option `serviceImpl` afin de pouvoir injecter votre Bean personnalisé dans votre Contrôleur.
+Ensuite, vous pouvez simplement étendre le service généré et annoter votre bean avec `@Primary` pour obtenir la prépondérance.
 
-### Controller
+### Contrôleur
 
-You'll use another API prefix for your custom endpoints (for example `/api/v2`).
+Vous utiliserez un autre préfixe d'API pour vos points de terminaison personnalisés (par exemple `/api/v2`).
 
 ### Angular
 
-Same extension applies on the frontend side, you can then configure your beans precedence in the `app.module.ts` file:
+La même extension s'applique côté frontend, vous pouvez ensuite configurer la prépondérance de vos beans dans le fichier `app.module.ts` :
+
 ```
 providers: [
 // keep other entries
@@ -88,12 +90,12 @@ providers: [
 ]
 ```
 
-### Pro
+### Avantages
 
-- Can override generated code behavior
-- Easy to find custom code
-- Keep the Jhipster best layout even for custom code
+- Peut remplacer le comportement du code généré
+- Facile à trouver le code personnalisé
+- Garde la meilleure structure de JHipster même pour le code personnalisé
 
-### Con
+### Inconvénients
 
-- File duplication
+- Duplication de fichiers

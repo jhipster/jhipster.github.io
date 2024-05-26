@@ -1,86 +1,87 @@
 ---
 layout: default
-title: Monitoring your JHipster Applications
+title: Surveillance de vos applications JHipster
 permalink: /monitoring/
 sitemap:
     priority: 0.7
     lastmod: 2023-07-12T00:00:00-00:00
 ---
-# <i class="fa fa-line-chart"></i> Monitoring your JHipster Applications
+# <i class="fa fa-line-chart"></i> Surveillance de vos applications JHipster
 
-JHipster provides several options to monitor your applications at runtime.
+JHipster offre plusieurs options pour surveiller vos applications en temps réel.
 
-## Summary
+## Sommaire
 
-1. [Generated dashboards](#generated-dashboards)
-2. [Security metrics](#security-metrics)
-3. [JHipster Registry](#jhipster-registry)
+1. [Tableaux de bord générés](#tableaux-de-bord-générés)
+2. [Métriques de sécurité](#métriques-de-sécurité)
+3. [Registre JHipster](#registre-jhipster)
 4. [ELK](#elk)
-5. [Forwarding metrics to a supported third party monitoring system](#configuring-metrics-forwarding)
+5. [Transfert des métriques vers un système de surveillance tiers pris en charge](#configuration-du-transfert-des-métriques)
 6. [Zipkin](#zipkin)
 
-## Generated dashboards
+## Tableaux de bord générés
 
-For monoliths and gateways, JHipster generates several dashboards to monitor each application. 
-Those dashboards are available at runtime, and are the easiest way to do some monitoring.
+Pour les monolithes et les passerelles, JHipster génère plusieurs tableaux de bord pour surveiller chaque application. 
+Ces tableaux de bord sont disponibles en temps réel et constituent le moyen le plus simple de surveiller vos applications.
 
-![JHipster Metrics page][jhipster-metrics-page]
+![Page de métriques JHipster][page-de-métriques-jhipster]
 
-### The metrics dashboard
+### Le tableau de bord des métriques
 
-The metrics dashboard uses Micrometer to give a detailed view of the application performance.
+Le tableau de bord des métriques utilise Micrometer pour donner une vue détaillée des performances de l'application.
 
-It gives metrics on:
+Il fournit des métriques sur :
 
-- the JVM
-- HTTP requests
-- cache usage
-- database connection pool
+- la JVM
+- les requêtes HTTP
+- l'utilisation du cache
+- le pool de connexions de base de données
 
-By clicking on the Expand button next to the JVM thread metrics, you will get a thread dump of the running application, which is very useful to find out blocked threads.
+En cliquant sur le bouton d'expansion à côté des métriques des threads JVM, vous obtiendrez un vidage de threads de l'application en cours d'exécution, ce qui est très utile pour identifier les threads bloqués.
 
-### The health dashboard
+### Le tableau de bord de la santé
 
-The health dashboard uses Spring Boot Actuator's health endpoint to give health information on various parts of the application. Many health checks are provided out-of-the-box by Spring Boot Actuator, and you can add application-specific health checks.
+Le tableau de bord de la santé utilise l'endpoint de santé de Spring Boot Actuator pour fournir des informations de santé sur différentes parties de l'application. De nombreux contrôles de santé sont fournis par défaut par Spring Boot Actuator, et vous pouvez ajouter des contrôles de santé spécifiques à l'application.
 
-### The logs dashboard
+### Le tableau de bord des journaux
 
-The logs dashboard allows to manage at runtime the Logback configuration of the running application. 
-You can change the log level of a Java package by clicking on a button, which is very convenient both in development and in production.
+Le tableau de bord des journaux permet de gérer en temps réel la configuration Logback de l'application en cours d'exécution. 
+Vous pouvez modifier le niveau de journalisation d'un package Java en cliquant sur un bouton, ce qui est très pratique tant en développement qu'en production.
 
-## Security Metrics
-JHipster tracks JWT-related security metrics in projects that uses JWT authentication type.
+## Métriques de sécurité
 
-In particular, JHipster tracks token validation errors count (i.e. invalid tokens count) as a custom meter named `security.authentication.invalid-tokens`, and the causes of such validation errors with the following meter tags:
-- `invalid-signature`: the JWT signature verification has failed;
-- `expired`: the JWT has expired;
-- `unsupported`: the JWT format does not match the format expected by the application;
-- `malformed`: the JWT was not correctly constructed.
+JHipster suit les métriques de sécurité liées à JWT dans les projets qui utilisent le type d'authentification JWT.
 
-These metrics are not available in the generated dashboards, but they are exposed as application metrics and can be [forwarded to a third-party monitoring system](#configuring-metrics-forwarding) for visualization.
+En particulier, JHipster suit le nombre d'erreurs de validation de jetons (c'est-à-dire le nombre de jetons invalides) en tant que compteur personnalisé nommé `security.authentication.invalid-tokens`, et les causes de ces erreurs de validation avec les étiquettes de compteur suivantes :
+- `invalid-signature` : la vérification de la signature JWT a échoué ;
+- `expired` : le JWT a expiré ;
+- `unsupported` : le format JWT ne correspond pas au format attendu par l'application ;
+- `malformed` : le JWT n'était pas correctement construit.
 
-## JHipster Registry
+Ces métriques ne sont pas disponibles dans les tableaux de bord générés, mais elles sont exposées en tant que métriques d'application et peuvent être [transférées à un système de surveillance tiers](#configuration-du-transfert-des-métriques) pour la visualisation.
 
-The JHipster Registry has [its own documentation page here]({{ site.url }}/jhipster-registry/).
+## Registre JHipster
 
-It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application error.
+Le [Registre JHipster a sa propre page de documentation ici]({{ site.url }}/jhipster-registry/).
 
-<h2 id="elk">ELK (Elasticsearch, Logstash, Kibana) Stack</h2>
+Il fournit principalement les mêmes tableaux de bord de surveillance que dans la section précédente, mais il fonctionne sur un serveur distinct. En tant que tel, il est un peu plus complexe à configurer, mais il est fortement recommandé d'avoir des tableaux de bord fonctionnant en dehors de l'application en cours d'exécution : sinon, ils ne seront pas disponibles en cas d'erreur de l'application.
 
-The ELK stack is often used for log aggregation and search, it consists of the following components:
+<h2 id="elk">Stack ELK (Elasticsearch, Logstash, Kibana)</h2>
 
-
-- [Elasticsearch](https://www.elastic.co/products/elasticsearch) for indexing the data (logs and metrics)
-- [Logstash](https://www.elastic.co/products/logstash) to manage and process the logs received from the applications
-- [Kibana](https://www.elastic.co/products/kibana) to visualize the logs with a nice interface
-
-<div class="alert alert-warning"><i> Warning: </i>
-JHipster supports forwarding logs to Logstash, however as of JHipster version 7, we do not provide any ELK stack docker deployment and ready to use dashboards. This used to be part of the <a href="https://github.com/jhipster/jhipster-console">JHipster Console</a> subproject that is no longer maintained. We advise existing users to migrate to another ELK solution.</div>
+La stack ELK est souvent utilisée pour l'agrégation et la recherche de journaux, elle se compose des composants suivants :
 
 
-### Forwarding logs to Logstash
+- [Elasticsearch](https://www.elastic.co/products/elasticsearch) pour l'indexation des données (journaux et métriques)
+- [Logstash](https://www.elastic.co/products/logstash) pour gérer et traiter les journaux reçus des applications
+- [Kibana](https://www.elastic.co/products/kibana) pour visualiser les journaux avec une interface agréable
 
-To configure a JHipster application to forward their logs to Logstash, enable logstash logging in their `application-dev.yml` or `application-prod.yml`:
+<div class="alert alert-warning"><i> Attention : </i>
+JHipster prend en charge le transfert des journaux vers Logstash, cependant, à partir de la version JHipster 7, nous ne fournissons pas de déploiement Docker de la stack ELK et de tableaux de bord prêts à l'emploi. Cela faisait partie du sous-projet <a href="https://github.com/jhipster/jhipster-console">JHipster Console</a> qui n'est plus maintenu. Nous conseillons aux utilisateurs existants de migrer vers une autre solution ELK.</div>
+
+
+### Transfert des journaux vers Logstash
+
+Pour configurer une application JHipster pour transférer ses journaux vers Logstash, activez l'enregistrement de Logstash dans leur `application-dev.yml` ou `application-prod.yml` :
 
     jhipster:
         logging:
@@ -90,7 +91,7 @@ To configure a JHipster application to forward their logs to Logstash, enable lo
                 port: 5000
                 queueSize: 512
 
-To collect those logs, on the Logstash side, a simple `logstash.conf` file can be provided :
+Pour collecter ces journaux, du côté de Logstash, un simple fichier `logstash.conf` peut être fourni :
 
     input {
         tcp {
@@ -108,15 +109,15 @@ To collect those logs, on the Logstash side, a simple `logstash.conf` file can b
         }
     }
 
-For more information on how to setup the ELK stack, please refer to the [official Elastic documentation](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
+Pour plus d'informations sur la configuration de la stack ELK, veuillez vous référer à la [documentation officielle d'Elastic](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
 
-<h2 id="configuring-metrics-forwarding">Forwarding metrics to a supported third party monitoring system (JMX, Prometheus)</h2>
+<h2 id="configuration-du-transfert-des-métriques">Transfert des métriques vers un système de surveillance tiers pris en charge (JMX, Prometheus)</h2>
 
-JHipster exposes application metrics in the [Prometheus](https://prometheus.io/) format by default.
-It is exposed under `management/prometheus`.
-Forwarding metrics to alternative systems is also supported via [spring boot actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics).
+JHipster expose les métriques de l'application au format [Prometheus](https://prometheus.io/) par défaut.
+Il est exposé sous `management/prometheus`.
+Le transfert des métriques vers des systèmes alternatifs est également pris en charge via [spring boot actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics).
 
-If you would like to disable exposing the metrics endpoint you can disable it in `src/main/resources/application.yml`.
+Si vous souhaitez désactiver l'exposition de l'endpoint des métriques, vous pouvez le désactiver dans `src/main/resources/application.yml`.
 
     management:
         prometheus:
@@ -124,10 +125,10 @@ If you would like to disable exposing the metrics endpoint you can disable it in
                 enabled: false
 
 
-The prometheus endpoint is unprotected by default. If you want to protect it via spring security you can do so by adding basic auth to the prometheus endpoint
-as prometheus can work with scraping endpoint protected by basic auth.
+L'endpoint prometheus n'est pas protégé par défaut. Si vous souhaitez le protéger via spring security, vous pouvez le faire en ajoutant une authentification de base à l'endpoint prometheus
+car prometheus peut fonctionner avec un endpoint de scraping protégé par une authentification de base.
 
-Create a new configuration file (e.g. `BasicAuthConfiguration.java`).
+Créez un nouveau fichier de configuration (par exemple `BasicAuthConfiguration.java`).
 
     @Configuration
     @Order(1)
@@ -151,26 +152,26 @@ Create a new configuration file (e.g. `BasicAuthConfiguration.java`).
     }
 
 
-You can log in with the default `admin/admin`. You must add following configuration to you prometheus configuration such that prometheus can still scrape your application.
+Vous pouvez vous connecter avec les identifiants par défaut `admin/admin`. Vous devez ajouter la configuration suivante à votre configuration prometheus afin que prometheus puisse toujours scraper votre application.
 
     basic_auth:
         username: "admin"
         password: "admin"
 
-You can start a preconfigured Grafana and Prometheus instance on our local machine via `docker-compose -f src/main/docker/monitoring.yml up -d` to have a look at the
-provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/4701).
+Vous pouvez démarrer une instance préconfigurée de Grafana et Prometheus sur votre machine locale via `docker-compose -f src/main/docker/monitoring.yml up -d` pour consulter le
+tableau de bord [jvm/micrometer](https://grafana.com/grafana/dashboards/4701) fourni.
 
 ![Grafana Micrometer Dashboard][grafana-micrometer-dashboard]
 
-Note: Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
+Remarque : Contrairement aux versions précédentes de JHipster, le reporting des métriques de JHipster 5.8 ne prend en charge que JMX et Prometheus par défaut. Veuillez consulter la documentation officielle des métriques pour savoir comment configurer d'autres reporters comme [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
 ## Zipkin
 
-JHipster applications can integrate with [Zipkin](http://zipkin.io/) through [Spring Boot Actuator Tracing](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-docs/src/docs/asciidoc/actuator/tracing.adoc) to provide distributed tracing for your microservice architecture. To enable Zipkin tracing, package your application with the `zipkin` maven/gradle profile. This will trigger span reporting to the Zipkin server and also add correlation IDs (TraceId, SpanId and ParentId) to request headers and logs.
+Les applications JHipster peuvent s'intégrer à [Zipkin](http://zipkin.io/) via [Spring Boot Actuator Tracing](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-docs/src/docs/asciidoc/actuator/tracing.adoc) pour fournir une traçabilité distribuée pour votre architecture de microservices. Pour activer la traçabilité Zipkin, conditionnez votre application avec le profil maven/gradle `zipkin`. Cela déclenchera le reporting des spans vers le serveur Zipkin et ajoutera également des IDs de corrélation (TraceId, SpanId et ParentId) aux en-têtes de requête et aux journaux.
 
-Zipkin also provide a service dependency graph feature that lets you visualize the dependencies between microservices over time.
+Zipkin fournit également une fonctionnalité de graphique des dépendances de service qui vous permet de visualiser les dépendances entre les microservices au fil du temps.
 
-For more information on how to setup your application to report traces to Zipkin, refer to [Spring Boot Production-ready Features](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.micrometer-tracing).
+Pour plus d'informations sur la configuration de votre application pour reporter des traces à Zipkin, consultez la [documentation Spring Boot Production-ready Features](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.micrometer-tracing).
 
-[jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "JHipster Metrics page"
-[grafana-micrometer-dashboard]: {{ site.url }}/images/monitoring_grafana_micrometer.png "Grafana Micrometer Dashboard" 
+[jhipster-metrics-page]: {{ site.url }}/images/jhipster_metrics_page.png "Page des métriques JHipster"
+[grafana-micrometer-dashboard]: {{ site.url }}/images/monitoring_grafana_micrometer.png "Tableau de bord Grafana Micrometer"

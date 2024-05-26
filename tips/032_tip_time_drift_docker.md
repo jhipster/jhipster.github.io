@@ -1,19 +1,17 @@
 ---
 layout: default
-title: Time Drift in Docker
+title: Dérive temporelle dans Docker
 sitemap:
 priority: 0.1
 lastmod: 2020-05-02T06:14:00-00:00
 ---
 
-# Time Drift in Docker
+# Dérive temporelle dans Docker
 
-**Tip submitted by [@SudharakaP](https://github.com/SudharakaP)**
+**Astuce soumise par [@SudharakaP](https://github.com/SudharakaP)**
 
-One of the things that should be taken into account when running Docker for extended periods of time (with sleep cycles in between), is that there are instances were a 
-time drift between the Docker container(s) and OS clock can occur.
+Une des choses à prendre en compte lors de l'utilisation de Docker sur de longues périodes (avec des cycles de veille entre les deux), est qu'il peut y avoir des instances où une dérive temporelle entre les conteneurs Docker et l'horloge du système d'exploitation peut se produire.
 
-This results in hard to find bugs such as [https://github.com/jhipster/generator-jhipster/issues/11659](https://github.com/jhipster/generator-jhipster/issues/11659). 
+Cela entraîne des bugs difficiles à trouver comme [celui-ci](https://github.com/jhipster/generator-jhipster/issues/11659).
 
-Docker time drift has been reported for both [Macs](https://github.com/docker/for-mac/issues/2076) and [Windows](https://github.com/docker/for-win/issues/4526) 
-and the simplest solution is to restart the Docker container(s) after extended periods of sleep cycles. 
+La dérive temporelle de Docker a été signalée à la fois sur [Macs](https://github.com/docker/for-mac/issues/2076) et sur [Windows](https://github.com/docker/for-win/issues/4526), et la solution la plus simple consiste à redémarrer les conteneurs Docker après de longues périodes de cycles de veille.

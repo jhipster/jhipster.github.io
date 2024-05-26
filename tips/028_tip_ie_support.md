@@ -1,32 +1,32 @@
 ---
 layout: default
-title: Provide Internet Explorer support
+title: Fournir un support pour Internet Explorer
 sitemap:
 priority: 0.1
 lastmod: 2019-03-05T18:20:00-00:00
 ---
 
-# Provide Internet Explorer support
+# Fournir un support pour Internet Explorer
 
-**Tip submitted by [@wmarques](https://github.com/wmarques)** & [@anthony-o](https://github.com/anthony-o)
+**Conseil soumis par [@wmarques](https://github.com/wmarques)** & [@anthony-o](https://github.com/anthony-o)
 
-JHipster supports only evergreen browsers.
-However you can still easily support some older browsers like Internet Explorer.
+JHipster prend en charge uniquement les navigateurs "evergreen".
+Cependant, vous pouvez toujours prendre en charge facilement certains navigateurs plus anciens comme Internet Explorer.
 
-In order to do that you have to:
+Pour ce faire, vous devez :
 
-1. Set target to `es5` in your `tsconfig`
-2. Then you have two options:
-   1. Add the correct polyfills from 'core-js', if you don't know which one you should use, check the Angular CLI project and their polyfills.
-   2. Or use babel + [Babel preset-env](https://babeljs.io/docs/en/babel-preset-env#usebuiltins) to automatically import the correct core-js polyfills based on a browserslist file.
+1. Définir la cible sur `es5` dans votre `tsconfig`.
+2. Ensuite, vous avez deux options :
+   1. Ajoutez les polyfills corrects de 'core-js'. Si vous ne savez pas lequel utiliser, consultez le projet Angular CLI et leurs polyfills.
+   2. Ou utilisez Babel + [Babel preset-env](https://babeljs.io/docs/en/babel-preset-env#usebuiltins) pour importer automatiquement les polyfills core-js corrects en fonction d'un fichier browserslist.
 
-## Full tip using Babel
+## Astuce complète utilisant Babel
 
-First, add those `package.json` dependencies: `@babel/core`, `@babel/preset-env` and `babel-loader`. Example with `npm`:
+D'abord, ajoutez ces dépendances `package.json` : `@babel/core`, `@babel/preset-env` et `babel-loader`. Exemple avec `npm`:
 ```bash
 npm install @babel/core @babel/preset-env babel-loader --save-dev
 ```
-(tested with the following versions for a working IE11 version on a JHipster v6.3.1 generated application:
+(testé avec les versions suivantes pour une version IE11 fonctionnelle sur une application générée JHipster v6.3.1:
 ```json
     "@babel/core": "7.6.4",
     "@babel/preset-env": "7.6.3",
@@ -34,13 +34,13 @@ npm install @babel/core @babel/preset-env babel-loader --save-dev
 ```
 )
 
-Now add the following lines at the top of `src/main/webapp/app/polyfills.ts`:
+Ensuite, ajoutez les lignes suivantes en haut de `src/main/webapp/app/polyfills.ts`:
 ```ts
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 ```
 
-In `webpack/webpack.common.js`, after
+Dans `webpack/webpack.common.js`, après
 ```js
             {
                 test: /manifest.webapp$/,
@@ -50,7 +50,8 @@ In `webpack/webpack.common.js`, after
                 }
             },
 ```
-add the following lines:
+ajoutez les lignes suivantes:
+
 ```js
             {
                 test: /\.js/,
@@ -76,6 +77,6 @@ add the following lines:
               },
 ```
 
-And finally, change `target` to `es5` in `tsconfig.json` & `tsconfig-aot.json`.
+Et enfin, changez `target` en `es5` dans `tsconfig.json` & `tsconfig-aot.json`.
 
-See this [GitHub issue](https://github.com/jhipster/generator-jhipster/issues/10184#issuecomment-541650501) & [this SO answer](https://stackoverflow.com/a/58377002/535203) for more details.
+Consultez ce [problème GitHub](https://github.com/jhipster/generator-jhipster/issues/10184#issuecomment-541650501) et [cette réponse sur SO](https://stackoverflow.com/a/58377002/535203) pour plus de détails.

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Official blueprints
+title: blueprints officiels
 permalink: /modules/official-blueprints/
 redirect_from:
   - /official-blueprints.html
@@ -10,101 +10,99 @@ sitemap:
     lastmod: 2023-10-23T20:15:00-00:00
 ---
 
-# <i class="fa fa-star"></i> Officially supported blueprints
+# <i class="fa fa-star"></i> blueprints officiels
 
-The JHipster team maintains several official blueprints. These blueprints have two main goals:
+L'équipe JHipster maintient plusieurs gabarits officiels. Ces gabarits ont deux objectifs principaux :
 
-* Enhance JHipster with new features using different languages and/or support
-* Demonstrate how the main generator behavior can be modified to fit anyone's needs
+* Améliorer JHipster avec de nouvelles fonctionnalités en utilisant différents langages et/ou supports
+* Démontrer comment le comportement principal du générateur peut être modifié pour répondre aux besoins de chacun
 
-The blueprints below are ordered by the number of stars they have on GitHub. 
+Les gabarits ci-dessous sont classés par le nombre d'étoiles qu'ils ont sur GitHub.
 
 ## Kotlin
 
-The Kotlin blueprint replaces most of Java back-end code with Kotlin. Source code and documentation could be found in the [jhipster-kotlin](https://github.com/jhipster/jhipster-kotlin) repository. 
-{⭐️: 411}
+Le gabarit Kotlin remplace la plupart du code back-end Java par du Kotlin. Le code source et la documentation peuvent être trouvés dans le dépôt [jhipster-kotlin](https://github.com/jhipster/jhipster-kotlin).
 
-- Code and docs: [jhipster/jhipster-kotlin](https://github.com/jhipster/jhipster-kotlin)
-- GitHub ⭐️: 444
-- Stream lead: [Sendil Kumar](https://github.com/sendilkumarn)
+- Code et docs : [jhipster/jhipster-kotlin](https://github.com/jhipster/jhipster-kotlin)
+- GitHub ⭐️ : 444
+- Chef de file de la branche : [Sendil Kumar](https://github.com/sendilkumarn)
 
 ## .NET Core
 
-The .NET Core blueprint is the first attempt to leave the Java environment and join the .NET world. 
+Le gabarit .NET Core est la première tentative de quitter l'environnement Java et de rejoindre le monde .NET.
 
-- Code and docs: [jhipster/jhipster-dotnetcore](https://github.com/jhipster/jhipster-dotnetcore)
-- GitHub ⭐️: 293
-- Stream lead: [Nicolas Raymond](https://github.com/nicolas63)
+- Code et docs : [jhipster/jhipster-dotnetcore](https://github.com/jhipster/jhipster-dotnetcore)
+- GitHub ⭐️ : 293
+- Chef de file de la branche : [Nicolas Raymond](https://github.com/nicolas63)
 
 ## React Native
 
-The React Native blueprint creates a client application with React Native. 
+Le gabarit React Native crée une application cliente avec React Native.
 
-- Code and docs: [jhipster/generator-jhipster-react-native](https://github.com/jhipster/generator-jhipster-react-native)
-- GitHub ⭐️: 257
-- Stream lead: [Jon Ruddell](https://github.com/ruddell)
+- Code et docs : [jhipster/generator-jhipster-react-native](https://github.com/jhipster/generator-jhipster-react-native)
+- GitHub ⭐️ : 257
+- Chef de file de la branche : [Jon Ruddell](https://github.com/ruddell)
 
 ## Node.js
 
-The Node.js blueprint replaces the server java side with the NestJS Node framework. 
+Le gabarit Node.js remplace le côté serveur Java par le framework Node NestJS.
 
-- Code and docs: [jhipster/generator-jhipster-nodejs](https://github.com/jhipster/generator-jhipster-nodejs)
-- GitHub ⭐️: 242
-- Stream lead: [Angelo Manganiello](https://github.com/amanganiello90)
+- Code et docs : [jhipster/generator-jhipster-nodejs](https://github.com/jhipster/generator-jhipster-nodejs)
+- GitHub ⭐️ : 242
+- Chef de file de la branche : [Angelo Manganiello](https://github.com/amanganiello90)
 
 ## Ionic
 
-The Ionic blueprint creates a client application with Ionic. 
+Le gabarit Ionic crée une application cliente avec Ionic.
 
-- Code and docs: [jhipster/generator-jhipster-ionic](https://github.com/jhipster/generator-jhipster-ionic)
-- GitHub ⭐️: 182
-- Stream lead: [Matt Raible](https://github.com/mraible)
+- Code et docs : [jhipster/generator-jhipster-ionic](https://github.com/jhipster/generator-jhipster-ionic)
+- GitHub ⭐️ : 182
+- Chef de file de la branche : [Matt Raible](https://github.com/mraible)
 
 ## Quarkus
 
-The Quarkus blueprint is supported, in part by the JHipster sponsor [Entando](https://www.entando.com/), and driven by the JHipster community for a [supersonic, subatomic Java back-end](https://quarkus.io/).
+Le gabarit Quarkus est pris en charge, en partie par le sponsor JHipster [Entando](https://www.entando.com/), et est piloté par la communauté JHipster pour un [back-end Java supersonique et subatomique](https://quarkus.io/).
 
-- Code and docs: [jhipster/generator-jhipster-quarkus](https://github.com/jhipster/generator-jhipster-quarkus)
-- GitHub ⭐️: 130
-- Stream lead: [Matt Raible](https://github.com/mraible)
+- Code et docs : [jhipster/generator-jhipster-quarkus](https://github.com/jhipster/generator-jhipster-quarkus)
+- GitHub ⭐️ : 130
+- Chef de file de la branche : [Matt Raible](https://github.com/mraible)
 
-# Entity Audit
+# Audit d'entité
 
-The Entity Audit blueprint integrates Javers for entity auditing. 
+Le gabarit d'audit d'entité intègre Javers pour l'audit des entités.
 
-- Code and docs: [hipster-labs/generator-jhipster-entity-audit](https://github.com/hipster-labs/generator-jhipster-entity-audit)
-- GitHub ⭐️: 119
-- Stream lead: [Marcelo Shima](https://github.com/mshima)
+- Code et docs : [hipster-labs/generator-jhipster-entity-audit](https://github.com/hipster-labs/generator-jhipster-entity-audit)
+- GitHub ⭐️ : 119
+- Chef de file de la branche : [Marcelo Shima](https://github.com/mshima)
 
 ## Micronaut
 
-The Micronaut blueprint is supported and driven by people of the [Micronaut team](https://github.com/jhipster/generator-jhipster-micronaut/graphs/contributors) itself.
-It replaces all server side code with a [Micronaut](https://micronaut.io/) application.
+Le gabarit Micronaut est pris en charge et piloté par des membres de l'équipe [Micronaut](https://github.com/jhipster/generator-jhipster-micronaut/graphs/contributors) elle-même. Il remplace tout le code côté serveur par une application [Micronaut](https://micronaut.io/).
 
-- Code and docs: [jhipster/generator-jhipster-micronaut](https://github.com/jhipster/generator-jhipster-micronaut)
-- GitHub ⭐️: 94
-- Stream lead: [Frederik Hahne](https://github.com/atomfrede)
+- Code et docs : [jhipster/generator-jhipster-micronaut](https://github.com/jhipster/generator-jhipster-micronaut)
+- GitHub ⭐️ : 94
+- Chef de file de la branche : [Frederik Hahne](https://github.com/atomfrede)
 
 ## Svelte
 
-The Svelte blueprint replaces the client-side code with the SvelteKit framework. 
+Le gabarit Svelte remplace le code côté client par le framework SvelteKit.
 
-- Code and docs: [jhipster/generator-jhipster-svelte](https://github.com/jhipster/generator-jhipster-svelte)
-- GitHub ⭐️: 57
-- Stream lead: [Vishal Mahajan](https://github.com/vishal423)
+- Code et docs : [jhipster/generator-jhipster-svelte](https://github.com/jhipster/generator-jhipster-svelte)
+- GitHub ⭐️ : 57
+- Chef de file de la branche : [Vishal Mahajan](https://github.com/vishal423)
 
 ## JHipster Native
 
-The JHipster Native blueprint integrates Spring Native, making it possible to create a native binary with GraalVM. 
+Le gabarit JHipster Native intègre Spring Native, ce qui permet de créer un exécutable natif avec GraalVM.
 
-- Code and docs: [jhipster/generator-jhipster-native](https://github.com/jhipster/generator-jhipster-native)
-- GitHub ⭐️: 35
-- Stream leads: [Marcelo Shima](https://github.com/mshima) and [Matt Raible](https://github.com/mraible)
+- Code et docs : [jhipster/generator-jhipster-native](https://github.com/jhipster/generator-jhipster-native)
+- GitHub ⭐️ : 35
+- Chefs de file de la branche : [Marcelo Shima](https://github.com/mshima) et [Matt Raible](https://github.com/mraible)
 
 # jOOQ
 
-The jOOQ blueprint integrates jOOQ as the persistence layer. 
+Le gabarit jOOQ intègre jOOQ comme couche de persistance.
 
-- Code and Docs: [jhipster/generator-jhipster-jooq](https://github.com/jhipster/generator-jhipster-jooq)
-- GitHub ⭐️: 6
-- Stream lead: [Marcelo Shima](https://github.com/mshima)
+- Code et Docs : [jhipster/generator-jhipster-jooq](https://github.com/jhipster/generator-jhipster-jooq)
+- GitHub ⭐️ : 6
+- Chef de file de la branche : [Marcelo Shima](https://github.com/mshima)

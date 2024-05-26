@@ -1,191 +1,191 @@
 ---
 layout: default
-title: Using JHipster UAA for Microservice Security
+title: Utilisation de JHipster UAA pour la sécurité des microservices
 permalink: /using-uaa/
 sitemap:
     priority: 0.7
     lastmod: 2016-08-25T00:00:00-00:00
 ---
-# <i class="fa fa-lock"></i> Using JHipster UAA for Microservice Security
+# <i class="fa fa-lock"></i> Utilisation de JHipster UAA pour la sécurité des microservices
 
-JHipster UAA is a user accounting and authorizing service for securing JHipster microservices using the OAuth2 authorization protocol.
+JHipster UAA est un service de comptabilité et d'autorisation des utilisateurs pour sécuriser les microservices JHipster en utilisant le protocole d'autorisation OAuth2.
 
-To distinguish JHipster UAA from other "UAA"s such as [Cloudfoundry UAA](https://github.com/cloudfoundry/uaa), JHipster UAA is a fully configured OAuth2 authorization server with the users and roles endpoints inside, wrapped into a usual JHipster application. This allows the developer to deeply configure every aspect of the user domain, without restricting on policies by other ready-to-use UAAs.
+Pour distinguer JHipster UAA des autres "UAA" tels que [Cloudfoundry UAA](https://github.com/cloudfoundry/uaa), JHipster UAA est un serveur d'autorisation OAuth2 entièrement configuré avec les points de terminaison des utilisateurs et des rôles à l'intérieur, enveloppé dans une application JHipster habituelle. Cela permet au développeur de configurer en profondeur chaque aspect du domaine utilisateur, sans restrictions sur les politiques par d'autres UAAs prêts à l'emploi.
 
-## Summary
+## Sommaire
 
-1. [Architecture diagram](#architecture_diagram)
-2. [Security claims of microservice architecture](#claims)
-3. [Understanding OAuth2 in this context](#oauth2)
-4. [Using JHipster UAA](#jhipster-uaa)
-  * Basic setup
-  * Understanding the components
-  * Refresh Tokens
-  * Common mistakes
-5. [Securing inter-service-communication using Feign clients](#inter-service-communication)
-  * Using Eureka, Ribbon, Hystrix and Feign
-  * Using `@AuthorizedFeignClients`
-6. [Testing UAA applications](#testing)
-  * Stubbing feign clients
-  * Emulating OAuth2 authentication
+1. [Diagramme d'architecture](#diagramme_d_architecture)
+2. [Revendications de sécurité de l'architecture microservices](#revendications)
+3. [Compréhension d'OAuth2 dans ce contexte](#oauth2)
+4. [Utilisation de JHipster UAA](#jhipster-uaa)
+  * Configuration de base
+  * Compréhension des composants
+  * Jetons de rafraîchissement
+  * Erreurs courantes
+5. [Sécurisation de la communication entre services à l'aide de clients Feign](#communication-entre-services)
+  * Utilisation d'Eureka, Ribbon, Hystrix et Feign
+  * Utilisation de `@AuthorizedFeignClients`
+6. [Test des applications UAA](#testing)
+  * Stubbage des clients Feign
+  * Émulation de l'authentification OAuth2
 
-<h2 id="architecture_diagram">Architecture diagram</h2>
+<h2 id="diagramme_d_architecture">Diagramme d'architecture</h2>
 
-<img src="{{ site.url }}/images/microservices_architecture_detail.002.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
+<img src="{{ site.url }}/images/microservices_architecture_detail.002.png" alt="Diagramme" style="width: 800; height: 600" class="img-responsive"/>
 
-<h2 id="claims">1. Security claims of microservice architecture</h2>
+<h2 id="revendications">1. Revendications de sécurité de l'architecture microservices</h2>
 
-Before digging into OAuth2 and its application on JHipster microservices, it's important to clarify the claims to a solid security solution.
+Avant d'aborder OAuth2 et son application sur les microservices JHipster, il est important de clarifier les revendications d'une solution de sécurité solide.
 
-### 1. Central authentication
+### 1. Authentification centralisée
 
-Since microservices is about building mostly independent and autonomous applications, we want to have a consistent authentication experience, so the users won't notice their requests are served by different applications with possibly individual security configuration.
+Comme les microservices consistent à construire principalement des applications indépendantes et autonomes, nous voulons avoir une expérience d'authentification cohérente, de sorte que les utilisateurs ne remarquent pas que leurs demandes sont traitées par différentes applications avec éventuellement une configuration de sécurité individuelle.
 
-### 2. Statelessness
+### 2. Stateless
 
-The core benefit of building microservices is scalability. So the chosen security solution shouldn't affect this. Holding the users session state on server becomes a tricky task, so a stateless solution is highly preferred in this scenario.
+Le principal avantage de la construction de microservices est la scalabilité. La solution de sécurité choisie ne doit donc pas affecter cela. Maintenir l'état de session des utilisateurs sur le serveur devient une tâche délicate, donc une solution sans état est fortement préférée dans ce scénario.
 
-### 3. User/machine access distinction
+### 3. Distinction entre l'accès utilisateur/machine
 
-There is a need of having a clear distinction of different users, and also different machines. Using microservice architecture leads to building a large multi-purpose data-center of different domains and resources, so there is a need to restrict different clients, such as native apps, multiple single page applications etc. in their access.
+Il est nécessaire de faire une distinction claire entre les différents utilisateurs, mais aussi entre les différentes machines. L'utilisation de l'architecture microservices conduit à la construction d'un grand centre de données multi-usages de différents domaines et ressources, il est donc nécessaire de restreindre l'accès à différents clients, tels que les applications natives, les applications monopages multiples, etc.
 
-### 4. Fine-grained access control
+### 4. Contrôle d'accès détaillé
 
-While maintaining centralized roles, there is a need of configuring detailed access control policies in each microservice. A microservice should be unaware of the responsibility of recognizing users, and must authorize incoming requests.
+Tout en maintenant des rôles centralisés, il est nécessaire de configurer des politiques de contrôle d'accès détaillées dans chaque microservice. Un microservice ne doit pas être conscient de la responsabilité de reconnaître les utilisateurs et doit autoriser les demandes entrantes.
 
-### 5. Safe from attacks
+### 5. Protégé contre les attaques
 
-No matter how much problems a security solution may solve, it should be strong against vulnerabilities as best as possible.
+Peu importe le nombre de problèmes qu'une solution de sécurité peut résoudre, elle doit être forte contre les vulnérabilités autant que possible.
 
-### 6. Scalability
+### 6. Scalabilité
 
-Using stateless protocols is not a warranty of the security solution is scalable. In the end, there should not be any single point of failure. A counter-example is a shared auth database or single auth-server-instance, which is hit once per request.
+L'utilisation de protocoles sans état n'est pas une garantie de la scalabilité de la solution de sécurité. En fin de compte, il ne devrait pas y avoir de point de défaillance unique. Un contre-exemple est une base de données d'authentification partagée ou une seule instance de serveur d'authentification, qui est sollicitée une fois par demande.
 
+<h2 id="oauth2">2. Compréhension d'OAuth2 dans ce contexte</h2>
 
-<h2 id="oauth2">2. Understanding OAuth2 in this context</h2>
+L'utilisation du protocole OAuth2 (note : c'est un **protocole**, pas un framework, pas une application) satisfait toutes les 6 revendications. Il suit des normes strictes, ce qui rend cette solution compatible avec d'autres microservices ainsi qu'avec des systèmes distants. JHipster propose plusieurs solutions, basées sur la conception de sécurité suivante :
 
-Using the OAuth2 protocol (note: it's a **protocol**, not a framework, not an application) is satisfying all 6 claims. It follows strict standards, what makes this solution compatible to other microservices as well, and remote systems, too. JHipster provides a couple of solutions, based on the following security design:
+![Architecture JHipster UAA]({{ site.url }}/images/jhipster_uaa.png)
 
-![JHipster UAA architecture]({{ site.url }}/images/jhipster_uaa.png)
+* Chaque requête vers n'importe quel point de terminaison de l'architecture est effectuée via un "client"
+* Un "client" est un terme abstrait pour des choses comme "client Angular $http", un "client REST", "curl", ou toute autre chose capable d'effectuer des requêtes.
+* Un "client" peut également être utilisé en conjonction avec l'authentification utilisateur, comme Angular $http dans l'application client frontend
+* Chaque microservice servant des ressources sur des points de terminaison (y compris l'UAA), sont des serveurs de ressources
+* Les flèches bleues montrent les clients s'authentifiant sur un serveur d'autorisation Oauth
+* Les flèches vertes montrent les requêtes sur les serveurs de ressources effectuées par le client
+* Le serveur UAA est une combinaison de serveur d'autorisation et de serveur de ressources
+* Le serveur UAA est le propriétaire de toutes les données à l'intérieur des applications de microservice (il approuve automatiquement l'accès aux serveurs de ressources)
+* Les clients accédant aux ressources avec une authentification utilisateur, sont authentifiés en utilisant le "password grant" avec l'identifiant client et le secret stockés en toute sécurité dans les fichiers de configuration de la passerelle
+* Les clients accédant aux ressources sans utilisateur, sont authentifiés en utilisant le "client credentials grant"
+* Chaque client est défini à l'intérieur de l'UAA (application web, interne, ...)
 
-* Every request to any endpoint of the architecture is performed via an "client"
-* A "client" is an abstract word for things like "Angular $http client", some "REST-Client", "curl", or anything able to perform requests.
-* A "client" may also be used in conjunction with user authentication, like the Angular $http in the frontend client application
-* Every microservice serving resources on endpoints (including the UAA), are resource servers
-* Blue arrows show clients authenticate on an Oauth authorization server
-* Green arrows show requests on resource servers performed by the client
-* The UAA server is a combination of authorization server and resource server
-* The UAA server is the owner of all the data inside the microservice applications (it approves automatically access to resource servers)
-* Clients accessing resources with user authentication, are authenticated using "password grant" with the client ID and secret safely stored in the gateway configuration files
-* Clients accessing resources without user, are authenticated using "client credentials grant"
-* Every client is defined inside UAA (web-app, internal, ...)
+Cette conception peut être appliquée à n'importe quelle architecture de microservice indépendamment du langage ou du framework.
 
-This design may be applied to any microservice architecture independent from language or framework.
+En complément, les règles suivantes peuvent être appliquées pour le contrôle d'accès :
 
-As an addition, the following rules can be applied for access control:
+* L'accès utilisateur est configuré à l'aide de "rôles" et de [RBAC][]
+* L'accès des machines est configuré à l'aide de "scopes" et de [RBAC][]
+* La configuration d'accès complexe est exprimée à l'aide de [ABAC][], en utilisant des expressions booléennes sur les "rôles" et les "scopes"
+  * exemple : hasRole("ADMIN") and hasScope("shop-manager.read", "shop-manager.write")
 
-* User access is configured using "roles" and [RBAC][]
-* Machines access is configured using "scopes" and [RBAC][]
-* Complex access configuration is expressed using [ABAC][], using boolean expressions over both "roles" and "scopes"
-  * example: hasRole("ADMIN") and hasScope("shop-manager.read", "shop-manager.write")
+<h2 id="jhipster-uaa">3. Utilisation de JHipster UAA</h2>
 
-<h2 id="jhipster-uaa">3. Using JHipster UAA</h2>
+Lors de la génération d'un microservice JHipster, vous pouvez choisir les options UAA au lieu de l'authentification JWT.
 
-When scaffolding a JHipster microservice, you may choose the UAA options instead of JWT authentication.
+**Remarque** : la solution UAA utilise également JWT, qui peut être configuré de manière personnalisée ainsi que JWT, en utilisant la sécurité par défaut de Spring Cloud.
 
-**Note**: the UAA solution is also using JWT, which are addressable to custom configuration as well as JWT, using default Spring Cloud Security.
+### Configuration de base
 
-### Basic setup
+La configuration de base se compose de :
 
-The very basic setup consists of:
+1. Un serveur JHipster UAA (en tant que type d'application)
+2. Au moins un autre microservice (utilisant l'authentification UAA)
+3. Une passerelle JHipster (utilisant l'authentification UAA)
 
-1. A JHipster UAA server (as type of application)
-2. At least one other microservice (using UAA authentication)
-3. A JHipster gateway (using UAA authentication)
+C'est l'ordre dans lequel il doit être généré.
 
-This is the order in which it should be generated.
+En plus du type d'authentification, l'emplacement de l'UAA doit être fourni.
 
-In addition to the authentication type, the location of the UAA must be provided.
+Pour une utilisation très basique, cette configuration fonctionne de la même manière que pour le type d'authentification JWT, mais avec un service supplémentaire.
 
-For very basic usage, this setup is working the same way as it does for JWT authentication type, but with one more service.
+### Compréhension des composants
 
-### Understanding the components
+Le serveur JHipster UAA fait trois choses par défaut :
 
-The JHipster UAA server does three things out of the box:
+* Il sert le domaine utilisateur JHipster par défaut, contenant les ressources utilisateur et compte (cela est fait par la passerelle dans l'authentification JWT)
+* Il implémente `AuthorizationServerConfigurerAdapter` pour OAuth2 et définit des clients de base ("web_app" et "internal")
+* Il sert la clé publique JWT sur `/oauth/token_key`, qui doit être consommée par tous les autres microservices
 
-* It serves the default JHipster user domain, containing user and account resource (this is done by gateway in JWT authentication)
-* It implements `AuthorizationServerConfigurerAdapter` for OAuth2 and is defining basic clients ("web_app" and "internal")
-* It serves the JWT public key on `/oauth/token_key`, which has to be consumed by all other microservices
+Les choix d'une base de données, d'une solution de cache, d'un moteur de recherche, d'outils de build et d'autres options JHipster sont ouverts au développeur.
 
-The choices of a database, cache solution, search engine, build tools and further JHipster options are open to the developer.
+Lorsqu'un microservice démarre, il s'attend généralement à ce que le serveur UAA soit déjà en place pour partager sa clé publique. Le service appelle d'abord `/oauth/token_key` pour récupérer la clé publique et la configure pour la signature des clés (`JwtAccessTokenConverter`).
 
-When a microservice boots up, it usually expects the UAA server is already up to share its public key. The service first calls `/oauth/token_key` to fetch the public key and configure it for key signing (`JwtAccessTokenConverter`).
+Si l'UAA n'est pas en place, l'application continuera de démarrer et de récupérer la clé publique ultérieurement. Il existe deux propriétés - `uaa.signature-verification.ttl` contrôle la durée de vie de la clé avant qu'elle ne soit récupérée à nouveau, `uaa.signature-verification.public-key-refresh-rate-limit` limite les requêtes à l'UAA pour éviter de le spammer. Ces valeurs sont généralement laissées à leurs valeurs par défaut. Dans tous les cas, si la vérification échoue, alors le microservice vérifiera s'il y a une nouvelle clé. De cette façon, les clés peuvent être remplacées sur l'UAA et les services seront à jour.
 
-If the UAA is not up, the application will continue to start and fetch the public key at a later time.  There are two properties - `uaa.signature-verification.ttl` controls how long the key lives before it is fetched again, `uaa.signature-verification.public-key-refresh-rate-limit` limits requests to UAA to avoid spamming it. These values are usually left at their default values. In any case, if verification fails, then the microservice will check if there's a new key. That way, keys can be replaced on the UAA and the services will catch up.
+À partir de ce point, deux cas d'utilisation peuvent se produire dans cette configuration de base : les appels utilisateur et les appels machine.
 
-From this point there are two use cases that may happen in this basic setup: user calls and machine calls.
+Pour les appels utilisateur, une requête de connexion est envoyée au point de terminaison `/auth/login` de la passerelle. Ce point de terminaison utilise `OAuth2TokenEndpointClientAdapter` pour envoyer une requête à l'UAA en s'authentifiant avec le "password grant". Comme cette requête se produit sur la passerelle, l'identifiant client et le secret ne sont pas stockés dans le code côté client et sont inaccessibles aux utilisateurs. La passerelle renvoie un nouveau cookie contenant le jeton, et ce cookie est envoyé avec chaque requête effectuée par le client vers le backend JHipster.
 
-For the user calls, a login request is sent to the gateway's `/auth/login` endpoint.  This endpoint uses `OAuth2TokenEndpointClientAdapter` to send a request to the UAA authenticating with the "password" grant.  Because this request happens on the gateway, the client ID and secret are not stored in any client-side code and are inaccessible to users.  The gateway returns a new Cookie containing the token, and this cookie is sent with each request performed from the client to the JHipster backend.
+Pour les appels machine, la machine doit s'authentifier en tant que UAA en utilisant le "client credentials grant". JHipster fournit une solution standard, décrite dans [communication sécurisée entre services utilisant des clients Feign](#inter-service-communication).
 
-For the machine calls, the machine has to authenticate as a UAA using client credentials grant. JHipster provides a standard solution, described in [secure inter-service-communication using feign clients](#inter-service-communication)
+### Jetons de rafraîchissement
 
-### Refresh Tokens
+Le flux général pour le rafraîchissement des jetons d'accès se produit sur la passerelle et est le suivant :
 
-The general flow for refreshing access tokens happens on the gateway and is as follows:
+- L'authentification est effectuée via `AuthResource` appelant `OAuth2AuthenticationService`'s authenticate qui définira les cookies.
+- Pour chaque requête, le `RefreshTokenFilter` (installé par `RefreshTokenFilterConfigurer`) vérifie si le jeton d'accès est expiré et s'il a un jeton de rafraîchissement valide.
+- Si oui, il déclenche le processus de rafraîchissement via `OAuth2AuthenticationService` refreshToken.
+- Cela utilise l'interface `OAuth2TokenEndpointClient` pour envoyer une requête de jeton de rafraîchissement au serveur OAuth2 de choix, dans notre cas UAA (via `UaaTokenEndpointClient`).
+- Le résultat de la requête de rafraîchissement est ensuite utilisé en aval comme nouveaux cookies et défini en amont (vers le navigateur) comme nouveaux cookies.
 
-- Authentication is done via `AuthResource` calling `OAuth2AuthenticationService`'s authenticate which will set Cookies.
-- For each request, the `RefreshTokenFilter` (installed by `RefreshTokenFilterConfigurer`) checks whether the access token is expired and whether it has a valid refresh token.
-- If so, then it triggers the refresh process via `OAuth2AuthenticationService` refreshToken.
-- This uses the `OAuth2TokenEndpointClient` interface to send a refresh token grant to the OAuth2 server of choice, in our case UAA (via `UaaTokenEndpointClient`).
-- The result of the refresh grant is then used downstream as new cookies and set upstream (to the browser) as new cookies.
+### Erreurs courantes
 
-### Common mistakes
+Voici une brève liste des principales erreurs qu'un développeur doit connaître.
 
-Here is a brief list of the very major things a developer should be aware of.
+#### ***Utiliser la même clé de signature pour la production et la mise en scène***
 
-#### ***Using the same signing key for production and staging***
+Il est strictement recommandé d'utiliser des clés de signature différentes autant que possible. Une fois qu'une clé de signature tombe entre de mauvaises mains, il est possible de générer une clé d'accès complet sans connaître les identifiants de connexion de tout utilisateur.
 
-It is strictly recommended to use different signing keys as much as possible. Once a signing key gets into wrong hands, it is possible to generate full access granting key without knowing login credentials of any user.
+#### ***Ne pas utiliser TLS***
 
-#### ***Not using TLS***
+Si des attaquants parviennent à intercepter un jeton d'accès, ils obtiendront tous les droits autorisés par ce jeton, jusqu'à l'expiration du jeton. Il existe de nombreuses façons d'y parvenir, en particulier lorsqu'il n'y a pas de chiffrement TLS. Ce n'était pas un problème à l'époque de la version 1 d'OAuth, car le chiffrement au niveau du protocole était imposé.
 
-If attackers manage to intercept an access token, they will gain all the rights authorized to this token, until the token expires. There are a lot of ways to achieve that, in particular when there is no TLS encryption. This was not a problem in the days of version 1 of OAuth, because protocol level encryption was forced.
+#### ***Utiliser des jetons d'accès dans l'URL***
 
-#### ***Using access tokens in URL***
+Selon les normes, les jetons d'accès peuvent être passés soit par URL, dans les en-têtes, ou dans un cookie. Du point de vue TLS, les trois méthodes sont sécurisées. En pratique, passer des jetons via l'URL est moins sécurisé, car il existe plusieurs moyens d'obtenir l'URL à partir des enregistrements.
 
-As of standard, access tokens can be either passed by URL, in headers, or in a cookie. From the TLS point of view, all three ways are secure. In practice passing tokens via URL is less secure, since there several ways of getting the URL from records.
+#### ***Passer aux clés de signature symétriques***
 
-#### ***Switching to symmetric signing keys***
+RSA n'est pas requis pour la signature JWT, et Spring Security fournit également la signature de jeton symétrique. Cela résout également certains problèmes qui rendent le développement plus difficile. Mais cela n'est pas sécurisé, car un attaquant doit accéder à un seul microservice pour pouvoir générer ses propres jetons JWT.
 
-RSA is not required for JWT signing, and Spring Security does provide symmetric token signing as well. This also solves some problems, which make development harder. But this is insecure, since an attacker needs to get into one single microservice to be able to generate its own JWT tokens.
+<h2 id="inter-service-communication">4. Communication sécurisée entre services utilisant des clients Feign</h2>
 
-<h2 id="inter-service-communication">4. Secure inter-service-communication using Feign clients</h2>
+Actuellement, seul JHipster UAA offre une approche évolutive de la communication sécurisée entre services.
 
-Currently only JHipster UAA is providing an scalable approach of secure inter-service-communication.
+Utiliser l'authentification JWT sans transférer manuellement les JWT de la requête à la requête interne oblige les microservices à appeler d'autres microservices via la passerelle, ce qui implique des requêtes internes supplémentaires par une requête principale. Mais même avec le transfert, il n'est pas possible de séparer proprement l'authentification utilisateur et machine.
 
-Using JWT authentication without manually forwarding JWTs from request to internal request forces microservices to call other microservices over the gateway, which involves additional internal requests per one master requests. But even with forwarding, it's not possible to cleanly separate user and machine authentication.
+Étant donné que JHipster UAA est basé sur OAuth2, tous ces problèmes sont résolus par la définition du protocole.
 
-Since JHipster UAA is based on OAuth2, all these problems are solved on protocol definition.
+Ce chapitre explique comment commencer avec cela.
 
-This chapter covers how to get started with this.
+### Utiliser Eureka, Ribbon, Hystrix et Feign
 
-### Using Eureka, Ribbon, Hystrix and Feign
+Lorsqu'un service souhaite demander des données à un autre, ces quatre acteurs entrent finalement en jeu. Il est donc important de savoir brièvement de quoi chacun est responsable :
 
-When one service wants to request data from another, finally all these four players come into play. So it is important, to briefly know what each of them is responsible for:
+* Eureka : c'est là que les services s'inscrivent ou se désinscrivent, vous pouvez donc demander "foo-service" et obtenir un ensemble d'IP des instances du foo-service, enregistrées dans Eureka.
+* Ribbon : lorsqu'on demande "foo-service" et qu'on a déjà récupéré un ensemble d'IP, Ribbon fait l'équilibrage de charge sur ces IP.
 
-* Eureka: this is where services (un-)register, so you can ask "foo-service" and get a set of IPs of instances of the foo-service, registered in Eureka.
-* Ribbon: when someone asked for "foo-service" and already retrieved a set of IPs, Ribbon does the load balancing over these IPs.
+Pour résumer, lorsqu'on obtient une URL comme "http://uaa/oauth/token/" avec 2 instances du serveur JHipster UAA fonctionnant sur 10.10.10.1:9999 et 10.10.10.2:9999, on peut utiliser Eureka et Ribbon pour transformer rapidement cette URL soit en "http://10.10.10.1:9999/oauth/token" soit en "http://10.10.10.2:9999/oauth/token" en utilisant un algorithme Round Robin.
 
-So to sum up, when we got a URL like "http://uaa/oauth/token/" with 2 instances of JHipster UAA server running on 10.10.10.1:9999 and 10.10.10.2:9999, we may use Eureka and Ribbon to quickly transform that URL either to "http://10.10.10.1:9999/oauth/token" or "http://10.10.10.2:9999/oauth/token" using a Round Robin algorithm.
+* Hystrix : un système de disjoncteur résolvant les scénarios de repli en cas de défaillance du service
+* Feign : utiliser tout cela de manière déclarative
 
-* Hystrix: a circuit breaker system solving fall-back scenarios on service fails
-* Feign: using all that in a declarative style
 
-In real world, there is no warranty of all instances of all services to be up. So Hystrix works as a circuit breaker, to handle failure scenarios in a well-defined way, using fallbacks.
+Dans le monde réel, il n'y a aucune garantie que toutes les instances de tous les services soient opérationnelles. Ainsi, Hystrix fonctionne comme un disjoncteur pour gérer les scénarios de défaillance de manière bien définie, en utilisant des solutions de repli.
 
-But wiring and coding all these things manually is a lot of work: Feign provides the option of writing ***Ribbon*** load balanced REST clients for endpoints registered in ***Eureka***, with fallback implementations controlled using ***Hystrix***, using nothing more then an Java interfaces with some annotations.
+Mais connecter et coder toutes ces choses manuellement représente beaucoup de travail : Feign offre la possibilité d'écrire des clients REST équilibrés par ***Ribbon*** pour des points de terminaison enregistrés dans ***Eureka***, avec des implémentations de repli contrôlées à l'aide de ***Hystrix***, en utilisant rien de plus que des interfaces Java avec quelques annotations.
 
-So for inter-service-communication, Feign clients are very helpful. When one service needs a REST client to access an "other-service", serving some "other-resource", it's possible to declare an interface like:
+Pour la communication inter-service, les clients Feign sont très utiles. Lorsqu'un service a besoin d'un client REST pour accéder à un "autre-service", qui fournit des "autres-ressources", il est possible de déclarer une interface comme :
 
 ``` java
 @FeignClient(name = "other-service")
@@ -195,7 +195,7 @@ interface OtherServiceClient {
 }
 ```
 
-And then, using it via dependency injection, like:
+Et ensuite, l'utiliser via l'injection de dépendances, comme :
 
 ``` java
 @Service
@@ -209,14 +209,14 @@ class SomeService {
 }
 ```
 
-Similar to Spring Data JPA, there is no need to implement that interface. But you may do so, if using Hystrix. Implemented classes of Feign client interfaces act as fallback implementations.
+Comme avec Spring Data JPA, il n'est pas nécessaire d'implémenter cette interface. Cependant, si vous utilisez Hystrix, vous pouvez fournir des implémentations de repli. Les classes implémentées des interfaces clients Feign agissent comme des implémentations de repli.
 
-One open issue is, to make this communication secure using UAA. To accomplish this, there should be some request interceptor for Feign, which implements the client credentials flow from OAuth, to authorize the current service for requesting the other service. In JHipster, you use `@AuthorizedFeignClients` instead. This is an annotation provided by JHipster, which does exactly that.
+Un problème ouvert est de sécuriser cette communication en utilisant UAA. Pour cela, il devrait y avoir un intercepteur de requêtes pour Feign, qui implémente le flux d'identifiants clients d'OAuth, pour autoriser le service actuel à demander un autre service. Dans JHipster, vous utilisez `@AuthorizedFeignClients` à la place. Il s'agit d'une annotation fournie par JHipster, qui fait exactement cela.
 
-### Using `@AuthorizedFeignClients`
+### Utilisation de `@AuthorizedFeignClients`
 
-Considering the above Feign client should be used to an "other-service", which
-serves protected resources, the interface must be annotated like this:
+Si le client Feign ci-dessus doit être utilisé pour un "autre-service", qui
+fournit des ressources protégées, l'interface doit être annotée comme ceci :
 
 ``` java
 @AuthorizedFeignClient(name = "other-service")
@@ -226,32 +226,31 @@ interface OtherServiceClient {
 }
 ```
 
-**note**: Due to a bug in Spring Cloud, it's currently not possible to use a different
-notation for the service name, as
+**Note** : En raison d'un bug dans Spring Cloud, il n'est actuellement pas possible d'utiliser une notation différente pour le nom du service, comme
 
 ``` java
 @AuthorizedFeignClient("other-service")
 ```
 
-or
+ou
 
 ``` java
 @AuthorizedFeignClient(value = "other-service")
 ```
 
-The REST client automatically gets authorized with your UAA server, when there is no valid access token stored in memory.
+Le client REST est automatiquement autorisé avec votre serveur UAA lorsqu'il n'y a pas de jeton d'accès valide stocké en mémoire.
 
-This approach addresses a scenario when machine request run over a separate OAuth client not referring to an user session. This is important, in particular when entity auditing is used on a request, issued by another request in another service. As an alternative, the access token of the initial request may be forwarded to further calls. Currently, there is no "default solution" provided by JHipster.
+Cette approche traite d'un scénario où les requêtes de machine s'exécutent via un client OAuth séparé ne se référant pas à une session utilisateur. Cela est important, en particulier lorsque l'audit des entités est utilisé sur une requête, émise par une autre requête dans un autre service. Comme alternative, le jeton d'accès de la requête initiale peut être transmis aux appels suivants. Actuellement, il n'y a pas de "solution par défaut" fournie par JHipster.
 
-<h2 id="testing">5. Testing UAA applications</h2>
+<h2 id="testing">5. Tester les applications UAA</h2>
 
-### Mocking Feign clients
+### Mocking des clients Feign
 
-Components working with Feign clients should be testable. Using Feign in tests the same way it is used in production would force the JHipster Registry and the UAA server to be up and reachable to the same machine where the tests are run. But in most cases, you don't want to test that Feign itself works (it usually does), but your components using Feign clients.
+Les composants travaillant avec des clients Feign doivent être testables. Utiliser Feign dans les tests de la même manière qu'en production obligerait le JHipster Registry et le serveur UAA à être opérationnels et accessibles depuis la même machine où les tests sont exécutés. Mais dans la plupart des cas, vous ne voulez pas tester que Feign fonctionne (il fonctionne généralement), mais vos composants utilisant les clients Feign.
 
-To test components, which are using feign clients inside is possible using `@MockBean`, which is part of spring boot since 1.4.0.
+Pour tester les composants utilisant des clients Feign, il est possible d'utiliser `@MockBean`, qui fait partie de Spring Boot depuis la version 1.4.0.
 
-Here is an example, testing `SomeService` works as expected, with mocked values for the client:
+Voici un exemple, testant que `SomeService` fonctionne comme prévu, avec des valeurs simulées pour le client :
 
 ``` java
 @RunWith(SpringRunner.class)
@@ -267,7 +266,7 @@ public class SomeServiceTest {
     @Test
     public void testSomeService() {
         given(otherServiceClient.getResourcesFromOtherService())
-        .willReturn(Arrays.asList(new OtherResource(...));
+        .willReturn(Arrays.asList(new OtherResource(...)));
 
         someService.performActionWhichInkvokesTheAboveMentionedMethod();
 
@@ -276,18 +275,18 @@ public class SomeServiceTest {
 }
 ```
 
-So with this technology you are simulating the behavior of the other service, and provide expected resource entity, which would come from the origin.
-All Beans injecting a client will behave as mocked, so you can focus on the logic of these Beans.
+-
+Avec cette technologie, vous simulez le comportement de l'autre service et fournissez l'entité de ressource attendue, qui proviendrait de l'origine. Tous les Beans injectant un client se comporteront comme simulés, vous pouvez donc vous concentrer sur la logique de ces Beans.
 
-### Emulating OAuth2 authentication
+### Émulation de l'authentification OAuth2
 
-Using Spring's integration tests against the REST controllers is usually bypassing the security configuration, since it would make testing hard, when the only intention is to prove the controller is functional doing what it should do. But sometimes, testing a controller's security behavior is part of testing, too.
+L'utilisation des tests d'intégration Spring contre les contrôleurs REST contourne généralement la configuration de sécurité, car cela rendrait les tests difficiles lorsque l'intention est simplement de prouver que le contrôleur fonctionne comme il se doit. Cependant, parfois, tester le comportement de sécurité d'un contrôleur fait également partie des tests.
 
-For this use-case, JHipster is providing an component called `OAuth2TokenMockUtil`, which can emulate a valid authentication without forcing the user or client to exist.
+Pour ce cas d'utilisation, JHipster fournit un composant appelé `OAuth2TokenMockUtil`, qui peut émuler une authentification valide sans forcer l'existence de l'utilisateur ou du client.
 
-To use this feature, two things have to be done:
+Pour utiliser cette fonctionnalité, deux choses doivent être faites :
 
-#### 1. Enabling security in the mock Spring MVC context and inject the mock util
+#### 1. Activer la sécurité dans le contexte mock Spring MVC et injecter l'outil de simulation
 
 ``` java
 @Inject
@@ -302,25 +301,24 @@ public void setup() {
 }
 ```
 
-***In this test no single instance of the controller has to be mocked, but the
-application's `WebApplicationContext`***
+***Dans ce test, aucune instance unique du contrôleur ne doit être simulée, mais le `WebApplicationContext` de l'application***
 
-#### 2. Using the `OAuth2TokenMockUtil`
+#### 2. Utilisation de `OAuth2TokenMockUtil`
 
-The util offers a method "oaut2authentication", which is usable to MockMvc "with" notation. Currently it can be configured to mock a authentication with the following fields:
+L'outil propose une méthode "oaut2authentication", utilisable avec la notation "with" de MockMvc. Actuellement, il peut être configuré pour simuler une authentification avec les champs suivants :
 
 * username
 * roles (Set<String>)
 * scope (Set<String>)
 
-Here is an example:
+Voici un exemple :
 
 ``` java
 @Test
 public void testInsufficientRoles() {
-    restMockMvc.peform(
+    restMockMvc.perform(
         get("url/requiring/ADMIN/role")
-        .with(tokenUtil.oauth2Authentication("unpriveleged.user@example.com", Sets.newSet("some-scope"), Sets.newSet("ROLE_USER")))
+        .with(tokenUtil.oauth2Authentication("unprivileged.user@example.com", Sets.newSet("some-scope"), Sets.newSet("ROLE_USER")))
     ).andExpect(status().isForbidden());
 }
 ```

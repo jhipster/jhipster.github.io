@@ -1,32 +1,32 @@
 ---
 layout: default
-title: Doing microservices with JHipster
+title:  Travailler avec des microservices avec JHipster
 permalink: /microservices-architecture/
 sitemap:
     priority: 0.7
     lastmod: 2021-03-08T12:00:00-00:00
 ---
 
-# <i class="fa fa-sitemap"></i> Doing microservices with JHipster
+# <i class="fa fa-sitemap"></i> Travailler avec des microservices avec JHipster
 
-<h2 id="microservices_vs_monolithic">Microservices vs Monolithic architecture</h2>
+<h2 id="microservices_vs_monolithic">Architecture microservices vs monolithique</h2>
 
-The first question JHipster will ask you is the kind of application you want to generate. You have the choice between two architecture styles:
+La première question que JHipster vous posera concerne le type d'application que vous souhaitez générer. Vous avez le choix entre deux styles d'architecture :
 
-- A "monolithic" architecture uses a single, one-size-fits-all application, which contains both the front-end code, and the back-end Spring Boot code.
-- A "microservices" architecture splits the front-end and the back-end, so that it's easier for your application to scale and survive infrastructure issues.
+- Une architecture "monolithique" utilise une seule application, une taille unique pour tous, qui contient à la fois le code front-end et le code back-end Spring Boot.
+- Une architecture "microservices" divise le front-end et le back-end, ce qui rend plus facile à votre application de s'adapter à l'échelle et de survivre aux problèmes d'infrastructure.
 
-A "monolithic" application is much easier to work on, so if you don't have any specific requirements, this is the option we recommend, and our default option.
+Une application "monolithique" est beaucoup plus facile à travailler, donc si vous n'avez pas de besoins spécifiques, c'est l'option que nous recommandons, et notre option par défaut.
 
-<h2 id="overview">Microservices architecture overview</h2>
+<h2 id="overview">Aperçu de l'architecture microservices</h2>
 
-The JHipster microservices architecture works in the following way:
+L'architecture microservices de JHipster fonctionne de la manière suivante :
 
- * A [gateway]({{ site.url }}/api-gateway/) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an Angular/React/VueJs application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
- * [Consul]({{ site.url }}/consul/) is a service discovery service, as well as a key/value store.
- * The [JHipster Registry]({{ site.url }}/jhipster-registry/) is a runtime application on which all applications registers and get their configuration from. It also provides runtime monitoring dashboards. It can be used as an alternative to Consul.
- * [Microservices]({{ site.url }}/creating-microservices/) are JHipster-generated applications (using application type `microservice application` when you generate them), that handle REST requests. They are stateless, and several instances of them can be launched in parallel to handle heavy loads.
+ * Une [passerelle]({{ site.url }}/api-gateway/) est une application générée par JHipster (en utilisant le type d'application `microservice gateway` lorsque vous la générez) qui gère le trafic Web et sert une application Angular/React/VueJs. Il peut y avoir plusieurs passerelles différentes, si vous souhaitez suivre le [patron Backends for Frontends](https://www.thoughtworks.com/insights/blog/bff-soundcloud), mais ce n'est pas obligatoire.
+ * [Consul]({{ site.url }}/consul/) est un service de découverte de service, ainsi qu'un magasin de clés/valeurs.
+ * Le [Registre JHipster]({{ site.url }}/jhipster-registry/) est une application en cours d'exécution sur laquelle toutes les applications s'inscrivent et obtiennent leur configuration. Il fournit également des tableaux de bord de surveillance en temps réel. Il peut être utilisé comme une alternative à Consul.
+ * [Microservices]({{ site.url }}/creating-microservices/) sont des applications générées par JHipster (en utilisant le type d'application `microservice application` lorsque vous les générez) qui gèrent les demandes REST. Ils sont sans état, et plusieurs instances d'entre eux peuvent être lancées en parallèle pour gérer des charges lourdes.
 
-In the diagram below, the green components are specific to your application and the blue components provide its underlying infrastructure.
+Dans le diagramme ci-dessous, les composants verts sont spécifiques à votre application et les composants bleus fournissent son infrastructure sous-jacente.
 
-<img src="{{ site.url }}/images/microservices_architecture_2.png" alt="Diagram" style="width: 930px; height: 558px"/>
+<img src="{{ site.url }}/images/microservices_architecture_2.png" alt="Diagramme" style="width: 930px; height: 558px"/>

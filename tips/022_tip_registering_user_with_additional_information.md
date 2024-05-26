@@ -1,25 +1,25 @@
 ---
 layout: default
-title: Registering a user with additional information
+title:  Enregistrer un utilisateur avec des informations supplémentaires
 sitemap:
 priority: 0.5
 lastmod: 2017-02-15T22:30:00-00:00
 ---
 
-# Registering a user with additional information
+# Enregistrer un utilisateur avec des informations supplémentaires
 
-__Tip submitted by [@Paul-Etienne](https://github.com/Paul-Etienne)__
+__Conseil soumis par [@Paul-Etienne](https://github.com/Paul-Etienne)__
 
-If we need to store more information concerning a user than what JHipster provides by default, a few tweaks are needed.
+Si nous avons besoin de stocker plus d'informations concernant un utilisateur que ce que JHipster fournit par défaut, quelques ajustements sont nécessaires.
 
-To illustrate this, let's assume we want to store the user's phone number.
+Pour illustrer cela, supposons que nous voulions stocker le numéro de téléphone de l'utilisateur.
 
-## Creating a new entity in a One to One relationship with JHI_User
+## Création d'une nouvelle entité dans une relation de type Un à Un avec JHI_User
 
-The best way to add information that is not handled by the default JHipster User is by using composition in a new entity linked to it with a One to One relationship.
+La meilleure façon d'ajouter des informations qui ne sont pas gérées par l'utilisateur par défaut de JHipster est d'utiliser la composition dans une nouvelle entité liée à celui-ci avec une relation de type Un à Un.
 
-After this entity is created, let's call it UserExtra, the best way to handle its id is by mapping it to the JHI_User's one. This way, our UserExtra will have the same id as the User's, accelerating the different requests.
-To achieve this, you will need to use the @MapsId annotation :
+Après la création de cette entité, appelons-la UserExtra, la meilleure façon de gérer son id est de le mapper sur celui de JHI_User. De cette façon, notre UserExtra aura le même id que celui de l'utilisateur, accélérant ainsi les différentes requêtes.
+Pour cela, vous devrez utiliser l'annotation @MapsId :
 
 ```
 public class UserExtra implements Serializable {
@@ -40,24 +40,24 @@ public class UserExtra implements Serializable {
 }
 ```
 
-Note that the @GeneratedValue annotation on the id needs to be removed.
+Notez que l'annotation @GeneratedValue sur l'id doit être supprimée.
 
-## Updating the register HTML page to take this change into account
+## Mise à jour de la page HTML d'enregistrement pour prendre en compte ce changement
 
-Now that an entity exists to store the phone number, we need to add an input in the register form to ask for the user's phone number.
+Maintenant qu'une entité existe pour stocker le numéro de téléphone, nous devons ajouter un champ de saisie dans le formulaire d'inscription pour demander le numéro de téléphone de l'utilisateur.
 
-Nothing easier than that, just update webapp/app/account/register/register.html to add an input field bound to the variable already used to store the basic information (vm.registerAccount) :
+Rien de plus simple, il suffit de mettre à jour webapp/app/account/register/register.html pour ajouter un champ d'entrée lié à la variable déjà utilisée pour stocker les informations de base (vm.registerAccount) :
 
 ```
 <input class="form-control" id="phone" ng-model="vm.registerAccount.phone" placeholder="{{'global.form.phone.placeholder' | translate}}" />
 ```
 
-## Updating ManagedUserVM
+## Mise à jour de ManagedUserVM
 
-The registerAccount() function from java/com.mycompany.myapp/web/rest/AccountResource is the one receiving the request from the registration page.
-Its only parameter is a ManagedUserVM object containing the information initially contained in the vm.registerAccount variable from the client.
+La fonction registerAccount() de java/com.mycompany.myapp/web/rest/AccountResource est celle qui reçoit la demande de la page d'inscription.
+Son seul paramètre est un objet ManagedUserVM contenant les informations initialement contenues dans la variable vm.registerAccount du client.
 
-This ManagedUserVM class located in web/rest/vm has to be updated as well so that it holds the phone number sent by the client. The only thing to do here is adding the phone number attribute and its getter :
+Cette classe ManagedUserVM située dans web/rest/vm doit également être mise à jour afin qu'elle contienne le numéro de téléphone envoyé par le client. La seule chose à faire ici est d'ajouter l'attribut numéro de téléphone et son getter :
 
 ```
 public class ManagedUserVM extends UserDTO {
@@ -75,11 +75,11 @@ public class ManagedUserVM extends UserDTO {
 }
 ```
 
-## Updating the registerAccount() function from AccountResource
+## Mise à jour de la fonction registerAccount() de AccountResource
 
-The registerAccount() function now receives a ManagedUserVM object that also contains the phone number of the user. The only thing left to do is saving this phone number into a new UserExtra associated with the JHipster User.
+La fonction registerAccount() reçoit maintenant un objet ManagedUserVM qui contient également le numéro de téléphone de l'utilisateur. Il ne reste plus qu'à sauvegarder ce numéro de téléphone dans un nouveau UserExtra associé à l'utilisateur JHipster.
 
-To do so, we are going to add the phone parameter to the createUser() function from UserService. But first, add this parameter where this function is called in registerAccount() :
+Pour ce faire, nous allons ajouter le paramètre phone à la fonction createUser() de UserService. Mais d'abord, ajoutez ce paramètre là où cette fonction est appelée dans registerAccount() :
 
 ```
 public ResponseEntity<?> registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
@@ -105,11 +105,11 @@ public ResponseEntity<?> registerAccount(@Valid @RequestBody ManagedUserVM manag
 }
 ```
 
-## Updating the createUser() function from UserService
+## Mise à jour de la fonction createUser() de UserService
 
-Finally, we update the service layer function that saves the JHI_User to now save the UserExtra as well. Rather than updating the existing function, I suggest you create a new one with the additional parameter. This way, updating the test classes isn't necessary.
+Enfin, nous mettons à jour la fonction de la couche de service qui sauvegarde l'utilisateur JHI pour maintenant sauvegarder également UserExtra. Plutôt que de mettre à jour la fonction existante, je vous suggère de créer une nouvelle avec le paramètre supplémentaire. De cette façon, il n'est pas nécessaire de mettre à jour les classes de test.
 
-Do not forget to inject the UserExtra repositories :
+N'oubliez pas d'injecter les dépôts UserExtra :
 
 ```
 @Inject
@@ -156,4 +156,4 @@ public User createUser(String login, String password, String firstName, String l
 }
 ```
 
-And it's done !
+Et voilà !

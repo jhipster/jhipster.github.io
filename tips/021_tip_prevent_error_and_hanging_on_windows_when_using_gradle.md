@@ -1,23 +1,23 @@
 ---
 layout: default
-title: Prevent error/hanging on Windows when using Gradle
+title: Éviter les erreurs/blocages sur Windows lors de l'utilisation de Gradle
 sitemap:
 priority: 0.5
 lastmod: 2017-01-03T22:30:00-00:00
 ---
 
-# Prevent error/hanging on Windows when using Gradle
+# Éviter les erreurs/blocages sur Windows lors de l'utilisation de Gradle
 
-## /!\ This tip is deprecated since JHipster v4.1.1 as we upgraded to Gradle 3.4
+## /!\ Ce conseil est obsolète depuis JHipster v4.1.1 car nous avons mis à niveau vers Gradle 3.4
 
-__Tip submitted by [@kaidohallik](https://github.com/kaidohallik)__
+__Conseil soumis par [@kaidohallik](https://github.com/kaidohallik)__
 
-## Problem description
+## Description du problème
 
-If using cmd.exe on Windows for executing Gradle tasks then error or hanging may occur:
+Si vous utilisez cmd.exe sur Windows pour exécuter des tâches Gradle, des erreurs ou des blocages peuvent se produire :
 
-1. sometimes process just hangs
-2. sometimes error occurs
+1. parfois le processus se bloque simplement
+2. parfois une erreur survient
 
 ```
 FAILURE: Build failed with an exception.
@@ -26,33 +26,33 @@ FAILURE: Build failed with an exception.
 Unable to process incoming event 'ProgressComplete ' (ProgressCompleteEvent)
 ```
 
-## When problem occurs
+## Quand le problème se produit
 
-Problem occurs after some command has outputted some critical symbols and/or amount of symbols to this cmd.exe window.
-The emergence of the problem depends on the Screen Buffer Size Height. The higher it is the greater is the chance that no error/hanging occurs.
-But the problem is reproduced also with the maximum Screen Buffer Size Height (9999).
+Le problème survient après qu'une commande ait produit certains symboles critiques et/ou une certaine quantité de symboles dans la fenêtre cmd.exe.
+L'émergence du problème dépend de la hauteur de la taille du tampon d'écran. Plus elle est élevée, plus il y a de chances qu'aucune erreur/blocage ne se produise.
+Mais le problème se reproduit également avec la hauteur maximale de la taille du tampon d'écran (9999).
 
-## Workarounds
+## Solutions de contournement
 
-The problem never occurs when using Gradle with the following switches:
+Le problème ne survient jamais lorsque Gradle est utilisé avec les commutateurs suivants :
 
 * `gradlew --info`
 * `gradlew --debug`
 * `gradlew --console plain`
 
-The problem can sometimes be prevented with the following actions:
+Le problème peut parfois être évité avec les actions suivantes :
 
-* increase the cmd.exe window Screen Buffer Size Height, for example to the maximum possible value 9999
-* open new cmd.exe window and use this for executing Gradle tasks
+* augmenter la hauteur de la taille du tampon d'écran de cmd.exe, par exemple à la valeur maximale possible de 9999
+* ouvrir une nouvelle fenêtre cmd.exe et l'utiliser pour exécuter des tâches Gradle
 
-In the JHipster applications this problem has reproduced with the following Gradle tasks:
+Dans les applications JHipster, ce problème a été reproduit avec les tâches Gradle suivantes :
 
 * gulpConstantDev
 * gulpBuildWithOpts
 * npmInstall
 * webpack
 
-Exists hack which prevents this error/hanging in the JHipster applications. Just put the following code to your `build.gradle`:
+Il existe une astuce qui empêche cette erreur/blocage dans les applications JHipster. Il suffit de mettre le code suivant dans votre `build.gradle` :
 
 ```
 tasks.withType(NodeTask) {
@@ -67,7 +67,7 @@ tasks.withType(com.moowork.gradle.node.npm.NpmTask) {
 }
 ```
 
-## Additional information
+## Informations supplémentaires
 
-Currently there is open [Gradle issue](https://github.com/gradle/gradle/issues/882) about the described error/hanging problem.
-It's possible that in the future versions of Gradle the described error/hanging problem doesn't exist any more.
+Actuellement, il existe un [problème Gradle ouvert](https://github.com/gradle/gradle/issues/882) concernant le problème d'erreur/blocage décrit.
+Il est possible que dans les versions futures de Gradle, le problème d'erreur/blocage décrit n'existe plus.

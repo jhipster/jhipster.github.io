@@ -1,67 +1,67 @@
 ---
 layout: default
-title: Microservices in production
+title: Microservices en production
 permalink: /microservices-in-production/
 sitemap:
     priority: 0.7
     lastmod: 2020-09-11T00:00:00-00:00
 ---
 
-# <i class="fa fa-cloud"></i> Microservices in production
+# <i class="fa fa-cloud"></i> Microservices en production
 
-Microservices are a specific kind of JHipster applications. Please refer to our main [Using JHipster in production documentation]({{ site.url }}/production) for more information on doing a production build, optimizing it and securing it.
+Les microservices sont un type spécifique d'applications JHipster. Veuillez vous référer à notre [documentation principale sur l'utilisation de JHipster en production]({{ site.url }}/production) pour plus d'informations sur la création, l'optimisation et la sécurisation d'une version de production.
 
-<h2 id="elk">Microservices monitoring</h2>
+<h2 id="elk">Surveillance des microservices</h2>
 
-If using JHipster Registry, please refer to our [JHipster Registry documentation]({{ site.url }}/jhipster-registry) for learning which runtime dashboards are available, and how to use them.
+Si vous utilisez JHipster Registry, veuillez consulter notre [documentation sur JHipster Registry]({{ site.url }}/jhipster-registry) pour découvrir les tableaux de bord disponibles en temps d'exécution et comment les utiliser.
 
-Our [monitoring documentation]({{ site.url }}/monitoring) is also very important, to learn specific information on using:
+Notre [documentation sur la surveillance]({{ site.url }}/monitoring) est également très importante pour apprendre des informations spécifiques sur l'utilisation de :
 
-- ELK to collect the logs of your microservices
-- Prometheus to collect the metrics of your microservices
-- Zipkin to trace HTTP requests throughout your services
+- ELK pour collecter les journaux de vos microservices
+- Prometheus pour collecter les métriques de vos microservices
+- Zipkin pour tracer les requêtes HTTP à travers vos services
 
-<h2 id="docker_compose">Using Docker Compose to develop and deploy</h2>
+<h2 id="docker_compose">Utilisation de Docker Compose pour le développement et le déploiement</h2>
 
-Working on a microservices architecture means you will need several different services and databases working together, and in that context Docker Compose is a great tool to manage your development, testing and production environments.
+Travailler avec une architecture de microservices signifie que vous aurez besoin de plusieurs services et bases de données différents fonctionnant ensemble, et dans ce contexte, Docker Compose est un excellent outil pour gérer vos environnements de développement, de test et de production.
 
-A specific section on microservices is included in our [Docker Compose documentation]({{ site.url }}/docker-compose#microservices), and we highly recommend that you get familiar with it when working on a microservices architecture.
+Une section spécifique sur les microservices est incluse dans notre [documentation Docker Compose]({{ site.url }}/docker-compose#microservices), et nous vous recommandons vivement de vous familiariser avec celle-ci lorsque vous travaillez sur une architecture de microservices.
 
-As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation]({{ site.url }}/docker-compose/) to learn more about using Docker Compose with JHipster.
+Comme Docker Swarm utilise la même API que Docker Machine, déployer votre architecture de microservices dans le cloud est exactement le même que de le déployer sur votre machine locale. Suivez notre [documentation Docker Compose]({{ site.url }}/docker-compose/) pour en savoir plus sur l'utilisation de Docker Compose avec JHipster.
 
-<h2 id="cloudfoundry">Going to production with Cloud Foundry</h2>
+<h2 id="cloudfoundry">Mise en production avec Cloud Foundry</h2>
 
-The [Cloud Foundry sub-generator]({{ site.url }}/cloudfoundry/) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
+Le [sous-générateur Cloud Foundry]({{ site.url }}/cloudfoundry/) fonctionne de la même manière avec une architecture de microservices, la principale différence étant que vous avez plus d'applications à déployer :
 
-- Use the [Cloud Foundry sub-generator]({{ site.url }}/cloudfoundry/) to deploy first the JHipster Registry (which is a normal JHipster application).
-- Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL:
-  - In the `bootstrap-prod.yml` file, the `spring.cloud.config.uri` must point to `http(s)://<your_jhipster_registry_url>/config/`
-  - In the `application-prod.yml` file, the `eureka.client.serviceUrl.defaultZone` must point to `http(s)://<your_jhipster_registry_url>/eureka/`
-- Deploy your gateway(s) and microservices
-- Scale your applications as usual with Cloud Foundry
+- Utilisez le [sous-générateur Cloud Foundry]({{ site.url }}/cloudfoundry/) pour déployer d'abord JHipster Registry (qui est une application JHipster normale).
+- Notez l'URL sur laquelle votre JHipster Registry est déployé. Vos applications doivent toutes pointer vers cette URL :
+  - Dans le fichier `bootstrap-prod.yml`, l'`uri` de `spring.cloud.config` doit pointer vers `http(s)://<votre_url_registre_jhipster>/config/`
+  - Dans le fichier `application-prod.yml`, `eureka.client.serviceUrl.defaultZone` doit pointer vers `http(s)://<votre_url_registre_jhipster>/eureka/`
+- Déployez votre passerelle(s) et vos microservices
+- Mettez à l'échelle vos applications comme d'habitude avec Cloud Foundry
 
-One important point to remember is that the JHipster Registry isn't secured by default, and that the microservices are not supposed to be accessible from the outside world, as users are supposed to use the gateway(s) to access your application.
+Un point important à retenir est que le JHipster Registry n'est pas sécurisé par défaut, et que les microservices ne sont pas censés être accessibles depuis l'extérieur, car les utilisateurs sont censés utiliser la passerelle(s) pour accéder à votre application.
 
-Two solutions are available to solve this issue:
+Deux solutions sont disponibles pour résoudre ce problème :
 
-- Secure your Cloud Foundry using specific routes.
-- Keep everything public, but use HTTPS everywhere, and secure your JHipster Registry using Spring Security's basic authentication support
+- Sécurisez votre Cloud Foundry en utilisant des routes spécifiques.
+- Rendez tout public, mais utilisez HTTPS partout et sécurisez votre JHipster Registry en utilisant le support d'authentification basique de Spring Security
 
-<h2 id="heroku">Going to production with Heroku</h2>
+<h2 id="heroku">Mise en production avec Heroku</h2>
 
-The [Heroku sub-generator]({{ site.url }}/heroku/) works nearly the same with a microservices architecture, the main difference is that you have more applications to deploy:
+Le [sous-générateur Heroku]({{ site.url }}/heroku/) fonctionne presque de la même manière avec une architecture de microservices, la principale différence étant que vous avez plus d'applications à déployer :
 
-Deploy a JHipster Registry directly with one click:
+Déployez un JHipster Registry directement en un clic :
 
-[![Deploy to Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
+[![Déployer sur Heroku](https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67)](https://dashboard.heroku.com/new?&template=https%3A%2F%2Fgithub.com%2Fjhipster%2Fjhipster-registry)
 
-Please follow the [Heroku sub-generator documentation]({{ site.url }}/heroku/) in order to understand how to secure your JHipster Registry.
+Veuillez suivre la [documentation du sous-générateur Heroku]({{ site.url }}/heroku/) afin de comprendre comment sécuriser votre JHipster Registry.
 
-Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL in their `application-prod.yml` file. Change that configuration to be:
+Notez l'URL sur laquelle votre JHipster Registry est déployé. Vos applications doivent toutes pointer vers cette URL dans leur fichier `application-prod.yml`. Modifiez cette configuration comme suit :
 
     eureka:
         instance:
-            hostname: https://admin:[password]@[appname].herokuapp.com
+            hostname: https://admin:[mot_de_passe]@[nom_application].herokuapp.com
             prefer-ip-address: false
 
-You can now deploy and scale the gateway(s) and microservices. The Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications to fetch their configuration on the Spring Cloud Config server.
+Vous pouvez maintenant déployer et mettre à l'échelle la passerelle(s) et les microservices. Le sous-générateur Heroku vous posera une nouvelle question pour connaître l'URL de votre JHipster Registry : cela permettra à vos applications de récupérer leur configuration sur le serveur Spring Cloud Config.

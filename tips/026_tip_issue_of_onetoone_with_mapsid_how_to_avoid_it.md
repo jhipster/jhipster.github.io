@@ -1,18 +1,19 @@
 ---
 layout: default
-title: Issue of @OneToOne with @MapsId and how to avoid it
+title: Problème de @OneToOne avec @MapsId et comment l'éviter
 sitemap:
 priority: 0.1
 lastmod: 2019-03-05T18:20:00-00:00
 ---
 
-# Issue of @OneToOne with @MapsId and how to avoid it
+# Problème de @OneToOne avec @MapsId et comment l'éviter
 
-__Tip submitted by [@pmverma](https://github.com/pmverma)__
+__Conseil soumis par [@pmverma](https://github.com/pmverma)__
 
-Following is a known issue regarding using `@OneToOne` with `@MapsId` and some tips to avoid it.
-### The issue
-Let's say you have a `Preference` class which you have associated to `User` with `@OneToOne @MapsId`.
+Voici un problème connu concernant l'utilisation de `@OneToOne` avec `@MapsId` et quelques conseils pour l'éviter.
+### Le problème
+Supposons que vous ayez une classe `Preference` que vous avez associée à `User` avec `@OneToOne @MapsId`.
+
 ```
 class Preference {
         @OneToOne
@@ -20,19 +21,19 @@ class Preference {
         private User user;
 }
 ```
-Normally with JHipster, 
-1. When you add a `preference`  for a user, you will fill the data and select a user `user01` login from dropdown and save.
-2. If you want to edit the same `preference`, you will still have the option to select user and if you select `user02` this time then backend side will have the `user02` in `preference` object for the whole request lifetime.
-3.  Again if you reload the same `preference` then you will see that `user01` is there, not `user02`.
+Normalement avec JHipster :
+1. Lorsque vous ajoutez une `préférence` pour un utilisateur, vous remplissez les données et sélectionnez un utilisateur `user01` dans la liste déroulante, puis enregistrez.
+2. Si vous souhaitez modifier la même `préférence`, vous avez toujours la possibilité de sélectionner un utilisateur, et si vous sélectionnez `user02` cette fois, alors côté backend, l'objet `préférence` aura `user02` pour toute la durée de la requête.
+3. Si vous rechargez à nouveau la même `préférence`, vous verrez que `user01` est toujours là, pas `user02`.
 
-The incorrect part here is:
- **`user02` in `preference` object in no.2 step.** The user object in `preference` should always refer to `user01`.
+La partie incorrecte ici est :
+ **`user02` dans l'objet `préférence` à l'étape no.2.** L'objet utilisateur dans la `préférence` devrait toujours se référer à `user01`.
  
- For more information, take a look at [https://github.com/jhipster/generator-jhipster/issues/9100](https://github.com/jhipster/generator-jhipster/issues/9100)
+ Pour plus d'informations, consultez [https://github.com/jhipster/generator-jhipster/issues/9100](https://github.com/jhipster/generator-jhipster/issues/9100)
  
- ### Tips to avoid it
+ ### Conseils pour l'éviter
  
- * Hide the dropdown and set the current user in `preference` **at client side** programmatically. (Again this kind of solution is only valid for entities such as Preference, Settings, User Profile and so on, where having a dropdown to choose user does not makes sense. )
- * Hide the dropdown and set the current user in `preference` **at server side** programmatically. (Again this kind of solution is only valid for entities such as Preference, Settings, User Profile and so on, where having a dropdown to choose user does not makes sense. JHipster have already provided a method to get current user.)
- * Validate and load the correct association value before doing any business logic on that user. (Again this is needed only if your logic depends on `preference.getUser()`
- * If you are using Hibernate 5.4.2 and later then you will get correct association value but only after entity merge operation has finished. So if your business logic is executed before entity merge operation, you have to take care of it otherwise you might get incorrect results.
+ * Masquez la liste déroulante et définissez l'utilisateur actuel dans la `préférence` **côté client** de manière programmative. (Encore une fois, ce type de solution n'est valable que pour les entités telles que Preference, Settings, User Profile, etc., où il n'a pas de sens d'avoir une liste déroulante pour choisir l'utilisateur.)
+ * Masquez la liste déroulante et définissez l'utilisateur actuel dans la `préférence` **côté serveur** de manière programmative. (Encore une fois, ce type de solution n'est valable que pour les entités telles que Preference, Settings, User Profile, etc., où il n'a pas de sens d'avoir une liste déroulante pour choisir l'utilisateur. JHipster a déjà fourni une méthode pour obtenir l'utilisateur actuel.)
+ * Validez et chargez la valeur d'association correcte avant de faire toute logique métier sur cet utilisateur. (Encore une fois, ceci est nécessaire uniquement si votre logique dépend de `preference.getUser()`)
+ * Si vous utilisez Hibernate 5.4.2 et ultérieur, vous obtiendrez la valeur d'association correcte mais seulement après la fin de l'opération de fusion d'entité. Donc, si votre logique métier est exécutée avant l'opération de fusion d'entité, vous devez en prendre soin sinon vous pourriez obtenir des résultats incorrects.

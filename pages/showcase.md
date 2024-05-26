@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Showcase
+title: Vitrine
 permalink: /showcase/
 redirect_from:
   - /showcase.html
@@ -9,11 +9,11 @@ sitemap:
   lastmod: 2020-06-12T00:00:00-00:00
 ---
 
-# <i class="fa fa-file-image-o"></i> Showcase
+# <i class="fa fa-file-image-o"></i> Vitrine
 
-A showcase of awesome applications built with JHipster.
+Une vitrine d'applications impressionnantes construites avec JHipster.
 
-If you want your application to be featured here submit a PR to the [website](https://github.com/jhipster/jhipster.github.io) or let us know via Twitter by mentioning the [@jhipster](https://twitter.com/jhipster) handle.
+Si vous souhaitez que votre application soit présentée ici, soumettez une PR au [site web](https://github.com/jhipster/jhipster.github.io) ou faites-le nous savoir via Twitter en mentionnant le compte [@jhipster](https://twitter.com/jhipster).
 
 <br/><br/><br/>
 

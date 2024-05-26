@@ -1,39 +1,39 @@
 ---
 layout: default
-title: Enable cross origin HTTP requests
+title: Activer les requêtes HTTP cross-origin
 sitemap:
 priority: 0.5
 lastmod: 2015-07-30T18:40:00-00:00
 ---
 
-# Enable cross origin HTTP requests
+# Activer les requêtes HTTP cross-origin
 
-## /!\ This tip is deprecated since JHipster v3.0
+## /!\ Ce conseil est obsolète depuis JHipster v3.0
 
-__Tip submitted by [@tomcgn](https://github.com/tomcgn)__
+__Conseil soumis par [@tomcgn](https://github.com/tomcgn)__
 
-You might want to use the nice out-of-the-box API to integrate your application into existing websites.
-One approach could be to use [Knockout](https://github.com/knockout/knockout) to bind your entities with ease and render the entity on e.g. your blog, being served from your JHipster application.
+Vous pouvez vouloir utiliser l'API prête à l'emploi pour intégrer votre application dans des sites web existants.
+Une approche pourrait être d'utiliser [Knockout](https://github.com/knockout/knockout) pour lier vos entités facilement et afficher l'entité sur, par exemple, votre blog, servi depuis votre application JHipster.
 
-Two aspects need to be changed in the standard JHipster code in order to use the API from simple HTML/AJAX clients:
+Deux aspects doivent être modifiés dans le code standard de JHipster afin d'utiliser l'API depuis des clients HTML/AJAX simples :
 
-1. Configure the `SecurityConfiguration`
-2. Tell the browsers of the users that visit the 3rd party site that uses the API that your app permits the origin of that request.
+1. Configurer la `SecurityConfiguration`
+2. Informer les navigateurs des utilisateurs qui visitent le site tiers utilisant l'API que votre application autorise l'origine de cette requête.
 
-## Modify the SecurityConfiguration
+## Modifier la SecurityConfiguration
 
-In method `SecurityConfiguration.configure(HttpSecurity http)` , add new directives as needed in the `.and().authorizeRequests()` part, e.g. :
+Dans la méthode `SecurityConfiguration.configure(HttpSecurity http)`, ajoutez de nouvelles directives selon les besoins dans la partie `.and().authorizeRequests()`, par exemple :
 
     .antMatchers("/api/_search/meetings/**").permitAll()
     .antMatchers("/api/_search/meetings").permitAll()`
 
-Of course you can make use of `.hasAuthority()` and `.authenticated()` to make your thinst-client a bit more dynamic.
+Bien sûr, vous pouvez utiliser `.hasAuthority()` et `.authenticated()` pour rendre votre client plus dynamique.
 
-## Adapt the HTTP response headers
+## Adapter les en-têtes de réponse HTTP
 
-You need to add the following directives to the `CsrfCookieGeneratorFilter` :
+Vous devez ajouter les directives suivantes au `CsrfCookieGeneratorFilter` :
 
-In method `doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException`
+Dans la méthode `doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException`
 
     response.addHeader("Access-Control-Allow-Origin", "*");
     response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Creating a Blueprint
+title: Création d'un blueprint
 permalink: /modules/creating-a-blueprint/
 redirect_from:
   - /creating_a_blueprint.html
@@ -10,32 +10,32 @@ sitemap:
     lastmod: 2015-12-05T18:40:00-00:00
 ---
 
-# <i class="fa fa-cube"></i> Creating a blueprint
+# <i class="fa fa-cube"></i> Création d'un blueprint
 
-A JHipster blueprint is a Yeoman generator that is [composed](http://yeoman.io/authoring/composability.html) from a specific JHipster sub-generator to extend the functionality of that sub-generator. The blueprint can override any defined getter of the sub generator and provide its own templates and functionality.
+Un blueprint JHipster est un générateur Yeoman qui est [composé](http://yeoman.io/authoring/composability.html) à partir d'un sous-générateur spécifique de JHipster pour étendre les fonctionnalités de ce sous-générateur. Le blueprint peut remplacer n'importe quel getter défini du sous-générateur et fournir ses propres modèles et fonctionnalités.
 
-JHipster blueprints are listed on the [JHipster marketplace](/modules/marketplace/) with the `jhipster-blueprint` label.
+Les blueprints JHipster sont répertoriés sur le [marché JHipster](/modules/marketplace/) avec l'étiquette `jhipster-blueprint`.
 
-This allows to create third-party blueprints that can override a specific part of JHipster, say for example only the client side templates.
+Cela permet de créer des blueprints tiers qui peuvent remplacer une partie spécifique de JHipster, disons par exemple seulement les modèles côté client.
 
-## Using a blueprint
+## Utilisation d'un blueprint
 
-To use a blueprint, run the below command
+Pour utiliser un blueprint, exécutez la commande ci-dessous
 
 ```bash
 jhipster --blueprints <blueprint name>
 ```
 
-## Generating the blueprint
+## Génération du blueprint
 
-We recommend to use the builtin `generate-blueprint` generator to kickstart your blueprint
+Nous recommandons d'utiliser le générateur intégré  `generate-blueprint` pour démarrer votre blueprint
 
 ```bash
 mkdir my-blueprint && cd my-blueprint
 
 jhipster generate-blueprint
 ```
-A JHipster blueprint must have `generator-jhipster` as a dependency and should import the appropriate sub-generator to override it.
+Un blueprint JHipster doit avoir `generator-jhipster` comme dépendance et doit importer le sous-générateur approprié pour le remplacer.
 
 ```javascript
 import chalk from 'chalk';
@@ -64,25 +64,26 @@ export default class extends ClientGenerator {
 }
 ```
 
-## Local Blueprints
+## Blueprints locaux
 
-A local blueprint is implemented inside your project's `.blueprint` directory. It's detected and used by default.
+Un blueprint local est implémenté à l'intérieur du répertoire  `.blueprint` de votre projet. Il est détecté et utilisé par défaut.
 
-Kickstart using [Generating the blueprint](#generating-the-blueprint) or run:
+Démarrer en utilisant [Génération du blueprint](#generating-the-blueprint) ou exécutez :
 
 ```
 jhipster generate-blueprint --local-blueprint --sub-generators app --all-priorities
 ```
 
-Multiples sub-generators are useful for organizing multiples features. Local blueprints have a limited scope (the application), so a single sub-generator, the main one, is probably enough to customize your application (client and server). 
+Plusieurs sous-générateurs sont utiles pour organiser plusieurs fonctionnalités. Les blueprints locaux ont une portée limitée (l'application), donc un seul sous-générateur, le principal, est probablement suffisant pour personnaliser votre application (côté client et côté serveur).
 
-## Developing
 
-### Priorities
+## Développement
 
-There are multiple ways to customize a priority from JHipster.
+### Priorités
 
-1) Let JHipster handle the priority, blueprint doesn't override anything.
+Il existe plusieurs façons de personnaliser une priorité de JHipster.
+
+1) Laisser JHipster gérer la priorité, le blueprint ne remplace rien.
 
 ```javascript
     get [Generator.INITIALIZING]() {
@@ -90,7 +91,7 @@ There are multiple ways to customize a priority from JHipster.
     }
 ```
 
-2) Override the entire priority, this is when the blueprint takes control of a priority.
+2) Remplacer entièrement la priorité, c'est lorsque le blueprint prend le contrôle d'une priorité.
 
 ```javascript
   get [Generator.INITIALIZING]() {
@@ -105,7 +106,7 @@ There are multiple ways to customize a priority from JHipster.
   }
 ```
 
-3) Partially override a priority, this is when the blueprint gets the priority from JHipster and customizes it.
+3) Remplacer partiellement une priorité, c'est lorsque le blueprint obtient la priorité de JHipster et la personnalise.
 
 ```javascript
     get [Generator.INITIALIZING]() {
@@ -121,9 +122,9 @@ There are multiple ways to customize a priority from JHipster.
     }
 ```
 
-4) Decorate a priority, this is when the blueprint runs custom steps before or after the priority coming from JHipster.
+4) Décorer une priorité, c'est lorsque le blueprint exécute des étapes personnalisées avant ou après la priorité provenant de JHipster.
 
-This is useful to customize properties that will be used during the priority to generate derived properties.
+C'est utile pour personnaliser les propriétés qui seront utilisées pendant la priorité pour générer des propriétés dérivées.
 
 ```javascript
     // Run the blueprint steps before and/or after any parent steps

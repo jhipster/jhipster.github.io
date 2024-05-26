@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Running Protractor e2e tests within IntelliJ IDEA
+title: Exécuter les tests e2e Protractor dans IntelliJ IDEA
 sitemap:
 priority: 0.1
 lastmod: 2018-04-14T03:57:00-00:00
 ---
 
-# Running Protractor e2e tests within IntelliJ IDEA
+# Exécuter les tests e2e Protractor dans IntelliJ IDEA
 
-**Tip submitted by [@SudharakaP](https://github.com/SudharakaP) and [@yelhouti](https://github.com/yelhouti)**
+**Astuce proposée par [@SudharakaP](https://github.com/SudharakaP) et [@yelhouti](https://github.com/yelhouti)**
 
-This tip applies for JHipster v6.8.0 or above. By default, a JHipster project will have the following `beforeLanuch` 
-function within the Protractor configuration file (`src/test/javascript/protractor.conf.js`). 
+TCette astuce s'applique à JHipster v6.8.0 ou supérieur. Par défaut, un projet JHipster aura la fonction `beforeLanuch` 
+suivante dans le fichier de configuration Protractor (`src/test/javascript/protractor.conf.js`). 
 
 ```js
 beforeLaunch: function() {
@@ -21,10 +21,10 @@ beforeLaunch: function() {
 }
 ``` 
 
-This will work well if Protractor tests are executed by running `npm run e2e` in the root folder of the project.
+Cela fonctionnera correctement si les tests Protractor sont exécutés en exécutant `npm run e2e` dans le dossier racine du projet.
 
-However, IntelliJ Ultimate also supports [running Protractor tests within the IDE](https://www.jetbrains.com/help/idea/protractor.html#ws_protractor_running). 
-If you want to use this method you will have to alter the `beforeLanuch` function as shown below; 
+Cependant, IntelliJ Ultimate prend également en charge [l'exécution de tests Protractor dans l'IDE](https://www.jetbrains.com/help/idea/protractor.html#ws_protractor_running). 
+Si vous souhaitez utiliser cette méthode, vous devrez modifier la fonction `beforeLanuch` comme indiqué ci-dessous :
 
 ```js
 beforeLaunch: function() {
@@ -33,7 +33,6 @@ beforeLaunch: function() {
     });
 }
 ``` 
-so that IntelliJ will know where to find the `tsconfig.e2e.json` file. 
+afin qu'IntelliJ sache où trouver le fichier `tsconfig.e2e.json`. 
 
-Note that after altering the `protractor.conf.js` file as above, `npm run e2e` will not work anymore so you'll have to 
-rollback if you plan on using e2e tests using npm again. 
+Notez qu'après avoir modifié le fichier`protractor.conf.js` comme indiqué ci-dessus, la commande, `npm run e2e` ne fonctionnera plus. Vous devrez donc annuler les modifications si vous prévoyez d'utiliser à nouveau les tests e2e via npm.

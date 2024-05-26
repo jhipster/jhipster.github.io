@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Meetups
+title: Rencontres JHipster
 permalink: /meetups/
 redirect_from:
   - /meetups.html
@@ -9,42 +9,42 @@ sitemap:
     lastmod: 2017-05-15T00:00:00-00:00
 ---
 
-# <i class="fa fa-meetup "></i> JHipster meetups
+# <i class="fa fa-meetup "></i> Rencontres JHipster
 
-We are currently creating JHipster meetups all around the world!
+Nous créons actuellement des rencontres JHipster partout dans le monde !
 
-- If you want to create your own meetup do a Pull Request on [this Web page](https://github.com/jhipster/jhipster.github.io/blob/main/pages/meetups.md) to add your meetup directly.
-- There is no rule for meetups: you can schedule them when you want, let it happen where you want, and invite who you want.
-- The JHipster team will do its best to support you: we'll RT you on Twitter, put your event on our main page, etc.
+- Si vous souhaitez organiser votre propre rencontre, soumettez une Pull Request sur [cette page Web](https://github.com/jhipster/jhipster.github.io/blob/main/pages/meetups.md) pour ajouter votre rencontre directement.
+- Il n'y a pas de règle pour les rencontres : vous pouvez les planifier quand vous le souhaitez, les laisser se dérouler où vous le souhaitez et inviter qui vous voulez.
+- L'équipe JHipster fera de son mieux pour vous soutenir : nous vous RT sur Twitter, mettrons votre événement sur notre page principale, etc.
 
-## Existing meetups
+## Rencontres existantes
 
-**North America**
+**Amérique du Nord**
 
-- [New York, USA - JHipster meetup](https://www.meetup.com/JHipster-NYC/)
+- [New York, USA - Rencontre JHipster](https://www.meetup.com/JHipster-NYC/)
 
 **Europe**
 
-- [Dublin, Ireland - JHipster meetup](https://www.meetup.com/JHipsterDublin/)
-- [Lyon, France - JHipster meetup](https://www.meetup.com/JHipster-Lyon/)
-- [Paris, France - JHipster meetup](https://www.meetup.com/JHipster-User-Group/)
-- [Zurich, Switzerland - JHipster meetup](https://www.meetup.com/JHipster/)
+- [Dublin, Irlande - Rencontre JHipster](https://www.meetup.com/JHipsterDublin/)
+- [Lyon, France - Rencontre JHipster](https://www.meetup.com/JHipster-Lyon/)
+- [Paris, France - Rencontre JHipster](https://www.meetup.com/JHipster-User-Group/)
+- [Zurich, Suisse - Rencontre JHipster](https://www.meetup.com/JHipster/)
 
-**Oceania**
+**Océanie**
 
-- [Melbourne, Australia - JHipster meetup](https://www.meetup.com/fr-FR/jHipster-Melbourne/)
+- [Melbourne, Australie - Rencontre JHipster](https://www.meetup.com/fr-FR/jHipster-Melbourne/)
 
-**Middle East**
+**Moyen-Orient**
 
-- [Dubai, United Arab Emirates - JHipster meetup](https://www.meetup.com/JHipster-Dubai/)
+- [Dubai, Émirats Arabes Unis - Rencontre JHipster](https://www.meetup.com/JHipster-Dubai/)
 
-**Africa**
+**Afrique**
 
-- [Lagos, Nigeria - JHipster meetup](https://www.meetup.com/JHipster-Nigeria/)
+- [Lagos, Nigeria - Rencontre JHipster](https://www.meetup.com/JHipster-Nigeria/)
 
-## Meetups being created
+## Rencontres en cours de création
 
-*Contact the team if you want to help creating one of those meetups*
+*Contactez l'équipe si vous souhaitez aider à créer l'une de ces rencontres*
 
-- Amsterdam, Netherlands JHipster meetup
-- Brussels, Belgium JHipster meetup
+- Amsterdam, Pays-Bas - Rencontre JHipster
+- Bruxelles, Belgique - Rencontre JHipster

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Setting up Jenkins 1 on Linux
+title: Configuration de Jenkins 1 sur Linux
 permalink: /setting-up-ci-linux/
 redirect_from:
   - /setting_up_ci_linux.html
@@ -9,13 +9,13 @@ sitemap:
     lastmod: 2015-01-09T12:40:00-00:00
 ---
 
-# <i class="fa fa-stethoscope"></i> Setting up Jenkins 1 on Linux
+# <i class="fa fa-stethoscope"></i> Configuration de Jenkins 1 sur Linux
 
-The instructions below are for a Red Hat/CentOS server but can be adapted for other Linux distributions.
+Les instructions ci-dessous sont pour un serveur Red Hat/CentOS mais peuvent être adaptées pour d'autres distributions Linux.
 
-## Installing Jenkins
+## Installation de Jenkins
 
-Follow the instructions from [https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions)
+Suivez les instructions depuis [https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions)
 
 ~~~~
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
@@ -25,58 +25,58 @@ sudo yum install jenkins
 sudo service jenkins start
 ~~~~
 
-A `jenkins` user has been created, its home directory is `/var/lib/jenkins`
+Un utilisateur `jenkins` a été créé, son répertoire principal est `/var/lib/jenkins`
 
-## Configuring Jenkins
+## Configuration de Jenkins
 
-### Installing JDK 8
+### Installation de JDK 17
 
-Through Jenkins administration, add a JDK 8 automatic installer.
+À travers l'administration de Jenkins, ajoutez un installateur automatique JDK 17.
 
-### Installing Maven
+### Installation de Maven
 
-Through Jenkins administration, add a Maven automatic installer from Apache's site.
+À travers l'administration de Jenkins, ajoutez un installateur automatique Maven depuis le site Apache.
 
-### Installing NodeJS
+### Installation de NodeJS
 
-You could install NodeJS globally but it's very likely that you may want to have different versions of NodeJS for different projects.
+Vous pourriez installer NodeJS globalement mais il est très probable que vous voudriez avoir différentes versions de NodeJS pour différents projets.
 
-We suggest 2 alternatives below, choose the one you prefer.
+Nous suggérons 2 alternatives ci-dessous, choisissez celle que vous préférez.
 
-#### Jenkins NodeJS plugin
+#### Plugin Jenkins NodeJS
 
-Install Jenkins NodeJS plugin.
+Installez le plugin Jenkins NodeJS.
 
-Through Jenkins administration, add a NodeJS installation:
+À travers l'administration de Jenkins, ajoutez une installation NodeJS :
 
-- Automatic installer from nodejs.org, use the latest LTS (Long Term Support) 64-bit version
-- Global npm packages to install: bower gulp
+- Installateur automatique depuis nodejs.org, utilisez la dernière version LTS (Long Term Support) 64 bits
+- Packages npm globaux à installer : bower gulp
 
-#### Local NodeJS installation
+#### Installation locale de NodeJS
 
-Install NodeJS locally using the script below and then update the Jenkins PATH to use it.
+Installez NodeJS localement en utilisant le script ci-dessous puis mettez à jour le PATH de Jenkins pour l'utiliser.
 
 ~~~ bash
-# specify which version we want
+# spécifiez la version que nous voulons
 export NODE_VERSION=4.3.1
 
-# download
+# téléchargement
 cd /tmp
 wget http://nodejs.org/dist/v$NODE_VERSION/node-v4.3.1.tar.gz
 tar xvfz node-v$NODE_VERSION.tar.gz
 
-# build it and install it only locally
+# construisez-le et installez-le uniquement localement
 cd node-v$NODE_VERSION
 ./configure --prefix=/var/lib/jenkins/node-v$NODE_VERSION && make && make install
 
-# Check versions of node and  npm
+# Vérifiez les versions de node et npm
 export PATH=/var/lib/jenkins/node-v$NODE_VERSION/bin:$PATH
 node --version
 # v4.3.1
 npm --version
 # 3.7.5
 
-# install tools
+# installez des outils
 npm install -g bower gulp
 bower --version
 # 1.7.7
@@ -84,4 +84,4 @@ gulp --version
 # 3.9.1
 ~~~
 
-Make sure you update the Jenkins PATH.
+Assurez-vous de mettre à jour le PATH(chemin) de Jenkins.

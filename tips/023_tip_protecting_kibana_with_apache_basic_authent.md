@@ -1,31 +1,32 @@
 ---
 layout: default
-title: Protecting Kibana with Apache (Basic Authentication)
+title: Protéger Kibana avec Apache (Authentification de base)
 sitemap:
 priority: 0.5
 lastmod: 2018-01-31T14:10:00-00:00
 ---
 
-# Protecting Kibana with Apache (Basic Authentication)
+# Protéger Kibana avec Apache (Authentification de base)
 
-Tip submitted by [@raiden0610](https://github.com/raiden0610)
+Conseil soumis par [@raiden0610](https://github.com/raiden0610)
 
-## mod_proxy activation
+## Activation de mod_proxy
 
-    a2enmod proxy
-    a2enmod proxy_http
-    a2enmod headers
+```bash
+a2enmod proxy
+a2enmod proxy_http
+a2enmod headers
 
-    service apache2 restart
+service apache2 restart
 
-## Virtualhost configuration
-Find where your virtualhost 443 or 80 config is, depending on your distros.
+## Configuration du VirtualHost
+Trouvez où se trouve votre configuration de virtualhost 443 ou 80, selon votre distribution.
 
-For example in Ubuntu 16.04: the config is on the file **000-default-le-ssl.conf** in **/etc/apache2/sites-availables** directory.
+Par exemple, sur Ubuntu 16.04 : la configuration se trouve dans le fichier  **000-default-le-ssl.conf** in **/etc/apache2/sites-availables** dans le répertoire.
 
-If you don’t want SSL, here is the file **000-default.conf**
+Si vous ne souhaitez pas utiliser SSL, voici le fichier **000-default.conf**
 
-Edit the file and in the virtualhost 443 or 80 section paste this :
+Modifiez le fichier et dans la section virtualhost 443 ou 80, collez ceci :
 
     # Proxying kibana listenning on the port 5601 
     ProxyPreserveHost On
@@ -41,21 +42,21 @@ Edit the file and in the virtualhost 443 or 80 section paste this :
             Require valid-user
        </Location>
 
-Reload apache config :
+Rechargez la configuration d'Apache :
 
     service apache2 reload
     
-## Generation of username / password
+## Génération de nom d'utilisateur / mot de passe
 
     htpasswd /etc/apache2/.htpasswd your_user
     
-## Activating SSL
-Follow the tutorial (you can select the ditros) :  [Let's encrypt - Certbot](https://certbot.eff.org/)
+## Activation de SSL
+Suivez le tutoriel (vous pouvez sélectionner votre distribution) :  [Let's encrypt - Certbot](https://certbot.eff.org/)
 
-Certbot will take care of the SSL configuration in Apache automatically for you 
+Certbot se chargera automatiquement de la configuration SSL dans Apache pour vous.
 
-<div class="alert alert-warning"><i> Warning: </i>
-<b>Don't forget to close the port 5601 in your firewall ! </b> because if you don't kibana will still be accessible without basic authentication on the port 5601
+<div class="alert alert-warning"><i> Attention: </i>
+<b>N'oubliez pas de fermer le port 5601 dans votre pare-feu ! </b> Car sinon, Kibana sera toujours accessible sans authentification de base sur le port 5601.
 </div>
 
-And voila you can now access kibana in a secure way at https://mydomain.com or http://mydomain.com
+Et voilà, vous pouvez maintenant accéder à Kibana de manière sécurisée à l'adresse  https://mydomain.com ou http://mydomain.com

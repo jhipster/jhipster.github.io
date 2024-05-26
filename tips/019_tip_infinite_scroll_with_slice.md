@@ -1,27 +1,27 @@
 ---
 layout: default
-title: Boost infinite scroll performance with Slice
+title: Améliorer les performances de la pagination avec le défilement infini en utilisant Slice
 sitemap:
 priority: 0.5
 lastmod: 2016-11-12T22:22:00-00:00
 ---
 
-# Boost performance of pagination with infinite scrolling using Slice
+# Améliorer les performances de la pagination avec le défilement infini en utilisant Slice
 
-__Tip submitted by [@nkolosnjaji](https://github.com/nkolosnjaji)__
+__Conseil soumis par [@nkolosnjaji](https://github.com/nkolosnjaji)__
 
-Pagination with infinite scrolling is using Spring Data Page to retrieve entities from your database.
-This will trigger two queries, one to fetch entities and second for `count all` to determine the total items for paging. Infinite scrolling doesn't need information about the total size but only if there is a next page to load. To avoid `count all` query which can be an expensive operation when working with large datasets, use [Slice](http://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Slice.html) instead of Page which will boost performance of infinite scrolling.
+La pagination avec défilement infini utilise Spring Data Page pour récupérer des entités depuis votre base de données.
+Cela déclenchera deux requêtes, une pour récupérer les entités et une deuxième pour `compter tout` afin de déterminer le nombre total d'éléments pour la pagination. Le défilement infini n'a pas besoin d'informations sur la taille totale mais seulement s'il existe une page suivante à charger. Pour éviter la requête `compter tout`, qui peut être une opération coûteuse lorsqu'on travaille avec de grands ensembles de données, utilisez [Slice](http://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Slice.html) au lieu de Page, ce qui améliorera les performances du défilement infini.
 
-We will use a custom HTTP header `X-Has-Next-Page` to send information to front-end infinite-scroll plugin.
+Nous utiliserons un en-tête HTTP personnalisé `X-Has-Next-Page` pour envoyer des informations au plugin de défilement infini côté front-end.
 
-  * Define new method in your Entity repository:
+  * Définissez une nouvelle méthode dans votre référentiel d'entité:
 
 ```
 Slice<YourEntity> findSliceBy(Pageable pageable);
 ```
 
-  * Define new static method in `PaginationUtil.java` located in `web/rest/util` package
+  * Définissez une nouvelle méthode statique dans `PaginationUtil.java`  située dans le package `web/rest/util`
 
 ```
 public static HttpHeaders generateSliceHttpHeaders(Slice<?> slice) {
@@ -31,7 +31,7 @@ public static HttpHeaders generateSliceHttpHeaders(Slice<?> slice) {
 }
 ```
 
-  * Modify REST controller to call Slice instead of Page and generate new HTTP headers.
+  *Modifiez le contrôleur REST pour appeler Slice au lieu de Page et générer de nouveaux en-têtes HTTP.
 
 ```
 @GetMapping("/<YourEntities>")
@@ -44,13 +44,13 @@ public ResponseEntity<List<Repo>> getAllRepos(Pageable pageable)
 }
 ```
 
-  * Define new view model in `entity.controller.js`
+  * Définissez un nouveau modèle de vue dans   `entity.controller.js`
 
 ```
 vm.hasNextPage = false;
 ```
 
-  * Extract HTTP header value from response and assign it to view model in
+  * Extrait la valeur de l'en-tête HTTP de la réponse et l'assigne au modèle de vue dans :
 
 ```
 function onSuccess(data, headers) {
@@ -59,7 +59,7 @@ function onSuccess(data, headers) {
 }
 ```
 
-  * Use view model with infinite-scroll plugin in `<your-entities>.html`
+  * Utilisez le modèle de vue avec le plugin de défilement infini dans `<your-entities>.html`
 
 ```
 <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="!vm.hasNextPage">
