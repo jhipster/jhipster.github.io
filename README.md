@@ -1,21 +1,21 @@
-# This is the source of JHipster's public [Web site](https://www.jhipster.tech/).
+# C'est la source du site Web public de JHipster en version Francaise disponible sur [https://www.jhipster.tech/](https://www.jhipster.tech/fr).
 
-**Note**: When changing styles, please update the `.scss` files under `css/scss` and run `npm run sass` to generate CSS. DO NOT UPDATE CSS directly.
+**Remarque**: Lorsque vous modifiez les styles, veuillez mettre à jour les fichiers `.scss` sous `css/scss` et exécuter `npm run sass` pour générer le CSS. NE METTEZ PAS À JOUR LE CSS directement.
 
-This Web site is rendered with GitHub pages.
+Ce site Web est rendu avec les pages GitHub.
 
-To run this locally
+Pour exécuter localement :
 
-- [Fork this](https://github.com/jhipster/jhipster.github.io/fork) repo and clone to your file system
-- [Install Jekyll](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
-- Run `npm install && bundle install` if you are running it for the first time.
-- If you want to avoid installing to system directories, install to vendor directory instead: `bundle install --path vendor/bundle`
-- On MacOS, if you have trouble installing `nokogiri`, try: `bundle config build.nokogiri --use-system-libraries=true --with-xml2-include="$(xcrun --show-sdk-path)"/usr/include/libxml2`
-- Run `bundle exec jekyll serve` or `npm start` in the cloned repo folder
-- You will be able to access the site at http://localhost:4000
+- [Fourchez](https://github.com/jhipster/jhipster.github.io/fork) ce dépôt et clonez-le sur votre système de fichiers.
+- [Installez Jekyll](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).
+- Exécutez `npm install && bundle install` si vous l'exécutez pour la première fois.
+- Si vous souhaitez éviter d'installer dans des répertoires système, installez plutôt dans le répertoire `vendor` : `bundle install --path vendor/bundle`.
+- Sur MacOS, si vous avez des problèmes pour installer `nokogiri`, essayez : `bundle config build.nokogiri --use-system-libraries=true --with-xml2-include="$(xcrun --show-sdk-path)"/usr/include/libxml2`.
+- Exécutez `bundle exec jekyll serve` ou `npm start` dans le dossier du dépôt cloné.
+- Vous pourrez accéder au site à l'adresse http://localhost:4000.
 
-Or with Docker and Docker-Compose (recommended way on Windows)
+Ou avec Docker et Docker-Compose (méthode recommandée sur Windows) :
 
-- [Fork this](https://github.com/jhipster/jhipster.github.io/fork) repo and clone to your file system
-- Run `docker-compose up`
-- You will be able to access the site at http://0.0.0.0:4000
+- [Fourchez](https://github.com/jhipster/jhipster.github.io/fork) ce dépôt et clonez-le sur votre système de fichiers.
+- Exécutez `docker-compose up`.
+- Vous pourrez accéder au site à l'adresse http://0.0.0.0:4000.
