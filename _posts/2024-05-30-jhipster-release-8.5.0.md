@@ -12,10 +12,10 @@ It includes [309 closed issues and pull requests on the main branch](https://git
 ## What's new?
 
 - Upgrade to Spring Boot 3.3.0 ([#26242](https://github.com/jhipster/generator-jhipster/pull/26242))
-- Improve type safety ([#26096](https://github.com/jhipster/generator-jhipster/pull/26096), [#26096](https://github.com/jhipster/generator-jhipster/pull/26096))
 - Accessibility improvements for Angular ([#26107](https://github.com/jhipster/generator-jhipster/pull/26107))
-- Don't delete all in entities tests ([#26259](https://github.com/jhipster/generator-jhipster/pull/26259),[#26227](https://github.com/jhipster/generator-jhipster/pull/26227))
+- Don't delete all in entities tests ([#26259](https://github.com/jhipster/generator-jhipster/pull/26259), [#26227](https://github.com/jhipster/generator-jhipster/pull/26227))
 - Fix OIDC claims when `syncUserWithIdp` is false ([#26171](https://github.com/jhipster/generator-jhipster/pull/26171))
+- Improve type safety ([#26096](https://github.com/jhipster/generator-jhipster/pull/26096), [#26110](https://github.com/jhipster/generator-jhipster/pull/26110), [#26111](https://github.com/jhipster/generator-jhipster/pull/26111),[#26269](https://github.com/jhipster/generator-jhipster/pull/26269),[#26115](https://github.com/jhipster/generator-jhipster/pull/26115), [#26133](https://github.com/jhipster/generator-jhipster/pull/26133), [#26156](https://github.com/jhipster/generator-jhipster/pull/26156))
 - Sonar improvements ([#26302](https://github.com/jhipster/generator-jhipster/pull/26302), [#26272](https://github.com/jhipster/generator-jhipster/pull/26272), [#26270](https://github.com/jhipster/generator-jhipster/pull/26270), [#26268](https://github.com/jhipster/generator-jhipster/pull/26268), [#26264](https://github.com/jhipster/generator-jhipster/pull/26264), [#26246](https://github.com/jhipster/generator-jhipster/pull/26246), [#26241](https://github.com/jhipster/generator-jhipster/pull/26241), [#26210](https://github.com/jhipster/generator-jhipster/pull/26210), [#26225](https://github.com/jhipster/generator-jhipster/pull/26225))
 
 ### :computer: Frontend
