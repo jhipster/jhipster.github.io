@@ -4,7 +4,7 @@ title: API Gateway
 permalink: /api-gateway/
 sitemap:
     priority: 0.7
-    lastmod: 2017-05-03T00:00:00-00:00
+    lastmod: 2024-06-03T00:00:00-00:00
 ---
 
 # <i class="fa fa-exchange"></i> The JHipster API Gateway
@@ -22,7 +22,7 @@ JHipster can generate API gateways. A gateway is a normal JHipster application, 
 
 <h2 id="architecture_diagram">Architecture diagram</h2>
 
-<img src="{{ site.url }}/images/microservices_architecture_detail.003.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
+<img src="{{ site.url }}/images/microservices_architecture_detail.006.png" alt="Diagram" style="width: 800; height: 600" class="img-responsive"/>
 
 <h2 id="http_routing">HTTP requests routing using the gateway</h2>
 
@@ -31,9 +31,9 @@ When the gateways and the microservices are launched, they will register themsel
 The gateway will automatically proxy all requests to the microservices, using their application name: for example, when microservices `app1` is registered, it is available on the gateway on the `/services/app1` URL.
 
 For example, if your gateway is running on `localhost:8080`, you could point to [http://localhost:8080/services/app1/api/foos](http://localhost:8080/services/app1/api/foos) to
-get the `foos` resource served by microservice `app1`. If you're trying to do this with your Web browser, don't forget REST resources are secured by default in JHipster, so you need to send the correct JWT header (see the point on security below), or remove the security on those URLs in the microservice's `MicroserviceSecurityConfiguration` class.
+get the `foos` resource served by microservice `app1`. If you're trying to do this with your Web browser, don't forget REST resources are secured by default in JHipster, so you need to send the correct JWT header (see the point on security below), or remove the security on those URLs in the microservice's `SecurityConfiguration` class.
 
-If there are several instances of the same service running, the gateway will get those instances from the Service Registry, and will load balance HTTP requests using [Consul](https://www.consul.io/use-cases/load-balancing).
+If there are several instances of the same service running, the gateway will get those instances from the Service Registry, and will load balance HTTP requests using [Consul](https://www.consul.io/use-cases/load-balancing). You can access a detailed list of runnig microservices, including their IP addresses, Git version, status, and more, at [http://localhost:8080/api/gateway/routes](http://localhost:8080/api/gateway/routes). This endpoint is secured for protection.
 
 Each gateway has a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.
 
@@ -129,3 +129,17 @@ For example, if you only want the `/api/foo` endpoint of microservice `bar` to b
         gateway:
             authorized-microservices-endpoints:
                 bar: /api/foo
+<h2 id="acl">Enabling TLS for Gateway Security </h2>
+By default, the gateway operates over unsecured HTTP. For production environments, it's recommended to enable TLS for enhanced security. To do this, uncomment the provided code snippet, under `application-prod.yml` This will utilize a self-signed TLS certificate located under `config/tls` with the filename `keystore.p12`, or you can specify your own keystore with a predefined password.
+
+	server:
+	   port: 443
+   		ssl:
+		   key-store: classpath:config/tls/keystore.p12
+	       key-store-password: password
+   		   key-store-type: PKCS12
+           key-alias: selfsigned
+          # The ciphers suite enforce the security by deactivating some old and deprecated SSL cipher, this list was tested against SSL Labs (https://www.ssllabs.com/ssltest/)
+	       ciphers: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 ,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 ,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 ,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA,TLS_RSA_WITH_CAMELLIA_256_CBC_SHA,TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA,TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+
+Keep in mind that enabling TLS on the server might introduce some performance overhead. If possible, consider using a load balancer outside the gateway with SSL termination to handle encryption, which can help mitigate this performance impact.

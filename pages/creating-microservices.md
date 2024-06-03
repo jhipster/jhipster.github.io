@@ -60,6 +60,6 @@ Using Hazelcast with microservices will result in a specific configuration:
 
 <h2 id="no_database">Microservices with no database</h2>
 
-Only microservices applications can be created without a database. This is because microservices are small and do not have user-management code.
+Microservices applications can be created without a database. This is because microservices are small and do not have user-management code. 
 
-A microservice without a database is very small, and could be used to connect to a specific back-end like a legacy system.
+A microservice without a database is very small and could be used to connect to a specific back-end like a legacy system or serve as a proxy to other services outside of your realm. 
