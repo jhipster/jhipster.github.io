@@ -22,7 +22,7 @@ A "monolithic" application is much easier to work on, so if you don't have any s
 
 The JHipster microservices architecture works in the following way:
 
-* A [gateway]({{ site.url }}/api-gateway/) is a JHipster-generated application (using the microservice gateway type) designed to handle web traffic and serve an Angular, React, or VueJs application. While you can have multiple gateways following the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), it's not required. The gateway is built on the Spring Cloud Gateway library and supports both MVC and Flux frameworks.
+* A [gateway]({{ site.url }}/api-gateway/) is a JHipster-generated application (using the microservice gateway type) designed to handle web traffic and serve an Angular, React, or Vue application. While you can have multiple gateways following the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), it's not required. The gateway is built on the Spring Cloud Gateway library and supports both MVC and WebFlux frameworks.
  * [Consul]({{ site.url }}/consul/) is a service discovery service, as well as a key/value store.
  * The [JHipster Registry]({{ site.url }}/jhipster-registry/) is a runtime application on which all applications registers and get their configuration from. It also provides runtime monitoring dashboards. It can be used as an alternative to Consul. *(deprecated)*
  * [Microservices]({{ site.url }}/creating-microservices/) are JHipster-generated applications (using application type `microservice application` when you generate them), that handle REST requests. They are stateless, and several instances of them can be launched in parallel to handle heavy loads.
