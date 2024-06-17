@@ -33,7 +33,7 @@ The gateway will automatically proxy all requests to the microservices, using th
 For example, if your gateway is running on `localhost:8080`, you could point to [http://localhost:8080/services/app1/api/foos](http://localhost:8080/services/app1/api/foos) to
 get the `foos` resource served by microservice `app1`. If you're trying to do this with your Web browser, don't forget REST resources are secured by default in JHipster, so you need to send the correct JWT header (see the point on security below), or remove the security on those URLs in the microservice's `SecurityConfiguration` class.
 
-If there are several instances of the same service running, the gateway will get those instances from the Service Registry, and will load balance HTTP requests using [Consul](https://www.consul.io/use-cases/load-balancing). You can access a detailed list of runnig microservices, including their IP addresses, Git version, status, and more, at [http://localhost:8080/api/gateway/routes](http://localhost:8080/api/gateway/routes). This endpoint is secured for protection.
+If several instances of the same service are running, the gateway will get those instances from the Service Registry and load balance HTTP requests using [Consul](https://www.consul.io/use-cases/load-balancing). You can access a detailed list of running microservices, including their IP addresses, Git version, status, and more, at [http://localhost:8080/api/gateway/routes](http://localhost:8080/api/gateway/routes). This endpoint is secured for protection.
 
 Each gateway has a specific "admin > gateway" menu, where opened HTTP routes and microservices instances can be monitored.
 
