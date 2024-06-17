@@ -130,7 +130,7 @@ For example, if you only want the `/api/foo` endpoint of microservice `bar` to b
             authorized-microservices-endpoints:
                 bar: /api/foo
 <h2 id="acl">Enabling TLS for Gateway Security </h2>
-By default, the gateway operates over unsecured HTTP. For production environments, it's recommended to enable TLS for enhanced security. To do this, uncomment the provided code snippet, under `application-prod.yml` This will utilize a self-signed TLS certificate located under `config/tls` with the filename `keystore.p12`, or you can specify your own keystore with a predefined password.
+By default, the gateway operates over unsecured HTTP. For production environments, it's recommended to enable TLS for enhanced security. To do this, uncomment the provided code snippet, under `application-prod.yml`. This will utilize a self-signed TLS certificate located in `config/tls` with the filename `keystore.p12`, or you can specify your own keystore with a predefined password.
 
 	server:
 	   port: 443
