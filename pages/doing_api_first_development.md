@@ -22,7 +22,7 @@ and <enter> to proceed)
 ❯◉ API first development using OpenAPI-generator
 ```
 
-This option will configure the build tool, Maven or Gradle, to use the openapi-generator-maven-plugin to generate API code from an OpenAPI (Swagger) Specification (OAS) file. Both Swagger v2 and OpenAPI v3 formats are supported.
+This option will configure the build tool, [Maven or Gradle](https://openapi-generator.tech/docs/plugins), to generate API code from an OpenAPI (Swagger) Specification (OAS) file. Both Swagger v2 and OpenAPI v3 formats are supported.
 
 ## Rationale for API-First development
 
