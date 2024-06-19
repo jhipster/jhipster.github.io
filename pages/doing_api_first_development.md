@@ -340,8 +340,3 @@ This will generate a Bearer token for API calls, as follows:
 ```shell
 curl -v -H "Accept: application/json" -H "Authorization: Bearer <ENCODED_TOKEN>" http://localhost:8081/api/pets/1
 ```
-
-### Using the `openapi-client` Sub-Generator
-
-JHipster also provides support for generation of client code using [Spring Cloud OpenFeign](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/) or Spring Webclient for reactive apps using an OpenAPI/Swagger specification.
-The generated Client can be used in both Monolithic and Micro-service applications and supports Swagger v2 and OpenAPI v3 definitions. To invoke this sub-generator run `jhipster openapi-client`.
