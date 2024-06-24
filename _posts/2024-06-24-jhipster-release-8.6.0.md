@@ -25,7 +25,7 @@ It includes [216 closed issues and pull requests on the main branch](https://git
 * Fix MySQL 8.4.0 so it starts in Docker ([#26359](https://github.com/jhipster/generator-jhipster/pull/26359))
 * Don't add annotations to inner classes. ([#26345](https://github.com/jhipster/generator-jhipster/pull/26345))
 * Upgrade to MariaDB 11.4.2 ([#26346](https://github.com/jhipster/generator-jhipster/pull/26346))
-* Sonar: UserDTO overrides `equals()` and should therefore also override `hashCode()` ([#26325]https://github.com/jhipster/generator-jhipster/pull/26325))
+* Sonar: UserDTO overrides `equals()` and should therefore also override `hashCode()` ([#26325](https://github.com/jhipster/generator-jhipster/pull/26325))
 * Loggers should be 'private static final' ([#26532](https://github.com/jhipster/generator-jhipster/pull/26532))
 
 ### :computer: Frontend
