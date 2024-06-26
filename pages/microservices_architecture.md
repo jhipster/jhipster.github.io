@@ -22,11 +22,11 @@ A "monolithic" application is much easier to work on, so if you don't have any s
 
 The JHipster microservices architecture works in the following way:
 
- * A [gateway]({{ site.url }}/api-gateway/) is a JHipster-generated application (using application type `microservice gateway` when you generate it) that handles Web traffic, and serves an Angular/React/VueJs application. There can be several different gateways, if you want to follow the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), but that's not mandatory.
+* A [gateway]({{ site.url }}/api-gateway/) is a JHipster-generated application (using the microservice gateway type) designed to handle web traffic and serve an Angular, React, or Vue application. While you can have multiple gateways following the [Backends for Frontends pattern](https://www.thoughtworks.com/insights/blog/bff-soundcloud), it's not required. The gateway is built on the Spring Cloud Gateway library and supports both MVC and WebFlux frameworks.
  * [Consul]({{ site.url }}/consul/) is a service discovery service, as well as a key/value store.
- * The [JHipster Registry]({{ site.url }}/jhipster-registry/) is a runtime application on which all applications registers and get their configuration from. It also provides runtime monitoring dashboards. It can be used as an alternative to Consul.
+ * The [JHipster Registry]({{ site.url }}/jhipster-registry/) is a runtime application on which all applications registers and get their configuration from. It also provides runtime monitoring dashboards. It can be used as an alternative to Consul. *(deprecated)*
  * [Microservices]({{ site.url }}/creating-microservices/) are JHipster-generated applications (using application type `microservice application` when you generate them), that handle REST requests. They are stateless, and several instances of them can be launched in parallel to handle heavy loads.
 
-In the diagram below, the green components are specific to your application and the blue components provide its underlying infrastructure.
+This diagram illustrates a microservices architecture utilizing JHipster, incorporating key technologies such as Netflix OSS, Spring Cloud, and Docker. It features a gateway for handling web traffic and user authentication, microservices for backend operations, and comprehensive monitoring and logging with tools like OpenTelemetry, Elasticsearch, Logstash, and Kibana.
 
-<img src="{{ site.url }}/images/microservices_architecture_2.png" alt="Diagram" style="width: 930px; height: 558px"/>
+<img src="{{ site.url }}/images/microservices_architecture_updated.png" alt="Diagram" style="width: 930px; height: 558px"/>
