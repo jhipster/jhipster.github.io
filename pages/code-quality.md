@@ -19,17 +19,17 @@ JHipster provides a specific Docker Compose configuration for Sonar ([here is th
 
 If you use Maven, it has been automatically configured:
 
-    ./mvnw -Pprod clean verify sonar:sonar -Dsonar.host.url=http://localhost:9001
+    ./mvnw -Pprod clean verify sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
 
 If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
 
-    ./mvnw initialize sonar:sonar -Dsonar.host.url=http://localhost:9001
+    ./mvnw initialize sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
 
 If you use Gradle, it has also been automatically configured:
 
-    ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.host.url=http://localhost:9001
+    ./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.login=admin -Dsonar.password=admin
 
-In every cases you can, now, run analysis with [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) if you already have installed it.
+You can also run an analysis with [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner), if you have it installed.
 
     sonar-scanner
 
