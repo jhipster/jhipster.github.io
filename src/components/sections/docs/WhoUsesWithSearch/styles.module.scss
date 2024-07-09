@@ -1,0 +1,39 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  &Tabs {
+    margin-top: 2.5rem;
+  }
+
+  &FeaturedList {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    > li {
+      margin: 0 !important;
+    }
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    &FeaturedList {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &AllList {
+      columns: 2;
+    }
+  }
+}
+
+@media (min-width: $xl-screen) {
+  .section {
+    &FeaturedList {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

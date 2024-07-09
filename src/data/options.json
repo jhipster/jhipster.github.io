@@ -1,0 +1,89 @@
+{
+  "clientSide": [
+    { "label": "HTML5", "image": "/images/logo/svg/html-5.svg" },
+    { "label": "CSS3", "image": "/images/logo/svg/css-3.svg" },
+    { "label": "Bootstrap", "image": "/images/logo/svg/bootstrap.svg" },
+    { "label": "TypeScript", "image": "/images/logo/svg/typescript.svg" },
+    { "label": "Angular", "image": "/images/logo/svg/angular.svg" },
+    { "label": "React", "image": "/images/logo/svg/react.svg" },
+    { "label": "Vue", "image": "/images/logo/svg/vue.svg" },
+    { "label": "Redux", "image": "/images/logo/svg/redux.svg" },
+    { "label": "Websockets", "image": "/images/logo/icons/websocket.png" },
+    { "label": "NPM", "image": "/images/logo/svg/npm.svg" },
+    { "label": "Webpack", "image": "/images/logo/svg/webpack.svg" },
+    { "label": "SASS", "image": "/images/logo/svg/sass.svg" },
+    { "label": "Browsersync", "image": "/images/logo/svg/browsersync.svg" },
+    { "label": "Jest", "image": "/images/logo/svg/jest.svg" },
+    { "label": "CyPress", "image": "/images/logo/svg/cypress.svg" },
+    { "label": "Protractor", "image": "/images/logo/icons/protractor.png" }
+  ],
+  "serverSide": [
+    { "label": "Spring Boot", "image": "/images/logo/svg/spring-boot.svg" },
+    { "label": "Spring Security", "image": "/images/logo/icons/spring.png" },
+    { "label": "Micronaut", "image": "/images/logo/svg/micronaut.svg" },
+    { "label": "Netflix OSS", "image": "/images/logo/icons/netflix.png" },
+    { "label": "Consul", "image": "/images/logo/svg/consul.svg" },
+    { "label": "Gradle", "image": "/images/logo/icons/gradle.png" },
+    { "label": "Maven", "image": "/images/logo/icons/maven.png" },
+    { "label": "Hibernate", "image": "/images/logo/svg/hibernate.svg" },
+    { "label": "Liquibase", "image": "/images/logo/icons/liquibase.gif" },
+    { "label": "MySQL", "image": "/images/logo/svg/mysql.svg" },
+    { "label": "MariaDB", "image": "/images/logo/svg/mariadb.svg" },
+    { "label": "PostgreSQL", "image": "/images/logo/svg/postgresql.svg" },
+    { "label": "Oracle", "image": "/images/logo/svg/oracle.svg" },
+    { "label": "MS SQL", "image": "/images/logo/icons/mssql.png" },
+    { "label": "MongoDB", "image": "/images/logo/icons/mongo.png" },
+    { "label": "Mongock", "image": "/images/logo/icons/mongock.png" },
+    { "label": "Cassandra", "image": "/images/logo/svg/cassandra.svg" },
+    { "label": "Couchbase", "image": "/images/logo/svg//couchbase.svg" },
+    { "label": "Neo4j", "image": "/images/logo/svg/neo4j-icon.svg" },
+    { "label": "EhCache", "image": "/images/logo/icons/ehcache.png" },
+    { "label": "Caffeine", "image": "/images/logo/icons/caffeine.png" },
+    { "label": "Hazelcast", "image": "/images/logo/icons/Hazelcast.png" },
+    { "label": "Infinispan", "image": "/images/logo/icons/infinispan.png" },
+    { "label": "Memcached", "image": "/images/logo/icons/memcached.png" },
+    { "label": "Redis", "image": "/images/logo/icons/redis.png" },
+    { "label": "Elasticsearch", "image": "/images/logo/svg/elasticsearch.svg" },
+    { "label": "Kafka", "image": "/images/logo/svg/kafka.svg" },
+    { "label": "Pulsar", "image": "/images/logo/svg/pulsar.svg" },
+    { "label": "Swagger", "image": "/images/logo/icons/swagger.png" },
+    {
+      "label": "Elastic Stack",
+      "image": "/images/logo/icons/elastic-stack.png"
+    },
+    { "label": "Prometheus", "image": "/images/logo/svg/prometheus.svg" },
+    { "label": "Thymeleaf", "image": "/images/logo/icons/thymeleaf.png" },
+    { "label": "Gatling", "image": "/images/logo/icons/gatling.png" },
+    { "label": "Cucumber", "image": "/images/logo/svg/cucumber.svg" },
+    { "label": "ArchUnit", "image": "/images/logo/svg/archunit.svg" },
+    {
+      "label": "Testcontainers",
+      "image": "/images/logo/svg/testcontainers.svg"
+    }
+  ],
+  "deployment": [
+    { "label": "Docker", "image": "/images/logo/svg/docker.svg" },
+    { "label": "Kubernetes", "image": "/images/logo/svg/kubernets.svg" },
+    { "label": "Heroku", "image": "/images/logo/svg/heroku.svg" },
+    { "label": "CloudFoundry", "image": "/images/logo/icons/cf.png" },
+    { "label": "AWS", "image": "/images/logo/svg/aws.svg" },
+    { "label": "CloudCaptain", "image": "/images/logo/svg/cloudcaptain.svg" },
+    { "label": "Google Cloud Platform", "image": "/images/logo/gcp.png" },
+    { "label": "OpenShift", "image": "/images/logo/svg/openshift.svg" },
+    {
+      "label": "Azure Spring Apps",
+      "image": "/images/logo/azure-spring-apps-large.png"
+    }
+  ],
+  "cicd": [
+    { "label": "Jenkins", "image": "/images/logo/svg/jenkins.svg" },
+    { "label": "Travis CI", "image": "/images/logo/svg/travis.svg" },
+    { "label": "GitLab CI", "image": "/images/logo/svg/gitlab.svg" },
+    { "label": "CircleCI", "image": "/images/logo/svg/circleci.svg" },
+    { "label": "Azure Pipelines", "image": "/images/logo/azure-pipelines.png" },
+    {
+      "label": "Github Workflows",
+      "image": "/images/logo/svg/github-actions.svg"
+    }
+  ]
+}

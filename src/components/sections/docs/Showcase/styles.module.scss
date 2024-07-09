@@ -1,0 +1,18 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  &List {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: $xl-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}

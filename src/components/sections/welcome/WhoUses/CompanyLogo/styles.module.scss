@@ -1,0 +1,28 @@
+.card {
+  background-color: transparent;
+  box-shadow: none;
+
+  &Body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+  }
+
+  &Image {
+    height: 3.25rem;
+    width: auto;
+    object-fit: contain;
+    max-width: 10rem;
+    filter: invert(75%) grayscale(100%);
+    -webkit-filter: invert(0.75) grayscale(1);
+  }
+  &:hover {
+    background-color: #ffffff;
+
+    .cardImage {
+      filter: none;
+      -webkit-filter: none;
+    }
+  }
+}

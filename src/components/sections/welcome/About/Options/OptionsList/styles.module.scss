@@ -1,0 +1,48 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  margin-top: 3.5rem;
+
+  &Title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+
+  &List {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+}
+
+.card {
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  background-color: #ffffff;
+  padding: 1rem;
+
+  &Image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+  }
+}

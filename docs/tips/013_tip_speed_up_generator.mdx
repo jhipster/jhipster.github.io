@@ -1,0 +1,87 @@
+---
+title: Speed up the generator-jhipster
+last_update:
+  date: 2016-05-15T22:22:00-00:00
+---
+
+__Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
+
+:::warning
+
+Those tips don't work for npm 3+ because it uses symlink.
+
+:::
+
+When using the generator-jhipster, the command `npm install` may take several minutes, depending on your connection speed.
+
+This tip can be used in many cases:
+
+- for demo of JHipster, to improve your experience
+- for dev team, to regenerate faster a project with `.yo-rc.json`
+- for continuous integration
+
+
+## Create a new project for node_modules
+
+Create a directory which will contain all `node_modules` libraries, and go into it:
+
+```shell
+mkdir jhipster-speedup
+cd jhipster-speedup
+```
+
+Create the directory `node_modules`:
+
+```shell
+mkdir -p node_modules
+```
+
+The project structure is :
+
+```
+jhipster-speedup
+├── node_modules
+```
+
+:::warning
+
+Use this next command only if your are a developer on JHipster. It will link to your fork project of generator-jhipster:
+
+:::
+
+```shell
+npm link generator-jhipster
+```
+
+
+## Generating projects
+
+Create a directory which will contain your new JHipster project, and go into it:
+
+```shell
+mkdir jhipster
+cd jhipster
+```
+
+Create a link to the directory `node_modules`:
+
+```shell
+ln -s <your path>/jhipster-speedup/node_modules
+```
+
+Generate a new project, and answer to all questions:
+
+```shell
+jhipster
+```
+
+The first time, it will take several minutes.
+
+The next times, it will use the existing `node_modules` directory, so npm won't download all libraries.
+
+:::warning
+
+If you use specific libraries and modify your package.json, you should copy the `node_modules`
+from jhipster-speedup to your folder project, instead of using a link.
+
+:::

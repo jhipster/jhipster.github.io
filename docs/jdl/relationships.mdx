@@ -1,0 +1,221 @@
+---
+title: JHipster Domain Language (JDL) - Relationships
+slug: /jdl/relationships/
+last_update:
+  date: 2019-11-03T12:00:00-00:00
+---
+
+## Relationship types
+
+Mentioned after the `relationship` keyword.
+
+There are four relationship types:
+  - `OneToOne`
+  - `OneToMany`
+  - `ManyToOne`
+  - `ManyToMany`
+
+To know more about relationships and what's possible to achieve, you can head
+to [the dedicated page](/managing-relationships).
+
+A note on plural names: JHipster handles them so that you don't have to in your relationships.
+
+
+## Relationship methods
+
+Mentioned after the source and destination entity, used with the `with` keyword.
+
+Supported methods:
+
+- `builtInEntity`: required when the destination entity is a built in entity like `User` and `Authority`
+
+
+## Multiple relationship bodies
+
+If you're tired of having _n_ relationships of the same type in your JDL file, don't worry! There's a solution.
+
+Take this JDL sample for instance:
+
+```jdl
+relationship OneToOne {
+  A to B
+}
+relationship OneToOne {
+  B to C
+}
+relationship OneToOne {
+  C to D
+}
+relationship OneToOne {
+  D to A
+}
+```
+
+The solution consists in having every relationship body inside on relationship declaration, like this:
+
+```jdl
+relationship OneToOne {
+  A to B,
+  B to C,
+  C to D,
+  D to A
+}
+```
+
+This syntax is really useful when:
+
+- You have lots of relationships of the same type,
+- You want to know what the relationships are,
+- You don't want to waste time looking for them in your JDL file(s)
+
+
+## Syntax
+
+Relationship declaration is done as follows:
+
+```jdl
+relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
+  @<option>("<option value>")+ <from entity>[{<relationship name>[(<display field>)]}] to @<option>("<option value>")+ <to entity>[{<relationship name>[(<display field>)]}]+
+}
+```
+
+- `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
+- `<option>` is one of the supported values: `Id | OnDelete | OnUpdate`. Make sure to put this on the correct side of the relationship. First character case is not sensitive (jdl export will generate upper).
+- `<option value>` is one of the fitting optional values for the given option: `NO ACTION | RESTRICT | CASCADE | SET NULL | SET DEFAULT`
+- `<from entity>` is the name of the entity owner of the relationship: the source,
+- `<to entity>` is the name of the entity where the relationship goes to: the destination,
+- `<relationship name>` is the name of the field having the other end as type,
+- `<display field>` is the name of the field that should show up in select boxes (default: `id`),
+- `required` whether the injected field is required.
+- `with builtInEntity` whether the relationship destination is an built in entity
+- And you can have more than one relationship body
+  - See the [Multiple relationship bodies](#multiple-relationship-bodies) section for more info!
+
+
+## Examples
+
+### Basic example
+
+```jdl
+relationship OneToOne {
+  A to B
+}
+```
+
+Note that this example is the same as:
+```jdl
+relationship OneToOne {
+  A{b} to B{a}
+}
+```
+Not specifying an injected field is the short form of having a bidirectional relationship.
+
+Another example:
+```jdl
+relationship OneToOne {
+  A{b} to B
+}
+```
+This will generate a unidirectional relationship. You can only find entity B through entity A, but you cannot find entity A through entity B.
+
+### With injected fields
+
+```jdl
+relationship ManyToMany {
+  A{b} to B{a}
+}
+```
+
+This is a bidirectional relationship, meaning that both entities will be generated with an "instance" of the other
+entity.
+
+### With methods
+
+```jdl
+relationship OneToOne {
+  A to User with builtInEntity
+}
+```
+
+### With options
+
+```jdl
+relationship ManyToOne {
+   A to @OnDelete("SET NULL") @OnUpdate("CASCADE") B
+}
+```
+Note: 
+
+In Hibernate/JPA, deleting a parent entity in a many-to-one relationship with child entities depends on the relationship configuration and cascading behavior.
+
+Cascading Delete: When enabled, deleting the parent automatically deletes its associated children. This is achieved using CascadeType.REMOVE in the @OneToMany annotation on the parent entity class.
+
+```java
+@OneToMany(mappedBy = "parent", cascade = CascadeType.REMOVE)
+private List<ChildEntity> children;
+```
+
+No Cascading Delete: If not enabled, deleting a parent with children will result in a foreign key constraint violation. You must manually remove or disassociate the children before deleting the parent.
+Use cascading delete with caution as it can lead to unintended data loss.
+
+Alternative for Preventing Delete Error: Use the @OnDelete annotation in JDL which will configure the database schema for cascading delete or add cascade = CascadeType.REMOVE to the generated Java code (if applicable).
+
+### With required sides
+
+Used to make at least one relationship side required.
+
+```jdl
+relationship ManyToMany {
+  A{b required} to B{a}
+}
+
+// or
+
+relationship ManyToMany {
+  A{b} to B{a required}
+}
+
+or
+
+relationship ManyToMany {
+  A{b(name) required} to B{a required}
+}
+```
+
+### Reflexive relationships
+
+A reflexive relationship is a relationship whose source & destination entities are the same.
+
+```jdl
+relationship ManyToMany {
+  A{parent} to A{child}
+}
+```
+
+#### A note on required reflexive relationships
+
+As noted [here](https://github.com/jhipster/generator-jhipster/issues/11495), required relationships to the same entity
+are not supported. The issue is that a child must **always** have a parent, which in turn must have one too, etc.
+A possible workaround is to have explicit root and children entities.
+
+### Commenting
+
+Adding comments for relationships is possible:
+
+```jdl
+relationship OneToOne {
+  /** This comment will be put before b in entity A*/
+  A{b}
+  to
+  /** This comment will be put before a in entity B*/
+  B{a}
+}
+```
+
+The same commenting rules are applied here.
+These comments will later be added as Javadoc comments by JHipster. The JDL possesses its own kind of comment:
+  - // an ignored comment
+  - /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
+Please note that the JDL Studio directives that start with `#` will be ignored during parsing.

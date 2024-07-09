@@ -1,0 +1,35 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  color: #ffffff;
+
+  &Default {
+    background-color: var(--ifm-color-primary-darkest);
+  }
+
+  &Light {
+    background-color: var(--ifm-color-primary-dark);
+  }
+
+  &List {
+    list-style: none;
+    padding: 2.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  &Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

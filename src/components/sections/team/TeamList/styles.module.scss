@@ -1,0 +1,50 @@
+@import '@site/src/scss/breakpoints';
+
+.list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+}
+
+.avatar {
+  &Links {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    > li {
+      margin: 0 !important;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    svg {
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+}
+
+@media (min-width: $md-screen) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $xl-screen) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

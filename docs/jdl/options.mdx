@@ -1,0 +1,377 @@
+---
+title: JHipster Domain Language (JDL) - Options
+slug: /jdl/options/
+last_update:
+  date: 2019-11-02T12:00:00-00:00
+---
+
+In JHipster, you can specify options for your entities such as pagination or DTO.
+You can do the same with the JDL, either with annotations on the entity, or with the following syntax:
+
+```jdl
+entity A {
+  name String required
+}
+entity B
+entity C
+
+dto A, B with mapstruct
+
+paginate A with infinite-scroll
+paginate B with pagination
+paginate C with pager  // pager is only available in AngularJS
+
+service A with serviceClass
+service C with serviceImpl
+```
+
+The complete list of available options is [here](#available-options).
+
+
+## How to
+
+There are two kinds of options:
+
+- unary (without option value)
+- binary (with value)
+
+There are three ways to apply options to entities:
+
+- using the option name (`dto`, `readOnly`, etc.), see examples
+- using annotations
+- use the `use XYZ` form
+
+Mixing them is not recommended as it reduces readability.
+
+
+## Syntax
+
+For the regular form:
+```
+<option name> <option entity list>
+
+or
+
+<option name> <option entity list> with <option value>
+
+or
+
+<option name> <option entity list> with <option value> except <option excluded entity list>
+
+or 
+
+<option name> <option entity list> except <option excluded entity list>
+```
+
+- For unary options:
+  - the option name and the list is needed
+  - the excluded entities are optional with the `except` keyword (see below for more details)
+- For binary options:
+  - the entity list precedes the `with` keyword and the option value
+  - again, the excluded entities are in the end with the `except` keyword
+
+For annotations:
+```
+@<option name>
+entity <entity name>
+
+or
+
+@<option name>(<option value>)
+```
+
+- Similar to Java, annotations may take values in parentheses
+  - depending on the option, values may or may not be optional
+
+
+## The use XYZ options
+
+With the use-option form, you can specify some options on your entities.
+It was created during JHipster Code 2020, and the reasons behind its creation are to:
+
+- Solve the option-disabling issue (there are more than one way to say 'no' in JHipster: `no, false, none`)
+- Propose a way to group options by entities
+
+```jdl
+entity A
+entity B
+entity C
+
+use serviceClass for * except C
+use mapstruct, serviceImpl, infinite-scroll for A, B
+use pagination for C
+```
+
+|Use option value |Comment                                                                                                          |
+|-----------------|-----------------------------------------------------------------------------------------------------------------|
+|mapstruct        |Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'|
+|serviceClass     |                                                                                                                 |
+|serviceImpl      |                                                                                                                 |
+|pagination       |Pagination as an option is forbidden when the application uses Cassandra                                         |
+|infinite-scroll  |Pagination as an option is forbidden when the application uses Cassandra                                         |
+|elasticsearch    |Requires the application to have the searchEngine option enabled                                                 |
+|couchbase        |Requires the application to have the searchEngine option enabled                                                 |
+
+
+## Examples
+
+Each example will have three forms:
+
+- the regular one
+- the annotation-based one
+- the use form (when applicable)
+
+### Basic unary example
+
+Regular:
+```jdl
+entity A
+
+readOnly A
+```
+
+Annotation-based:
+```jdl
+@readOnly
+entity A
+```
+
+### Basic binary example
+
+Regular:
+```jdl
+entity A
+
+dto A with mapstruct
+```
+
+Annotation-based:
+```jdl
+@dto(mapstruct)
+entity A
+```
+
+With the `use` keyword:
+```jdl
+entity A
+
+use mapstruct, serviceImpl, pagination for A
+```
+
+### all, * example
+
+`all` and `*` are aliases.
+
+Regular:
+```jdl
+entity A
+entity B
+
+dto all with mapstruct
+```
+
+Annotation-based:
+```jdl
+@dto(mapstruct)
+entity A
+
+@dto(mapstruct)
+entity B
+```
+
+With the `use` keyword:
+```jdl
+entity A
+entity B
+
+use mapstruct, serviceImpl, pagination for *
+```
+
+### all, * example with exclusions (unary)
+
+Regular:
+```jdl
+entity A
+entity B
+
+skipClient * except A
+```
+
+Annotation-based:
+```jdl
+entity A
+
+@skipClient
+entity B
+```
+
+With the `use` keyword:
+```jdl
+entity A
+entity B
+
+use mapstruct, serviceImpl, pagination for * except A
+```
+
+### all, * example with exclusions (binary)
+
+Regular:
+```jdl
+entity A
+entity B
+
+dto all with mapstruct except A
+```
+
+Annotation-based:
+```jdl
+entity A
+
+@dto(mapstruct)
+entity B
+```
+
+With the `use` keyword:
+```jdl
+entity A
+entity B
+
+use mapstruct, serviceImpl, pagination for all except A
+```
+
+### Option with custom values
+
+```jdl
+entity A
+entity B
+
+microservice all with mySuperMS
+```
+
+### Mixed example
+
+Regular:
+```jdl
+entity A
+entity B
+entity C
+
+readOnly B, C
+dto * with mapstruct except C
+service * with serviceClass except C
+search A with elasticsearch
+```
+
+Annotation-based:
+```jdl
+@dto(mapstruct)
+@search(elastisearch)
+@service(serviceClass)
+entity A
+
+@readOnly
+@dto(mapstruct)
+@service(serviceClass)
+entity B
+
+@readOnly
+entity C
+```
+
+
+## About services
+
+No services specified will create a resource class which will call the repository interface directly. This is the
+default and simplest option, see A.
+
+`service with serviceClass` (see B) will make the resource call the service class which will call the repository interface.
+`service with serviceImpl` (see C) will make a service interface which will be used by the resource class.
+
+The interface is implemented by a concrete class which will call the repository interface.
+
+Using no service unless sure is the simplest option and good for CRUD. Use service with a Class if you will have a lot
+of business logic which will use multiple repositories making it ideal for a service class. JHipsters are not fan of
+unnecessary Interfaces but if you like them go for service with impl.
+
+```
+entity A
+entity B
+entity C
+
+// no service for A
+service B with serviceClass
+service C with serviceImpl
+```
+
+
+## Microservice-related options
+
+As of JHipster v3, microservices can be created. You can specify some options to generate your entities in the JDL:
+the microservice's name and the search engine.
+
+Here is how you can specify your microservice's name (the JHipster app's name):
+
+```
+entity A
+entity B
+entity C
+microservice * with mysuperjhipsterapp except C
+microservice C with myotherjhipsterapp
+search * with elasticsearch except C
+```
+
+The first option is used to tell JHipster that you want your microservice to deal with your entities, whereas the second
+specifies how and if you want your entities searched.
+
+
+## Custom annotations
+
+Custom annotations are possible in the JDL, for instance:
+
+```jdl
+@customAnnotation(customValue)
+entity A
+```
+
+The main use case for this is for blueprints: sometimes, you need have custom options for entities, or even fields.
+For regular options (`dto`, `pagination`, etc.), these options will be generated in the JSON like in the CLI.
+However, for custom options, they will be generated under and `options` key in the dumped JSON.
+
+
+## Available options
+
+_Not what you're looking for? Check the [application options](/jdl/applications#available-application-configuration-options)._
+
+### Entity options
+
+Here are the entity options supported in the JDL:
+
+|JDL option name (entity)|Option type|Default value|Possible values                 |Comment                                                                                                                                                 |
+|------------------------|-----------|-------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|skipClient              |unary      |false        |-                               |This will make the client code generation to be skipped                                                                                                 |
+|skipServer              |unary      |false        |-                               |This will make the server code generation to be skipped                                                                                                 |
+|noFluentMethod          |unary      |false        |-                               |See [this note](/2016/08/17/jhipster-release-3.6.0#important-change-fluent-setters) for more information                                           |
+|filter                  |unary      |false        |-                               |See [filtering](/entities-filtering) for more details; if an entity is filtered but doesn't have a service then 'serviceClass' will be used             |
+|readOnly                |unary      |false        |-                               |Adding this option will make an entity readOnly, see [this release note](/2019/10/10/jhipster-release-6.4.0/) for more details|
+|dto                     |binary     |no           |mapstruct, no                   |Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'                                       |
+|service                 |binary     |no           |serviceClass, serviceImpl, no   |-                                                                                                                                                       |
+|paginate                |binary     |no           |pagination, infinite-scroll, no |Pagination is forbidden when the application uses Cassandra                                                                                             |
+|search                  |binary     |no           |elasticsearch, no               |Requires the application to have the searchEngine option enabled                                                                                        |
+|microservice            |binary     |-            |custom value                    |Will be automatically added for every entity declared inside a microservice application                                                                 |
+|angularSuffix           |binary     |-            |custom value                    |-                                                                                                                                                       |
+|clientRootFolder        |binary     |-            |custom value                    |-                                                                                                                                                       |
+
+
+### Field options
+
+Here are the field options supported in the JDL:
+
+|JDL option name (field)|Default value|Possible values                                                                     |Comment                                                                                                                                                                        |
+|-----------------------|-------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|defaultValue           |undefined    |any value fitting to the datatype of the field, e.g. "myDefaultValue" or 42 or true |Will define a fixed default value on database schema side on the column, as well as adjust the clients passing in the option as default from input forms (only Angular for now)|
+|defaultValueComputed   |undefined    |database functions to generate default values for a column, e.g. "NOW(6)"           |This will generate a default value on database level using the given function                                                                                                  |
+
+
+## See also
+
+The application options are available [here](/jdl/applications)

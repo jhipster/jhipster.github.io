@@ -1,0 +1,74 @@
+---
+title: How to remove the register account service
+last_update:
+  date: 2021-03-19T21:22:00-00:00
+---
+
+__Tip submitted by [@apuntandoanulo](https://github.com/apuntandoanulo)__
+
+_Goal:_ If you want to eliminate the possibility that users can create accounts and let only a previously registered user do it, remove the following fragments and lines of code that are indicated below:
+
+
+## 1. On the back-end side
+
+* ___1.1___  `src\main\java\ ... \service\UserService.java`
+  - Remove the entire method `public User registerUser(...)`
+* ___1.2___ `src\main\java\ ... \rest\AccountResource.java`
+  - Remove the entire method `@PostMapping("/register")   public void registerAccount(...)`
+
+
+## 2. On the front-end side
+
+* ___2.1___ `src\main\webapp\app\account`
+  - Remove the entire folder `register` that contains: `register.component.html`, `register.component.ts`, `register.route.ts`, `register.service.ts`
+
+* ___2.2___ Go into `src\main\webapp\app\account\account.module.ts` and remove the following lines:
+  - `import { RegisterComponent } from './register/register.component'; `
+  - _declarations_ array -> `RegisterComponent`
+
+* ___2.3___ Go into `src\main\webapp\app\account\account.route.ts` and remove the following lines:
+  - `import { registerRoute } from './register/register.route'; `
+  - _ACCOUNT_ROUTES_ array -> `registerRoute `
+
+* ___2.4___ Go into `src\main\webapp\app\home\home.component.html` and remove the following block:
+
+```html
+<div class="alert alert-warning" *ngSwitchCase="false">
+  <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+  <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+</div>
+```
+
+* ___2.5___ Go into `src\main\webapp\app\layouts\navbar\navbar.component.html` and remove the following block:
+
+```html
+<li *ngSwitchCase="false">
+  <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
+      <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
+      <span jhiTranslate="global.menu.account.register">Register</span>
+  </a>
+</li>
+```
+
+* ___2.6___ Go into `src\main\webapp\app\shared\login\login.component.html` and remove the following block:
+
+```html
+<div class="alert alert-warning">
+  <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
+  <a class="alert-link" (click)="register()" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+</div>
+```
+
+* ___2.7___ Go into `src\main\webapp\app\shared\login\login.component.ts` and remove the following block:
+
+```ts
+register(): void {
+  this.activeModal.dismiss('to state register');
+  this.router.navigate(['/account/register']);
+}
+```
+
+* ___2.8___ Remove the messages files: `src\main\webapp\i18n\ ... \register.json`
+
+* ___2.9___ `src\test\javascript\spec\app\account`
+  - Remove the entire folder `register` that contains: `register.component.spec.ts`

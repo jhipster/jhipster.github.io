@@ -1,0 +1,65 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  margin-top: 4rem;
+
+  &List {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+}
+
+.card {
+  &Icon {
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+
+    > svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  &Title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  &Description {
+    line-height: 1.5rem;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+[data-theme='dark'] .card {
+  &Icon {
+    background-color: #1e293b;
+  }
+}

@@ -1,0 +1,29 @@
+---
+title: Allowing Common Web Fonts in Security Configuration
+last_update:
+  date: 2023-08-17T00:00:00-00:00
+---
+
+__Tip submitted by [@dinu0000](https://github.com/dinu0000)__
+
+When developing a JHipster web application, you might encounter issues with web fonts not loading properly due to security configurations. To allow common web fonts to load seamlessly, follow these steps:
+
+In your `SecurityConfiguration.java` file, update the `filterChain` method to permit requests for web fonts:
+
+```java
+@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    // ...
+    http
+        // other configurations
+        .authorizeHttpRequests(authz ->
+            authz
+                .requestMatchers("/", "/index.html", "/*.js", "/*.map", "/*.css").permitAll()
+                .requestMatchers("/*.ico", "/*.png", "/*.svg", "/*.webapp").permitAll()
+                .requestMatchers("/*.ico", "/*.png", "/*.svg", "/*.webapp", "/*.woff", "/*.woff2", "/*.ttf", "/*.otf").permitAll() // add common web font extensions here 
+                .requestMatchers("/app/**").permitAll()
+                // ... other configurations
+}
+```
+
+With these adjustments, your JHipster app's security configuration will allow the loading of common web fonts without encountering security restrictions.

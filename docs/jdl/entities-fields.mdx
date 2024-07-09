@@ -1,0 +1,179 @@
+---
+title: JHipster Domain Language (JDL) - Entities & fields
+slug: /jdl/entities-fields/
+last_update:
+  date: 2019-10-27T12:00:00-00:00
+---
+
+## Syntax
+
+The entity declaration is done as follows:
+
+```jdl
+[<entity javadoc>]
+[<entity annotation>*]
+entity <entity name> [(<table name>)] {
+  [<field javadoc>]
+  [<field annotation>*]
+  <field name> <field type> [<validation>*]
+}
+```
+
+- `<entity name>` the name of the entity,
+- `<field name>` the name of one field of the entity,
+- `<field type>` the JHipster supported type of the field,
+- and as an option:
+  - `<entity javadoc>` the documentation of the entity,
+  - `<entity annotation>` the options for the entity (see [OptionsEntity][] for a complete list of available options),
+  - `<table name>` the database table name (if you want to specify something different that the name automatically computed from the entity name),
+  - `<field javadoc>` the documentation of the field,
+  - `<field annotation>` the options for the field (see [OptionsField][] for a complete list of available options),
+  - `<validation>` the validations for the field.
+
+
+## Examples
+
+### Basic example
+
+```jdl
+entity A
+```
+
+This is equivalent to:
+
+```jdl
+entity A(a) {}
+```
+
+The former the simpler form, without specifying a "body" (braces for fields) and a table name.
+
+### With a custom table name
+
+Specifying a custom table name is possible too:
+
+```jdl
+ entity A(my_super_entity)
+```
+
+### With fields
+
+```jdl
+entity A {
+  name String required
+  age Integer
+}
+```
+
+### With field validations
+
+```jdl
+entity A {
+  name String required
+  age Integer min(42) max(42)
+}
+```
+
+### Blob declaration
+
+JHipster gives a great choice as one can choose between an image type or any binary type. JDL lets you do the same.
+Create a custom type (see DataType) with the editor, name it according to these conventions:
+  - `AnyBlob` or `Blob` to create a field of the "any" binary type;
+  - `ImageBlob` to create a field meant to be an image.
+  - `TextBlob` to create a field for a CLOB (long text).
+
+And you can create as many DataTypes as you like.
+
+### Regular expressions
+
+This is a certain validation (only available to String types), and its syntax is:
+
+```jdl
+entity A {
+  name String pattern(/^[A-Z][a-z]+\d$/)
+}
+```
+
+Let's break it down:
+
+- `pattern` is the keyword to declare a regex validation (with the normal parentheses)
+- `/.../` the pattern is declared inside two slashes
+- `\` anti-slashes needn't be escaped
+
+### Commenting
+
+Commenting is possible in the JDL for entities and fields, and will generate documentation (Javadoc or JSDoc, depending
+on the backend).
+
+```jdl
+/**
+ * This is a comment
+ * about a class
+ * @author Someone
+ */
+entity A {
+  /**
+   * This comment will also be used!
+   * @type...
+   */
+   name String
+   age Integer // this is yet another comment
+}
+```
+
+These comments will later be added as Javadoc comments by JHipster. The JDL possesses its own kind of comment:
+  - // an ignored comment
+  - /** not an ignored comment */
+
+Therefore, anything that starts with `//` is considered an internal comment for JDL, and will not be counted as Javadoc.
+Please note that the JDL Studio directives that start with `#` will be ignored during parsing.
+
+Another form of comments are the following comments:
+
+```jdl
+entity A {
+  name String /** My super field */
+  count Integer /** My other super field */
+}
+```
+
+Here A's name will be commented with `My super field`, B with `My other super field`.
+
+Yes, commas are not mandatory but it's wiser to have them so as not to make mistakes in the code.
+**If you want to mix commas and following comments, beware!**
+
+```jdl
+entity A {
+  name String, /** My comment */
+  count Integer
+}
+```
+A's name won't have the comment, because the count will.
+
+
+## Field types and validations
+
+Each field type has its own validation list. Here are the types supported in the JDL:
+
+|JDL type      |Validations                                    |
+|--------------|-----------------------------------------------|
+|String        |required, minlength, maxlength, pattern, unique|
+|Integer       |required, min, max, unique                     |
+|Long          |required, min, max, unique                     |
+|BigDecimal    |required, min, max, unique                     |
+|Float         |required, min, max, unique                     |
+|Double        |required, min, max, unique                     |
+|Enum          |required, unique                               |
+|Boolean       |required, unique                               |
+|LocalDate     |required, unique                               |
+|ZonedDateTime |required, unique                               |
+|Instant       |required, unique                               |
+|Duration      |required, unique                               |
+|UUID          |required, unique                               |
+|Blob          |required, minbytes, maxbytes, unique           |
+|AnyBlob       |required, minbytes, maxbytes, unique           |
+|ImageBlob     |required, minbytes, maxbytes, unique           |
+|TextBlob      |required, unique                               |
+
+
+[OptionsEntity]: /jdl/options/#entity-options "Options"
+[OptionsField]: /jdl/options/#field-options "Options"

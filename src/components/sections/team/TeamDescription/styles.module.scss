@@ -1,0 +1,59 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  background-color: var(--ifm-color-primary-darkest);
+  color: #ffffff;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.sectionContent {
+  &:not(:first-child) {
+    margin-top: 2.5rem;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  &Title {
+    text-align: center;
+  }
+
+  &Image {
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  &Description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .sectionContent {
+    flex-direction: row;
+
+    &Title {
+      text-align: left;
+    }
+
+    &Image {
+      width: 50%;
+    }
+
+    &Description {
+      width: 50%;
+    }
+  }
+
+  .sectionContentReverse {
+    flex-direction: row-reverse;
+  }
+}

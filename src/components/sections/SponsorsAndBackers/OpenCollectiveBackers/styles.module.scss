@@ -1,0 +1,24 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color-scheme: light;
+
+  &Desktop {
+    display: none;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    &Mobile {
+      display: none;
+    }
+
+    &Desktop {
+      display: block;
+    }
+  }
+}

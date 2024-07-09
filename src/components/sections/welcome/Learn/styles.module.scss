@@ -1,0 +1,10 @@
+.section {
+  background-color: var(--ifm-color-primary-darker);
+  color: #ffffff;
+
+  &Video {
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    max-width: 768px;
+  }
+}

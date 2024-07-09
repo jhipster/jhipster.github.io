@@ -1,0 +1,130 @@
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-v13-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-500 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-v13-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-800 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/inter-v13-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-900 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/inter-v13-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-font-family-base: 'Inter';
+  --ifm-navbar-background-color: #eff8fe;
+  --ifm-hero-background-color: #eff8fe;
+  --ifm-background-color: #eff8fe !important;
+  --ifm-color-primary: #236fa4;
+  --ifm-color-primary-dark: #0f5b90;
+  --ifm-color-primary-darker: #045085;
+  --ifm-color-primary-darkest: #004677;
+  --ifm-color-primary-light: #3e8abf;
+  --ifm-color-primary-lighter: #59a5da;
+  --ifm-color-primary-lightest: #83c6f5;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  // Links color custom values
+  --ifm-link-color: #0f5b90;
+  --ifm-navbar-link-hover-color: var(--ifm-link-color);
+  --ifm-menu-color-active: var(--ifm-link-color);
+  --ifm-breadcrumb-color-active: var(--ifm-link-color);
+  --ifm-tabs-color-active: var(--ifm-link-color);
+  --ifm-tabs-color-active-border: var(--ifm-link-color);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-navbar-background-color: #0f172a;
+  --ifm-hero-background-color: #0f172a;
+  --ifm-background-color: #0f172a !important;
+  --ifm-color-primary: #236fa4;
+  --ifm-color-primary-dark: #0f5b90;
+  --ifm-color-primary-darker: #045085;
+  --ifm-color-primary-darkest: #004677;
+  --ifm-color-primary-light: #3e8abf;
+  --ifm-color-primary-lighter: #59a5da;
+  --ifm-color-primary-lightest: #83c6f5;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  // Links color custom values
+  --ifm-link-color: #4ca5e6;
+  --ifm-navbar-link-hover-color: var(--ifm-link-color);
+  --ifm-menu-color-active: var(--ifm-link-color);
+  --ifm-breadcrumb-color-active: var(--ifm-link-color);
+  --ifm-tabs-color-active: var(--ifm-link-color);
+  --ifm-tabs-color-active-border: var(--ifm-link-color);
+}
+
+a {
+  font-weight: 500;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button.button--primary {
+  color: #ffffff;
+}
+
+.button.button--secondary {
+  color: var(--ifm-color-primary);
+}
+
+.card {
+  height: 100%;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link:hover code,
+.table-of-contents__link--active,
+.table-of-contents__link--active code {
+  color: var(--ifm-link-color);
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -1,0 +1,31 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  &List {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    > li {
+      margin: 0 !important;
+    }
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (min-width: $xl-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
