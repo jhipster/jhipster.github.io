@@ -1,10 +1,15 @@
+import type { GithubConfig, NpmDownloads } from '@site/src/types/community';
 import { useEffect, useState } from 'react';
 
 import { communityService } from '@site/src/lib/services/community';
 
 export const useCommunity = () => {
-  const [npmDownloads, setNpmDownloads] = useState<any>();
-  const [githubConfig, setGithubConfig] = useState<any>();
+  const [npmDownloads, setNpmDownloads] = useState<NpmDownloads>({
+    downloads: 0,
+  });
+  const [githubConfig, setGithubConfig] = useState<GithubConfig>({
+    stargazers_count: 0,
+  });
 
   useEffect(() => {
     fetchCommunityData().then((data) => {

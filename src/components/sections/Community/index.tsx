@@ -50,7 +50,7 @@ export default function Community({ color }: Props) {
       <ul className={styles.sectionList}>
         <li>
           <CommunityCard
-            value={`${npmDownloads?.downloads}` || '0'}
+            value={`${npmDownloads.downloads}`}
             text={translate({
               message: 'Downloads in last 30 days',
             })}
@@ -58,7 +58,7 @@ export default function Community({ color }: Props) {
         </li>
         <li>
           <CommunityCard
-            value={`${githubConfig?.stargazers_count}` || '0'}
+            value={`${githubConfig.stargazers_count}`}
             text={translate({
               message: 'GitHub Stars',
             })}
