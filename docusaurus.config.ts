@@ -74,6 +74,7 @@ const config: Config = {
   plugins: [
     'docusaurus-plugin-sass',
     redirectsPlugin,
+    './src/plugins/google-fonts.ts',
     './src/plugins/module-details.ts',
   ],
 
