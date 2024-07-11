@@ -17,7 +17,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'jhipster', // Usually your GitHub org/user name.
-  projectName: 'jhipster.github.io', // Usually your repo name. IMPORTANT: must be replaced with jhipster.github.io.
+  projectName: 'jhipster.github.io', // Usually your repo name.
   trailingSlash: true,
 
   // onBrokenLinks: 'throw',
