@@ -40,9 +40,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/SvMak/jhipster-website/tree/main/',
+          editUrl: 'https://github.com/jhipster/jhipster.github.io/tree/main/',
           routeBasePath: '/',
           showLastUpdateTime: true,
         },
