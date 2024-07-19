@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 
@@ -11,9 +10,7 @@ export default function Footer() {
       <div className={clsx('', styles.footerContent)}>
         <div className={styles.footerCopyright}>
           <span>&copy; 2013-{new Date().getFullYear()} JHipster</span>
-          <Link to="/policies">
-            <Translate>Policies</Translate>
-          </Link>
+          <Link to="/policies">Policies</Link>
         </div>
         <SocialLinks />
       </div>

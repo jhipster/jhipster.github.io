@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 
@@ -12,24 +11,20 @@ export default function Hero() {
       <div className={clsx('container', styles.sectionContent)}>
         <div>
           <h1 className={styles.sectionTitle}>
-            <Translate>Greetings</Translate>,
+            Greetings,
             <br /> Java <span className="text--primary">Hipster</span>!
           </h1>
 
           <p className={styles.sectionDescription}>
-            <Translate>
-              JHipster is a development platform to quickly generate, develop,
-              deploy modern web applications & microservice architectures.
-            </Translate>
+            JHipster is a development platform to quickly generate, develop,
+            deploy modern web applications & microservice architectures.
           </p>
 
           <div className={styles.sectionButtons}>
             <Link className="button button--primary" to="/getting-started">
-              <Translate>Getting Started</Translate>
+              Getting Started
             </Link>
-            <GithubButton>
-              <Translate>GitHub</Translate>
-            </GithubButton>
+            <GithubButton>GitHub</GithubButton>
           </div>
         </div>
 

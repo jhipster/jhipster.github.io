@@ -1,5 +1,4 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import Translate, { translate } from '@docusaurus/Translate';
 import clsx from 'clsx';
 
 import {
@@ -32,18 +31,14 @@ export default function Community({ color }: Props) {
 
   return (
     <SectionWrapper className={clsx(sectionVariants({ color }))}>
-      <SectionTitle>
-        <Translate>Community</Translate>
-      </SectionTitle>
+      <SectionTitle>Community</SectionTitle>
 
       <SectionDescription>
         <p>
-          <Translate>
-            JHipster is Open Source, and all development is done on GitHub. If
-            you JHipster consider becoming a sponsor or a backer. If you want to
-            code with us, feel free to join! If you like the project, please
-            give us a ⭐️ on GitHub.
-          </Translate>
+          JHipster is Open Source, and all development is done on GitHub. If you
+          JHipster consider becoming a sponsor or a backer. If you want to code
+          with us, feel free to join! If you like the project, please give us a
+          ⭐️ on GitHub.
         </p>
       </SectionDescription>
 
@@ -51,34 +46,22 @@ export default function Community({ color }: Props) {
         <li>
           <CommunityCard
             value={`${npmDownloads.downloads}`}
-            text={translate({
-              message: 'Downloads in last 30 days',
-            })}
+            text="Downloads in last 30 days"
           />
         </li>
         <li>
           <CommunityCard
             value={`${githubConfig.stargazers_count}`}
-            text={translate({
-              message: 'GitHub Stars',
-            })}
+            text="GitHub Stars"
           />
         </li>
         <li>
-          <CommunityCard
-            value="600"
-            text={translate({
-              message: 'Contributors',
-            })}
-            postfix="+"
-          />
+          <CommunityCard value="600" text="Contributors" postfix="+" />
         </li>
       </ul>
 
       <div className={styles.sectionButtons}>
-        <GithubButton>
-          <Translate>Join us on GitHub</Translate>
-        </GithubButton>
+        <GithubButton>Join us on GitHub</GithubButton>
       </div>
     </SectionWrapper>
   );

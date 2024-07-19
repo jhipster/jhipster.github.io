@@ -1,5 +1,3 @@
-import Translate from '@docusaurus/Translate';
-
 import SpringBootIcon from '@site/static/images/logo/svg/spring-boot.svg';
 import AngularIcon from '@site/static/images/logo/svg/angular.svg';
 import ReactIcon from '@site/static/images/logo/svg/react.svg';
@@ -16,13 +14,13 @@ export default function Technology() {
 
       <div className={styles.sectionFrontend}>
         <ReactIcon className={styles.sectionIcon} />
-        <span className={styles.sectionDivider}>
-          <Translate>or</Translate>
-        </span>
+
+        <span className={styles.sectionDivider}>or</span>
+
         <AngularIcon className={styles.sectionIcon} />
-        <span className={styles.sectionDivider}>
-          <Translate>or</Translate>
-        </span>
+
+        <span className={styles.sectionDivider}>or</span>
+
         <VueIcon className={styles.sectionIcon} />
       </div>
 

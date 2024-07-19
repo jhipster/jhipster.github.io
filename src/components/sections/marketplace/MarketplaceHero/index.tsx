@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react';
-import Translate, { translate } from '@docusaurus/Translate';
 import Heading from '@theme/Heading';
 
 import SearchInput from '@site/src/components/SearchInput';
@@ -23,17 +22,17 @@ export default function MarketplaceHero({
     <header className={styles.section}>
       <div className="container">
         <Heading className={styles.sectionTitle} as="h1">
-          <Translate>Marketplace</Translate>
+          Marketplace
         </Heading>
 
         <Heading as="h2">
-          <Translate>Available modules and blueprints</Translate> (
+          Available modules and blueprints (
           {`${numberFilteredModules}/${numberModules}`})
         </Heading>
 
         <SearchInput
           value={value}
-          placeholder={translate({ message: 'Filter by name or keyword' })}
+          placeholder="Filter by name or keyword"
           onInput={handleSearch}
         />
 

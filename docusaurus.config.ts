@@ -123,10 +123,6 @@ const config: Config = {
           label: 'JDL Studio',
           position: 'right',
         },
-        {
-          type: 'localeDropdown',
-          position: 'right',
-        },
       ],
     },
     prism: {

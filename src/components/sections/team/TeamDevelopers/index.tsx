@@ -1,5 +1,3 @@
-import Translate from '@docusaurus/Translate';
-
 import {
   SectionTitle,
   SectionWrapper,
@@ -11,7 +9,7 @@ export default function TeamDevelopers() {
   return (
     <SectionWrapper className={styles.section}>
       <SectionTitle align="start" size="sm">
-        <Translate>Board of developers</Translate>
+        Board of developers
       </SectionTitle>
 
       <TeamList dataKey="developersBoard" />

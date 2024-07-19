@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 
 import {
@@ -13,31 +12,24 @@ export default function TeamHero() {
   return (
     <header className={styles.section}>
       <div className="container">
-        <h1 className={styles.sectionTitle}>
-          <Translate>Team</Translate>
-        </h1>
+        <h1 className={styles.sectionTitle}>Team</h1>
 
         <SectionDescription align="start">
           <p>
-            <Translate
-              values={{
-                topListLink: (
-                  <Link href="https://github.com/jhipster/generator-jhipster/graphs/contributors">
-                    (top 100 list here)
-                  </Link>
-                ),
-              }}
-            >
-              {
-                'JHipster is developed by a team of people around the world. We have a lot of contributors {topListLink}, but members of the core team are listed here. If you want to join the team, or see how we work, our community rules are at the end of this page.'
-              }
-            </Translate>
+            JHipster is developed by a team of people around the world. We have
+            a lot of contributors{' '}
+            <Link href="https://github.com/jhipster/generator-jhipster/graphs/contributors">
+              (top 100 list here)
+            </Link>
+            , but members of the core team are listed here. If you want to join
+            the team, or see how we work, our community rules are at the end of
+            this page.
           </p>
         </SectionDescription>
 
         <div className={styles.sectionTeam}>
           <SectionTitle align="start" size="sm">
-            <Translate>Governing Body</Translate>
+            Governing Body
           </SectionTitle>
 
           <TeamList dataKey="governing" />
@@ -45,7 +37,7 @@ export default function TeamHero() {
 
         <div className={styles.sectionTeam}>
           <SectionTitle align="start" size="sm">
-            <Translate>Project leads</Translate>
+            Project leads
           </SectionTitle>
 
           <TeamList dataKey="leads" />

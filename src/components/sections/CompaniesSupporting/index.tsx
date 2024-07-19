@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 // import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 
@@ -12,24 +11,18 @@ import styles from './styles.module.scss';
 export default function CompaniesSupporting() {
   return (
     <SectionWrapper className={styles.section}>
-      <SectionTitle>
-        <Translate>Companies Supporting JHipster</Translate>
-      </SectionTitle>
+      <SectionTitle>Companies Supporting JHipster</SectionTitle>
 
       <SectionDescription>
         <p>
-          <Translate>
-            If you wish your company to be added here, don&apos;t hesitate to
-            reach out to us and explain why.
-          </Translate>
+          If you wish your company to be added here, don&apos;t hesitate to
+          reach out to us and explain why.
         </p>
       </SectionDescription>
 
       {/*<p className="text--center">
-        <Translate>
           This support consists of: Time for development by core contributors
           (Okta)
-        </Translate>
       </p>*/}
 
       <ul className={styles.sectionList}>
@@ -47,9 +40,7 @@ export default function CompaniesSupporting() {
         <li>
           <div className={clsx('card', styles.cardMock)}>
             <div className={clsx('card__body', styles.cardMockBody)}>
-              <h3>
-                <Translate>Your company</Translate>
-              </h3>
+              <h3>Your company</h3>
             </div>
           </div>
         </li>
