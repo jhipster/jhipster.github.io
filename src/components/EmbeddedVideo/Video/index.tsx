@@ -5,11 +5,12 @@ import styles from './styles.module.scss';
 type Props = {
   video: string;
   title: string;
+  className?: string;
 };
 
-export default function Video({ video, title }: Props) {
+export default function Video({ video, title, className }: Props) {
   return (
-    <div className={clsx('card', styles.card)}>
+    <div className={clsx('card', styles.card, className)}>
       <iframe
         className={clsx('aspect-video', styles.iframe)}
         src={`https://www.youtube.com/embed/${video}`}
