@@ -527,7 +527,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: "Tips'n tricks",
-      link: { type: 'doc', id: 'tips' },
+      link: { type: 'doc', id: 'tips/index' },
       items: [
         {
           type: 'doc',
