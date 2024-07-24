@@ -1,7 +1,6 @@
 const redirectsPlugin = [
   '@docusaurus/plugin-client-redirects',
   {
-    fromExtensions: ['html'],
     redirects: [
       { from: '/jdl', to: '/jdl/intro' },
       { from: ['/boxfuse.html', '/boxfuse'], to: '/cloudcaptain' },
@@ -233,7 +232,7 @@ const redirectsPlugin = [
       },
       {
         from: '/2022/09/02/jhipster-release-7.9.4.html',
-        to: '/2023/09/05/jhipster-release-7.9.4',
+        to: '/2023/09/05/jhipster-release-7.9.4.html',
       },
     ],
   },

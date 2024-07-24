@@ -9,7 +9,7 @@ const config: Config = {
   favicon: 'images/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://jhipster.tech',
+  url: 'https://www.jhipster.tech',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -18,7 +18,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'jhipster', // Usually your GitHub org/user name.
   projectName: 'jhipster.github.io', // Usually your repo name.
-  trailingSlash: true,
+  // trailingSlash: true,
 
   // onBrokenLinks: 'throw',
   onBrokenLinks: 'ignore',
