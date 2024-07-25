@@ -89,18 +89,6 @@ const redirectsPlugin = [
         to: '/modules/official-blueprints',
       },
       {
-        from: '/blueprints/quarkus/001_installing_jhipster_quarkus.html',
-        to: '/blueprints/quarkus/installing-jhipster-quarkus',
-      },
-      {
-        from: '/blueprints/quarkus/002_creating_an_application.html',
-        to: '/blueprints/quarkus/creating-an-application',
-      },
-      {
-        from: '/blueprints/quarkus/003_creating_an_entity.html',
-        to: '/blueprints/quarkus/creating-an-entity',
-      },
-      {
         from: '/companies-using-jhipster/companies-using-jhipster.html',
         to: '/companies-using-jhipster/',
       },
