@@ -103,7 +103,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/modules/marketplace',
+          to: '/modules/marketplace/',
           label: 'Marketplace',
           position: 'right',
         },
@@ -113,7 +113,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          to: '/sponsors',
+          to: '/sponsors/',
           label: 'Sponsors',
           position: 'right',
         },
