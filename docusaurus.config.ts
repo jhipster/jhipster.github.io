@@ -59,7 +59,7 @@ const config: Config = {
         sitemap: {
           changefreq: 'daily',
           lastmod: 'datetime',
-          ignorePatterns: ['/modules/marketplace/details/\\*/', '/search/'],
+          ignorePatterns: ['/modules/marketplace/details/\\*', '/search'],
         },
         // IMPORTANT: uncomment for jhipster.github.io in production
         // gtag: {
@@ -108,7 +108,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          to: '/team',
+          to: '/team/',
           label: 'Team',
           position: 'right',
         },
