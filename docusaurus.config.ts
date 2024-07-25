@@ -18,7 +18,6 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'jhipster', // Usually your GitHub org/user name.
   projectName: 'jhipster.github.io', // Usually your repo name.
-  // trailingSlash: true,
 
   // onBrokenLinks: 'throw',
   onBrokenLinks: 'ignore',
