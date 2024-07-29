@@ -512,6 +512,11 @@ const sidebars: SidebarsConfig = {
       id: 'jhipster-lite',
     },
     {
+      type: 'doc',
+      label: 'JHipster Developers Association',
+      id: 'association',
+    },
+    {
       type: 'category',
       label: 'Getting help',
       items: [
