@@ -9,7 +9,7 @@ const config: Config = {
   favicon: 'images/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://jhipster.tech',
+  url: 'https://www.jhipster.tech',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -18,7 +18,6 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'jhipster', // Usually your GitHub org/user name.
   projectName: 'jhipster.github.io', // Usually your repo name.
-  trailingSlash: true,
 
   // onBrokenLinks: 'throw',
   onBrokenLinks: 'ignore',
@@ -59,7 +58,7 @@ const config: Config = {
         sitemap: {
           changefreq: 'daily',
           lastmod: 'datetime',
-          ignorePatterns: ['/modules/marketplace/details/\\*/', '/search/'],
+          ignorePatterns: ['/modules/marketplace/details/\\*', '/search'],
         },
         // IMPORTANT: uncomment for jhipster.github.io in production
         // gtag: {
@@ -103,17 +102,17 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/modules/marketplace',
+          to: '/modules/marketplace/',
           label: 'Marketplace',
           position: 'right',
         },
         {
-          to: '/team',
+          to: '/team/',
           label: 'Team',
           position: 'right',
         },
         {
-          to: '/sponsors',
+          to: '/sponsors/',
           label: 'Sponsors',
           position: 'right',
         },
