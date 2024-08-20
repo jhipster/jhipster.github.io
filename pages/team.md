@@ -137,7 +137,7 @@ JHipster is an open-source project, and we have a governance structure to ensure
             <img src="https://avatars.githubusercontent.com/u/25530077?v=3" class="img-responsive">
             <div class="caption">
                 <h3>Clément Dessoude</h3>
-                <p><a href="https://twitter.com/clement26695"><i>@clement26695</i></a></p>
+                <p></p>
             </div>
         </div>
     </div>
