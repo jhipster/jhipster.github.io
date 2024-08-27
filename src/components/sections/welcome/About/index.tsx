@@ -1,5 +1,3 @@
-import Translate from '@docusaurus/Translate';
-
 import {
   SectionTitle,
   SectionWrapper,
@@ -12,9 +10,7 @@ import Options from './Options';
 export default function About() {
   return (
     <SectionWrapper>
-      <SectionTitle align="start">
-        <Translate>What is JHipster?</Translate>
-      </SectionTitle>
+      <SectionTitle align="start">What is JHipster?</SectionTitle>
 
       <Technology />
       <Description />

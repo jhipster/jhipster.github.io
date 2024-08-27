@@ -1,4 +1,3 @@
-import Translate, { translate } from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 
 import {
@@ -18,30 +17,20 @@ export default function SponsorsAndBackers() {
 
   return (
     <SectionWrapper className={styles.section}>
-      <SectionTitle>
-        <Translate>Sponsors & Backers</Translate>
-      </SectionTitle>
+      <SectionTitle>Sponsors & Backers</SectionTitle>
 
       <SectionDescription>
         <p>
-          <Translate
-            values={{
-              sponsorLink: (
-                <Link href="https://opencollective.com/generator-jhipster#sponsor">
-                  a sponsor
-                </Link>
-              ),
-              backerLink: (
-                <Link href="https://opencollective.com/generator-jhipster#backer">
-                  a backer
-                </Link>
-              ),
-            }}
-          >
-            {
-              'If you find JHipster useful for work, please consider asking your company to support this Open Source project by becoming {sponsorLink}. You can also individually sponsor the project by becoming {backerLink}.'
-            }
-          </Translate>
+          If you find JHipster useful for work, please consider asking your
+          company to support this Open Source project by becoming{' '}
+          <Link href="https://opencollective.com/generator-jhipster#sponsor">
+            a sponsor
+          </Link>
+          . You can also individually sponsor the project by becoming{' '}
+          <Link href="https://opencollective.com/generator-jhipster#backer">
+            a backer
+          </Link>
+          .
         </p>
       </SectionDescription>
 
@@ -49,13 +38,13 @@ export default function SponsorsAndBackers() {
 
       {/* Silver sponsors */}
       <OpenCollectiveSponsors
-        title={translate({ message: 'Thank you to our silver sponsors!' })}
+        title="Thank you to our silver sponsors!"
         sponsors={silverSponsors}
       />
 
       {/* Bronze sponsors */}
       <OpenCollectiveSponsors
-        title={translate({ message: 'Thank you to our bronze sponsors!' })}
+        title="Thank you to our bronze sponsors!"
         sponsors={bronzeSponsors}
       />
 

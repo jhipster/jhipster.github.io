@@ -1,5 +1,3 @@
-import Translate from '@docusaurus/Translate';
-
 import {
   SectionDescription,
   SectionTitle,
@@ -14,7 +12,7 @@ export default function ConnectCommunity() {
       <div className={styles.sectionContent}>
         <div>
           <SectionTitle className={styles.sectionTitle} align="start">
-            <Translate>Connect with the community</Translate>
+            Connect with the community
           </SectionTitle>
 
           <SectionDescription
@@ -22,17 +20,13 @@ export default function ConnectCommunity() {
             align="start"
           >
             <p>
-              <Translate>
-                Feel free to ask questions, report issues, contribute, and meet
-                new people
-              </Translate>
+              Feel free to ask questions, report issues, contribute, and meet
+              new people
             </p>
           </SectionDescription>
         </div>
 
-        <GithubButton>
-          <Translate>Join us on GitHub</Translate>
-        </GithubButton>
+        <GithubButton>Join us on GitHub</GithubButton>
       </div>
     </SectionWrapper>
   );

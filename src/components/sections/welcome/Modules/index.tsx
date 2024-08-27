@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import { HiOutlineCubeTransparent, HiOutlineUser } from 'react-icons/hi2';
@@ -18,16 +17,12 @@ export default function Modules() {
 
   return (
     <SectionWrapper className={styles.section}>
-      <SectionTitle>
-        <Translate>Top trending modules and blueprints</Translate>
-      </SectionTitle>
+      <SectionTitle>Top trending modules and blueprints</SectionTitle>
 
       <SectionDescription>
         <p>
-          <Translate>
-            You can get started and see all top trending modules and blueprints
-            in the documentation
-          </Translate>
+          You can get started and see all top trending modules and blueprints in
+          the documentation
         </p>
       </SectionDescription>
 
@@ -69,13 +64,13 @@ export default function Modules() {
 
       <div className={styles.sectionButtons}>
         <Link className="button button--primary" to="/modules/marketplace">
-          <Translate>See all Modules and Blueprints</Translate>
+          See all Modules and Blueprints
         </Link>
         <Link
           className="button button--secondary"
           to="/modules/creating-a-module"
         >
-          <Translate>Getting Started</Translate>
+          Getting Started
         </Link>
       </div>
     </SectionWrapper>

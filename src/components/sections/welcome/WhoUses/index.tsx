@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import AutoScroll from 'embla-carousel-auto-scroll';
 
@@ -23,27 +22,18 @@ export default function WhoUses() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <SectionTitle>
-          <Translate>Who Uses JHipster?</Translate>
-        </SectionTitle>
+        <SectionTitle>Who Uses JHipster?</SectionTitle>
 
         <SectionDescription>
-          <Translate
-            values={{
-              fullListLink: (
-                <Link
-                  className="text-foreground underline"
-                  href="/companies-using-jhipster"
-                >
-                  Find the full list here
-                </Link>
-              ),
-            }}
+          Lots of great companies use JHipster, all over the world!{' '}
+          <Link
+            className="text-foreground underline"
+            href="/companies-using-jhipster"
           >
-            {
-              "Lots of great companies use JHipster, all over the world! {fullListLink}, and don't forget to add your company once you have started using JHipster"
-            }
-          </Translate>
+            Find the full list here
+          </Link>
+          , and don't forget to add your company once you have started using
+          JHipster
         </SectionDescription>
       </div>
 

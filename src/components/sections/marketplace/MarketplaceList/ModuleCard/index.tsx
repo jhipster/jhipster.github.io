@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import { HiMiniCalendarDays, HiOutlineUser } from 'react-icons/hi2';
@@ -26,10 +25,7 @@ export default function ModuleCard({ module }: Props) {
       </div>
 
       <div className={clsx('card__body', styles.cardBody)}>
-        <p>
-          <Translate>Maintained by:</Translate>{' '}
-          {getMaintainers(module.maintainers)}
-        </p>
+        <p>Maintained by: {getMaintainers(module.maintainers)}</p>
 
         {!module.description?.startsWith('[!') ? (
           <p>{module.description}</p>
@@ -57,13 +53,13 @@ export default function ModuleCard({ module }: Props) {
             className="button button--secondary button--sm"
             href={`/modules/marketplace/details/${module.name}`}
           >
-            <Translate>Details</Translate>
+            Details
           </Link>
           <Link
             className="button button--secondary button--sm"
             href={module.links.homepage ?? module.links.npm}
           >
-            <Translate>Home page</Translate>
+            Home page
           </Link>
         </div>
       </div>

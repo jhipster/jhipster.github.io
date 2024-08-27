@@ -1,5 +1,3 @@
-import Translate from '@docusaurus/Translate';
-
 import {
   SectionDescription,
   SectionTitle,
@@ -11,18 +9,14 @@ import styles from './styles.module.scss';
 export default function Learn() {
   return (
     <SectionWrapper className={styles.section}>
-      <SectionTitle>
-        <Translate>Learn JHipster In 15 Minutes</Translate>
-      </SectionTitle>
+      <SectionTitle>Learn JHipster In 15 Minutes</SectionTitle>
 
       <SectionDescription>
         <p>
-          <Translate>
-            Matt Raible created a screencast that shows how to use JHipster 7 to
-            develop a Spring Boot + Angular application. He also published a
-            video on how to build reactive Java microservices with Spring Boot
-            and JHipster.
-          </Translate>
+          Matt Raible created a screencast that shows how to use JHipster 7 to
+          develop a Spring Boot + Angular application. He also published a video
+          on how to build reactive Java microservices with Spring Boot and
+          JHipster.
         </p>
       </SectionDescription>
 

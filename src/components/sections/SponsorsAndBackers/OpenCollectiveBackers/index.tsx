@@ -1,13 +1,9 @@
-import { translate } from '@docusaurus/Translate';
-
 import OpenCollectiveWrapper from '../OpenCollectiveWrapper';
 import styles from './styles.module.scss';
 
 export default function OpenCollectiveBackers() {
   return (
-    <OpenCollectiveWrapper
-      title={translate({ message: 'Thank you to all our backers!' })}
-    >
+    <OpenCollectiveWrapper title="Thank you to all our backers!">
       <div className={styles.section}>
         {/* shown in large screens only */}
         <object

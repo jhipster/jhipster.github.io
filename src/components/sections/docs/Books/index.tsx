@@ -1,5 +1,4 @@
 import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
 import { HiOutlineUser } from 'react-icons/hi2';
 
 import styles from './styles.module.scss';
@@ -38,9 +37,7 @@ export default function Books() {
                           className="button button--secondary"
                           href={link.href}
                         >
-                          <Translate values={{ platform: link.name }}>
-                            {'Buy now on {platform}'}
-                          </Translate>
+                          Buy now on {link.name}
                         </Link>
                       </li>
                     );
