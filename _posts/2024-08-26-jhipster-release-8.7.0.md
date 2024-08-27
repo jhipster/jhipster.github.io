@@ -152,7 +152,7 @@ jhipster entity Foo
 
 If you find any issue with this release, don't hesitate to:
 
-- Add a bug on our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Add a bug to our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
 - Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
 - Create a new discussion on [GitHub](https://github.com/jhipster/generator-jhipster/discussions)
 
