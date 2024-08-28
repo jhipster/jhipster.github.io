@@ -15,9 +15,9 @@ const config: Config = {
   baseUrl: '/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'jhipster', // Usually your GitHub org/user name.
-  projectName: 'jhipster.github.io', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  organizationName: 'jhipster',
+  projectName: 'jhipster.github.io',
 
   // onBrokenLinks: 'throw',
   onBrokenLinks: 'ignore',
