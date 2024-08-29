@@ -17,7 +17,7 @@
   { "label": "JHipster server-side libraries", "leader": "Julien Dubois" },
   { "label": "Spring Boot", "leader": "Daniel Franco" },
   { "label": "OIDC/OAuth", "leader": "Matt Raible" },
-  { "label": "Blueprints & modules system", "leader": "Aurélien Mino" },
+  { "label": "Blueprints & modules system", "leader": "Marcelo Shima" },
   { "label": "Heroku", "leader": "Joe Kutner" },
   { "label": "GCP/GAE", "leader": "Ray Tsang" },
   { "label": "Kubernetes", "leader": "Pierre Besson" },
