@@ -35,8 +35,8 @@ export default function Community({ color }: Props) {
 
       <SectionDescription>
         <p>
-          JHipster is Open Source, and all development is done on GitHub. If you
-          JHipster consider becoming a sponsor or a backer. If you want to code
+          JHipster is Open Source, and all development is done on GitHub. If you use
+          JHipster, consider becoming a sponsor or a backer. If you want to code
           with us, feel free to join! If you like the project, please give us a
           ⭐️ on GitHub.
         </p>
