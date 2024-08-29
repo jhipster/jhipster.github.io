@@ -1,0 +1,92 @@
+---
+title: JHipster Domain Language (JDL) - Deployments
+slug: /jdl/deployments
+last_update:
+  date: 2021-07-08T12:00:00-00:00
+---
+
+## Syntax
+
+The deployment declaration is done as follows:
+
+```jdl
+deployment {
+  <deployment option name> <deployment option value>
+}
+```
+
+- Similar to applications, deployment declaration works by specifying option keys & values
+
+
+## Examples
+
+### Basic example
+
+```jdl
+deployment {
+  deploymentType docker-compose
+  appsFolders [foo, bar]
+  dockerRepositoryName "yourDockerLoginName"
+}
+```
+
+### More than one deployment
+
+If you want more than one deployment, here's how you do it:
+
+```jdl
+// will be created under the 'docker-compose' folder
+deployment {
+  deploymentType docker-compose
+  appsFolders [foo, bar]
+  dockerRepositoryName "yourDockerLoginName"
+}
+
+// will be created under the 'kubernetes' folder
+deployment {
+  deploymentType kubernetes
+  appsFolders [foo, bar]
+  dockerRepositoryName "yourDockerLoginName"
+}
+```
+
+You can have one deployment per `deploymentType`. The applications defined in `appsFolders` should be in the same 
+folder where you are creating deployments or in the folder defined in `directoryPath`.
+
+For example, above you need to have a folder structure like this:
+
+```
+.
+├── yourJdlFile.jdl
+├── foo
+├── bar
+├── kubernetes // will be created by the JDL
+└── docker-compose // will be created by the JDL
+```
+
+
+## Available deployment options
+
+Here are the deployment options supported in the JDL:
+
+|JDL option name             |Default value      |Possible values                       |Comment                                                                                                                                    |
+|----------------------------|-------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|deploymentType              |docker-compose     |docker-compose, kubernetes, openshift |-                                                                                                                                          |
+|directoryPath               |`../`              |-                                     |Relative path. Must be in double quotes                                                                                                    |
+|appsFolders                 |[]                 |-                                     |Directory names for the applications separated by comma. Must be a list, example [foo, bar]                                                |
+|clusteredDbApps             |[]                 |-                                     |Directory names for the applications with clustered DB separated by comma. Must be a list, example [foo, bar]                              |
+|gatewayType                 |SpringCloudGateway |-                                     |Value is ignored when serviceDiscoveryType is `no`                                                                                         |
+|monitoring                  |no                 |no, prometheus                        |-                                                                                                                                          |
+|serviceDiscoveryType        |consul             |consul, eureka, no                    |-                                                                                                                                          |
+|dockerRepositoryName        |-                  |-                                     |The name or URL of the docker repository. Must be in double quotes                                                                         |
+|dockerPushCommand           |`docker push`      |-                                     |The docker push command to use. Must be in double quotes                                                                                   |
+|kubernetesNamespace         |default            |-                                     |Applicable only when deploymentType is kubernetes                                                                                          |
+|kubernetesUseDynamicStorage |false              |true, false                           |Applicable only when deploymentType is kubernetes, enables the kubernetesStorageClassName option                                           |
+|kubernetesStorageClassName  |-                  |-                                     |Applicable only when deploymentType is kubernetes, can be left empty (two double-quotes)                                                   |
+|kubernetesServiceType       |LoadBalancer       |LoadBalancer, NodePort, Ingress       |Applicable only when deploymentType is kubernetes                                                                                          |
+|ingressDomain               |-                  |-                                     |The domain for Ingress when kubernetesServiceType is `Ingress`. Must be in double quotes. Applicable only when deploymentType is kubernetes|
+|ingressType                 |nginx              |nginx, gke                            |The kubernetes ingress type, only set when `kubernetesServiceType` is set to Ingress                                                       |
+|istio                       |false              |true, false                           |Applicable only when deploymentType is kubernetes                                                                                          |
+|openshiftNamespace          |default            |-                                     |Applicable only when deploymentType is openshift                                                                                           |
+|storageType                 |ephemeral          |ephemeral, persistent                 |Applicable only when deploymentType is openshift                                                                                           |
+|registryReplicas            |2                  |-                                     |The number of replicas, when using the openshift deployment type                                                                           |

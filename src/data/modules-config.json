@@ -1,0 +1,20 @@
+{
+  "verifiedModules": {
+    "generator-jhipster-fortune": true
+  },
+  "blacklistedModules": [
+    "generator-jhipster-blueprint",
+    "generator-jhipster-module",
+    "generator-jhipster-webservice",
+    "generator-jhipster-react",
+    "generator-jhipster-material",
+    "jhipster-vuejs",
+    "generator-jhipster-vuejs2",
+    "generator-jhipster-vuejsx",
+    "generator-jhipster-botw-theme",
+    "generator-jhipster-elasticsearch-rest-client",
+    "jhipster-omnivue",
+    "generator-jhipster-omnivue",
+    "generator-jhipster-yob"
+  ]
+}

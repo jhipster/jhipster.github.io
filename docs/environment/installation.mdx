@@ -1,0 +1,221 @@
+---
+title: Installing JHipster
+slug: /installation/
+last_update:
+  date: 2018-08-30T08:20:00-00:00
+---
+
+## Installation types
+
+We provide 3 ways of working with JHipster. If in doubt, choose our 2nd option, "Local installation with NPM":
+
+- [JHipster Online](https://start.jhipster.tech/) is a way to generate an application without installing JHipster in the first place.
+- "Local installation with NPM" is the classical way of working with JHipster. Everything is installed on your machine, which can be a little complex to set up, but that's how most people usually work.
+- The "[Docker](https://www.docker.io/)" container, which brings you a lightweight container with JHipster installed.
+
+
+## JHipster Online (for users wanting a simplified way to run JHipster)
+
+[JHipster Online](https://start.jhipster.tech/) allows you to generate JHipster applications, without having to install JHipster.
+
+This is intended for people trying JHipster for the first time, or who want to have a look at what JHipster provides.
+
+While it is easier to use, it is not the "full JHipster experience", and once your application is generated you will still need to follow most of the steps from the next section ("Local installation with NPM"), as you will still need Java (to run your application) and NPM (to manage your front-end code).
+
+In the future, we expect JHipster Online to provide more features.
+
+
+## Local installation with NPM (recommended for normal users)
+
+### Quick setup
+
+1.  Install Java 17 or 21 LTS. We recommend you use [Eclipse Temurin builds](https://adoptium.net/temurin/releases/?version=21), as they are open source and free.
+2.  Install Node.js from [the Node.js website](http://nodejs.org/) (please use an LTS 64-bit version, non-LTS versions are not supported)
+3.  Install JHipster: `npm install -g generator-jhipster`
+4.  (optional) If you want to use a module or a blueprint (for instance from the [JHipster Marketplace](/modules/marketplace/)), install [Yeoman](https://yeoman.io/): `npm install -g yo`
+
+Now that JHipster is installed, your next step is to [create an application](/creating-an-app/)
+
+### Optional installations
+
+1. Install a Java build tool.
+    *   Whether you choose to use [Maven](http://maven.apache.org/) or [Gradle](http://www.gradle.org/), you normally don't have to install anything, as JHipster will automatically install the [Maven Wrapper](https://github.com/takari/maven-wrapper) or the [Gradle Wrapper](http://gradle.org/docs/current/userguide/gradle_wrapper.html) for you.
+    *   If you don't want to use those wrappers, go to the official [Maven website](http://maven.apache.org/) or [Gradle website](http://www.gradle.org/) to do your own installation.
+2.  Install Git from [git-scm.com](http://git-scm.com/). We recommend you also use a tool like [SourceTree](http://www.sourcetreeapp.com/) if you are starting with Git.
+    * JHipster will try to commit your project to Git, if it is installed.
+    * The [JHipster upgrade sub-generator](/upgrading-an-application/) requires to have Git installed.
+
+### Additional information
+
+JHipster uses [Yeoman](http://yeoman.io/) for code generation.
+To find more information, tips and help, please have a look at [the Yeoman "getting starting" guide](http://yeoman.io/learning/index.html) before [submitting a bug](https://github.com/jhipster/generator-jhipster/issues?state=open).
+
+The configuration will be stored in a generated `.yo-rc.json` file, so it is **strongly** recommended not to generate a JHipster project in your HOME directory. If you did it, you won't be able to generate another project in a sub directory. To solve it, delete the `.yo-rc.json` file.
+
+
+## Docker installation (for advanced users only)
+
+:::note
+
+This Docker image is for running the JHipster generator inside a container. It's completely different from the [Docker and Docker Compose configurations](/docker-compose/) that JHipster will generate, which goal is to run your generated application inside a container
+
+:::
+
+### Information
+
+JHipster has a specific [Dockerfile](https://github.com/jhipster/generator-jhipster/blob/main/Dockerfile), which provides a [Docker](https://www.docker.io/) image.
+
+It makes a Docker "Automated build" that is available on: [https://hub.docker.com/r/jhipster/jhipster/](https://hub.docker.com/r/jhipster/jhipster/)
+
+This image will allow you to run JHipster inside Docker.
+
+### Prerequisites
+
+1.  **(Recommended) Docker Desktop:** the easiest way to build, run and test the dockerized apps. [Docker Desktop](https://docs.docker.com/desktop/) comes with graphical interface for managing containers/images/volumes, Docker developer tools, Kubernetes support and much more.
+2.  **Docker Engine:** client-server application with command line interface (CLI). Follow the [Docker Engine](https://docs.docker.com/engine/install/) installation instructions
+
+As the generated files are in your shared folder, they will not be deleted if you stop your Docker container. However, if you don't want Docker to keep downloading all the Maven and NPM dependencies every time you start the container, you should commit its state or mount a volume.
+
+:::warning
+
+Based on your OS, your `DOCKER_HOST` will differ. On Linux, it will be your localhost.
+For Mac/Windows, you will have to obtain the IP using following command: `docker-machine ip default`
+
+:::
+
+On Linux, you might need to run the `docker` command as root user if your user is not part of docker group. It's a good idea to add your user to docker group so that you can run docker commands as a non-root user. Follow the steps on [http://askubuntu.com/a/477554](http://askubuntu.com/a/477554) to do so.
+
+### Usage on Linux/Mac Windows (with Docker)
+
+#### Pull the image
+
+Pull the latest JHipster Docker image:
+
+```shell
+docker image pull jhipster/jhipster
+```
+
+Pull the development JHipster Docker image:
+
+```shell
+docker image pull jhipster/jhipster:master
+```
+
+You can see all tags [here](https://hub.docker.com/r/jhipster/jhipster/tags/)
+
+#### Run the image
+
+:::warning
+
+If you are using Docker Machine on Mac or Windows, your Docker daemon has only limited access to your OS X or Windows file system. Docker Machine tries to auto-share your /Users (OS X) or C:\Users\&lt;username&gt; (Windows) directory. So you have to create the project folder under these directory to avoid any volume mounting issues.
+
+:::
+
+Create a "jhipster" folder in your home directory:
+
+```shell
+mkdir ~/jhipster
+```
+
+Run the Docker image, with the following options:
+
+* The Docker "/home/jhipster/app" folder is shared to the local "~/jhipster" folder
+* Forward all ports exposed by Docker (8080 for the Java application, 9000 for BrowserSync, 3001 for the BrowserSync UI)
+
+```shell
+docker container run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster
+```
+
+:::tip
+
+If you have already started the container once before, you do not need to run the above command, you can start/stop the existing container.
+
+:::
+
+#### Check if the container is running
+
+To check that your container is running, use the command:
+
+```shell
+docker container ps
+
+CONTAINER ID    IMAGE               COMMAND                 CREATED         STATUS          PORTS                                                       NAMES
+4ae16c0539a3    jhipster/jhipster   "tail -f /home/jhipst"  4 seconds ago   Up 3 seconds    0.0.0.0:9000-3001->9000-3001/tcp, 0.0.0.0:8080->8080/tcp    jhipster
+```
+
+#### Common operations
+
+* To stop the container run: `docker container stop jhipster`
+* And to start again, run: `docker container start jhipster`
+
+In case you update the Docker image (rebuild or pull from the Docker hub), it's better to remove the existing container, and run the container all over again. To do so, first stop the container, remove it and then run it again:
+
+1.  `docker container stop jhipster`
+2.  `docker container rm jhipster`
+3.  `docker image pull jhipster/jhipster`
+4.  `docker container run --name jhipster -v ~/jhipster:/home/jhipster/app -v ~/.m2:/home/jhipster/.m2 -p 8080:8080 -p 9000:9000 -p 3001:3001 -d -t jhipster/jhipster`
+
+### Accessing the container
+
+:::warning
+
+On Windows, you need to run the Docker Quick Terminal as Administrator to be able to create symlinks during the `npm install` step.
+
+:::
+
+The easiest way to log into the running container is by executing following command:
+
+```shell
+docker container exec -it <container_name> bash
+```
+
+If you copy-pasted the above command to run the container, notice that you have to specify `jhipster` as the container name:
+
+```shell
+docker container exec -it jhipster bash
+```
+
+You will log in as the "jhipster" user.
+
+If you want to log in as "root", as the `sudo` command isn't available in Ubuntu Xenial, you need to run:
+
+```shell
+docker container exec -it --user root jhipster bash
+```
+
+### Your first project
+
+You can then go to the /home/jhipster/app directory in your container, and start building your app inside Docker:
+
+```shell
+cd /home/jhipster/app
+
+jhipster
+```
+
+Once your application is created, you can run all the normal gulp/bower/maven commands, for example:
+
+```shell
+./mvnw
+```
+
+**Congratulations! You've launched your JHipster app inside Docker!**
+
+On your machine, you should be able to:
+
+* Access the running application at `http://DOCKER_HOST:8080`
+* Get all the generated files inside your shared folder
+
+:::warning
+By default, Docker is not installed inside the `jhipster/jhipster` image.
+
+So you won't be able to:
+- use the docker-compose files
+- build a Docker image with the docker daemon (Maven goal: `jib:dockerBuild` or Gradle task: `jibDockerBuild`)
+
+However, you will be able to use [jib](https://github.com/GoogleContainerTools/jib)'s daemonless mode which can build 
+a docker image and push it to a registry without access to a docker daemon (Maven goal: `jib:build` or Gradle task: `jibBuild`). 
+But you will need to setup credentials to the docker registry as a pre-requisite of building the app. 
+See the [Jib plugin configuration documentations](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration) for more details.
+
+:::

@@ -1,0 +1,74 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  &Icon {
+    height: 60px;
+    width: 60px;
+  }
+
+  &Divider {
+    font-size: 2.75rem;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  &Frontend {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &FamilyMember {
+    height: 150px;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    flex-direction: row;
+    gap: 1.75rem;
+
+    &Frontend {
+      gap: 1.75rem;
+    }
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .section {
+    gap: 2.5rem;
+
+    &Frontend {
+      gap: 2.5rem;
+    }
+  }
+}
+
+@media (min-width: $xl-screen) {
+  .section {
+    gap: 3.75rem;
+
+    &Icon {
+      height: 90px;
+      width: 90px;
+    }
+
+    &Divider {
+      font-size: 3.75rem;
+    }
+
+    &Frontend {
+      gap: 3.75rem;
+    }
+
+    &FamilyMember {
+      height: 200px;
+    }
+  }
+}

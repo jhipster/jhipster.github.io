@@ -1,0 +1,14 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}

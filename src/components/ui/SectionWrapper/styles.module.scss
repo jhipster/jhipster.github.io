@@ -1,0 +1,38 @@
+.section {
+  padding: 5rem 0;
+
+  &Title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 800;
+
+    &Center {
+      text-align: center;
+    }
+
+    &Start {
+      text-align: left;
+    }
+  }
+
+  &TitleSmall {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 800;
+  }
+
+  &Description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    &Center {
+      text-align: center;
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    &Start {
+      text-align: left;
+    }
+  }
+}

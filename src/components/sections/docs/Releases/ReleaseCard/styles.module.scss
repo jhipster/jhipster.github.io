@@ -1,0 +1,15 @@
+.card {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+
+  &:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  &Description {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+}

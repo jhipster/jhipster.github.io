@@ -1,0 +1,208 @@
+---
+title: Docker Hub
+slug: /docker-hub/
+last_update:
+  date: 2016-09-25T00:00:00-00:00
+---
+
+[![Docker Hub](/images/logo/docker-hub.png)](https://hub.docker.com/u/jhipster/)
+
+JHipster has its own [organization] at Docker Hub and provides different Docker images.
+
+The [jhipster-docker-hub] project provides all docker-compose files to launch these images.
+To use the docker-compose commands, you have to:
+
+- clone the project: `git clone https://github.com/jhipster/jhipster-docker-hub`
+- go inside project: `cd jhipster-docker-hub`
+
+:::warning
+
+Based on your OS, your `DOCKER_HOST` will differ. On Linux, it will be `localhost`.
+For Mac/Windows, you will have to obtain the IP using following command: `docker-machine ip default`
+
+:::
+
+
+## [jhipster/jhipster](https://hub.docker.com/r/jhipster/jhipster): an alternative installation of JHipster
+
+See the [installation](/installation/) page for full instructions.
+
+These following commands can be used in specific use cases.
+
+### Use the latest release of JHipster
+
+Launch `jhipster` in the current folder, with the latest release
+
+```shell
+docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster jhipster
+```
+
+### Use JHipster v3.0.0
+
+Launch `jhipster` in the current folder, with an older release:
+
+```shell
+docker container run --rm -it -v "$PWD":/home/jhipster/app jhipster/jhipster:v3.0.0 jhipster
+```
+
+You can see [all available tags](https://hub.docker.com/r/jhipster/jhipster/tags/)
+
+
+## [jhipster/jdl-studio](https://hub.docker.com/r/jhipster/jdl-studio) : JDL-Studio offline
+
+You can use JDL-Studio offline and access to it at [http://localhost:18080](http://localhost:18080)
+
+```shell
+docker container run -d -p 18080:80 jhipster/jdl-studio
+```
+
+
+## [jhipster/jhipster-sample-app](https://hub.docker.com/r/jhipster/jhipster-sample-app)
+
+It is a sample application with H2 or MySQL.
+
+### Quick launch
+
+Run a jhipster application directly with Docker, in development profile
+
+```shell
+docker container run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=dev jhipster/jhipster-sample-app
+```
+
+Then, you can access to the application at [http://localhost:8080](http://localhost:8080)
+
+### Development profile
+
+Run the application in development profile
+
+```shell
+docker-compose -f jhipster-sample-app/dev.yml up
+```
+
+### Production profile
+
+Run the application in production profile, with MySQL database
+
+```shell
+docker-compose -f jhipster-sample-app/prod.yml up
+```
+
+### Production profile and monitoring with ELK stack
+
+Run the application in production profile, with MySQL database and ELK stack
+
+```shell
+docker-compose -f jhipster-sample-app/prod-elk.yml up
+```
+
+Access to the running application at [http://localhost:8080](http://localhost:8080)
+
+Access to the Kibana dashboard at [http://localhost:5601](http://localhost:5601)
+
+
+## [jhipster/jhipster-sample-app-elasticsearch](https://hub.docker.com/r/jhipster/jhipster-sample-app-elasticsearch)
+
+It is a sample application with MySQL and Elasticsearch.
+
+### Development profile
+
+Run the application in development profile
+
+```shell
+docker-compose -f jhipster-sample-app-elasticsearch/dev.yml up
+```
+
+### Production profile
+
+Run the application in production profile, with MySQL database and Elasticsearch
+
+```shell
+docker-compose -f jhipster-sample-app-elasticsearch/prod.yml up
+```
+
+
+## [jhipster/jhipster-sample-app-mongodb](https://hub.docker.com/r/jhipster/jhipster-sample-app-mongodb)
+
+It is a sample application with MongoDB.
+
+### Production profile
+
+Run the application in production profile, with MongoDB database
+
+```shell
+docker-compose -f jhipster-sample-app-mongodb/prod.yml up
+```
+
+
+## [jhipster/jhipster-sample-app-cassandra](https://hub.docker.com/r/jhipster/jhipster-sample-app-cassandra)
+
+It is a sample application with a Cassandra cluster.
+
+### Production profile
+
+Run the application in production profile, with Cassandra cluster
+
+```shell
+docker-compose -f jhipster-sample-app-cassandra/prod.yml up
+```
+
+Scale a Cassandra node
+
+```shell
+docker-compose -f jhipster-sample-app-cassandra/prod.yml scale sample-cassandra-node=2
+```
+
+[organization]: https://hub.docker.com/u/jhipster/
+[jhipster-docker-hub]: https://github.com/jhipster/jhipster-docker-hub
+
+
+## Microservices architecture
+
+The images used here are:
+
+- [jhipster/jhipster-registry](https://hub.docker.com/r/jhipster/jhipster-registry)
+- [jhipster/jhipster-sample-app-gateway](https://hub.docker.com/r/jhipster/jhipster-sample-app-gateway)
+- [jhipster/jhipster-sample-app-microservice](https://hub.docker.com/r/jhipster/jhipster-sample-app-microservice)
+
+### Production profile
+
+Run the full stack in production profile
+
+```shell
+docker-compose -f jhipster-sample-microservices/prod/prod.yml up
+```
+
+It will start:
+
+- Consul or the JHipster Registry
+- the gateway
+- a MySQL database
+- the microservice
+- a PostgreSQL database
+
+
+Scale the microservice
+
+```shell
+docker-compose -f jhipster-sample-microservices/prod/prod.yml scale jhipstersamplemicroservice-app=2
+```
+
+### Production profile and monitoring with ELK stack
+
+Run the full stack in production profile, with ELK stack
+
+```shell
+docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml up
+```
+
+Scale the microservice
+
+```shell
+docker-compose -f jhipster-sample-microservices/prod-elk/prod-elk.yml scale jhipstersamplemicroservice-app=2
+```
+
+Access to the registry at: [http://localhost:8761](http://localhost:8761)
+
+Access to the gateway at: [http://localhost:8080](http://localhost:8080)
+
+Access to the Kibana dashboard at: [http://localhost:5601](http://localhost:5601)
