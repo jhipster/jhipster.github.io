@@ -1,0 +1,45 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  padding: 5rem 0;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.carousel {
+  margin-top: 4rem;
+
+  &Item {
+    flex-basis: calc(100% / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .carousel {
+    &Item {
+      flex-basis: calc(100% / 3);
+    }
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .carousel {
+    &Item {
+      flex-basis: calc(100% / 4);
+    }
+  }
+}
+
+@media (min-width: $xl-screen) {
+  .carousel {
+    &Item {
+      flex-basis: calc(100% / 6);
+    }
+  }
+}

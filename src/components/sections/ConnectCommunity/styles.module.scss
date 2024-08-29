@@ -1,0 +1,34 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  &Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &Title {
+    text-align: center;
+  }
+
+  &Description {
+    text-align: center;
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .section {
+    &Content {
+      flex-direction: row;
+    }
+
+    &Title {
+      text-align: left;
+    }
+
+    &Description {
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  padding: 5rem 0;
+
+  &Title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 800;
+  }
+
+  &Buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    &Buttons {
+      flex-direction: row;
+    }
+  }
+}

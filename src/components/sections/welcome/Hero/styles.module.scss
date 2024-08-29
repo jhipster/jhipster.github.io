@@ -1,0 +1,80 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  padding-bottom: 5rem;
+
+  &Content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &Title {
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  &Description {
+    font-size: 18px;
+    line-height: 1.4;
+    max-width: 640px;
+    text-align: center;
+  }
+
+  &Image {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  &Buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    &Content {
+      gap: 3rem;
+    }
+
+    &Title {
+      font-size: 60px;
+    }
+
+    &Description {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .section {
+    &Content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &Title {
+      text-align: left;
+    }
+
+    &Description {
+      text-align: left;
+    }
+
+    &Buttons {
+      justify-content: start;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import '@site/src/scss/breakpoints';
+
+.section {
+  &List {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &Image {
+    width: 12rem;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &Body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &Author {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  &Description {
+    margin-top: 1rem;
+  }
+
+  &Links {
+    list-style: none;
+    padding-left: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    & > li {
+      margin: 0 !important;
+    }
+  }
+}
+
+@media (min-width: $md-screen) {
+  .card {
+    flex-direction: row;
+
+    &Body {
+      max-width: 70%;
+    }
+  }
+}

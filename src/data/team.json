@@ -1,0 +1,514 @@
+{
+  "governing": [
+    {
+      "name": "Julien Dubois",
+      "image": "https://avatars.githubusercontent.com/u/316835?v=3",
+      "position": "Founder and Chair, President of JHipster Developer Association",
+      "links": [
+        { "name": "x", "href": "https://x.com/juliendubois" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/juliendubois/"
+        },
+        {
+          "name": "github",
+          "href": "https://github.com/jdubois"
+        }
+      ]
+    },
+    {
+      "name": "Deepu K Sasidharan",
+      "image": "https://avatars.githubusercontent.com/u/1107223?v=3",
+      "position": "Co-Chair, Vice President of JHipster Developer Association",
+      "links": [
+        { "name": "x", "href": "https://x.com/deepu105" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/deepu05/" },
+        { "name": "github", "href": "https://github.com/deepu105" }
+      ]
+    },
+    {
+      "name": "Pascal Grimaud",
+      "image": "https://avatars.githubusercontent.com/u/9156882?v=3",
+      "position": "Co-Chair, Vice President of JHipster Developer Association",
+      "links": [
+        { "name": "x", "href": "https://x.com/pascalgrimaud" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/pascalgrimaud/"
+        },
+        { "name": "github", "href": "https://github.com/pascalgrimaud" }
+      ]
+    }
+  ],
+  "leads": [
+    {
+      "name": "Daniel Franco",
+      "image": "https://avatars.githubusercontent.com/u/3706415?v=3",
+      "position": "JHipster co-lead",
+      "links": [
+        { "name": "x", "href": "https://x.com/dandrfranco" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/daniel-reis-franco/"
+        },
+        { "name": "github", "href": "https://github.com/DanielFran" }
+      ]
+    },
+    {
+      "name": "Matt Raible",
+      "image": "https://avatars.githubusercontent.com/u/17892?v=3",
+      "position": "JHipster co-lead",
+      "links": [
+        { "name": "x", "href": "https://x.com/mraible" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/mraible/" },
+        { "name": "github", "href": "https://github.com/mraible" }
+      ]
+    },
+    {
+      "name": "Pascal Grimaud",
+      "image": "https://avatars.githubusercontent.com/u/9156882?v=3",
+      "position": "JHipster Lite Lead",
+      "links": [
+        { "name": "x", "href": "https://x.com/pascalgrimaud" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/pascalgrimaud/"
+        },
+        { "name": "github", "href": "https://github.com/pascalgrimaud" }
+      ]
+    }
+  ],
+  "developersBoard": [
+    {
+      "name": "Mathieu Abou-Aichi",
+      "image": "https://avatars.githubusercontent.com/u/2753381?v=3",
+      "links": [
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/mathieu-abou-aichi-292a27108/"
+        },
+        { "name": "github", "href": "https://github.com/MathieuAA" }
+      ]
+    },
+    {
+      "name": "Pierre Besson",
+      "image": "https://avatars.githubusercontent.com/u/513471?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/pibesson" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/pierre-besson-devops/"
+        },
+        { "name": "github", "href": "https://github.com/pierrebesson" }
+      ]
+    },
+    {
+      "name": "Christophe Bornet",
+      "image": "https://avatars.githubusercontent.com/u/11633333?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/cbornet_" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/christophe-bornet-bab1193/"
+        },
+        { "name": "github", "href": "https://github.com/cbornet" }
+      ]
+    },
+    {
+      "name": "Serano Colameo",
+      "image": "https://avatars.githubusercontent.com/u/629760?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/colameo" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/colameo/" },
+        { "name": "github", "href": "https://github.com/colameo" }
+      ]
+    },
+    {
+      "name": "Clément Dessoude",
+      "image": "https://avatars.githubusercontent.com/u/25530077?v=3",
+      "links": [
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/cl%C3%A9ment-dessoude/"
+        },
+        { "name": "github", "href": "https://github.com/clementdessoude" }
+      ]
+    },
+    {
+      "name": "Hippolyte Durix",
+      "image": "https://avatars.githubusercontent.com/u/9678039?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/hdurix" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/hippolytedurix/"
+        },
+        { "name": "github", "href": "https://github.com/hdurix" }
+      ]
+    },
+    {
+      "name": "Renan Franca",
+      "image": "https://avatars.githubusercontent.com/u/6011616?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/renan_afranca" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/renan-af/" },
+        { "name": "github", "href": "https://github.com/renanfranca" }
+      ]
+    },
+    {
+      "name": "Zsombor Gegesy",
+      "image": "https://avatars.githubusercontent.com/u/66230?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/gzsombor" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/zsomborgegesy/"
+        },
+        { "name": "github", "href": "https://github.com/gzsombor" }
+      ]
+    },
+    {
+      "name": "Frederik Hahne",
+      "image": "https://avatars.githubusercontent.com/u/203401?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/atomfrede" },
+        { "name": "mastodon", "href": "https://mastodon.social/@atomfrede" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/frederikhahne/"
+        },
+        { "name": "github", "href": "https://github.com/atomfrede" }
+      ]
+    },
+    {
+      "name": "Kaido Hallik",
+      "image": "https://avatars.githubusercontent.com/u/23017435?v=3",
+      "links": [
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/kaido-hallik-82491422a/"
+        },
+        { "name": "github", "href": "https://github.com/kaidohallik" }
+      ]
+    },
+    {
+      "name": "Sendil Kumar N",
+      "image": "https://avatars.githubusercontent.com/u/12471122?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/sendilkumarn" },
+        { "name": "github", "href": "https://github.com/sendilkumarn" }
+      ]
+    },
+    {
+      "name": "Joe Kutner",
+      "image": "https://avatars.githubusercontent.com/u/1589?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/codefinger" },
+        { "name": "mastodon", "href": "https://fosstodon.org/@codefinger" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/joekutner/"
+        },
+        { "name": "github", "href": "https://github.com/jkutner" }
+      ]
+    },
+    {
+      "name": "Vishal Mahajan",
+      "image": "https://avatars.githubusercontent.com/u/15997681?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/vishal423" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/vishal-mahajan-11469417/"
+        },
+        { "name": "github", "href": "https://github.com/vishal423" }
+      ]
+    },
+    {
+      "name": "William Marques",
+      "image": "https://avatars.githubusercontent.com/u/1577727?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/wylmarq" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/william-marques-b6627590/"
+        },
+        { "name": "github", "href": "https://github.com/wmarques" }
+      ]
+    },
+    {
+      "name": "Aurélien Mino",
+      "image": "https://avatars.githubusercontent.com/u/155828?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/AurelienMino" },
+        { "name": "mastodon", "href": "https://mastodon.social/@AurelienMino" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/amino/" },
+        { "name": "github", "href": "https://github.com/murdos" }
+      ]
+    },
+    {
+      "name": "Quentin Monmert",
+      "image": "https://avatars.githubusercontent.com/u/9989211?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/quentinmonmert" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/quentin-monmert-65038438/"
+        },
+        { "name": "github", "href": "https://github.com/qmonmert" }
+      ]
+    },
+    {
+      "name": "Charlie Mordant",
+      "image": "https://avatars.githubusercontent.com/u/792925?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/Tcharl" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/charlie-mordant-51796a97/"
+        },
+        { "name": "github", "href": "https://github.com/Tcharl" }
+      ]
+    },
+    {
+      "name": "Sudharaka Palamakumbura",
+      "image": "https://avatars.githubusercontent.com/u/12435965?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/PSudharaka" },
+        { "name": "linkedin", "href": "https://ca.linkedin.com/in/sudharakap" },
+        { "name": "github", "href": "https://github.com/sudharakap" }
+      ]
+    },
+    {
+      "name": "Matt Raible",
+      "image": "https://avatars.githubusercontent.com/u/17892?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/mraible" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/mraible/" },
+        { "name": "github", "href": "https://github.com/mraible" }
+      ]
+    },
+    {
+      "name": "Jon Ruddell",
+      "image": "https://avatars.githubusercontent.com/u/4294623?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/jonruddell" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/jon-ruddell-97ba1363/"
+        },
+        { "name": "github", "href": "https://github.com/ruddell" }
+      ]
+    },
+    {
+      "name": "Julien Sadaoui",
+      "image": "https://avatars.githubusercontent.com/u/428639?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/juliensadaoui" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/julien-sadaoui-8151bb48/"
+        },
+        { "name": "github", "href": "https://github.com/juliensadaoui" }
+      ]
+    },
+    {
+      "name": "Marcelo Shima",
+      "image": "https://avatars.githubusercontent.com/u/1417183?v=3",
+      "links": [{ "name": "github", "href": "https://github.com/mshima" }]
+    },
+    {
+      "name": "David Steiman",
+      "image": "https://avatars.githubusercontent.com/u/2758003?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/theOnlyScrippi" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/david-steiman-89168552/"
+        },
+        { "name": "github", "href": "https://github.com/xetys" }
+      ]
+    },
+    {
+      "name": "Ray Tsang",
+      "image": "https://avatars.githubusercontent.com/u/1998883?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/saturnism" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/rayjtsang/"
+        },
+        { "name": "github", "href": "https://github.com/saturnism" }
+      ]
+    },
+    {
+      "name": "Srinivasa Vasu",
+      "image": "https://avatars.githubusercontent.com/u/20539215?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/srinivasavasu" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/srinivasa-vasu/"
+        },
+        { "name": "github", "href": "https://github.com/srinivasa-vasu" }
+      ]
+    },
+    {
+      "name": "Pm Verma",
+      "image": "https://avatars.githubusercontent.com/u/5289123?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/pm_verma" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/pmverma/" },
+        { "name": "github", "href": "https://github.com/pmverma" }
+      ]
+    },
+    {
+      "name": "Anthony Viard",
+      "image": "https://avatars.githubusercontent.com/u/37835668?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/avdev4j" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/anthony-viard-6034b4166/"
+        },
+        { "name": "github", "href": "https://github.com/avdev4j" }
+      ]
+    }
+  ],
+  "retiredMembers": [
+    {
+      "name": "Flavien Cathala",
+      "image": "https://avatars.githubusercontent.com/u/11872070?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/flaviencathala" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/flavien-cathala-a1621498/"
+        },
+        { "name": "github", "href": "https://github.com/flaviencathala" }
+      ]
+    },
+    {
+      "name": "Enrico Costanzi",
+      "image": "https://avatars.githubusercontent.com/u/3602612?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/enricocostanzi" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/enricocostanzi/"
+        },
+        { "name": "github", "href": "https://github.com/ecostanzi" }
+      ]
+    },
+    {
+      "name": "Victor Da Silva",
+      "image": "https://avatars.githubusercontent.com/u/17815919?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/VicAntune" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/victor-antunes-da-silva-504771119/"
+        },
+        { "name": "github", "href": "https://github.com/VictorADS" }
+      ]
+    },
+    {
+      "name": "Christopher Dionisio",
+      "image": "https://avatars.githubusercontent.com/u/17642361?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/chris_dns" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/christopher-dionisio-340186150/"
+        },
+        { "name": "github", "href": "https://github.com/chrisdns" }
+      ]
+    },
+    {
+      "name": "Alexandre Gaspard-Cilia",
+      "image": "https://avatars.githubusercontent.com/u/9017981?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/Screach_FR" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/agaspardcilia/"
+        },
+        { "name": "github", "href": "https://github.com/agaspardcilia" }
+      ]
+    },
+    {
+      "name": "Erik Kemperman",
+      "image": "https://avatars.githubusercontent.com/u/3100637?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/erikkemperman" },
+        { "name": "github", "href": "https://github.com/erikkemperman" }
+      ]
+    },
+    {
+      "name": "Sahbi Ktifa",
+      "image": "https://avatars.githubusercontent.com/u/7074827?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/SahbiKtifa" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/sahbi-ktifa/"
+        },
+        { "name": "github", "href": "https://github.com/sahbi-ktifa" }
+      ]
+    },
+    {
+      "name": "Gaël Marziou",
+      "image": "https://avatars.githubusercontent.com/u/361007?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/gmarziou" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/gmarziou/" },
+        { "name": "github", "href": "https://github.com/gmarziou" }
+      ]
+    },
+    {
+      "name": "Jérôme Mirc",
+      "image": "https://avatars.githubusercontent.com/u/50304?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/jeromemirc" },
+        { "name": "linkedin", "href": "https://www.linkedin.com/in/jmirc/" },
+        { "name": "github", "href": "https://github.com/jmirc" }
+      ]
+    },
+    {
+      "name": "Daniel Petisme",
+      "image": "https://avatars.githubusercontent.com/u/593564?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/danielpetisme" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/danielpetisme/"
+        },
+        { "name": "github", "href": "https://github.com/danielpetisme" }
+      ]
+    },
+    {
+      "name": "Anders Steiner",
+      "image": "https://avatars.githubusercontent.com/u/571389?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/andidevv" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/anders-steiner-a6478aa/"
+        },
+        { "name": "github", "href": "https://github.com/andidev" }
+      ]
+    },
+    {
+      "name": "Panayiotis Vlissidis",
+      "image": "https://avatars.githubusercontent.com/u/2188969?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/panvliss" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/pvlissidis/?originalSubdomain=gr"
+        },
+        { "name": "github", "href": "https://github.com/pvliss" }
+      ]
+    }
+  ]
+}

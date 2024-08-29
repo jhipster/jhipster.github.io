@@ -1,0 +1,39 @@
+@import '@site/src/scss/breakpoints';
+
+.footer {
+  &Content {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem;
+
+    a {
+      color: inherit;
+
+      &:hover {
+        color: var(--ifm-color-primary);
+      }
+    }
+  }
+
+  &Copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: $sm-screen) {
+  .footer {
+    &Content {
+      flex-direction: row;
+    }
+
+    &Copyright {
+      flex-direction: row;
+    }
+  }
+}

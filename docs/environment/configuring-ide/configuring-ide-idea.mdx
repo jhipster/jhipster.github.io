@@ -1,0 +1,81 @@
+---
+title: Configuring Intellij IDEA
+slug: /configuring-ide-idea/
+last_update:
+  date: 2015-11-28T17:13:00-00:00
+---
+
+## Open your project
+
+- Open your project normally
+- Maven should be detected, and your project will build automatically
+
+If you want more control on your setup, you can also choose "Import project".
+
+
+## Exclude directories
+
+If you use Git, initialize your project (`git init && git add . && git commit -m 'Initial commit'`), Intellij IDEA will automatically exclude directories which are ignored by Git (so you don't have anything to do).
+
+To exclude directories manually:
+
+- Right-click on the `node_modules/` folder
+- Select "Mark Directory As" and select "Excluded"
+
+![Exclude](/images/configuring_ide_idea_1.png)
+
+**Note:** If you are using Intellij IDEA Ultimate and would like to use IDEA to code the frontend you should **not** exclude `node_modules` folder. Otherwise
+you will not have any code assistance for the frontend code!
+
+
+## Spring Support (not available in Community Edition)
+
+To add Spring support to many of the JHipster modules from a new project first go to `File → Project Structure`.
+
+![Project Structure](/images/configuring_ide_idea_2.png)
+
+Then go to the Modules tab, click on the `+` button, and then click on "Spring" to add Spring code assistance to your project.
+
+![Spring](/images/configuring_ide_idea_3.png)
+
+It will tell you there are unmapped Spring configuration files, click on the `+` sign on the  bottom right (not the original one) and select all the Spring files that belong to your project, clicking the folder is enough to select everything.
+
+![Spring Application Context](/images/configuring_ide_idea_4.png)
+
+After that click `OK`, and Spring should be configured with proper code assistance.
+
+Now click on the original `+` button which you used to add Spring in the first place, and add Hibernate. 
+You do not need to add any files on this one, adding it there will give you Hibernate based code assistance. Remember to click `OK` on the Project structure dialog.
+
+You should now have Spring support for most of the codebase. You have to repeat this step every time you start a new project, as these settings are project-specific.
+
+
+## Application "hot restart" with Spring Boot devtools
+
+[Spring Boot devtools](https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) is configured by JHipster, and will "hot restart" your application when classes from your project are compiled. This is a must-have feature, as it makes your application updated on the fly.
+
+By default IntelliJ IDEA does not automatically compile files when the application is running. To enable the "Compile on save" feature:
+
+* Go to `File -> Settings -> Build, Execution, Deployment -> Compiler` and enable "Make project automatically"
+* Open the Action window :
+  * Linux : `CTRL+SHIFT+A`
+  * Mac OSX : `SHIFT+COMMAND+A`
+  * Windows : `CTRL+ALT+SHIFT+/`
+* Enter `Registry...` and enable `compiler.automake.allow.when.app.running`
+
+Note: For IntelliJ IDEA version 2021.2
+* Go to `File -> Settings -> Build, Execution, Deployment -> Compiler` and enable "Build project automatically"
+* Go to `File -> Advanced Settings -> Compiler` and enable "Allow auto-make to start even if developed application is currently running"
+
+
+## Maven IDE profile
+
+If you are using Maven, you need to activate the `IDE` profile in IntelliJ. This is used for applying IDE-specific tweaks
+which currently only includes applying the MapStruct annotation processor.
+
+Open the "Maven Projects" tool window (View -> Tool Windows), check the `IDE` maven profile to activate it.
+
+
+## Gradle
+
+In order to get the best out-of-the-box experience with Gradle you should delegate all [IDE build/run actions to Gradle](https://www.jetbrains.com/idea/whatsnew/#v2017-3-gradle) directly. With this setting annotation processing is automatically configured and you won't have duplicated classes when mixing IDE and cli builds. If you are using an older version ( < 2016.3) you have to enable annotation processing manually.

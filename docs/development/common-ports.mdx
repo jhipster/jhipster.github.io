@@ -1,0 +1,51 @@
+---
+title: Common ports
+slug: /common-ports/
+last_update:
+  date: 2021-03-08T12:00:00-00:00
+---
+
+JHipster configures many tools and services, and each of them will likely use one or several ports. Here is a documentation to help understand what each port does, and help in case of a port conflict.
+
+Please note that as per the JHipster [Policy 1](/policies), the standard port for each technology is used, unless that causes a problem (that should be explained here).
+
+The ports here are listed in order, but the most common questions are for ports `8080`, `9000` and `9060`.
+
+|Port |Description                                                                                                                                                           |
+|-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|2181 |Zookeeper (used with Kafka)                                                                                                                                           |
+|3000 |Grafana                                                                                                                                                               |
+|3306 |MySQL and MariaDB                                                                                                                                                     |
+|5000 |Logstash                                                                                                                                                              |
+|5432 |PostgreSQL                                                                                                                                                            |
+|5701 |Hazelcast                                                                                                                                                             |
+|6650 |Pulsar - Service port                                                                                                                                                 |
+|7742 |Swagger Editor                                                                                                                                                        |
+|8080 |JHipster application back-end development port (Spring Boot server)                                                                                                   |
+|8081 |JHipster microservice default port                                                                                                                                    |
+|8091 |Couchbase - Web administration port                                                                                                                                   |
+|8092 |Couchbase - API port                                                                                                                                                  |
+|8093 |Couchbase - used by query services for REST/HTTP traffic                                                                                                              |
+|8180 |Hazelcast management center                                                                                                                                           |
+|8300 |Consul - server                                                                                                                                                       |
+|8301 |Consul - serflan-tcp and serflan-udp                                                                                                                                  |
+|8302 |Consul - serfwan-tcp and serfwan-udp                                                                                                                                  |
+|8400 |Consul - RPC                                                                                                                                                          |
+|8500 |Consul - HTTP port with the Web UI                                                                                                                                    |
+|8600 |Consul - DNS                                                                                                                                                          |
+|8761 |JHipster Registry (Netflix Eureka)                                                                                                                                    |
+|9000 |JHipster front-end development port with BrowserSync                                                                                                                  |
+|9001 |SonarQube                                                                                                                                                             |
+|9042 |Cassandra - CQL                                                                                                                                                       |
+|9060 |JHipster front-end development port with Webpack hot-reload                                                                                                           |
+|9090 |Prometheus                                                                                                                                                            |
+|9092 |Kafka                                                                                                                                                                 |
+|9093 |Prometheus alert manager                                                                                                                                              |
+|9160 |Cassandra - Thrift                                                                                                                                                    |
+|9200 |Elasticsearch - HTTP connections (REST API)                                                                                                                           |
+|9300 |Elasticsearch - transport connections (native API)                                                                                                                    |
+|9411 |Zipkin                                                                                                                                                                |
+|11210|Couchbase - Internal/external bucket port                                                                                                                             |
+|18080|H2 (embedded database) running inside a monolith. Default port is normally 9092 but this would cause a conflict with Kafka, so it is fixed as "1" + "Spring Boot port"|
+|18081|H2 (embedded database) running inside a microservice. See line above for more information                                                                             |
+|27017|MongoDB                                                                                                                                                               |
