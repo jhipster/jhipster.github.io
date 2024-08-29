@@ -17,7 +17,7 @@ export default function Hero() {
 
           <p className={styles.sectionDescription}>
             JHipster is a development platform to quickly generate, develop,
-            deploy modern web applications & microservice architectures.
+            and deploy modern web applications & microservice architectures.
           </p>
 
           <div className={styles.sectionButtons}>
