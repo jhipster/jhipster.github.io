@@ -13,10 +13,8 @@ export default function Learn() {
 
       <SectionDescription>
         <p>
-          Matt Raible created a screencast that shows how to use JHipster 7 to
-          develop a Spring Boot + Angular application. He also published a video
-          on how to build reactive Java microservices with Spring Boot and
-          JHipster.
+          Matt Raible created a screencast that shows how to use JHipster 8 to
+          develop a Spring Boot + Angular application.
         </p>
       </SectionDescription>
 
