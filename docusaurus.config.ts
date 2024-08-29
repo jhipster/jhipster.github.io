@@ -60,11 +60,10 @@ const config: Config = {
           lastmod: 'datetime',
           ignorePatterns: ['/modules/marketplace/details/\\*', '/search'],
         },
-        // IMPORTANT: uncomment for jhipster.github.io in production
-        // gtag: {
-        //   trackingID: 'G-4L9RJVPGJT',
-        //   anonymizeIP: true
-        // },
+        gtag: {
+          trackingID: 'G-4L9RJVPGJT',
+          anonymizeIP: true,
+        },
       } satisfies Preset.Options,
     ],
   ],
