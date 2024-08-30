@@ -21,3 +21,7 @@ yarn-error.log*
 
 # IDEA
 /.idea
+
+# NetBeans
+nbproject/
+
