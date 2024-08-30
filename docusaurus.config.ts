@@ -73,6 +73,7 @@ const config: Config = {
     redirectsPlugin,
     './src/plugins/google-fonts.ts',
     './src/plugins/module-details.ts',
+    'plugin-image-zoom'
   ],
 
   themeConfig: {
@@ -133,6 +134,11 @@ const config: Config = {
       indexName: 'jhipster',
       // Temporary disabled, need setup https://docusaurus.io/docs/search#algolia-troubleshooting
       contextualSearch: false,
+    },
+    imageZoom: {
+      // CSS selector to apply the plugin to, defaults to '.markdown img'
+      // exclude images from zoom with "italicized" markdown, e.g., _![](/img/portal/new.png)_
+      selector: '.markdown :not(em) > img'
     },
   } satisfies Preset.ThemeConfig,
 
