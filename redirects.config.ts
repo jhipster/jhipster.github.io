@@ -31,8 +31,8 @@ const redirectsPlugin = [
       { from: '/creating_an_app.html', to: '/creating-an-app/' },
       { from: '/creating_an_entity.html', to: '/creating-an-entity/' },
       {
-        from: ['/customizing_bootstrap.html', '/customizing-bootstrap/'],
-        to: '/customizing-bootstrap-3/',
+        from: ['/customizing_bootstrap.html', '/customizing-bootstrap-3/', '/customizing-bootstrap-4/'],
+        to: '/customizing-bootstrap/',
       },
       { from: '/docker_compose.html', to: '/docker-compose/' },
       { from: '/docker_hub.html', to: '/docker-hub/' },

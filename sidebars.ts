@@ -254,7 +254,7 @@ const sidebars: SidebarsConfig = {
         { type: 'doc', label: 'Using Vue', id: 'development/using-vue' },
         {
           type: 'doc',
-          label: 'Customizing Bootstrap 5',
+          label: 'Customizing Bootstrap',
           id: 'development/customizing-bootstrap-5',
         },
         { type: 'doc', label: 'Using TLS and HTTP/2', id: 'development/tls' },
