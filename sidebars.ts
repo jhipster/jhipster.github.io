@@ -255,7 +255,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'doc',
           label: 'Customizing Bootstrap',
-          id: 'development/customizing-bootstrap-5',
+          id: 'development/customizing-bootstrap',
         },
         { type: 'doc', label: 'Using TLS and HTTP/2', id: 'development/tls' },
       ],
