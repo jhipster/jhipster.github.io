@@ -19,7 +19,7 @@ export default function OptionsList({ title, dataKey }: Props) {
           <li key={`${dataKey}-${idx}`}>
             <div className={clsx('card', styles.card)}>
               <div className={clsx('card__image', styles.cardImage)}>
-                <img src={item.image} alt={item.label} width={45} height={45} />
+                <img src={item.image} alt={item.label} width={45} height={45} loading='lazy' />
               </div>
             </div>
           </li>

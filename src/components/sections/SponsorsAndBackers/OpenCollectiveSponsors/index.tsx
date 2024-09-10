@@ -30,6 +30,7 @@ export default function OpenCollectiveSponsors({ title, sponsors }: Props) {
                     alt={item.name}
                     width={70}
                     height={70}
+                    loading='lazy'
                   />
                 </div>
               </div>
