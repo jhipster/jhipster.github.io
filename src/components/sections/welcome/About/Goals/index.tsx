@@ -26,7 +26,7 @@ export default function Goals() {
         <li>
           <div>
             <div className={styles.cardIcon}>
-              <RxStack className="h-6 w-6" />
+              <RxStack />
             </div>
             <h3 className={styles.cardTitle}>Robust server-side stack</h3>
             <p className={styles.cardDescription}>
@@ -39,7 +39,7 @@ export default function Goals() {
         <li>
           <div>
             <div className={styles.cardIcon}>
-              <MdOutlineStyle className="h-6 w-6" />
+              <MdOutlineStyle />
             </div>
             <h3 className={styles.cardTitle}>Modern Sleek</h3>
             <p className={styles.cardDescription}>
@@ -52,7 +52,7 @@ export default function Goals() {
         <li>
           <div>
             <div className={styles.cardIcon}>
-              <GoWorkflow className="h-6 w-6" />
+              <GoWorkflow />
             </div>
             <h3 className={styles.cardTitle}>Powerful workflow</h3>
             <p className={styles.cardDescription}>
@@ -65,7 +65,7 @@ export default function Goals() {
         <li>
           <div>
             <div className={styles.cardIcon}>
-              <TbCloudDataConnection className="h-6 w-6" />
+              <TbCloudDataConnection />
             </div>
             <h3 className={styles.cardTitle}>Resilient architecture</h3>
             <p className={styles.cardDescription}>
@@ -78,7 +78,7 @@ export default function Goals() {
         <li>
           <div>
             <div className={styles.cardIcon}>
-              <GrDeploy className="h-6 w-6" />
+              <GrDeploy />
             </div>
             <h3 className={styles.cardTitle}>Quickly deploy</h3>
             <p className={styles.cardDescription}>
