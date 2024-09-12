@@ -14,17 +14,21 @@ export default function OptionsList({ title, dataKey }: Props) {
     <div className={styles.section}>
       <h3 className={styles.sectionTitle}>{title}</h3>
 
-      <ul className={styles.sectionList}>
+      <div className={styles.sectionList}>
         {options[dataKey].map((item, idx) => (
-          <li key={`${dataKey}-${idx}`}>
-            <div className={clsx('card', styles.card)}>
-              <div className={clsx('card__image', styles.cardImage)}>
-                <img src={item.image} alt={item.label} width={45} height={45} loading='lazy' />
-              </div>
+          <div key={`${dataKey}-${idx}`} className={clsx('card', styles.card)}>
+            <div className={clsx('card__image', styles.cardImage)}>
+              <img
+                src={item.image}
+                alt={item.label}
+                width={45}
+                height={45}
+                loading="lazy"
+              />
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

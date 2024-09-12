@@ -35,30 +35,24 @@ export default function Community({ color }: Props) {
 
       <SectionDescription>
         <p>
-          JHipster is Open Source, and all development is done on GitHub. If you use
-          JHipster, consider becoming a sponsor or a backer. If you want to code
-          with us, feel free to join! If you like the project, please give us a
-          ⭐️ on GitHub.
+          JHipster is Open Source, and all development is done on GitHub. If you
+          use JHipster, consider becoming a sponsor or a backer. If you want to
+          code with us, feel free to join! If you like the project, please give
+          us a ⭐️ on GitHub.
         </p>
       </SectionDescription>
 
-      <ul className={styles.sectionList}>
-        <li>
-          <CommunityCard
-            value={`${npmDownloads.downloads}`}
-            text="Downloads in last 30 days"
-          />
-        </li>
-        <li>
-          <CommunityCard
-            value={`${githubConfig.stargazers_count}`}
-            text="GitHub Stars"
-          />
-        </li>
-        <li>
-          <CommunityCard value="600" text="Contributors" postfix="+" />
-        </li>
-      </ul>
+      <div className={styles.sectionList}>
+        <CommunityCard
+          value={`${npmDownloads.downloads}`}
+          text="Downloads in last 30 days"
+        />
+        <CommunityCard
+          value={`${githubConfig.stargazers_count}`}
+          text="GitHub Stars"
+        />
+        <CommunityCard value="600" text="Contributors" postfix="+" />
+      </div>
 
       <div className={styles.sectionButtons}>
         <GithubButton>Join us on GitHub</GithubButton>

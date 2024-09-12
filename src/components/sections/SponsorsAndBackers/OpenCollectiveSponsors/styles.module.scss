@@ -2,14 +2,12 @@
 
 .section {
   &List {
-    list-style: none;
-    padding-left: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
 
-    & > li {
+    & > a {
       width: calc((100% - 3 * 32px) / 4);
     }
   }
@@ -35,7 +33,7 @@
 @media (min-width: $md-screen) {
   .section {
     &List {
-      & > li {
+      & > a {
         width: calc((100% - 5 * 32px) / 6);
       }
     }
@@ -45,7 +43,7 @@
 @media (min-width: $lg-screen) {
   .section {
     &List {
-      & > li {
+      & > a {
         width: calc((100% - 8 * 32px) / 9);
       }
     }
