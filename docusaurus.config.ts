@@ -45,13 +45,6 @@ const config: Config = {
           showLastUpdateTime: true,
         },
         blog: false,
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        // },
         theme: {
           customCss: './src/scss/custom.scss',
         },
@@ -73,7 +66,7 @@ const config: Config = {
     redirectsPlugin,
     './src/plugins/google-fonts.ts',
     './src/plugins/module-details.ts',
-    'plugin-image-zoom'
+    'plugin-image-zoom',
   ],
 
   themeConfig: {
@@ -95,11 +88,16 @@ const config: Config = {
         height: 32,
       },
       items: [
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'docsSidebar',
+        //   position: 'right',
+        //   label: 'Docs',
+        // },
         {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
-          position: 'right',
+          to: '/getting-started',
           label: 'Docs',
+          position: 'right',
         },
         {
           to: '/modules/marketplace/',
@@ -138,7 +136,7 @@ const config: Config = {
     imageZoom: {
       // CSS selector to apply the plugin to, defaults to '.markdown img'
       // exclude images from zoom with "italicized" markdown, e.g., _![](/img/portal/new.png)_
-      selector: '.markdown :not(em) > img'
+      selector: '.markdown :not(em) > img',
     },
   } satisfies Preset.ThemeConfig,
 
