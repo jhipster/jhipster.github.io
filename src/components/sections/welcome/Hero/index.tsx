@@ -2,6 +2,7 @@ import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 
 import GithubButton from '@site/src/components/GithubButton';
+import HeroFamily from '@site/static/images/logo/hero-family.svg';
 import styles from './styles.module.scss';
 
 export default function Hero() {
@@ -15,8 +16,8 @@ export default function Hero() {
           </h1>
 
           <p className={styles.sectionDescription}>
-            JHipster is a development platform to quickly generate, develop,
-            and deploy modern web applications & microservice architectures.
+            JHipster is a development platform to quickly generate, develop, and
+            deploy modern web applications & microservice architectures.
           </p>
 
           <div className={styles.sectionButtons}>
@@ -27,13 +28,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <img
-          className={styles.sectionImage}
-          src="/images/hero-family.webp"
-          alt="JHipster family"
-          width={476}
-          height={380}
-        />
+        <HeroFamily className={styles.sectionImage} />
       </div>
     </header>
   );
