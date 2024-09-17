@@ -2,7 +2,7 @@ import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 
 import GithubButton from '@site/src/components/GithubButton';
-import HeroFamily from '@site/static/images/logo/hero-family.svg';
+// import HeroFamily from '@site/static/images/logo/hero-family.svg';
 import styles from './styles.module.scss';
 
 export default function Hero() {
@@ -28,7 +28,14 @@ export default function Hero() {
           </div>
         </div>
 
-        <HeroFamily className={styles.sectionImage} />
+        <img
+          className={styles.sectionImage}
+          src="/images/logo/hero-family.webp"
+          alt="JHipster family"
+          width={476}
+          height={380}
+        />
+        {/* <HeroFamily className={styles.sectionImage} /> */}
       </div>
     </header>
   );
