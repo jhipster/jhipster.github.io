@@ -26,41 +26,38 @@ export default function Modules() {
         </p>
       </SectionDescription>
 
-      <ul className={styles.sectionList}>
+      <div className={styles.sectionList}>
         {modules.slice(0, 9).map((item, idx) => (
-          <li key={`module-${idx}`}>
-            <Link
-              className={clsx('card', styles.card)}
-              to={`/modules/marketplace/details/${item.name}`}
-            >
-              <div className="card__header">
-                <div className="avatar">
-                  <div>
-                    <HiOutlineCubeTransparent className="avatar__photo" />
-                  </div>
+          <Link
+            key={`module-${idx}`}
+            className={clsx('card', styles.card)}
+            to={`/modules/marketplace/details/${item.name}`}
+          >
+            <div className="card__header">
+              <div className="avatar">
+                <div>
+                  <HiOutlineCubeTransparent className="avatar__photo" />
+                </div>
 
-                  <div className="avatar__intro">
-                    <div className="avatar__name">
-                      {getModuleName(item.name)}
-                    </div>
-                    {item.author?.url ? (
-                      <small
-                        className={clsx(
-                          'avatar__subtitle',
-                          styles.cardDescription,
-                        )}
-                      >
-                        <HiOutlineUser />
-                        {item.author.name}
-                      </small>
-                    ) : null}
-                  </div>
+                <div className="avatar__intro">
+                  <div className="avatar__name">{getModuleName(item.name)}</div>
+                  {item.author?.url ? (
+                    <small
+                      className={clsx(
+                        'avatar__subtitle',
+                        styles.cardDescription,
+                      )}
+                    >
+                      <HiOutlineUser />
+                      {item.author.name}
+                    </small>
+                  ) : null}
                 </div>
               </div>
-            </Link>
-          </li>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
 
       <div className={styles.sectionButtons}>
         <Link className="button button--primary" to="/modules/marketplace">

@@ -11,8 +11,6 @@
   }
 
   &List {
-    list-style: none;
-    padding-left: 0;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.5rem;

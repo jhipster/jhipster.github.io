@@ -37,6 +37,7 @@ export default function TeamList({ dataKey }: Props) {
                   className="avatar__photo avatar__photo--xl"
                   src={item.image}
                   alt={`${item.name} avatar`}
+                  loading="lazy"
                 />
                 <div className="avatar__intro">
                   <div className="avatar__name">{item.name}</div>

@@ -17,7 +17,9 @@ export default function CompanyLogo({ company }: Props) {
           className={styles.cardImage}
           src={`${COMPANIES_LOGOS_PATH}/${company.logo}`}
           alt={company.name}
-          loading='lazy'
+          width={100}
+          height={50}
+          loading="lazy"
         />
       </div>
     </Link>

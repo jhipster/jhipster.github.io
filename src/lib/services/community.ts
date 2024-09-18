@@ -39,7 +39,10 @@ function getCommunityService() {
       }
 
       const res = await fetch(url);
-      const gitHubConfig = await res.json();
+      const gitHubConfigData = await res.json();
+      const gitHubConfig = {
+        stargazers_count: gitHubConfigData.stargazers_count,
+      };
 
       communityCache.set(
         GITHUB_CONFIG_CACHE_KEY,

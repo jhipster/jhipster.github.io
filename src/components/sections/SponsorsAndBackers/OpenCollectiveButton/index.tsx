@@ -12,7 +12,7 @@ export default function OpenCollectiveButton() {
           alt="Donate"
           width={298}
           height={48}
-          loading='lazy'
+          loading="lazy"
         />
       </Link>
     </div>
