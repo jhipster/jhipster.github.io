@@ -1,4 +1,4 @@
-import { FaGithub, FaGitter, FaXTwitter, FaYoutube } from 'react-icons/fa6';
+import { FaGithub, FaStackOverflow, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
 const socialLinks = [
   {
@@ -17,9 +17,9 @@ const socialLinks = [
     alt: 'YouTube channel',
   },
   {
-    icon: FaGitter,
-    href: 'https://gitter.im/jhipster/generator-jhipster',
-    alt: 'Gitter',
+    icon: FaStackOverflow,
+    href: 'http://stackoverflow.com/tags/jhipster/info',
+    alt: 'Stackoverflow',
   },
 ];
 
