@@ -14,7 +14,7 @@ export default function Books() {
             <div className={styles.card}>
               <img
                 className={styles.cardImage}
-                src={require(`@site/static${book.image}`).default}
+                src={book.image}
                 alt={book.title}
                 width={400}
                 height={500}
