@@ -4,7 +4,8 @@ import clsx from 'clsx';
 import GithubButton from '@site/src/components/GithubButton';
 import styles from './styles.module.scss';
 
-const heroImageSrc = '/images/logo/hero-family.webp';
+const heroImageSrc =
+  require('@site/static/images/logo/hero-family.webp').default;
 
 export default function Hero() {
   return (

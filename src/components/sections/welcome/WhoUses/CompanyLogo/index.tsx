@@ -15,7 +15,10 @@ export default function CompanyLogo({ company }: Props) {
       <div className={clsx('card__body', styles.cardBody)}>
         <img
           className={styles.cardImage}
-          src={`${COMPANIES_LOGOS_PATH}/${company.logo}`}
+          src={
+            require(`@site/static${COMPANIES_LOGOS_PATH}/${company.logo}`)
+              .default
+          }
           alt={company.name}
           width={100}
           height={50}

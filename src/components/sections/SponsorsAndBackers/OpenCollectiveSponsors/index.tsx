@@ -24,7 +24,9 @@ export default function OpenCollectiveSponsors({ title, sponsors }: Props) {
                   className="truncate"
                   src={
                     item.image ??
-                    `/images/open-collective/${item.name.toLowerCase()}.png`
+                    require(
+                      `@site/static/images/open-collective/${item.name.toLowerCase()}.png`,
+                    ).default
                   }
                   alt={item.name}
                   width={70}

@@ -19,7 +19,7 @@ export default function OptionsList({ title, dataKey }: Props) {
           <div key={`${dataKey}-${idx}`} className={clsx('card', styles.card)}>
             <div className={clsx('card__image', styles.cardImage)}>
               <img
-                src={item.image}
+                src={require(`@site/static${item.image}`).default}
                 alt={item.label}
                 width={45}
                 height={45}
