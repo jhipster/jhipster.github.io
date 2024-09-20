@@ -35,7 +35,7 @@
     { "label": "MongoDB", "image": "/images/logo/icons/mongo.png" },
     { "label": "Mongock", "image": "/images/logo/icons/mongock.png" },
     { "label": "Cassandra", "image": "/images/logo/svg/cassandra.svg" },
-    { "label": "Couchbase", "image": "/images/logo/svg//couchbase.svg" },
+    { "label": "Couchbase", "image": "/images/logo/svg/couchbase.svg" },
     { "label": "Neo4j", "image": "/images/logo/svg/neo4j-icon.svg" },
     { "label": "EhCache", "image": "/images/logo/icons/ehcache.png" },
     { "label": "Caffeine", "image": "/images/logo/icons/caffeine.png" },
