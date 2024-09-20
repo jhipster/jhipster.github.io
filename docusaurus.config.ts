@@ -3,9 +3,21 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import redirectsPlugin from './redirects.config';
 
+const isDocsArchive = process.env.IS_DOCS_ARCHIVE === 'true';
+
+const archiveDocsThemeConfig = {
+  announcementBar: {
+    id: 'docs-archive',
+    content:
+      'This documentation is for an older version of JHipster. Click <a href="https://jhipster.tech/">here</a> for the current version of the documentation.',
+    isCloseable: false,
+  },
+} satisfies Preset.ThemeConfig;
+
 const config: Config = {
+  noIndex: isDocsArchive,
+
   title: 'JHipster',
-  // tagline: 'Dinosaurs are cool',
   favicon: 'images/favicon.ico',
 
   // Set the production url of your site here
@@ -138,6 +150,7 @@ const config: Config = {
       // exclude images from zoom with "italicized" markdown, e.g., _![](/img/portal/new.png)_
       selector: '.markdown :not(em) > img',
     },
+    ...(isDocsArchive ? archiveDocsThemeConfig : {}),
   } satisfies Preset.ThemeConfig,
 
   headTags: [
