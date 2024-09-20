@@ -3,6 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import redirectsPlugin from './redirects.config';
 
+const baseUrl = process.env.SITE_BASE_URL ?? '/';
 const isDocsArchive = process.env.IS_DOCS_ARCHIVE === 'true';
 
 const archiveDocsThemeConfig = {
@@ -24,7 +25,7 @@ const config: Config = {
   url: 'https://www.jhipster.tech',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl,
 
   // GitHub pages deployment config.
   deploymentBranch: 'gh-pages',
