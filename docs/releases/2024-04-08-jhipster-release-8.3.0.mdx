@@ -7,7 +7,7 @@ sidebar_class_name: hidden
 
 # JHipster release v8.3.0
 
-This is a minor release for JHipster v8. 
+This is a minor release for JHipster v8.
 
 It includes [210 closed issues and pull requests on the main branch](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.3.0) after the 8.2.1 release.
 
@@ -15,7 +15,7 @@ It includes [210 closed issues and pull requests on the main branch](https://git
 
 - Upgrade to Spring Boot 3.2.4 ([#25593](https://github.com/jhipster/generator-jhipster/pull/25593))
 - Drop `jhipster-dependencies` in favor of Spring Boot's dependency management ([#25602](https://github.com/jhipster/generator-jhipster/pull/25602))
-- Add `--experimental` support for Spring Cloud Gateway MVC ([#25768](https://github.com/jhipster/generator-jhipster/pull/25768)). 
+- Add `--experimental` support for Spring Cloud Gateway MVC ([#25768](https://github.com/jhipster/generator-jhipster/pull/25768)).
 - Improve Spring context caching during tests ([#25642](https://github.com/jhipster/generator-jhipster/pull/25642))
 - Upgrade to Gradle 8.7 ([#25681](https://github.com/jhipster/generator-jhipster/pull/25681))
 - Keycloak fixes so user registration works ([#25680](https://github.com/jhipster/generator-jhipster/pull/25680), [#25679](https://github.com/jhipster/generator-jhipster/pull/25679))
@@ -38,7 +38,9 @@ As always, **[you can check all closed tickets and merged pull requests here](ht
 
 To install JHipster v8.3.0:
 
-    npm install -g generator-jhipster
+```
+npm install -g generator-jhipster
+```
 
 It is also available using the JHipster Docker image, as it is automatically built from our source code.
 
@@ -63,7 +65,7 @@ And then run the upgrade sub-generator:
 jhipster upgrade
 ```
 
-You can also use the [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) for more advanced upgrade features. 
+You can also use the [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) for more advanced upgrade features.
 
 **Manual upgrades**
 
@@ -80,7 +82,7 @@ To upgrade your project, you must first delete its `node_modules` folder and the
 jhipster
 ```
 
-Since JHipster 8.0, this command will update your project and all its entities. 
+Since JHipster 8.0, this command will update your project and all its entities.
 
 You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_, use:
 
