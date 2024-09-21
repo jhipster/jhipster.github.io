@@ -7,13 +7,13 @@ export default function Showcase() {
       <ContentMediaCard
         title="Devoxx"
         href="https://devoxx.com/"
-        image="/images/showcase/beta.devoxx.com.png"
+        image={require('/images/showcase/beta.devoxx.com.png').default}
       />
 
       <ContentMediaCard
         title="Hatequeue"
         href="https://www.hatequeue.com"
-        image="/images/showcase/hatequeue.png"
+        image={require('/images/showcase/hatequeue.png').default}
       >
         <p>
           Created by: <a href="http://www.djavafactory.com">DJava Factory</a>
@@ -23,7 +23,7 @@ export default function Showcase() {
       <ContentMediaCard
         title="OncoKB"
         href="https://www.oncokb.org"
-        image="/images/showcase/oncokb.org.png"
+        image={require('/images/showcase/oncokb.org.png').default}
       >
         <p>Precision Oncology Knowledge Base</p>
       </ContentMediaCard>
@@ -50,19 +50,19 @@ export default function Showcase() {
       <ContentMediaCard
         title="Klask.io"
         href="http://app.klask.io/#/"
-        image="/images/showcase/app.klask.io.png"
+        image={require('/images/showcase/app.klask.io.png').default}
       />
 
       <ContentMediaCard
         title="21-Points Health"
         href="http://www.21-points.com/#/"
-        image="/images/showcase/www.21-points.com.png"
+        image={require('/images/showcase/www.21-points.com.png').default}
       />
 
       <ContentMediaCard
         title="Blue Magic Cat"
         href="http://bluemagiccat.com/"
-        image="/images/showcase/bluemagiccat.com.png"
+        image={require('/images/showcase/bluemagiccat.com.png').default}
       />
 
       <ContentMediaCard
@@ -95,13 +95,15 @@ export default function Showcase() {
       <ContentMediaCard
         title="Motorsports Database"
         href="https://www.motorsports-database.racing"
-        image="/images/showcase/motorsports-database.racing.png"
+        image={
+          require('/images/showcase/motorsports-database.racing.png').default
+        }
       />
 
       <ContentMediaCard
         title="Collaborative Open Source CMS: Spingular"
         href="http://www.spingular.com"
-        image="https://www.jhipster.tech/images/showcase/jhipsterpress.png"
+        image={require('/images/showcase/jhipsterpress.png').default}
       />
 
       {/* <ContentMediaCard
@@ -113,7 +115,7 @@ export default function Showcase() {
       <ContentMediaCard
         title="Bon Limousin"
         href="https://limousin.se"
-        image="/images/showcase/limousin.se.png"
+        image={require('/images/showcase/limousin.se.png').default}
       >
         <p>
           Source code:{' '}

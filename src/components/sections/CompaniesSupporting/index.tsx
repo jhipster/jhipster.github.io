@@ -31,7 +31,11 @@ export default function CompaniesSupporting() {
             <div className={clsx('card', styles.card)}>
               <div className="card__body">
                 <div className="card__image">
-                  <img src="/images/support/okta.png" alt="Okta" />
+                  <img
+                    src={require('@site/static/images/support/okta.png').default}
+                    alt="Okta"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>

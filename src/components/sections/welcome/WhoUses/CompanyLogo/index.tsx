@@ -1,5 +1,6 @@
 import type { Company } from '@site/src/types/company';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
 
@@ -15,7 +16,7 @@ export default function CompanyLogo({ company }: Props) {
       <div className={clsx('card__body', styles.cardBody)}>
         <img
           className={styles.cardImage}
-          src={`${COMPANIES_LOGOS_PATH}/${company.logo}`}
+          src={useBaseUrl(`${COMPANIES_LOGOS_PATH}/${company.logo}`)}
           alt={company.name}
           width={100}
           height={50}

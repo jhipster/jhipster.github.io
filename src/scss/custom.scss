@@ -95,3 +95,14 @@ a {
 .hidden {
   display: none !important;
 }
+
+div[class^='announcementBar_'] {
+  font-size: 20px;
+  height: auto;
+  background-color: #fdc22b;
+  font-weight: bold;
+
+  a {
+    font-weight: inherit;
+  }
+}

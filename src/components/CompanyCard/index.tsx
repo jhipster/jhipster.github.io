@@ -1,5 +1,6 @@
 import type { Company } from '@site/src/types/company';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 
@@ -25,7 +26,7 @@ export default function CompanyCard({ company }: Props) {
             >
               <img
                 className={clsx(styles.cardImage)}
-                src={`${COMPANIES_ICONS_PATH}/${company.icon}`}
+                src={useBaseUrl(`${COMPANIES_ICONS_PATH}/${company.icon}`)}
                 alt={company.name}
               />
             </div>
