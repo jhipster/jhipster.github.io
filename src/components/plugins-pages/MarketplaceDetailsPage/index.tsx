@@ -1,5 +1,6 @@
 import Layout from '@theme/Layout';
 import { Redirect, useLocation } from '@docusaurus/router';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import MarketplaceDetailsHero from '@site/src/components/sections/marketplace/MarketplaceDetailsHero';
 import MarketplaceDetails from '@site/src/components/sections/marketplace/MarketplaceDetails';
@@ -7,8 +8,12 @@ import MarketplaceDetails from '@site/src/components/sections/marketplace/Market
 import { useMarketplaceDetails } from '@site/src/hooks/use-marketplace';
 
 export default function MarketplaceDetailsPage() {
+  const { siteConfig } = useDocusaurusContext();
   const location = useLocation();
-  const moduleName = getModuleNameFromPath(location.pathname);
+  const moduleName = getModuleNameFromPath(
+    location.pathname,
+    siteConfig.baseUrl,
+  );
 
   const { details, downloads, isLoading, isValidRoute } =
     useMarketplaceDetails(moduleName);
@@ -37,8 +42,12 @@ export default function MarketplaceDetailsPage() {
   );
 }
 
-function getModuleNameFromPath(pathname: string) {
-  const pathParts = pathname.split('/');
+function getModuleNameFromPath(pathname: string, baseUrl: string) {
+  const normalPathName =
+    baseUrl === '/'
+      ? pathname
+      : pathname.replace(new RegExp(`^${baseUrl}`), '/');
+  const pathParts = normalPathName.split('/');
 
   if (pathParts[4].startsWith('@')) {
     return pathParts

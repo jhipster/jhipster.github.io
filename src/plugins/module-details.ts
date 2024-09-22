@@ -1,3 +1,4 @@
+import type { LoadContext } from '@docusaurus/types';
 import { NPM_SEARCH_MODULES_URL } from '../constants';
 
 import modulesConfig from '../data/modules-config.json';
@@ -12,7 +13,7 @@ function getModulesNames(modules: any): string[] {
   }, []);
 }
 
-export default function moduleDetailsPlugin() {
+export default function moduleDetailsPlugin(context: LoadContext) {
   return {
     name: 'docusaurus-module-details',
     async loadContent() {
@@ -33,7 +34,7 @@ export default function moduleDetailsPlugin() {
 
       content.forEach((moduleName: string) => {
         addRoute({
-          path: `/modules/marketplace/details/${moduleName}`,
+          path: `${context.baseUrl}modules/marketplace/details/${moduleName}`,
           component:
             '@site/src/components/plugins-pages/MarketplaceDetailsPage/index.tsx',
         });
