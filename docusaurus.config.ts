@@ -56,6 +56,12 @@ const config: Config = {
           editUrl: 'https://github.com/jhipster/jhipster.github.io/tree/main/',
           routeBasePath: '/',
           showLastUpdateTime: true,
+          versions: {
+            current: {
+              path: '/',
+            },
+          },
+          onlyIncludeVersions: ['current'],
         },
         blog: false,
         theme: {
