@@ -146,8 +146,8 @@ const config: Config = {
       additionalLanguages: ['java', 'bash', 'yaml', 'gradle', 'diff'],
     },
     algolia: {
-      appId: 'BH4D9OD16A',
-      apiKey: '9bd47d3de4af6f3662fd11a7f0e38819',
+      appId: 'T3OWTRXITU',
+      apiKey: '012c1b755b9e42f5e300959da6ad25cd',
       indexName: 'jhipster',
       // Temporary disabled, need setup https://docusaurus.io/docs/search#algolia-troubleshooting
       contextualSearch: false,
