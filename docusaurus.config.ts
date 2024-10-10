@@ -32,10 +32,8 @@ const config: Config = {
   organizationName: 'jhipster',
   projectName: 'jhipster.github.io',
 
-  // onBrokenLinks: 'throw',
-  onBrokenLinks: 'ignore',
-  // onBrokenMarkdownLinks: 'warn',
-  onBrokenMarkdownLinks: 'ignore',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
   onBrokenAnchors: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
