@@ -20,8 +20,8 @@ export default function Description() {
         Kubernetes.
       </li>
       <li>
-        Deployment support exists for AWS, Azure, Cloud Foundry, Google Cloud
-        Platform, Heroku, and OpenShift.
+        Deployment support exists for AWS, Azure, Google Cloud Platform, Heroku,
+        and OpenShift.
       </li>
     </ul>
   );
