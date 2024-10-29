@@ -10,7 +10,7 @@ JHipster release v6.3.1
 
 Warning, this release fixes an **important security vulnerabilities**:
 
-- Our previous release had an important security vulnerability, please read [the v6.3.0 release notes](/2019/09/13/jhipster-release-6.3.0/) for more information. It was announced that this vulnerability was only for users using JWT authentication: the issue is in fact wider, and affects people using session-based authentication and UAA authentication. Only people using OAuth2 authentication (with services like Keycloak or Okta) are safe. This was already fixed in the previous release, so there is nothing specific for this in this release.
+- Our previous release had an important security vulnerability, please read [the v6.3.0 release notes](/2019/09/13/jhipster-release-6.3.0.html) for more information. It was announced that this vulnerability was only for users using JWT authentication: the issue is in fact wider, and affects people using session-based authentication and UAA authentication. Only people using OAuth2 authentication (with services like Keycloak or Okta) are safe. This was already fixed in the previous release, so there is nothing specific for this in this release.
 - We have a [new vulnerability that affects Gradle users](https://github.com/jhipster/generator-jhipster/security/advisories/GHSA-mc84-xr9p-938r). The generated configuration file contained one Maven repository configured with HTTP, and not HTTPS, which could lead to man-in-the-middle attacks when doing a build. You will find all information in the security advisory, but to make a long story short: you should use HTTPS both in your Maven and Gradle build files.
 
 **What's new in this release**

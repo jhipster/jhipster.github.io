@@ -28,25 +28,6 @@ A specific section on microservices is included in our [Docker Compose documenta
 As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation](/docker-compose) to learn more about using Docker Compose with JHipster.
 
 
-## Going to production with Cloud Foundry
-
-The [Cloud Foundry sub-generator](/cloudfoundry) works the same with a microservices architecture, the main difference is that you have more applications to deploy:
-
-- Use the [Cloud Foundry sub-generator](/cloudfoundry) to deploy first the JHipster Registry (which is a normal JHipster application).
-- Note the URL on which your JHipster Registry is deployed. Your applications must all point to that URL:
-  - In the `bootstrap-prod.yml` file, the `spring.cloud.config.uri` must point to `http(s)://<your_jhipster_registry_url>/config/`
-  - In the `application-prod.yml` file, the `eureka.client.serviceUrl.defaultZone` must point to `http(s)://<your_jhipster_registry_url>/eureka/`
-- Deploy your gateway(s) and microservices
-- Scale your applications as usual with Cloud Foundry
-
-One important point to remember is that the JHipster Registry isn't secured by default, and that the microservices are not supposed to be accessible from the outside world, as users are supposed to use the gateway(s) to access your application.
-
-Two solutions are available to solve this issue:
-
-- Secure your Cloud Foundry using specific routes.
-- Keep everything public, but use HTTPS everywhere, and secure your JHipster Registry using Spring Security's basic authentication support
-
-
 ## Going to production with Heroku
 
 The [Heroku sub-generator](/heroku) works nearly the same with a microservices architecture, the main difference is that you have more applications to deploy:
