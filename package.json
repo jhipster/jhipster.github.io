@@ -16,9 +16,9 @@
     "analyze": "docusaurus build --bundle-analyzer"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.5.2",
-    "@docusaurus/plugin-client-redirects": "^3.5.2",
-    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/core": "^3.6.0",
+    "@docusaurus/plugin-client-redirects": "^3.6.0",
+    "@docusaurus/preset-classic": "^3.6.0",
     "@kbox-labs/react-echarts": "^1.4.0",
     "@mdx-js/react": "^3.1.0",
     "class-variance-authority": "^0.7.0",
@@ -37,9 +37,9 @@
     "sass": "^1.80.6"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.5.2",
-    "@docusaurus/tsconfig": "^3.5.2",
-    "@docusaurus/types": "^3.5.2",
+    "@docusaurus/module-type-aliases": "^3.6.0",
+    "@docusaurus/tsconfig": "^3.6.0",
+    "@docusaurus/types": "^3.6.0",
     "prettier": "^3.3.3",
     "typescript": "~5.6.3"
   },
