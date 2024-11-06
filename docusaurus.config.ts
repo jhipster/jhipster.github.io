@@ -41,7 +41,15 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'jp'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+      jp: {
+        label: '日本語',        
+      },
+    },
   },
 
   presets: [
@@ -136,6 +144,10 @@ const config: Config = {
           label: 'JDL Studio',
           position: 'right',
         },
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },        
       ],
     },
     prism: {
