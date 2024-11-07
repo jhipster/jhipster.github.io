@@ -11,7 +11,7 @@ The main purpose of JHipster Control Center is to monitor and manage application
 
 All its features are packaged into one external application with a modern Vue user interface. Its source code is available on GitHub under the JHipster organization at [jhipster/jhipster-control-center](https://github.com/jhipster/jhipster-control-center).
 
-![](/images/jhipster-control-center-animation.gif)
+![](/images/jhipster-control-center-animation.webp)
 
 
 ## Specific Spring profiles
@@ -74,7 +74,7 @@ This is a standard web application that connects to one or several JHipster appl
 
 The Control Center use [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) for routing APIs and Spring Cloud LoadBalancer to provide client-side load-balancing in calls to another microservice (Ribbons is disabled by default to use implementation of load balancing by Spring Cloud LoadBalancer).
 
-![](/images/jhipster-control-center-architecture.png)
+![](/images/jhipster-control-center-architecture.webp)
 
 
 ## Authentication mechanism
@@ -96,7 +96,7 @@ Then, our security configuration, in Oauth2SecurityConfiguration.java, will use 
 
 The JHipster Control Center provides a list of application's instances. As soon as an application registers on a server (consul or eureka), it will become available in the list.
 
-![](/images/jhipster-control-center-instances.png)
+![](/images/jhipster-control-center-instances.webp)
 
 ### ***Metrics***
 
@@ -111,7 +111,7 @@ It gives metrics on:
 
 By clicking on the Expand button next to the JVM thread metrics, you will get a stacktrace of the running application, which is very useful to find out blocked threads.
 
-![](/images/jhipster-control-center-metrics.png)
+![](/images/jhipster-control-center-metrics.webp)
 
 ### ***Health***
 
@@ -119,13 +119,13 @@ The health page uses Spring Boot Actuator's health endpoint to give health infor
 
 Many health checks are provided out-of-the-box by Spring Boot Actuator, and you can add application-specific health checks.
 
-![](/images/jhipster-control-center-health.png)
+![](/images/jhipster-control-center-health.webp)
 
 ### ***Configuration***
 
 The configuration page uses Spring Boot Actuator's configuration endpoint to give a full view of the Spring configuration of the current application.
 
-![](/images/jhipster-control-center-configuration.png)
+![](/images/jhipster-control-center-configuration.webp)
 
 ### ***Logs***
 
@@ -133,7 +133,7 @@ The logs page allows to manage at runtime the Logback configuration of the runni
 
 You can change the log level of Java package by clicking on a button, which is very convenient both in development and in production.
 
-![](/images/jhipster-control-center-logs.png)
+![](/images/jhipster-control-center-logs.webp)
 
 ### ***Logfile***
 
@@ -152,11 +152,11 @@ See:
  - https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
 ```
 
-![](/images/jhipster-control-center-logfile.png)
+![](/images/jhipster-control-center-logfile.webp)
 
 ### ***API***
 
 The API page allows to see all API documentation of your applications and test their endpoints through a single Swagger UI frame.
 
-![](/images/jhipster-control-center-api.png)
+![](/images/jhipster-control-center-api.webp)
 
