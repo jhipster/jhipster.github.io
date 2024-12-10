@@ -1,5 +1,5 @@
 import type { LoadContext } from '@docusaurus/types';
-import { NPM_SEARCH_MODULES_URL } from '../constants';
+import { fetchModules } from '../lib/fetch-modules';
 
 import modulesConfig from '../data/modules-config.json';
 
@@ -17,11 +17,8 @@ export default function moduleDetailsPlugin(context: LoadContext) {
   return {
     name: 'docusaurus-module-details',
     async loadContent() {
-      const url = `${NPM_SEARCH_MODULES_URL}&from=0&size=500`;
-
       try {
-        const res = await fetch(url);
-        const modules = await res.json();
+        const modules = await fetchModules();
 
         return getModulesNames(modules);
       } catch (err) {
