@@ -37,7 +37,7 @@ export default function MarketplaceDetails({
             <Heading as="h2">JHipster version compatibility</Heading>
             <p>
               This module works with JHipster version:{' '}
-              <b>{details.dependencies['generator-jhipster']}</b>
+              <b>{generatorVersion(details)}</b>
             </p>
 
             <Heading as="h2">Links</Heading>
@@ -66,4 +66,24 @@ export default function MarketplaceDetails({
       </div>
     </section>
   );
+}
+
+function generatorVersion(details: any) {
+  const generator = 'generator-jhipster';
+
+  if (details) {
+    const devDepVal =
+      details.devDependencies && generator in details.devDependencies
+        ? details.devDependencies[generator]
+        : '';
+
+    const depVal =
+      details.dependencies && generator in details.dependencies
+        ? details.dependencies[generator]
+        : '';
+
+    return devDepVal.length > 0 ? devDepVal : depVal;
+  }
+
+  return '';
 }
