@@ -1,5 +1,5 @@
 import { createLocalStorageCache } from '@site/src/lib/cache';
-import { NPM_SEARCH_MODULES_URL } from '@site/src/constants';
+import { fetchModules } from '@site/src/lib/fetch-modules';
 
 import modulesConfig from '@site/src/data/modules-config.json';
 
@@ -19,17 +19,13 @@ function getMappedModules(modules: any) {
 function getModulesService() {
   const modulesCache = createLocalStorageCache();
 
-  async function getAllModules(start: number = 0, size: number = 500) {
-    const url = `${NPM_SEARCH_MODULES_URL}&from=${start}&size=${size}`;
-
+  async function getAllModules() {
     try {
       if (modulesCache.has(ALL_MODULES_CACHE_KEY)) {
         return modulesCache.get(ALL_MODULES_CACHE_KEY) ?? [];
       }
 
-      const res = await fetch(url);
-      const modules = await res.json();
-
+      const modules = await fetchModules();
       const mappedModules = getMappedModules(modules);
 
       modulesCache.set(
