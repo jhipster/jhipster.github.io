@@ -1,0 +1,106 @@
+---
+title: Release 8.8.0
+slug: /2024/12/23/jhipster-release-8.8.0.html
+displayed_sidebar: docsSidebar
+sidebar_class_name: hidden
+---
+
+# JHipster release v8.8.0
+
+This is a minor release for JHipster v8.
+
+It includes [535 closed issues and pull requests on the main branch](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.8.0) after the [8.7.3 release](/2024/11/01/jhipster-release-8.7.3.html).
+
+## What's new?
+
+* Upgrade to Spring Boot 3.4 ([#27963](https://github.com/jhipster/generator-jhipster/pull/27963) and [#28249](https://github.com/jhipster/generator-jhipster/pull/28249))
+* Fix Couchbase for Spring Boot 3 ([#27972](https://github.com/jhipster/generator-jhipster/pull/27972))
+* Upgrade to Gradle v8.12 ([#28259](https://github.com/jhipster/generator-jhipster/pull/28259))
+* Upgrade to Angular 19 ([#28114](https://github.com/jhipster/generator-jhipster/pull/28114))
+* Add experimental esbuild support for Angular ([#28003](https://github.com/jhipster/generator-jhipster/pull/28003))
+* Upgrade to React Router 7 ([#27985](https://github.com/jhipster/generator-jhipster/pull/27985))
+* Upgrade to Node v22.12.0 ([#28080](https://github.com/jhipster/generator-jhipster/pull/28080)
+* Fix language prompts ([#28035](https://github.com/jhipster/generator-jhipster/pull/28035))
+* Improve CSRF Token Handling for SPA ([#27908](https://github.com/jhipster/generator-jhipster/pull/27908))
+* Add blueprint support to testing helpers ([#27768](https://github.com/jhipster/generator-jhipster/pull/27768))
+* Use generics in Angular generator ([#27550](https://github.com/jhipster/generator-jhipster/pull/27550))
+* Upgrade to Typescript 5.7.2 ([#28213](https://github.com/jhipster/generator-jhipster/pull/28213))
+
+## Closed tickets and merged pull requests
+
+See the [8.8.0 release notes on GitHub](https://github.com/jhipster/generator-jhipster/releases/tag/v8.8.0) for more details.
+
+As always, **[you can view all closed tickets and merged pull requests](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:8.8.0)**.
+
+## How to install
+
+To install JHipster v8.8.0:
+
+```
+npm install -g generator-jhipster@8.8.0
+```
+
+It is also available using the JHipster Docker image, as it is automatically built from our source code.
+
+- [JHipster Online](https://start.jhipster.tech)
+- [JHipster Devbox](https://github.com/jhipster/jhipster-devbox)
+
+## How to upgrade
+
+**Automatic upgrade**
+
+For an automatic upgrade, use the [JHipster upgrade sub-generator](/upgrading-an-application/) on an existing application:
+
+Upgrade your version of JHipster:
+
+```
+npm update -g generator-jhipster
+```
+
+And then run the upgrade sub-generator:
+
+```
+jhipster upgrade
+```
+
+You can also use the [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) for more advanced upgrade features.
+
+```
+npm i -g generator-jhipster-migrate
+jhipster-migrate
+```
+
+**Manual upgrades**
+
+For a manual upgrade, first upgrade your version of JHipster with:
+
+```
+npm update -g generator-jhipster
+```
+
+If you have an existing project, it will still use the JHipster version with which it was generated.
+To upgrade your project, you must first delete its `node_modules` folder and then run:
+
+```
+jhipster
+```
+
+Since JHipster 8.0, this command will update your project and all its entities.
+
+You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_, use:
+
+```
+jhipster entity Foo --single-entity
+```
+
+## Help and bugs
+
+If you find any issue with this release, don't hesitate to:
+
+- Add a bug to our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- Create a new discussion on [GitHub](https://github.com/jhipster/generator-jhipster/discussions)
+
+If the issue you have is an urgent bug or security issue, please:
+
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
