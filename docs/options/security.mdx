@@ -298,7 +298,7 @@ Create an OIDC App in Okta to get a `{client-id}` and `{client-secret}`. To do t
 
 Create a `ROLE_ADMIN` and `ROLE_USER` group (**Directory** > **Groups** > **Add Group**) and add users to them. You can use the account you signed up with, or create a new user (**Directory** > **People** > **Add Person**). Navigate to **Security** > **API** > **Authorization Servers**, and click on the `default` server. Click the **Claims** tab and **Add Claim**. Name it `groups`, and include it in the ID Token. Set the value type to `Groups` and set the filter to be a Regex of `.*`. Click **Create**.
 
-![Add Claim](/images/security-add-claim.png)
+![Add Claim](/images/security-add-claim.webp)
 
 After making these changes, you should be good to go! If you have any issues, please post them to [Stack Overflow](https://stackoverflow.com/questions/tagged/jhipster). Make sure to tag your question with "jhipster" and "okta".
 
