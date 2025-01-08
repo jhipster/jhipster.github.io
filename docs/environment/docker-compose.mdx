@@ -7,6 +7,7 @@ last_update:
 
 Using Docker and Docker Compose is highly recommended in development, and is also a good solution in production.
 
+Docker Compose is used by default in development, tests and CI scripts, which can be [disabled](#disabling).
 
 ## Description
 
@@ -320,3 +321,18 @@ environment:
   - (...)
   - _JAVA_OPTIONS=-Xmx512m -Xms256m
 ```
+
+## Disabling
+
+Add to src/main/resources/application.yml or application-dev.yml depending on your application configuration.
+
+```yaml
+spring:
+  docker:
+    compose:
+      enabled: false
+```
+
+## Alternatives
+
+- [Colima](https://github.com/abiosoft/colima#getting-started)
