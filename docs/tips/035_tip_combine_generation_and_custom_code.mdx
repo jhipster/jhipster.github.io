@@ -98,3 +98,72 @@ providers: [
 ### Con
 
 - File duplication
+
+## Alternative Side-by-Side Approach
+
+This approach aims to add functionality to an existing JHipster application with minimal changes to the generated code.
+
+### Repository Tier
+
+Create your repository interface with all custom methods in a separate custom package. This approach ensures that the generated repository code remains untouched, while your custom logic is organized and maintainable.
+
+### Service Tier
+
+There are three main approaches for adding custom code at this tier:
+
+Aspect-Oriented Programming (AOP): 
+
+AOP allows you to introduce cross-cutting concerns such as logging, security, or transaction management without altering the core business logic. This separation of concerns helps maintain cleaner and more modular code.
+
+Event Listeners: 
+
+If the new functionality is triggered by specific events in the application (e.g., after saving a Foo entity), you can use Spring's event listener mechanism. This keeps the core logic clean, though it may make the execution flow harder to trace.
+
+Decorator Pattern: 
+
+To add new methods or modify existing behavior in a controlled manner, the decorator pattern is highly recommended. This pattern involves wrapping the original class with a decorator that provides additional functionality. It is clean, testable, and requires minimal changes to the original client classes, ensuring better maintainability.
+
+Step 1: Create or extend the existing Interface depending on how your service classes are generated
+```
+interface IFooService {
+    void newFeature();
+    //Existing method declarations
+   ...
+}
+```
+Step 2: Extension through Composition
+```
+@Service
+@Qualifier("entended") 
+public class ExtendedFooService implements FooService{
+    private final FooService existingFooService;
+    private final ExtendedFooRepository extendedFooRepository; // For new repository functionality
+   ...
+}
+```
+Step 3: Add the @Primary to the existing service class and mark the existing service class as an interface implementation in step 1.
+
+Step 4: Change the attribute type of the original service client to the interface created in step 1.
+
+You can omit step 1 and adjust related changes in the following steps for a simplified implementation of this approach if you are unlikely to have multiple implementations of a service method or don't expect frequent changes in a service method.  
+
+### Web Tier
+
+Create New Endpoint Controllers.
+```
+@RestController
+@RequestMapping("/api/extended/foo")
+public class ExtendedFooController {
+    private final ExtendedFooService extendedFooService;
+    
+    public ExtendedFooController(ExtendedFooService extendedFooService) {
+        this.extendedFooService = extendedFooService;
+    }
+
+    // New endpoints
+    @GetMapping("/new-feature")
+    public ResponseEntity<?> newFeature() {
+        // Implementation
+    }
+}
+```
