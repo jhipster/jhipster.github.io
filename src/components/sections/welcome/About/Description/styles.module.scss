@@ -1,4 +1,4 @@
-@import '@site/src/scss/breakpoints';
+@use '@site/src/scss/breakpoints' as *;
 
 .section {
   list-style: none;
