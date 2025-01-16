@@ -105,6 +105,7 @@ JHipster supports many field types. This support depends on your database backen
 * `Instant`: A [java.time.Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html) object, used to represent a timestamp, an instantaneous point on the time-line.
 * `ZonedDateTime`: A [java.time.ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html) object, used to represent a local date-time in a given timezone (typically a calendar appointment). Note that time zones are neither supported by the REST nor by the persistence layers so you should most probably use `Instant` instead.
 * `Duration`: A [java.time.Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html) object, used to represent an amount of time.
+* `LocalTime`: A [java.time.LocalTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html) object, used to represent a local time without timezone. Can be used to define business hours for example.
 * `UUID`: A [java.util.UUID](https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html).
 * `Boolean`: A Java Boolean.
 * `Enumeration`: A Java Enumeration object. When this type is selected, the sub-generator will ask you what values you want in your enumeration, and it will create a specific `enum` class to store them.
