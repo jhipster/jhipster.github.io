@@ -103,6 +103,10 @@ const redirectsPlugin = [
         to: '/2023/09/05/jhipster-release-7.9.4.html',
       },
       {
+        from: '/2024/12/23/jhipster-release-8.9.0.html',
+        to: '/2025/02/08/jhipster-release-8.9.0.html',
+      },
+      {
         from: '/blueprints/quarkus.html',
         to: '/blueprints/quarkus/',
       },
