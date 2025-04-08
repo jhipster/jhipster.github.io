@@ -9,3 +9,7 @@ updates:
       docusaurus:
         patterns:
           - '@docusaurus/*'
+      docusaurus:
+        patterns:
+          - react
+          - react-dom
