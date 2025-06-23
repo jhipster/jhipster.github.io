@@ -68,7 +68,7 @@ export const useMarketplaceDetails = (moduleName: string) => {
         .then(([detailsData, downloadsData]) => {
           setDetails(detailsData);
 
-          if (downloadsData && downloadsData.downloads) {
+          if (downloadsData?.downloads) {
             const mappedDownloads = getMappedModuleDownloads(downloadsData);
 
             setDownloads(mappedDownloads);
