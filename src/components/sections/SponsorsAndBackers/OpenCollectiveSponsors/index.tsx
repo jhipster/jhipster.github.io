@@ -25,7 +25,7 @@ export default function OpenCollectiveSponsors({ title, sponsors }: Props) {
                   src={
                     item.image ??
                     require(
-                      `@site/static/images/open-collective/${item.name.toLowerCase()}.png`,
+                      `@site/static/images/open-collective/blank.png`,
                     ).default
                   }
                   alt={item.name}
