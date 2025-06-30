@@ -17,3 +17,17 @@ export function getMaintainers(authors: any[]) {
     .map((author) => (author.username ? author.username : author.name))
     .join(', ');
 }
+
+export function requireLocalImageIfExists(
+  imagePath: string,
+  fallbackPath: string,
+) {
+  try {
+    return require(`@site/static/images${imagePath}`).default;
+  } catch (err) {
+    return (
+      fallbackPath ??
+      require('@site/static/images/open-collective/blank.png').default
+    );
+  }
+}

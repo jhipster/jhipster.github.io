@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import OpenCollectiveWrapper from '../OpenCollectiveWrapper';
 import styles from './styles.module.scss';
+import { requireLocalImageIfExists } from '@site/src/lib/utils';
 
 type Props = {
   title: string;
@@ -22,12 +23,10 @@ export default function OpenCollectiveSponsors({ title, sponsors }: Props) {
               <div className={clsx('card__image', styles.cardImage)}>
                 <img
                   className="truncate"
-                  src={
-                    item.image ??
-                    require(
-                      `@site/static/images/open-collective/${item.name.toLowerCase()}.png`,
-                    ).default
-                  }
+                  src={requireLocalImageIfExists(
+                    `/open-collective/${item.name.toLowerCase().replace(/\s/g, '-')}.png`,
+                    item.image,
+                  )}
                   alt={item.name}
                   width={70}
                   height={70}
