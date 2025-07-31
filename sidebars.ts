@@ -434,11 +434,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'doc',
-      label: 'JHipster Lite',
-      id: 'jhipster-lite',
-    },
-    {
       type: 'category',
       label: 'JHipster in a few minutes',
       items: [

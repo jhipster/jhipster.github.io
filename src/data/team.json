@@ -63,19 +63,6 @@
         { "name": "linkedin", "href": "https://www.linkedin.com/in/mraible/" },
         { "name": "github", "href": "https://github.com/mraible" }
       ]
-    },
-    {
-      "name": "Pascal Grimaud",
-      "image": "https://avatars.githubusercontent.com/u/9156882?v=3",
-      "position": "JHipster Lite Lead",
-      "links": [
-        { "name": "x", "href": "https://x.com/pascalgrimaud" },
-        {
-          "name": "linkedin",
-          "href": "https://www.linkedin.com/in/pascalgrimaud/"
-        },
-        { "name": "github", "href": "https://github.com/pascalgrimaud" }
-      ]
     }
   ],
   "developersBoard": [
