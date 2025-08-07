@@ -8,10 +8,7 @@
   { "label": "JHipster IDE", "leader": "Serano Colameo" },
   { "label": "JDL studio", "leader": "Deepu K Sasidharan" },
   { "label": "JHipster online", "leader": "Julien Dubois" },
-  {
-    "label": "Continuous Integration and Delivery",
-    "leader": "Pascal Grimaud"
-  },
+  { "label": "Continuous Integration and Delivery" },
   { "label": "Gradle", "leader": "Frederik Hahne" },
   { "label": "Maven", "leader": "Daniel Franco" },
   { "label": "JHipster server-side libraries", "leader": "Julien Dubois" },
@@ -25,7 +22,7 @@
   { "label": "Infinispan", "leader": "Srinivasa Vasu" },
   { "label": "Reactive", "leader": "Christophe Bornet" },
   { "label": "Java", "leader": "Julien Dubois" },
-  { "label": "Docker", "leader": "Pascal Grimaud" },
+  { "label": "Docker" },
   { "label": "Cassandra", "leader": "Cedrick Lunven" },
   { "label": "OpenAPI", "leader": "Christophe Bornet" }
 ]
