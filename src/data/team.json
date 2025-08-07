@@ -25,19 +25,6 @@
         { "name": "linkedin", "href": "https://www.linkedin.com/in/deepu05/" },
         { "name": "github", "href": "https://github.com/deepu105" }
       ]
-    },
-    {
-      "name": "Pascal Grimaud",
-      "image": "https://avatars.githubusercontent.com/u/9156882?v=3",
-      "position": "Co-Chair, Vice President of JHipster Developer Association",
-      "links": [
-        { "name": "x", "href": "https://x.com/pascalgrimaud" },
-        {
-          "name": "linkedin",
-          "href": "https://www.linkedin.com/in/pascalgrimaud/"
-        },
-        { "name": "github", "href": "https://github.com/pascalgrimaud" }
-      ]
     }
   ],
   "leads": [
@@ -66,17 +53,6 @@
     }
   ],
   "developersBoard": [
-    {
-      "name": "Mathieu Abou-Aichi",
-      "image": "https://avatars.githubusercontent.com/u/2753381?v=3",
-      "links": [
-        {
-          "name": "linkedin",
-          "href": "https://www.linkedin.com/in/mathieu-abou-aichi-292a27108/"
-        },
-        { "name": "github", "href": "https://github.com/MathieuAA" }
-      ]
-    },
     {
       "name": "Pierre Besson",
       "image": "https://avatars.githubusercontent.com/u/513471?v=3",
@@ -364,6 +340,17 @@
   ],
   "retiredMembers": [
     {
+      "name": "Mathieu Abou-Aichi",
+      "image": "https://avatars.githubusercontent.com/u/2753381?v=3",
+      "links": [
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/mathieu-abou-aichi-292a27108/"
+        },
+        { "name": "github", "href": "https://github.com/MathieuAA" }
+      ]
+    },
+    {
       "name": "Flavien Cathala",
       "image": "https://avatars.githubusercontent.com/u/11872070?v=3",
       "links": [
@@ -421,6 +408,18 @@
           "href": "https://www.linkedin.com/in/agaspardcilia/"
         },
         { "name": "github", "href": "https://github.com/agaspardcilia" }
+      ]
+    },
+    {
+      "name": "Pascal Grimaud",
+      "image": "https://avatars.githubusercontent.com/u/9156882?v=3",
+      "links": [
+        { "name": "x", "href": "https://x.com/pascalgrimaud" },
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/pascalgrimaud/"
+        },
+        { "name": "github", "href": "https://github.com/pascalgrimaud" }
       ]
     },
     {
