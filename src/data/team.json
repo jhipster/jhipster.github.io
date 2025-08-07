@@ -54,17 +54,6 @@
   ],
   "developersBoard": [
     {
-      "name": "Mathieu Abou-Aichi",
-      "image": "https://avatars.githubusercontent.com/u/2753381?v=3",
-      "links": [
-        {
-          "name": "linkedin",
-          "href": "https://www.linkedin.com/in/mathieu-abou-aichi-292a27108/"
-        },
-        { "name": "github", "href": "https://github.com/MathieuAA" }
-      ]
-    },
-    {
       "name": "Pierre Besson",
       "image": "https://avatars.githubusercontent.com/u/513471?v=3",
       "links": [
@@ -350,6 +339,17 @@
     }
   ],
   "retiredMembers": [
+    {
+      "name": "Mathieu Abou-Aichi",
+      "image": "https://avatars.githubusercontent.com/u/2753381?v=3",
+      "links": [
+        {
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/in/mathieu-abou-aichi-292a27108/"
+        },
+        { "name": "github", "href": "https://github.com/MathieuAA" }
+      ]
+    },
     {
       "name": "Flavien Cathala",
       "image": "https://avatars.githubusercontent.com/u/11872070?v=3",
