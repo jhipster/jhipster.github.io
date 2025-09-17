@@ -27,7 +27,7 @@ This command starts a local development server and opens up a browser window. Mo
 ### Build
 
 ```
-npm run build
+npm run build -- --locale en
 ```
 
 This command generates static content into the `build` directory and can be served using any static content hosting service.
