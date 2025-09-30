@@ -57,5 +57,10 @@
   },
   "engines": {
     "node": ">=20.0"
+  },
+  "overrides": {
+    "@kbox-labs/react-echarts": {
+      "echarts": "$echarts"
+    }
   }
 }
