@@ -47,7 +47,8 @@ const config: Config = {
         label: 'English',
       },
       jp: {
-        label: '日本語',        
+        label: '日本語',
+        baseUrl: '/jp',
       },
     },
   },
@@ -147,7 +148,7 @@ const config: Config = {
         {
           type: 'localeDropdown',
           position: 'right',
-        },        
+        },
       ],
     },
     prism: {
