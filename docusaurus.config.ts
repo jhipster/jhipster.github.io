@@ -33,7 +33,6 @@ const config: Config = {
   projectName: 'jhipster.github.io',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   onBrokenAnchors: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -51,6 +50,12 @@ const config: Config = {
         baseUrl: '/jp',
       },
     },
+  },
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    }
   },
 
   presets: [
