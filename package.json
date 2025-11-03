@@ -23,7 +23,7 @@
     "@mdx-js/react": "^3.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "dayjs": "^1.11.18",
+    "dayjs": "^1.11.19",
     "docusaurus-plugin-sass": "^0.2.6",
     "echarts": "^6.0.0",
     "embla-carousel-auto-scroll": "^8.6.0",
