@@ -34,7 +34,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
-    "sass": "^1.93.2"
+    "sass": "^1.93.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.6.0",
