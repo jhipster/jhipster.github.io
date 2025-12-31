@@ -1,4 +1,4 @@
-Copyright 2013-2025 the original author or authors from the JHipster project
+Copyright 2013-2026 the original author or authors from the JHipster project
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
