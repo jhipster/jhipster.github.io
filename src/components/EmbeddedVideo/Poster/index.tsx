@@ -23,7 +23,7 @@ export default function Poster({
       onPointerOver={onPointerOver}
       onClick={onClick}
     >
-      <FaYoutube className={styles.posterYTButton} />
+      <FaYoutube className={styles.posterYTButton} aria-label="Play video" />
     </div>
   );
 }
