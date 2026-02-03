@@ -2,7 +2,7 @@
 title: Doing API-First development
 slug: /doing-api-first-development/
 last_update:
-  date: 2024-08-29T00:00:00-00:00
+  date: 2026-02-03T00:00:00-00:00
 ---
 
 # <i class="fa fa-search"></i> Doing API-First development
@@ -72,6 +72,72 @@ The plugin's default configuration is shown below (Maven) and defined in the pro
 > ℹ️ JHipster users are always encouraged to adapt the build tooling to the specifics of the environment or the standards adopted within an organization. JHipster puts a project on the right foundation with tools and practices that have been tested at scale. If the JHipster's use of the Spring Delegate pattern is not the standard for an organization the `configOption:delegatePattern` can be removed (the default is `false`).
 >
 > As always, users are expected to understand the implications of changes to JHipster's default behavior. Just as JHipster cannot teach users how to use Spring, changes to Spring may result in behavior that cannot not be documented by JHipster.
+
+## End-to-end API-First workflow (Contract First + JDL)
+
+For teams that want a true Contract First workflow while still leveraging JHipster's entity/service scaffolding, the following hybrid approach is a good starting point. The OpenAPI Specification remains the source of truth for HTTP endpoints, and JDL is used to bootstrap the domain and service layers.
+
+### 1) Model the domain with JDL (entities, services, MapStruct)
+
+Start with a JDL file to generate entities, repositories, services, and mappers. See the [JDL intro](/jdl/intro) and [JDL options](/jdl/options) for details.
+
+```jdl
+entity Owner {
+  name String required
+}
+
+entity Pet {
+  name String required
+  tag String
+}
+
+relationship OneToMany {
+  Owner{pets} to Pet{owner}
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate Pet with pagination
+```
+
+Generate the domain layer from the JDL (server only):
+
+```bash
+jhipster jdl ./model.jdl --skip-client
+```
+
+### 2) Align OpenAPI-generated DTO packages with JHipster defaults (optional)
+
+If you prefer to keep OpenAPI-generated DTOs in the same package JHipster uses by default, update `modelPackage` to `...service.dto` (and keep the API delegates under `...web.api`):
+
+```xml
+<apiPackage>demo.jhipster.myapp.web.api</apiPackage>
+<modelPackage>demo.jhipster.myapp.service.dto</modelPackage>
+```
+
+This makes it easier to reuse JHipster's DTO conventions and MapStruct tooling.
+
+### 3) Map OpenAPI DTOs to entities with MapStruct
+
+JHipster's recommended approach for DTO mapping is MapStruct. You can map the OpenAPI-generated DTOs to your JPA entities in a standard `service.mapper` package. See [Using DTOs](/using-dtos/) for more examples.
+
+```java
+package demo.jhipster.myapp.service.mapper;
+
+import demo.jhipster.myapp.domain.Pet;
+import demo.jhipster.myapp.service.dto.PetDTO;
+import org.mapstruct.Mapper;
+
+@Mapper(componentModel = "spring")
+public interface PetMapper {
+    Pet toEntity(PetDTO dto);
+    PetDTO toDto(Pet entity);
+}
+```
+
+### 4) Disable default REST controllers (delegate-only endpoints)
+
+When you generate entities from JDL, JHipster will also generate REST controllers under `src/main/java/.../web/rest`. In a strict API-First approach, those controllers are typically removed so that only the OpenAPI-generated `*ApiController` and `*ApiDelegate` classes expose endpoints. If you regenerate entities later, you may need to remove the `web/rest` controllers and their tests again or keep them in a separate commit to avoid accidental exposure of endpoints outside the contract.
 
 ## Using the openapi-generator-maven-plugin
 
