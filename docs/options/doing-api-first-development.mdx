@@ -139,6 +139,10 @@ public interface PetMapper {
 
 When you generate entities from JDL, JHipster will also generate REST controllers under `src/main/java/.../web/rest`. In a strict API-First approach, those controllers are typically removed so that only the OpenAPI-generated `*ApiController` and `*ApiDelegate` classes expose endpoints. If you regenerate entities later, you may need to remove the `web/rest` controllers and their tests again or keep them in a separate commit to avoid accidental exposure of endpoints outside the contract.
 
+### 5) Implement delegates as your HTTP entry points
+
+Treat the generated `*ApiController`/`*ApiDelegate` classes as the only HTTP entry points for your contract. The [Implement the Delegate](#implement-the-delegate) section below applies to each operation: wire services, map DTOs with MapStruct, and keep business logic out of the generated sources.
+
 ## Using the openapi-generator-maven-plugin
 
 The OpenAPI Specification (OAS) file is read by the generator from the defined file in the plugin's `inputSpec` element. JHipster's default location for the OAS is `src/main/resources/swagger/api.yml`. The plugin generates interfaces and Data Transfer Objects (DTOs) from the OAS for implementation. The interfaces have default methods which respond with a `501 Not implemented` HTTP status and an empty body.
