@@ -1,15 +1,27 @@
 ---
-title: Release 9.0.0-beta.2
-slug: /2026/01/29/jhipster-release-9.0.0-beta.2.html
+title: Release 9.0.0-beta.3
+slug: /2026/02/04/jhipster-release-9.0.0-beta.3.html
 displayed_sidebar: docsSidebar
 sidebar_class_name: hidden
 ---
 
-# JHipster release v9.0.0-beta.2
+# JHipster release v9.0.0-beta.3
 
-The `9.0.0-beta.2` release is now available! This release includes **1,045** closed issues and pull requests from the community since [9.0.0-beta.0](/2025/12/05/jhipster-release-9.0.0-beta.0.html), with **1,036** associated with the [9.0.0-beta.1](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:9.0.0-beta.1) milestone and **9** assigned to [9.0.0-beta.2](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:9.0.0-beta.1).
+The `9.0.0-beta.3` release is now available! This release includes [65 closed issues and pull requests](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:9.0.0-beta.3) since [9.0.0-beta.2](https://github.com/jhipster/generator-jhipster/releases/tag/v9.0.0-beta.2).
 
-The `9.0.0-beta.1` release included [an issue](https://github.com/jhipster/generator-jhipster/issues/32114) that made it unusable. This `9.0.0-beta.2` release addresses that problem and contains all related fixes.
+:::warning Previous Beta Releases Were Broken
+
+- **9.0.0-beta.1** was deprecated because the CLI failed with `Cannot find package 'yeoman-test'` when installed globally ([#32114](https://github.com/jhipster/generator-jhipster/issues/32114))
+- **9.0.0-beta.2** was deprecated because it caused `Maximum call stack size exceeded` errors when parsing JDL files ([#32116](https://github.com/jhipster/generator-jhipster/issues/32116))
+
+Please use this `9.0.0-beta.3` release instead.
+
+:::
+
+## Fixes in beta.3
+
+- **Fixed chevrotain dependency** ([#32130](https://github.com/jhipster/generator-jhipster/pull/32130)) - Resolves the `Maximum call stack size exceeded` error when parsing JDL files that affected beta.2
+- **Fixed yeoman-test packaging** ([#32122](https://github.com/jhipster/generator-jhipster/pull/32122)) - Resolves the `Cannot find package 'yeoman-test'` error that affected beta.1
 
 ## What's new?
 
@@ -30,14 +42,14 @@ The `9.0.0-beta.1` release included [an issue](https://github.com/jhipster/gener
 
 ## Closed tickets and merged pull requests
 
-See the [9.0.0-beta.1](https://github.com/jhipster/generator-jhipster/releases/tag/v9.0.0-beta.1) and [9.0.0-beta.2](https://github.com/jhipster/generator-jhipster/releases/tag/v9.0.0-beta.2) release notes on GitHub for more details.
+See the [9.0.0-beta.3](https://github.com/jhipster/generator-jhipster/releases/tag/v9.0.0-beta.3) release notes on GitHub for more details.
 
 ## How to install
 
-To install JHipster v9.0.0-beta.2:
+To install JHipster v9.0.0-beta.3:
 
 ```
-npm install -g generator-jhipster@9.0.0-beta.2
+npm install -g generator-jhipster@9.0.0-beta.3
 ```
 
 It is also available using the JHipster Docker image, as it is automatically built from our source code.
