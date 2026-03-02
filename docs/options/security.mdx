@@ -197,7 +197,6 @@ Choose one setup path:
     
     Troubleshooting: If you see “Connection must be enabled for this client…”, run `auth0 apps open <CLIENT_ID>` to open the app Dashboard and enable the `Username-Password-Authentication` connection manually.
 
-
 5. Assign roles to the user using **role IDs**:
     ```shell
     auth0 users roles add <USER_ID> --roles <ROLE_ID1,ROLE_ID2>
@@ -235,8 +234,6 @@ Choose one setup path:
       ```shell
       auth0 api patch "actions/triggers/post-login/bindings" --data '{"bindings":[{"ref":{"type":"action_id","value":"<ACTION_ID>"}}]}'
       ```
-
-_If you'd like to have all these steps automated for you, add a 👍 to [issue #351](https://github.com/auth0/auth0-cli/issues/351) in the Auth0 CLI project._
 
 #### Configure JHipster Application to use Auth0 as OIDC Provider
 
