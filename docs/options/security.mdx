@@ -158,44 +158,34 @@ Choose one setup path:
 
 #### Create an OIDC App using Auth0 CLI
 
-1. Create the Auth0 application and generate a `.env`
+1. Create the Auth0 application and generate a `.auth0.env`
     ```shell
-    auth0 quickstarts setup --type jhipster-rwa
+    auth0 quickstarts setup --type 'jhipster-rwa'
     ```
     Output: Note the `CLIENT_ID` (eg: `FCxxxxxxxxxxxxxxxxxxxxxxxxxxxxoz`).
 
-2. Enable a Database Connection for the new application
-  - Get the `CONNECTION_ID` for the `Username-Password-Authentication` connection:
-      ```shell
-      auth0 api connections | jq -r '.[] | select(.name=="Username-Password-Authentication") | .id'
-      ```
-      Output: Note the `CONNECTION_ID` (eg: `con_YHxxxxxxxxxxxxRY`).
-
-      If this prints nothing (or you don't have `jq`), run:
-      ```shell
-      auth0 api connections
-      ```
-      Output: Find the object where `name` is `Username-Password-Authentication` and note the `id` as `CONNECTION_ID`.
-
-  - Enable that connection for your app:
-      ```shell
-      auth0 api patch "connections/<CONNECTION_ID>/clients" --data '[{"client_id":"<CLIENT_ID>","status":true}]'
-      ```
+2. Enable a connection for the created application
+    ```shell
+    auth0 apps open <CLIENT_ID>
+    ```
+    - In the opened dashboard, navigate to **Connections** and enable a database authentication connection (example: `Username-Password-Authentication`) for your application.
 
 3. Create roles (JHipster expects `ROLE_ADMIN` and `ROLE_USER`)
     ```shell
-    auth0 roles create --name ROLE_ADMIN --description "role-admin"
-    auth0 roles create --name ROLE_USER --description "role-user"
+    auth0 roles create --name ROLE_ADMIN --description 'role-admin'
+    auth0 roles create --name ROLE_USER --description 'role-user'
     ```
     Output: Note the `ROLE_ID` (examples: `rol_e5xxxxxxxxxxxxad`, `rol_LHxxxxxxxxxxxxBk`).
 
 4. Create a user in the Database Connection with required email and password:
     ```shell
-    auth0 users create --email 'jhipster@example.com' --password 'Example007!' --connection-name "Username-Password-Authentication"
+    auth0 users create --email <EMAIL> --password <PASSWORD> --connection-name <CONNECTION_NAME>
+    ```
+    example:
+    ```shell
+    auth0 users create --email 'jhipster@example.com' --password 'Example007!' --connection-name 'Username-Password-Authentication'
     ```
     Output: Note the `USER_ID` (example: `auth0|69xxxxxxxxxxxxxxxxxxxx03`).
-    
-    Troubleshooting: If you see “Connection must be enabled for this client…”, run `auth0 apps open <CLIENT_ID>` to open the app Dashboard and enable the `Username-Password-Authentication` connection manually.
 
 5. Assign roles to the user using **role IDs**:
     ```shell
@@ -209,7 +199,7 @@ Choose one setup path:
 6. Create, deploy, and bind the “Add Roles” Action to Login
   -  Create the post-login Action that adds roles to tokens.
       ```shell
-      AUTH0_ACTION_SCRIPT=$(cat <<'JS'
+      AUTH0_ACTION_SCRIPT=$(cat <<'EOF'
       exports.onExecutePostLogin = async (event, api) => {
         const namespace = 'https://www.jhipster.tech';
         if (event.authorization) {
@@ -218,11 +208,11 @@ Choose one setup path:
           api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
         }
       };
-      JS
+      EOF
       )
       ```
       ```shell
-      auth0 actions create --name "AddRoles" --trigger post-login --code "$AUTH0_ACTION_SCRIPT"
+      auth0 actions create --name 'AddRoles' --trigger post-login --code '$AUTH0_ACTION_SCRIPT'
       ```
       Output: Note `ACTION_ID` (example: `2dxxxx54-5xx2-4xx2-9xxe-06xxxxxxxxc4`).
 
@@ -232,7 +222,7 @@ Choose one setup path:
       ```
   -  Bind it to the `post-login` trigger (Login flow):
       ```shell
-      auth0 api patch "actions/triggers/post-login/bindings" --data '{"bindings":[{"ref":{"type":"action_id","value":"<ACTION_ID>"}}]}'
+      auth0 api patch 'actions/triggers/post-login/bindings' --data '{"bindings":[{"ref":{"type":"action_id","value":"<ACTION_ID>"}}]}'
       ```
 
 #### Configure JHipster Application to use Auth0 as OIDC Provider
