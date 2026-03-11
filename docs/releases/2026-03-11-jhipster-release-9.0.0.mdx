@@ -1,0 +1,134 @@
+---
+title: Release 9.0.0
+slug: /2026/03/11/jhipster-release-9.0.0.html
+displayed_sidebar: docsSidebar
+sidebar_class_name: hidden
+---
+
+# JHipster release v9.0.0
+
+We're thrilled to announce the official release of **JHipster 9.0.0**! 🎉
+
+This is a major release that includes all changes from the beta releases plus [441 closed issues and pull requests](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:9.0.0) since the [9.0.0-beta.3](https://github.com/jhipster/generator-jhipster/releases/tag/v9.0.0-beta.3) release.
+
+## What's new?
+
+### :leaves: Spring Boot
+
+- **Spring Boot 4**: Upgraded to Spring Boot 4.0.3
+- **Spring Security**: Migrated to EnableWebSocketSecurity
+
+### :computer: Frontend
+
+- **React 19**: Upgraded to React 19 and replaced reactstrap with react-bootstrap
+- **Angular 21**: Major updates including:
+  - Zoneless by default for better performance (no more zone.js)
+  - Vitest support as an alternative to Jest
+  - Continued migration to signals and httpResource-based services
+- **Vue**: Migrated to Bootstrap Vue Next for Bootstrap 5 support
+- **ESLint 10**: Upgraded for Angular and Vue
+
+### :gem: Features & Enhancements
+
+- **GraalVM support**: Added spring-boot:graalvm generator
+- **Java 25 support**: Added support for Java 25
+- UserManagement enabled for React and Vue with Cypress tests
+- Helm 3-only apply script for Kubernetes
+
+### :warning: Breaking changes
+
+- **Java 21 required**: Dropped Java 17 support
+- **Node 22 required**: Dropped Node 20 support, native TypeScript support now required
+
+### :paw_prints: JDL/Internals/Blueprints
+
+- **Complete TypeScript redesign**: The generator codebase has been fully rewritten in TypeScript with improved types and modular architecture
+- Updated to yeoman-generator v8
+- Enabled EJS caching for improved performance
+
+### :scroll: Dependency Updates
+
+- Node.js 24.14.0
+- Gradle 9.4.0
+- Maven 3.9.13
+
+## Closed tickets and merged pull requests
+
+As always, **[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:9.0.0)**.
+
+## How to install
+
+To install JHipster v9.0.0 using NPM:
+
+```
+npm install -g generator-jhipster
+```
+
+It is also available using the JHipster Docker image, as it is automatically built from our source code.
+
+- [Docker Hub](https://hub.docker.com/r/jhipster/jhipster)
+- [JHipster Online](https://start.jhipster.tech)
+
+## How to upgrade
+
+**Automatic upgrade**
+
+For an automatic upgrade, use the [JHipster upgrade sub-generator](/upgrading-an-application/) on an existing application:
+
+Upgrade your version of JHipster:
+
+```
+npm update -g generator-jhipster
+```
+
+And then run the upgrade sub-generator:
+
+```
+jhipster upgrade
+```
+
+You can also use the [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) for more advanced upgrade features.
+
+```
+npm i -g generator-jhipster-migrate
+jhipster-migrate
+```
+
+**Manual upgrades**
+
+For a manual upgrade, first upgrade your version of JHipster with:
+
+```
+npm update -g generator-jhipster
+```
+
+If you have an existing project, it will still use the JHipster version with which it was generated.
+To upgrade your project, you must first delete its `node_modules` folder and then run:
+
+```
+jhipster
+```
+
+You can also update your project and all its entities by running:
+
+```
+jhipster --with-entities
+```
+
+You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_:
+
+```
+jhipster entity Foo --single-entity
+```
+
+## Help and bugs
+
+If you find any issue with this release, don't hesitate to:
+
+- Add a bug to our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- Create a new discussion on [GitHub](https://github.com/jhipster/generator-jhipster/discussions)
+
+If the issue you have is an urgent bug or security issue, please:
+
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
