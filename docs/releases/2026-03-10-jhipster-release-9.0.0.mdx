@@ -17,6 +17,7 @@ This is a major release that includes all changes from the beta releases plus [4
 
 - **Spring Boot 4**: Upgraded to Spring Boot 4.0.3
 - **Spring Security**: Migrated to EnableWebSocketSecurity
+- **GraalVM support**: Added spring-boot:graalvm generator
 
 ### :computer: Frontend
 
@@ -28,29 +29,15 @@ This is a major release that includes all changes from the beta releases plus [4
 - **Vue**: Migrated to Bootstrap Vue Next for Bootstrap 5 support
 - **ESLint 10**: Upgraded for Angular and Vue
 
-### :gem: Features & Enhancements
-
-- **GraalVM support**: Added spring-boot:graalvm generator
-- **Java 25 support**: Added support for Java 25
-- UserManagement enabled for React and Vue with Cypress tests
-- Helm 3-only apply script for Kubernetes
-
 ### :warning: Breaking changes
 
-- **Java 21 required**: Dropped Java 17 support
+- **Java 21 required**: Dropped Java 17 support (Java 25 now supported)
 - **Node 22 required**: Dropped Node 20 support, native TypeScript support now required
 
 ### :paw_prints: JDL/Internals/Blueprints
 
 - **Complete TypeScript redesign**: The generator codebase has been fully rewritten in TypeScript with improved types and modular architecture
 - Updated to yeoman-generator v8
-- Enabled EJS caching for improved performance
-
-### :scroll: Dependency Updates
-
-- Node.js 24.14.0
-- Gradle 9.4.0
-- Maven 3.9.13
 
 ## Closed tickets and merged pull requests
 
