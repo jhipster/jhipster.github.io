@@ -315,6 +315,211 @@ $ curl -H "Accept: application/json" http://localhost:8081/api/pets?tags=cat
 
 The example body is returned though the HTTP Status of the response is `501 Not Implemented`.
 
+### Working with DTOs, Entities, and MapStruct
+
+When using API First development, the OpenAPI Generator creates DTOs in the `modelPackage` (e.g., `demo.jhipster.myapp.service.api.dto`). These generated DTOs are separate from JHipster's entity-based DTOs. To bridge between generated API DTOs and JHipster entities, use [MapStruct](https://mapstruct.org/).
+
+#### Adding MapStruct to Your Project
+
+MapStruct is already included in JHipster projects. To create a mapper:
+
+```java
+package demo.jhipster.service.mapper;
+
+import demo.jhipster.domain.Pet;
+import demo.jhipster.service.api.dto.Pet;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+@Mapper(componentModel = "spring")
+public interface PetMapper {
+    Pet toEntity(Pet dto);
+    Pet toDto(Pet entity);
+    @Mapping(target = "id", ignore = true)
+    Pet toEntity(Pet dto, Pet entity);
+}
+```
+
+Then inject the mapper into your delegate implementation:
+
+```java
+@Service
+public class PetsApiDelegateImpl implements PetsApiDelegate {
+
+    private final PetRepository petRepository;
+    private final PetMapper petMapper;
+
+    public PetsApiDelegateImpl(PetRepository petRepository, PetMapper petMapper) {
+        this.petRepository = petRepository;
+        this.petMapper = petMapper;
+    }
+
+    @Override
+    public ResponseEntity<Pet> findPetById(Long id) {
+        return petRepository.findById(id)
+            .map(petMapper::toDto)
+            .map(ResponseEntity::ok)
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+}
+```
+
+#### Configuring the OpenAPI Generator to Use JHipster's Package Structure
+
+By default, the generated DTOs go into the `modelPackage` defined in the plugin configuration. To align with JHipster's package structure, update the `configOptions`:
+
+```xml
+<configOptions>
+    <delegatePattern>true</delegatePattern>
+    <title>jhipster</title>
+    <useSpringBoot3>true</useSpringBoot3>
+    <!-- Optional: Align generated models with JHipster's web package -->
+    <apiPackage>${package}.web.api</apiPackage>
+    <modelPackage>${package}.service.dto</modelPackage>
+</configOptions>
+```
+
+> ⚠️ Be cautious when setting `modelPackage` to `${package}.service.dto` as this may conflict with JHipster's own generated DTOs. Consider using a sub-package like `${package}.service.api.dto` to avoid conflicts.
+
+### JHipster Default Behaviors and "Cruft" Management
+
+When you select **API First development** during project generation, JHipster creates default configurations that may conflict with a pure API First workflow. Here are common issues and how to handle them:
+
+#### Disabling Default REST Controllers
+
+JHipster generates REST controllers for entities via JDL or entity sub-generation. In an API First workflow, these auto-generated controllers conflict with the OpenAPI Generator's controllers. To avoid this:
+
+1. **Do not generate entities with JDL during project creation.** Create the JHipster project first with `API first development` selected, then manually create your domain entities and database schema.
+
+2. **If entities already exist**, remove the auto-generated controllers by:
+   - Deleting files in `src/main/java/.../web/rest/` that correspond to your API First endpoints
+   - Removing the corresponding `@RequestMapping` beans from Spring context
+
+#### Using JDL to Kickstart the Generator
+
+While API First development starts with the OpenAPI Specification, you can use JDL to generate the base domain model (entities, relationships, and database schema) that your API delegates will use:
+
+```jdl
+application {
+  config {
+    baseName myapp
+    applicationType monolith
+    packageName demo.jhipster
+    apiFirst true
+    prodDatabaseType postgresql
+  }
+}
+
+entity Pet {
+  name String required minlength(1) maxlength(100)
+  tag String
+}
+
+entity Store {
+  name String required
+  address String required
+}
+
+relationship ManyToOne {
+  Pet{store(name)} to Store
+}
+
+paginate Pet, Store with infinite-scroll
+```
+
+Generate the project:
+
+```shell
+jhipster jdl myapp.jdl
+```
+
+After generation, replace the default `src/main/resources/swagger/api.yml` with your own OpenAPI Specification, then run `./mvnw generate-sources` to generate the API stubs.
+
+> ⚠️ When using JDL with `apiFirst true`, JHipster will generate both JDL-based REST controllers (in `web/rest/`) and the OpenAPI Generator stubs. Remove the JDL-generated controllers for any endpoints that you plan to implement via API First delegates.
+
+### Complete Example: Pet Store with Database
+
+Here is a complete end-to-end example showing an API First Pet Store backed by a database, using MapStruct for DTO mapping.
+
+#### 1. Generate the Base Project with JDL
+
+```jdl
+application {
+  config {
+    baseName petstore
+    applicationType monolith
+    packageName com.example.petstore
+    apiFirst true
+    prodDatabaseType postgresql
+    devDatabaseType h2
+  }
+}
+
+entity Pet {
+  name String required minlength(1) maxlength(100)
+  tag String
+}
+
+relationship ManyToOne {
+  Pet{store(name)} to Store{name}
+}
+
+entity Store {
+  name String required
+  address String required
+}
+
+paginate Pet, Store with infinite-scroll
+dto Pet, Store with mapstruct
+```
+
+#### 2. Replace the OpenAPI Specification
+
+Replace `src/main/resources/swagger/api.yml` with your API definition. The generated delegates will use your domain entities via MapStruct mappers.
+
+#### 3. Implement the Delegates
+
+```java
+@Service
+public class PetsApiDelegateImpl implements PetsApiDelegate {
+
+    private final PetRepository petRepository;
+    private final PetMapper petMapper;
+
+    @Override
+    public ResponseEntity<Pet> findPetById(Long id) {
+        return petRepository.findById(id)
+            .map(petMapper::toDto)
+            .map(ResponseEntity::ok)
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @Override
+    public ResponseEntity<List<Pet>> findPets(List<String> tags, Integer limit) {
+        List<Pet> pets = petRepository.findAll().stream()
+            .map(petMapper::toDto)
+            .collect(Collectors.toList());
+        return ResponseEntity.ok(pets);
+    }
+
+    @Override
+    public ResponseEntity<Pet> addPet(NewPet newPet) {
+        Pet entity = petMapper.toEntity(newPet);
+        Pet saved = petRepository.save(entity);
+        return new ResponseEntity<>(petMapper.toDto(saved), HttpStatus.CREATED);
+    }
+}
+```
+
+#### 4. Remove Conflicting Controllers
+
+After implementing the delegates, remove the JDL-generated controllers:
+
+```bash
+rm src/main/java/com/example/petstore/web/rest/PetResource.java
+rm src/main/java/com/example/petstore/web/rest/StoreResource.java
+```
+
 ### Authentication
 
 JHipster, by default, secures `/api/**` in `demo.jhipster.config.SecurityConfiguration#filterChain(HttpSecurity,  MvcRequestMatcher.Builder)` requiring authentication, e.g., `.requestMatchers(mvc.pattern("/api/**")).authenticated()`.
