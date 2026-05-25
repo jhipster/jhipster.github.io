@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Applications
 slug: /jdl/applications
 last_update:
-  date: 2019-10-27T12:00:00-00:00
+  date: 2026-05-23T12:00:00-00:00
 ---
 
 ## Syntax
@@ -347,11 +347,11 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
 |blueprints          |[]                  |Names of additional blueprints. See [Marketplace](/modules/marketplace) including custom blueprints internally published|Array of blueprints to use, e.g., `[blueprint1, blueprint2]`                                                |
 |buildTool           |maven               |maven, gradle                                                                                                           |-                                                                                                           |
 |cacheProvider       |ehcache or hazelcast|caffeine, ehcache, hazelcast, infinispan, memcached, redis, no                                                          |ehcache for monoliths and gateways, hazelcast otherwise                                                     |
-|clientFramework     |angularX            |angularX, angular, react, vue, svelte, no                                                                               |-                                                                                                           |
+|clientFramework     |angular             |angular, react, vue, svelte, no                                                                                         |-                                                                                                           |
 |nodePackageManager|npm                 |npm                                                                                                                     |-                                                                                                           |
 |clientTheme         |none                |Something or none                                                                                                       |You can put whatever value you want, provided you know it will work (like yeti)                             |
 |clientThemeVariant  |-                   |Something or primary                                                                                                    |You can put whatever value you want, provided you know it will work (like dark, or light), can also be empty|
-|databaseType        |sql                 |sql, mongodb, cassandra, couchbase, no                                                                                  |-                                                                                                           |
+|databaseType        |sql                 |sql, mongodb, cassandra, couchbase, neo4j, no                                                                           |-                                                                                                           |
 |devDatabaseType     |h2Disk              |h2Disk, h2Memory                                                                                                        |* + the prod database type                                                                                  |
 |dtoSuffix           |DTO                 |-                                                                                                                       |Suffix for DTOs. false for empty string                                                                     |
 |enableHibernateCache|true                |-                                                                                                                       |-                                                                                                           |
@@ -371,7 +371,7 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
 |skipClient          |false               |-                                                                                                                       |-                                                                                                           |
 |skipServer          |false               |-                                                                                                                       |-                                                                                                           |
 |skipUserManagement  |false               |-                                                                                                                       |-                                                                                                           |
-|testFrameworks      |[]                  |cypress, protractor, cucumber, gatling                                                                                  |Braces mandatory                                                                                            |
+|testFrameworks      |[]                  |cypress, cucumber, gatling                                                                                              |Braces mandatory                                                                                            |
 |websocket           |no                  |spring-websocket, no                                                                                                    |-                                                                                                           |
 
 
