@@ -2,7 +2,7 @@
 title: Security
 slug: /security/
 last_update:
-  date: 2026-03-02T00:00:00-00:00
+  date: 2026-05-26T00:00:00-00:00
 ---
 
 import Tabs from '@theme/Tabs';
@@ -131,9 +131,9 @@ In production, it is required by Keycloak that you use HTTPS. There are several 
 If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the configuration steps below:
 
 <Tabs lazy>
-<TabItem value="dashboard" label="Create an OIDC App using Auth0 Dashboard" default>
+<TabItem value="dashboard" label="Configure using Auth0 Dashboard" default>
 
-#### Create an OIDC App using Auth0 Admin Dashboard
+#### Configure using Auth0 Admin Dashboard
 
 - Create a free developer account at https://auth0.com/signup. After successful sign-up, your account shall be associated with a unique domain like `dev-xxx.us.auth0.com`
 - Create a new application of type `Regular Web Applications`. Switch to the `Settings` tab, and configure your application settings like:
@@ -158,13 +158,13 @@ If you'd like to use [Auth0](https://auth0.com/) instead of Keycloak, follow the
 - Select **Deploy** and drag the `Add Roles` action to your Login flow.
 
 </TabItem>
-<TabItem value="cli" label="Create an OIDC App using Auth0 CLI">
+<TabItem value="cli" label="Configure using Auth0 CLI">
 
-#### Create an OIDC App using Auth0 CLI
+#### Configure using Auth0 CLI
 
 1. Create the Auth0 application and generate a `.auth0.env`
     ```shell
-    auth0 quickstarts setup --type 'jhipster-rwa'
+    auth0 quickstarts setup --app --type regular --framework jhipster
     ```
     Output: Note the `CLIENT_ID` (eg: `FCxxxxxxxxxxxxxxxxxxxxxxxxxxxxoz`).
 
