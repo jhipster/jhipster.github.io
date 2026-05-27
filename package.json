@@ -16,31 +16,31 @@
     "analyze": "docusaurus build --bundle-analyzer"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/plugin-client-redirects": "^3.9.2",
-    "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/plugin-client-redirects": "^3.10.1",
+    "@docusaurus/preset-classic": "^3.10.1",
     "@kbox-labs/react-echarts": "^1.4.2",
     "@mdx-js/react": "^3.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.20",
     "docusaurus-plugin-sass": "^0.2.6",
-    "echarts": "^6.0.0",
+    "echarts": "^6.1.0",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "fetch-jsonp": "^1.4.0",
     "plugin-image-zoom": "^1.2.0",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-icons": "^5.6.0",
-    "sass": "^1.99.0"
+    "sass": "^1.100.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.6.0",
-    "@docusaurus/tsconfig": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.10.1",
     "@docusaurus/types": "^3.6.0",
-    "prettier": "^3.8.2",
+    "prettier": "^3.8.3",
     "typescript": "~6.0.3"
   },
   "browserslist": {
