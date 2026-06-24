@@ -9,14 +9,23 @@ import { requireLocalImageIfExists } from '@site/src/lib/utils';
 type Props = {
   title: string;
   sponsors: OpenCollectiveSponsor[];
+  imageSize?: number;
 };
 
-export default function OpenCollectiveSponsors({ title, sponsors }: Props) {
+const DEFAULT_IMAGE_SIZE = 70;
+
+export default function OpenCollectiveSponsors({
+  title,
+  sponsors,
+  imageSize = DEFAULT_IMAGE_SIZE,
+}: Props) {
   if (!sponsors.length) return null;
+
+  const isLarge = imageSize > DEFAULT_IMAGE_SIZE;
 
   return (
     <OpenCollectiveWrapper title={title}>
-      <div className={styles.sectionList}>
+      <div className={clsx(styles.sectionList, isLarge && styles.sectionListLarge)}>
         {sponsors.map((item, idx) => (
           <Link key={`sponsor-${idx}`} href={item.website ?? item.profile}>
             <div className={clsx('card', styles.card)}>
@@ -28,8 +37,8 @@ export default function OpenCollectiveSponsors({ title, sponsors }: Props) {
                     item.image,
                   )}
                   alt={item.name}
-                  width={70}
-                  height={70}
+                  width={imageSize}
+                  height={imageSize}
                   loading="lazy"
                 />
               </div>

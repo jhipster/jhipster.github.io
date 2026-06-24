@@ -25,3 +25,6 @@ yarn-error.log*
 # NetBeans
 nbproject/
 
+
+# impeccable design skill cache
+/.impeccable
