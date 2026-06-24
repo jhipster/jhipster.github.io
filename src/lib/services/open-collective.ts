@@ -12,6 +12,10 @@ function sponsorFilter(sponsors: OpenCollectiveSponsor[], amount: number) {
 
 async function getOpenCollective(key: OpenCollectiveKeys, amount: number) {
   const params = {
+    gold: {
+      uri: '/generator-jhipster/tiers/gold-sponsor/all.json',
+      jsonpCallbackFunction: 'ocGoldJsonpCallback',
+    },
     silver: {
       uri: '/generator-jhipster/tiers/silver-sponsor/all.json',
       jsonpCallbackFunction: 'ocSilverJsonpCallback',

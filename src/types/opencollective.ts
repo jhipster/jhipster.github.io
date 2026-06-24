@@ -1,4 +1,4 @@
-export type OpenCollectiveKeys = 'silver' | 'bronze';
+export type OpenCollectiveKeys = 'gold' | 'silver' | 'bronze';
 
 export type OpenCollectiveSponsor = {
   MemberId: number;

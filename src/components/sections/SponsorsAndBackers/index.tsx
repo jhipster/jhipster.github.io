@@ -13,7 +13,7 @@ import styles from './styles.module.scss';
 import { useOpenCollective } from './use-open-collective';
 
 export default function SponsorsAndBackers() {
-  const { silverSponsors, bronzeSponsors } = useOpenCollective();
+  const { goldSponsors, silverSponsors, bronzeSponsors } = useOpenCollective();
 
   return (
     <SectionWrapper className={styles.section}>
@@ -35,6 +35,13 @@ export default function SponsorsAndBackers() {
       </SectionDescription>
 
       <OpenCollectiveButton />
+
+      {/* Gold sponsors */}
+      <OpenCollectiveSponsors
+        title="Thank you to our gold sponsors!"
+        sponsors={goldSponsors}
+        imageSize={140}
+      />
 
       {/* Silver sponsors */}
       <OpenCollectiveSponsors
