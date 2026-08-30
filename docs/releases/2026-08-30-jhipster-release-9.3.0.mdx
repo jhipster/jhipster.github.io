@@ -1,0 +1,104 @@
+---
+title: Release 9.3.0
+slug: /2026/08/30/jhipster-release-9.3.0.html
+displayed_sidebar: docsSidebar
+sidebar_class_name: hidden
+---
+
+# JHipster release v9.3.0
+
+This is a minor release for JHipster v9.
+
+It includes [668 closed issues and pull requests](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:9.3.0) after the [9.2.0 release](/2026/07/10/jhipster-release-9.2.0.html).
+
+## What's new?
+
+* Generated applications are now Spring Boot 4 only, with [Spring Boot 3 support dropped](https://github.com/jhipster/generator-jhipster/pull/34625), [Jackson 2 support removed](https://github.com/jhipster/generator-jhipster/pull/34617), and an upgrade to [Spring Boot 4.1.1](https://github.com/jhipster/generator-jhipster/pull/34614)
+* Relational databases with WebFlux ([R2DBC](https://github.com/jhipster/generator-jhipster/pull/31848)) and [Couchbase](https://github.com/jhipster/generator-jhipster/pull/34622) finished their migration from Spring Boot 3 to 4.1
+* Integration tests now use Testcontainers ServiceConnection for [relational databases](https://github.com/jhipster/generator-jhipster/pull/34593), [Couchbase](https://github.com/jhipster/generator-jhipster/pull/34596), [Elasticsearch](https://github.com/jhipster/generator-jhipster/pull/34594), [Neo4j](https://github.com/jhipster/generator-jhipster/pull/32077), [Cassandra](https://github.com/jhipster/generator-jhipster/pull/34616), [MongoDB](https://github.com/jhipster/generator-jhipster/pull/31980), and [Kafka](https://github.com/jhipster/generator-jhipster/pull/34601)
+* Upgraded to [Angular 22](https://github.com/jhipster/generator-jhipster/pull/34057), which enables [OnPush change detection](https://github.com/jhipster/generator-jhipster/pull/34190) and [strictTemplates](https://github.com/jhipster/generator-jhipster/pull/34233) by default, migrates webpack module federation to @module-federation/enhanced, and continues the [migration to signals](https://github.com/jhipster/generator-jhipster/pull/32447)
+* Angular monoliths and gateways now load entities through [module federation](https://github.com/jhipster/generator-jhipster/pull/34681)
+* [React apps now build with Vite](https://github.com/jhipster/generator-jhipster/pull/34656) instead of webpack
+* Fixed [static resource loading on deep client-side routes](https://github.com/jhipster/generator-jhipster/pull/31667), [OAuth2 post-login redirects hijacked by websocket polling](https://github.com/jhipster/generator-jhipster/pull/34131), and [embedded many-to-one relationships in React and Vue](https://github.com/jhipster/generator-jhipster/pull/34621)
+* Upgraded build tooling to [Node.js 24.20.0](https://github.com/jhipster/generator-jhipster/pull/34678), [npm 12](https://github.com/jhipster/generator-jhipster/pull/34076), and [Gradle 9.7.1](https://github.com/jhipster/generator-jhipster/pull/34597)
+
+## Closed tickets and merged pull requests
+
+As always, **[you can check all closed tickets and merged pull requests here](https://github.com/jhipster/generator-jhipster/issues?q=is:closed+milestone:9.3.0)**.
+
+## How to install
+
+To install JHipster v9.3.0 using NPM:
+
+```
+npm install -g generator-jhipster@9.3.0
+```
+
+It is also available using the JHipster Docker image, as it is automatically built from our source code.
+
+- [Docker Hub](https://hub.docker.com/r/jhipster/jhipster)
+- [JHipster Online](https://start.jhipster.tech)
+
+## How to upgrade
+
+**Automatic upgrade**
+
+For an automatic upgrade, use the [JHipster upgrade sub-generator](/upgrading-an-application/) on an existing application:
+
+Upgrade your version of JHipster:
+
+```
+npm update -g generator-jhipster
+```
+
+And then run the upgrade sub-generator:
+
+```
+jhipster upgrade
+```
+
+You can also use the [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) for more advanced upgrade features.
+
+```
+npm i -g generator-jhipster-migrate
+jhipster-migrate
+```
+
+**Manual upgrades**
+
+For a manual upgrade, first upgrade your version of JHipster with:
+
+```
+npm update -g generator-jhipster
+```
+
+If you have an existing project, it will still use the JHipster version with which it was generated.
+To upgrade your project, you must first delete its `node_modules` folder and then run:
+
+```
+jhipster
+```
+
+You can also update your project and all its entities by running:
+
+```
+jhipster --with-entities
+```
+
+You can also update your entities one-by-one by running again the entity sub-generator, for example if your entity is named _Foo_:
+
+```
+jhipster entity Foo --single-entity
+```
+
+## Help and bugs
+
+If you find any issue with this release, don't hesitate to:
+
+- Add a bug to our [bug tracker](https://github.com/jhipster/generator-jhipster/issues?state=open)
+- Post a question on [Stack Overflow](http://stackoverflow.com/tags/jhipster/info)
+- Create a new discussion on [GitHub](https://github.com/jhipster/generator-jhipster/discussions)
+
+If the issue you have is an urgent bug or security issue, please:
+
+- Contact [@jhipster](https://twitter.com/jhipster) on Twitter
