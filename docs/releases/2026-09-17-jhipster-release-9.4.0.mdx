@@ -16,7 +16,7 @@ The big news is Playwright support! You can now generate end-to-end tests with P
 ## What's new?
 
 * [Playwright is now a supported e2e test framework](https://github.com/jhipster/generator-jhipster/pull/34892), selectable alongside Cypress, and Angular apps can run it with `ng e2e`
-* [Angular microfrontends are now built with esbuild and Native Federation](https://github.com/jhipster/generator-jhipster/pull/34672) instead of webpack Module Federation, and webpack support was removed from [Vue](https://github.com/jhipster/generator-jhipster/pull/34821) too, so Vue apps build with Vite or Rsbuild
+* [Angular microfrontends are now built with esbuild and Native Federation](https://github.com/jhipster/generator-jhipster/pull/34672) instead of webpack Module Federation, and webpack support was removed from [Vue](https://github.com/jhipster/generator-jhipster/pull/34821) too. Vue apps build with Vite or Rsbuild.
 * Security hardening: [yeoman-generator v9](https://github.com/jhipster/generator-jhipster/pull/34919) now throws when a template or destination path resolves outside the generator root, and [`--disable-blueprints` also disables local `.blueprint` directories](https://github.com/jhipster/generator-jhipster/pull/35008)
 * [R2DBC repositories were reimplemented](https://github.com/jhipster/generator-jhipster/pull/34793) on top of Spring Data repositories with Criteria, using the [CriteriaBuilder from jhipster-framework](https://github.com/jhipster/generator-jhipster/pull/34822)
 * [Liquibase now supports Cassandra](https://github.com/jhipster/generator-jhipster/pull/34724) and is enabled by default, so schemas no longer need a separate Docker image outside the application
