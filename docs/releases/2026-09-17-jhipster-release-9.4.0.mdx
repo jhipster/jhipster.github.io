@@ -15,16 +15,16 @@ The big news is Playwright support! You can now generate end-to-end tests with P
 
 ## What's new?
 
-* [Playwright is now a supported e2e test framework](https://github.com/jhipster/generator-jhipster/pull/34892), selectable alongside Cypress. Angular apps can run it with `ng e2e`.
-* [Angular microfrontends are now built with esbuild and Native Federation](https://github.com/jhipster/generator-jhipster/pull/34672) instead of webpack Module Federation. Webpack support was removed from [Vue](https://github.com/jhipster/generator-jhipster/pull/34821) too, so Vue apps build with Vite or Rsbuild.
-* Security hardening: [yeoman-generator v9](https://github.com/jhipster/generator-jhipster/pull/34919) now throws when a template or destination path resolves outside the generator root, and [`--disable-blueprints` also disables local `.blueprint` directories](https://github.com/jhipster/generator-jhipster/pull/35008).
-* [R2DBC repositories were reimplemented](https://github.com/jhipster/generator-jhipster/pull/34793) on top of Spring Data repositories with Criteria, using the [CriteriaBuilder from jhipster-framework](https://github.com/jhipster/generator-jhipster/pull/34822).
-* [Liquibase now supports Cassandra](https://github.com/jhipster/generator-jhipster/pull/34724) and is enabled by default, so schemas no longer need a separate Docker image outside the application.
-* A new [`jhipster describe` command](https://github.com/jhipster/generator-jhipster/pull/34864) gives you a queryable catalog of commands, options, prompts, and config owners.
-* A new [`--export-application` option](https://github.com/jhipster/generator-jhipster/pull/34913) packs the generated files into a zip archive instead of writing them to disk.
-* Blueprint authors now have a [documented public API with semver guarantees](https://github.com/jhipster/generator-jhipster/pull/34989).
-* Lots of old issues were fixed, including [Angular entities with a String ID](https://github.com/jhipster/generator-jhipster/pull/34869), [build errors on OAuth2 gateways without a database](https://github.com/jhipster/generator-jhipster/pull/34866), [tests deleting every User record](https://github.com/jhipster/generator-jhipster/pull/34867), and [incremental Liquibase changelogs for MapStruct expression fields](https://github.com/jhipster/generator-jhipster/pull/34984).
-* Upgraded build tooling to [Node.js 24.21.0](https://github.com/jhipster/generator-jhipster/pull/34876), [Cypress 16](https://github.com/jhipster/generator-jhipster/pull/34823), and [Vitest 5](https://github.com/jhipster/generator-jhipster/pull/34852).
+* [Playwright is now a supported e2e test framework](https://github.com/jhipster/generator-jhipster/pull/34892), selectable alongside Cypress, and Angular apps can run it with `ng e2e`
+* [Angular microfrontends are now built with esbuild and Native Federation](https://github.com/jhipster/generator-jhipster/pull/34672) instead of webpack Module Federation, and webpack support was removed from [Vue](https://github.com/jhipster/generator-jhipster/pull/34821) too, so Vue apps build with Vite or Rsbuild
+* Security hardening: [yeoman-generator v9](https://github.com/jhipster/generator-jhipster/pull/34919) now throws when a template or destination path resolves outside the generator root, and [`--disable-blueprints` also disables local `.blueprint` directories](https://github.com/jhipster/generator-jhipster/pull/35008)
+* [R2DBC repositories were reimplemented](https://github.com/jhipster/generator-jhipster/pull/34793) on top of Spring Data repositories with Criteria, using the [CriteriaBuilder from jhipster-framework](https://github.com/jhipster/generator-jhipster/pull/34822)
+* [Liquibase now supports Cassandra](https://github.com/jhipster/generator-jhipster/pull/34724) and is enabled by default, so schemas no longer need a separate Docker image outside the application
+* A new [`jhipster describe` command](https://github.com/jhipster/generator-jhipster/pull/34864) gives you a queryable catalog of commands, options, prompts, and config owners
+* A new [`--export-application` option](https://github.com/jhipster/generator-jhipster/pull/34913) packs the generated files into a zip archive instead of writing them to disk
+* Blueprint authors now have a [documented public API with semver guarantees](https://github.com/jhipster/generator-jhipster/pull/34989)
+* Lots of old issues were fixed, including [Angular entities with a String ID](https://github.com/jhipster/generator-jhipster/pull/34869), [build errors on OAuth2 gateways without a database](https://github.com/jhipster/generator-jhipster/pull/34866), [tests deleting every User record](https://github.com/jhipster/generator-jhipster/pull/34867), and [incremental Liquibase changelogs for MapStruct expression fields](https://github.com/jhipster/generator-jhipster/pull/34984)
+* Upgraded build tooling to [Node.js 24.21.0](https://github.com/jhipster/generator-jhipster/pull/34876), [Cypress 16](https://github.com/jhipster/generator-jhipster/pull/34823), and [Vitest 5](https://github.com/jhipster/generator-jhipster/pull/34852)
 
 ## Closed tickets and merged pull requests
 
