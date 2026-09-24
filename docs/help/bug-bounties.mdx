@@ -2,7 +2,7 @@
 title: Bug bounties
 slug: /bug-bounties/
 last_update:
-  date: 2018-07-20T00:00:00-00:00
+  date: 2026-09-24T00:00:00-00:00
 ---
 
 ## Introduction
@@ -43,6 +43,15 @@ To be valid, the bug bounty should then have the [\$\$ bug-bounty \$\$](https://
 [project leads](/team/) or [governing body](/team/). It should also have a "$100", "$200", "$300" or "$500" label to tell how much it is worth, but if that tag has been forgotten, it is by default worth "$100".
 
 
+## Who can claim a bug bounty?
+
+A bug bounty goes to the person who fixed the issue: someone who chose to work on it, can explain the change, and
+answers for it in review. Using an AI assistant as a tool is fine - the work is yours and you stand behind it.
+
+Automated accounts are not eligible. A pull request opened by a bot, or by an agent acting on its own, never earns a
+bug bounty, and neither does a comment claiming an issue on their behalf.
+
+
 ## How to get the money
 
 Once a bug bounty is created, anybody can propose a fix (even the [project leads](/team/) and [governing body](/team/)!). Our goal is to spend that money so that something is fixed as quickly as possible.
@@ -52,6 +61,7 @@ In order to claim the money, you must:
 - Create a Pull Request that fixes a ticket with the "\$\$ bug-bounty \$\$" label.
 - In order to close the ticket automatically, you must have one commit message with the `Fix` keyword. For example, `Fix #1234` to close ticket `#1234`.
 - That Pull Request must be merged by someone from the core team. If there are several Pull Requests, the core team member either selects the most recent one or the best one - that's up to the team member to decide what is best for the project.
+- A member of the core team must then confirm on that Pull Request that it is eligible for the bug bounty. This is how we check that the work comes from a person rather than from an automated account; without that comment, the expense is not validated.
 - You can then [add a $100, $200, $300 or $500 expense on the JHipster OpenCollective](https://opencollective.com/generator-jhipster/expenses/new). You must add a link to your Pull Request in the description (for example: `$100 bug bounty claim for https://github.com/jhipster/generator-jhipster/pull/1234`).
 - Then, you must add a comment on your Pull Request, telling that you claimed the money, with a link to your OpenCollective expense. This is to be sure it is the same person who fixed the issue and claimed the money.
-- That expense will then be validated by the [project leads](/team/) or [governing body](/team/), and you will receive your money on your Paypal account.
+- That expense will then be validated by the [project leads](/team/) or [governing body](/team/), who check the confirmation on the Pull Request, and you will receive your money on your Paypal account.
