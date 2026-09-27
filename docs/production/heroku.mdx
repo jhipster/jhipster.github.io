@@ -110,13 +110,7 @@ When you selected to deploy an executable jar you need to create the updated jar
 When your application is already deployed, you can prepare a new deployment with:
 
 ```shell
-./mvnw package -Pprod -DskipTests
-```
-
-Or when using gradle:
-
-```shell
-./gradlew -Pprod bootJar -x test
+npm run java:jar:prod
 ```
 
 ##### Pushing to production
@@ -155,19 +149,13 @@ server:
 Build your Docker image:
 
 ```shell
-./mvnw package -Pprod verify jib:dockerBuild
-```
-
-If you're using Gradle:
-
-```shell
-./gradlew -Pprod bootJar jibDockerBuild
+npm run java:docker
 ```
 
 You can test it out locally using Docker Compose.
 
 ```shell
-docker-compose -f src/main/docker/app.yml up
+npm run app:up
 ```
 
 Once you've confirmed everything works, create a new app on Heroku, and add it as a remote.
