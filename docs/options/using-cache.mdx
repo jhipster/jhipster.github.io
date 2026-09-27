@@ -2,7 +2,7 @@
 title: Using a cache
 slug: /using-cache/
 last_update:
-  date: 2017-02-10T18:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 A cache can be used at two levels in JHipster:
@@ -24,6 +24,8 @@ JHipster supports the following cache implementations:
 6. Redis.
 
 They are all detailed below.
+
+Reactive applications don't support a cache: no cache provider is proposed when your application is reactive, and the generator fails if one is configured. As gateways are reactive by default, they are generated without a cache.
 
 
 ## Common configuration
@@ -61,8 +63,7 @@ Jhipster generates a default configuration for Caffeine which is identical to Eh
 
 [Hazelcast](https://hazelcast.com/) can work as a local cache (like Ehcache), but can also work as a distributed cache. As a result:
 
-- It is the default option for microservices, as we expect microservices to scale
-- It is the default option for gateways, as we expect them to scale, and as Hazelcast is used to distribute the [gateway rate-limiting information](/api-gateway/#rate-limiting)
+- It is the default option for (non-reactive) microservices, as we expect microservices to scale
 - When used within a monolith, Hazelcast needs to have the [JHipster Registry](/jhipster-registry/) configured manually in order to scale
 
 For scaling applications, Hazelcast will use the configured service discovery in order to find new nodes, and scale horizontally. With microservices and gateways, this will work both with the JHipster Registry and Consul, and for monoliths this will only work when you manually configure the JHipster Registry.
@@ -83,7 +84,7 @@ To work better with Hazelcast, JHipster includes support for the Hazelcast Manag
 
 - Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing your application.
 - It is configured using JHipster [common application properties](/common-application-properties/), using the key `jhipster.cache.hazelcast.management-center`, in your `application-dev.yml` and `application-prod.yml` files. Please note that it is turned off by default.
-- JHipster generates a Docker Compose configuration to run the Hazelcast Management Center. Please read our [Docker Compose documentation](/docker-compose/), and run the application using `docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`.
+- JHipster generates a Docker Compose configuration to run the Hazelcast Management Center. Please read our [Docker Compose documentation](/docker-compose/), and run it using `docker compose -f src/main/docker/hazelcast-management-center.yml up -d`.
 
 
 ## Caching with Infinispan
@@ -129,7 +130,7 @@ Please note that each cache must be configured as a specific Spring bean inside 
 
 As Memcached needs to serialize/deserialize objects in its classloader, it doesn't work when using the Spring Boot devtools (which uses a specific classloader to do hot reload of application classes). This is why Memcached is turned off by default in dev mode.
 
-As always with JHipster, a Docker Compose configuration is provided so you can start a Memcached server on your machine. In order to use it, please run `docker-compose -f src/main/docker/memcached.yml up -d`.
+As always with JHipster, a Docker Compose configuration is provided so you can start a Memcached server on your machine. In order to use it, please run `npm run docker:memcached:up`.
 
 
 ## Caching with Redis
