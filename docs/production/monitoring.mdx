@@ -74,7 +74,7 @@ The ELK stack is often used for log aggregation and search, it consists of the f
 
 :::warning
 
-JHipster supports forwarding logs to Logstash, however as of JHipster version 7, we do not provide any ELK stack docker deployment and ready to use dashboards. This used to be part of the [JHipster Console](https://github.com/jhipster/jhipster-console) subproject that is no longer maintained. We advise existing users to migrate to another ELK solution.
+JHipster supports forwarding logs to Logstash, but does not provide an ELK stack Docker deployment or ready-to-use dashboards: use the ELK solution of your choice.
 
 :::
 
@@ -162,14 +162,14 @@ basic_auth:
     password: "admin"
 ```
 
-You can start a preconfigured Grafana and Prometheus instance on our local machine via `docker-compose -f src/main/docker/monitoring.yml up -d` to have a look at the
+You can start a preconfigured Grafana and Prometheus instance on our local machine via `docker compose -f src/main/docker/monitoring.yml up -d` to have a look at the
 provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/4701).
 
 ![Grafana Micrometer Dashboard](/images/monitoring_grafana_micrometer.png)
 
 :::note
 
-Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
+Metrics reporting supports Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
 :::
 
