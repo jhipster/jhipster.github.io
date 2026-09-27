@@ -2,7 +2,7 @@
 title: Microservices in production
 slug: /microservices-in-production/
 last_update:
-  date: 2020-09-11T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 Microservices are a specific kind of JHipster applications. Please refer to our main [Using JHipster in production documentation](/production) for more information on doing a production build, optimizing it and securing it.
@@ -23,7 +23,7 @@ Our [monitoring documentation](/monitoring) is also very important, to learn spe
 
 Working on a microservices architecture means you will need several different services and databases working together, and in that context Docker Compose is a great tool to manage your development, testing and production environments.
 
-A specific section on microservices is included in our [Docker Compose documentation](/docker-compose#microservices), and we highly recommend that you get familiar with it when working on a microservices architecture.
+A specific section on microservices is included in our [Docker Compose documentation](/docker-compose#generating-a-custom-docker-compose-configuration-for-multiple-applications), and we highly recommend that you get familiar with it when working on a microservices architecture.
 
 As Docker Swarm uses the same API as Docker Machine, deploying your microservices architecture in the cloud is exactly the same as deploying it on your local machine. Follow our [Docker Compose documentation](/docker-compose) to learn more about using Docker Compose with JHipster.
 
@@ -47,4 +47,4 @@ eureka:
         prefer-ip-address: false
 ```
 
-You can now deploy and scale the gateway(s) and microservices. The Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications to fetch their configuration on the Spring Cloud Config server.
+You can now deploy and scale the gateway(s) and microservices. When your applications use Eureka for service discovery, the Heroku sub-generator will ask you a new question, to know the URL of your JHipster Registry: this will allow your applications to fetch their configuration on the Spring Cloud Config server.
