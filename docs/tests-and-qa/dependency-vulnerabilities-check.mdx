@@ -2,7 +2,7 @@
 title: Dependency Vulnerabilities Check
 slug: /dependency-vulnerabilities-check/
 last_update:
-  date: 2018-09-15T19:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 ## Why project dependencies should be checked
@@ -16,7 +16,7 @@ According to [OWASP Top 10 Most Critical Web Application Security Risks](https:/
 
 Proposing a dependency check by default in JHipster build has been discussed a couple of times ([#6329](https://github.com/jhipster/generator-jhipster/issues/6329), [#8191](https://github.com/jhipster/generator-jhipster/issues/8191)). To summarise, it is complicated to have a realistic report (removing false-positive) and context dependent (security is always a trade off between the actual risk/criticity and the effort to prevent it).
 
-However we highly recommend using a dependency analysis tool such as [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) if you are using JHipster in production.  
+However we highly recommend using a dependency analysis tool such as [Dependabot](https://docs.github.com/en/code-security/dependabot) or [Snyk](https://snyk.io/) if you are using JHipster in production.  
 
 
 ## What to do if you detect a vulnerability in one of JHipster's dependencies
@@ -52,7 +52,7 @@ Add the owasp dependency-check plugin:
   <plugin>
       <groupId>org.owasp</groupId>
       <artifactId>dependency-check-maven</artifactId>
-      <version>5.2.4</version>
+      <version>13.0.0</version>
       <executions>
         <execution>
           <goals>
@@ -77,7 +77,7 @@ Update the `build.gradle` file to apply the [OWASP dependency-check-gradle plugi
 ```gradle
 plugins {
   // Add the plugin in the existing plugins block
-  id "org.owasp.dependencycheck" version "5.2.4"
+  id "org.owasp.dependencycheck" version "13.0.0"
 
 }
 
