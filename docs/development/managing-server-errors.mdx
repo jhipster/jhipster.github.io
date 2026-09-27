@@ -2,7 +2,7 @@
 title: Managing server errors
 slug: /managing-server-errors/
 last_update:
-  date: 2018-03-07T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 JHipster has first-class support for error handling: it provides error pages and custom mechanisms to handle both business and technical errors on the server-side.
@@ -27,17 +27,20 @@ It needs to be specifically configured on the front-end proxy.
 
 ## API errors
 
-To handle Spring MVC REST errors, JHipster uses [Zalando’s Problem Spring Web library](https://github.com/zalando/problem-spring-web), in order to provide rich, JSON-based error messages.
+To handle Spring REST errors, JHipster uses Spring's [`ProblemDetail`](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html) support (RFC 9457 problem details), in order to provide rich, JSON-based error messages. The generated `ExceptionTranslator` class converts exceptions into `ProblemDetailWithCause` responses, a `ProblemDetail` subclass provided by the JHipster framework library.
 
-In order to help the end-user, for each known problem this library will provide a link to a specific error page, that will give more details. Those links are configured in the `ErrorConstants` class, and point by default to this website. In your application, you should customize those links, and point them to your own API documentation.
+In order to help the end-user, for each known problem the application will provide a link to a specific error page, that will give more details. Those links are configured in the `ErrorConstants` class, and point by default to this website. In your application, you should customize those links, and point them to your own API documentation.
 
 Here are the available error links:
 
 - [Problem with message](/problem/problem-with-message)
 - [Constraint violation](/problem/constraint-violation)
+- [Invalid password](/problem/invalid-password) (only with user management)
+- [E-mail already used](/problem/email-already-used) (only with user management)
+- [Login already used](/problem/login-already-used) (only with user management)
+
+The following error pages are only used by applications generated with older JHipster versions:
+
 - [Problem with a parameterized message](/problem/parameterized)
 - [Entity not found](/problem/entity-not-found)
-- [Invalid password](/problem/invalid-password)
-- [E-mail already used](/problem/email-already-used)
-- [Login already used](/problem/login-already-used)
 - [E-mail not found](/problem/email-not-found)
