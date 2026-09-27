@@ -2,7 +2,7 @@
 title: Deploying to Heroku
 slug: /heroku/
 last_update:
-  date: 2023-12-19T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 This sub-generator allows deployment of your JHipster application to the [Heroku cloud](https://www.heroku.com/).
@@ -37,7 +37,6 @@ We support the following addons:
 * [Heroku Redis](https://elements.heroku.com/addons/heroku-redis) when [using Redis](/using-cache/#caching-with-redis)
 * [MemCachier](https://elements.heroku.com/addons/memcachier) when [using Memcached](/using-cache/#caching-with-memcached)
 * [Bonsai Elasticsearch](https://elements.heroku.com/addons/bonsai) when [using Elasticsearch](/using-elasticsearch/)
-* [Okta](https://elements.heroku.com/addons/okta) when [using OAuth2/OIDC (optional)](/security/#oauth-20-and-openid-connect)
 
 
 To deploy your application to Heroku, run this command:
@@ -50,7 +49,7 @@ This should package your application in "production" mode, create an Heroku appl
 
 :::note
 
-That if your application is a microservice, you will be prompted to provide a registry URL. Scroll down to learn how to do this.
+That if your application uses Eureka for service discovery, you will be prompted to provide a JHipster Registry URL. Scroll down to learn how to do this.
 
 :::
 
@@ -65,16 +64,16 @@ Depending on the platform load, starting under 90 seconds is not guaranteed!
 ## Changing the Java version
 
 You can select the Java version when executing the Heroku sub-generator.
-By default this will be Java 11.
+You can choose between Java 21 and 25, and by default this will be Java 21.
 You can find all on Heroku [supported Java version in the official documentation](https://devcenter.heroku.com/articles/java-support#supported-java-versions).
 
-If you want to change the Java version e.g. from `11` to `14` later you need to change it in `system.properties` in your projects root folder:
+If you want to change the Java version e.g. from `21` to `25` later you need to change it in `system.properties` in your projects root folder:
 
 ```properties
-java.runtime.version=14
+java.runtime.version=25
 ```
 
-When you redeploy your application it will use Java 14.
+When you redeploy your application it will use Java 25.
 
 
 ## Deploying your application
@@ -92,7 +91,7 @@ When deploying via git a new remote has been created called heroku.
 To deploy new code you need to push the changes to the heroku remote:
 
 ```shell
-git push heroku master
+git push heroku HEAD:main
 ```
 
 :::info
@@ -194,7 +193,7 @@ docker tag space registry.heroku.com/fast-peak-70014/web
 docker push registry.heroku.com/fast-peak-70014/web
 ```
 
-At this point, you can use the PostgreSQL and Okta add-ons you've already configured. Run the following command to get the identifiers of the add-ons from the `heroku` remote that you first deployed to.
+At this point, you can use the PostgreSQL add-on you've already configured. Run the following command to get the identifiers of the add-ons from the `heroku` remote that you first deployed to.
 
 ```shell
 heroku addons --remote heroku
@@ -204,7 +203,6 @@ Then you can attach these instances to your new application.
 
 ```shell
 heroku addons:attach <postgresql-addon-name> --remote docker
-heroku addons:attach <okta-addon-name> --remote docker
 ```
 
 When you use `jhipster heroku` to deploy your application, it properly configures the database for you. However, when deploying it as a Docker container, none of that happens. Therefore, you need to set a few configuration variables so your Docker container can talk to PostgreSQL. First, run the following command to get the PostgreSQL URL.
@@ -240,7 +238,7 @@ Run the command below to open your browser and navigate to your app.
 heroku open --remote docker
 ```
 
-Copy the URL of your app and log in to your Okta developer account. Go to **Applications** > **Web** > **General** and add the URL to Login and Logout redirect URIs. Make sure the login redirect URI ends with `/login/oauth2/code/oidc`.
+If you use OAuth 2.0/OpenID Connect, copy the URL of your app and add it to the login and logout redirect URIs of your identity provider (for example, in your Okta developer account). Make sure the login redirect URI ends with `/login/oauth2/code/oidc`.
 
 Now you should be able to release your container and start the app.
 
