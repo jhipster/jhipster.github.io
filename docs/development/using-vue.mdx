@@ -2,7 +2,7 @@
 title: Using Vue
 slug: /using-vue/
 last_update:
-  date: 2019-03-27T23:41:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 This section refers to the JavaScript library **Vue.js**.
@@ -14,7 +14,7 @@ The JHipster client code can be found under `src/main/webapp`.
 
 Please read this guide first if you have any question on our application structure, file names, TypeScript conventions...
 
-Note that we use TypeScript in our generated Vue application following [vue-class-component](https://github.com/vuejs/vue-class-component) style and guidelines.
+Note that we use TypeScript in our generated Vue application, with components written using `defineComponent` and the [Composition API](https://vuejs.org/guide/extras/composition-api-faq.html) (`setup()`).
 
 For Vue routes we follow a dash cased naming convention so that the URLs are clean and consistent.
 When you generate an entity the route names, route URLs and REST API endpoint URLs are generated according to this convention, also entity names are automatically pluralized where required.
@@ -30,11 +30,11 @@ webapp
 │   ├── entities                    - Generated entities
 │   ├── locale                      - I18n / translation related components
 │   ├── router                      - Routing configuration
-│   ├── shared                      - Shared elements such as your config, models and util classes
-│   ├── app.component.ts            - The application main class
+│   ├── shared                      - Shared elements such as your config, stores, models and util classes
+│   ├── app.component.ts            - The application main component
 │   ├── app.vue                     - The application main SFC component
-│   ├── constants.ts                - Global application constants
 │   ├── main.ts                     - Index script, application entrypoint
+│   ├── store.ts                    - Exports the Pinia stores
 │   └── shims-vue.d.ts
 ├── content                         - Contains your static files such as images and fonts
 ├── i18n                            - Translation files
@@ -54,14 +54,14 @@ webapp
 │   ├── entities
 │   │   └── foo                           - CRUD front-end for the Foo entity
 │   │       ├── foo-details.vue           - Details SFC component
-│   │       ├── foo-detail.component.ts   - Details page component
+│   │       ├── foo-details.component.ts  - Details page component
 │   │       ├── foo-update.vue            - Creation / Update SFC component
-│   │       ├── foo-update.component.ts   - Creation / Update component class
+│   │       ├── foo-update.component.ts   - Creation / Update component
 │   │       ├── foo.vue                   - Entity main SFC component
-│   │       ├── foo.component.ts          - Entity main component class
+│   │       ├── foo.component.ts          - Entity main component
 │   │       └── foo.service.ts            - Foo entity service
 │   ├── router
-│   │   └── index.ts                      - Entity main routes configuration
+│   │   └── entities.ts                   - Entity routes configuration
 │   └── shared
 │       └── model
 │           └── foo.model.ts              - Entity model class
@@ -75,18 +75,17 @@ webapp
 Please note that the default language translations would be based on what you have chosen during app generation. 'en' and 'fr' are shown here only for demonstration.
 
 
-## Store using VuexStore
+## Store using Pinia
 
-Application will use a store [VuexStore](https://vuex.vuejs.org/guide/state.html) to maintain state within the application.
+Application will use [Pinia](https://pinia.vuejs.org/) stores to maintain state within the application.
 
-This store is configured at startup in `app/config/config.ts:initVueXStore`. Please refer to Vuex documentation to add new states or mutations.
+The stores are defined in `app/shared/config/store/` and exported by `app/store.ts`. Please refer to Pinia documentation to add new stores, state or actions.
 
-The application will use the store to maintain:
+The application will use the stores to maintain:
 
-* User authentication information
-* Language and translation 
-* Notification and alert information
-* Active profiles data
+- User authentication information (`account-store.ts`)
+- Active profiles and ribbon data (`account-store.ts`)
+- The current language, if translation is enabled (`translation-store.ts`)
 
 
 ## Authorizations
@@ -113,29 +112,36 @@ const Routes = () => [{
 
 As you can see, unauthenticated user can access `/public` but accessing `/private` requires at least to be logged in.
 
-Please note that the interceptor uses the `$store.getters.authenticated` store value to know if the user is authenticated.
+Please note that the router guard (in `main.ts`) uses the `authenticated` value of the account store to know if the user is authenticated.
 
 
 ## Validation system
 
-In order to perform form validation, we use [Vuelidate](https://vuelidate.netlify.com/) library. Besides adding validation constraints, several filters are already furnished and enable a full validation on form. Custom validation can be added as such:
+In order to perform form validation, we use [Vuelidate](https://vuelidate-next.netlify.app/) library (`@vuelidate/core` and `@vuelidate/validators`). Besides adding validation constraints, several validators with messages are already furnished by the `useValidation` composable (`app/shared/composables/validation.ts`) and enable a full validation on form. Custom validation can be added as such:
 
 ```ts
-import { required } from 'vuelidate/lib/validators';
+import { defineComponent, reactive } from 'vue';
+import { useVuelidate } from '@vuelidate/core';
+import { helpers, required } from '@vuelidate/validators';
 
-const mustBeCool = (value) => value.indexOf('cool') >= 0;
-const validations = {
-  foo: {
-    required,
-    mustBeCool
-  }
-};
-@Component({
-  validations
-})
-export default class FooComponent extends Vue {
-  foo: string = null;
-}
+const mustBeCool = helpers.withMessage(
+  'This field must be cool',
+  (value: string) => value.indexOf('cool') >= 0,
+);
+
+export default defineComponent({
+  setup() {
+    const form = reactive({ foo: '' });
+    const validationRules = {
+      foo: {
+        required,
+        mustBeCool,
+      },
+    };
+    const v$ = useVuelidate(validationRules, form);
+    return { form, v$ };
+  },
+});
 ```
 
 
