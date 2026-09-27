@@ -51,7 +51,7 @@ application {
     baseName app2
   }
   entities C, D
-  paginate * with pagination except D 
+  pagination * with pagination except D 
 }
 
 application {
@@ -69,7 +69,7 @@ entity D
 entity E
 entity F
 
-paginate * with infinite-scroll
+pagination * with infinite-scroll
 ```
 
 In this sample, we can see a few things:
@@ -81,24 +81,24 @@ In this sample, we can see a few things:
   - `app3` uses `E` (`* except A, B, C, D, F`)
 - Each of these applications declare options and a **global** option in also declared.
   - `app1` uses `dto` for `A, B and C`
-  - `app2` uses `paginate` for `C` (because there's an exception)
+  - `app2` uses `pagination` for `C` (because there's an exception)
   - `app3` uses `service` for `E`
   - The global one also uses `pagination` (for every entity)
 
 Here's how files are generated:
 
 - `app1`
-  - `A`: will use `paginate with infinite-scroll` (the global option isn't overridden by a local one) and
+  - `A`: will use `pagination with infinite-scroll` (the global option isn't overridden by a local one) and
     `dto with mapstruct`
   - `B`: will use the same options
-  - `C`: will use `dto with mapstruct` and `paginate with pagination`: `C` is shared with `app2`, and options are set
+  - `C`: will use `dto with mapstruct` and `pagination with pagination`: `C` is shared with `app2`, and options are set
     on the entity, not per application, so the local option of `app2` applies to `C` in both applications
 - `app2`:
-  - `C`: will use `paginate with pagination` (and not `infinite-scroll`, because the local one takes precedence), and
+  - `C`: will use `pagination with pagination` (and not `infinite-scroll`, because the local one takes precedence), and
     `dto with mapstruct` from `app1`
-  - `D`: will use `paginate with infinite-scroll` as the previous option doesn't include `D`
+  - `D`: will use `pagination with infinite-scroll` as the previous option doesn't include `D`
 - `app3`:
-  - `E`: will `paginate with infinite-scroll` and `service E with serviceClass`
+  - `E`: will use `pagination with infinite-scroll` and `service E with serviceClass`
 
 This example illustrates the **shadowing** principle. Global options are supported and will be used by every declared
 application **unless** options are also declared in applications.
@@ -205,7 +205,7 @@ application {
     serverPort 9002
   }
   entities * except A
-  paginate C with pagination
+  pagination C with pagination
 }
 
 entity A
@@ -255,7 +255,7 @@ entity C
 entity D
 dto * with mapstruct
 service * with serviceClass
-paginate D with pagination
+pagination D with pagination
 ```
 
 Now, several things will happen when generating these applications and folders:
@@ -346,7 +346,6 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
 |applicationType     |monolith            |monolith, microservice, gateway                                                                                         |-                                                                                                           |
 |authenticationType  |jwt                 |jwt, session, oauth2                                                                                                    |jwt                                                                                                         |
 |baseName            |jhipster            |-                                                                                                                       |-                                                                                                           |
-|~blueprint~         |DEPRECATED          |~Name of an additional blueprint~                                                                                       |Use `blueprints` instead                                                                                    |
 |blueprints          |[]                  |Names of additional blueprints. See [Marketplace](/modules/marketplace) including custom blueprints internally published|Array of blueprints to use, e.g., `[blueprint1, blueprint2]`                                                |
 |buildTool           |maven               |maven, gradle                                                                                                           |-                                                                                                           |
 |cacheProvider       |ehcache, hazelcast or no|caffeine, ehcache, hazelcast, infinispan, memcached, redis, no                                                      |ehcache for monoliths, hazelcast for microservices, no for gateways and reactive applications               |
