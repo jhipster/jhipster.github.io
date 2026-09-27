@@ -206,6 +206,10 @@ const redirectsPlugin = [
         from: '/tips.html',
         to: '/tips/',
       },
+      {
+        from: '/tips/003_tip_add_querydsl_support.html',
+        to: '/tips/',
+      },
     ],
   },
 ];

@@ -557,11 +557,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          label: 'Use QueryDSL',
-          id: 'tips/tip_add_querydsl_support',
-        },
-        {
-          type: 'doc',
           label: 'Protecting Kibana with Apache (Basic Authentication)',
           id: 'tips/tip_protecting_kibana_with_apache_basic_authent',
         },
