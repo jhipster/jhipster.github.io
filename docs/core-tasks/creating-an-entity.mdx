@@ -2,7 +2,7 @@
 title: Creating an entity
 slug: /creating-an-entity/
 last_update:
-  date: 2018-09-04T00:00:00-00:00
+  date: 2026-09-27
 ---
 
 _**Please check our [video tutorial](/video-tutorial) on creating a new JHipster application!**_
@@ -141,7 +141,7 @@ Validation has a few limitations:
 
 ## Entity relationships
 
-Entity relationships are only available for SQL databases. It is a fairly complex subject, which has its own documentation page: [Managing relationships](/managing-relationships/).
+Entity relationships are not available with Cassandra. It is a fairly complex subject, which has its own documentation page: [Managing relationships](/managing-relationships/).
 
 
 ## Generating a separate service class for your business logic
@@ -167,11 +167,11 @@ Please note that pagination is not available if you created your application wit
 
 Pagination uses [the Link header](http://tools.ietf.org/html/rfc5988), as in the [GitHub API](https://developer.github.com/v3/#pagination). JHipster provides a custom implementation of this specification on both the server (Spring MVC REST) and client (Angular/React) sides.
 
-When the entity is generated, JHipster provides 4 pagination options:
+When the entity is generated, JHipster provides 3 pagination options:
 
 * No pagination (in that case, the back-end won't be paginated)
 * A complete pagination system, based on [the Bootstrap pagination component](https://getbootstrap.com/docs/4.3/components/pagination/)
-* An infinite scroll system, based on [the infinite scroll directive](http://sroze.github.io/ngInfiniteScroll/)
+* An infinite scroll system, based on [ngx-infinite-scroll](https://github.com/orizens/ngx-infinite-scroll) with Angular, [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) with React and [VueUse's useIntersectionObserver](https://vueuse.org/core/useIntersectionObserver/) with Vue
 
 
 ## Updating an existing entity
@@ -224,9 +224,7 @@ Answer the next questions concerning the fields of this entity, the author has:
 * a "name" of type "String"
 * a "birthDate" of type "LocalDate"
 
-Then answer the questions concerning the relationships, the author has:
-
-* A one-to-many relationship with the "book" entity (which doesn't exist yet)
+Do not add any relationship: the relationship question only lets you pick an entity that already exists, so the relationship will be created from the "Book" entity.
 
 ### Generate the "Book" entity
 
@@ -242,6 +240,7 @@ Answer the next questions concerning the fields of this entity, the book has:
 Then answer the questions concerning the relationships, the book:
 
 * Has many-to-one relationship with the "author" entity
+* This relationship is bidirectional, named "book" in the Author entity, so an author has a one-to-many relationship with books
 * And this relationship uses the "name" field (from the Author entity) to be displayed
 
 ### Check the generated code
