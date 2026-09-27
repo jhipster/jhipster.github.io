@@ -173,10 +173,10 @@ cd /home/jhipster/app
 jhipster
 ```
 
-Once your application is created, you can run all the normal npm and Maven or Gradle commands, for example:
+Once your application is created, you can run all the npm scripts of your application, for example:
 
 ```shell
-./mvnw
+npm run app:start
 ```
 
 **Congratulations! You've launched your JHipster app inside Docker!**
@@ -191,10 +191,10 @@ By default, Docker is not installed inside the `jhipster/jhipster` image.
 
 So you won't be able to:
 - use the docker-compose files
-- build a Docker image with the docker daemon (Maven goal: `jib:dockerBuild` or Gradle task: `jibDockerBuild`)
+- build a Docker image with the docker daemon (`npm run java:docker`)
 
 However, you will be able to use [jib](https://github.com/GoogleContainerTools/jib)'s daemonless mode which can build 
-a docker image and push it to a registry without access to a docker daemon (Maven goal: `jib:build` or Gradle task: `jibBuild`). 
+a docker image and push it to a registry without access to a docker daemon (Maven goal: `jib:build` or Gradle task: `jib`). 
 But you will need to setup credentials to the docker registry as a pre-requisite of building the app. 
 See the [Jib plugin configuration documentations](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration) for more details.
 
