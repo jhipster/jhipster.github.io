@@ -24,7 +24,7 @@ Compared to Eureka it has a number of advantages:
 
 To get started with developing applications that rely on a Consul registry, you can start a Consul instance in a docker container:
 
-- run `docker-compose -f src/main/docker/consul.yml up` to start a Consul server in `dev` mode. Consul will then be available on port `8500` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8500/](http://127.0.0.1:8500/).
+- run `npm run docker:consul:up` to start a Consul server in `dev` mode. Consul will then be available on port `8500` of your Docker host, so if it runs on your machine it should be at [http://127.0.0.1:8500/](http://127.0.0.1:8500/).
 
 You can also use the [Docker Compose subgenerator](/docker-compose/#generating-a-custom-docker-compose-configuration-for-multiple-applications) to generate a docker configuration for several consul-enabled applications.
 
