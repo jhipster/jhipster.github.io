@@ -12,54 +12,38 @@ JHipster generates a fully production-ready, optimized and secured application. 
 
 ### Testing a production build
 
-This allows to test a production build from Maven, without building a real package.
+This allows to test a production build from Maven or Gradle, without building a real package.
 
-To use JHipster in "production" mode, use the pre-configured `prod` profile. With Maven, please run:
+To use JHipster in "production" mode, use the pre-configured `prod` profile. Please run:
 
-`./mvnw -Pprod`
+`npm run app:start -- -Pprod`
 
-When using Gradle, please run:
-
-`./gradlew -Pprod`
-
-This profile will compile, test and package your application with all productions settings.
+This starts your application with all production settings.
 
 If you want more information on the available profiles, please go the section titled "[Development and Production profiles](/profiles)".
 
 ### Building an executable JAR / WAR file
 
-#### With Maven
-
 - To package the application as a "production" JAR, please type:
 
-    `./mvnw -Pprod clean verify`
+    `npm run java:jar:prod`
 
-    This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
+    This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` with Maven, or `build/libs/jhipster-0.0.1-SNAPSHOT.jar` with Gradle (if your application is called "jhipster").
 
 
-- To package the application as a "production" WAR, use the `war` profile together with the `prod` profile:
+- To package the application as a "production" WAR, please type:
 
-    `./mvnw -Pprod,war clean verify`
+    `npm run java:war:prod`
 
-    This will generate a WAR file in the `target` folder.
+    This will generate a WAR file in the `target` folder with Maven, or in the `build/libs` folder with Gradle.
+
+Those packaging scripts do not run the tests; run them with `npm run backend:unit:test`.
 
 :::note
 
 That when building a JAR or WAR file with the `prod` profile, the generated archive will not include the `dev` assets.
 
 :::
-
-#### With Gradle
-To package the application as a "production" JAR, please type:
-
-`./gradlew -Pprod clean bootJar`
-
-This will generate a file `build/libs/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
-
-
-To package the application as a "production" WAR, please type:
-
-`./gradlew -Pprod -Pwar clean bootWar`
 
 
 ## Running in production
@@ -131,7 +115,7 @@ With the `prod` profile, JHipster configures a Servlet filter that puts specific
 
 ### Generating an optimized JavaScript application
 
-This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, please run:
+This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven or Gradle build, please run:
 
 `npm run build`
 
@@ -227,7 +211,7 @@ For frontend bundlers, the context path is a build-time configuration.
 
 **Angular** frontends can be configured using:
 - `angular.json`: `projects -> * your project name -> architect -> build -> options -> baseHref : '/jhipster/'`
-- `ng build --base-href '/jhipster/'`
+- `npm run webapp:build:prod -- --base-href '/jhipster/'`
 - Use [APP_BASE_HREF](https://angular.io/api/common/APP_BASE_HREF)
 
 For **Vite-based** frontends (React and Vue), you can configure using:
