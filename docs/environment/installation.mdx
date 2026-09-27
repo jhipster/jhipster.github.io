@@ -191,7 +191,7 @@ By default, Docker is not installed inside the `jhipster/jhipster` image.
 
 So you won't be able to:
 - use the docker-compose files
-- build a Docker image with the docker daemon (`npm run java:docker`)
+- build a Docker image with the docker daemon (`npm run java:docker:prod`)
 
 However, you will be able to use [jib](https://github.com/GoogleContainerTools/jib)'s daemonless mode which can build 
 a docker image and push it to a registry without access to a docker daemon (Maven goal: `jib:build` or Gradle task: `jib`). 
