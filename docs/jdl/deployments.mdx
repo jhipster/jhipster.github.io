@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Deployments
 slug: /jdl/deployments
 last_update:
-  date: 2021-07-08T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 ## Syntax
@@ -71,11 +71,11 @@ Here are the deployment options supported in the JDL:
 
 |JDL option name             |Default value      |Possible values                       |Comment                                                                                                                                    |
 |----------------------------|-------------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-|deploymentType              |docker-compose     |docker-compose, kubernetes, openshift |-                                                                                                                                          |
+|deploymentType              |docker-compose     |docker-compose, kubernetes            |-                                                                                                                                          |
 |directoryPath               |`../`              |-                                     |Relative path. Must be in double quotes                                                                                                    |
 |appsFolders                 |[]                 |-                                     |Directory names for the applications separated by comma. Must be a list, example [foo, bar]                                                |
 |clusteredDbApps             |[]                 |-                                     |Directory names for the applications with clustered DB separated by comma. Must be a list, example [foo, bar]                              |
-|gatewayType                 |SpringCloudGateway |-                                     |Value is ignored when serviceDiscoveryType is `no`                                                                                         |
+|~gatewayType~               |DEPRECATED         |-                                     |No generator reads it, it will be removed in JHipster v10                                                                                  |
 |monitoring                  |no                 |no, prometheus                        |-                                                                                                                                          |
 |serviceDiscoveryType        |consul             |consul, eureka, no                    |-                                                                                                                                          |
 |dockerRepositoryName        |-                  |-                                     |The name or URL of the docker repository. Must be in double quotes                                                                         |
@@ -87,6 +87,5 @@ Here are the deployment options supported in the JDL:
 |ingressDomain               |-                  |-                                     |The domain for Ingress when kubernetesServiceType is `Ingress`. Must be in double quotes. Applicable only when deploymentType is kubernetes|
 |ingressType                 |nginx              |nginx, gke                            |The kubernetes ingress type, only set when `kubernetesServiceType` is set to Ingress                                                       |
 |istio                       |false              |true, false                           |Applicable only when deploymentType is kubernetes                                                                                          |
-|openshiftNamespace          |default            |-                                     |Applicable only when deploymentType is openshift                                                                                           |
-|storageType                 |ephemeral          |ephemeral, persistent                 |Applicable only when deploymentType is openshift                                                                                           |
-|registryReplicas            |2                  |-                                     |The number of replicas, when using the openshift deployment type                                                                           |
+|~storageType~               |DEPRECATED         |-                                     |No generator reads it, it will be removed in JHipster v10                                                                                  |
+|~registryReplicas~          |DEPRECATED         |-                                     |No generator reads it, it will be removed in JHipster v10                                                                                  |
