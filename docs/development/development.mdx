@@ -33,73 +33,23 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 This application will have "hot reload" enabled by default, so if you compile a class, the Spring application context should refresh itself automatically, without the need to restart the server.
 
-### As a Maven project
+### With Maven or Gradle
 
-You can launch the Java server with Maven. JHipster provides a Maven wrapper, so you don't need to install Maven, and you have the guarantee that all project users have the same Maven version:
-
-on Mac OS X/Linux:
+You can launch the Java server with Maven or Gradle. JHipster provides a Maven or Gradle wrapper, so you don't need to install the build tool, and you have the guarantee that all project users have the same version:
 
 ```shell
-./mvnw
+npm run app:start
 ```
-
-on Windows:
-
-```shell
-mvnw
-```
-
-(this will run our default Maven task, `spring-boot:run`)
 
 The application will be available on [http://localhost:8080](http://localhost:8080).
 
-If you will use live reload with `npm start` then you can speed up server start up by excluding the client build tasks by:
+If you will use live reload with `npm start` then you can speed up server start up by excluding the client build tasks:
 
 ```shell
-./mvnw -P-webapp
+npm run backend:start
 ```
 
-Alternatively, if you have installed Maven, you can launch the Java server with Maven:
-
-```shell
-mvn
-```
-
-If you want more information on using Maven, please go to [http://maven.apache.org](http://maven.apache.org)
-
-### (Optional) As a Gradle project
-
-If you selected the Gradle option, JHipster provides a Gradle wrapper, so you don't need to install Gradle, and you have the guarantee that all project users have the same Gradle version:
-
-on Mac OS X/Linux:
-
-```shell
-./gradlew
-```
-
-on Windows:
-
-```shell
-gradlew
-```
-
-(this will run our default Gradle task, `bootRun`)
-
-The application will be available on [http://localhost:8080](http://localhost:8080).
-
-If you will use live reload with `npm start` then you can speed up server start up by excluding the client build tasks by:
-
-```shell
-./gradlew -x webapp
-```
-
-Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
-
-```shell
-gradle
-```
-
-If you want more information on using Gradle, please go to [https://gradle.org](https://gradle.org)
+If you want more information on using Maven or Gradle, please go to [http://maven.apache.org](http://maven.apache.org) or [https://gradle.org](https://gradle.org)
 
 
 ## Working with Angular/React/Vue
