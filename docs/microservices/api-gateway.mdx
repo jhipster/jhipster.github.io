@@ -76,25 +76,6 @@ Using this drop-down list, all microservices APIs are automatically documented, 
 When using a secured API, security tokens are automatically added to the Swagger UI interface, so all requests work out-of-the-box.
 
 
-## Rate limiting
-
-Rate limiting is not generated anymore. The `jhipster.gateway.rate-limiting` keys still appear in the gateway's configuration files, but no generated code uses them. If you need rate limiting, add it yourself, for example with a Spring Cloud Gateway filter.
-
-
-## Access control policy
-
-By default all registered microservices are available through the gateway. If you want to exclude a specific API from being exposed through the gateway, restrict the matching `/services/**` routes in the gateway's `SecurityConfiguration` class.
-
-Spring MVC (non-reactive) gateways still have a `jhipster.gateway.authorized-microservices-endpoints` key in their `application-*.yml` files, but the access control filter that used it is not generated anymore, so this key has no effect:
-
-```yaml
-jhipster:
-    gateway:
-        authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-            app1: /api,/v3/api-docs # recommended dev configuration
-```
-
-
 ## Enabling TLS for Gateway Security
 
 By default, the gateway operates over unsecured HTTP. For production environments, it's recommended to enable TLS for enhanced security. To do this, uncomment the provided code snippet, under `application-prod.yml`. This will utilize a self-signed TLS certificate located in `config/tls` with the filename `keystore.p12`, or you can specify your own keystore with a predefined password.
