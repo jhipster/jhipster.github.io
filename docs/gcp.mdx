@@ -42,7 +42,7 @@ Once the cluster is created, you can use JHipster Kubernetes generator to genera
 Build the container image.
 
 1. If you use Google Container Registry, you can build directly to the registry without local Docker daemon: `./mvnw package -Pprod jib:build`
-1. Otherwise, build to Docker daemon: `./mvnw package -Pprod jib:dockerBuild`
+1. Otherwise, build to Docker daemon: `npm run java:docker:prod`
 
 Deploy to Kubernetes cluster:
 
