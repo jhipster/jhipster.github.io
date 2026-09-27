@@ -27,6 +27,16 @@ Historical content is the exception. It records the past and must not be edited 
 `docusaurus.config.ts` builds the site as an archive when `IS_DOCS_ARCHIVE=true`: it adds a banner pointing to
 the current documentation and sets `noIndex`. Leave that mode in place.
 
+## Commands in the documentation
+
+When a page explains how to run, test, package or start something in a generated application, use the npm
+scripts that the application defines, such as `npm start`, `npm run backend:unit:test`, `npm run java:jar:prod`
+or `npm run docker:db:up`. Do not use the underlying build-tool command, such as `./mvnw`, `./gradlew`,
+`ng serve` or `docker compose -f src/main/docker/...`. The scripts work the same for Maven and Gradle and for
+every client framework, and the generator can change what they run without the documentation changing.
+Check that a script exists in the generator before naming it. Use a raw command only when no script covers
+it, or when the page is specifically about that tool.
+
 ## Removing a page
 
 - Delete the file and remove it from `sidebars.ts` and from any page that lists it.
