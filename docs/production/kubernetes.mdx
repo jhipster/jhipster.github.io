@@ -107,13 +107,7 @@ These are the standard prompts. In addition, other prompts will be shown based o
 When your application is already deployed, you can re-deploy it by building a new Docker image:
 
 ```shell
-./mvnw package -Pprod -DskipTests jib:dockerBuild
-```
-
-Or when using Gradle:
-
-```shell
-./gradlew -Pprod bootJar jibDockerBuild -x test
+npm run java:docker
 ```
 
 ### Pushing to Docker Hub
