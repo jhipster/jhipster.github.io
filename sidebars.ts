@@ -430,7 +430,6 @@ const sidebars: SidebarsConfig = {
           href: 'https://start.jhipster.tech/jdl-studio/',
         },
         { type: 'doc', label: 'JHipster IDE', id: 'tools/jhipster-ide' },
-        { type: 'doc', label: 'JHipster-UML', id: 'tools/jhipster-uml' },
       ],
     },
     {
