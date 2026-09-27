@@ -10,7 +10,7 @@ last_update:
 Angular is using TypeScript instead of JavaScript, and as a result some specific tooling is necessary to work efficiently with it. Our [development](/development) workflow for an Angular 2+ application is as below.
 
 1. When you generate an application the files are created and at the end of generation `npm install` task is triggered.
-2. Now run `./mvnw` or `./gradlew` to launch the application server and it should be available at [localhost:8080](localhost:8080). The build compiles the client side code with the `webapp:build` task into `target/classes/static` or `build/generated/webapp` based on the build tool (Maven or Gradle) selected, and the application server serves it.
+2. Now run `npm run app:start` to launch the application server and it should be available at [localhost:8080](localhost:8080). The build compiles the client side code with the `webapp:build` task into `target/classes/static` or `build/generated/webapp` based on the build tool (Maven or Gradle) selected, and the application server serves it.
 3. Now run `npm start` in a new terminal to launch the Angular CLI dev server on [localhost:4200](http://localhost:4200). This will take care of compiling your TypeScript code, and automatically reloading your browser.
 
 If you start making changes to the client side code without having `npm start` running, nothing will be reflected as the changes are not compiled so you need to either run `npm run webapp:build` manually after changes or have `npm start`  running.
@@ -246,10 +246,10 @@ JHipster is using the `ngx-translate` dependency for translation purpose. Angula
 
 ### Running the server
 
-If you prefer to use Angular CLI to develop you application, you can run your server directly by using its dedicated command.
+The Angular CLI dev server is started by the `start` script of your `package.json`:
 
 ```shell
-ng serve
+npm start
 ```
 
 ### Conclusion
