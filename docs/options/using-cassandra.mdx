@@ -2,7 +2,7 @@
 title: Using Cassandra
 slug: /using-cassandra/
 last_update:
-  date: 2015-02-24T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 Cassandra is one of the supported databases that can be selected when your application is being generated.
@@ -13,14 +13,23 @@ This generator has one limitation:
 
 When Cassandra is selected:
 
-* Spring Data Reactive for Apache Cassandra is used
+* Spring Data for Apache Cassandra is used, with its reactive repositories when the application is reactive
 * The [entity sub-generator](/creating-an-entity/) will not ask you for entity relationships, as you can't have relationships with a NoSQL database (at least not in the way you have relationships with JPA)
 * The generated entities only support one partition key, which is the ID. Future versions will provide composite primary keys and clustering keys
 
 
-## Migration tool
+## Database migrations
 
-Similar to [Liquibase](http://www.liquibase.org/), JHipster provide a tool to apply your CQL migration scripts, with some restrictions:
+[Liquibase](https://www.liquibase.org/) is the default migration tool for Cassandra since JHipster 9.3.1, with the `liquibase-cassandra` extension, like for SQL databases (see [Database updates](/development/#database-updates)):
+
+* When it doesn't exist, the keyspace is created by the application at startup (set `application.cassandra.create-keyspace` to `false` to disable it), and the tables are created by Liquibase
+* The changelogs are in `src/main/resources/config/liquibase/changelog/`: the initial schema is `00000000000000_initial_schema.xml`, and the [entity sub-generator](/creating-an-entity/) generates a changelog for each entity
+
+## Legacy CQL migration tool
+
+Before JHipster 9.3.1, Cassandra applications used a JHipster specific tool to apply CQL migration scripts. It is still available with the `loader` database migration (`databaseMigration loader` in JDL, or `--database-migration loader`), and applications generated with an older version keep it when they are upgraded, unless they had opted into `liquibase`.
+
+The tool applies your CQL migration scripts, with some restrictions:
 
 * The tool is not run by the application itself when it is started but inside a Docker container or manually
 * All CQL scripts must follow the pattern `{timestamp}_{description}.cql` and be placed in the changelog directory: `src/main/resources/config/cql/changelog/`
@@ -30,7 +39,7 @@ Similar to [Liquibase](http://www.liquibase.org/), JHipster provide a tool to ap
 Some information on the tool:
 
 * After generating an entity, its CQL file will be generated in `src/main/resources/config/cql/changelog/` in the same way we generate Liquibase changelogs for JPA
-* For running tests, all the CQL scripts in the `src/main/resources/config/cql/changelog/` directory are automatically applied to the in memory cluster
+* For running tests, all the CQL scripts in the `src/main/resources/config/cql/changelog/` directory are automatically applied to the Cassandra instance started with Testcontainers
   * Meaning you have nothing to do but to drop your script in the changelog directory to have it applied for the tests
 * The tool uses its own cassandra table `schema_version` to store the metadata info
 
@@ -48,7 +57,7 @@ Depending if you are using Docker or not, you have several options to run the mi
 If you have started the Cassandra cluster with docker-compose, using the generated `app.yml` or `cassandra.yml` compose files, the tool has already been run and all cql scripts applied.
 
 After adding a CQL script in the changelog directory, you can relaunch the docker-service responsible to run the migration service again without stopping the cluster:  
-`docker-compose -f src/main/docker/cassandra.yml up <app>-cassandra-migration`
+`docker compose -f src/main/docker/cassandra.yml up cassandra-migration`
 
 #### Manually:
 
@@ -66,19 +75,3 @@ By default, the `src/main/resources/config/create-keyspace.cql` script is used t
 You can override it with a second argument: `src/main/docker/cassandra/scripts/autoMigrate.sh src/main/resources/config/cql/changelog/ create-keyspace-prod.cql`
 
 If you only want to run a specific script against your cluster use: `src/main/docker/cassandra/scripts/execute-cql.sh src/main/resources/config/cql/changelog/<your script>.cql`
-
-
-## Cassandra and Docker on non-linux OSs
-
-On Mac OSx and Windows, Docker containers are not hosted directly but on a VirtualBox VM.  
-Those, you can not access them in localhost but have to hit the VirtualBox IP.
-
-You can override the Cassandra contact point (localhost by default) with this environment variable: ``export SPRING_DATA_CASSANDRA_CONTACTPOINTS=`docker-machine ip default` ``
-
-#### Cassandra nodes:
-
-Because Cassandra nodes are also hosted in the Virtual machine, the Cassandra Java driver will receive an error when trying to contact them after receiving their address from the contact point.  
-To workaround this, you can add a routing rule to your routing table, [(source)](http://krasserm.github.io/2015/07/13/chaos-testing-with-docker-and-cassandra/#port-mapping).
-
-Assuming the containers running the Cassandra nodes have IP address 172.18.0.x:  
-``sudo route -n add 172.18.0.0/16 `docker-machine ip default` ``
