@@ -2,7 +2,7 @@
 title: Internationalization
 slug: /installing-new-languages/
 last_update:
-  date: 2014-12-10T00:00:00-00:00
+  date: 2026-09-27
 ---
 
 ## Introduction
@@ -21,12 +21,14 @@ These are the currently supported languages
 * Albanian
 * Arabic (Libya)
 * Armenian
+* Azerbaijani (Latin)
 * Belarusian
 * Bengali
 * Bulgarian
 * Catalan
 * Chinese (Simplified)
 * Chinese (Traditional)
+* Croatian
 * Czech 
 * Danish 
 * Dutch 
@@ -38,11 +40,13 @@ These are the currently supported languages
 * Galician 
 * German 
 * Greek 
+* Hebrew
 * Hindi 
 * Hungarian 
 * Indonesian
 * Italian 
 * Japanese 
+* Karakalpak (Latin)
 * Korean 
 * Marathi 
 * Myanmar 
@@ -86,9 +90,9 @@ All languages are saved in the folder `src/main/webapp/i18n` (client side) and `
 
 Here are the steps to install a new language called `new_lang`:
 
-1.  Duplicate the `src/main/webapp/i18/en` folder to `src/main/webapp/i18/new_lang` (this is where all the front-end translations are stored)
-2.  Translate all files under the folder `src/main/webapp/i18/new_lang`
-3.  Add the language code `new_lang` to the `languages` variable defined in `src/main/webapp/app/shared/language/find-language-from-key-pipe.ts`
+1.  Duplicate the `src/main/webapp/i18n/en` folder to `src/main/webapp/i18n/new_lang` (this is where all the front-end translations are stored)
+2.  Translate all files under the folder `src/main/webapp/i18n/new_lang`
+3.  Add the language code `new_lang` to the `languages` variable defined in `src/main/webapp/app/shared/language/find-language-from-key.pipe.ts`
 
 ```ts
 private languages: { [key: string]: { name: string; rtl?: boolean } } = {
@@ -100,18 +104,21 @@ private languages: { [key: string]: { name: string; rtl?: boolean } } = {
 
 4.  In the `src/main/resources/i18n` folder, copy the `messages_en.properties` file to `messages_new_lang.properties` (this is where the server-side translations are stored)
 5.  Translate all keys in the `messages_new_lang.properties` file
-6.  Add the new language bundling to `webpack/webpack.common.js`
+6.  Add the language code `new_lang` to the `LANGUAGES` constant in `src/main/webapp/app/config/language.constants.ts`
+7.  Add the new language loaders to `src/main/webapp/i18n/index.ts`, using the matching Angular locale in `angularLanguages` (the JSON files of the language folder are merged at build time by `build-plugins/i18n-esbuild.ts`)
 
-```js
-new MergeJsonWebpackPlugin({
-    output: {
-        groupBy: [
-            { pattern: "./src/main/webapp/i18n/en/*.json", fileName: "./i18n/en.json" },
-            { pattern: "./src/main/webapp/i18n/new_lang/*.json", fileName: "./i18n/new_lang.json" }
-            // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
-        ]
-    }
-})
+```ts
+const angularLanguages = {
+  en: async (): Promise<void> => import('@angular/common/locales/en'),
+  new_lang: async (): Promise<void> => import('@angular/common/locales/new_lang'),
+  // jhipster-needle-i18n-language-angular-loader - JHipster will add languages in this object
+};
+
+const languagesData = {
+  en: async (): Promise<any> => import('i18n/en.json').catch(),
+  new_lang: async (): Promise<any> => import('i18n/new_lang.json').catch(),
+  // jhipster-needle-i18n-language-loader - JHipster will add languages in this object
+};
 ```
 
 The new language `new_lang` is now available in the language menu, and it is available both in the front-end Angular application and in the back-end Spring application.
@@ -120,21 +127,19 @@ The new language `new_lang` is now available in the language menu, and it is ava
 
 If you would like to contribute a new language to the generator follow steps below;
 
-- Add the language to the `LANGUAGES` constant in [`generators/generator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js)
+- Add the language to the `partialLanguages` array in [`generators/languages/support/languages.ts`](https://github.com/jhipster/generator-jhipster/blob/main/generators/languages/support/languages.ts) (optionally with `dayjsLocale`, `angularLocale` and `rtl`)
 
-```js
-{ name: 'New Language', dispName: 'New Language', value: 'nl' }
+```ts
+{ name: 'New Language', displayName: 'New Language', languageTag: 'nl' },
 ```
 
-- Duplicate the file [`generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/languages/templates/src/main/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/main/resources/i18n/messages_nl.properties.ejs` and translate all the values to the new language.   
+- Duplicate the file [`generators/java/generators/i18n/templates/src/main/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/java/generators/i18n/templates/src/main/resources/i18n/messages_en.properties.ejs) to `generators/java/generators/i18n/templates/src/main/resources/i18n/messages_nl.properties.ejs` and translate all the values to the new language.
 
-- Duplicate the folder [`generators/languages/templates/src/main/webapp/i18n/en`](https://github.com/jhipster/generator-jhipster/tree/main/generators/languages/templates/src/main/webapp/i18n/en) to `generators/languages/templates/src/main/webapp/i18n/nl` and translate all the files inside it. 
+- Duplicate the folder [`generators/client/generators/i18n/templates/src/main/webapp/i18n/en`](https://github.com/jhipster/generator-jhipster/tree/main/generators/client/generators/i18n/templates/src/main/webapp/i18n/en) to `generators/client/generators/i18n/templates/src/main/webapp/i18n/nl` and translate all the files inside it.
 
-- Duplicate the file [`generators/entity-i18n/templates/i18n/entity_en.json.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/entity-i18n/templates/i18n/entity_en.json.ejs) to `generators/entity-i18n/templates/i18n/entity_nl.json.ejs` and translate all the values within it.
+- Duplicate the file [`generators/client/generators/i18n/templates/entity/i18n/entity_en.json.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/client/generators/i18n/templates/entity/i18n/entity_en.json.ejs) to `generators/client/generators/i18n/templates/entity/i18n/entity_nl.json.ejs` and translate all the values within it.
 
-- Duplicate the file [`generators/languages/templates/src/test/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/server/templates/src/test/resources/i18n/messages_en.properties.ejs) to `generators/languages/templates/src/test/resources/i18n/messages_nl.properties.ejs` and translate all the values within it.
-
-- Add the language value `nl` to the `language` array in [`test/templates/all-languages/.yo-rc.json`](https://github.com/jhipster/generator-jhipster/blob/main/test/templates/all-languages/.yo-rc.json).
+- Duplicate the file [`generators/java/generators/i18n/templates/src/test/resources/i18n/messages_en.properties.ejs`](https://github.com/jhipster/generator-jhipster/blob/main/generators/java/generators/i18n/templates/src/test/resources/i18n/messages_en.properties.ejs) to `generators/java/generators/i18n/templates/src/test/resources/i18n/messages_nl.properties.ejs` and translate all the values within it.
 
 Submit a PR with all these changes.
 
@@ -143,10 +148,10 @@ Submit a PR with all these changes.
 
 Here are the steps to remove a language called `old_lang`:
 
-1.  Delete the entire language folder from `src/main/webapp/i18/old_lang`
-2.  Remove the constant entry for `LANGUAGES` in `src/main/webapp/app/core/language/language.constants.ts`
+1.  Delete the entire language folder from `src/main/webapp/i18n/old_lang`
+2.  Remove the constant entry for `LANGUAGES` in `src/main/webapp/app/config/language.constants.ts`
 3.  Remove the constant entry for `languages` in `src/main/webapp/app/shared/language/find-language-from-key.pipe.ts`
-4.  Remove the constant entry for `localesToKeep` in `webpack/webpack.prod.js` 
-5.  Remove the pattern for `MergeJsonWebpackPlugin` in `webpack/webpack.common.js` 
+4.  Remove the entries for `old_lang` in `src/main/webapp/i18n/index.ts`
+5.  Remove the dayjs locale import for `old_lang` in `src/main/webapp/app/config/dayjs.ts`, if any
 6.  Delete the `src/main/resources/i18n/messages_old_lang.properties` file
 7.  Delete the `src/test/resources/i18n/messages_old_lang.properties` file
