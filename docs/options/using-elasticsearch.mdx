@@ -28,7 +28,7 @@ In development, JHipster expects an Elasticsearch instance running on `http://lo
 The easiest way to run an Elasticsearch instance is to use the provided Docker Compose configuration:
 
 ```shell
-docker-compose -f src/main/docker/elasticsearch.yml up -d
+npm run docker:elasticsearch:up
 ```
 
 To use an Elasticsearch instance running elsewhere, set the `SPRING_ELASTICSEARCH_URIS` environment variable (or change the `spring.elasticsearch.uris` property in your `application-dev.yml`):
