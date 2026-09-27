@@ -2,10 +2,12 @@
 title: Add Querydsl support
 slug: /tips/003_tip_add_querydsl_support.html
 last_update:
-  date: 2017-04-27T08:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 __Tip submitted by [@omrzljak](https://github.com/omrzljak), updated by [@arnaud-deprez](https://github.com/arnaud-deprez)__
+
+**This tip was written in 2017 and is outdated: the Gradle snippets use the retired `jcenter()` repository and the `compile` configuration, which current Gradle versions no longer provide, and the Java snippets use APIs that have since been renamed or removed (`QueryDslPredicateExecutor`, `com.mysema.query.types.Predicate`, `@Timed`). Use it only as a starting point, together with the [Querydsl](http://www.querydsl.com/) and [Spring Data](https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html) documentation.**
 
 In some cases Spring Data [query possibilities](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries) are not enough to make your queries. You can use `@Query` annotation and [write your own](http://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongodb.repositories.queries.json-based). Some of us like to write type safe queries like [Querydsl](http://www.Querydsl.com/) provides.
 
