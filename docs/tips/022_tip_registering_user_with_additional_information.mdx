@@ -2,12 +2,18 @@
 title: Registering a user with additional information
 slug: /tips/022_tip_registering_user_with_additional_information.html
 last_update:
-  date: 2017-02-15T22:30:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 # Registering a user with additional information
 
 __Tip submitted by [@Paul-Etienne](https://github.com/Paul-Etienne)__
+
+**This tip was written in 2017 for the AngularJS client, and its code no longer matches generated applications.
+To store additional user information, create an entity linked to the `User` entity with the JDL, as described in
+[The User entity](/user-entity/#using-composition): putting `@Id` on the relationship to `User` generates the `@MapsId`
+mapping described below. The registration steps must then be adapted to your client framework and to the current
+`AccountResource.registerAccount()` and `UserService.registerUser()` methods.**
 
 If we need to store more information concerning a user than what JHipster provides by default, a few tweaks are needed.
 
