@@ -2,7 +2,7 @@
 title: Customizing Bootstrap
 slug: /customizing-bootstrap/
 last_update:
-  date: 2024-09-10T11:30:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 ## Basic customization
@@ -11,9 +11,9 @@ Don't forget to run `npm start` to get immediate feedback of your changes!
 :::
 
 The simplest way to customize how your JHipster application looks like is by
-overriding CSS styles in `src/main/webapp/content/css/global.css`, or if you selected the Sass option, the `src/main/webapp/content/scss/global.scss` file.
+overriding styles in the global Sass file: `src/main/webapp/content/scss/global.scss` for Angular and Vue, or `src/main/webapp/app/app.scss` for React.
 
-Using Sass is both easier, more concise and more powerful than plain CSS because Bootstrap is also written in Sass, please refer to Bootstrap's [official documentation about theming](https://getbootstrap.com/docs/5.3/customize/sass/).
+Bootstrap is also written in Sass, please refer to Bootstrap's [official documentation about theming](https://getbootstrap.com/docs/5.3/customize/sass/).
 
 If you want to use Bootstrap [partials](https://sass-lang.com/guide/#partials) in your own `scss` files then import it like below at the beginning of your `scss` file.
 For example to use the border-radius mixin:
@@ -25,6 +25,6 @@ For example to use the border-radius mixin:
 
 Make sure you import only partials and not main Sass files, otherwise you will end up generating duplicate CSS which might cause issues.
 
-To change the default Bootstrap settings like colors, border-radius, etc., add or change the value of the property in the partial file `src/main/webapp/content/scss/_bootstrap-variables.scss`
+To change the default Bootstrap settings like colors, border-radius, etc., add or change the value of the property in the partial file `src/main/webapp/content/scss/_bootstrap-variables.scss` (Angular and Vue) or `src/main/webapp/app/_bootstrap-variables.scss` (React)
 
 All values defined in Bootstrap [_variables.scss](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss) can be overwritten here.
