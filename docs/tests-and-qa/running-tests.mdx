@@ -23,7 +23,7 @@ Optionally, JHipster can also generate:
 We have two goals in generating those tests:
 
 * Help every JHipster user to follow best practices, as we believe tests are a very useful part of every application
-* Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing `./mvnw clean verify` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
+* Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing `npm run backend:unit:test` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
 
 The Java tests, the end-to-end tests, and the Gatling and Cucumber tests are generated in the standard Maven `src/test` folder. UI unit tests are located next to the code they test, in the `src/main/webapp` folder.
 
@@ -37,14 +37,14 @@ Integration tests are done with the Spring Test Context framework, and are locat
 
 This Spring test context will use a specific test database to run its tests:
 
-* If you use an SQL database, the tests use your development database: an in-memory H2 instance if H2 is your development database, otherwise a containerized version of it using [Testcontainers](https://www.testcontainers.org/modules/databases/). When the tests are run with the `prod` profile (`./mvnw -Pprod clean verify` or `./gradlew -Pprod test integrationTest`), which activates the `test,testprod` Spring profiles, JHipster will launch a containerized version of the production database using Testcontainers. Either way, Liquibase will be run automatically, and will generate the database schema.
+* If you use an SQL database, the tests use your development database: an in-memory H2 instance if H2 is your development database, otherwise a containerized version of it using [Testcontainers](https://www.testcontainers.org/modules/databases/). When the tests are run with the `prod` profile (`npm run backend:unit:test -- -Pprod`), which activates the `test,testprod` Spring profiles, JHipster will launch a containerized version of the production database using Testcontainers. Either way, Liquibase will be run automatically, and will generate the database schema.
 * If you use Cassandra, JHipster will launch a containerized version of Cassandra with Docker using [Testcontainers](https://www.testcontainers.org).
 * If you use MongoDB, JHipster will launch a containerized version of MongoDB with Docker using [Testcontainers](https://www.testcontainers.org).
 * If you use Elasticsearch, JHipster will launch a containerized version of Elasticsearch with Docker using [Testcontainers](https://www.testcontainers.org).
 * If you use Couchbase, JHipster will launch a containerized version of Couchbase with Docker using [Testcontainers](https://www.testcontainers.org).
 * If you use Neo4j, JHipster will launch a containerized version of Neo4j with Docker using [Neo4j Testcontainers](https://www.testcontainers.org/modules/databases/neo4j/).
 
-Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `./mvnw clean verify` (or `./gradlew test integrationTest` if you use Gradle).
+Those tests can be run directly in your IDE, by right-clicking on each test class, or by running `npm run backend:unit:test`.
 
 **Limitations:** if the generated entities have validation enabled, JHipster is not enable to generate the correct values depending on the validation rules. Those rules can be so complex, for example if a Regex pattern is used, that this not possible. In this case, the tests will fail validation, and the default values used in the test will need to changed manually, so they can pass the validation rules.
 
