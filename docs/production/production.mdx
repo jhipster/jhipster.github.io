@@ -86,7 +86,7 @@ To learn how to package your application with Docker, please read our [Docker Co
 
 ### Run as a service
 
-Spring Boot 4 no longer supports "fully executable" JAR files with an embedded launch script, so the JAR can't be linked into `/etc/init.d` anymore. To run the application as a Linux service, have a service manager such as systemd run `java -jar` with a non-root OS account.
+To run the application as a Linux service, have a service manager such as systemd run `java -jar` with a non-root OS account.
 
 There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/how-to/deployment/installing.html), including more security steps and Windows service.
 
