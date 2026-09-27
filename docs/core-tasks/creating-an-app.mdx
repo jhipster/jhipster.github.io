@@ -24,13 +24,13 @@ To generate your application, type:
 
 Answer the questions asked by the generator to create an application tailored to your needs. Those options are described in [the next section](#questions-asked-when-generating-an-application).
 
-Once the application is generated, you can launch it using Maven (`./mvnw` on Linux/MacOS/Windows PowerShell, `mvnw` on Windows Cmd) or Gradle (`./gradlew` on Linux/MacOS/Windows PowerShell, `gradlew` on Windows Cmd).
+Once the application is generated, you can launch it with:
 
-:::note
+```shell
+npm run app:start
+```
 
-If you are using Maven and changed front end files after first run of the `./mvnw` command then you must run `./mvnw -Pwebapp` to see the latest front end version (Gradle detects front end changes automatically and recompiles front end if needed).
-
-:::
+This works the same way whether the application uses Maven or Gradle. It builds the front end as well, and only rebuilds it when front end files have changed.
 
 The application will be available on [http://localhost:8080](http://localhost:8080)
 
@@ -40,7 +40,7 @@ If you want to have "live reload" of your JavaScript/TypeScript code, you will n
 
 :::
 
-If you are using "live reload" then you can speed up server start up by excluding client side tasks by `./mvnw -P-webapp` or `./gradlew -x webapp`. It speeds up especially Gradle.
+If you are using "live reload" then you can speed up server start up by starting only the back end, without the client side tasks, with `npm run backend:start`.
 
 
 ## Questions asked when generating an application
