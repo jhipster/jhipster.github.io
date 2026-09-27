@@ -2,7 +2,7 @@
 title: Security
 slug: /security/
 last_update:
-  date: 2026-05-26T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +26,7 @@ For security reasons, you should change those default passwords in production.
 
 Please note that this is the default option when using a [microservices architecture](/microservices-architecture/).
 
-This authentication mechanism doesn't exist by default with Spring Security, it's a JHipster-specific integration of [the Java JWT project](https://github.com/jwtk/jjwt).
+JHipster issues and validates the tokens with Spring Security's OAuth 2.0 resource server support, which uses [Nimbus JOSE + JWT](https://connect2id.com/products/nimbus-jose-jwt); the tokens are signed with a secret key (HS512).
 
 This solution uses a secure token that holds the user's login name and authorities. As the token is signed, it cannot be altered by a user.
 
@@ -34,11 +34,9 @@ JHipster automatically tracks invalid JWTs as an custom application metric, refe
 
 ### Securing JWT
 
-- JHipster uses a secret key, which can be configured using two Spring Boot properties: `jhipster.security.authentication.jwt.secret` and `jhipster.security.authentication.jwt.base64-secret`.
-The second option uses a Base64-encoded string, so it is considered more secured and thus it is recommended. If both properties are configured, the `secret` property (less secured) will be used, for legacy reasons.
-A warning will be shown at application startup if you don't use the Base64 property.
+- JHipster uses a secret key, which is configured as a Base64-encoded string using the `jhipster.security.authentication.jwt.base64-secret` Spring Boot property.
 - Those keys should have a minimum length of 512 bits: if they are not long enough, you will not be able to use them to login. If that happens, there will be a clear warning at the console to explain that issue.
-- The secret keys are configured in the `application-*.yml` files. As those keys must be kept secret, you **should** store them in a secure way for your production profile.
+- A sample secret key is generated in the `application-secret-samples.yml` file, which is used by the `dev` profile (through the `secret-samples` profile). The `prod` profile doesn't use it, so you **must** provide your own key in production, and store it in a secure way.
 It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/),
 using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
@@ -50,7 +48,7 @@ This is the "classical" Spring Security authentication mechanism, but we have im
 
 ### Securing Session-based authentication
 
-- For remember-me authentication, the remember-me key is configured in the `application-dev.yml` and `application-prod.yml` files, as the `jhipster.security.remember-me.key` property. As this key must be kept secret, you **should** store it in a secure way for your production profile. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
+- For remember-me authentication, a sample remember-me key is generated in the `application-secret-samples.yml` file, as the `jhipster.security.remember-me.key` property, and is used by the `dev` profile. As this key must be kept secret, you **must** provide your own key for your production profile and store it in a secure way. It can be set up using the usual Spring Boot property configuration: using a Spring Cloud Config server like the [JHipster Registry](/jhipster-registry/), using an environment variable, or even a specific `application-prod.yml` file which is SCP'd by a sysadmin into the same directory as your application's executable WAR file.
 - You **should** change the default "user" and "admin" passwords. The easiest way to do this is to deploy your application, login as "user/user" and then "admin/admin", and for each of them use the "Account > Password" menu to change the password.
 
 ### Improved remember-me mechanism
@@ -83,21 +81,7 @@ npm run docker:keycloak:up
 
 If you want to use Keycloak with Docker Compose, be sure to read our [Docker Compose documentation](/docker-compose/), and configure correctly your `/etc/hosts` for Keycloak.
 
-:::note
-**Note for JHipster 7.8.1 and Keycloak 16.1.0 on Apple Silicon (M1)**
-
-Keycloak prior to v18 may misbehave on Apple Silicon in compatibility mode and the solution is not obvious. You can build the Keycloak image locally to solve the problem:
-
-```shell
-git clone git@github.com:keycloak/keycloak-containers.git
-cd keycloak-containers/server
-git checkout 16.1.0
-docker build -t jboss/keycloak:16.1.0 .
-```
-
-:::
-
-The security settings in `src/main/resources/config/application.yml` are configured for this image. See above note on `/etc/hosts` and take note that `issuer-uri` may need to change
+The security settings in `src/main/resources/config/application-secret-samples.yml` are configured for this image. See above note on `/etc/hosts` and take note that `issuer-uri` may need to change
 
 ```yaml
 spring:
@@ -107,22 +91,19 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://localhost:9080/auth/realms/jhipster
+            issuer-uri: http://localhost:9080/realms/jhipster
             # localhost will be bound to the guest (container), not the host
             # to run Keycloak as a daemon, i.e., npm run docker:keycloak:up, /etc/hosts must be edited
             # and the issuer-uri should be as follows:
-            # issuer-uri: http://keycloak:9080/auth/realms/jhipster
+            # issuer-uri: http://keycloak:9080/realms/jhipster
         registration:
           oidc:
             client-id: web_app
             client-secret: web_app
-            scope: openid,profile,email
+            scope: openid, profile, email, offline_access # last one for refresh tokens
 ```
 
-Keycloak uses an embedded H2 database by default, so you will lose the created users if you restart your Docker container. To keep your data, please read the [Keycloak Docker documentation](https://hub.docker.com/r/jboss/keycloak/). One solution, with keeping the H2 database, is to do the following:
-
-- Add a volume that will be persisted: `./keycloak-db:/opt/jboss/keycloak/standalone/data`
-- Change the migration strategy from `OVERWRITE_EXISTING`, to `IGNORE_EXISTING` (in the command section)
+Keycloak runs with `start-dev --import-realm` and its development database (`KC_DB=dev-file`), which is stored inside the container: you will lose the created users when the container is removed. The `jhipster` realm, with its default users and roles, is imported from `src/main/docker/realm-config` at startup. To keep your data, please read the [Keycloak container documentation](https://www.keycloak.org/server/containers) and configure a persistent database.
 
 In production, it is required by Keycloak that you use HTTPS. There are several ways to achieve this, including using a reverse proxy or load balancer that will manage HTTPS. We recommend that you read the [Keycloak HTTPS documentation](https://www.keycloak.org/docs/latest/server_installation/index.html#setting-up-https-ssl) to learn more about this topic.
 
@@ -388,8 +369,6 @@ export CYPRESS_E2E_USERNAME=<your-username>
 export CYPRESS_E2E_PASSWORD=<your-password>
 ```
 
-If you're using Protractor, remove the `CYPRESS_` prefix.
-
 #### Use Environment Variables
 
 You can also use environment variables to override the defaults. For example:
@@ -494,7 +473,7 @@ This has been tested and known to work on Heroku and Google Cloud. For more prod
 
 ## Leakage of implementation details
 
-Every failure/exception is mapped to a [problem datastructure](https://github.com/zalando/problem) and returned to the client.
+Every failure/exception is mapped to a [problem detail](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html) (Spring's `ProblemDetail`, following RFC 7807) and returned to the client.
 
 ```json
 {  
@@ -528,4 +507,4 @@ The logs still contain the detailed exception so you can still identify the real
 gain valuable technical details by miusing your api.
 
 In case you need to modify the logic (e.g. the message still contains technical details but was not detected) you can do so by 
-adding the required logic to the `prepare` method in `ExceptionTranslator.java`  
+adding the required logic to the `getCustomizedErrorDetails` method in `ExceptionTranslator.java`  
