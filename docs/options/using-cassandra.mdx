@@ -20,16 +20,14 @@ When Cassandra is selected:
 
 ## Database migrations
 
-[Liquibase](https://www.liquibase.org/) is the default migration tool for Cassandra since JHipster 9.3.1, with the `liquibase-cassandra` extension, like for SQL databases (see [Database updates](/development/#database-updates)):
+[Liquibase](https://www.liquibase.org/) is the default migration tool for Cassandra, with the `liquibase-cassandra` extension, like for SQL databases (see [Database updates](/development/#database-updates)):
 
 * When it doesn't exist, the keyspace is created by the application at startup (set `application.cassandra.create-keyspace` to `false` to disable it), and the tables are created by Liquibase
 * The changelogs are in `src/main/resources/config/liquibase/changelog/`: the initial schema is `00000000000000_initial_schema.xml`, and the [entity sub-generator](/creating-an-entity/) generates a changelog for each entity
 
-## Legacy CQL migration tool
+## CQL migration tool (`loader` database migration)
 
-Before JHipster 9.3.1, Cassandra applications used a JHipster specific tool to apply CQL migration scripts. It is still available with the `loader` database migration (`databaseMigration loader` in JDL, or `--database-migration loader`), and applications generated with an older version keep it when they are upgraded, unless they had opted into `liquibase`.
-
-The tool applies your CQL migration scripts, with some restrictions:
+With the `loader` database migration (`databaseMigration loader` in JDL, or `--database-migration loader`), a JHipster specific tool applies your CQL migration scripts instead of Liquibase, with some restrictions:
 
 * The tool is not run by the application itself when it is started but inside a Docker container or manually
 * All CQL scripts must follow the pattern `{timestamp}_{description}.cql` and be placed in the changelog directory: `src/main/resources/config/cql/changelog/`
