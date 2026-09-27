@@ -2,7 +2,7 @@
 title: Deploying to Clever Cloud
 slug: /clever-cloud/
 last_update:
-  date: 2020-10-09T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
@@ -191,10 +191,10 @@ add this step to your `.github-action.yml`
 
 ## Changing the Java version
 
-You can select the Java version (Java 11 by default)
+You can select the Java version with the `CC_JAVA_VERSION` environment variable. JHipster applications require Java 21 or 25:
 
 ```shell
-clever env set CC_JAVA_VERSION 12
+clever env set CC_JAVA_VERSION 21
 ```
 
 
