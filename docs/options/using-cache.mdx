@@ -84,7 +84,7 @@ To work better with Hazelcast, JHipster includes support for the Hazelcast Manag
 
 - Please note that you can only monitor 2 nodes for free, as this is a proprietary product. But that's already enough for testing your application.
 - It is configured using JHipster [common application properties](/common-application-properties/), using the key `jhipster.cache.hazelcast.management-center`, in your `application-dev.yml` and `application-prod.yml` files. Please note that it is turned off by default.
-- JHipster generates a Docker Compose configuration to run the Hazelcast Management Center. Please read our [Docker Compose documentation](/docker-compose/), and run the application using `docker-compose -f src/main/docker/hazelcast-management-center.yml up -d`.
+- JHipster generates a Docker Compose configuration to run the Hazelcast Management Center. Please read our [Docker Compose documentation](/docker-compose/), and run it using `docker compose -f src/main/docker/hazelcast-management-center.yml up -d`.
 
 
 ## Caching with Infinispan
@@ -130,7 +130,7 @@ Please note that each cache must be configured as a specific Spring bean inside 
 
 As Memcached needs to serialize/deserialize objects in its classloader, it doesn't work when using the Spring Boot devtools (which uses a specific classloader to do hot reload of application classes). This is why Memcached is turned off by default in dev mode.
 
-As always with JHipster, a Docker Compose configuration is provided so you can start a Memcached server on your machine. In order to use it, please run `docker-compose -f src/main/docker/memcached.yml up -d`.
+As always with JHipster, a Docker Compose configuration is provided so you can start a Memcached server on your machine. In order to use it, please run `npm run docker:memcached:up`.
 
 
 ## Caching with Redis
