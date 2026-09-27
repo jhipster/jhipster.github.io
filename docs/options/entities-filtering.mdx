@@ -2,7 +2,7 @@
 title: Filtering your entities
 slug: /entities-filtering/
 last_update:
-  date: 2017-08-22T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 ## Introduction
@@ -14,8 +14,8 @@ Additionally, these filters should follow a reasonable, and concise pattern, and
 
 ## How to activate
 
-_Note_: `filter` is not compatible with `reactive`.
-When generating an entity with `jhipster entity` command, select services or service implementation to enable filtering on this entity. 
+_Note_: `filter` is only available with SQL databases, for entities that use a service. It works with both imperative and reactive applications.
+When generating an entity with `jhipster entity` command, select services or service implementation, then answer `Dynamic filtering for the entities with JPA Static metamodel` to the `Do you want to add filtering?` question to enable filtering on this entity.
 
 If you want to enable filtering for existing entities, you can modify the entity configuration in your projects `.jhipster` directory, by setting `service` to `serviceClass` or `serviceImpl` from `no`, and `jpaMetamodelFiltering` to `true` and then re-generate with `jhipster entity <entity name>`.
 
@@ -58,10 +58,11 @@ A good way to experience the expressiveness of this filter API is to use it from
 ## Implementation
 
 When this feature is enabled, a new service named as `EntityQueryService` and an `EntityCriteria` is generated. Spring will convert the request parameters into the fields of the `EntityCriteria` class.
+In a reactive application, only the `EntityCriteria` class is generated (in the `domain.criteria` package), and the entity repository converts it into a Spring Data R2DBC query.
 
-In the `EntityQueryService`, we convert the criteria object into a static, and type safe, JPA query object. For this, it is **required** that the **static metamodel generation is enabled** in the build. See the [JPA Static Metamodel Generator documentation](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#tooling-modelgen) for details.
+In the `EntityQueryService` (imperative applications), we convert the criteria object into a static, and type safe, JPA query object. For this, it is **required** that the **static metamodel generation is enabled** in the build. See the [JPA Static Metamodel Generator documentation](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#tooling-modelgen) for details.
 
-To prove that the generated criteria is working, and Spring is well configured, the `EntityResourceIntTest` is extended with lots of test cases, one for each individual filter.
+To prove that the generated criteria is working, and Spring is well configured, the `EntityResourceIT` is extended with lots of test cases, one for each individual filter.
 
 ### Angular
 
