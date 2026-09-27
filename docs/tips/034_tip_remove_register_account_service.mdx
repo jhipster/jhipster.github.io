@@ -2,7 +2,7 @@
 title: How to remove the register account service
 slug: /tips/034_tip_remove_register_account_service.html
 last_update:
-  date: 2025-08-09T15:02:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 __Tip submitted by [@apuntandoanulo](https://github.com/apuntandoanulo) & updated by [@juandbc](https://github.com/juandbc)__
@@ -16,6 +16,10 @@ _Goal:_ If you want to eliminate the possibility that users can create accounts 
   - Remove the entire method `public User registerUser(...)`
 * ___1.2___ `src\main\java\ ... \rest\AccountResource.java`
   - Remove the entire method `@PostMapping("/register")   public void registerAccount(...)`
+* ___1.3___ `src\main\java\ ... \config\SecurityConfiguration.java`
+  - Remove the line `.requestMatchers("/api/register").permitAll()` (`.pathMatchers("/api/register").permitAll()` in a reactive application)
+* ___1.4___ `src\test\java\ ... \rest\AccountResourceIT.java`
+  - Remove the tests that call `/api/register`, which fail once the endpoint is gone: `testRegisterValid`, `testRegisterInvalidLogin`, `testRegisterInvalidUsers`, `testRegisterDuplicateLogin`, `testRegisterDuplicateEmail` and `testRegisterAdminIsIgnored`, together with the `invalidUsers()` and `createInvalidUser(...)` helpers that only they use
 
 
 ## 2. On the front-end side
@@ -23,94 +27,135 @@ _Goal:_ If you want to eliminate the possibility that users can create accounts 
 ### 2.1 Angular
 
 * ___2.1.1___ `src\main\webapp\app\account`
-  - Remove the entire folder `register` that contains: `register.component.html`, `register.component.ts`, `register.route.ts`, `register.service.ts`
+  - Remove the entire folder `register` that contains: `register.html`, `register.model.ts`, `register.route.ts`, `register.service.spec.ts`, `register.service.ts`, `register.spec.ts`, `register.ts`
 
-* ___2.1.2___ Go into `src\main\webapp\app\account\account.module.ts` and remove the following lines:
-  - `import { RegisterComponent } from './register/register.component'; `
-  - _declarations_ array -> `RegisterComponent`
+* ___2.1.2___ Go into `src\main\webapp\app\account\account.route.ts` and remove the following lines:
+  - `import registerRoute from './register/register.route';`
+  - _accountRoutes_ array -> `registerRoute`
 
-* ___2.1.3___ Go into `src\main\webapp\app\account\account.route.ts` and remove the following lines:
-  - `import { registerRoute } from './register/register.route'; `
-  - _ACCOUNT_ROUTES_ array -> `registerRoute `
-
-* ___2.1.4___ Go into `src\main\webapp\app\home\home.component.html` and remove the following block:
+* ___2.1.3___ Go into `src\main\webapp\app\home\home.html` and remove the following block:
 
 ```html
-<div class="alert alert-warning" *ngSwitchCase="false">
+<div class="alert alert-warning">
   <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
-  <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+  <a class="alert-link" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
 </div>
 ```
 
-* ___2.1.5___ Go into `src\main\webapp\app\layouts\navbar\navbar.component.html` and remove the following block:
+* ___2.1.4___ Go into `src\main\webapp\app\layouts\navbar\navbar.html` and remove the following block:
 
 ```html
-<li *ngSwitchCase="false">
-  <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
-      <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
-      <span jhiTranslate="global.menu.account.register">Register</span>
+<li>
+  <a class="dropdown-item" routerLink="/account/register" routerLinkActive="active" (click)="collapseNavbar()" data-cy="register">
+    <fa-icon icon="user-plus" [fixedWidth]="true" />
+    <span jhiTranslate="global.menu.account.register">Register</span>
   </a>
 </li>
 ```
 
-* ___2.1.6___ Go into `src\main\webapp\app\shared\login\login.component.html` and remove the following block:
+* ___2.1.5___ Go into `src\main\webapp\app\login\login.html` and remove the following block:
 
 ```html
 <div class="alert alert-warning">
   <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
-  <a class="alert-link" (click)="register()" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+  <a class="alert-link" routerLink="/account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
 </div>
 ```
 
-* ___2.1.7___ Go into `src\main\webapp\app\shared\login\login.component.ts` and remove the following block:
+* ___2.1.6___ Remove the messages files: `src\main\webapp\i18n\ ... \register.json`
 
-```ts
-register(): void {
-  this.activeModal.dismiss('to state register');
-  this.router.navigate(['/account/register']);
-}
+### 2.2 React
+
+* ___2.2.1___ Remove the entire folder `src/main/webapp/app/modules/account/register` that contains: `register.reducer.spec.ts`, `register.reducer.ts`, `register.spec.tsx`, `register.tsx`
+
+* ___2.2.2___ Go into `src/main/webapp/app/routes.tsx` and remove the following lines:
+  - `import Register from 'app/modules/account/register/register';`
+  - `<Route path="register" element={<Register />} />`
+
+* ___2.2.3___ Go into `src/main/webapp/app/shared/reducers/index.ts` and remove the following lines:
+  - `import register from 'app/modules/account/register/register.reducer';`
+  - the `register` entry of the reducers object
+
+* ___2.2.4___ Go into `src/main/webapp/app/shared/layout/menus/account.tsx` and remove the following line:
+
+```tsx
+<MenuItem icon="user-plus" to="/account/register" data-cy="register"><Translate contentKey="global.menu.account.register">Register</Translate></MenuItem>
 ```
 
-* ___2.1.8___ Remove the messages files: `src\main\webapp\i18n\ ... \register.json`
+* ___2.2.5___ Go into `src/main/webapp/app/modules/home/home.tsx` and remove the following block:
 
-* ___2.1.9___ `src\test\javascript\spec\app\account`
-  - Remove the entire folder `register` that contains: `register.component.spec.ts`
+```tsx
+<Alert variant="warning">
+  <Translate contentKey="global.messages.info.register.noaccount">You do not have an account yet?</Translate>&nbsp;
+  <Link to="/account/register" className="alert-link"><Translate contentKey="global.messages.info.register.link">Register a new account</Translate></Link>
+</Alert>
+```
 
-### 2.2 Vue
+* ___2.2.6___ Go into `src/main/webapp/app/modules/login/login-modal.tsx` and remove the following block:
 
-* ___2.2.1___ Remove the entire folder `src/main/webapp/app/account/register` that contains: `register.component.spec.ts`, `register.component.ts`, `register.service.ts`, `register.vue`
+```tsx
+<Alert variant="warning">
+  <span>
+    <Translate contentKey="global.messages.info.register.noaccount">You don&apos;t have an account yet?</Translate>
+  </span>
+  {' '}
+  <Link to="/account/register">
+    <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
+  </Link>
+</Alert>
+```
 
-* ___2.2.2___ Go into `src/main/webapp/app/router/account.ts` and remove the following lines:
+* ___2.2.7___ Remove the messages files: `src/main/webapp/i18n/.../register.json`
+
+### 2.3 Vue
+
+* ___2.3.1___ Remove the entire folder `src/main/webapp/app/account/register` that contains: `register.component.spec.ts`, `register.component.ts`, `register.service.ts`, `register.vue`
+
+* ___2.3.2___ Go into `src/main/webapp/app/router/account.ts` and remove the following lines:
   - `const Register = () => import('@/account/register/register.vue');`
   - And the block:
   ```javascript
     {
       path: '/register',
       name: 'Register',
-      component: Register,
+      component: Register
     },
     ```
 
-* ___2.2.3___ Go into `src/main/webapp/app/core/jhi-navbar/jhi-navbar.vue` and remove the following block:
+* ___2.3.3___ Go into `src/main/webapp/app/core/jhi-navbar/jhi-navbar.vue` and remove the following block:
 
 ```html
 <b-dropdown-item data-cy="register" to="/register" id="register" v-if="!authenticated" active-class="active">
-    <font-awesome-icon icon="user-plus" />
-    <span v-text="t$('global.menu.account.register')"></span>
+  <font-awesome-icon icon="user-plus" />
+  <span>{{ t$('global.menu.account.register') }}</span>
 </b-dropdown-item>
 ```
 
-* ___2.2.4___ Go into `src/main/webapp/app/account/login-form/login-form.vue` and remove the following block:
+* ___2.3.4___ Go into `src/main/webapp/app/core/home/home.vue` and remove the following block:
 
 ```html
-<div>
-    <b-alert show variant="warning">
-    <span v-text="t$('global.messages.info.register.noaccount')"></span>
-    <b-link :to="'/register'" class="alert-link" v-text="t$('global.messages.info.register.link')"></b-link>
-    </b-alert>
+<div class="alert alert-warning" v-if="!authenticated">
+  <span>{{ t$('global.messages.info.register.noaccount') }}</span>
+  <router-link class="alert-link ms-1" to="/register">{{ t$('global.messages.info.register.link') }}</router-link>
 </div>
 ```
 
-* ___2.2.5___ Remove the messages files: `src/main/webapp/i18n/.../register.json`
+* ___2.3.5___ Go into `src/main/webapp/app/account/login-form/login-form.vue` and remove the following block:
 
-* ___2.2.6___ Remove the test file `src/test/javascript/cypress/e2e/account/register-page.cy.ts`
+```html
+<div>
+  <b-alert :model-value="true" variant="warning">
+    <span>{{ t$('global.messages.info.register.noaccount') }}</span>
+    <b-link to="/register" class="alert-link ms-1">{{ t$('global.messages.info.register.link') }}</b-link>
+  </b-alert>
+</div>
+```
+
+* ___2.3.6___ Remove the messages files: `src/main/webapp/i18n/.../register.json`
+
+## 3. End-to-end tests
+
+If your application has end-to-end tests, remove the registration test (whatever the client framework):
+
+* ___3.1___ Cypress: remove `src/test/javascript/cypress/e2e/account/register-page.cy.ts`
+* ___3.2___ Playwright: remove `src/test/javascript/playwright/e2e/account/register-page.pw.ts`
