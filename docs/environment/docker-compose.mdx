@@ -142,7 +142,7 @@ Follow these steps to do so:
 
 ### Cassandra
 
-Like the other databases, Cassandra schema migrations are applied by the application itself, with Liquibase. Applications generated before JHipster 9.3.1 keep the CQL loader (`databaseMigration` set to `loader`), where the migrations are applied by a dedicated Docker container.
+Like the other databases, Cassandra schema migrations are applied by the application itself, with Liquibase. With the CQL loader (`databaseMigration` set to `loader`), the migrations are applied by a dedicated Docker container instead.
 
 #### Cassandra in development
 
