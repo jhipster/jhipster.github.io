@@ -52,7 +52,7 @@ Depending if you are using Docker or not, you have several options to run the mi
 
 #### With Docker:
 
-If you have started the Cassandra cluster with docker-compose, using the generated `app.yml` or `cassandra.yml` compose files, the tool has already been run and all cql scripts applied.
+If you have started Cassandra with `npm run docker:db:up` (the generated `cassandra.yml` compose file) or the whole application with `npm run app:up` (`app.yml`), the tool has already been run and all cql scripts applied.
 
 After adding a CQL script in the changelog directory, you can relaunch the docker-service responsible to run the migration service again without stopping the cluster:  
 `docker compose -f src/main/docker/cassandra.yml up cassandra-migration`
