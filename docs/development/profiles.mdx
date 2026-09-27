@@ -24,9 +24,7 @@ _Note:_ Spring profiles are used to configure the JHipster application propertie
 
 If you run the application without Maven/Gradle, launch the "Application" class (you can probably run it directly from your IDE by right-clicking on it).
 
-If you run the application with Maven, run `./mvnw` to use our Maven Wrapper, or `mvn` to use your own Maven installation.
-
-If you run the application with Gradle, run `./gradlew` to use our Gradle Wrapper, or `gradle` to use your own Gradle installation.
+If you run the application with Maven or Gradle, run `npm run app:start`. It starts the application with the default profile, for both build tools.
 
 When using Maven, if you need to do a clean run with the front-end build enabled for `dev` profile you can pass the `webapp` param as below
 
@@ -39,17 +37,11 @@ When using Maven, if you need to do a clean run with the front-end build enabled
 
 ## In production, JHipster has to run with the `prod` profile
 
-You can run JHipster in production directly using Maven or Gradle:
+You can run JHipster in production directly using Maven or Gradle, by passing the `prod` profile to the start script: `npm run app:start -- -Pprod`.
 
-* With Maven, run `./mvnw -Pprod` (or `mvn -Pprod`)
-* With Gradle, run `./gradlew -Pprod` (or `gradle -Pprod`)
+If you want to package your application as an executable JAR file, package it with the `prod` profile: `npm run java:jar:prod`.
 
-If you want to package your application as an executable JAR file, you should provide Maven or Gradle with a profile. E.g.,:
-
-* With Maven, run `./mvnw -Pprod package` (or `mvn -Pprod package`)
-* With Gradle, run `./gradlew -Pprod bootJar` (or `gradle -Pprod bootJar`)
-
-To package an executable WAR file instead, add the `war` profile: `./mvnw -Pprod,war package` with Maven, or `./gradlew -Pprod -Pwar bootWar` with Gradle.
+To package an executable WAR file instead, run `npm run java:war:prod`.
 
 When you run your production application from a JAR or WAR file, the default is to use the same profile(s) as used during packaging. If you want to override this, you can explicitly provide an alternative in VM argument:
 
@@ -73,7 +65,7 @@ The `dev` profile group also enables the `secret-samples` profile. Its `applicat
 `api-docs`, `no-liquibase`, `tls` are only used at runtime:
 
 * In your IDE, run your main application class with `spring.profiles.active=dev,no-liquibase` (please note you need to include the `dev` or `prod` profile explicitly)
-* With a packaged application: `./java -jar jhipster-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod,no-liquibase`
+* With a packaged application: `java -jar jhipster-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod,no-liquibase`
 
 With Maven, you can also use those profiles directly:
 
