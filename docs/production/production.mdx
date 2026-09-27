@@ -2,7 +2,7 @@
 title: Using JHipster in production
 slug: /production/
 last_update:
-  date: 2021-03-08T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 JHipster generates a fully production-ready, optimized and secured application. This section describes the more important options - if you are in hurry, run a normal production build, but don't forget to read the security section!
@@ -37,36 +37,11 @@ If you want more information on the available profiles, please go the section ti
     This will generate a file `target/jhipster-0.0.1-SNAPSHOT.jar` (if your application is called "jhipster").
 
 
-- To package the application as a "production" WAR:
+- To package the application as a "production" WAR, use the `war` profile together with the `prod` profile:
 
-    - Modify the `pom.xml` to change the application packaging to `war` like:
+    `./mvnw -Pprod,war clean verify`
 
-    ```diff
-    -    <packaging>jar</packaging>
-    +    <packaging>war</packaging>
-    ``` 
-    
-    - Modify the `pom.xml` to change the scope of `spring-boot-starter-undertow` dependency to `provided` like:
-
-    ```diff
-        <id>prod</id>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-undertow</artifactId>
-    +           <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    ``` 
-    - To generate an executable `war` along the original `war`, type command: 
-    
-    ```shell
-    ./mvnw -Pprod clean verify
-    ```
-  - This will generate these files (if your application is called "jhipster"): 
-   
-    * `target/jhipster-0.0.1-SNAPSHOT.war`
-    * `target/jhipster-0.0.1-SNAPSHOT.war.original` 
+    This will generate a WAR file in the `target` folder.
 
 :::note
 
@@ -93,11 +68,7 @@ To package the application as a "production" WAR, please type:
 
 Instead of deploying to an application server, many people find it easier to have a single executable JAR file.
 
-With the JAR file generated in the previous step, you can run it in "production" mode by typing (on Mac OS X or Linux):
-
-`./jhipster-0.0.1-SNAPSHOT.jar`
-
-If you are on Windows, use:
+With the JAR file generated in the previous step, you can run it in "production" mode by typing:
 
 `java -jar jhipster-0.0.1-SNAPSHOT.jar`
 
@@ -115,28 +86,9 @@ To learn how to package your application with Docker, please read our [Docker Co
 
 ### Run as a service
 
-It is also possible to run the Jar as a Linux service, and you may want to force in your `pom.xml` file before packaging. To do it, add the following property inside `<configuration>` of `spring-boot-maven-plugin` plugin.
+Spring Boot 4 no longer supports "fully executable" JAR files with an embedded launch script, so the JAR can't be linked into `/etc/init.d` anymore. To run the application as a Linux service, have a service manager such as systemd run `java -jar` with a non-root OS account.
 
-```xml
-<embeddedLaunchScriptProperties>
-    <mode>service</mode>
-</embeddedLaunchScriptProperties>
-```
-
-Next, setup your init.d with: 
-
-`ln -s jhipster-0.0.1-SNAPSHOT.jar /etc/init.d/jhipster`
-
-Secure your application with:
-
-`chown jhuser:jhuser jhipster-0.0.1-SNAPSHOT.jar
-sudo chattr +i your-app.jar`
-
-Considering `jhuser` a non-root OS account that will run the application, then the application can be run this way:
-
-`service jhipster start|stop|restart`
-
-There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html), including more security steps and Windows service.
+There are many other options that you can find in [Spring Boot documentation](https://docs.spring.io/spring-boot/how-to/deployment/installing.html), including more security steps and Windows service.
 
 
 ## Performance optimizations
@@ -154,11 +106,11 @@ Please read:
 
 ### HTTP/2 support
 
-JHipster supports HTTP/2 using the `jhipster.http.version` property, which is configured in the `application-prod.yml` file.
+JHipster supports HTTP/2 using the standard Spring Boot `server.http2.enabled` property, which is set in the `application-tls.yml` file of the `tls` profile.
 
 To enable HTTP/2, you need to:
 
-- Set `jhipster.http.version: V_2_0`
+- Activate the `tls` profile, or set `server.http2.enabled: true` yourself
 - Configure HTTPS (see this documentation's [security section](#security)), as browsers force to use HTTPS with HTTP/2
 
 ### GZipping
@@ -177,17 +129,17 @@ That GZipping is done by the application server, so this section only applies if
 
 With the `prod` profile, JHipster configures a Servlet filter that puts specific HTTP cache headers on your static resources (JavaScript, CSS, fonts...) so they are cached by browsers and proxies.
 
-### Generating an optimized JavaScript application with Webpack
+### Generating an optimized JavaScript application
 
 This step is automatically triggered when you build your project with the `prod` profile. If you want to run it without launching a Maven build, please run:
 
 `npm run build`
 
-This will use [Webpack](https://webpack.github.io/) to process all your static resources (CSS, TypeScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
+This will use the bundler of your front-end (esbuild through the Angular CLI for Angular, [Vite](https://vite.dev/) for React and Vue, or [Rsbuild](https://rsbuild.rs/) for Vue with microfrontends) to process all your static resources (CSS, TypeScript, HTML, JavaScript, images...) in order to generate an optimized client-side application.
 
-During this process, Webpack will compile the TypeScript code into JavaScript code, and will also generate source maps, so the client-side application can still be debugged.
+During this process, the bundler will compile the TypeScript code into JavaScript code, and will also generate source maps, so the client-side application can still be debugged.
 
-Those optimized assets will be generated in `target/classes/static` for Maven or `build/resources/main/static` for Gradle, and will be included in your final production JAR.
+Those optimized assets will be generated in `target/classes/static` for Maven or `build/generated/webapp` for Gradle, and will be included in your final production JAR.
 
 This code will be served when you run the application with the `prod` profile.
 
@@ -231,8 +183,6 @@ server:
 ```
 
 The ciphers suite enforce the security by deactivating some old and deprecated SSL ciphers, this list was tested against [SSL Labs](https://www.ssllabs.com/ssltest/)
-
-Once `server.ssl.ciphers` property is enabled JHipster will force the order on Undertow with this property (true by default) : `jhipster.http.useUndertowUserCipherSuitesOrder`
 
 The `enabled-protocols` deactivate old SSL protocols.
 
@@ -280,16 +230,18 @@ For frontend bundlers, the context path is a build-time configuration.
 - `ng build --base-href '/jhipster/'`
 - Use [APP_BASE_HREF](https://angular.io/api/common/APP_BASE_HREF)
 
-For **Webpack-based** frontends, you can configure using:
+For **Vite-based** frontends (React and Vue), you can configure using:
 
-- Webpack configuration file:
+- The [`base`](https://vite.dev/config/shared-options.html#base) option in `vite.config.ts`:
 
 ```js
-new HtmlWebpackPlugin({
+const config = defineConfig({
     ...
-    base: '/jhipster/'
-})
+    base: '/jhipster/',
+});
 ```
+
+For **Rsbuild-based** frontends (Vue with microfrontends), change the `href` of the `base` tag declared in `html.tags` in `rsbuild.config.ts`.
 
 Others modifications may be necessary, like configuring your development server and adjusting iframes in pages like swagger-ui.
 
