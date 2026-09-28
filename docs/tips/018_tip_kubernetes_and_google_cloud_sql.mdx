@@ -2,10 +2,17 @@
 title: Kubernetes and Google Cloud SQL
 slug: /tips/018_tip_kubernetes_and_google_cloud_sql.html
 last_update:
-  date: 2016-11-13T19:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 __Tip submitted by [@bourdux](https://github.com/bourdux)__
+
+:::warning
+
+This tip was written in 2016. The Google Cloud commands, product names and the Cloud SQL proxy image shown below may have
+changed since then; check the [Cloud SQL documentation](https://cloud.google.com/sql/docs) for the current procedure.
+
+:::
 
 While it is already easy to deploy a JHipster application to [Google Container Engine](https://cloud.google.com/container-engine/)
 using the [Kubernetes sub-generator](/kubernetes), the default behaviour is to create a Google Compute
@@ -167,7 +174,7 @@ command let us use `gcloud docker -- push` in order to push to the project conta
 Build your image
 
 ```shell
-mvn package -Pprod jibDockerBuild
+npm run java:docker:prod
 ```
 
 Tag the image (replace with your jhipster application name). We use v1 as a tag to be able to easily deploy new versions
@@ -279,12 +286,15 @@ volumes:
 The full deployment file should now look like this:
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jhipstergooglecloudsql
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: jhipstergooglecloudsql
   template:
     metadata:
       labels:
