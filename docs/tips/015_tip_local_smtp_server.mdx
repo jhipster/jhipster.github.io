@@ -2,7 +2,7 @@
 title: Local SMTP Server
 slug: /tips/015_tip_local_smtp_server.html
 last_update:
-  date: 2016-05-21T22:22:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 __Tip submitted by [@pascalgrimaud](https://github.com/pascalgrimaud)__
@@ -13,10 +13,12 @@ This tip depends on another project which is not supported directly by JHipster.
 
 :::
 
-The project [djfarrelly/maildev](https://github.com/djfarrelly/MailDev) is a simple way to test your project's generated emails during development with an easy to use web interface.
+The project [maildev/maildev](https://github.com/maildev/maildev) is a simple way to test your project's generated emails during development with an easy to use web interface.
 
 To start locally the SMTP server with Docker:
 
 ```shell
-docker container run -d -p 1080:80 -p 25:25 djfarrelly/maildev
+docker container run -d -p 1080:1080 -p 25:1025 maildev/maildev
 ```
+
+MailDev listens for SMTP on port 1025 and serves its web interface on port 1080. The command above publishes the SMTP port as port 25, which is what `spring.mail.port` is set to in the generated `application-dev.yml`. The web interface is available at http://localhost:1080.
