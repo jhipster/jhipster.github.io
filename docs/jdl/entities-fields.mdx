@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Entities & fields
 slug: /jdl/entities-fields
 last_update:
-  date: 2019-10-27T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 ## Syntax
@@ -152,28 +152,12 @@ A's name won't have the comment, because the count will.
 
 ## Field types and validations
 
-Each field type has its own validation list. Here are the types supported in the JDL:
+Field types and the validations each type accepts are JHipster definitions, not part of the JDL itself. They are
+described in [Field types](/creating-an-entity/#field-types) and [Validation](/creating-an-entity/#validation), and the
+Blob types in [Blob declaration](#blob-declaration) above.
 
-|JDL type      |Validations                                    |
-|--------------|-----------------------------------------------|
-|String        |required, minlength, maxlength, pattern, unique|
-|Integer       |required, min, max, unique                     |
-|Long          |required, min, max, unique                     |
-|BigDecimal    |required, min, max, unique                     |
-|Float         |required, min, max, unique                     |
-|Double        |required, min, max, unique                     |
-|Enum          |required, unique                               |
-|Boolean       |required, unique                               |
-|LocalDate     |required, unique                               |
-|ZonedDateTime |required, unique                               |
-|Instant       |required, unique                               |
-|Duration      |required, unique                               |
-|LocalTime     |required, unique                               |
-|UUID          |required, unique                               |
-|Blob          |required, minbytes, maxbytes, unique           |
-|AnyBlob       |required, minbytes, maxbytes, unique           |
-|ImageBlob     |required, minbytes, maxbytes, unique           |
-|TextBlob      |required, unique                               |
+The importer reports a type or a validation it does not know, for instance
+`The validation 'min' isn't supported for the type 'Boolean'`.
 
 
 [OptionsEntity]: /jdl/options/#entity-options "Options"
