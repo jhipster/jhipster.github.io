@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Getting Started
 slug: /jdl/getting-started
 last_update:
-  date: 2021-03-08T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 In this page, you'll learn about the JDL and how to create applications and everything around them.
@@ -368,15 +368,8 @@ Deployments are described in [their own page](/jdl/deployments).
 
 A JHipster deployment has a config with default values for all other properties and using the previous syntax will
 ensure your deployment will use the default values (as if you didn't make any specific choice).
-The resulting deployment will have:
-
-- deploymentType: `docker-compose`
-- appsFolders: `foo, bar`
-- dockerRepositoryName: `yourDockerLoginName`
-- serviceDiscoveryType: `consul`
-- gatewayType: `SpringCloudGateway`
-- directoryPath: `../`
-- etc.
+Those defaults are defined by the deployment generators; `jhipster describe docker-compose` (or
+`jhipster describe kubernetes`) lists them.
 
 Now, if you want some custom options:
 
