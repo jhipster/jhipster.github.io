@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Getting Started
 slug: /jdl/getting-started
 last_update:
-  date: 2021-03-08T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 In this page, you'll learn about the JDL and how to create applications and everything around them.
@@ -43,10 +43,11 @@ Please note that this will overwrite all your local changes to the entity files:
 jhipster jdl ./my-jdl-file.jdl --force
 ```
 
-If you want to use it in your project, you can add do so by doing:
+If you want to use the JDL library in your project, it is part of the `generator-jhipster` package and exported as
+`generator-jhipster/jdl`:
 
 ```shell
-npm install jhipster-core --save
+npm install generator-jhipster --save
 ```
 
 to install it locally, and save it in your `package.json` file.
@@ -228,7 +229,7 @@ entity E {
 
 Notice how enumeration's values are optional.
 
-They only have one validation: `required`.
+They have two validations: `required` and `unique`.
 
 You can check the dedicated [enum page](/jdl/enums) for details about enums.
 
@@ -251,7 +252,7 @@ Here's what we can see:
 - `OneToOne` is the relationship type
   - there are also `OneToMany`, `ManyToMany` and `ManyToOne`
 - we declare the source and the destination of the relationship (from `A` to `B`)
-- we also declare the injected fields in each entity (`a` in `B`, and `b` in `A`)
+- we also declare the injected fields in each entity (`a` in `A`, and `b` in `B`)
   - this means the relationship is bidirectional
 
 To know more about relationships, you can head to [the dedicated page](/managing-relationships/).
@@ -267,7 +268,8 @@ relationship OneToOne {
 }
 ```
 
-You can also not specify them, and at least one will be injected by default (the source)
+You can also not specify them, and both will be injected by default (the relationship is bidirectional, named after
+the other entity on each side)
 
 ```jdl
 relationship OneToOne {
@@ -305,12 +307,12 @@ entity C
 readOnly A
 dto * with mapstruct
 service * with serviceImpl
-paginate A, B with pager
+pagination A, B with pagination
 ```
 
 There a some interesting things happening here:
 
-- `dto`, `paginate` and `service` are binary options as they need an entity list and a value
+- `dto`, `pagination` and `service` are binary options as they need an entity list and a value
   - `with` is used to specify the option value
   - note the `*` which means the option is to be applied to all the entities
 - `readOnly` is an unary option, that means that such options only take an entity list
@@ -329,12 +331,12 @@ Annotations are another way to declare options, let's rewrite the previous examp
 @readOnly
 @dto(mapstruct)
 @service(serviceImpl)
-@paginate(pager)
+@pagination(pagination)
 entity A
 
 @dto(mapstruct)
 @service(serviceImpl)
-@paginate(pager)
+@pagination(pagination)
 entity B
 
 @dto(mapstruct)
@@ -386,7 +388,7 @@ deployment {
   appsFolders [store, invoice, notification, product]
   dockerRepositoryName "yourDockerLoginName"
   serviceDiscoveryType no
-  istio autoInjection
+  istio true
   kubernetesServiceType Ingress
   kubernetesNamespace jhipster
   ingressDomain "jhipster.192.168.99.100.nip.io"
