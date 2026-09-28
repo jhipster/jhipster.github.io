@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Entities & fields
 slug: /jdl/entities-fields
 last_update:
-  date: 2019-10-27T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 ## Syntax
@@ -76,12 +76,10 @@ entity A {
 ### Blob declaration
 
 JHipster gives a great choice as one can choose between an image type or any binary type. JDL lets you do the same.
-Create a custom type (see DataType) with the editor, name it according to these conventions:
+Use one of these field types:
   - `AnyBlob` or `Blob` to create a field of the "any" binary type;
   - `ImageBlob` to create a field meant to be an image.
   - `TextBlob` to create a field for a CLOB (long text).
-
-And you can create as many DataTypes as you like.
 
 ### Regular expressions
 
@@ -98,6 +96,8 @@ Let's break it down:
 - `pattern` is the keyword to declare a regex validation (with the normal parentheses)
 - `/.../` the pattern is declared inside two slashes
 - `\` anti-slashes needn't be escaped
+- the pattern extends to the last `/` of the line that is followed by `)`, so declare a field with a `pattern` on its
+  own line: `a String pattern(/x/), b String pattern(/y/)` on one line is read as a single pattern `x/), b String pattern(/y`
 
 ### Commenting
 
@@ -136,7 +136,7 @@ entity A {
 }
 ```
 
-Here A's name will be commented with `My super field`, B with `My other super field`.
+Here A's name will be commented with `My super field`, count with `My other super field`.
 
 Yes, commas are not mandatory but it's wiser to have them so as not to make mistakes in the code.
 **If you want to mix commas and following comments, beware!**
