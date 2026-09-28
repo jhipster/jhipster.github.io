@@ -2,23 +2,12 @@
 title: Configuring Visual Studio Code
 slug: /configuring-ide-visual-studio-code/
 last_update:
-  date: 2016-09-15T17:13:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 Visual Studio Code is an Open Source text editor made by Microsoft. It has excellent support for TypeScript, so many people want to use it for developing Angular 2 applications.
 
 ![Screenshot](/images/configuring_ide_visual_studio_code_1.png)
-
-
-## Yeoman Support
-
-**Warning! At the time of this writing, this extension is broken**
-
-Visual Studio Code has a Yeoman extension, which should help you run JHipster commands.
-
-You can install it by using the Visual Studio Code marketplace:
-
-![Screenshot](/images/configuring_ide_visual_studio_code_2.png)
 
 
 ## Java Code Support
@@ -34,10 +23,7 @@ You can install it by using the Visual Studio Code marketplace:
 
 The Visual Studio Code Java extension can't be used to run commands: it can't compile, run the code, or package the application.
 
-For all those tasks, there are 2 solutions:
-
-- Use the terminal, for instance the internal terminal provided by Visual Studio Code, to run those commands manually
-- Use the [JHipster App](/jhipster-app), which offers a graphical interface for all those commands. **Note:** JHipster App is deprecated.
+For all those tasks, use the terminal, for instance the internal terminal provided by Visual Studio Code, to run those commands manually.
 
 
 ## Application "hot restart" with Spring Boot devtools
@@ -46,12 +32,20 @@ For all those tasks, there are 2 solutions:
 
 To use it within Visual Studio Code, you need to:
 
-- Run your application in a terminal, typically by typing `./mvnw`
+- Run your application in a terminal, typically by typing `npm run app:start`
 - In another terminal, compile your application: `./mvnw compile`
 
 In the first terminal, your JHipster application should automatically redeploy, and use your new code.
 
-If you use the JHipster App, this is only a matter of clicking on 2 buttons (one for running the application, the other for compiling it), and your application will automatically redeploy in the same way.
+
+## Dev Containers
+
+Every generated Spring Boot application contains a `.devcontainer/` folder (`devcontainer.json` and a `Dockerfile`), so you can open the project inside a container with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). The container:
+
+- installs the Java and Node.js versions used by your application
+- installs recommended extensions (the Java and Spring Boot extension packs, Prettier, and ESLint and Vitest when the application has a client)
+- forwards the application ports (for instance 8080, and the client development server ports)
+- enables Docker-in-Docker, so the Docker Compose files in `src/main/docker` can be used from inside the container
 
 
 ## Custom settings
@@ -74,7 +68,6 @@ For best performance, it's recommended to exclude some folders, in your project'
     "search.exclude": {
         "**/node": true,
         "**/node_modules": true,
-        "**/bower_components": true,
         "**/build": true,
         "**/target": true
     }
