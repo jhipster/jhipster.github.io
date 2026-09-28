@@ -2,7 +2,7 @@
 title: Setting up Continuous Integration
 slug: /setting-up-ci/
 last_update:
-  date: 2018-08-03T14:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 Setting up Continuous Integration (CI) for a JHipster application is more complex than for a classic typical Spring MVC application because of the complexity associated with maintaining a build composed of 2 software stacks:
@@ -14,9 +14,7 @@ Each stack comes with its own dependency management (Maven artifacts, NPM packag
 
 JHipster should support the following CI systems out of the box:
 
-- Jenkins:
-  - [Setting up Jenkins 1](/setting-up-ci-jenkins1/)
-  - [Setting up Jenkins 2](/setting-up-ci-jenkins2/) (recommended)
+- Jenkins: refer to [Setting up Jenkins 2](/setting-up-ci-jenkins2/)
 - Travis: refer to the [Travis Documentation](https://docs.travis-ci.com/user/getting-started/)
 - GitLab CI: refer to the [GitLab CI Documentation](https://about.gitlab.com/gitlab-ci/)
 - Azure Pipelines: refer to the [Azure Pipelines Documentation](https://docs.microsoft.com/fr-fr/azure/devops/pipelines/?view=vsts)
@@ -49,18 +47,14 @@ The CI/CD pipeline you want to generate:
 So you can test Jenkins locally by running:
 
 ```shell
-docker-compose -f src/main/docker/jenkins.yml up -d
+docker compose -f src/main/docker/jenkins.yml up -d
 ```
 
 ### Would you like to perform the build in a Docker container ? (Jenkins / GitLab)
 
 If Docker is installed, you can perform the build inside a Docker container.
 
-### In GitLab CI, perform the build in a docker container (hint: GitLab.com uses Docker container) ? (GitLab)
-
-If you use a private GitLab CI, you can use directly the runners.
-
-If you use official GitLab.com pipeline, you need to use Docker container.
+With GitLab CI, if you use a private GitLab CI, you can use directly the runners. If you use official GitLab.com pipeline, you need to use Docker container.
 
 ### Would you like to send build status to GitLab ? (Jenkins)
 
@@ -96,15 +90,9 @@ In this case, you have to add the `SONAR_TOKEN` environment variable.
 
 ### Build and publish a *Docker* image
 
-- *Docker*: what is the URL of the Docker registry ?
+- *Docker*: what is the name of the image ? (GitHub Actions)
 
-By default, you can use Docker Hub: [https://registry.hub.docker.com](https://registry.hub.docker.com)
-
-- *Docker*: what is the Jenkins Credentials ID for the Docker registry ?
-
-By default, you can use: `docker login`
-
-- *Docker*: what is the Organization Name for the Docker registry ?
+The default is `jhipster/<baseName in kebab-case>`.
 
 ### Snyk: dependency scanning for security vulnerabilities
 
