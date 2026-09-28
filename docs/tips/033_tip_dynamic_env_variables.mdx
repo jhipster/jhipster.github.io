@@ -2,7 +2,7 @@
 title: Dynamic environment variables in the front end
 slug: /tips/033_tip_dynamic_env_variables.html
 last_update:
-  date: 2020-07-01T10:50:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 __Tip submitted by [@yelhouti](https://github.com/yelhouti)__
@@ -22,7 +22,7 @@ The code below creates a global `__env` variable if not already declared.
 
 it can be accessed in your angular files but we recommend exposing it through constants.ts like this:
 ```typescript
-@ts-ignore
+// @ts-ignore
 export const MY_DYNAMIC_VARIABLE = window.__env.myDynamicVariable;
 ```
 When using kubernetes, a file with this format can be mounted as a configMap, this is why we keep such a simple key value syntax.
@@ -33,15 +33,19 @@ Now we need to make sure that `index.html` loads it by adding the script tag in 
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
     <script src="env.js"></script>
 ```
-and we tell webpack to copy it, as is, with the packaged code:
-```javascript
-// jhipster-needle-add-assets-to-webpack - JHipster will add/remove third-party resources in this array
-{ from: './<%= MAIN_SRC_DIR %>env.js', to: 'env.js' },
+and we tell the client build to copy it, as is, with the packaged code. With Angular, add it to the `assets` array of the build options in `angular.json`:
+```json
+"assets": [
+  "src/main/webapp/content",
+  ...
+  "src/main/webapp/env.js"
+],
 ```
+React and Vue applications are built with Vite; add the file to the `viteStaticCopy` targets of `vite.config.ts` instead.
 
-We recommend adding the file to the `.eslintignore.ejs` for the clean syntax:
+We recommend adding the file to the `ignores` of `eslint.config.ts` for the clean syntax:
 ```
-src/main/webapp/env.js
+'src/main/webapp/env.js'
 ```
 
 Next step is to work on a blueprint that does all of this.
