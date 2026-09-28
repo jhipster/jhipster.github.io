@@ -2,7 +2,7 @@
 title: Boost infinite scroll performance with Slice
 slug: /tips/019_tip_infinite_scroll_with_slice.html
 last_update:
-  date: 2016-11-12T22:22:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 __Tip submitted by [@nkolosnjaji](https://github.com/nkolosnjaji)__
@@ -21,7 +21,7 @@ We will use a custom HTTP header `X-Has-Next-Page` to send information to front-
 Slice<YourEntity> findSliceBy(Pageable pageable);
 ```
 
-* Define new static method in `PaginationUtil.java` located in `web/rest/util` package
+* Define a new static method that builds the header. `PaginationUtil` is now provided by the JHipster framework library (`tech.jhipster.web.util.PaginationUtil`) and cannot be edited, so add the method to your own utility class (or to your REST controller):
 
 ```java
 public static HttpHeaders generateSliceHttpHeaders(Slice<?> slice) {
@@ -35,14 +35,19 @@ public static HttpHeaders generateSliceHttpHeaders(Slice<?> slice) {
 
 ```java
 @GetMapping("/<YourEntities>")
-@Timed
 public ResponseEntity<List<Repo>> getAllRepos(Pageable pageable)
     throws URISyntaxException {
     Slice<YourEntity> slice = repoRepository.findSliceBy(pageable);
-    HttpHeaders headers = PaginationUtil.generateSliceHttpHeaders(slice);
+    HttpHeaders headers = generateSliceHttpHeaders(slice);
     return new ResponseEntity<>(slice.getContent(), headers, HttpStatus.OK);
 }
 ```
+
+:::note
+
+The following client steps were written for the AngularJS client. In current Angular applications, the entity list computes `hasMorePage()` from the `next` link of the `Link` header and passes it to the `infinite-scroll` directive (`[infiniteScrollDisabled]="!hasMorePage()"`); adapt it to read the `X-Has-Next-Page` header instead.
+
+:::
 
 * Define new view model in `entity.controller.js`
 
