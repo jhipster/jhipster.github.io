@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Relationships
 slug: /jdl/relationships
 last_update:
-  date: 2019-11-03T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 ## Relationship types
@@ -81,6 +81,7 @@ relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
 
 - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
 - `<option>` is one of the supported values: `Id | OnDelete | OnUpdate`. Make sure to put this on the correct side of the relationship. First character case is not sensitive (jdl export will generate upper).
+  - An option written before `<to entity>` applies to the relationship of `<from entity>`. For a `ManyToOne`, that is the foreign key held by the table of `<from entity>`: `Order to @OnDelete("CASCADE") Customer` deletes the orders of a deleted customer.
 - `<option value>` is one of the fitting optional values for the given option: `NO ACTION | RESTRICT | CASCADE | SET NULL | SET DEFAULT`
 - `<from entity>` is the name of the entity owner of the relationship: the source,
 - `<to entity>` is the name of the entity where the relationship goes to: the destination,
@@ -158,7 +159,7 @@ private List<ChildEntity> children;
 No Cascading Delete: If not enabled, deleting a parent with children will result in a foreign key constraint violation. You must manually remove or disassociate the children before deleting the parent.
 Use cascading delete with caution as it can lead to unintended data loss.
 
-Alternative for Preventing Delete Error: Use the @OnDelete annotation in JDL which will configure the database schema for cascading delete or add cascade = CascadeType.REMOVE to the generated Java code (if applicable).
+Alternative for Preventing Delete Error: Use the @OnDelete annotation in JDL which will configure the foreign key constraint of the database schema for cascading delete. It does not add cascade = CascadeType.REMOVE to the generated Java code.
 
 ### With required sides
 
@@ -175,7 +176,7 @@ relationship ManyToMany {
   A{b} to B{a required}
 }
 
-or
+// or
 
 relationship ManyToMany {
   A{b(name) required} to B{a required}
