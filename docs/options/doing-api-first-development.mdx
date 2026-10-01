@@ -282,8 +282,7 @@ public interface PetApiMapper {
 
     Pet toApi(PetDTO dto);
 
-    @Mapping(target = "categoryId", ignore = true)
-    @Mapping(target = "categoryName", ignore = true)
+    @Mapping(target = "category", ignore = true)
     PetDTO toServiceDto(NewPet apiDto);
 }
 ```
