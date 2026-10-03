@@ -536,11 +536,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          label: 'REPL with the remote shell (deprecated)',
-          id: 'tips/tip_repl_with_the_remote_shell',
-        },
-        {
-          type: 'doc',
           label: 'Kubernetes and Google Cloud SQL',
           id: 'tips/tip_kubernetes_and_google_cloud_sql',
         },
