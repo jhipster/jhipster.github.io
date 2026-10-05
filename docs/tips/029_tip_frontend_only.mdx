@@ -2,7 +2,7 @@
 title: Improve developer experience if opening only front end in the IDE
 slug: /tips/029_tip_frontend_only.html
 last_update:
-  date: 2019-10-14T12:35:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 **Tip submitted by [@kaidohallik](https://github.com/kaidohallik)**
@@ -22,18 +22,14 @@ Add file `src/main/webapp/app/tsconfig.json` with the following content:
 }
 ```
 
-And for tests add file `src/test/javascript/spec/tsconfig.json` with the same content:
+Unit tests (`*.spec.ts`, `*.spec.tsx`) are generated next to the sources in `src/main/webapp/app`, so they are covered by the same file.
 
-```json
-{
-    "extends": "../../../../tsconfig.json"
-}
-```
-
-After that Visual Studio Code resolves path `app` if opening only folder `src/main/webapp/app` or `src/test/javascript/spec`.
+After that Visual Studio Code resolves path `app` if opening only folder `src/main/webapp/app`.
 
 
 ## Possible solution 2
+
+This solution was written for the `app/*` alias, which React applications still use. Angular applications map `*` and a set of `app/...` barrels in `tsconfig.json` instead, and Vue applications use the `@/*` alias, so the script and the last step must be adapted for them.
 
 * add node script `remove-import-alias.js` to app root folder which replaces import aliases with relative paths:
 
@@ -44,7 +40,7 @@ removeImportAlias = function(dir, level, additionalPath) {
   fs.readdirSync(dir).forEach(function(file) {
     if (fs.statSync(dir + file).isDirectory()) {
       removeImportAlias(dir + file + '/', level + 1, additionalPath);
-    } else if (file.endsWith('.ts')) {
+    } else if (file.endsWith('.ts') || file.endsWith('.tsx')) {
       fs.readFile(dir + file, 'utf8', function (err, content) {
         if (err) {
           console.log(err);
@@ -69,9 +65,8 @@ removeImportAlias = function(dir, level, additionalPath) {
 };
 
 removeImportAlias(`./src/main/webapp/app/`, 0);
-removeImportAlias(`./src/test/javascript/spec/`, 0, '../../../main/webapp/app/');
 ```
 
-* add `remove-import-alias.js` to `.eslintignore`
+* add `remove-import-alias.js` to the `ignores` of `eslint.config.ts`
 * run added script: `node remove-import-alias.js`
 * delete `app/*` from the file `tsconfig.json` from the section `compilerOptions.paths`
