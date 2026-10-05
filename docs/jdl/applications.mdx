@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Applications
 slug: /jdl/applications
 last_update:
-  date: 2026-05-23T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 ## Syntax
@@ -26,8 +26,8 @@ application {
   - This can be omitted but generating entities inside the app would require doing it:
     - from another JDL file inside the app
     - or with the CLI
-- The `entities` keyword is optional: you can omit it, but every entity in the JDL file will be generated inside the
-  application
+- The `entities` keyword is optional: if you omit it, no entity of the JDL file is generated inside the application
+  (use `entities *` to generate all of them)
 - Applications can have regular options (like `dto` or `service`), more information in the [next](#options-in-applications) section.
 
 
@@ -51,7 +51,7 @@ application {
     baseName app2
   }
   entities C, D
-  paginate * with pagination except D 
+  pagination * with pagination except D 
 }
 
 application {
@@ -69,7 +69,7 @@ entity D
 entity E
 entity F
 
-paginate * with infinite-scroll
+pagination * with infinite-scroll
 ```
 
 In this sample, we can see a few things:
@@ -81,22 +81,24 @@ In this sample, we can see a few things:
   - `app3` uses `E` (`* except A, B, C, D, F`)
 - Each of these applications declare options and a **global** option in also declared.
   - `app1` uses `dto` for `A, B and C`
-  - `app2` uses `paginate` for `C` (because there's an exception)
+  - `app2` uses `pagination` for `C` (because there's an exception)
   - `app3` uses `service` for `E`
   - The global one also uses `pagination` (for every entity)
 
 Here's how files are generated:
 
 - `app1`
-  - `A`: will use `paginate with infinite-scroll` (the global option isn't overridden by a local one) and
+  - `A`: will use `pagination with infinite-scroll` (the global option isn't overridden by a local one) and
     `dto with mapstruct`
   - `B`: will use the same options
-  - `C`: will also use the same options
+  - `C`: will use `dto with mapstruct` and `pagination with pagination`: `C` is shared with `app2`, and options are set
+    on the entity, not per application, so the local option of `app2` applies to `C` in both applications
 - `app2`:
-  - `C`: will use `paginate with pagination` (and not `infinite-scroll`, because the local one takes precedence)
-  - `D`: will use `paginate with infinite-scroll` as the previous option doesn't include `D`
+  - `C`: will use `pagination with pagination` (and not `infinite-scroll`, because the local one takes precedence), and
+    `dto with mapstruct` from `app1`
+  - `D`: will use `pagination with infinite-scroll` as the previous option doesn't include `D`
 - `app3`:
-  - `E`: will `paginate with infinite-scroll` and `service E with serviceClass`
+  - `E`: will use `pagination with infinite-scroll` and `service E with serviceClass`
 
 This example illustrates the **shadowing** principle. Global options are supported and will be used by every declared
 application **unless** options are also declared in applications.
@@ -203,7 +205,7 @@ application {
     serverPort 9002
   }
   entities * except A
-  paginate C with pagination
+  pagination C with pagination
 }
 
 entity A
@@ -253,7 +255,7 @@ entity C
 entity D
 dto * with mapstruct
 service * with serviceClass
-paginate D with pagination
+pagination D with pagination
 ```
 
 Now, several things will happen when generating these applications and folders:
@@ -271,12 +273,13 @@ Now, several things will happen when generating these applications and folders:
   - `C` and `D` both in the gateway
     - `C` in the first microservice
     - `D` in the second microservice
-- The `microservice` option is implicit for `C` and `D`
-  - Because they get generated on the two microservices, this option will be set by default.
+- The `microservice` option is implicit for `C` and `D` inside the two microservices
+  - Because they get generated on the two microservices, this option will be set by default there.
+  - It is not set in the gateway: to generate `C` and `D` in the gateway as entities of the microservices, declare
+    `microservice C with microserviceA` and `microservice D with microserviceB`.
 - Options work the same way as before
 
 Note that the generator sets default values if they aren't present (like the `databaseType`).
-JHipster Core does the exact same things for you.
 
 Example 2: with options
 
@@ -319,13 +322,13 @@ The previous example couldn't have been written like this:
 entity A
 entity B
 entity C
-microservice * except B with firstMS
-microservice * except A with secondMS
+microservice * with firstMS except B
+microservice * with secondMS except A
 ```
 
 Here's the result:
 
-- In 'firstMS', only the entity `C` will be generated
+- In 'firstMS', only the entity `A` will be generated
 - In 'secondMS', entities `B` and `C` will be generated.
 
 It's because, at parsing-time, if an option overlaps with another, the latter takes precedence.
@@ -343,36 +346,43 @@ _Not what you're looking for? Check the [regular options](/jdl/options#available
 |applicationType     |monolith            |monolith, microservice, gateway                                                                                         |-                                                                                                           |
 |authenticationType  |jwt                 |jwt, session, oauth2                                                                                                    |jwt                                                                                                         |
 |baseName            |jhipster            |-                                                                                                                       |-                                                                                                           |
-|~blueprint~         |DEPRECATED          |~Name of an additional blueprint~                                                                                       |See [blueprints](/jdl/applications#blueprints)                                                              |
 |blueprints          |[]                  |Names of additional blueprints. See [Marketplace](/modules/marketplace) including custom blueprints internally published|Array of blueprints to use, e.g., `[blueprint1, blueprint2]`                                                |
 |buildTool           |maven               |maven, gradle                                                                                                           |-                                                                                                           |
-|cacheProvider       |ehcache or hazelcast|caffeine, ehcache, hazelcast, infinispan, memcached, redis, no                                                          |ehcache for monoliths and gateways, hazelcast otherwise                                                     |
-|clientFramework     |angular             |angular, react, vue, svelte, no                                                                                         |-                                                                                                           |
+|cacheProvider       |ehcache, hazelcast or no|caffeine, ehcache, hazelcast, infinispan, memcached, redis, no                                                      |ehcache for monoliths, hazelcast for microservices, no for gateways and reactive applications               |
+|clientBundler       |-                   |webpack, vite, esbuild, rsbuild                                                                                         |Depends on the client framework: esbuild for Angular, vite for React, vite or rsbuild for Vue               |
+|clientFramework     |angular             |angular, react, vue, no                                                                                                 |-                                                                                                           |
 |nodePackageManager|npm                 |npm                                                                                                                     |-                                                                                                           |
 |clientTheme         |none                |Something or none                                                                                                       |You can put whatever value you want, provided you know it will work (like yeti)                             |
 |clientThemeVariant  |-                   |Something or primary                                                                                                    |You can put whatever value you want, provided you know it will work (like dark, or light), can also be empty|
+|databaseMigration   |liquibase or no     |liquibase, loader, no                                                                                                   |liquibase for sql and cassandra databases, no otherwise                                                     |
 |databaseType        |sql                 |sql, mongodb, cassandra, couchbase, neo4j, no                                                                           |-                                                                                                           |
-|devDatabaseType     |h2Disk              |h2Disk, h2Memory                                                                                                        |* + the prod database type                                                                                  |
+|devDatabaseType     |prodDatabaseType    |h2Disk, h2Memory                                                                                                        |* + the prod database type                                                                                  |
 |dtoSuffix           |DTO                 |-                                                                                                                       |Suffix for DTOs. false for empty string                                                                     |
 |enableHibernateCache|true                |-                                                                                                                       |-                                                                                                           |
 |enableSwaggerCodegen|false               |-                                                                                                                       |-                                                                                                           |
 |enableTranslation   |true                |-                                                                                                                       |-                                                                                                           |
 |entitySuffix        |-                   |-                                                                                                                       |Suffix for entities. false for empty string                                                                 |
+|feignClient         |false               |-                                                                                                                       |-                                                                                                           |
+|incrementalChangelog|false               |-                                                                                                                       |-                                                                                                           |
 |jhiPrefix           |jhi                 |-                                                                                                                       |-                                                                                                           |
 |languages           |[en, fr]            |Languages available in JHipster                                                                                         |Braces are mandatory                                                                                        |
 |messageBroker       |no                  |kafka, pulsar, no                                                                                                       |-                                                                                                           |
+|microfrontend       |false               |-                                                                                                                       |-                                                                                                           |
+|microfrontends      |[]                  |-                                                                                                                       |Base names of the microfrontend applications, e.g., `[app1, app2]`                                          |
 |nativeLanguage      |en                  |Any language supported by JHipster                                                                                      |-                                                                                                           |
 |packageName         |com.mycompany.myapp |-                                                                                                                       |Sets the packageFolder option                                                                               |
-|prodDatabaseType    |mysql               |mysql, mariadb, mssql, postgresql, oracle, no                                                                           |-                                                                                                           |
-|reactive            |false               |-                                                                                                                       |-                                                                                                           |
+|prodDatabaseType    |postgresql          |mysql, mariadb, mssql, postgresql, oracle, no                                                                           |-                                                                                                           |
+|reactive            |false or true       |-                                                                                                                       |true for gateways, false otherwise                                                                          |
 |searchEngine        |no                  |elasticsearch, couchbase, no                                                                                            |-                                                                                                           |
-|serverPort          |8080, 8081 or 9999  |-                                                                                                                       |Depends on the app type                                                                                     |
-|serviceDiscoveryType|no                  |consul, eureka, no                                                                                                      |-                                                                                                           |
+|serverPort          |8080 or 8081        |-                                                                                                                       |8081 for microservices, 8080 otherwise                                                                      |
+|serviceDiscoveryType|no or consul        |consul, eureka, no                                                                                                      |consul for gateways and microservices, no for monoliths                                                     |
 |skipClient          |false               |-                                                                                                                       |-                                                                                                           |
 |skipServer          |false               |-                                                                                                                       |-                                                                                                           |
 |skipUserManagement  |false               |-                                                                                                                       |-                                                                                                           |
-|testFrameworks      |[]                  |cypress, cucumber, gatling                                                                                              |Braces mandatory                                                                                            |
+|syncUserWithIdp     |false               |-                                                                                                                       |Allow relationships with User for oauth2 applications                                                       |
+|testFrameworks      |[]                  |cypress, playwright, cucumber, gatling                                                                                  |Braces mandatory                                                                                            |
 |websocket           |no                  |spring-websocket, no                                                                                                    |-                                                                                                           |
+|withAdminUi         |true or false       |-                                                                                                                       |true for monoliths and gateways, false for microservices                                                    |
 
 
 ## See also
