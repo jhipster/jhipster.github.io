@@ -2,7 +2,7 @@
 title: Blueprint Basics
 slug: /modules/extending-and-customizing/
 last_update:
-  date: 2015-12-05T18:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 JHipster has support for `plugins`, and we call them `blueprints` and `modules`.
@@ -46,6 +46,7 @@ JHipster has many official blueprints, some examples:
   - [JHipster NodeJS](https://github.com/jhipster/generator-jhipster-nodejs) blueprint replaces the entire server side with NestJS implementation.
 - Backend Customization
   - [JHipster Native](https://github.com/jhipster/generator-jhipster-native) blueprint customizes JHipster applications with Spring Native compatibility.
+    JHipster now also has experimental built-in GraalVM native support, enabled with `--graalvm-support` (`graalvmSupport` application option).
 - Frontend
   - [Svelte Hipster](https://github.com/jhipster/generator-jhipster-svelte) blueprint replaces the entire client side with Svelte implementation.
 - Mobile
@@ -97,6 +98,15 @@ Some benefits:
 
 We still lack published JSDoc API documentation, so you will need to refer to the source code.
 
+The public API is what the `exports` of `generator-jhipster`'s `package.json` publishes:
+
+- `generator-jhipster`: the base generator classes and the path constants.
+- `generator-jhipster/generators/<generator>` (and `generator-jhipster/generators/<generator>/generators/<sub-generator>`): the generators to extend.
+- `generator-jhipster/generators/<generator>/support`: the helpers of each generator's `support` directory.
+- `generator-jhipster/cli`, `generator-jhipster/jdl`, `generator-jhipster/testing` and `generator-jhipster/utils`.
+
+Other modules, such as the `internal` directories of the generators, are not public API and can change in any release.
+
 
 ## Application configuration:
 
@@ -111,18 +121,25 @@ while `jhipsterConfig` and `blueprintConfig` are [proxy objects](https://yeoman.
 
 ## Constants:
 
-You can use constants in [`generator-constants.js`](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-constants.js):
+You can use the constants exported by `generator-jhipster` together with the `application` properties:
 
 ```js
-const javaDir = `${jhipsterConstants.SERVER_MAIN_SRC_DIR + this.packageFolder}/`;
-const resourceDir = jhipsterConstants.SERVER_MAIN_RES_DIR;
-const webappDir = jhipsterConstants.CLIENT_MAIN_SRC_DIR;
+import {
+  JAVA_MAIN_RESOURCES_DIR,
+  JAVA_MAIN_SOURCES_DIR,
+  JAVA_WEBAPP_SOURCES_DIR,
+} from 'generator-jhipster';
+
+// inside a task that receives `{ application }`
+const javaDir = `${JAVA_MAIN_SOURCES_DIR}${application.packageFolder}`;
+const resourceDir = JAVA_MAIN_RESOURCES_DIR;
+const webappDir = JAVA_WEBAPP_SOURCES_DIR;
 ```
 
 
 ## Functions:
 
-You can use all functions in [generator-base.js](https://github.com/jhipster/generator-jhipster/blob/main/generators/generator-base.js):
+You can use all functions of the base generator classes exported by `generator-jhipster`: `GeneratorBaseCore` ([generators/base-core](https://github.com/jhipster/generator-jhipster/blob/main/generators/base-core/generator.ts)), `GeneratorBase` ([generators/base](https://github.com/jhipster/generator-jhipster/blob/main/generators/base/generator.ts)) and `GeneratorBaseApplication` ([generators/base-application](https://github.com/jhipster/generator-jhipster/blob/main/generators/base-application/generator.ts)).
 
 
 ## Running a Blueprint locally for development
@@ -173,6 +190,6 @@ jhipster --no-skip-jhipster-dependencies
 ## Registering a blueprint to the JHipster marketplace
 
 To make your blueprint available in [the JHipster marketplace](/modules/marketplace), you need to make sure you have the two keywords `yeoman-generator` and `jhipster-blueprint` in your published npm `package.json`.
-If you find any entry in the marketplace that is not a JHipster module or blueprint, you can help to deny list it by adding it to the `blacklistedModules` section of the [`modules-config.json file`](https://github.com/jhipster/jhipster.github.io/blob/main/modules/marketplace/data/modules-config.json) by doing a pull request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
+If you find any entry in the marketplace that is not a JHipster module or blueprint, you can help to deny list it by adding it to the `blacklistedModules` section of the [`modules-config.json file`](https://github.com/jhipster/jhipster.github.io/blob/main/src/data/modules-config.json) by doing a pull request to the [jhipster/jhipster.github.io project](https://github.com/jhipster/jhipster.github.io).
 
 Once you publish your blueprint to NPM, your blueprint will become available in our marketplace.
