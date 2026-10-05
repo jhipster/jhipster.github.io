@@ -2,7 +2,7 @@
 title: Creating a Blueprint
 slug: /modules/creating-a-blueprint/
 last_update:
-  date: 2015-12-05T18:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 A JHipster blueprint is a Yeoman generator that is [composed](http://yeoman.io/authoring/composability.html) from a specific JHipster sub-generator to extend the functionality of that sub-generator. The blueprint can override any defined getter of the sub generator and provide its own templates and functionality.
@@ -34,26 +34,20 @@ jhipster generate-blueprint
 A JHipster blueprint must have `generator-jhipster` as a dependency and should import the appropriate sub-generator to override it.
 
 ```js
-import chalk from 'chalk';
 import ClientGenerator from 'generator-jhipster/generators/client';
 
 export default class extends ClientGenerator {
   constructor(args, opts, features) {
-    super(args, opts, features);
-
-    if (this.options.help) return;
-
-    if (!this.options.jhipsterContext) {
-      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints myBlueprint')}`);
-    }
+    // `checkBlueprint: true` makes the generator fail when it is not run as a blueprint (`jhipster --blueprints myBlueprint`).
+    super(args, opts, { ...features, checkBlueprint: true });
   }
 
   get [ClientGenerator.INITIALIZING]() {
-    return {
+    return this.asInitializingTaskGroup({
       // async preInitializingTemplateTask() {},
-      ...super._initializing(),
+      ...super.initializing,
       // async postInitializingTemplateTask() {},
-    };
+    });
   }
 
   // Others priorities omitted for brevity
@@ -64,6 +58,10 @@ export default class extends ClientGenerator {
 ## Local Blueprints
 
 A local blueprint is implemented inside your project's `.blueprint` directory. It's detected and used by default.
+Each sub-generator of a local blueprint lives in `.blueprint/<sub-generator>/index.mjs`, for example `.blueprint/app/index.mjs`.
+
+A local blueprint is code of your project: it is executed by the `jhipster` commands run in the project directory, without being declared anywhere.
+Pass `--disable-blueprints` to run a command without the local blueprint and the declared blueprints.
 
 Kickstart using [Generating the blueprint](#generating-the-blueprint) or run:
 
@@ -107,15 +105,15 @@ get [Generator.INITIALIZING]() {
 
 ```js
 get [Generator.INITIALIZING]() {
-  return {
-    ...super._initializing(),
+  return this.asInitializingTaskGroup({
+    ...super.initializing,
     displayLogo() {
       // override the displayLogo method from the initializing priority of JHipster
     },
     myCustomInitPriorityStep() {
       // Do all your stuff here
     },
-  };
+  });
 }
 ```
 
@@ -126,15 +124,15 @@ This is useful to customize properties that will be used during the priority to 
 ```js
 // Run the blueprint steps before and/or after any parent steps
 get initializing() {
-  return {
+  return this.asInitializingTaskGroup({
     myCustomPreInitStep() {
       // Stuff to do BEFORE the JHipster steps
       // Eg: set name that will generate nameCapitalized, nameLowercase, etc.
-    }
-    ...super._initializing(),
+    },
+    ...super.initializing,
     myCustomPostInitStep() {
       // Stuff to do AFTER the JHipster steps
-    }
-  };
+    },
+  });
 }
 ```
