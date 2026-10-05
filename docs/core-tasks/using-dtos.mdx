@@ -2,7 +2,7 @@
 title: Using DTOs
 slug: /using-dtos/
 last_update:
-  date: 2015-05-28T23:41:00-00:00
+  date: 2026-09-27
 ---
 
 ## Introduction
@@ -20,7 +20,7 @@ When generating a JHipster entity, you have the option to add a service layer: t
 Once you have selected to have a service layer, you will have the option to generate a DTO for the entity. If you select that option:
 
 - A DTO will be generated, and it will be mapped on the underlying entity.
-- It will aggregate many-to-one relationships, only using the ID and the field used to display it in your client-side framework (Angular, for example). As a result, a many-to-one relationship to the `User` entity will add a `userId` field and a `userLogin` field to the DTO.
+- It will aggregate many-to-one relationships using the DTO of the other entity, filled only with its ID and the field used to display it in your client-side framework (Angular, for example). As a result, a many-to-one relationship to the `User` entity will add a `user` field of type `UserDTO` (with the user's `id` and `login`) to the DTO.
 - It will ignore one-to-many relationships and many-to-many relationships on the non-owner side: this matches the way entities work (they have a `@JsonIgnore` annotation on those fields).
 - For a many-to-many relationship on the owner side: it will use DTOs from the other entity and use them in a `Set`. Thus, this can only work if the other entity also uses DTOs.
 
@@ -45,28 +45,41 @@ Instructions for activating the profile are included in [Configuring your IDE](/
 
 ## Advanced MapStruct usage
 
-MapStruct mappers are configured as Spring Beans, and support dependency injection. One nice tip is that you can inject a `Repository` into a mapper, so you can fetch a managed JPA entity from the mapper, using its ID.
+MapStruct mappers are configured as Spring Beans (`componentModel = "spring"`). The generated mapper is an interface extending `EntityMapper`. For example, for a `Car` entity with a many-to-one relationship to `User`:
+```java
+@Mapper(componentModel = "spring")
+public interface CarMapper extends EntityMapper<CarDTO, Car> {
+    @Mapping(target = "user", source = "user", qualifiedByName = "userLogin")
+    CarDTO toDto(Car s);
+
+    @Named("userLogin")
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "login", source = "login")
+    UserDTO toDtoUserLogin(User user);
+}
+```
+
+As mappers are Spring Beans, they support dependency injection. One nice tip is that you can write your mapper as an abstract class and inject a `Repository` into it, so you can fetch a managed JPA entity from the mapper, using its ID.
 
 Here is an example code, fetching a `User` entity:
 ```java
-@Mapper
+@Mapper(componentModel = "spring")
 public abstract class CarMapper {
 
-    @Inject
+    @Autowired
     private UserRepository userRepository;
 
-    @Mapping(source = "user.id", target = "userId")
-    @Mapping(source = "user.login", target = "userLogin")
-    public abstract CarDTO carToCarDTO(Car car);
+    public abstract CarDTO toDto(Car car);
 
-    @Mapping(source = "userId", target = "user")
-    public abstract Car carDTOToCar(CarDTO carDTO);
+    @Mapping(source = "user.id", target = "user")
+    public abstract Car toEntity(CarDTO carDTO);
 
     public User userFromId(Long id) {
         if (id == null) {
             return null;
         }
-        return userRepository.findOne(id);
+        return userRepository.findById(id).orElse(null);
     }
 }
 ```
