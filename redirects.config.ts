@@ -35,7 +35,7 @@ const redirectsPlugin = [
         to: '/customizing-bootstrap/',
       },
       { from: '/docker_compose.html', to: '/docker-compose/' },
-      { from: '/docker_hub.html', to: '/docker-hub/' },
+      { from: ['/docker-hub/', '/docker_hub.html'], to: '/docker-compose/' },
       {
         from: '/installing_new_languages.html',
         to: '/installing-new-languages/',

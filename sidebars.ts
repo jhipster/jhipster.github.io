@@ -319,7 +319,6 @@ const sidebars: SidebarsConfig = {
           id: 'production/production',
         },
         { type: 'doc', label: 'Monitoring', id: 'production/monitoring' },
-        { type: 'doc', label: 'Docker Hub', id: 'production/docker-hub' },
         { type: 'doc', label: 'Deploying to Azure', id: 'production/azure' },
         {
           type: 'doc',
