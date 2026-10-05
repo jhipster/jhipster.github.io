@@ -2,12 +2,12 @@
 title: Creating a module
 slug: /modules/creating-a-module/
 last_update:
-  date: 2015-12-05T18:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 ## Creating a stand alone Blueprint (aka module)
 
-As of JHipster v7.9.0, module support was merged into blueprint support. So the same rules apply.
+A module is a blueprint, so the same rules apply.
 
 Before creating a Blueprint, make sure you have read [Blueprint Basics](/modules/extending-and-customizing/)
 
@@ -74,71 +74,51 @@ process.on('unhandledRejection', up => {
 }
 ```
 
-### Hooks
+### Running the module after the JHipster generators
 
-Hooks support will be removed for JHipster 8. For migration, you can use the following side-by-side blueprints to simulate hooks.
+To run your module generators after the JHipster application and entity generators, add side-by-side blueprints for the `app` and `entity` generators that compose with them.
 
-- Add the following generators.
-
-App generator (`generators/app/index.mjs`) for post app hooks:
+App generator (`generators/app/index.mjs`), which runs `app-module` after the application is generated:
 
 ```js
-import chalk from 'chalk';
 import GeneratorBaseApplication from 'generator-jhipster/generators/base-application';
-import { INSTALL_PRIORITY } from 'generator-jhipster/priorities';
 
 export default class extends GeneratorBaseApplication {
   constructor(args, opts, features) {
-    super(args, opts, features);
-
-    if (this.options.help) return;
-
-    if (!this.options.jhipsterContext) {
-      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints myBlueprint')}`);
-    }
-
-    this.sbsBlueprint = true;
+    super(args, opts, { ...features, sbsBlueprint: true });
   }
 
   get [GeneratorBaseApplication.INSTALL]() {
-    return {
+    return this.asInstallTaskGroup({
       async afterRunHook() {
         await this.composeWithJHipster(`my-blueprint:app-module`, {
-          appConfig: this.configOptions,
+          generatorOptions: { appConfig: this.jhipsterConfig },
         });
       },
-    };
+    });
   }
 }
 ```
 
-Entity generator (`generators/entity/index.mjs`) for post entity hooks:
+Entity generator (`generators/entity/index.mjs`), which runs `entity-module` after each entity is generated:
 
 ```js
-import chalk from 'chalk';
 import GeneratorBaseApplication from 'generator-jhipster/generators/base-application';
 
 export default class extends GeneratorBaseApplication {
   constructor(args, opts, features) {
-    super(args, opts, features);
-
-    if (this.options.help) return;
-
-    if (!this.options.jhipsterContext) {
-      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints myBlueprint')}`);
-    }
-
-    this.sbsBlueprint = true;
+    super(args, opts, { ...features, sbsBlueprint: true });
   }
 
   get [GeneratorBaseApplication.INSTALL]() {
-    return {
+    return this.asInstallTaskGroup({
       async afterRunHook() {
+        // `jhipsterContext` is the JHipster entity generator this blueprint is composed with.
         await this.composeWithJHipster(`my-blueprint:entity-module`, {
-          entityConfig: this.options.jhipsterContext.context,
+          generatorOptions: { entityConfig: this.jhipsterContext.entityConfig },
         });
       },
-    };
+    });
   }
 }
 ```
