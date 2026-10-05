@@ -199,6 +199,18 @@ const redirectsPlugin = [
         to: '/showcase/',
       },
       {
+        from: [
+          '/tips/017_tip_repl_with_the_remote_shell.html',
+          '/tips/021_tip_prevent_error_and_hanging_on_windows_when_using_gradle.html',
+        ],
+        to: '/tips/',
+      },
+      {
+        from: '/tips/006_tips_enable_cross_origin_requests.html',
+        to: '/separating-front-end-and-api/',
+      },
+      { from: '/tips/014_tip_using_mariadb.html', to: '/development/' },
+      {
         from: '/team.html',
         to: '/team/',
       },
