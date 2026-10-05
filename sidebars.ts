@@ -511,18 +511,8 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'doc',
-          label: 'Using Bootswatch themes',
-          id: 'tips/tips_using_bootswatch_themes',
-        },
-        {
-          type: 'doc',
           label: 'Configuring Email with - Gmail and more',
           id: 'tips/tip_configuring_email_in_jhipster',
-        },
-        {
-          type: 'doc',
-          label: 'Speed up the generator-jhipster',
-          id: 'tips/tip_speed_up_generator',
         },
         {
           type: 'doc',
@@ -549,11 +539,6 @@ const sidebars: SidebarsConfig = {
           label:
             'Boost performance of pagination with infinite scrolling using Slice',
           id: 'tips/tip_infinite_scroll_with_slice',
-        },
-        {
-          type: 'doc',
-          label: 'Using Docker containers as localhost on Mac/Windows',
-          id: 'tips/tip_using_docker_containers_as_localhost_on_mac_and_windows',
         },
         {
           type: 'doc',
@@ -593,11 +578,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          label: 'Provide Internet Explorer support',
-          id: 'tips/tip_ie_support',
-        },
-        {
-          type: 'doc',
           label:
             'Improve developer experience if opening only front end in the IDE',
           id: 'tips/tip_frontend_only',
@@ -606,11 +586,6 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           label: 'Configure Redis leader follower(master-slave) replication',
           id: 'tips/tip_redis_replication',
-        },
-        {
-          type: 'doc',
-          label: 'Running Protractor e2e tests within Intellij IDEA',
-          id: 'tips/tip_e2e_intellij',
         },
         {
           type: 'doc',

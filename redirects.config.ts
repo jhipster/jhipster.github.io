@@ -203,6 +203,29 @@ const redirectsPlugin = [
         to: '/team/',
       },
       {
+        from: [
+          '/tips/008_tips_static_swagger_docs.html',
+          '/tips/010_tip_configuring_html_5_mode.html',
+          '/tips/013_tip_speed_up_generator.html',
+          '/tips/028_tip_ie_support.html',
+        ],
+        to: '/tips/',
+      },
+      { from: '/tips/004_tip_using_ms_sql_server.html', to: '/development/' },
+      {
+        from: '/tips/009_tips_using_bootswatch_themes.html',
+        to: '/creating-an-app/',
+      },
+      {
+        from: '/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html',
+        to: '/docker-compose/',
+      },
+      { from: '/tips/031_tip_e2e_intellij.html', to: '/running-tests/' },
+      {
+        from: '/tips/033_tip_v7_upgrade.html',
+        to: '/upgrading-an-application/',
+      },
+      {
         from: '/tips.html',
         to: '/tips/',
       },
