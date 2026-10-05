@@ -3,7 +3,7 @@ title: Upgrading an application
 slug: /upgrading-an-application/
 gitgraph: http://jsfiddle.net/lordlothar99/tqp9gyu3
 last_update:
-  date: 2024-04-08T00:00:00-00:00
+  date: 2026-09-27
 ---
 
 # <i class="fa fa-level-up"></i> Upgrading an application
@@ -55,6 +55,8 @@ Here are the options you can pass:
 
 ### Upgrading from JHipster 7 and previous versions
 
+The upgrade sub-generator only supports JHipster 7 applications that are on version **7.9.4** and don't use blueprints: upgrade your application to 7.9.4 first, otherwise the upgrade stops with an error.
+
 The [migrate blueprint](https://github.com/jhipster/generator-jhipster-migrate) is an advanced version of the upgrade sub-generator. If you need to upgrade a JHipster 7 app, it's recommended you use the migrate blueprint. For example, let's assume you have a 7.9.3 app.
 
 Run `jhipster-migrate` to upgrade to the latest version. Resolve conflicts, commit, and celebrate!
@@ -78,27 +80,19 @@ Please note that the `jhipster_upgrade` branch will be created orphan on your pr
 
 Below are the steps processed by the JHipster upgrade sub-generator:
 
-1. Check if there is a new version of JHipster available (not applicable if you are using `--force`).
-2. Check if the application is already initialized as a `git` repository, or else JHipster will initialize one for you and commit the current codebase to the master branch.
+1. Check that `generator-jhipster` is a dependency of your `package.json` (a JHipster 7 application must be on version 7.9.4, without blueprints).
+2. Check if the application is already initialized as a `git` repository, or else JHipster will initialize one for you and commit the current codebase.
 3. Check to ensure that there are no un-committed local changes in the repository. The process will exit if there are un-committed changes found.
-4. Check if a `jhipster_upgrade` branch exists. If not, a branch is created: details about this step is provided in the "Specific steps on first upgrade" section.
-5. Checkout the `jhipster_upgrade` branch.
-6. Upgrade JHipster to the latest available version globally.
-7. Clean the current project directory.
-8. Re-generate the application using the `jhipster --force` command.
-9. Commit the generated code to the `jhipster_upgrade` branch.
-10. Merge the `jhipster_upgrade` branch back to the original branch from where the `npx jhipster upgrade` command was launched.
+4. Checkout the `jhipster_upgrade` branch. If it doesn't exist, it is created orphan (it has no parent).
+5. Clean the current project directory.
+6. Re-generate the application with the JHipster version of your project (the local one, run with `npx --no jhipster --force`), and commit it to the `jhipster_upgrade` branch.
+7. Merge the `jhipster_upgrade` branch into your current branch using the `ours` strategy: no alteration is made on your codebase; this is a practical way to record in Git that your branch is up-to-date with the current JHipster version.
+8. Checkout the `jhipster_upgrade` branch again, clean the project directory, re-generate the application with the JHipster version you are running the upgrade with, and commit it.
+9. Merge the `jhipster_upgrade` branch into your current branch (the one from where the upgrade command was launched).
+10. Remove `node_modules` and `package-lock.json`, to allow a clean install.
 11. Now you need to proceed with resolving merge conflicts if there are any.
 
 Congratulations, your application is now upgraded with the latest version of JHipster!
-
-### Specific steps on first upgrade
-
-On the first run of the JHipster upgrade sub-generator, in order to avoid erasing all your changes, some additional steps are run:
-
-1. A `jhipster_upgrade` branch is created orphan (it has no parent).
-2. The whole application is generated (using your current JHipster version).
-3. A block-merge commit is made on the `master` branch: no alteration is made on your codebase on the `master` branch; this is a practical way to record in Git that the HEAD of `master` is up-to-date with the current JHipster version.
 
 #### Advice
 
