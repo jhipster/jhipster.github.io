@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Options
 slug: /jdl/options
 last_update:
-  date: 2019-11-02T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 In JHipster, you can specify options for your entities such as pagination or DTO.
@@ -25,7 +25,7 @@ service A with serviceClass
 service C with serviceImpl
 ```
 
-The complete list of available options is [here](#available-options).
+Where to find the available options is explained [here](#available-options).
 
 
 ## How to
@@ -102,15 +102,8 @@ use mapstruct, serviceImpl, infinite-scroll for A, B
 use pagination for C
 ```
 
-|Use option value |Comment                                                                                                          |
-|-----------------|-----------------------------------------------------------------------------------------------------------------|
-|mapstruct        |Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'|
-|serviceClass     |                                                                                                                 |
-|serviceImpl      |                                                                                                                 |
-|pagination       |Pagination as an option is forbidden when the application uses Cassandra                                         |
-|infinite-scroll  |Pagination as an option is forbidden when the application uses Cassandra                                         |
-|elasticsearch    |Requires the application to have the searchEngine option enabled                                                 |
-|couchbase        |Requires the application to have the searchEngine option enabled                                                 |
+Each `use` value is a value of a binary entity option, and the JDL applies it to that option: `mapstruct` sets `dto`, `serviceImpl` sets `service`, `infinite-scroll` sets `pagination`, and so on.
+A value that belongs to no option is reported by the importer.
 
 
 ## Examples
@@ -344,32 +337,18 @@ _Not what you're looking for? Check the [application options](/jdl/applications#
 
 ### Entity options
 
-Here are the entity options supported in the JDL:
+Entity options are JHipster definitions, not part of the JDL itself. What they do is described in the entity
+documentation: [service](/creating-an-entity/#generating-a-separate-service-class-for-your-business-logic),
+[DTOs](/creating-an-entity/#data-transfer-objects-dtos), [filtering](/entities-filtering/) and
+[pagination](/creating-an-entity/#pagination).
 
-|JDL option name (entity)|Option type|Default value|Possible values                 |Comment                                                                                                                                                 |
-|------------------------|-----------|-------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|skipClient              |unary      |false        |-                               |This will make the client code generation to be skipped                                                                                                 |
-|skipServer              |unary      |false        |-                               |This will make the server code generation to be skipped                                                                                                 |
-|noFluentMethod          |unary      |false        |-                               |See [this note](/2016/08/17/jhipster-release-3.6.0.html#important-change-fluent-setters) for more information                                           |
-|filter                  |unary      |false        |-                               |See [filtering](/entities-filtering) for more details; if an entity is filtered but doesn't have a service then 'serviceClass' will be used             |
-|readOnly                |unary      |false        |-                               |Adding this option will make an entity readOnly, see [this release note](/2019/10/10/jhipster-release-6.4.0.html) for more details|
-|dto                     |binary     |no           |mapstruct, no                   |Whether to create DTOs for your entities, if an entity has a DTO but no service, then 'serviceClass will be used'                                       |
-|service                 |binary     |no           |serviceClass, serviceImpl, no   |-                                                                                                                                                       |
-|paginate                |binary     |no           |pagination, infinite-scroll, no |Pagination is forbidden when the application uses Cassandra                                                                                             |
-|search                  |binary     |no           |elasticsearch, no               |Requires the application to have the searchEngine option enabled                                                                                        |
-|microservice            |binary     |-            |custom value                    |Will be automatically added for every entity declared inside a microservice application                                                                 |
-|angularSuffix           |binary     |-            |custom value                    |-                                                                                                                                                       |
-|clientRootFolder        |binary     |-            |custom value                    |-                                                                                                                                                       |
+The importer reports an option or a value it does not know, for instance `Unknown option: foo`.
 
 
 ### Field options
 
-Here are the field options supported in the JDL:
-
-|JDL option name (field)|Default value|Possible values                                                                     |Comment                                                                                                                                                                        |
-|-----------------------|-------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|defaultValue           |undefined    |any value fitting to the datatype of the field, e.g. "myDefaultValue" or 42 or true |Will define a fixed default value on database schema side on the column, as well as adjust the clients passing in the option as default from input forms (only Angular for now)|
-|defaultValueComputed   |undefined    |database functions to generate default values for a column, e.g. "NOW(6)"           |This will generate a default value on database level using the given function                                                                                                  |
+Field options are JHipster definitions as well. They are written as field annotations, for instance
+`@defaultValue(42)` before a field, and the generators read them from the field.
 
 
 ## See also
