@@ -2,7 +2,7 @@
 title: Common application properties
 slug: /common-application-properties/
 last_update:
-  date: 2018-03-18T18:20:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 JHipster generates a Spring Boot application, and can be configured using the standard Spring Boot properties mechanism.
@@ -19,12 +19,16 @@ Like any Spring Boot application, JHipster allows you to configure any standard 
 
 JHipster provides specific application properties, which come from the [JHipster server-side library](https://github.com/jhipster/jhipster). Those properties are standard for all JHipster projects, but some of them only work depending on what you selected when you built your application: for example the `jhipster.cache.hazelcast` key only works if you selected Hazelcast as your 2nd-level Hibernate cache.
 
-Those properties are configured using the `io.github.jhipster.config.JHipsterProperties` class.
+Those properties are configured using the `tech.jhipster.config.JHipsterProperties` class.
 
 Here is a documentation for those properties:
 
 ```yaml
 jhipster:
+
+    # Name of the client application, used in the HTTP alert headers (X-<name>-alert, X-<name>-error, X-<name>-params)
+    clientApp:
+        name: jhipsterApp
 
     # Thread pool that will be used for asynchronous method calls in JHipster
     async:
@@ -46,6 +50,12 @@ jhipster:
     http:
         cache: # Used by io.github.jhipster.web.filter.CachingHttpHeadersFilter
             timeToLiveInDays: 1461 # Static assets are cached for 4 years by default
+
+    # Couchbase configuration, only used if you selected Couchbase as your database
+    database:
+        couchbase:
+            bucket-name: jhipster # Name of the Couchbase bucket
+            scope-name: jhipster # Name of the Couchbase scope
 
     # Hibernate 2nd level cache, used by CacheConfiguration
     cache:
@@ -122,10 +132,17 @@ jhipster:
                 base64-secret:  # JWT secret key encoded in Base64 (recommended)
                 token-validity-in-seconds: 86400 # Token is valid 24 hours
                 token-validity-in-seconds-for-remember-me: 2592000 # Remember me token is valid 30 days
+        # Content-Security-Policy header sent by the application (the generated value depends on your options)
+        content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
+        oauth2: # Only used with OAuth 2.0 / OIDC authentication
+            audience: # Accepted audiences of the access tokens
+                - account
+                - api://default
 
-    # Swagger configuration
-    swagger:
-        default-include-pattern: /api/.*
+    # API documentation (springdoc-openapi) configuration
+    api-docs:
+        default-include-pattern: /api/**
+        management-include-pattern: /management/**
         title: JHipster API
         description: JHipster API documentation
         version: 0.0.1
@@ -133,60 +150,38 @@ jhipster:
         contact-name:
         contact-url:
         contact-email:
-        license:
+        license: unlicensed
         license-url:
-        host:
-        protocols:
-
-    # DropWizard Metrics configuration, used by MetricsConfiguration
-    metrics:
-        jmx: # Export metrics as JMX beans
-            enabled: true # JMX is enabled by default
-        # Send metrics to a Graphite server
-        # Use the "graphite" Maven profile to have the Graphite dependencies
-        graphite:
-            enabled: false # Graphite is disabled by default
-            host: localhost
-            port: 2003
-            prefix: jhipster
-        # Send metrics to a Prometheus server
-        prometheus:
-            enabled: false # Prometheus is disabled by default
-            endpoint: /prometheusMetrics
-        logs: # Reports Dropwizard metrics in the logs
-            enabled: false
-            reportFrequency: 60 # frequency of reports in seconds
+        servers: # Optional list of servers (url and description) shown in the API documentation
 
     # Logging configuration, used by LoggingConfiguration
     logging:
+        use-json-format: false # By default, logs are not in JSON format
         logstash: # Forward logs to Logstash over a socket
             enabled: false # Logstash is disabled by default
             host: localhost # Logstash server URL
             port: 5000 # Logstash server port
-            queue-size: 512 # Queue for buffering logs
-        spectator-metrics: # Reports Netflix Spectator metrics in the logs
-            enabled: false # Spectator is disabled by default
+            ring-buffer-size: 512 # Buffer for logs waiting to be sent
 
-    # By default cross-origin resource sharing (CORS) is enabled in "dev" mode for
-    # monoliths and gateways.
-    # It is disabled by default in "prod" mode for security reasons, and for microservices
+    # By default cross-origin resource sharing (CORS) is disabled.
+    # The generated "application-dev.yml" enables it for monoliths and gateways, with an
+    # explicit list of origins (the front-end development server and Ionic ports), as "*"
+    # cannot be used together with "allow-credentials".
+    # It is disabled in "prod" mode for security reasons, and for microservices
     # (as you are supposed to use a gateway to access them).
     # This configures a standard org.springframework.web.cors.CorsConfiguration
     # Note that "exposed-headers" is mandatory for JWT-based security, which uses
     # the "Authorization" header, and which is not a default exposed header.
     cors:
-        allowed-origins: "*"
+        allowed-origins: "http://localhost:8100,https://localhost:8100,http://localhost:9000,https://localhost:9000"
         allowed-methods: "*"
         allowed-headers: "*"
-        exposed-headers: "Authorization"
+        exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
         allow-credentials: true
         max-age: 1800
-
-    # Ribbon displayed on the top left-hand side of JHipster applications
-    ribbon:
-        # Comma-separated list of profiles that display a ribbon
-        display-on-active-profiles: dev
 ```
+
+The ribbon displayed on the top left-hand side of JHipster applications is not configured with a `jhipster` property: it uses the `info.display-ribbon-on-profiles` property of `application.yml` (a comma-separated list of profiles that display the ribbon, `dev` by default), which is exposed on the `info` management endpoint.
 
 
 ## Application-specific properties
