@@ -50,10 +50,15 @@ const redirectsPlugin = [
         from: '/setting_up_ci_jenkins2.html',
         to: '/setting-up-ci-jenkins2/',
       },
-      { from: '/setting_up_ci_linux.html', to: '/setting-up-ci-linux/' },
       {
-        from: '/setting_up_ci_windows.html',
-        to: '/setting-up-ci-windows/',
+        from: [
+          '/setting-up-ci-jenkins1/',
+          '/setting-up-ci-linux/',
+          '/setting-up-ci-windows/',
+          '/setting_up_ci_linux.html',
+          '/setting_up_ci_windows.html',
+        ],
+        to: '/setting-up-ci-jenkins2/',
       },
       { from: '/setting_up_ci.html', to: '/setting-up-ci/' },
       { from: '/tech_stack.html', to: '/tech-stack/' },
