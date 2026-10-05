@@ -2,10 +2,10 @@
 title: Code Quality
 slug: /code-quality/
 last_update:
-  date: 2018-08-18T12:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
-Code quality can be analyzed using [SonarCloud](https://sonarcloud.io), which is automatically configured by JHipster.
+Code quality can be analyzed using [SonarQube](https://www.sonarsource.com/products/sonarqube/), which is automatically configured by JHipster: the generated `sonar-project.properties` file points to a local Sonar server on `http://localhost:9001`.
 
 
 ## Using Sonar with JHipster
@@ -13,7 +13,7 @@ Code quality can be analyzed using [SonarCloud](https://sonarcloud.io), which is
 JHipster provides a specific Docker Compose configuration for Sonar ([here is the JHipster Docker Compose documentation](/docker-compose)) that provides an out-of-the box Sonar instance. At the root of your project, please run:
 
 ```shell
-docker-compose -f src/main/docker/sonar.yml up -d
+docker compose -f src/main/docker/sonar.yml up -d
 ```
 
 If you use Maven, it has been automatically configured:
@@ -66,7 +66,6 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
             <configuration>
                 <!-- Exclude any class named Application from instrumentation -->
                 <excludes>**/Application.*</excludes>
-                <destFile>${jacoco.utReportFile}</destFile>
             </configuration>
         </execution>
         <execution>
@@ -78,8 +77,6 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
             <configuration>
                 <!-- Exclude any class named Application from reporting-->
                 <excludes>**/Application.*</excludes>
-                <dataFile>${jacoco.utReportFile}</dataFile>
-                <outputDirectory>${jacoco.reportFolder}</outputDirectory>
             </configuration>
         </execution>
         <execution>
@@ -90,7 +87,6 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
             <configuration>
                 <!-- Exclude any class named Application from instrumentation -->
                 <excludes>**/Application.*</excludes>
-                <destFile>${jacoco.itReportFile}</destFile>
             </configuration>
         </execution>
         <execution>
@@ -102,8 +98,6 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
             <configuration>
                 <!-- Exclude any class named Application from reporting-->
                 <excludes>**/Application.*</excludes>
-                <dataFile>${jacoco.itReportFile}</dataFile>
-                <outputDirectory>${jacoco.reportFolder}</outputDirectory>
             </configuration>
         </execution>
     </executions>
@@ -112,7 +106,7 @@ You need to add exclusions to the `prepare-agent` and `report` goal of both unit
 
 ### Gradle
 
-You can add the following to `sonar.gradle` file:
+You can add the following to the `buildSrc/src/main/groovy/jhipster.code-quality-conventions.gradle` file:
 
 ```gradle
 test {
@@ -123,11 +117,11 @@ test {
 
 jacocoTestReport {
     afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
+        classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
                     '**/*_.class'
             ])
-        })
+        }))
     }
 }
 ```
