@@ -215,16 +215,6 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'doc',
-              label: 'Problem with a parameterized message',
-              id: 'development/problem/parameterized',
-            },
-            {
-              type: 'doc',
-              label: 'Entity not found',
-              id: 'development/problem/entity-not-found',
-            },
-            {
-              type: 'doc',
               label: 'Invalid password',
               id: 'development/problem/invalid-password',
             },
@@ -237,11 +227,6 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               label: 'Login already used',
               id: 'development/problem/login-already-used',
-            },
-            {
-              type: 'doc',
-              label: 'E-mail not found',
-              id: 'development/problem/email-not-found',
             },
           ],
         },
