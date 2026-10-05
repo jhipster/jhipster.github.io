@@ -2,7 +2,7 @@
 title: Configuring Eclipse with Gradle
 slug: /configuring-ide-eclipse-gradle/
 last_update:
-  date: 2015-05-22T18:40:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 To get full Gradle support in eclipse you should install the [buildship plugin](https://gradle.org/eclipse/).
@@ -23,6 +23,8 @@ For configuring the [JavaScript](/configuring-ide-eclipse) side you can follow t
 
 ## 2. Add apt generated source folder to build path
 
+The generated `build.gradle` already adds the annotation processor output folder, `build/generated/sources/annotationProcessor/java/main`, to the Eclipse source folders (in its `eclipse { sourceSets { ... } }` block). If that folder is not visible in your workspace, you can add it manually.
+
 When using buildship gradles default outputfolder is filtered and not visible in your workspace.
 Therefore you need to remove it from eclipse's resource filter setting.
 
@@ -31,7 +33,7 @@ Therefore you need to remove it from eclipse's resource filter setting.
 - Remove the entry ``build``
 - Select ``Java Build Path``
 - Click ``Add Folder...``
-- Check the path ``build/generated/source/apt/main``
+- Check the path ``build/generated/sources/annotationProcessor/java/main``
 
 Make sure the new source folder contains the correctly generated mapper implementations when running JHipster via eclipse.
 
