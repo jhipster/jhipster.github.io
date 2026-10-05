@@ -2,19 +2,19 @@
 title: Managing relationships
 slug: /managing-relationships/
 last_update:
-  date: 2020-11-25T09:07:00-00:00
+  date: 2026-09-27
 ---
 
-When JPA is used, the [entity sub-generator](/creating-an-entity) can create relationships between entities.
+The [entity sub-generator](/creating-an-entity) can create relationships between entities.
 
 
 ## Presentation
 
-Relationships only work when JPA is used. If you choose to use [Cassandra](/using-cassandra) they won't be available. In case you use [MongoDB](/using-mongodb/), [Couchbase](/using-couchbase/) or [Neo4j](/using-neo4j) relations have a different semantics, but they are all available to be used. For more information about Couchbase and MongoDB relationships please refer to [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb).
+Relationships work with SQL databases, using JPA or, for reactive applications, Spring Data R2DBC. If you choose to use [Cassandra](/using-cassandra) they won't be available. In case you use [MongoDB](/using-mongodb/), [Couchbase](/using-couchbase/) or [Neo4j](/using-neo4j) relations have a different semantics, but they are all available to be used. For more information about Couchbase and MongoDB relationships please refer to [Embedded Entities for Couchbase and MongoDB](#embedded-entities-for-couchbase-and-mongodb).
 
 A relationship works between two entities, and JHipster will generate the code for:
 
-- Managing this relationship with JPA in the generated entities
+- Managing this relationship with JPA (or Spring Data R2DBC for reactive applications) in the generated entities
 - Creating the correct Liquibase changelog, in order for the relationship to exist in the database
 - Generating the Angular/React front-end so you can manage this relationship graphically in the user interface
 
@@ -34,7 +34,7 @@ You can generate entities with relationships from a JDL file using the `jdl` sub
 
 ## Available relationships
 
-As we use JPA, the usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available.
+The usual one-to-many, many-to-one, many-to-many and one-to-one relationships are available.
 
 :::tip
 
@@ -46,14 +46,12 @@ Information about it is located [here](/user-entity).
 
 :::warning
 
-**A small warning about entity & relationship generation**: in the following examples, you'll notice that compilation
-_may_ fail in some cases because destination entities aren't generated and that's normal (this warning can be ignored).
+**A small warning about entity & relationship generation**: the "What is the other entity?" question only lets you
+select an entity that already exists, so in the following examples the destination entity is always generated first.
 
 :::
 
-There are two ways to avoid that:
-  - Generate the entities first, then the relationships
-  - Use the JDL
+If you want to declare all your entities and relationships at once, use the JDL.
 
 
 ## A bidirectional one-to-many relationship
@@ -66,36 +64,30 @@ So this is a one-to-many relationship (one owner has many cars) on one side, and
 Owner (1) <-----> (*) Car
 ```
 
-Note that after generating the entity, the generator will inform you that some errors occurred while generating
-the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
+We will create the `Car` first, with no relationship:
 
-We will create the `Owner` first. Here are the relevant JHipster questions for the `Owner`:
+```
+jhipster entity Car
+...
+Generating relationships to other entities
+? Do you want to add a relationship to another entity? No
+```
+
+Now we can generate the `Owner`. Here are the relevant JHipster questions for the `Owner`:
 
 ```
 jhipster entity Owner
 ...
 Generating relationships to other entities
 ? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Car
+? What is the other entity? Car
 ? What is the name of the relationship? car
 ? What is the type of the relationship? one-to-many
 ? What is the name of this relationship in the other entity? owner
+? When you display this relationship on client-side, which field from 'Car' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
 ```
 
-Please note that we selected the default options concerning the names of the relationships.
-
-Now we can generate the `Car`:
-
-```
-jhipster entity Car
-...
-Generating relationships to other entities
-? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Owner
-? What is the name of the relationship? owner
-? What is the type of the relationship? many-to-one
-? When you display this relationship with Angular, which field from 'Owner' do you want to use? id
-```
+Please note that we selected the default options concerning the names of the relationships. The `owner` many-to-one relationship is added to the `Car` entity automatically.
 
 The same can be achieved using the below JDL as well
 ```
@@ -149,17 +141,19 @@ Generating relationships to other entities
 ? Do you want to add a relationship to another entity? No
 ```
 
-And then the `Car` entity, as in the previous example:
+And then the `Car` entity, answering "No" to the bidirectional question:
 
 ```
 jhipster entity Car
 ...
 Generating relationships to other entities
 ? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Owner
+? What is the other entity? Owner
 ? What is the name of the relationship? owner
 ? What is the type of the relationship? many-to-one
-? When you display this relationship with Angular, which field from 'Owner' do you want to use? id
+? Do you want to generate a bidirectional relationship No
+? When you display this relationship on client-side, which field from 'Owner' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
+? Do you want to add any validation rules to this relationship? No
 ```
 
 This will work as in the previous example, but you won't be able to add or remove cars from the `Owner` entity. On the generated Angular/React client UI you will have a dropdown in `Car` to select a `Owner`.
@@ -185,14 +179,25 @@ Owner (1) -----> (*) Car
 
 This type of relationship is not provided by default in JHipster at the moment, see [#1569](https://github.com/jhipster/generator-jhipster/issues/1569) for more information.
 
+The JDL accepts it:
+
+```
+entity Owner
+entity Car
+
+relationship OneToMany {
+  Owner{car} to Car
+}
+```
+
+But JHipster generates it as a bidirectional relationship: an `owner` many-to-one relationship is added to the `Car` entity.
+
 You have two solutions for this:
 
-- Do a bidirectional mapping, and use it without modification: this is our recommended approach, as it is much simpler
-- Do a bidirectional mapping, and then modify it to transform it into a unidirectional mapping:
+- Use the bidirectional mapping without modification: this is our recommended approach, as it is much simpler
+- Modify the bidirectional mapping to transform it into a unidirectional mapping:
     - Remove the "mappedBy" attribute on your `@OneToMany` annotation
     - Generate the required join table: you can do a `mvn liquibase:diff` to generate that table, see the [documentation about using Liquibase diff](/development/)
-
-This is not supported with JDL as it isn't in JHipster.
 
 
 ## Two one-to-many relationships on the same two entities
@@ -206,6 +211,15 @@ Person (1) <---drives---> (*) Car
 
 For this we need to use the relationship names, which we have left with their default values in the previous examples.
 
+Generate the `Car` entity first, with no relationship:
+
+```
+jhipster entity Car
+...
+Generating relationships to other entities
+? Do you want to add a relationship to another entity? No
+```
+
 Generate the `Person` entity, which has two one-to-many relationships to the `Car` entity:
 
 ```
@@ -213,38 +227,22 @@ jhipster entity Person
 ...
 Generating relationships to other entities
 ? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Car
+? What is the other entity? Car
 ? What is the name of the relationship? ownedCar
 ? What is the type of the relationship? one-to-many
 ? What is the name of this relationship in the other entity? owner
+? When you display this relationship on client-side, which field from 'Car' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
 ...
 Generating relationships to other entities
 ? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Car
+? What is the other entity? Car
 ? What is the name of the relationship? drivenCar
 ? What is the type of the relationship? one-to-many
 ? What is the name of this relationship in the other entity? driver
+? When you display this relationship on client-side, which field from 'Car' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
 ```
 
-Generate the `Car` entity, which use the same relationship name has was configured in the `Person` entity:
-
-```
-jhipster entity Car
-...
-Generating relationships to other entities
-? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Person
-? What is the name of the relationship? owner
-? What is the type of the relationship? many-to-one
-? When you display this relationship with Angular, which field from 'Person' do you want to use? id
-...
-Generating relationships to other entities
-? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Person
-? What is the name of the relationship? driver
-? What is the type of the relationship? many-to-one
-? When you display this relationship with Angular, which field from 'Person' do you want to use? id
-```
+The `owner` and `driver` many-to-one relationships are added to the `Car` entity automatically, using the names configured in the `Person` entity.
 
 The same can be achieved using the below JDL as well
 
@@ -276,36 +274,28 @@ At the database level, this means we will have a join table between the `Driver`
 
 For JPA, one of those two entities will need to manage the relationship: in our case, that would be the `Car` entity, which will be responsible to add or remove drivers.
 
-Please note that, after generating the entity, the generator will inform you that some errors occurred while generating
-the files. That's normal as the destination entity has not yet been generated, so you can safely ignore this warning.
-
-Let us generate the non-owning side of the relationship, the `Driver`, with a many-to-many relationship:
+Let us generate the non-owning side of the relationship, the `Driver`, with no relationship:
 
 ```
 jhipster entity Driver
 ...
 Generating relationships to other entities
-? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Car
-? What is the name of the relationship? car
-? What is the type of the relationship? many-to-many
-? Is this entity the owner of the relationship? No
-? What is the name of this relationship in the other entity? driver
+? Do you want to add a relationship to another entity? No
 ```
 
-Then generate the `Car`, with the owning side of the many-to-many relationship:
+Then generate the `Car`, with the owning side of the many-to-many relationship (the entity where the relationship is declared is the owning side):
 
 ```
 jhipster entity Car
 ...
 Generating relationships to other entities
 ? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Driver
+? What is the other entity? Driver
 ? What is the name of the relationship? driver
 ? What is the type of the relationship? many-to-many
-? Is this entity the owner of the relationship? Yes
 ? What is the name of this relationship in the other entity? car
 ? When you display this relationship on client-side, which field from 'Driver' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
+? Do you want to add any validation rules to this relationship? No
 ```
 
 The same can be achieved using the below JDL as well
@@ -330,18 +320,13 @@ Following our example, a one-to-one relationship would mean that a `Driver` can 
 Driver (1) <-----> (1) Car
 ```
 
-Let us create the non-owning side of the relationship, in our case the `Driver`:
+Let us create the non-owning side of the relationship, in our case the `Driver`, with no relationship:
 
 ```
 jhipster entity Driver
 ...
 Generating relationships to other entities
-? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Car
-? What is the name of the relationship? car
-? What is the type of the relationship? one-to-one
-? Is this entity the owner of the relationship? No
-? What is the name of this relationship in the other entity? driver
+? Do you want to add a relationship to another entity? No
 ```
 
 Then generate the `Car`, which owns the relationship:
@@ -351,13 +336,13 @@ jhipster entity Car
 ...
 Generating relationships to other entities
 ? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Driver
+? What is the other entity? Driver
 ? What is the name of the relationship? driver
 ? What is the type of the relationship? one-to-one
-? Is this entity the owner of the relationship? Yes
 ? Do you want to use JPA Derived Identifier - @MapsId? No
 ? What is the name of this relationship in the other entity? car
 ? When you display this relationship on client-side, which field from 'Driver' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
+? Do you want to add any validation rules to this relationship? No
 ```
 
 The same can be achieved using the below JDL as well
@@ -400,13 +385,13 @@ jhipster entity Citizen
 ...
 Generating relationships to other entities
 ? Do you want to add a relationship to another entity? Yes
-? What is the name of the other entity? Passport
+? What is the other entity? Passport
 ? What is the name of the relationship? passport
 ? What is the type of the relationship? one-to-one
-? Is this entity the owner of the relationship? Yes
 ? Do you want to use JPA Derived Identifier - @MapsId? No
 ? What is the name of this relationship in the other entity? citizen
-? When you display this relationship with Angular, which field from 'Passport' do you want to use? id
+? When you display this relationship on client-side, which field from 'Passport' do you want to use? This field will be displayed as a String, so it cannot be a Blob id
+? Do you want to add any validation rules to this relationship? No
 ```
 
 After doing this, a `Citizen` possesses a passport, but no `Citizen` instance is defined in `Passport`. On the generated Angular/React client UI you will have a dropdown in `Citizen` to select a `Passport` since `Citizen` is the owning side.
@@ -486,11 +471,13 @@ There is [a known issue regarding using `@OneToOne` with `@MapsId` and how to av
 
 ## Setting fetching data strategy to eager (FetchType.EAGER)
 
-All the relationships use the default JPA FetchType:
+The generated JPA relationships use the following FetchType:
 - OneToMany: LAZY
-- ManyToOne: EAGER
+- ManyToOne: LAZY, except when the relationship is required, which keeps the JPA default (EAGER)
 - ManyToMany: LAZY
-- OneToOne: EAGER
+- OneToOne: LAZY
+
+Relationships that need to be loaded eagerly, for example to display them in the UI, are fetched by the generated repository methods (`findOneWithEagerRelationships`, `findAllWithEagerRelationships`) using `left join fetch` queries.
 
 There is [a known issue of NPE during JSON deserialization](https://github.com/jhipster/generator-jhipster/issues/10981) due to eager fetch type. If you would like to set either `OneToMany` or `ManyToMany` relationship to `FetchType.EAGER`, you can use one of the following solutions:
 - Use `@JsonInclude(JsonInclude.Include.NON_EMPTY)` on the relationship
