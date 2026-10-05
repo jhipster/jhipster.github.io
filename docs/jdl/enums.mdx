@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Enums
 slug: /jdl/enums
 last_update:
-  date: 2019-10-27T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 ## Syntax
@@ -15,8 +15,8 @@ enum <enum name> {
 }
 ```
 
-  - Enumeration entry values are mandatory
-    - And uppercase keys must be used
+  - Enumeration entry keys are mandatory
+    - And they must start with an uppercase letter (for instance `FRANCE` or `France`)
   - Enumeration entry values are optional, and must be wrapped inside parenthesises
 
 ---
@@ -36,7 +36,11 @@ enum Country {
 And its use:
 
 ```jdl
-enum Country {}
+enum Country {
+  BELGIUM,
+  FRANCE,
+  ITALY
+}
 
 entity A {
   country Country
