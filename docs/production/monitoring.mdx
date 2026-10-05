@@ -2,7 +2,7 @@
 title: Monitoring your JHipster Applications
 slug: /monitoring/
 last_update:
-  date: 2023-07-12T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 JHipster provides several options to monitor your applications at runtime.
@@ -57,6 +57,12 @@ The JHipster Registry has [its own documentation page here](/jhipster-registry).
 
 It mostly provides the same monitoring dashboards as in the previous section, but it works on a separate server. As such, it is a bit more complex to set up, but it is highly recommended to have dashboards running outside of the running application: otherwise, they won't be available when there is an application error.
 
+:::note
+
+The JHipster Registry is a legacy option (it uses Eureka). [Consul](/consul/) is the recommended service discovery server.
+
+:::
+
 
 ## ELK (Elasticsearch, Logstash, Kibana) Stack
 
@@ -68,7 +74,7 @@ The ELK stack is often used for log aggregation and search, it consists of the f
 
 :::warning
 
-JHipster supports forwarding logs to Logstash, however as of JHipster version 7, we do not provide any ELK stack docker deployment and ready to use dashboards. This used to be part of the [JHipster Console](https://github.com/jhipster/jhipster-console) subproject that is no longer maintained. We advise existing users to migrate to another ELK solution.
+JHipster supports forwarding logs to Logstash, but does not provide an ELK stack Docker deployment or ready-to-use dashboards: use the ELK solution of your choice.
 
 :::
 
@@ -114,13 +120,14 @@ JHipster exposes application metrics in the [Prometheus](https://prometheus.io/)
 It is exposed under `management/prometheus`.
 Forwarding metrics to alternative systems is also supported via [spring boot actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics).
 
-If you would like to disable exposing the metrics endpoint you can disable it in `src/main/resources/application.yml`.
+If you would like to disable exposing the metrics endpoint you can disable it in `src/main/resources/config/application.yml`.
 
 ```yaml
 management:
     prometheus:
-        export:
-            enabled: false
+        metrics:
+            export:
+                enabled: false
 ```
 
 The prometheus endpoint is unprotected by default. If you want to protect it via spring security you can do so by adding basic auth to the prometheus endpoint
@@ -131,21 +138,17 @@ Create a new configuration file (e.g. `BasicAuthConfiguration.java`).
 ```java
 @Configuration
 @Order(1)
-@ConditionalOnProperty(prefix = "management", name = "metrics.export.prometheus.enabled")
+@ConditionalOnProperty(prefix = "management", name = "prometheus.metrics.export.enabled")
 public class BasicAuthConfiguration {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain prometheusFilterChain(HttpSecurity http) throws Exception {
         http
-            .antMatcher("/management/prometheus/**")
-            .authorizeRequests()
-            .anyRequest().hasAuthority(AuthoritiesConstants.ADMIN)
-            .and()
-            .httpBasic().realmName("jhipster")
-            .and()
-            .sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and().csrf().disable();
+            .securityMatcher("/management/prometheus/**")
+            .authorizeHttpRequests(authz -> authz.anyRequest().hasAuthority(AuthoritiesConstants.ADMIN))
+            .httpBasic(httpBasic -> httpBasic.realmName("jhipster"))
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .csrf(csrf -> csrf.disable());
         return http.build();
     }
 }
@@ -159,14 +162,14 @@ basic_auth:
     password: "admin"
 ```
 
-You can start a preconfigured Grafana and Prometheus instance on our local machine via `docker-compose -f src/main/docker/monitoring.yml up -d` to have a look at the
+You can start a preconfigured Grafana and Prometheus instance on our local machine via `docker compose -f src/main/docker/monitoring.yml up -d` to have a look at the
 provisioned [jvm/micrometer dashboard](https://grafana.com/grafana/dashboards/4701).
 
 ![Grafana Micrometer Dashboard](/images/monitoring_grafana_micrometer.png)
 
 :::note
 
-Unlike in previous JHipster versions, JHipster 5.8 metrics reporting only support JMX and Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
+Metrics reporting supports Prometheus out of the box. Please have a look to the Metrics official documentation for instructions on how to setup other reporters like [Graphite](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-graphite).
 
 :::
 
