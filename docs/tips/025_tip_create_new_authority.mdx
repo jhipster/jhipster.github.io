@@ -2,7 +2,7 @@
 title: How to create a new Authority
 slug: /tips/025_tip_create_new_authority.html
 last_update:
-  date: 2018-10-05T18:20:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 __Tip submitted by [@Tonterias](https://github.com/Tonterias)__
@@ -22,40 +22,37 @@ public final class AuthoritiesConstants {
 	public static final String USER = "ROLE_USER";
 
 	public static final String ANONYMOUS = "ROLE_ANONYMOUS";
-	
+
 	public static final String EXAMPLE_AUTHORITY = "ROLE_EXAMPLE_AUTHORITY";
 
-	private AuthoritiesConstants() {
-	}
+	private AuthoritiesConstants() {}
 }
 ```
 
-Do not forget to include your new role in your `authority.csv`:
+Do not forget to include your new role in your Liquibase `src/main/resources/config/liquibase/data/authority.csv`:
 
 ```csv
 name
 ROLE_ADMIN
 ROLE_USER
-ROLE_ANONYMOUS
 ROLE_EXAMPLE_AUTHORITY
 ```
 
 With that, you will be able to use it in your SecurityConfiguration.java:
 
 ```java
-@Override
-public void configure(HttpSecurity http) throws Exception {
-	// @formatter:off
+@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) {
 	http
-		.csrf()
-		.disable()
 		...
+		.authorizeHttpRequests(authz ->
+			authz
+				...
+				.requestMatchers("/api/newresource/**").hasAuthority(AuthoritiesConstants.EXAMPLE_AUTHORITY)
+				.requestMatchers("/api/**").authenticated()
+				...
+		)
 	...
-	.and()
-		.authorizeRequests()
-		...
-		.antMatchers("/newresource/**").hasAuthority(AuthoritiesConstants.ROLE_EXAMPLE_AUTHORITY)
-...
 }
 ```
 
@@ -63,27 +60,27 @@ And in your Controller layer (e.g. `FrontPageConfigResource.java`):
 
 ```java
 @DeleteMapping("/order-items/{id}")
-@Timed
 @PreAuthorize("hasAuthority('ROLE_EXAMPLE_AUTHORITY')")
 public ResponseEntity<Void> deleteOrderItem(@PathVariable Long id) {
 	...
 }
 ```
 
-And in your Angular html files: `jhiHasAnyAuthority=[‘ROLE_ADMIN’, ‘ROLE_EXAMPLE_AUTHORITY’ ...]` 
+And in your Angular html files: `*jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_EXAMPLE_AUTHORITY']"`
 
 And in your Angular routes:
 
 ```ts
+import { userRouteAccessService } from 'app/core/auth';
+
 export const messageRoute: Routes = [
 	{
 		path: 'message',
-		component: MessageComponent,
+		loadComponent: () => import('./message'),
 		data: {
 			authorities: ['ROLE_EXAMPLE_AUTHORITY'],
-			pageTitle: 'Messages'
 		},
-		canActivate: [UserRouteAccessService]
+		canActivate: [userRouteAccessService]
 	}
 ];
 ```
