@@ -45,6 +45,14 @@ const redirectsPlugin = [
         from: '/managing_relationships.html',
         to: '/managing-relationships/',
       },
+      {
+        from: [
+          '/problem/parameterized/',
+          '/problem/entity-not-found/',
+          '/problem/email-not-found/',
+        ],
+        to: '/managing-server-errors/',
+      },
       { from: '/running_tests.html', to: '/running-tests/' },
       {
         from: '/setting_up_ci_jenkins2.html',
