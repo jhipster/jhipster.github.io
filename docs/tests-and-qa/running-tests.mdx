@@ -11,21 +11,21 @@ JHipster comes with an extensive set of tests, and each generated application ha
 
 * Unit tests using [JUnit 5](https://junit.org/junit5/).
 * Integration tests using the Spring Test Context framework.
-* UI tests with [Jest](https://facebook.github.io/jest/).
+* UI unit tests with [Vitest](https://vitest.dev/).
 * Architecture tests with [ArchUnit](https://www.archunit.org/).
 
 Optionally, JHipster can also generate:
 
 * Performance tests with [Gatling](http://gatling.io/).
 * Behaviour-driven tests with [Cucumber](https://cucumber.io/).
-* Angular/React/Vue integration tests with [Cypress](https://www.cypress.io/) or [Protractor](https://angular.github.io/protractor/#/).
+* Angular/React/Vue end-to-end tests with [Cypress](https://www.cypress.io/) or [Playwright](https://playwright.dev/).
 
 We have two goals in generating those tests:
 
 * Help every JHipster user to follow best practices, as we believe tests are a very useful part of every application
 * Validate that what is being generated is correct. So even if you don't plan to use those tests at all, doing `./mvnw clean verify` and `npm test` after generating your application is a good way of knowing if everything is fine. You are then free to ignore those tests if you think that testing is a waste of time!
 
-All those tests will be generated in the standard Maven `src/test` folder.
+All those tests will be generated in the standard Maven `src/test` folder, except the UI unit tests, which are located next to the source files they test.
 
 
 ## Integration tests
@@ -51,24 +51,24 @@ Those tests can be run directly in your IDE, by right-clicking on each test clas
 
 ## UI tests
 
-UI tests come in two flavors with JHipster: unit tests with Jest, and integration tests with Protractor. Only Jest is provided by default, but if you want to have a good test coverage of your application, we recommend that you use both tools together.
+UI tests come in two flavors with JHipster: unit tests with Vitest, and end-to-end tests with Cypress or Playwright. Only Vitest is provided by default, but if you want to have a good test coverage of your application, we recommend that you use both together.
 
-### Jest
+### Vitest
 
-UI unit tests are located in the `src/test/javascript/spec` folder. They use [Jest](https://facebook.github.io/jest/).
+UI unit tests use [Vitest](https://vitest.dev/). They are `*.spec.ts` files located next to the source files they test, in the `src/main/webapp/app` folder.
 
 Those tests will mock up the access to the application's REST endpoints, so you can test your UI layer without having to launch the Java back-end.
 
-* Those tests can be run using `npm test`.
-* Tip: if you want to focus on a single test change the module description from `describe('...', function() {` to `fdescribe('...', function() {` and Jest will run this test only.
+* Those tests can be run using `npm test`, which runs the linter first.
+* Tip: if you want to focus on a single test change `describe('...', () => {` to `describe.only('...', () => {` and Vitest will run this test only.
 
-### Cypress/Protractor
+### Cypress/Playwright
 
-UI integration tests are done with [Cypress](https://www.cypress.io/) or [Protractor](https://angular.github.io/protractor/#/), and are located in the `src/test/javascript/e2e` folder.
+UI end-to-end tests are done with [Cypress](https://www.cypress.io/) or [Playwright](https://playwright.dev/), and are located in the `src/test/javascript/cypress` or `src/test/javascript/playwright` folder.
 
 Those tests will launch a Web browser and use the application like a real user would do, so you need to have a real application running, with its database set-up.
 
-Those tests can be run using `npm run e2e`.
+Those tests can be run using `npm run e2e`, or `npm run e2e:headless` to run them without opening a browser window.
 
 
 ## Architecture tests
