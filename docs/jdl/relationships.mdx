@@ -2,7 +2,7 @@
 title: JHipster Domain Language (JDL) - Relationships
 slug: /jdl/relationships
 last_update:
-  date: 2019-11-03T12:00:00-00:00
+  date: 2026-09-27T12:00:00-00:00
 ---
 
 ## Relationship types
@@ -27,7 +27,8 @@ Mentioned after the source and destination entity, used with the `with` keyword.
 
 Supported methods:
 
-- `builtInEntity`: required when the destination entity is a built in entity like `User` and `Authority`
+- `builtInEntity`: required when the destination entity is a built in entity, one the JDL file does not declare
+  (for instance `User`, see [the User entity](/user-entity/))
 
 
 ## Multiple relationship bodies
@@ -80,8 +81,8 @@ relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
 ```
 
 - `(OneToMany | ManyToOne| OneToOne | ManyToMany)` is the type of your relationship,
-- `<option>` is one of the supported values: `Id | OnDelete | OnUpdate`. Make sure to put this on the correct side of the relationship. First character case is not sensitive (jdl export will generate upper).
-- `<option value>` is one of the fitting optional values for the given option: `NO ACTION | RESTRICT | CASCADE | SET NULL | SET DEFAULT`
+- `<option>` is a relationship option, like `OnDelete`. The options and the values JHipster reads are JHipster definitions: see the [liquibase generator](https://github.com/jhipster/generator-jhipster/blob/main/generators/liquibase/README.md#onupdateondelete) for `OnDelete` and `OnUpdate`. Make sure to put this on the correct side of the relationship. First character case is not sensitive (jdl export will generate upper).
+- `<option value>` is the optional value of the option
 - `<from entity>` is the name of the entity owner of the relationship: the source,
 - `<to entity>` is the name of the entity where the relationship goes to: the destination,
 - `<relationship name>` is the name of the field having the other end as type,
