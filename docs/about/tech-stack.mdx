@@ -2,7 +2,7 @@
 title: Technology stack
 slug: /tech-stack/
 last_update:
-  date: 2021-03-08T12:00:00-00:00
+  date: 2026-09-27
 ---
 
 ## Technology stack on the client side
@@ -14,18 +14,16 @@ Single Web page application:
 * [HTML5 Boilerplate](http://html5boilerplate.com/)
 * Compatible with modern browsers (Chrome, FireFox, Microsoft Edge...)
 * Full internationalization support
-* Optional [Sass](https://www.npmjs.com/package/node-sass) support for CSS design
+* [Sass](https://sass-lang.com/) for CSS design
 * Optional WebSocket support with Spring Websocket
 
 With the great development workflow:
 
 * Installation of new JavaScript libraries with [NPM](https://www.npmjs.com/get-npm)
-* Build, optimization and live reload with [Webpack](https://webpack.js.org/)
-* Testing with [Jest](https://facebook.github.io/jest/) and [Protractor](http://www.protractortest.org)
+* Build, optimization and live reload with [esbuild](https://esbuild.github.io/) (Angular), [Vite](https://vite.dev/) (React and Vue) or [Rsbuild](https://rsbuild.dev/) (Vue microfrontends)
+* Testing with [Vitest](https://vitest.dev/) and [Cypress](https://www.cypress.io/) or [Playwright](https://playwright.dev/)
 
-And what if a single Web page application isn't enough for your needs?
-
-* Support for the [Thymeleaf](http://www.thymeleaf.org/) template engine, to generate Web pages on the server side
+On the server side, the [Thymeleaf](http://www.thymeleaf.org/) template engine is only used for the e-mail templates and the error page.
 
 
 ## Technology stack on the server side
@@ -56,7 +54,7 @@ Microservices are optional, and fully supported:
 
 ## Ready to go into production:
 
-* Monitoring with [Metrics](http://metrics.dropwizard.io/) and [the ELK Stack](https://www.elastic.co/products)
+* Monitoring with [Micrometer](https://micrometer.io/) and [the ELK Stack](https://www.elastic.co/products)
 * Caching with [ehcache](http://ehcache.org/) (local cache), [Caffeine](https://github.com/ben-manes/caffeine) (local cache), [Hazelcast](http://www.hazelcast.com/), [Infinispan](http://infinispan.org/), [Memcached](https://memcached.org/) or [Redis](https://redis.io/)
 * Optimized static resources (gzip filter, HTTP cache headers)
 * Log management with [Logback](http://logback.qos.ch/), configurable at runtime
