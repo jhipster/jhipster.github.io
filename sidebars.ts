@@ -281,26 +281,6 @@ const sidebars: SidebarsConfig = {
           link: { type: 'doc', id: 'tests-and-qa/setting-up-ci/index' },
           items: [
             {
-              type: 'category',
-              label: 'Setting up Jenkins 1',
-              link: {
-                type: 'doc',
-                id: 'tests-and-qa/setting-up-ci/setting-up-ci-jenkins1',
-              },
-              items: [
-                {
-                  type: 'doc',
-                  label: 'Jenkins 1 on Linux',
-                  id: 'tests-and-qa/setting-up-ci/setting-up-ci-linux',
-                },
-                {
-                  type: 'doc',
-                  label: 'Jenkins 1 on Windows',
-                  id: 'tests-and-qa/setting-up-ci/setting-up-ci-windows',
-                },
-              ],
-            },
-            {
               type: 'doc',
               label: 'Setting up Jenkins 2',
               id: 'tests-and-qa/setting-up-ci/setting-up-ci-jenkins2',
