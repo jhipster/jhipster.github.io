@@ -2,10 +2,11 @@
 title: Customizing Bootstrap
 slug: /customizing-bootstrap/
 last_update:
-  date: 2026-09-27T00:00:00-00:00
+  date: 2026-09-30T00:00:00-00:00
 ---
 
 ## Basic customization
+
 :::tip
 Don't forget to run `npm start` to get immediate feedback of your changes!
 :::
@@ -16,15 +17,17 @@ overriding styles in the global Sass file: `src/main/webapp/content/scss/global.
 Bootstrap is written in Sass; see Bootstrap's [official documentation about theming](https://getbootstrap.com/docs/5.3/customize/sass/).
 
 If you want to use Bootstrap [partials](https://sass-lang.com/guide/#partials) in your own `scss` files then import it like below at the beginning of your `scss` file.
-For example to use the border-radius mixin:
+Bootstrap's variables depend on helpers from its functions partial, so import functions before variables.
+For example, to use the border-radius mixin:
 
-```css
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins/border-radius";
+```scss
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins/border-radius';
 ```
 
 Make sure you import only partials and not main Sass files, otherwise you will end up generating duplicate CSS which might cause issues.
 
 To change the default Bootstrap settings like colors, border-radius, etc., add or change the value of the property in the partial file `src/main/webapp/content/scss/_bootstrap-variables.scss` (Angular and Vue) or `src/main/webapp/app/_bootstrap-variables.scss` (React)
 
-All values defined in Bootstrap [_variables.scss](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss) can be overwritten here.
+All values defined in Bootstrap [\_variables.scss](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss) can be overwritten here.
