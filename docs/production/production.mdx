@@ -2,7 +2,7 @@
 title: Using JHipster in production
 slug: /production/
 last_update:
-  date: 2021-03-08T12:00:00-00:00
+  date: 2026-11-05T00:00:00-00:00
 ---
 
 JHipster generates a fully production-ready, optimized and secured application. This section describes the more important options - if you are in hurry, run a normal production build, but don't forget to read the security section!
@@ -190,6 +190,39 @@ During this process, Webpack will compile the TypeScript code into JavaScript co
 Those optimized assets will be generated in `target/classes/static` for Maven or `build/resources/main/static` for Gradle, and will be included in your final production JAR.
 
 This code will be served when you run the application with the `prod` profile.
+
+### Native image startup time
+
+An application generated with GraalVM support (`--graalvm-support`, or `graalvmSupport true` in JDL) can be built as a native executable with `npm run native-package`. On a laptop, the executable starts Spring in well under a second. On a platform that scales to zero and starts a new container for the first request, such as Cloud Run or Knative, the cold start also includes loading the executable and connecting to the database, and those can take several seconds.
+
+These tips come from deploying a JHipster 9 monolith with PostgreSQL to Google Cloud Run with 1 vCPU in November 2026. The cold start (from the instance starting to the startup probe passing) went from 15.6–16.6 s for the JVM image to 1.9–2.7 s for a native image with all of them applied.
+
+**Compress the executable with UPX.** A native executable is about 150 MB, and the container filesystem loads its pages lazily as the code first touches them. [UPX](https://upx.github.io/) reads the executable once and unpacks it into memory, which cut the cold start from 4.5 s to 1.9–2.7 s. Run it on the executable before copying it into the runtime image. With Gradle, the executable is `build/native/nativeCompile/native-executable`.
+
+```bash
+curl -fsSLO https://github.com/upx/upx/releases/download/v5.3.0/upx-5.3.0-amd64_linux.tar.xz
+echo "79cea8a50b6fa102d10c7b79a419cd77dead3cc2d78661de2dc5e5815dc505c1  upx-5.3.0-amd64_linux.tar.xz" | sha256sum -c
+tar -xJf upx-5.3.0-amd64_linux.tar.xz
+./upx-5.3.0-amd64_linux/upx -5 target/native-executable
+```
+
+The unpacked executable stays in memory and can't be shared between processes, so each instance needs roughly the executable's size in extra memory. Some security scanners also flag UPX-packed binaries.
+
+**Connect to the database with a plain JDBC URL.** A cloud database connector library adds its own startup work to every cold start. With the Cloud SQL Java connector, Spring took about 4.5 s to start. With a private IP and a plain `jdbc:postgresql://` URL, it took about 1.4 s.
+
+**Skip database metadata queries at startup.** Hibernate queries the database for its metadata when it starts. Turn that off and set your database's dialect explicitly:
+
+```yaml
+spring:
+  jpa:
+    properties:
+      hibernate.boot.allow_jdbc_metadata_access: false
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+```
+
+Together with the `no-liquibase` profile, this cut the cold start from 3.2–5.1 s to 2.6–4.2 s. Turning off Liquibase by itself made no measurable difference, so keep Liquibase on unless you already run migrations another way.
+
+More vCPUs and building with `-Os` (optimize for size) made no measurable difference.
 
 
 ## Security
