@@ -40,7 +40,10 @@ const redirectsPlugin = [
         from: '/installing_new_languages.html',
         to: '/installing-new-languages/',
       },
-      { from: '/jhipster_uml.html', to: '/jhipster-uml/' },
+      {
+        from: ['/jhipster_uml.html', '/jhipster-uml/'],
+        to: '/jdl/intro',
+      },
       {
         from: '/managing_relationships.html',
         to: '/managing-relationships/',
@@ -57,7 +60,11 @@ const redirectsPlugin = [
       },
       { from: '/setting_up_ci.html', to: '/setting-up-ci/' },
       { from: '/tech_stack.html', to: '/tech-stack/' },
-      { from: '/using_angularjs.html', to: '/using-angularjs/' },
+      {
+        from: ['/using_angularjs.html', '/using-angularjs/'],
+        to: '/using-angular/',
+      },
+      { from: '/using-uaa/', to: '/security/' },
       { from: '/using_cassandra.html', to: '/using-cassandra/' },
       { from: '/using_couchbase.html', to: '/using-couchbase/' },
       { from: '/using_dtos.html', to: '/using-dtos/' },
