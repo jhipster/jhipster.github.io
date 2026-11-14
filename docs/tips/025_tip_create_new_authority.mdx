@@ -76,7 +76,7 @@ import { userRouteAccessService } from 'app/core/auth';
 export const messageRoute: Routes = [
 	{
 		path: 'message',
-		loadComponent: () => import('./message'),
+		loadComponent: () => import('./message').then(m => m.Message),
 		data: {
 			authorities: ['ROLE_EXAMPLE_AUTHORITY'],
 		},
