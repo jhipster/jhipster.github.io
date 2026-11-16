@@ -2,7 +2,7 @@
 title: Using JHipster in development
 slug: /development/
 last_update:
-  date: 2023-01-05T00:00:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 _**Please check our [video tutorial](/video-tutorial) on creating a new JHipster application!**_
@@ -33,102 +33,44 @@ The application will be available on [http://localhost:8080](http://localhost:80
 
 This application will have "hot reload" enabled by default, so if you compile a class, the Spring application context should refresh itself automatically, without the need to restart the server.
 
-### As a Maven project
+### With Maven or Gradle
 
-You can launch the Java server with Maven. JHipster provides a Maven wrapper, so you don't need to install Maven, and you have the guarantee that all project users have the same Maven version:
-
-on Mac OS X/Linux:
+You can launch the Java server with Maven or Gradle. JHipster provides a Maven or Gradle wrapper, so you don't need to install the build tool, and you have the guarantee that all project users have the same version:
 
 ```shell
-./mvnw
+npm run app:start
 ```
-
-on Windows:
-
-```shell
-mvnw
-```
-
-(this will run our default Maven task, `spring-boot:run`)
 
 The application will be available on [http://localhost:8080](http://localhost:8080).
 
-If you will use live reload with `npm start` then you can speed up server start up by excluding webpack tasks by:
+If you will use live reload with `npm start` then you can speed up server start up by excluding the client build tasks:
 
 ```shell
-./mvnw -P-webapp
+npm run backend:start
 ```
 
-Alternatively, if you have installed Maven, you can launch the Java server with Maven:
-
-```shell
-mvn
-```
-
-If you want more information on using Maven, please go to [http://maven.apache.org](http://maven.apache.org)
-
-### (Optional) As a Gradle project
-
-If you selected the Gradle option, JHipster provides a Gradle wrapper, so you don't need to install Gradle, and you have the guarantee that all project users have the same Gradle version:
-
-on Mac OS X/Linux:
-
-```shell
-./gradlew
-```
-
-on Windows:
-
-```shell
-gradlew
-```
-
-(this will run our default Gradle task, `bootRun`)
-
-The application will be available on [http://localhost:8080](http://localhost:8080).
-
-If you will use live reload with `npm start` then you can speed up server start up by excluding webpack tasks by:
-
-```shell
-./gradlew -x webapp
-```
-
-Alternatively, if you have installed Gradle, you can launch the Java server with Gradle:
-
-```shell
-gradle
-```
-
-If you want more information on using Gradle, please go to [https://gradle.org](https://gradle.org)
+If you want more information on using Maven or Gradle, please go to [http://maven.apache.org](http://maven.apache.org) or [https://gradle.org](https://gradle.org)
 
 
-## Working with Angular/React
+## Working with Angular/React/Vue
 
-### Running Webpack
+### Running the front-end dev server
 
 _This step is required to see changes in your TypeScript code and have live reloading of your client-side code._
 
-Running Webpack is the default task in the `package.json` file, so it is enough to run:
+Running the front-end dev server is the default task in the `package.json` file, so it is enough to run:
 
 ```shell
 npm start
 ```
 
-This provides very impressive features:
+As soon as you modify one of your HTML/CSS/TypeScript files, your browser will refresh itself automatically.
 
-* As soon as you modify one of your HTML/CSS/TypeScript file, your browser will refresh itself automatically
-* When you test your application on several different browsers or devices, all your clicks/scrolls/inputs should be automatically synchronized on all screens
+This will launch a dev server that compiles your TypeScript code and has a proxy to the Java back-end on [http://localhost:8080](http://localhost:8080) (for `/api`, `/management` and the other back-end paths):
 
-This will launch:
-
-- A Webpack task that will automatically compile TypeScript code into JavaScript
-- A Webpack "hot module reload" server that will run on [http://localhost:9060/](http://localhost:9060/) (and has a proxy to [http://127.0.0.1:8080/api](http://127.0.0.1:8080/api) to access the Java back-end)
-- A BrowserSync task that will run on [http://localhost:9000/](http://localhost:9000/), which has a proxy to [http://localhost:9060/](http://localhost:9060/) (the Webpack "hot module reload" server), and which will synchronize the user's clicks/scrolls/inputs
-- The BrowserSync UI, which will be available on [http://localhost:3001/](http://localhost:3001/)
-
-**NOTE:** BrowserSync by default enables [ghostMode](https://browsersync.io/docs/options#option-ghostMode) which can create some confusion
-especially [when using multiple browser tabs](https://github.com/jhipster/generator-jhipster/issues/11116#issuecomment-589362814). To avoid
-this you can always turn off ghostMode. Some commented code is provided in `webpack.dev.js` for easy disabling of ghostMode. 
+- With Angular, the Angular CLI dev server (`ng serve`) runs on [http://localhost:4200/](http://localhost:4200/), and its proxy is configured in `proxy.config.mjs`
+- With React and Vue, the [Vite](https://vite.dev/) dev server runs on [http://localhost:9000/](http://localhost:9000/), and its proxy is configured in `vite.config.ts`
+- With Vue in a microfrontend or microservice application, the [Rsbuild](https://rsbuild.rs/) dev server runs on [http://localhost:3000/](http://localhost:3000/), and its proxy is configured in `rsbuild.config.ts`
 
 ### Running NPM
 
@@ -142,10 +84,9 @@ Some `npm` commands used as an example.
 
 - `npm run lint`: check for code style issues in the TypeScript code
 - `npm run lint:fix`: try to automatically correct TypeScript lint issues
-- `npm run tsc`: compile the TypeScript code
-- `npm run test`: run unit tests with Jest
-- `npm run test:watch`: keep the Jest unit tests running, for live feedback when code is changed
-- `npm run e2e`: run "end to end" tests with Protractor (only works if the Protractor option has been selected when the project was generated)
+- `npm run test`: run unit tests with Vitest
+- `npm run test:watch`: keep the Vitest unit tests running, for live feedback when code is changed
+- `npm run e2e`: run "end to end" tests with Cypress or Playwright (only works if one of them has been selected as a test framework when the project was generated)
 
 
 ## Using a database
@@ -160,13 +101,13 @@ If you prefer to install and configure your database manually, you must create t
 
 ### Using the H2 database in development
 
-If you choose the H2 database, you will have an in-memory database running inside your application, and you can access its console at [http://localhost:8080/h2-console](http://localhost:8080/h2-console) by default.
+If you choose the H2 database, you will have a database running inside your application, either in memory or on disk (in the `target/h2db` or `build/h2db` directory), and you can access its console at [http://localhost:8080/h2-console](http://localhost:8080/h2-console) by default.
 
-To connect to the database, select the pre-configured options:
+To connect to the database, use the values from your configuration:
 
 * Driver Class: org.h2.Driver
-* JDBC URL: jdbc:h2:mem:jhipster
-* User name: \<blank>
+* JDBC URL: the `spring.datasource.url` value from `src/main/resources/config/application-dev.yml`, for example `jdbc:h2:file:./target/h2db/db/jhipster;DB_CLOSE_DELAY=-1` on disk or `jdbc:h2:mem:jhipster;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE` in memory (`jhipster` being your application's base name)
+* User name: the `spring.datasource.username` value from `src/main/resources/config/application-secret-samples.yml` (your application's base name by default)
 * Password: \<blank>
 
 ![](/images/h2.png)
@@ -182,14 +123,14 @@ This option is bit more complex than using H2, but you have a some important ben
 **Note**: for MySQL, you probably need to start your database with these options:
 
 * `--lower_case_table_names=1`: see the [MySQL Schema Object Names documentation](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html)
-* `--skip-ssl`: see the [MySQL Server Options documentation](https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_ssl)
-* `--character_set_server=utf8`: see the [MySQL Server System Variables documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_character_set_server)
+* `--skip-mysqlx`: see the [MySQL X Plugin Options documentation](https://dev.mysql.com/doc/refman/8.0/en/x-plugin-options-system-variables.html#option_mysqld_mysqlx)
+* `--character_set_server=utf8mb4`: see the [MySQL Server System Variables documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_character_set_server)
 * `--explicit_defaults_for_timestamp` : see the [MySQL Server System Variables documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp)
 
 The command is:
 
 ```shell
-mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8 --explicit_defaults_for_timestamp
+mysqld --lower_case_table_names=1 --skip-mysqlx --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
 ```
 
 ## Database updates
@@ -253,7 +194,7 @@ Internationalization (or i18n) is a first-class citizen in JHipster, as we belie
 
 Usage is as follows:
 
-- With Angular, thanks to [NG2 translate](https://github.com/ocombe/ng2-translate) and a specific JHipster component, which uses JSON files for translation
+- With Angular, thanks to [ngx-translate](https://github.com/ngx-translate/core) and a specific JHipster component, which uses JSON files for translation
 - With React, thanks to a specific JHipster component, which works the same way as the Angular component, and uses the same files
 
 For example, to add a translation to the "First Name" field, add a "translate" attribute with a key: `<label jhiTranslate="settings.form.firstname">First Name</label>`
