@@ -200,6 +200,18 @@ JHipster comes with some default users generated for you. In production, you **s
 
 Please follow our [security documentation](/security) to learn how to change those passwords, and secure your application.
 
+### Keeping the JDK up to date
+
+Run your application on a JDK with your vendor's latest security updates.
+
+The OpenJDK updates of November 17, 2026 fix [Java4Shell](https://calif.io/java4shell/) ([CVE-2026-114938](https://openjdk.org/groups/vulnerability/advisories/2026-11-17)), a flaw in the JVM's Base64 decoding on x86-64 processors with AVX-512; the advisory lists 25.0.5, 21.0.13, 17.0.21 and earlier as affected. Until you can update, start the JVM with `-XX:-UseBASE64Intrinsics` after your other options, which only costs Base64 speed:
+
+```bash
+java $JAVA_OPTS -XX:-UseBASE64Intrinsics -jar jhipster-0.0.1-SNAPSHOT.jar
+```
+
+The Docker image and the Heroku `Procfile` of applications generated with [generator-jhipster#36350](https://github.com/jhipster/generator-jhipster/pull/36350) and later set this option. Existing deployments need to be rebuilt and redeployed, or redeployed with the option added to `JAVA_OPTS`.
+
 ### HTTPS support
 
 HTTPS can be configured directly in your JHipster application, or using a specific front-end proxy.
