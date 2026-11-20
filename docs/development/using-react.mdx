@@ -2,7 +2,7 @@
 title: Using React (with Redux)
 slug: /using-react/
 last_update:
-  date: 2018-04-02T23:41:00-00:00
+  date: 2026-09-27T00:00:00-00:00
 ---
 
 This section refers to the JavaScript library **React** used with **Redux**.
@@ -30,14 +30,15 @@ webapp
 │   │   ├── home                    - Application homepage
 │   │   └── login                   - Login related components
 │   ├── shared                      - Shared elements such as your header, footer, reducers, models and util classes
-│   ├── app.scss                    - Your global application stylesheet if you choose the Sass option
-│   ├── app.css                     - Your global application stylesheet
-│   ├── app.tsx                     - The application main class
-│   ├── index.tsx                   - Index script
+│   ├── _bootstrap-variables.scss   - Bootstrap variables overrides
+│   ├── app.scss                    - Your global application stylesheet
+│   ├── app.tsx                     - The application main component
+│   ├── index.tsx                   - Index script, renders the application
+│   ├── main.tsx                    - Application entrypoint, loads index.tsx
 │   ├── routes.tsx                  - Application main routes
 │   └── typings.d.ts                -
+├── content                         - Contains your static files such as images
 ├── i18n                            - Translation files
-├── static                          - Contains your static files such as images and fonts
 ├── swagger-ui                      - Swagger UI front-end
 ├── 404.html                        - 404 page
 ├── favicon.ico                     - Fav icon
@@ -51,15 +52,19 @@ Using the [entity sub-generator](/creating-an-entity) to create a new entity cal
 ```
 webapp
 ├── app                                        
-│   └── entities
-│       ├── foo                           - CRUD front-end for the Foo entity
-│       │   ├── foo-delete-dialog.tsx     - Delete dialog component
-│       │   ├── foo-detail.tsx            - Detail page component
-│       │   ├── foo-dialog.tsx            - Creation dialog component
-│       │   ├── foo.reducer.ts            - Foo entity reducer
-│       │   ├── foo.tsx                   - Entity main component
-│       │   └── index.tsx                 - Entity main routes
-│       └── index.tsx                     - Entities routes    
+│   ├── entities
+│   │   ├── foo                           - CRUD front-end for the Foo entity
+│   │   │   ├── foo-delete-dialog.tsx     - Delete dialog component
+│   │   │   ├── foo-detail.tsx            - Detail page component
+│   │   │   ├── foo-update.tsx            - Creation / Update page component
+│   │   │   ├── foo.reducer.ts            - Foo entity slice (Redux Toolkit)
+│   │   │   ├── foo.tsx                   - Entity main component
+│   │   │   └── index.tsx                 - Entity main routes
+│   │   ├── reducers.ts                   - Entities reducers
+│   │   └── routes.tsx                    - Entities routes
+│   └── shared
+│       └── model
+│           └── foo.model.ts              - Foo entity model
 └── i18n                                  - Translation files
      ├── en                               - English translations
      │   ├── foo.json                     - English translation of Foo name, fields, ...
@@ -80,93 +85,105 @@ To access this store and therefore update your state components, the only way is
 **actions** which describe the fact that an update is requested, then the **reducers** will
 define how the state is updated in response to these actions.
 
-Here is an example of a reducer:
+JHipster uses [Redux Toolkit](https://redux-toolkit.js.org/): the store is configured in `app/config/store.ts`,
+and each entity has a **slice**, created with the `createEntitySlice` helper from `app/shared/reducers/reducer.utils.ts`,
+which holds its state and its reducers.
+
+Here is an example of an entity slice:
 
 ```ts
-export const ACTION_TYPES = {
-  FETCH_FOOS: 'foo/FETCH_FOOS',
+const initialState: EntityState<IFoo> = {
+  loading: false,
+  errorMessage: null,
+  entities: [],
+  entity: defaultValue,
+  updating: false,
+  updateSuccess: false,
 };
 
-const initialState = {
-  loading: false,
-  foos: [],
-  updateSuccess: false,
-  updateFailure: false
-};
+// Slice
+export const FooSlice = createEntitySlice({
+  name: 'foo',
+  initialState,
+  extraReducers(builder) {
+    builder
+      .addMatcher(isFulfilled(getEntities), (state, action) => {
+        const { data } = action.payload;
+        return {
+          ...state,
+          loading: false,
+          entities: data,
+        };
+      })
+      .addMatcher(isPending(getEntities), (state) => {
+        state.errorMessage = null;
+        state.updateSuccess = false;
+        state.loading = true;
+      });
+  },
+});
+
+export const { reset } = FooSlice.actions;
 
 // Reducer
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case REQUEST(ACTION_TYPES.FETCH_FOOS):
-      return {
-        ...state,
-        updateSuccess: false,
-        updateFailure: false,
-        loading: true
-      };
-    case FAILURE(ACTION_TYPES.FETCH_FOOS):
-      return {
-        ...state,
-        loading: false,
-        updateSuccess: false,
-        updateFailure: true
-      };
-    case SUCCESS(ACTION_TYPES.FETCH_FOOS):
-      return {
-        ...state,
-        loading: false,
-        updateSuccess: true,
-        updateFailure: false,
-        foos: action.payload.data
-      };
-    default:
-      return state;
-  }
-};
+export default FooSlice.reducer;
 ```
 
 In order to access your store and update the current application state, you need to dispatch
-actions to the store as mentioned previously. Actions are JavaScript objects and must have a **type**, which describe what
-the action is going to perform and a usually they have also a **payload** which corresponds to
-data you want to pass to the store.
+actions to the store as mentioned previously. Asynchronous actions, like calls to the REST API,
+are created with Redux Toolkit's `createAsyncThunk`, which dispatches **pending**, **fulfilled** and
+**rejected** actions that the slice handles with the `isPending` and `isFulfilled` matchers.
 
 Here is an action to access the store:
 
 ```ts
-const apiUrl = SERVER_API_URL + '/api/foos';
+const apiUrl = 'api/foos';
 
-// Action
-export const getFoos = () => ({
-  type: ACTION_TYPES.FETCH_FOOS,
-  payload: axios.get(apiUrl)
-});
+// Actions
+export const getEntities = createAsyncThunk(
+  'foo/fetch_entity_list',
+  async ({ page, size, sort }: IQueryParams) => {
+    const requestUrl = `${apiUrl}?${sort ? `page=${page}&size=${size}&sort=${sort}&` : ''}cacheBuster=${Date.now()}`;
+    return axios.get<IFoo[]>(requestUrl);
+  },
+  { serializeError: serializeAxiosError },
+);
 ```
 
 The action described above indicates that we want to retrieve all the Foo objects by
-sending a GET request. The action type will match
-Notice that the **export** keyword is used to able the connected component to use that action
-when necessary (for instance, everytime the component is updated).
+sending a GET request. Notice that the **export** keyword is used so that components can
+dispatch that action when necessary, for instance with `dispatch(getEntities({}))`, using the
+`useAppDispatch` and `useAppSelector` hooks from `app/config/store.ts`.
 
 
 ## Authorizations
 
 Jhipster uses the [React router](https://github.com/ReactTraining/react-router) to organize the differents parts of your application.
 
-When it comes to routes that require authentication, the `PrivateRoute` component generated is used. This component will prevent any unauthenticated user from accessing a route.
+When it comes to routes that require authentication, the `PrivateRoute` component generated is used. This component wraps the element of a route, and will prevent any unauthenticated user, or any user without one of the authorities listed in `hasAnyAuthorities`, from accessing it.
 
 Here is an example of PrivateRoute usage:
 
-```ts
-const Routes = () => (
+```tsx
+const AppRoutes = () => (
   <div className="view-routes">
-    <Route exact path="/" component={Home} />
-    <Route path="/login" component={Login} />
-    <PrivateRoute path="/account" component={Account} />
+    <ErrorBoundaryRoutes>
+      <Route index element={<Home />} />
+      <Route path="login" element={<Login />} />
+      <Route
+        path="account/*"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER]}>
+            <Account />
+          </PrivateRoute>
+        }
+      />
+    </ErrorBoundaryRoutes>
   </div>
 );
 ```
 
-As you can see, unauthenticated user can access `/` and `/login` but accessing `/account` requires to be logged in.
+As you can see, unauthenticated user can access `/` and `/login` but accessing `/account` requires to be logged in with the `ROLE_ADMIN` or `ROLE_USER` authority.
 
 Please note that PrivateRoute uses the `authentication.isAuthenticated` store value to know if the user is authenticated.
 
